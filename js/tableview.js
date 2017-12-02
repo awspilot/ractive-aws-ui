@@ -95,21 +95,27 @@ Ractive.components.tablebrowse = Ractive.extend({
 Ractive.components.tabledata = Ractive.extend({
 	template: "\
 		<div class='tablequery'>\
-			<ace mode='sql' value='{{table.sql}}' theme='pastel_on_dark' />\
+			<ace mode='sql' value='{{table.sql}}' theme='custom' />\
 		</div>\
 		<div class='tabledata'>\
 			<div class='tabledatacontrols'></div>\
 			<div class='tabledatahead'>\
-				{{#columns}}\
-					<div style='width: {{100/columns.length}}%'>{{.}}</div>\
+				{{#columns:i}}\
+					<div style='width: {{#if i === 0}}20px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
 				{{/columns}}\
 			</div>\
 			<div class='tabledatacontent'>\
 				{{#rows}}\
 				<div class='tabledatarow' on-click='selectrow'>\
-					{{#each .}}\
-					<div class='tabledatacell' style='width: {{100/columns.length}}%'>\
-						{{#if .KEY}}<input type='checkbox' checked='{{.selected}}'/>{{/if}}\
+					{{#each .:i}}\
+					<div class='tabledatacell' style='width: {{#if i === 0}}20px{{else}}{{100/columns.length}}%{{/if}} '>\
+						{{#if .KEY}}\
+							{{#if .selected}}\
+								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
+							{{else}}\
+								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
+							{{/if}}\
+						{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
 						{{#if .N}}{{.N}}{{/if}}\
 					</div>\
