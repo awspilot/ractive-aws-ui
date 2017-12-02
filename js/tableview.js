@@ -25,18 +25,40 @@ Ractive.components.tablebrowse = Ractive.extend({
 		this.set('columns', [])
 		this.set('rows', [])
 
-		var params = {
-			TableName: this.get('table.name')
-		};
-		ddb.scan(params, function(err, data) {
+		var dbrows = null
+		var hash_key = null
+		var range_key = null
+
+		async.parallel([
+			function(cb) {
+				ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
+					if (err)
+						return cb(err);
+
+					hash_key = (data.Table.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName;
+					range_key = (data.Table.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+					cb()
+				})
+			},
+			function(cb) {
+				ddb.scan({TableName: ractive.get('table.name')}, function(err, data) {
+					dbrows = data
+					cb(err)
+				})
+			},
+		], function(err) {
+			if (err)
+				return;
+
 			var fields = {}
 			var columns = []
 			var rows = []
 
-			if (err)
-				return;
+			columns.push(hash_key)
+			if (range_key)
+				columns.push(range_key)
 
-			data.Items.map(function(row) {
+			dbrows.Items.map(function(row) {
 				Object.keys(row).map(function(column_name) {
 					if (!fields.hasOwnProperty(column_name)) {
 						fields[column_name] = {};
@@ -45,7 +67,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 					}
 				})
 			})
-			data.Items.map(function(row) {
+			dbrows.Items.map(function(row) {
 				var thisrow = []
 				columns.map(function(column_name) {
 					thisrow.push(row[column_name])
