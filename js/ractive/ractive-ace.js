@@ -2,7 +2,7 @@ Ractive.components['ace'] = Ractive.extend({
 	template: "<div style='{{style}}' class='{{class}}'></div>",
 	isolated: true,
 	data: {
-		style: "min-height:300px;height:100%",
+		style: "height:100%",
 		value: "",
 		mode: "html",
 		theme: null
