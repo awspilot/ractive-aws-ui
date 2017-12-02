@@ -1,6 +1,6 @@
-$(function() {
-
-	var ractive = new Ractive({
+var ractive;
+window.addEventListener('load', function() {
+	var r = new Ractive({
 		el: 'body',
 		template: "\
 			<header></header>\
@@ -12,10 +12,9 @@ $(function() {
 			</content>",
 		data: {},
 	})
-	$('body').data('ractive', ractive )
+	ractive = r
 	ractive.on('open-table', function(e, table ) {
-		$('body').data('ractive').findComponent('tabs').newtab('tableview', table )
-
+		ractive.findComponent('tabs').newtab('tableview', table )
 	})
 })
 
