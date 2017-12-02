@@ -41,7 +41,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 				})
 			},
 			function(cb) {
-				ddb.scan({TableName: ractive.get('table.name')}, function(err, data) {
+				ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
 					dbrows = data
 					cb(err)
 				})
@@ -51,7 +51,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 				return;
 
 			var fields = {}
-			var columns = []
+			var columns = [null]
 			var rows = []
 
 			columns.push(hash_key)
@@ -69,8 +69,21 @@ Ractive.components.tablebrowse = Ractive.extend({
 			})
 			dbrows.Items.map(function(row) {
 				var thisrow = []
+				//thisrow[null] = {}
+				//thisrow[null].KEY[columns[hash_key]] = row[hash_key]
+				//if (range_key)
+				//	thisrow[null].KEY[columns[range_key]] = row[range_key]
+
 				columns.map(function(column_name) {
-					thisrow.push(row[column_name])
+					if (column_name === null) {
+						// checkbox
+						var key = {}
+						key[hash_key] = row[hash_key]
+						if (range_key) key[range_key] = row[range_key]
+						thisrow.push({KEY: key})
+					} else {
+						thisrow.push(row[column_name])
+					}
 				})
 				rows.push(thisrow)
 			})
@@ -93,6 +106,7 @@ Ractive.components.tabledata = Ractive.extend({
 				<div class='tabledatarow'>\
 					{{#each .}}\
 					<div class='tabledatacell' style='width: {{100/columns.length}}%'>\
+						{{#if .KEY}}<input type='checkbox' />{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
 						{{#if .N}}{{.N}}{{/if}}\
 					</div>\
