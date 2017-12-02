@@ -103,10 +103,10 @@ Ractive.components.tabledata = Ractive.extend({
 			</div>\
 			<div class='tabledatacontent'>\
 				{{#rows}}\
-				<div class='tabledatarow'>\
+				<div class='tabledatarow' on-click='selectrow'>\
 					{{#each .}}\
 					<div class='tabledatacell' style='width: {{100/columns.length}}%'>\
-						{{#if .KEY}}<input type='checkbox' />{{/if}}\
+						{{#if .KEY}}<input type='checkbox' checked='{{.selected}}'/>{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
 						{{#if .N}}{{.N}}{{/if}}\
 					</div>\
@@ -117,6 +117,10 @@ Ractive.components.tabledata = Ractive.extend({
 		</div>",
 	data: {},
 	oninit: function() {
-
+		var ractive = this
+		ractive.on('selectrow', function(context) {
+			var keypath = context.resolve()
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+		})
 	},
 })

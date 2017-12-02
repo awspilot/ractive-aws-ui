@@ -19,7 +19,7 @@ left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13p
 left tables > div:hover {color: #fff;background-color: #383838;border: 1px solid #636363;}
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;border: 1px solid #383838;}
 content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;background-color: #424242;overflow: hidden;}
-content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;}
+content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;font-size: 14px;}
 content tabhead tab.active {background-color: #535353;color: #fff;}
 content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
 content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
@@ -30,14 +30,14 @@ content tabcontent .tableview.active { display: block;}
 
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
-content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 50%;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #888;overflow-y: auto;overflow-x: hidden;}
+content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 50%;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow-y: auto;overflow-x: hidden;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead,
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow
- { display: flex;width: 100%;justify-content: center}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover {background-color: #383838;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected {background-color: #fff;}
 
-
-content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {border-bottom: 1px solid #888;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background-color: #424242;border-bottom: 1px solid #383838;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
 
@@ -47,7 +47,7 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatace
 }
 
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;font-weight: bold;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {font-size: 11px;}
 
 .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;}
