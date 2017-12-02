@@ -55,8 +55,11 @@ Ractive.components.tablebrowse = Ractive.extend({
 			var rows = []
 
 			columns.push(hash_key)
-			if (range_key)
+			fields[hash_key] = 1;
+			if (range_key) {
 				columns.push(range_key)
+				fields[range_key] = 1;
+			}
 
 			dbrows.Items.map(function(row) {
 				Object.keys(row).map(function(column_name) {
@@ -69,10 +72,6 @@ Ractive.components.tablebrowse = Ractive.extend({
 			})
 			dbrows.Items.map(function(row) {
 				var thisrow = []
-				//thisrow[null] = {}
-				//thisrow[null].KEY[columns[hash_key]] = row[hash_key]
-				//if (range_key)
-				//	thisrow[null].KEY[columns[range_key]] = row[range_key]
 
 				columns.map(function(column_name) {
 					if (column_name === null) {
