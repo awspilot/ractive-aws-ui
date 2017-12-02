@@ -17,7 +17,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 	template: "\
 		<div class='tablebrowse'>\
 			<!-- table query -->\
-			<tabledata columns='{{columns}}' rows='{{rows}}'/>\
+			<tabledata table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
 		</div>",
 	data: {},
 	oninit: function() {
@@ -95,7 +95,11 @@ Ractive.components.tablebrowse = Ractive.extend({
 })
 Ractive.components.tabledata = Ractive.extend({
 	template: "\
+		<div class='tablequery'>\
+			<ace mode='sql' value='{{table.sql}}' theme='pastel_on_dark' />\
+		</div>\
 		<div class='tabledata'>\
+			<div class='tabledatacontrols'></div>\
 			<div class='tabledatahead'>\
 				{{#columns}}\
 					<div style='width: {{100/columns.length}}%'>{{.}}</div>\

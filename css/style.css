@@ -30,14 +30,16 @@ content tabcontent .tableview.active { display: block;}
 
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
-content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 50%;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow-y: auto;overflow-x: hidden;}
+content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 20%;border-top: 1px solid #383838;overflow: hidden;}
+
+content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 20%;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover {background-color: #383838;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected {background-color: #fff;}
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background-color: #424242;border-bottom: 1px solid #383838;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {position: absolute;top: 29px;left: 0px;right: 0px;height: 20px;background-color: #424242;border-bottom: 1px solid #383838;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
 
@@ -45,7 +47,8 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {
 	display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;margin: 0px 3px;
 }
-
+content tabcontent .tableview .tablebrowse .tabledata .tabledatacontrols {position: absolute;top: 0px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 50px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {font-size: 11px;}
