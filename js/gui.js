@@ -26,3 +26,5 @@ var ddb = new AWS.DynamoDB({
 		secretAccessKey: 'yyyyyyy',
 	}
 })
+//var DynamoDB = new window['@awspilot/dynamodb'](ddb)
+var DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
