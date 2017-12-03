@@ -41,7 +41,8 @@ Ractive.components.tablebrowse = Ractive.extend({
 				})
 			},
 			function(cb) {
-				ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
+				DynamoSQL.query(ractive.get('table.sql'), function(err, data) {
+				//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
 					dbrows = data
 					cb(err)
 				})
@@ -61,7 +62,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 				fields[range_key] = 1;
 			}
 
-			dbrows.Items.map(function(row) {
+			dbrows.map(function(row) {
 				Object.keys(row).map(function(column_name) {
 					if (!fields.hasOwnProperty(column_name)) {
 						fields[column_name] = {};
@@ -70,7 +71,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 					}
 				})
 			})
-			dbrows.Items.map(function(row) {
+			dbrows.map(function(row) {
 				var thisrow = []
 
 				columns.map(function(column_name) {
@@ -81,7 +82,16 @@ Ractive.components.tablebrowse = Ractive.extend({
 						if (range_key) key[range_key] = row[range_key]
 						thisrow.push({KEY: key})
 					} else {
-						thisrow.push(row[column_name])
+						if (row.hasOwnProperty(column_name)) {
+							if (typeof row[column_name] === 'string')
+								thisrow.push({'S':row[column_name]})
+							else if (typeof row[column_name] === 'number')
+								thisrow.push({'N':row[column_name]})
+							else
+								thisrow.push(null)
+						} else {
+							thisrow.push(undefined)
+						}
 					}
 				})
 				rows.push(thisrow)
@@ -146,16 +156,6 @@ Ractive.components.tabledata = Ractive.extend({
 				.map(function(r) { return r[0] })
 				.filter(function(r) { return r.selected })
 				.map(function(r) { return r.KEY })
-				.map(function(r) {
-					var o = {}
-					Object.keys(r).map(function(k) {
-						if (r[k].hasOwnProperty('S'))
-							o[k] = r[k].S;
-						if (r[k].hasOwnProperty('N'))
-							o[k] = parseInt(r[k].N);
-					})
-					return o;
-				})
 
 			if (!to_delete.length)
 				return alert('No Items Selected')
@@ -181,7 +181,7 @@ Ractive.components.tabledata = Ractive.extend({
 					if (err)
 						return console.log("deleting ", Key, " failed err=", err) || cb(err)
 
-					to_remove_from_list.push(Key)
+					to_remove_from_list.push(item)
 					cb()
 				});
 
