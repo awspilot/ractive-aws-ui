@@ -33,7 +33,7 @@ Ractive.components.tabs = Ractive.extend({
 		this.push('tabs', {
 			name: param1,
 			id: id,
-			sql: "\nSCAN * FROM `" + param1 + "`\n",
+			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n",
 		} )
 		this.activetabcontent()
 	},
