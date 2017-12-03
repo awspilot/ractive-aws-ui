@@ -16,7 +16,7 @@ left {position:absolute;display: block;top: 56px;left: 0px;width: 260px;bottom: 
 left > .scrollarea {border: 1px solid #383838;}
 
 left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-bottom: 1px solid #454545;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
-left tables > div:hover {color: #fff;background-color: #383838;border: 1px solid #636363;}
+left tables > div:hover {color: #fff;background-color: #383838;/*border: 1px solid #636363;*/}
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;border: 1px solid #383838;background-color: #474747}
 content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;background-color: #424242;overflow: hidden;}
 content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;font-size: 14px;}
@@ -49,6 +49,8 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatace
 	display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;margin: 0px 3px;
 }
 content tabcontent .tableview .tablebrowse .tabledata .tabledatacontrols {position: absolute;top: 0px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatacontrols .btn {display: inline-block;width: 20px;height: 20px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;float: right;}
+
 content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 50px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;}
