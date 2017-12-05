@@ -107,6 +107,13 @@ Ractive.components.tablebrowse = Ractive.extend({
 		this.on('tabledata.refresh', function() {
 			this.refresh_data()
 		})
+
+		this.on('tabledata.run-sql', function() {
+			//alert("run sql")
+			this.refresh_data()
+			console.log(this.get('table.sql'))
+		})
+
 	},
 })
 Ractive.components.tabledata = Ractive.extend({
@@ -114,11 +121,13 @@ Ractive.components.tabledata = Ractive.extend({
 		<div class='tablequery'>\
 			<ace mode='sql' value='{{table.sql}}' theme='custom' />\
 		</div>\
+		<div class='tabledatacontrols'>\
+			<div class='btn' on-click='run-sql' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			\
+			<div class='btn pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
+			<div class='btn pull-right' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
+		</div>\
 		<div class='tabledata'>\
-			<div class='tabledatacontrols'>\
-				<div class='btn' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
-				<div class='btn' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
-			</div>\
 			<div class='tabledatahead'>\
 				{{#columns:i}}\
 					<div style='width: {{#if i === 0}}20px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
