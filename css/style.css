@@ -30,16 +30,20 @@ content tabcontent .tableview.active { display: block;}
 
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
-content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 20%;border-top: 1px solid #383838;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 120px;border-top: 1px solid #383838;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;padding-left: 40px;}
+content tabcontent .tableview .tablebrowse .tabledatacontrols .btn {display: inline-block;min-width: 18px;height: 18px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;font-size: 11px;}
+content tabcontent .tableview .tablebrowse .tabledatacontrols .btn .zmdi {font-size: 16px;}
+content tabcontent .tableview .tablebrowse .tabledatacontrols .btn:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);cursor: pointer;}
 
-content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 20%;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover {background-color: #383838;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected {background-color: #fff;}
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {position: absolute;top: 29px;left: 0px;right: 0px;height: 20px;background-color: #424242;border-bottom: 1px solid #383838;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;background-color: #424242;border-bottom: 1px solid #383838;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;}
@@ -48,12 +52,12 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {
 	display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;margin: 0px 3px;
 }
-content tabcontent .tableview .tablebrowse .tabledata .tabledatacontrols {position: absolute;top: 0px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;}
-content tabcontent .tableview .tablebrowse .tabledata .tabledatacontrols .btn {display: inline-block;width: 20px;height: 20px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;float: right;}
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 50px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 20px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {font-size: 11px;}
 
 .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;}
+
+.pull-right {float: right;}
