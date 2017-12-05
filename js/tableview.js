@@ -87,7 +87,11 @@ Ractive.components.tablebrowse = Ractive.extend({
 								thisrow.push({'S':row[column_name]})
 							else if (typeof row[column_name] === 'number')
 								thisrow.push({'N':row[column_name]})
-							else
+							else if (typeof row[column_name] === 'boolean') {
+								thisrow.push({'BOOL':row[column_name].toString()})
+							} else if (row[column_name] === null) {
+								thisrow.push({'NULL': "NULL"})
+							} else
 								thisrow.push(null)
 						} else {
 							thisrow.push(undefined)
@@ -147,6 +151,8 @@ Ractive.components.tabledata = Ractive.extend({
 						{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
 						{{#if .N}}{{.N}}{{/if}}\
+						{{#if .BOOL}}{{.BOOL}}{{/if}}\
+						{{#if .NULL}}NULL{{/if}}\
 					</div>\
 					{{/each}}\
 				</div>\
