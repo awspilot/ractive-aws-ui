@@ -1,4 +1,12 @@
-# dynamodb-ui
+### dynamodb-ui
+
+```
+100% client side HTML gui for AWS DynamoDB.
+
+This project is work in progress
+
+```
+
 - [ ] UI
 -  - [ ] "Login" page with AWS Credentials ( now defined in js/gui.js )
 -  - [x] Table list
