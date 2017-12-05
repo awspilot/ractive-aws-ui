@@ -2,6 +2,7 @@
 
 - [ ] Tables
 -  - [x] List
+-  - [ ] Filter 
 -  - [ ] Create
 -  - [ ] View details
 -  - [ ] Update
