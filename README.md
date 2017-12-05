@@ -16,8 +16,8 @@
 -  - [ ] Data Type
 -  -  - [x] String
 -  -  - [x] Number
--  -  - [ ] Boolean
--  -  - [ ] Null
+-  -  - [x] Boolean
+-  -  - [x] Null
 -  -  - [ ] Map
 -  -  - [ ] List
 -  -  - [ ] StringSet
