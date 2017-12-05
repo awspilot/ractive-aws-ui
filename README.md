@@ -1,4 +1,12 @@
 # dynamodb-ui
+- [ ] UI
+-  - [ ] "Login" page with AWS Credentials ( now defined in js/gui.js )
+-  - [x] Table list
+-  - [x] Query editor
+-  - [ ] SQL <-> JSON API convertor 
+-  - [ ] Query history / log 
+-  - [x] Table data
+-  - [ ] Item editor
 
 - [ ] Tables
 -  - [x] List
