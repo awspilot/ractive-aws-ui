@@ -28,3 +28,6 @@
 - [ ] Custom query
 - [ ] Query history
 
+- [ ] Tools
+-  - [ ] Find all item properties & property types
+-  - [ ] Run a transform function on all items
