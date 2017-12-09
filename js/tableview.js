@@ -91,6 +91,10 @@ Ractive.components.tablebrowse = Ractive.extend({
 								thisrow.push({'BOOL':row[column_name].toString()})
 							} else if (row[column_name] === null) {
 								thisrow.push({'NULL': "NULL"})
+							} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
+								thisrow.push({'L': { size: row[column_name].length }})
+							} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
+								thisrow.push({'M': { size: Object.keys(row[column_name]).length }})
 							} else
 								thisrow.push(null)
 						} else {
@@ -141,7 +145,15 @@ Ractive.components.tabledata = Ractive.extend({
 				{{#rows}}\
 				<div class='tabledatarow' on-click='selectrow'>\
 					{{#each .:i}}\
-					<div class='tabledatacell' style='width: {{#if i === 0}}20px{{else}}{{100/columns.length}}%{{/if}} '>\
+					<div class='tabledatacell\
+						{{#if .KEY}}t-K{{/if}}\
+						{{#if .S}}t-S{{/if}}\
+						{{#if .N}}t-N{{/if}}\
+						{{#if .BOOL}}t-BOOL{{/if}}\
+						{{#if .NULL}}t-NULL{{/if}}\
+						{{#if .L}}t-L{{/if}}\
+						{{#if .M}}t-M{{/if}}\
+						' style='width: {{#if i === 0}}20px{{else}}{{100/columns.length}}%{{/if}} '>\
 						{{#if .KEY}}\
 							{{#if .selected}}\
 								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
@@ -153,6 +165,8 @@ Ractive.components.tabledata = Ractive.extend({
 						{{#if .N}}{{.N}}{{/if}}\
 						{{#if .BOOL}}{{.BOOL}}{{/if}}\
 						{{#if .NULL}}NULL{{/if}}\
+						{{#if .L}}[...]{{/if}}\
+						{{#if .M}}{...}{{/if}}\
 					</div>\
 					{{/each}}\
 				</div>\
