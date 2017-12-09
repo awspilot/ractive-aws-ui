@@ -1,4 +1,6 @@
 var ddb;
+var DynamoSQL;
+
 Ractive.components.dynamoui = Ractive.extend({
 	template:
 		"\
@@ -13,5 +15,6 @@ Ractive.components.dynamoui = Ractive.extend({
 
 	oninit: function() {
 		ddb = new AWS.DynamoDB(this.get('key'))
+		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
 	},
 })
