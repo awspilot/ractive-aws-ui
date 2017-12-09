@@ -14,7 +14,7 @@ Ractive.components.dynamoui = Ractive.extend({
 	data: {},
 
 	oninit: function() {
-		ddb = new AWS.DynamoDB(this.get('key'))
+		ddb = new AWS.DynamoDB(this.get('account.key'))
 		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
 	},
 })
