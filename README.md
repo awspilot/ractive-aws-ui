@@ -1,4 +1,20 @@
-# dynamodb-ui
+### dynamodb-ui
+
+```
+100% client side HTML gui for AWS DynamoDB.
+
+This project is work in progress
+
+```
+
+- [ ] UI
+-  - [ ] "Login" page with AWS Credentials ( now defined in js/gui.js )
+-  - [x] Table list
+-  - [x] Query editor
+-  - [ ] SQL <-> JSON API convertor 
+-  - [ ] Query history / log 
+-  - [x] Table data
+-  - [ ] Item editor
 
 - [ ] Tables
 -  - [x] List
@@ -16,15 +32,15 @@
 -  - [ ] Data Type
 -  -  - [x] String
 -  -  - [x] Number
--  -  - [ ] Boolean
--  -  - [ ] Null
+-  -  - [x] Boolean
+-  -  - [x] Null
 -  -  - [ ] Map
 -  -  - [ ] List
 -  -  - [ ] StringSet
 -  -  - [ ] NumberSet
 -  -  - [ ] Binary
 -  -  - [ ] undefined
-
+-  - [ ] Item property formatting ( eg. timestamp -> date )
 - [ ] Edit item
 - [ ] Custom query
 - [ ] Query history
