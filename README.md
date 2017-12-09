@@ -40,7 +40,7 @@ This project is work in progress
 -  -  - [ ] NumberSet
 -  -  - [ ] Binary
 -  -  - [ ] undefined
-
+-  - [ ] Item property formatting ( eg. timestamp -> date )
 - [ ] Edit item
 - [ ] Custom query
 - [ ] Query history
