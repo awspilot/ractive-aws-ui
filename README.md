@@ -8,7 +8,7 @@ This project is work in progress
 ```
 
 - [ ] UI
--  - [ ] "Login" page with AWS Credentials ( now defined in js/gui.js )
+-  - [x] "Login" page with AWS Credentials
 -  - [x] Table list
 -  - [x] Query editor
 -  - [ ] SQL <-> JSON API convertor 
@@ -29,6 +29,8 @@ This project is work in progress
 -  - [x] Show keys first
 -  - [x] Delete rows
 -  - [ ] Next page
+-  - [ ] Show / hide columns
+-  - [ ] Resize columns
 -  - [ ] Data Type
 -  -  - [x] String
 -  -  - [x] Number
@@ -39,7 +41,7 @@ This project is work in progress
 -  -  - [ ] StringSet
 -  -  - [ ] NumberSet
 -  -  - [ ] Binary
--  -  - [ ] undefined
+-  -  - [x] undefined
 -  - [ ] Item property formatting ( eg. timestamp -> date )
 - [ ] Edit item
 - [ ] Custom query
