@@ -73,3 +73,22 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatace
 .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;}
 
 .pull-right {float: right;}
+
+
+
+
+
+/* login */
+.loginbox {width: 422px;margin: 0 auto;margin-top: 150px;padding: 22px;position: relative;}
+.loginbox {border: 1px solid #383838;background-color: #474747;}
+.loginbox account {display: block;height: 74px;position: relative;cursor: pointer;background-color: #424242;border-top: 1px solid #535353;}
+.loginbox account:hover {background-color: #474747; }
+.loginbox account delete {display: inline-block;position: absolute;right: 10px;top: 30px;}
+.loginbox account name   {display: block;position: absolute;left: 10px;top: 10px;color: #0a83ca;font-weight: bold;}
+.loginbox account key    {display: block;position: absolute;left: 10px;top: 38px;font-size: 12px;}
+.loginbox account region {display: block;position: absolute;left: 10px;top: 55px;font-size: 13px;}
+
+.loginbox input[type=text] {width: 100%;margin-top: 10px;box-sizing: border-box;background-color: #5b5757;border: 1px solid #424242;padding: 10px;}
+.loginbox add {display: block;margin-top: 10px;background-color: #424242;border: 1px solid #535353;padding: 10px;text-align: center;}
+.loginbox add:active {border: 1px solid #383838;}
+/* end */
