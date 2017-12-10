@@ -40,10 +40,37 @@ content tabcontent .tableview .tablebrowse .tabledata {display: block;position: 
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover {background-color: #474747;}
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell {background-color: #1868d8 !important;}
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected {background-color: #fff;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover {}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell {background-color: #1868d8 !important;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-K,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-S,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-N,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-L,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-M,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-U,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:before,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {background-color: #1868d8;color: #fff;border-right: 1px solid transparent;}
+
+
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell {background-color: #1868d8 !important;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-K,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-S,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-N,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-BOOL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-NULL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-SS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-NS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-L,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-M,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell.t-U,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell:before,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell:after {background-color: #1256b5 !important;color: #fff;border-right: 1px solid transparent;}
+
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;background-color: #424242;border-bottom: 1px solid #383838;}
 
@@ -51,12 +78,15 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bott
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;margin: 0px 3px;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;padding-left: 6px;position: relative;}
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 20px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;background-color: #474747;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;background-color: #474747;}
+
+content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div {font-size: 12px;}
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {background-color: #383838;font-size: 11px;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {font-size: 11px;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-K {background-color: transparent;color: #8ea7aa;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-S {background-color: transparent;color: lightgreen;}
@@ -67,6 +97,7 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatace
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-NS {}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-L {background-color: transparent;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-M {background-color: transparent;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell.t-U {background-color: #383838;}
 
 
 
