@@ -51,10 +51,74 @@ Resources:
                         context.done()
                     };
 
-
     APIPermissionToRunLambda:
         Type: AWS::Lambda::Permission
         Properties:
           Action: lambda:InvokeFunction
           FunctionName: !Ref DynamodbUiCallProxyFunction
           Principal: apigateway.amazonaws.com
+
+
+
+
+
+
+
+    API:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Description: DynamoDB UI
+        Name: "dynamodbui"
+        FailOnWarnings: true
+        Body: !Sub
+          - |
+            swagger: "2.0"
+            info:
+              version: "2017-01-11T12:08:03Z"
+              title: "api"
+            basePath: "/v1"
+            schemes:
+            - "https"
+            paths:
+              /:
+                    options:
+                      consumes:
+                      - "application/json"
+                      produces:
+                      - "application/json"
+                      responses:
+                        200:
+                          description: "200 response"
+                          schema:
+                            $ref: "#/definitions/Empty"
+                          headers:
+                            Access-Control-Allow-Origin:
+                              type: "string"
+                            Access-Control-Allow-Methods:
+                              type: "string"
+                            Access-Control-Allow-Headers:
+                              type: "string"
+                      x-amazon-apigateway-integration:
+                        responses:
+                          default:
+                            statusCode: "200"
+                            responseParameters:
+                              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+                              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                              method.response.header.Access-Control-Allow-Origin: "'*'"
+                        requestTemplates:
+                          application/json: "{\"statusCode\": 200}"
+                        passthroughBehavior: "when_no_match"
+                        type: "mock"
+
+            definitions:
+              Empty:
+                type: "object"
+            x-amazon-apigateway-binary-media-types:
+            - "image/png"
+            - "image/webp"
+            - "image/*"
+          - {
+              lambdaapi: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:DynamodbUiCallProxyFunction/invocations'
+            }
+#
