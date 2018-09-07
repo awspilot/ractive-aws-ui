@@ -13,6 +13,7 @@ Ractive.components.login = Ractive.extend({
 				</account>							\
 			{{/accounts}}						\
 			\
+			<input type='text' value='{{new.endpoint}}'                        placeholder='Endpoint ( for local DynamoDB )'>\
 			<input type='text' value='{{new.key.credentials.accessKeyId}}'     placeholder='AccessKeyId'>\
 			<input type='text' value='{{new.key.credentials.secretAccessKey}}' placeholder='SecretAccessKey'>\
 			<input type='text' value='{{new.key.region}}'                      placeholder='region ie. us-east-1'>\
