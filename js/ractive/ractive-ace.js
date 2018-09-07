@@ -1,3 +1,6 @@
+
+// autocomplete example http://plnkr.co/edit/6MVntVmXYUbjR0DI82Cr?p=preview
+
 Ractive.components['ace'] = Ractive.extend({
 	template: "<div style='{{style}}' class='{{class}}'></div>",
 	isolated: true,
