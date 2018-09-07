@@ -29,3 +29,24 @@ Resources:
                 Action:
                 - 'dynamodb:*'
                 Resource: !Sub 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/*'
+
+    # step2, create a function even if bucket dont exist
+    DynamodbUiCallProxyFunction:
+        Type: AWS::Lambda::Function
+        DependsOn: [ DynamoDbUiRole ]
+        Properties:
+            FunctionName: DynamodbUiCallProxyFunction
+            MemorySize: 128
+            Handler: index.handler
+            Role: !GetAtt DynamoDbUiRole.Arn
+            Runtime: nodejs6.10
+            Timeout: 10
+            #Environment:
+            #    Variables:
+            #        deploy_bucket: !Sub "${OrgName}-deploy-bucket"
+            Code:
+                ZipFile: >
+                    var AWS = require('aws-sdk');
+                    exports.handler = function(event, context) {
+                        context.done()
+                    };
