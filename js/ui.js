@@ -4,6 +4,7 @@ var DynamoSQL;
 Ractive.components.dynamoui = Ractive.extend({
 	template:
 		"\
+			<WindowHost />\
 			<header></header>\
 			<left>\
 				<tablelist />\
@@ -12,9 +13,16 @@ Ractive.components.dynamoui = Ractive.extend({
 				<tabs />\
 			</content>",
 	data: {},
-
+	components: {
+		Window: RactiveWindow.default.Window,
+		WindowHost: RactiveWindow.default.WindowHost,
+	},
 	oninit: function() {
-		ddb = new AWS.DynamoDB(this.get('account.key'))
+		var credentials = this.get('account.key')
+		if (this.get('account.endpoint'))
+			credentials.endpoint = this.get('account.endpoint')
+
+		ddb = new AWS.DynamoDB(credentials)
 		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
 	},
 })
