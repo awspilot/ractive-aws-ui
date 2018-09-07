@@ -60,7 +60,7 @@ Resources:
 
 
 
-    Deployment3:
+    Deployment5:
         Type: AWS::ApiGateway::Deployment
         Properties:
           RestApiId: !Ref API
@@ -71,7 +71,7 @@ Resources:
           StageName: v1
           Description: v1 Stage
           RestApiId: !Ref API
-          DeploymentId: !Ref Deployment3
+          DeploymentId: !Ref Deployment5
 
 
 
@@ -137,16 +137,16 @@ Resources:
 
 
 
-                                    	<script src="js/session.js"></script>
-                                    	<script src="js/gui.js"></script>
-                                    	<script src="js/tablelist.js"></script>
-                                    	<script src="js/tableview.js"></script>
-                                    	<script src="js/tabs.js"></script>
-                                    	<script src="js/ui.js"></script>
-                                    	<script src="js/login.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/session.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/gui.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/tablelist.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/tableview.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/tabs.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/ui.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/login.js"></script>
 
 
-                                    	<link rel="stylesheet" href="css/style.css"/>
+                                    	<link rel="stylesheet" href="https://rawgit.com/awspilot/dynamodb-ui/master/css/style.css"/>
                                     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css"/>
 
                                     </head>
