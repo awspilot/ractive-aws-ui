@@ -9,12 +9,13 @@ var $session
 		return accounts
 	}
 
-	session.prototype.account_add = function( name, key ) {
+	session.prototype.account_add = function( name, key, endpoint ) {
 
 		var new_account = {
 			id: id=Math.random().toString().slice(2),
 			name: name,
 			key: key,
+			endpoint: endpoint,
 		}
 		var account_list = this.account_list();
 		account_list.push( new_account )
