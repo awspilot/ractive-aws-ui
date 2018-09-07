@@ -35,7 +35,7 @@ Resources:
               - Effect: Allow
                 Action:
                 - 'dynamodb:*'
-                Resource: !Sub 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/*'
+                Resource: "*"
 
 
     DynamodbUiCallProxyFunction:
@@ -54,9 +54,35 @@ Resources:
             Code:
                 ZipFile: >
                     var AWS = require('aws-sdk');
+                    var dynamodb = new AWS.DynamoDB();
+
                     exports.handler = function(event, context) {
-                        console.log(event)
-                        context.done()
+                        console.log("event=", event )
+                        switch ( event.resourcePath ) {
+                            case '/dynamodb':
+                                switch ( event._HEADERS['x-amz-target'].split('.')[1] ) {
+                                    case 'ListTables':
+                                        dynamodb.listTables({}, context.done )
+                                        break;
+                                    case 'DescribeTable':
+                                        dynamodb.describeTable(event._POST, context.done )
+                                        break;
+                                    case 'Scan':
+                                        dynamodb.scan(event._POST, context.done )
+                                        break;
+                                    default:
+                                        context.done(null, {
+                                            debug: event,
+                                        });
+                                }
+
+                                break;
+                            default:
+                                context.done(null, {
+                                    debug: event,
+                                });
+                        }
+
                     };
 
     APIPermissionToRunLambda:
@@ -68,7 +94,7 @@ Resources:
 
 
 
-    Deployment10:
+    Deployment15:
         Type: AWS::ApiGateway::Deployment
         Properties:
           RestApiId: !Ref API
@@ -79,7 +105,7 @@ Resources:
           StageName: v1
           Description: v1 Stage
           RestApiId: !Ref API
-          DeploymentId: !Ref Deployment10
+          DeploymentId: !Ref Deployment15
 
 
 
@@ -171,8 +197,43 @@ Resources:
                           application/json: "{\"statusCode\": 200}"
                         type: "mock"
 
-              /private:
-                    get:
+              /dynamodb:
+                  post:
+                      security:
+                      - basic-authorizer: []
+                      consumes:
+                      - "application/x-amz-json-1.0"
+                      produces:
+                      - "application/json"
+                      responses:
+                        200:
+                          description: "200 response"
+                          schema:
+                            $ref: "#/definitions/Empty"
+                          headers:
+                            Access-Control-Allow-Origin:
+                              type: "string"
+                      x-amazon-apigateway-integration:
+                        responses:
+                          default:
+                            statusCode: "200"
+                            responseParameters:
+                              method.response.header.Access-Control-Allow-Origin: "'*'"
+                        requestTemplates:
+                            "application/x-amz-json-1.0":
+                                |
+                                {
+                                    "resourcePath": "/dynamodb",
+                                    "_HEADERS": {
+                                        "x-amz-target": "$input.params().header.get('x-amz-target')"
+                                    },
+                                    "_POST": $input.json('$')
+                                }
+                        uri: "${lambdaapi}"
+                        passthroughBehavior: "when_no_match"
+                        httpMethod: "POST"
+                        type: "aws"
+                  get:
                       security:
                       - basic-authorizer: []
                       consumes:
