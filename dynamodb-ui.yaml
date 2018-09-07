@@ -1,4 +1,11 @@
 AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+    Username:
+        Type: String
+        Default: admin
+    Password:
+        Type: String
+        Default: secret
 Resources:
 
 
@@ -40,7 +47,7 @@ Resources:
             Handler: index.handler
             Role: !GetAtt DynamoDbUiRole.Arn
             Runtime: nodejs6.10
-            Timeout: 10
+            Timeout: 29
             #Environment:
             #    Variables:
             #        deploy_bucket: !Sub "${OrgName}-deploy-bucket"
@@ -48,6 +55,7 @@ Resources:
                 ZipFile: >
                     var AWS = require('aws-sdk');
                     exports.handler = function(event, context) {
+                        console.log(event)
                         context.done()
                     };
 
@@ -60,7 +68,7 @@ Resources:
 
 
 
-    Deployment5:
+    Deployment10:
         Type: AWS::ApiGateway::Deployment
         Properties:
           RestApiId: !Ref API
@@ -71,13 +79,17 @@ Resources:
           StageName: v1
           Description: v1 Stage
           RestApiId: !Ref API
-          DeploymentId: !Ref Deployment5
+          DeploymentId: !Ref Deployment10
+
 
 
 
     API:
       Type: AWS::ApiGateway::RestApi
       Properties:
+        # EndpointConfiguration:
+        #    Types:
+        #      - REGIONAL
         Description: DynamoDB UI
         Name: "dynamodbui"
         FailOnWarnings: true
@@ -158,39 +170,57 @@ Resources:
                         requestTemplates:
                           application/json: "{\"statusCode\": 200}"
                         type: "mock"
-                    options:
+
+              /private:
+                    get:
+                      security:
+                      - basic-authorizer: []
                       consumes:
                       - "application/json"
                       produces:
-                      - "application/json"
+                      - "text/html"
                       responses:
                         200:
                           description: "200 response"
-                          schema:
-                            $ref: "#/definitions/Empty"
                           headers:
-                            Access-Control-Allow-Origin:
-                              type: "string"
-                            Access-Control-Allow-Methods:
-                              type: "string"
-                            Access-Control-Allow-Headers:
+                            Content-Type:
                               type: "string"
                       x-amazon-apigateway-integration:
                         responses:
                           default:
                             statusCode: "200"
                             responseParameters:
-                              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
-                              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
-                              method.response.header.Access-Control-Allow-Origin: "'*'"
+                              method.response.header.Content-Type: "'text/html'"
+                            responseTemplates:
+                              text/html:
+                                    |
+                                    private page
+                        passthroughBehavior: "when_no_match"
                         requestTemplates:
                           application/json: "{\"statusCode\": 200}"
-                        passthroughBehavior: "when_no_match"
                         type: "mock"
 
+            securityDefinitions:
+              basic-authorizer:
+                type: "apiKey"
+                name: "Authorization"
+                in: "header"
+                x-amazon-apigateway-authtype: "custom"
+                x-amazon-apigateway-authorizer:
+                  authorizerUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:DynamodbUiAuthenticator/invocations"
+                  authorizerResultTtlInSeconds: 0
+                  identitySource: "method.request.header.Authorization"
+                  type: "request"
             definitions:
               Empty:
                 type: "object"
+            x-amazon-apigateway-gateway-responses:
+              UNAUTHORIZED:
+                statusCode: 401
+                responseParameters:
+                  gatewayresponse.header.WWW-Authenticate: "'Basic realm=\"Secure Area\"'"
+                responseTemplates:
+                  application/json: "{\"message\":$context.error.messageString}"
             x-amazon-apigateway-binary-media-types:
             - "image/png"
             - "image/webp"
@@ -198,4 +228,172 @@ Resources:
           - {
               lambdaapi: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:DynamodbUiCallProxyFunction/invocations'
             }
+
+    APIPermissionToRunAuthenticator:
+        Type: AWS::Lambda::Permission
+        Properties:
+          Action: lambda:InvokeFunction
+          FunctionName: !Ref DynamodbUiAuthenticator
+          Principal: apigateway.amazonaws.com
+
+    DynamodbUiAuthenticator:
+        Type: AWS::Lambda::Function
+        DependsOn: [ DynamoDbUiRole ]
+        Properties:
+            FunctionName: DynamodbUiAuthenticator
+            MemorySize: 128
+            Handler: index.handler
+            Role: !GetAtt DynamoDbUiRole.Arn
+            Runtime: nodejs6.10
+            Timeout: 29
+            Environment:
+                Variables:
+                    http_username: !Ref Username
+                    http_password: !Ref Password
+            Code:
+                ZipFile: >
+                    'use strict';
+
+                    const utils = {}
+
+                    utils.b64utob64 = function (a) {
+                      return a.length % 4 == 2 ? a += "==" : a.length % 4 == 3 && (a += "="), a = a.replace(/-/g, "+"), a = a.replace(/_/g, "/");
+                    };
+
+                    utils.base64decode = function (b64) {
+                      // eslint-disable-next-line node/no-deprecated-api
+                      return new Buffer(b64, 'base64').toString('ascii');
+                    };
+
+                    utils.atob = function (str) {
+                      // eslint-disable-next-line node/no-deprecated-api
+                      return new Buffer(str, 'base64').toString('binary');
+                    };
+
+                    utils.b64toBuffer = function (base64String) {
+                      // eslint-disable-next-line node/no-deprecated-api
+                      return new Buffer(base64String, 'base64');
+                    }
+
+                    utils.getAuthInfo = (methodArn) => {
+                      if (!methodArn) {
+                        throw new Error('methodArn argument is null');
+                      }
+
+                      const tmp = methodArn.split(':');
+                      const apiGatewayArnTmp = tmp[5].split('/');
+
+                      return {
+                        accountId: tmp[4],
+                        region: tmp[3],
+                        restApiId: apiGatewayArnTmp[0],
+                        stage: apiGatewayArnTmp[1],
+                        method: apiGatewayArnTmp[2],
+                      };
+                    };
+
+
+                    utils.getBearerToken = (authorizationToken) => {
+                      if (!authorizationToken) return null;
+
+                      const tokenParts = authorizationToken.split(' ');
+                      return tokenParts[1];
+                    };
+
+                    const createResourceArn = (apiInfo, httpVerb, resource) => {
+
+                      let cleanedResource = resource;
+                      if (resource.substring(0, 1) === '/') {
+                          cleanedResource = resource.substring(1, resource.length);
+                      }
+
+                      return 'arn:aws:execute-api:' +
+                        apiInfo.region + ':' +
+                        apiInfo.accountId + ':' +
+                        apiInfo.restApiId + '/' +
+                        apiInfo.stage + '/' +
+                        httpVerb + '/' +
+                        cleanedResource;
+                    }
+
+                    const createApiGatewayStatement = (apiInfo, allow, methods) => {
+                      const effect = allow ? 'Allow' : 'Deny';
+
+                      const resources = methods.map((method) => createResourceArn(apiInfo, method.verb, method.resource));
+
+                      return {
+                        Action: 'execute-api:Invoke',
+                        Effect: effect,
+                        Resource: resources
+                      };
+                    }
+
+
+                    const generatePolicy = (principalId, apiInfo, endpoints, context) => {
+                      const policy = {
+                        principalId: principalId,
+                        policyDocument: {
+                          Version: '2012-10-17',
+                          Statement: []
+                        }
+                      };
+
+                      policy.policyDocument.Statement = endpoints.map((endpoint) =>
+                        createApiGatewayStatement(apiInfo, endpoint.allow, endpoint.methods)
+                      );
+
+                      if (context) {
+                        policy.context = context;
+                      }
+
+                      return policy;
+                    };
+                    const policyGenerator = {
+                        generatePolicy: generatePolicy
+                    };
+                    exports.handler = (event, context, callback) => {
+                        const credentials = getCredentials(event.headers);
+                        if (credentials == null) {
+                            console.log('missing credentials');
+                            return callback('Unauthorized');
+                        }
+
+                        if (authorize(credentials)) {
+                            const principalId = credentials.username;
+                            const authInfo = utils.getAuthInfo(event.methodArn);
+
+                            // allow access to all methods
+                            const result = policyGenerator.generatePolicy(principalId, authInfo, [{
+                              allow: true,
+                              methods: [{
+                                verb: '*',
+                                resource: '*'
+                              }]
+                            }]);
+
+                            callback(null, result);
+                        } else {
+                            callback('Unauthorized');
+                        }
+                    };
+
+                    function getCredentials(headers) {
+                        try {
+                            const auth = headers.Authorization;
+                            const tmp = auth.split(' ');
+                            const credentials = new Buffer(tmp[1], 'base64').toString().split(':');
+                            return {
+                                username: credentials[0],
+                                password: credentials[1]
+                            };
+                        } catch (e) {
+                            return null;
+                        }
+                    }
+
+                    function authorize(credentials) {
+                        return credentials.username === process.env.http_username && credentials.password === process.env.http_password;
+                    }
+
+
 #
