@@ -29,7 +29,7 @@ window.addEventListener('load', function() {
 	})
 	ractive.on('login.add-account', function(e) {
 		var new_account = ractive.findComponent('login').get('new');
-		$session.account_add(new_account.name, new_account.key )
+		$session.account_add(new_account.name, new_account.key,  new_account.endpoint )
 		ractive.findComponent('login').set('accounts', $session.account_list() )
 		ractive.findComponent('login').set('new')
 		return false;
