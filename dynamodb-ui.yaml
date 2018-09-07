@@ -30,7 +30,7 @@ Resources:
                 - 'dynamodb:*'
                 Resource: !Sub 'arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/*'
 
-    # step2, create a function even if bucket dont exist
+
     DynamodbUiCallProxyFunction:
         Type: AWS::Lambda::Function
         DependsOn: [ DynamoDbUiRole ]
@@ -50,3 +50,11 @@ Resources:
                     exports.handler = function(event, context) {
                         context.done()
                     };
+
+
+    APIPermissionToRunLambda:
+        Type: AWS::Lambda::Permission
+        Properties:
+          Action: lambda:InvokeFunction
+          FunctionName: !Ref DynamodbUiCallProxyFunction
+          Principal: apigateway.amazonaws.com
