@@ -60,7 +60,18 @@ Resources:
 
 
 
-
+    Deployment2:
+        Type: AWS::ApiGateway::Deployment
+        Properties:
+          RestApiId: !Ref API
+          StageName: dummy
+    v1:
+        Type: AWS::ApiGateway::Stage
+        Properties:
+          StageName: v1
+          Description: v1 Stage
+          RestApiId: !Ref API
+          DeploymentId: !Ref Deployment2
 
 
 
@@ -81,6 +92,72 @@ Resources:
             - "https"
             paths:
               /:
+                    get:
+                      consumes:
+                      - "application/json"
+                      produces:
+                      - "text/html"
+                      responses:
+                        200:
+                          description: "200 response"
+                          headers:
+                            Content-Type:
+                              type: "string"
+                      x-amazon-apigateway-integration:
+                        responses:
+                          default:
+                            statusCode: "200"
+                            responseParameters:
+                              method.response.header.Content-Type: "'text/html'"
+                            responseTemplates:
+                              text/html:
+                                    |
+                                    <!DOCTYPE html>
+                                    <html>
+                                    <head>
+                                    	<title>DynamoDB UI</title>
+                                    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/1.0.0-build-107/ractive.min.js"></script>
+
+                                    	<script src="https://cdn.rawgit.com/databank/ractive-window/master/dist/ractive-window.min.js"></script>
+
+                                    	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/0.8.14/ractive-legacy.js"></script>-->
+                                    	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.160.0.min.js"></script>
+
+                                    	<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
+                                    	<script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.6.0/async.js"></script>
+                                    	<script src="js/awspilot-dynamodb-sql.js"></script>
+
+                                    	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+                                    	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"></script>
+                                    	<script src="js/ace/mode_sql.js"></script>
+                                    	<script src="js/ace/custom.js"></script>
+                                    	<script src="js/ractive/ractive-ace.js"></script>
+                                    	<script src="js/ractive/ractive-scrollarea.js"></script>
+
+
+
+                                    	<script src="js/session.js"></script>
+                                    	<script src="js/gui.js"></script>
+                                    	<script src="js/tablelist.js"></script>
+                                    	<script src="js/tableview.js"></script>
+                                    	<script src="js/tabs.js"></script>
+                                    	<script src="js/ui.js"></script>
+                                    	<script src="js/login.js"></script>
+
+
+                                    	<link rel="stylesheet" href="css/style.css"/>
+                                    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css"/>
+
+                                    </head>
+                                    <body>
+
+                                    </body>
+                                    </html>
+                        passthroughBehavior: "when_no_match"
+                        requestTemplates:
+                          application/json: "{\"statusCode\": 200}"
+                        type: "mock"
                     options:
                       consumes:
                       - "application/json"
