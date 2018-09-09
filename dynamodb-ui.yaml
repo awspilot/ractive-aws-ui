@@ -94,7 +94,7 @@ Resources:
 
 
 
-    Deployment15:
+    Deployment20:
         Type: AWS::ApiGateway::Deployment
         Properties:
           RestApiId: !Ref API
@@ -105,7 +105,7 @@ Resources:
           StageName: v1
           Description: v1 Stage
           RestApiId: !Ref API
-          DeploymentId: !Ref Deployment15
+          DeploymentId: !Ref Deployment20
 
 
 
@@ -224,6 +224,9 @@ Resources:
                                 |
                                 {
                                     "resourcePath": "/dynamodb",
+                                    "headers": {
+                                        "auth": "$input.params().header.get('auth')"
+                                    },
                                     "_HEADERS": {
                                         "x-amz-target": "$input.params().header.get('x-amz-target')"
                                     },
@@ -413,6 +416,7 @@ Resources:
                         generatePolicy: generatePolicy
                     };
                     exports.handler = (event, context, callback) => {
+                        console.log("event=", event )
                         const credentials = getCredentials(event.headers);
                         if (credentials == null) {
                             console.log('missing credentials');
