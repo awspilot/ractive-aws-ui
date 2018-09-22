@@ -64,11 +64,14 @@ Resources:
                                     case 'listTables':
                                         dynamodb.listTables(event._POST.payload, context.done )
                                         break;
-                                    case 'DescribeTable':
-                                        dynamodb.describeTable(event._POST, context.done )
+                                    case 'describeTable':
+                                        dynamodb.describeTable(event._POST.payload, context.done )
                                         break;
-                                    case 'Scan':
-                                        dynamodb.scan(event._POST, context.done )
+                                    case 'scan':
+                                        dynamodb.scan(event._POST.payload, context.done )
+                                        break;
+                                    case 'query':
+                                        dynamodb.query(event._POST.payload, context.done )
                                         break;
                                     default:
                                         context.done(null, {
