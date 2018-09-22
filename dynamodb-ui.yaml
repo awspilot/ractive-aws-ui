@@ -60,9 +60,9 @@ Resources:
                         console.log("event=", event )
                         switch ( event.resourcePath ) {
                             case '/dynamodb':
-                                switch ( event._HEADERS['x-amz-target'].split('.')[1] ) {
-                                    case 'ListTables':
-                                        dynamodb.listTables({}, context.done )
+                                switch ( event._POST.method ) {
+                                    case 'listTables':
+                                        dynamodb.listTables(event._POST.payload, context.done )
                                         break;
                                     case 'DescribeTable':
                                         dynamodb.describeTable(event._POST, context.done )
@@ -94,7 +94,7 @@ Resources:
 
 
 
-    Deployment20:
+    Deployment27:
         Type: AWS::ApiGateway::Deployment
         Properties:
           RestApiId: !Ref API
@@ -105,7 +105,7 @@ Resources:
           StageName: v1
           Description: v1 Stage
           RestApiId: !Ref API
-          DeploymentId: !Ref Deployment20
+          DeploymentId: !Ref Deployment27
 
 
 
@@ -164,6 +164,7 @@ Resources:
                                     	<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
                                     	<script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.6.0/async.js"></script>
                                     	<script src="https://rawgit.com/awspilot/dynamodb-ui/master/js/awspilot-dynamodb-sql.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-oop/master/dist/dynamodbjs.js"></script>
 
                                     	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 
@@ -186,7 +187,9 @@ Resources:
 
                                     	<link rel="stylesheet" href="https://rawgit.com/awspilot/dynamodb-ui/master/css/style.css"/>
                                     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css"/>
-
+                                        <script>
+                                            var installation_type = 'apigw'
+                                        </script>
                                     </head>
                                     <body>
 
@@ -202,7 +205,8 @@ Resources:
                       security:
                       - basic-authorizer: []
                       consumes:
-                      - "application/x-amz-json-1.0"
+                      # - "application/x-amz-json-1.0"
+                      - "application/json"
                       produces:
                       - "application/json"
                       responses:
@@ -220,7 +224,8 @@ Resources:
                             responseParameters:
                               method.response.header.Access-Control-Allow-Origin: "'*'"
                         requestTemplates:
-                            "application/x-amz-json-1.0":
+                            #"application/x-amz-json-1.0":
+                            "application/json":
                                 |
                                 {
                                     "resourcePath": "/dynamodb",
@@ -262,6 +267,35 @@ Resources:
                         passthroughBehavior: "when_no_match"
                         requestTemplates:
                           application/json: "{\"statusCode\": 200}"
+                        type: "mock"
+                  options:
+                      consumes:
+                      - "application/json"
+                      produces:
+                      - "application/json"
+                      responses:
+                        200:
+                          description: "200 response"
+                          schema:
+                            $ref: "#/definitions/Empty"
+                          headers:
+                            Access-Control-Allow-Origin:
+                              type: "string"
+                            Access-Control-Allow-Methods:
+                              type: "string"
+                            Access-Control-Allow-Headers:
+                              type: "string"
+                      x-amazon-apigateway-integration:
+                        responses:
+                          default:
+                            statusCode: "200"
+                            responseParameters:
+                              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+                              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+                              method.response.header.Access-Control-Allow-Origin: "'*'"
+                        requestTemplates:
+                          application/json: "{\"statusCode\": 200}"
+                        passthroughBehavior: "when_no_match"
                         type: "mock"
 
             securityDefinitions:
@@ -457,7 +491,9 @@ Resources:
                     }
 
                     function authorize(credentials) {
-                        return credentials.username === process.env.http_username && credentials.password === process.env.http_password;
+                        var valid_login = credentials.username === process.env.http_username && credentials.password === process.env.http_password
+                        console.log(!valid_login ? '☐' : '☑',  "Authentication")
+                        return valid_login;
                     }
 
 
