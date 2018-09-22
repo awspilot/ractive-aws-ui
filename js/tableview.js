@@ -52,7 +52,11 @@ Ractive.components.tablebrowse = Ractive.extend({
 						if (err)
 							return cb(err)
 
-						dbrows = data
+
+						dbrows = DynamodbFactory.util.parse({ L:
+								(data.Items || []).map(function(item) { return {'M': item } })
+							})
+						//dbrows = data
 						cb()
 					})
 				//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
