@@ -15,6 +15,11 @@ window.addEventListener('load', function() {
 				{{/if}}\
 			{{/if}}\
 			",
+		routeCall: function( call, cb ) {
+			// call.operation
+			// call.payload
+			console.log("routing call", call )
+		},
 		data: {
 			installation_type: window.installation_type,
 			autoaccount: window.installation_type === 'apigw' ? {

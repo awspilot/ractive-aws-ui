@@ -17,14 +17,23 @@ Ractive.components.tablelist = Ractive.extend({
 	data: {},
 	refresh_tables: function() {
 		var ractive = this
-		ractive.set('tables')
-		ddb.listTables({}, function(err, data) {
-			if (err)
-				return ractive.set('err', err )
 
-			ractive.set('err')
-			ractive.set('tables', data.TableNames )
+		ractive.set('tables')
+
+		DynamoDB.explain().query('SHOW TABLES', function(err, call ) {
+			if (err)
+				return console.log(err)
+
+			ractive.routeCall( call, function( err, data ) {
+				if (err)
+					return ractive.set('err', err )
+
+				ractive.set('err')
+				ractive.set('tables', data.TableNames )
+			} )
 		})
+		//ddb.listTables({}, function(err, data) {
+		//})
 	},
 	oninit: function() {
 		this.refresh_tables()
