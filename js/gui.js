@@ -1,7 +1,25 @@
 
 var ractive;
 var selected_account;
+
+var json_post = function(url, payload, cb ) {
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			cb(null, JSON.parse(xhr.responseText))
+		}
+	};
+	var data = JSON.stringify(payload);
+	xhr.send(data);
+}
+
 var routeCall = function( call, cb ) {
+	if (window.installation_type === 'apigw') {
+		json_post('/v1/dynamodb', call, cb )
+		return;
+	}
 	// call.operation
 	// call.payload
 	console.log("routing call", call )
