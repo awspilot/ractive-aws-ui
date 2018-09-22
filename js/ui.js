@@ -1,7 +1,7 @@
 var ddb;
 var DynamoSQL;
 var DynamoDB;
-
+var DynamodbFactory;
 Ractive.components.dynamoui = Ractive.extend({
 	template:
 		"\
@@ -32,7 +32,8 @@ Ractive.components.dynamoui = Ractive.extend({
 
 		ddb = new AWS.DynamoDB(credentials)
 		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
-		DynamoDB  = new window['@awspilot/dynamodb'](ddb)
+		DynamodbFactory = window['@awspilot/dynamodb']
+		DynamoDB  = new DynamodbFactory(ddb)
 
 	},
 })
