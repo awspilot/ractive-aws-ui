@@ -20,7 +20,10 @@ window.addEventListener('load', function() {
 			autoaccount: window.installation_type === 'apigw' ? {
 				endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
 				id: Math.random().toString(),
-				key: {},
+				key: {
+					credentials: {},
+					region: 'us-east-1',
+				},
 				name: '',
 			} : null,
 		},
