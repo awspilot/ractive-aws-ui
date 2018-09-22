@@ -44,7 +44,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 				})
 			},
 			function(cb) {
-				DynamoSQL.query(ractive.get('table.sql'), function(err, data) {
+				DynamoDB.explain().query(ractive.get('table.sql'), function(err, data) {
 				//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
 					dbrows = data
 					cb(err)
