@@ -21,7 +21,10 @@ window.addEventListener('load', function() {
 				endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
 				id: Math.random().toString(),
 				key: {
-					credentials: {},
+					credentials: {
+						accessKeyId: 'k',
+						secretAccessKey: 's',
+					},
 					region: 'us-east-1',
 				},
 				name: '',
