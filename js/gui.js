@@ -1,6 +1,11 @@
 
 var ractive;
 var selected_account;
+var routeCall = function( call, cb ) {
+	// call.operation
+	// call.payload
+	console.log("routing call", call )
+};
 window.addEventListener('load', function() {
 	ractive = new Ractive({
 		el: 'body',
@@ -15,11 +20,6 @@ window.addEventListener('load', function() {
 				{{/if}}\
 			{{/if}}\
 			",
-		routeCall: function( call, cb ) {
-			// call.operation
-			// call.payload
-			console.log("routing call", call )
-		},
 		data: {
 			installation_type: window.installation_type,
 			autoaccount: window.installation_type === 'apigw' ? {
