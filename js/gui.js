@@ -8,10 +8,22 @@ window.addEventListener('load', function() {
 			{{#if selected_account}}\
 				<dynamoui account='{{selected_account}}' />\
 			{{else}}\
+				{{#if installation_type === 'apigw'}}\
+					<dynamoui account='{{autoaccount}}' />\
+				{{else}}\
 				<login />\
+				{{/if}}\
 			{{/if}}\
 			",
-		data: {},
+		data: {
+			installation_type: window.installation_type,
+			autoaccount: window.installation_type === 'apigw' ? {
+				endpoint: '/v1/dynamodb',
+				id: Math.random().toString(),
+				key: {},
+				name: '',
+			} : null,
+		},
 	})
 
 	ractive.on('open-table', function(e, table ) {
