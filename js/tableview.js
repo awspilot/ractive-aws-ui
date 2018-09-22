@@ -31,7 +31,10 @@ Ractive.components.tablebrowse = Ractive.extend({
 
 		async.parallel([
 			function(cb) {
-				ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
+
+
+				routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+				//ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
 					if (err)
 						return cb(err);
 
