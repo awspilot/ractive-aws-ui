@@ -12,7 +12,8 @@ header {position: absolute;top: 0px;left: 0px;right: 0px;height: 56px;background
 .btn:hover {cursor: pointer;}
 .btn:active {box-shadow: inset 0 2px 2px #33373a;}
 .btn > i {vertical-align: top;}
-.btn-xs {}
+.btn-xs {display: inline-block;min-width: 18px;height: 18px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;font-size: 11px;}
+.btn-xs .zmdi {font-size: 16px;}
 
 
 miniheader {display: block;height: 20px;line-height: 20px;background-color: #424242;border: 1px solid #383838;font-size: 12px;padding-left: 10px;}
@@ -39,8 +40,7 @@ content tabcontent .tableview .tablebrowse {display: block;position: absolute;to
 
 content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 120px;border-top: 1px solid #383838;overflow: hidden;}
 content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;padding-left: 40px;}
-content tabcontent .tableview .tablebrowse .tabledatacontrols .btn {display: inline-block;min-width: 18px;height: 18px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;font-size: 11px;}
-content tabcontent .tableview .tablebrowse .tabledatacontrols .btn .zmdi {font-size: 16px;}
+
 
 content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
 
