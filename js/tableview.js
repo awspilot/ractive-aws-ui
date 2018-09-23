@@ -146,11 +146,11 @@ Ractive.components.tabledata = Ractive.extend({
 			<ace mode='sql' value='{{table.sql}}' theme='custom' />\
 		</div>\
 		<div class='tabledatacontrols'>\
-			<div class='btn' on-click='run-sql' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			<div class='btn btn-xs' on-click='run-sql' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
 			\
-			<div class='btn pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
-			<div class='btn pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
-			<div class='btn pull-right' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
+			<div class='btn btn-xs pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
+			<div class='btn btn-xs pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
+			<div class='btn btn-xs pull-right' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
 		</div>\
 		<div class='tabledata'>\
 			<div class='tabledatahead'>\
