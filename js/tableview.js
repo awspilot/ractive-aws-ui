@@ -17,7 +17,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 	template: "\
 		<div class='tablebrowse'>\
 			<!-- table query -->\
-			<tablebrowse table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
+			<tablebrowsehead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
 		</div>",
 	data: {},
 	refresh_data: function() {
@@ -140,7 +140,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 
 	},
 })
-Ractive.components.tablebrowse = Ractive.extend({
+Ractive.components.tablebrowsehead = Ractive.extend({
 	template: "\
 		<div class='tablequery'>\
 			<ace mode='sql' value='{{table.sql}}' theme='custom' />\
