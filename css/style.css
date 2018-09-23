@@ -26,7 +26,7 @@ left > .scrollarea {border: 1px solid #383838;}
 left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-bottom: 1px solid #454545;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
 left tables > div:hover {color: #fff;background-color: #383838;/*border: 1px solid #636363;*/}
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;border: 1px solid #383838;background-color: #474747}
-content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;background-color: #424242;overflow: hidden;}
+content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;background-color: #424242;overflow: hidden;padding-left: 40px;}
 content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;font-size: 14px;}
 content tabhead tab.active {background-color: #535353;color: #fff;}
 content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
