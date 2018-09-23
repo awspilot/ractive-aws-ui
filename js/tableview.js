@@ -2,7 +2,7 @@ Ractive.components.tableview = Ractive.extend({
 	//isolated: true,
 	template:
 		"<div class='tableview {{#if active}}active{{/if}}'>\
-			<div style='position: absolute;top: 0px;left: 0px;width: 40px;bottom: 0px;'>\
+			<div style='position: absolute;top: 0px;left: 0px;width: 40px;bottom: 0px;background: #424242'>\
 				<a class='btn-tableview-tab'><i class='zmdi zmdi-info'></i></a>\
 				<a class='btn-tableview-tab active'><i class='zmdi zmdi-format-list-bulleted'></i></a>\
 			</div>\
