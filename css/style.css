@@ -33,7 +33,7 @@ content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align
 content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 content tabcontent {position: absolute;top: 29px;left: 0px;right: 0px;bottom: 0px;}
 
-.btn-tableview-tab {display: inline-block;width: 40px;height: 40px;text-align: center;vertical-align: middle;margin-bottom: 10px;}
+.btn-tableview-tab {display: inline-block;width: 40px;height: 40px;text-align: center;vertical-align: middle;}
 .btn-tableview-tab i {line-height: 40px;line-height: 30px;background-color: #383838;margin: 5px;width: 30px;height: 30px;border-radius: 5px;}
 
 content tabcontent .tableview {display: none;}
