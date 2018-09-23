@@ -3,19 +3,33 @@ Ractive.components.tableview = Ractive.extend({
 	template:
 		"<div class='tableview {{#if active}}active{{/if}}'>\
 			<div style='position: absolute;top: 0px;left: 0px;width: 40px;bottom: 0px;background: #424242'>\
-				<a class='btn-tableview-tab'><i class='zmdi zmdi-info'></i></a>\
-				<a class='btn-tableview-tab active'><i class='zmdi zmdi-format-list-bulleted'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"info\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"info\")'><i class='zmdi zmdi-info'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"data\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"data\")'><i class='zmdi zmdi-format-list-bulleted'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"metrics\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"metrics\")'><i class='zmdi zmdi-chart'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"alarms\"}}active{{/if}}'       on-click='@this.set(\"tab\",\"alarms\")'><i class='zmdi zmdi-notifications'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"capacity\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"capacity\")'><i class='zmdi zmdi-memory'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"indexes\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"indexes\")'><i class='zmdi zmdi-format-line-spacing'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"globaltables\"}}active{{/if}}' on-click='@this.set(\"tab\",\"globaltables\")'><i class='zmdi zmdi-globe'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"backups\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"backups\")'><i class='zmdi zmdi-card-sd'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"triggers\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"triggers\")'><i class='zmdi zmdi-portable-wifi'></i></a>\
 			</div>\
 			<div style='position: absolute;top: 0px;left: 40px;right: 0px;bottom: 0px;'>\
+				{{#if tab === 'data'}}\
 				<tablebrowse table='{{.table}}'/>\
+				{{/if}}\
 			</div>\
 		</div>",
-	data: {},
+	data: {
+		tab: 'data',
+	},
 
 	oninit: function() {
 
 		var ractive = this
-		//ractive.on('open-table', function(e, table ) {})
+		ractive.on('tab', function(e, tab ) {
+			console.log("tab", e.resolve(), e, tab )
+
+		})
 
 	},
 })
