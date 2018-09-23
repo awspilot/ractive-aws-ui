@@ -59,100 +59,8 @@ Resources:
                     exports.handler = function(event, context) {
                         console.log("event=", event )
                         switch ( event.resourcePath ) {
-                            case '/dynamodb':
-                                switch ( event._POST.method ) {
-                                    case 'listTables':
-                                        dynamodb.listTables(event._POST.payload, context.done )
-                                        break;
-                                    case 'describeTable':
-                                        dynamodb.describeTable(event._POST.payload, context.done )
-                                        break;
-                                    case 'scan':
-                                        dynamodb.scan(event._POST.payload, context.done )
-                                        break;
-                                    case 'query':
-                                        dynamodb.query(event._POST.payload, context.done )
-                                        break;
-                                    default:
-                                        context.done(null, {
-                                            debug: event,
-                                        });
-                                }
-
-                                break;
-                            default:
-                                context.done(null, {
-                                    debug: event,
-                                });
-                        }
-
-                    };
-
-    APIPermissionToRunLambda:
-        Type: AWS::Lambda::Permission
-        Properties:
-          Action: lambda:InvokeFunction
-          FunctionName: !Ref DynamodbUiCallProxyFunction
-          Principal: apigateway.amazonaws.com
-
-
-
-    Deployment27:
-        Type: AWS::ApiGateway::Deployment
-        Properties:
-          RestApiId: !Ref API
-          StageName: dummy
-    v1:
-        Type: AWS::ApiGateway::Stage
-        Properties:
-          StageName: v1
-          Description: v1 Stage
-          RestApiId: !Ref API
-          DeploymentId: !Ref Deployment27
-
-
-
-
-    API:
-      Type: AWS::ApiGateway::RestApi
-      Properties:
-        # EndpointConfiguration:
-        #    Types:
-        #      - REGIONAL
-        Description: DynamoDB UI
-        Name: "dynamodbui"
-        FailOnWarnings: true
-        Body: !Sub
-          - |
-            swagger: "2.0"
-            info:
-              version: "2017-01-11T12:08:03Z"
-              title: "api"
-            basePath: "/v1"
-            schemes:
-            - "https"
-            paths:
-              /:
-                    get:
-                      consumes:
-                      - "application/json"
-                      produces:
-                      - "text/html"
-                      responses:
-                        200:
-                          description: "200 response"
-                          headers:
-                            Content-Type:
-                              type: "string"
-                      x-amazon-apigateway-integration:
-                        responses:
-                          default:
-                            statusCode: "200"
-                            responseParameters:
-                              method.response.header.Content-Type: "'text/html'"
-                            responseTemplates:
-                              text/html:
-                                    |
+                            case '/':
+                                context.done(null, { html: `
                                     <!DOCTYPE html>
                                     <html>
                                     <head>
@@ -198,10 +106,117 @@ Resources:
 
                                     </body>
                                     </html>
-                        passthroughBehavior: "when_no_match"
-                        requestTemplates:
-                          application/json: "{\"statusCode\": 200}"
-                        type: "mock"
+                                `})
+                                break;
+                            case '/dynamodb':
+                                switch ( event._POST.method ) {
+                                    case 'listTables':
+                                        dynamodb.listTables(event._POST.payload, context.done )
+                                        break;
+                                    case 'describeTable':
+                                        dynamodb.describeTable(event._POST.payload, context.done )
+                                        break;
+                                    case 'scan':
+                                        dynamodb.scan(event._POST.payload, context.done )
+                                        break;
+                                    case 'query':
+                                        dynamodb.query(event._POST.payload, context.done )
+                                        break;
+                                    default:
+                                        context.done(null, {
+                                            debug: event,
+                                        });
+                                }
+
+                                break;
+                            default:
+                                context.done(null, {
+                                    debug: event,
+                                });
+                        }
+
+                    };
+
+    APIPermissionToRunLambda:
+        Type: AWS::Lambda::Permission
+        Properties:
+          Action: lambda:InvokeFunction
+          FunctionName: !Ref DynamodbUiCallProxyFunction
+          Principal: apigateway.amazonaws.com
+
+
+
+    Deployment30:
+        Type: AWS::ApiGateway::Deployment
+        Properties:
+          RestApiId: !Ref API
+          StageName: dummy
+    v1:
+        Type: AWS::ApiGateway::Stage
+        Properties:
+          StageName: v1
+          Description: v1 Stage
+          RestApiId: !Ref API
+          DeploymentId: !Ref Deployment30
+
+
+
+
+    API:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        # EndpointConfiguration:
+        #    Types:
+        #      - REGIONAL
+        Description: DynamoDB UI
+        Name: "dynamodbui"
+        FailOnWarnings: true
+        Body: !Sub
+          - |
+            swagger: "2.0"
+            info:
+              version: "2017-01-11T12:08:03Z"
+              title: "api"
+            basePath: "/v1"
+            schemes:
+            - "https"
+            paths:
+              /:
+                get:
+                  consumes:
+                  - "application/json"
+                  produces:
+                  - "text/html"
+                  responses:
+                    200:
+                      description: "200 response"
+                      headers:
+                        Cache-Control:
+                          type: "string"
+                        Pragma:
+                          type: "string"
+                        Expires:
+                          type: "string"
+                        Content-Type:
+                          type: "string"
+                  x-amazon-apigateway-integration:
+                    responses:
+                      default:
+                        statusCode: "200"
+                        responseParameters:
+                          method.response.header.Content-Type: "'text/html'"
+                        responseTemplates:
+                          text/html: "#set($inputRoot = $input.path('$')) \n\n$inputRoot.html\n"
+                    requestTemplates:
+                        application/json:
+                            |
+                            {
+                            	"resourcePath": "/"
+                            }
+                    uri: "${lambdaapi}"
+                    passthroughBehavior: "when_no_templates"
+                    httpMethod: "POST"
+                    type: "aws"
 
               /dynamodb:
                   post:
