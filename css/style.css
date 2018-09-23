@@ -10,7 +10,7 @@ header {position: absolute;top: 0px;left: 0px;right: 0px;height: 56px;background
 
 .btn {display: inline-block;user-select: none;color: #869094;background: linear-gradient(to bottom, #525a5f 0%, #404548 100%);box-shadow: inset 0 1px #606f75, 0 1px 2px rgba(0, 0, 0, 0.2);border-radius: 1px;}
 .btn:hover {cursor: pointer;}
-.btn:active {box-shadow: inset 0 2px 2px #455a64;}
+.btn:active {box-shadow: inset 0 2px 2px #33373a;}
 .btn > i {vertical-align: top;}
 .btn-xs {}
 
