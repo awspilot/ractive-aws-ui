@@ -2,7 +2,11 @@ Ractive.components.tableview = Ractive.extend({
 	//isolated: true,
 	template:
 		"<div class='tableview {{#if active}}active{{/if}}'>\
-			<tablebrowse table='{{.table}}'/>\
+			<div>\
+			</div>\
+			<div style='position: absolute;top: 0px;left: 50px;right: 0px;bottom: 0px;'>\
+				<tablebrowse table='{{.table}}'/>\
+			</div>\
 		</div>",
 	data: {},
 
