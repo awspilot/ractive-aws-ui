@@ -74,7 +74,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 				ractive.set('columns', [ null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity'])
 				ractive.set('rows', data.TableNames.map(function(t) {
 					return [
-						null,
+						{ KEY: true },
 						{ S: t },
 						{ },
 						{ },
