@@ -14,10 +14,13 @@ Ractive.components.tabs = Ractive.extend({
 		{{/tabs}}\
 		</tabhead>\
 		<tabcontent>\
-			<tablelistfull />\
-			{{#tabs}}\
-				<tableview table={{.}}  />\
-			{{/tabs}}\
+			{{#if active_id === \"tables\" }}\
+				<tablelistfull />\
+			{{else}}\
+				{{#tabs}}\
+					<tableview table={{.}}  />\
+				{{/tabs}}\
+			{{/if}}\
 		</tabcontent>\
 		",
 	data: {

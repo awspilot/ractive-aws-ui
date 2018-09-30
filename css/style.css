@@ -56,7 +56,7 @@ content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;r
 
 
 
-content tabcontent .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;overflow: hidden;}
+content tabcontent .tabledata {display: block;position: absolute;left:0px;right: 0px;bottom: 0px;overflow: hidden;}
 
 
 
@@ -179,6 +179,7 @@ body.theme_dark content {border: 1px solid #383838;background-color: #474747}
 body.theme_dark content tabhead {background-color: #424242;}
 body.theme_dark content tabhead tab {border-right: 1px solid #383838;}
 body.theme_dark content tabhead tab.active {background-color: #535353;color: #fff;}
+body.theme_dark content tabcontent {background-color: red;}
 body.theme_dark content tabcontent .tableview-table-tabs {background: #424242}
 body.theme_dark .btn-tableview-tab.active i {background-color: #383838;}
 body.theme_dark content tabcontent .tablequery {border-top: 1px solid #383838;}
@@ -234,6 +235,7 @@ body.theme_light content tabhead {background-color: #ececec;}
 body.theme_light content tabhead tab:first-child {border-left: 1px solid #cccccc;}
 body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
 body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
+body.theme_light content tabcontent {background-color: #ffffff;}
 body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff}
 body.theme_light .btn-tableview-tab.active i {background-color: #e5e5e5;color: #000000;}
 body.theme_light content tabcontent .tablequery {border-top: 1px solid #383838;}

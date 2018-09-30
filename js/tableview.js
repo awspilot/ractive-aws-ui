@@ -172,7 +172,7 @@ Ractive.components.tablebrowsehead = Ractive.extend({
 			<div class='btn btn-xs pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
 			<div class='btn btn-xs pull-right' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
 		</div>\
-		<tabledata columns='{{columns}}' rows='{{rows}}' />\
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
 		",
 	data: {},
 	oninit: function() {

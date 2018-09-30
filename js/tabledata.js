@@ -2,7 +2,7 @@ Ractive.components.tabledata = Ractive.extend({
 	//isolated: true,
 	template:
 		"\
-		<div class='tabledata'>\
+		<div class='tabledata' style='{{style}}'>\
 			<div class='tabledatahead'>\
 				{{#columns:i}}\
 					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
