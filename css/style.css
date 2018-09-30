@@ -62,7 +62,7 @@ content tabcontent .tabledata {display: block;position: absolute;left:0px;right:
 
 
 content tabcontent .tabledata .tabledatahead,
-content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
+content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch}
 
 content tabcontent .tabledata .tabledatarow:hover {}
 
