@@ -26,8 +26,12 @@ left {position:absolute;display: block;top: 56px;left: 0px;width: 260px;bottom: 
 
 
 
-left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-bottom: 1px solid #454545;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
-left tables > div:hover {color: #fff;background-color: #383838;/*border: 1px solid #636363;*/}
+left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
+
+
+
+
+
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;border: 1px solid #383838;background-color: #474747}
 content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;background-color: #424242;overflow: hidden;padding-left: 40px;}
 content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;font-size: 14px;}
@@ -148,11 +152,23 @@ body.theme_dark  header {background-color: #535353;/*box-shadow: 0 2px 5px rgba(
 body.theme_dark  miniheader {background-color: #424242;border: 1px solid #383838;}
 body.theme_dark  left {background-color: #474747}
 body.theme_dark  left > .scrollarea {border: 1px solid #383838;}
+body.theme_dark left tables > div {border-bottom: 1px solid #454545;}
+body.theme_dark left tables > div:hover {color: #fff;background-color: #383838;/*border: 1px solid #636363;*/}
 
 
 
 body.theme_light {background-color: #f0f0f0;color: #999999;}
 body.theme_light header {background-color: #f0f0f0;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
-body.theme_light miniheader {background-color: #ffffff;border: 1px solid #b9b8b6;}
+body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
 body.theme_light left {background-color: #ffffff}
 body.theme_light left > .scrollarea {border: 1px solid #b9b8b6;}
+body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4}
+body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
+
+
+/*
+
+
+
+	background: ;
+*/
