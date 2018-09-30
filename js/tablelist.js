@@ -5,6 +5,7 @@ Ractive.components.tablelist = Ractive.extend({
 		<miniheader>\
 			Tables\
 			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
+			<a class='btn btn-xs pull-right' on-click='create'><i class='icon zmdi zmdi-plus'></i></a>\
 		</miniheader>\
 		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
 		<tables>\
@@ -40,6 +41,9 @@ Ractive.components.tablelist = Ractive.extend({
 		var ractive = this
 		ractive.on('open-table', function(e, table ) {
 			ractive.root.fire('open-table', table )
+		})
+		ractive.on('create', function() {
+			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
 		})
 	},
 })
