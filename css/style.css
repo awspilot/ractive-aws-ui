@@ -106,8 +106,10 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatace
 
 
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;background-color: #474747;}
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;background-color: #474747;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;}
+
+
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
 
@@ -180,6 +182,8 @@ body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledata
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #424242;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {background-color: #474747;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {background-color: #474747;}
 
 
 
@@ -209,6 +213,8 @@ body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledat
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {background-color: #ffffff;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {background-color: #ffffff;}
 
 
 
