@@ -35,8 +35,8 @@ left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13p
 
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;}
 content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;padding-left: 40px;}
-content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;border-right: 1px solid #383838;cursor: pointer;font-size: 14px;}
-content tabhead tab.active {background-color: #535353;color: #fff;}
+content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
+content tabhead tab.active {}
 content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
 content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;}
@@ -157,7 +157,8 @@ body.theme_dark left tables > div {border-bottom: 1px solid #454545;}
 body.theme_dark left tables > div:hover {color: #fff;background-color: #383838;/*border: 1px solid #636363;*/}
 body.theme_dark content {border: 1px solid #383838;background-color: #474747}
 body.theme_dark content tabhead {background-color: #424242;}
-
+body.theme_dark content tabhead tab {border-right: 1px solid #383838;}
+body.theme_dark content tabhead tab.active {background-color: #535353;color: #fff;}
 
 
 body.theme_light {background-color: #f0f0f0;color: #999999;}
@@ -169,7 +170,9 @@ body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146
 body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
 body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff}
 body.theme_light content tabhead {background-color: #ececec;}
-
+body.theme_light content tabhead tab:first-child {border-left: 1px solid #cccccc;}
+body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
+body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
 
 
 
