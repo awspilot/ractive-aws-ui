@@ -11,7 +11,7 @@ Ractive.components.dynamoui = Ractive.extend({
 				<tablelist />\
 			</left>\
 			<content>\
-				<tabs />\
+				<tabs active_id='tables' />\
 			</content>",
 	data: {},
 	components: {
