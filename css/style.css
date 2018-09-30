@@ -98,7 +98,6 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .ta
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;}
 
 
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
@@ -180,6 +179,7 @@ body.theme_dark content tabcontent .tableview .tablebrowse .tabledata {border-to
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background-color: #424242;border-bottom: 1px solid #383838;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #424242;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #424242;}
 
 
 
@@ -208,6 +208,7 @@ body.theme_light content tabcontent .tableview .tablebrowse .tabledata {border-t
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;}
 
 
 
