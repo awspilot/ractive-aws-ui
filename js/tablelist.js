@@ -53,6 +53,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 	template:
 		"\
 			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
+			<a class='btn btn-xs pull-right' on-click='delete'><i class='icon zmdi zmdi-delete'></i></a>\
+		\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 28px;'/>\
 		",
 	data: {},
@@ -92,7 +94,6 @@ Ractive.components.tablelistfull = Ractive.extend({
 							if (err)
 								return cb()
 
-							console.log(err, data)
 							ractive.set('rows', ractive.get('rows').map(function(row) {
 								if ( row[1].S === t ) {
 
@@ -112,7 +113,6 @@ Ractive.components.tablelistfull = Ractive.extend({
 					return f;
 				})
 
-				console.log(waterfallz)
 				async.waterfall(waterfallz, function( err ) {
 
 
@@ -132,6 +132,24 @@ Ractive.components.tablelistfull = Ractive.extend({
 		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+		})
+		ractive.on('delete', function() {
+			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+
+			if ( selected.length === 0 )
+				return alert('Please select a table to delete')
+
+			if ( selected.length > 1 )
+				return alert('Please select one table at a time')
+
+			var tablename = selected[0][1].S
+
+			if (confirm('Are you sure you want to delete table ' + tablename )) {
+				routeCall({ method: 'deleteTable', payload: { TableName: tablename } }, function(err, data) {
+					ractive.refresh_tables()
+				})
+			}
+
 		})
 	},
 })

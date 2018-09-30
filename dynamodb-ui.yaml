@@ -98,41 +98,38 @@ Resources:
 
                                     	<link rel="stylesheet" href="` + process.env.CDN + `awspilot/dynamodb-ui/master/css/style.css"/>
                                     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css"/>
-                                        <script>
-                                            var installation_type = 'apigw'
-                                        </script>
-                                    </head>
-                                    <body class="theme_light">
-
-                                    </body>
-                                    </html>
-                                `})
-                                break;
+                                    	<script>
+                                			var installation_type = 'apigw'
+                                		</script>
+                                	</head>
+                                	<body class="theme_light">
+                                	</body>
+                            	</html>
+                            `})
+                            	break;
                             case '/dynamodb':
-                                switch ( event._POST.method ) {
-                                    case 'listTables':
-                                        dynamodb.listTables(event._POST.payload, context.done )
-                                        break;
-                                    case 'describeTable':
-                                        dynamodb.describeTable(event._POST.payload, context.done )
-                                        break;
-                                    case 'scan':
-                                        dynamodb.scan(event._POST.payload, context.done )
-                                        break;
-                                    case 'query':
-                                        dynamodb.query(event._POST.payload, context.done )
-                                        break;
-                                    default:
-                                        context.done(null, {
-                                            debug: event,
-                                        });
-                                }
-
-                                break;
+                            	switch ( event._POST.method ) {
+                            		case 'listTables':
+                            			dynamodb.listTables(event._POST.payload, context.done )
+                            			break;
+                            		case 'deleteTable':
+                            			dynamodb.deleteTable(event._POST.payload, context.done )
+                            			break;
+                            		case 'describeTable':
+                            			dynamodb.describeTable(event._POST.payload, context.done )
+                            			break;
+                            		case 'scan':
+                            			dynamodb.scan(event._POST.payload, context.done )
+                            			break;
+                            		case 'query':
+                            			dynamodb.query(event._POST.payload, context.done )
+                            			break;
+                            		default:
+                            			context.done(null, { debug: event,});
+                            	}
+                            	break;
                             default:
-                                context.done(null, {
-                                    debug: event,
-                                });
+                            	context.done(null, { debug: event, });
                         }
 
                     };
