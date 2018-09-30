@@ -152,5 +152,24 @@ Ractive.components.tablelistfull = Ractive.extend({
 			}
 
 		})
+		ractive.on('create', function() {
+			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
+		})
+	},
+})
+
+
+
+
+
+
+Ractive.components.tablecreate = Ractive.extend({
+	//isolated: true,
+	template:
+		"creatin table",
+	data: {},
+
+	oninit: function() {
+		var ractive = this
 	},
 })

@@ -18,7 +18,12 @@ Ractive.components.tabs = Ractive.extend({
 				<tablelistfull />\
 			{{else}}\
 				{{#tabs}}\
-					<tableview table={{.}}  />\
+					{{#if .type === 'tableview' }}\
+						<tableview table={{.}}  />\
+					{{/if}}\
+					{{#if .type === 'tablecreate' }}\
+						<tablecreate />\
+					{{/if}}\
 				{{/tabs}}\
 			{{/if}}\
 		</tabcontent>\
@@ -38,8 +43,11 @@ Ractive.components.tabs = Ractive.extend({
 		var id=Math.random()
 		this.set('active_id', id )
 		this.push('tabs', {
-			name: param1,
 			id: id,
+
+			name: param1,
+			type: component_name,
+
 			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n",
 		} )
 		this.activetabcontent()
