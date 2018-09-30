@@ -56,7 +56,10 @@ content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolut
 
 
 
-content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;overflow: hidden;}
+
+
+
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow { display: flex;width: 100%;justify-content: center}
@@ -99,7 +102,10 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bott
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;}
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;border-right: 1px solid #424242;white-space: nowrap;padding-left: 6px;position: relative;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;white-space: nowrap;padding-left: 6px;position: relative;}
+
+
+
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;background-color: #474747;}
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;background-color: #474747;}
@@ -170,7 +176,10 @@ body.theme_dark content tabcontent .tableview-table-tabs {background: #424242}
 body.theme_dark .btn-tableview-tab.active i {background-color: #383838;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tablequery {border-top: 1px solid #383838;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledatacontrols {background-color: #424242;border-bottom: 1px solid #383838;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata {border-top: 1px solid #383838;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background-color: #424242;border-bottom: 1px solid #383838;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #424242;}
 
 
 
@@ -195,7 +204,10 @@ body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff}
 body.theme_light .btn-tableview-tab.active i {background-color: #e5e5e5;color: #000000;}
 body.theme_light content tabcontent .tableview .tablebrowse .tablequery {border-top: 1px solid #383838;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata {border-top: 1px solid #e0e0e0;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatahead > div,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
 
 
 
