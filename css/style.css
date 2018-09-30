@@ -51,7 +51,7 @@ content tabcontent .tableview.active { display: block;}
 
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
-content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 120px;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;}
 content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding-left: 40px;}
 
 
