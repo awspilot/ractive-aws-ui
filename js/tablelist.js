@@ -169,8 +169,69 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 Ractive.components.tablecreate = Ractive.extend({
 	//isolated: true,
-	template:
-		"creatin table",
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Create DynamoDB table</h3>\
+			<hr>\
+			DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
+			\
+			<br><br>\
+			<table cellpadding='10'>\
+				<tr>\
+					<td>Table name</td>\
+					<td><input type='text'></td>\
+				</tr>\
+				<tr>\
+					<td>Partition key</td>\
+					<td><input type='text'></td>\
+					<td>\
+						<select>\
+							<option value='S'>String</option>\
+							<option value='N'>Number</option>\
+							<option value='B'>Binary</option>\
+						</select>\
+					</td>\
+				</tr>\
+				<tr>\
+					<td></td>\
+					<td><input type='checkbox' checked='{{sort_enabled}}' />Add sort key</td>\
+				</tr>\
+				{{#if sort_enabled}}\
+				<tr>\
+					<td>Sort key</td>\
+					<td><input type='text'></td>\
+					<td>\
+						<select>\
+							<option value='S'>String</option>\
+							<option value='N'>Number</option>\
+							<option value='B'>Binary</option>\
+						</select>\
+					</td>\
+				</tr>\
+				{{/if}}\
+			</table>\
+			<br>\
+			<br>\
+			<h4>Provisioned capacity</h4>\
+			<table cellpadding='10'>\
+				<tr>\
+					<td></td>\
+					<td>Read capacity</td>\
+					<td>Write capacity</td>\
+				</tr>\
+				<tr>\
+					<td>Table</td>\
+					<td><input type='text' size='4' /></td>\
+					<td><input type='text' size='4' /></td>\
+				</tr>\
+			</table>\
+			<br>\
+			<hr>\
+			<br>\
+			<a class='btn btn-md btn-primary'>Create</a>\
+			<br>\
+		</div>\
+	",
 	data: {},
 
 	oninit: function() {
