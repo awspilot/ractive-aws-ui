@@ -172,6 +172,8 @@ Ractive.components.tablecreate = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
 			<h3>Create DynamoDB table</h3>\
+			<br>\
+			<div style='color:red'>{{ err }}</div>\
 			<hr>\
 			DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
 			\
@@ -179,13 +181,13 @@ Ractive.components.tablecreate = Ractive.extend({
 			<table cellpadding='10'>\
 				<tr>\
 					<td>Table name</td>\
-					<td><input type='text'></td>\
+					<td><input type='text' value='{{newtable.table_name}}'></td>\
 				</tr>\
 				<tr>\
 					<td>Partition key</td>\
-					<td><input type='text'></td>\
+					<td><input type='text' value='{{newtable.primary_key_name}}'></td>\
 					<td>\
-						<select>\
+						<select value='{{newtable.primary_key_type}}'>\
 							<option value='S'>String</option>\
 							<option value='N'>Number</option>\
 							<option value='B'>Binary</option>\
@@ -194,14 +196,14 @@ Ractive.components.tablecreate = Ractive.extend({
 				</tr>\
 				<tr>\
 					<td></td>\
-					<td><input type='checkbox' checked='{{sort_enabled}}' />Add sort key</td>\
+					<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>\
 				</tr>\
-				{{#if sort_enabled}}\
+				{{#if newtable.sort_enabled}}\
 				<tr>\
 					<td>Sort key</td>\
-					<td><input type='text'></td>\
+					<td><input type='text' value='{{newtable.sort_key_name}}'></td>\
 					<td>\
-						<select>\
+						<select value='{{newtable.sort_key_type}}'>\
 							<option value='S'>String</option>\
 							<option value='N'>Number</option>\
 							<option value='B'>Binary</option>\
@@ -221,20 +223,70 @@ Ractive.components.tablecreate = Ractive.extend({
 				</tr>\
 				<tr>\
 					<td>Table</td>\
-					<td><input type='text' size='4' /></td>\
-					<td><input type='text' size='4' /></td>\
+					<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' /></td>\
+					<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' /></td>\
 				</tr>\
 			</table>\
 			<br>\
 			<hr>\
 			<br>\
-			<a class='btn btn-md btn-primary'>Create</a>\
+			<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
 			<br>\
 		</div>\
 	",
-	data: {},
+	data: {
+		newtable: {
+			table_read_capacity: 1,
+			table_write_capacity: 1,
+		}
+	},
 
 	oninit: function() {
 		var ractive = this
+		ractive.on('create', function() {
+
+
+			var payload = {
+				TableName: ractive.get('newtable.table_name'),
+
+				AttributeDefinitions: [
+					{
+						AttributeName: ractive.get('newtable.primary_key_name'),
+						AttributeType: ractive.get('newtable.primary_key_type')
+					},
+				],
+				KeySchema: [
+					{
+						AttributeName: ractive.get('newtable.primary_key_name'),
+						KeyType: "HASH"
+					},
+				],
+				ProvisionedThroughput: {
+					ReadCapacityUnits: ractive.get('newtable.table_read_capacity'),
+					WriteCapacityUnits: ractive.get('newtable.table_write_capacity'),
+				},
+			};
+			if (ractive.get('newtable.sort_enabled')) {
+				payload.KeySchema.push(					{
+					AttributeName: ractive.get('newtable.sort_key_name'),
+					KeyType: "RANGE"
+				})
+				payload.AttributeDefinitions.push({
+					AttributeName: ractive.get('newtable.sort_key_name'),
+					AttributeType: ractive.get('newtable.sort_key_type')
+				})
+			}
+			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
+				if (err) {
+					ractive.set(err, JSON.stringify(err))
+					return
+				}
+
+
+			})
+			console.log(
+				payload
+			)
+		})
 	},
 })
