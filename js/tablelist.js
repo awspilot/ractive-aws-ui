@@ -6,7 +6,7 @@ Ractive.components.tablelist = Ractive.extend({
 			Tables\
 			<i class='icon zmdi zmdi-refresh' style='float:right;' on-click='@this.refresh_tables()'>\
 		</miniheader>\
-		<scrollarea class='scrollarea' style='position: absolute;left: 0px;top: 21px;right: 0px;bottom: 0px;'>\
+		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
 		<tables>\
 			{{#tables}}\
 			<div on-click='@this.fire(\"open-table\",.)'> {{.}} </div>\
