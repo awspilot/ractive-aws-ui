@@ -77,7 +77,22 @@ content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .table
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-M,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-U,
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:before,
-content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {background-color: #1868d8;color: #fff;border-right: 1px solid transparent;}
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {border-right: 1px solid transparent;}
+
+
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-K,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-S,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-N,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-L,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-M,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-U,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:before,
+content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {background-color: #1868d8;}
+
 
 
 content tabcontent .tableview .tablebrowse .tabledata .tabledatarow.selected .tabledatacell {background-color: #1868d8 !important;}
@@ -187,7 +202,18 @@ body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledata
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {background-color: #474747;}
 body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell {background-color: #1868d8 !important;}
 
-
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-K,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-S,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-N,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-L,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-M,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-U,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:before,
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {background-color: #1868d8;}
 
 
 /* theme light */
@@ -218,7 +244,19 @@ body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledat
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:before {background-color: #ffffff;}
 body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow .tabledatacell:after  {background-color: #ffffff;}
-body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell {background-color: red !important;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell {background-color: #1868d8 !important;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-K,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-S,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-N,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-L,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-M,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell.t-U,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:before,
+body.theme_light content tabcontent .tableview .tablebrowse .tabledata .tabledatarow:hover .tabledatacell:after {background-color: #1868d8;}
 
 
 
