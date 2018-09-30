@@ -126,8 +126,12 @@ Ractive.components.tablelistfull = Ractive.extend({
 	oninit: function() {
 		this.refresh_tables()
 		var ractive = this
-		ractive.on('open-table', function(e, table ) {
-			ractive.root.fire('open-table', table )
+		//ractive.on('open-table', function(e, table ) {
+		//	ractive.root.fire('open-table', table )
+		//})
+		ractive.on('tabledata.selectrow', function(context) {
+			var keypath = context.resolve()
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 		})
 	},
 })
