@@ -52,11 +52,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 	//isolated: true,
 	template:
 		"\
-		<miniheader>\
-			Tables\
 			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
-		</miniheader>\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px;'/>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 28px;'/>\
 		",
 	data: {},
 	refresh_tables: function() {

@@ -34,7 +34,7 @@ left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13p
 
 
 content {position:absolute;display: block;top: 56px;left: 265px;right: 0px;bottom: 0px;}
-content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;padding-left: 40px;}
+content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
 content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
 content tabhead tab.active {}
 content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
@@ -232,7 +232,7 @@ body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146
 body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
 body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff}
 body.theme_light content tabhead {background-color: #ececec;}
-body.theme_light content tabhead tab:first-child {border-left: 1px solid #cccccc;}
+body.theme_light content tabhead tab:first-child {}
 body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
 body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
 body.theme_light content tabcontent {background-color: #ffffff;}
