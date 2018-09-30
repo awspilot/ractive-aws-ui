@@ -44,7 +44,6 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 .btn-tableview-tab {display: inline-block;width: 40px;height: 40px;text-align: center;vertical-align: middle;}
 .btn-tableview-tab:hover {cursor: pointer;}
 .btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;}
-.btn-tableview-tab.active i {background-color: #383838;}
 
 content tabcontent .tableview-table-tabs {position: absolute;top: 0px;left: 0px;width: 40px;bottom: 0px;}
 content tabcontent .tableview {display: none;}
@@ -52,8 +51,9 @@ content tabcontent .tableview.active { display: block;}
 
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
-content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 120px;border-top: 1px solid #383838;overflow: hidden;}
-content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;background-color: #424242;border-bottom: 1px solid #383838;padding-left: 40px;}
+content tabcontent .tableview .tablebrowse .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 120px;overflow: hidden;}
+content tabcontent .tableview .tablebrowse .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding-left: 40px;}
+
 
 
 content tabcontent .tableview .tablebrowse .tabledata {display: block;position: absolute;top: 148px;left:0px;right: 0px;bottom: 0px;border-top: 1px solid #383838;overflow: hidden;}
@@ -161,6 +161,9 @@ body.theme_dark content tabhead {background-color: #424242;}
 body.theme_dark content tabhead tab {border-right: 1px solid #383838;}
 body.theme_dark content tabhead tab.active {background-color: #535353;color: #fff;}
 body.theme_dark content tabcontent .tableview-table-tabs {background: #424242}
+body.theme_dark .btn-tableview-tab.active i {background-color: #383838;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tablequery {border-top: 1px solid #383838;}
+body.theme_dark content tabcontent .tableview .tablebrowse .tabledatacontrols {background-color: #424242;border-bottom: 1px solid #383838;}
 
 
 
@@ -177,6 +180,9 @@ body.theme_light content tabhead tab:first-child {border-left: 1px solid #cccccc
 body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
 body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
 body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff}
+body.theme_light .btn-tableview-tab.active i {background-color: #e5e5e5;color: #000000;}
+body.theme_light content tabcontent .tableview .tablebrowse .tablequery {border-top: 1px solid #383838;}
+body.theme_light content tabcontent .tableview .tablebrowse .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;}
 
 
 

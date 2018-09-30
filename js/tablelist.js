@@ -4,7 +4,7 @@ Ractive.components.tablelist = Ractive.extend({
 		"\
 		<miniheader>\
 			Tables\
-			<i class='icon zmdi zmdi-refresh' style='float:right;' on-click='@this.refresh_tables()'>\
+			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
 		</miniheader>\
 		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
 		<tables>\
