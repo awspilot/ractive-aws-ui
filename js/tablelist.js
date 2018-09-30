@@ -56,13 +56,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 			Tables\
 			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
 		</miniheader>\
-		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
-		<tables>\
-			{{#tables}}\
-			<div on-click='@this.fire(\"open-table\",.)'> {{.}} </div>\
-			{{/tables}}\
-		</tables>\
-		</scrollarea>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' />\
 		",
 	data: {},
 	refresh_tables: function() {
@@ -79,7 +73,21 @@ Ractive.components.tablelistfull = Ractive.extend({
 					return ractive.set('err', err )
 
 				ractive.set('err')
-				ractive.set('tables', data.TableNames )
+
+				ractive.set('columns', [ null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity'])
+				ractive.set('rows', data.TableNames.map(function(t) {
+					return [
+						null,
+						{ S: t },
+						{ },
+						{ },
+						{ },
+						{ },
+						{ },
+						{ }
+					]
+				}) )
+				//ractive.set('tables', data.TableNames )
 			} )
 		})
 		//ddb.listTables({}, function(err, data) {
