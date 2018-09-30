@@ -3,6 +3,9 @@ Ractive.components.tabs = Ractive.extend({
 	template:
 		"\
 		<tabhead>\
+			<tab class='{{#if active_id === \"tables\" }}active{{/if}}' on-click='@this.fire(\"activetab\", \"tables\")'>\
+				<i class='icon zmdi zmdi-view-dashboard'></i>\
+			</tab>\
 		{{#tabs}}\
 			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
 				{{.name}}\
@@ -11,6 +14,7 @@ Ractive.components.tabs = Ractive.extend({
 		{{/tabs}}\
 		</tabhead>\
 		<tabcontent>\
+			<tablelistfull />\
 			{{#tabs}}\
 				<tableview table={{.}}  />\
 			{{/tabs}}\
