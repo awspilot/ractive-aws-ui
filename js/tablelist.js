@@ -84,6 +84,39 @@ Ractive.components.tablelistfull = Ractive.extend({
 						{ }
 					]
 				}) )
+				var waterfallz = data.TableNames.map(function(t) {
+
+					var f = function( cb ) {
+						//console.log(t)
+						routeCall({ method: 'describeTable', payload: { TableName: t} }, function(err, data) {
+							if (err)
+								return cb()
+
+							console.log(err, data)
+							ractive.set('rows', ractive.get('rows').map(function(row) {
+								if ( row[1].S === t ) {
+
+									row[2].S = data.Table.TableStatus
+									row[3].S = (data.Table.KeySchema.filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName || '-'
+									row[4].S = (data.Table.KeySchema.filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName || '-'
+									row[5].S = (data.Table.GlobalSecondaryIndexes || []).length.toString()
+									row[6].S = ([ data.Table.ProvisionedThroughput.ReadCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.ReadCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
+									row[7].S = ([ data.Table.ProvisionedThroughput.WriteCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.WriteCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
+
+								}
+								return row
+							}))
+							cb()
+						})
+					}
+					return f;
+				})
+
+				console.log(waterfallz)
+				async.waterfall(waterfallz, function( err ) {
+
+
+				})
 				//ractive.set('tables', data.TableNames )
 			} )
 		})

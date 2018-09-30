@@ -77,7 +77,7 @@ Resources:
                                     	<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
                                     	<script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.6.0/async.js"></script>
                                     	<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/awspilot-dynamodb-sql.js"></script>
-                                    	<script src="https://cdn.rawgit.com/awspilot/dynamodb-oop/master/dist/dynamodbjs.js"></script>
+                                    	<script src="https://rawgit.com/awspilot/dynamodb-oop/master/dist/dynamodbjs.js"></script>
 
                                     	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 
