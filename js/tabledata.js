@@ -42,7 +42,9 @@ Ractive.components.tabledata = Ractive.extend({
 			</div>\
 		</div>\
 		",
-	data: {},
+	data: function() {
+		return {}
+	},
 	oninit: function() {
 	}
 })
