@@ -42,20 +42,22 @@ window.addEventListener('load', function() {
 				{{/if}}\
 			{{/if}}\
 			",
-		data: {
-			installation_type: window.installation_type,
-			autoaccount: window.installation_type === 'apigw' ? {
-				endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
-				id: Math.random().toString(),
-				key: {
-					credentials: {
-						accessKeyId: 'k',
-						secretAccessKey: 's',
+		data: function() {
+			return {
+				installation_type: window.installation_type,
+				autoaccount: window.installation_type === 'apigw' ? {
+					endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+					id: Math.random().toString(),
+					key: {
+						credentials: {
+							accessKeyId: 'k',
+							secretAccessKey: 's',
+						},
+						region: 'us-east-1',
 					},
-					region: 'us-east-1',
-				},
-				name: '',
-			} : null,
+					name: '',
+				} : null,
+			}
 		},
 	})
 
