@@ -28,9 +28,7 @@ Ractive.components.tabs = Ractive.extend({
 			{{/if}}\
 		</tabcontent>\
 		",
-	data: {
-
-	},
+	data: function() { return {} },
 	active_cache: [],
 	activetabcontent: function() {
 		var ractive = this
