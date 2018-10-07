@@ -237,13 +237,13 @@ Ractive.components.tablecreate = Ractive.extend({
 							{{#.KeySchema }}\
 								{{#if .KeyType === 'RANGE'}}\
 									<input type='text' value='{{ .AttributeName }}' />\
+									<select value='{{ .AttributeType }}'>\
+										<option value='S'>String</option>\
+										<option value='N'>Number</option>\
+										<option value='B'>Binary</option>\
+									</select>\
 								{{/if}}\
 							{{/.KeySchema }}\
-							<select value='{{ .AttributeType }}'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
 						</td>\
 						<td>\
 							<select value='{{.Projection.ProjectionType}}'>\
@@ -357,9 +357,7 @@ Ractive.components.tablecreate = Ractive.extend({
 
 			var payload = {
 				TableName: ractive.get('newtable.TableName'),
-
 				AttributeDefinitions: ractive.get('newtable.AttributeDefinitions'),
-
 				KeySchema: [
 					{
 						AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
@@ -370,16 +368,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					ReadCapacityUnits: ractive.get('newtable.ProvisionedThroughput.ReadCapacityUnits'),
 					WriteCapacityUnits: ractive.get('newtable.ProvisionedThroughput.WriteCapacityUnits'),
 				},
-				LocalSecondaryIndexes: ractive.get('newtable.LocalSecondaryIndexes').map(function(lsi) {
-					if (lsi.Projection.ProjectionType !== 'INCLUDE')
-						delete lsi.Projection.NonKeyAttributes;
-
-					return lsi;
-				}) || undefined,
+				LocalSecondaryIndexes: ractive.get('newtable.LocalSecondaryIndexes'),
 			};
-
-			if (! payload.LocalSecondaryIndexes.length )
-				delete payload.LocalSecondaryIndexes;
 
 			if (ractive.get('newtable.sort_enabled')) {
 				payload.KeySchema.push({
@@ -391,6 +381,27 @@ Ractive.components.tablecreate = Ractive.extend({
 					AttributeType: ractive.get('newtable.sort_key_type')
 				})
 			}
+
+			payload.LocalSecondaryIndexes = payload.LocalSecondaryIndexes.map(function(lsi) {
+				if (lsi.Projection.ProjectionType !== 'INCLUDE')
+					delete lsi.Projection.NonKeyAttributes;
+
+				payload.AttributeDefinitions.push({
+					AttributeName: lsi.KeySchema[1].AttributeName,
+					AttributeType: lsi.KeySchema[1].AttributeType,
+				})
+				delete lsi.KeySchema[1].AttributeType;
+
+
+				return lsi;
+			})
+
+
+			if (! payload.LocalSecondaryIndexes.length )
+				delete payload.LocalSecondaryIndexes;
+
+
+			console.log("final payload", payload )
 			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
 				if (err) {
 					ractive.set( 'errorMessage', err.message )
