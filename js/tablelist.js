@@ -221,31 +221,47 @@ Ractive.components.tablecreate = Ractive.extend({
 						<td>Type</td>\
 						<td>Partition key</td>\
 						<td>Sort key</td>\
+						<td>Projection type</td>\
 						<td>Projected attributes</td>\
 					</tr>\
 					{{#newtable.LocalSecondaryIndexes}}\
 					<tr>\
 						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
-						<td>{{.type}}</td>\
+						<td>LSI</td>\
 						<td>{{newtable.primary_key_name}} ( \
 							{{#if newtable.primary_key_type === 'S' }}String{{/if}}\
 							{{#if newtable.primary_key_type === 'N' }}Number{{/if}}\
 							{{#if newtable.primary_key_type === 'B' }}Binary{{/if}}\
 						)</td>\
 						<td>\
-							<input type='text' value='{{.KeySchema[1].AttributeName}}' />\
-							<select value='{{.sort_key_type}}'>\
+							{{#.KeySchema }}\
+								{{#if .KeyType === 'RANGE'}}\
+									<input type='text' value='{{ .AttributeName }}' />\
+								{{/if}}\
+							{{/.KeySchema }}\
+							<select value='{{ .sort_key_type }}'>\
 								<option value='S'>String</option>\
 								<option value='N'>Number</option>\
 								<option value='B'>Binary</option>\
 							</select>\
 						</td>\
 						<td>\
-							<select>\
+							<select value='{{.Projection.ProjectionType}}'>\
 								<option value='ALL'>ALL</option>\
 								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
 								<option value='INCLUDE'>INCLUDE</option>\
 							</select>\
+						</td>\
+						<td>\
+							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
+							\
+							{{#.Projection.NonKeyAttributes}}\
+								<span class='badge badge-info'>{{.}}</span><br>\
+							{{/.Projection.NonKeyAttributes}}\
+							\
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
+							\
+							{{/if}}\
 						</td>\
 					</tr>\
 					{{/newtable.LocalSecondaryIndexes}}\
@@ -287,10 +303,30 @@ Ractive.components.tablecreate = Ractive.extend({
 	oninit: function() {
 		var ractive = this
 		ractive.on('add-lsi', function() {
-			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').push({
-				type: 'LSI',
+			ractive.push('newtable.LocalSecondaryIndexes', {
+				IndexName: '',
+				KeySchema: [
+					{
+						//AttributeName: 'STRING_VALUE', /* required */
+						KeyType: 'HASH',
+					},
+					{
+						AttributeName: '',
+						KeyType: 'RANGE'
+					},
+				],
+				Projection: {
+					ProjectionType: 'ALL',
+					NonKeyAttributes: [],
+				},
 				editing: true,
-			}) )
+			})
+		})
+		ractive.on('add-nonkey-attribute', function(e) {
+			var keypath = e.resolve() + '.Projection.NonKeyAttributes';
+			ractive.push( keypath , ractive.get('nonkeyattribute'))
+			ractive.set(  keypath , ractive.get( keypath ).filter(function(value,index,self) { return self.indexOf(value) === index; }))
+			ractive.set('nonkeyattribute')
 		})
 		ractive.on('focus', function() {
 			ractive.set( 'errorMessage' )
