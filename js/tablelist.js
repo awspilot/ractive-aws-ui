@@ -362,32 +362,35 @@ Ractive.components.tablecreate = Ractive.extend({
 		ractive.on('create', function() {
 			ractive.set( 'errorMessage' )
 
-			console.log('newtable', ractive.get('newtable') )
+
+
+			var newtable = JSON.parse(JSON.stringify(ractive.get('newtable')))
+			console.log('newtable', newtable )
 
 			var payload = {
-				TableName: ractive.get('newtable.TableName'),
-				AttributeDefinitions: ractive.get('newtable.AttributeDefinitions'),
+				TableName: newtable.TableName,
+				AttributeDefinitions: newtable.AttributeDefinitions,
 				KeySchema: [
 					{
-						AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
+						AttributeName: newtable.AttributeDefinitions[0].AttributeName,
 						KeyType: "HASH"
 					},
 				],
 				ProvisionedThroughput: {
-					ReadCapacityUnits: ractive.get('newtable.ProvisionedThroughput.ReadCapacityUnits'),
-					WriteCapacityUnits: ractive.get('newtable.ProvisionedThroughput.WriteCapacityUnits'),
+					ReadCapacityUnits: newtable.ProvisionedThroughput.ReadCapacityUnits,
+					WriteCapacityUnits: newtable.ProvisionedThroughput.WriteCapacityUnits,
 				},
-				LocalSecondaryIndexes: ractive.get('newtable.LocalSecondaryIndexes'),
+				LocalSecondaryIndexes: newtable.LocalSecondaryIndexes,
 			};
 
 			if (ractive.get('newtable.sort_enabled')) {
 				payload.KeySchema.push({
-					AttributeName: ractive.get('newtable.sort_key_name'),
+					AttributeName: newtable.sort_key_name,
 					KeyType: "RANGE"
 				})
 				payload.AttributeDefinitions.push({
-					AttributeName: ractive.get('newtable.sort_key_name'),
-					AttributeType: ractive.get('newtable.sort_key_type')
+					AttributeName: newtable.sort_key_name,
+					AttributeType: newtable.sort_key_type,
 				})
 			}
 
