@@ -269,9 +269,63 @@ Ractive.components.tablecreate = Ractive.extend({
 						</td>\
 					</tr>\
 					{{/newtable.LocalSecondaryIndexes}}\
+					\
+					\
+					{{#newtable.GlobalSecondaryIndexes:i}}\
+					<tr style='background-color: #ffefef'>\
+						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
+						<td>GSI</td>\
+						<td>\
+							{{#.KeySchema }}\
+								{{#if .KeyType === 'HASH'}}\
+									<input type='text' value='{{ .AttributeName }}' />\
+									<select value='{{ .AttributeType }}'>\
+										<option value='S'>String</option>\
+										<option value='N'>Number</option>\
+										<option value='B'>Binary</option>\
+									</select>\
+								{{/if}}\
+							{{/.KeySchema }}\
+						</td>\
+						<td>\
+							{{#.KeySchema }}\
+								{{#if .KeyType === 'RANGE'}}\
+									<input type='text' value='{{ .AttributeName }}' />\
+									<select value='{{ .AttributeType }}'>\
+										<option value='S'>String</option>\
+										<option value='N'>Number</option>\
+										<option value='B'>Binary</option>\
+									</select>\
+								{{/if}}\
+							{{/.KeySchema }}\
+						</td>\
+						<td>\
+							<select value='{{.Projection.ProjectionType}}'>\
+								<option value='ALL'>ALL</option>\
+								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
+								<option value='INCLUDE'>INCLUDE</option>\
+							</select>\
+						</td>\
+						<td>\
+							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
+							\
+							{{#.Projection.NonKeyAttributes}}\
+								<span class='badge badge-info'>{{.}}</span><br>\
+							{{/.Projection.NonKeyAttributes}}\
+							\
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
+							\
+							{{/if}}\
+						</td>\
+						<td>\
+							<a class='btn btn-xs btn-danger' on-click='gsi-delete'><i class='zmdi zmdi-delete'></i></a>\
+						</td>\
+					</tr>\
+					{{/newtable.GlobalSecondaryIndexes}}\
+					\
 				</table>\
 				<a class='btn btn-md' on-click='lsi-add'>Add LSI</a>\
-				<a class='btn btn-md'>Add GSI</a>\
+				<a class='btn btn-md' on-click='gsi-add'>Add GSI</a>\
 				<br>\
 				<br>\
 				<h4>Provisioned capacity</h4>\
@@ -286,6 +340,13 @@ Ractive.components.tablecreate = Ractive.extend({
 						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
 						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
 					</tr>\
+					{{#newtable.GlobalSecondaryIndexes:i}}\
+					<tr>\
+						<td>{{.IndexName}} ( GSI )</td>\
+						<td><input type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
+						<td><input type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
+					</tr>\
+					{{/newtable.GlobalSecondaryIndexes}}\
 				</table>\
 				<br>\
 				<hr>\
@@ -336,6 +397,29 @@ Ractive.components.tablecreate = Ractive.extend({
 				},
 			})
 		})
+		ractive.on('gsi-add', function() {
+			ractive.push('newtable.GlobalSecondaryIndexes', {
+				IndexName: '',
+				KeySchema: [
+					{
+						AttributeName: '',
+						KeyType: 'HASH',
+					},
+					{
+						AttributeName: '',
+						KeyType: 'RANGE'
+					},
+				],
+				Projection: {
+					ProjectionType: 'ALL',
+					NonKeyAttributes: [],
+				},
+				ProvisionedThroughput: {
+					ReadCapacityUnits: 1,
+					WriteCapacityUnits: 1,
+				}
+			})
+		})
 		ractive.on('add-nonkey-attribute', function(e) {
 			var keypath = e.resolve() + '.Projection.NonKeyAttributes';
 			ractive.push( keypath , ractive.get('nonkeyattribute'))
@@ -380,7 +464,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					ReadCapacityUnits: newtable.ProvisionedThroughput.ReadCapacityUnits,
 					WriteCapacityUnits: newtable.ProvisionedThroughput.WriteCapacityUnits,
 				},
-				LocalSecondaryIndexes: newtable.LocalSecondaryIndexes,
+				GlobalSecondaryIndexes: newtable.GlobalSecondaryIndexes,
+				LocalSecondaryIndexes:  newtable.LocalSecondaryIndexes,
 			};
 
 			if (ractive.get('newtable.sort_enabled')) {
@@ -408,10 +493,33 @@ Ractive.components.tablecreate = Ractive.extend({
 				return lsi;
 			})
 
+			payload.GlobalSecondaryIndexes = payload.GlobalSecondaryIndexes.map(function(gsi) {
+				if (gsi.Projection.ProjectionType !== 'INCLUDE')
+					delete gsi.Projection.NonKeyAttributes;
+
+				// add attribute, if not exists
+				if ( payload.AttributeDefinitions.map(function(atd) { return atd.AttributeName+'.'+atd.AttributeType }).indexOf( gsi.KeySchema[0].AttributeName + '.' + gsi.KeySchema[0].AttributeType ) === -1 )
+					payload.AttributeDefinitions.push({
+						AttributeName: gsi.KeySchema[0].AttributeName,
+						AttributeType: gsi.KeySchema[0].AttributeType,
+					})
+				delete gsi.KeySchema[0].AttributeType;
+
+				payload.AttributeDefinitions.push({
+					AttributeName: gsi.KeySchema[1].AttributeName,
+					AttributeType: gsi.KeySchema[1].AttributeType,
+				})
+				delete gsi.KeySchema[1].AttributeType;
+
+
+				return gsi;
+			})
 
 			if (! payload.LocalSecondaryIndexes.length )
 				delete payload.LocalSecondaryIndexes;
 
+			if (! payload.GlobalSecondaryIndexes.length )
+				delete payload.GlobalSecondaryIndexes;
 
 			console.log("final payload", payload )
 			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
