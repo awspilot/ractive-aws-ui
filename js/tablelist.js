@@ -270,7 +270,7 @@ Ractive.components.tablecreate = Ractive.extend({
 					</tr>\
 					{{/newtable.LocalSecondaryIndexes}}\
 				</table>\
-				<a class='btn btn-md' on-click='add-lsi'>Add LSI</a>\
+				<a class='btn btn-md' on-click='lsi-add'>Add LSI</a>\
 				<a class='btn btn-md'>Add GSI</a>\
 				<br>\
 				<br>\
@@ -317,7 +317,7 @@ Ractive.components.tablecreate = Ractive.extend({
 
 	oninit: function() {
 		var ractive = this
-		ractive.on('add-lsi', function() {
+		ractive.on('lsi-add', function() {
 			ractive.push('newtable.LocalSecondaryIndexes', {
 				IndexName: '',
 				KeySchema: [
