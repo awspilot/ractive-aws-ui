@@ -182,13 +182,13 @@ Ractive.components.tablecreate = Ractive.extend({
 				<table cellpadding='10'>\
 					<tr>\
 						<td>Table name</td>\
-						<td><input type='text' value='{{newtable.table_name}}' on-focus='focus'></td>\
+						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>\
 					</tr>\
 					<tr>\
 						<td>Partition key</td>\
-						<td><input type='text' value='{{newtable.primary_key_name}}'></td>\
+						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>\
 						<td>\
-							<select value='{{newtable.primary_key_type}}' on-focus='focus'>\
+							<select value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>\
 								<option value='S'>String</option>\
 								<option value='N'>Number</option>\
 								<option value='B'>Binary</option>\
@@ -228,10 +228,10 @@ Ractive.components.tablecreate = Ractive.extend({
 					<tr style='background-color: #ffefef'>\
 						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
 						<td>LSI</td>\
-						<td>{{newtable.primary_key_name}} ( \
-							{{#if newtable.primary_key_type === 'S' }}String{{/if}}\
-							{{#if newtable.primary_key_type === 'N' }}Number{{/if}}\
-							{{#if newtable.primary_key_type === 'B' }}Binary{{/if}}\
+						<td>{{ newtable.AttributeDefinitions.0.AttributeName }} ( \
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}\
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}\
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}\
 						)</td>\
 						<td>\
 							{{#.KeySchema }}\
@@ -297,6 +297,12 @@ Ractive.components.tablecreate = Ractive.extend({
 			newtable: {
 				table_read_capacity: 1,
 				table_write_capacity: 1,
+				AttributeDefinitions: [
+					{
+						AttributeName: '',
+						AttributeType: 'S'
+					}
+				],
 				LocalSecondaryIndexes: [],
 			},
 		}
@@ -309,7 +315,7 @@ Ractive.components.tablecreate = Ractive.extend({
 				IndexName: '',
 				KeySchema: [
 					{
-						AttributeName: ractive.get('newtable.primary_key_name'),
+						AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
 						KeyType: 'HASH',
 					},
 					{
@@ -331,9 +337,9 @@ Ractive.components.tablecreate = Ractive.extend({
 		})
 
 
-		ractive.observe('newtable.primary_key_name', function() {
+		ractive.observe('newtable.AttributeDefinitions.0.AttributeName', function() {
 			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').map( function(lsi) {
-				lsi.KeySchema[0].AttributeName = ractive.get('newtable.primary_key_name')
+				lsi.KeySchema[0].AttributeName = ractive.get('newtable.AttributeDefinitions.0.AttributeName')
 				return lsi;
 			}) )
 		})
@@ -347,17 +353,13 @@ Ractive.components.tablecreate = Ractive.extend({
 			console.log('newtable', ractive.get('newtable') )
 
 			var payload = {
-				TableName: ractive.get('newtable.table_name'),
+				TableName: ractive.get('newtable.TableName'),
 
-				AttributeDefinitions: [
-					{
-						AttributeName: ractive.get('newtable.primary_key_name'),
-						AttributeType: ractive.get('newtable.primary_key_type')
-					},
-				],
+				AttributeDefinitions: ractive.get('newtable.AttributeDefinitions'),
+
 				KeySchema: [
 					{
-						AttributeName: ractive.get('newtable.primary_key_name'),
+						AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
 						KeyType: "HASH"
 					},
 				],
@@ -372,6 +374,10 @@ Ractive.components.tablecreate = Ractive.extend({
 					return lsi;
 				}) || undefined,
 			};
+
+			if (! payload.LocalSecondaryIndexes.length )
+				delete payload.LocalSecondaryIndexes;
+
 			if (ractive.get('newtable.sort_enabled')) {
 				payload.KeySchema.push({
 					AttributeName: ractive.get('newtable.sort_key_name'),
