@@ -431,7 +431,11 @@ Ractive.components.tablecreate = Ractive.extend({
 			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').filter(function(val, key ) {
 				return e.resolve() !== 'newtable.LocalSecondaryIndexes.' + key;
 			}))
-			console.log( e.resolve() )
+		})
+		ractive.on('gsi-delete', function(e) {
+			ractive.set('newtable.GlobalSecondaryIndexes', ractive.get('newtable.GlobalSecondaryIndexes').filter(function(val, key ) {
+				return e.resolve() !== 'newtable.GlobalSecondaryIndexes.' + key;
+			}))
 		})
 
 		ractive.observe('newtable.AttributeDefinitions.0.AttributeName', function() {
