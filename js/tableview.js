@@ -41,7 +41,7 @@ Ractive.components.tablebrowse = Ractive.extend({
 			<!-- table query -->\
 			<tablebrowsehead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
 		</div>",
-	data: {},
+	data: function() { return {} },
 	refresh_data: function() {
 		var ractive = this;
 		this.set('columns', [])
@@ -176,7 +176,7 @@ Ractive.components.tablebrowsehead = Ractive.extend({
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
 		",
-	data: {},
+	data: function() { return {} },
 	oninit: function() {
 		var ractive = this
 		ractive.on('selectrow', function(context) {
