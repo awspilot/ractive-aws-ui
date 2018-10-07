@@ -103,8 +103,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 								if ( row[1].S === t ) {
 
 									row[2].S = data.Table.TableStatus
-									row[3].S = (data.Table.KeySchema.filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName || '-'
-									row[4].S = (data.Table.KeySchema.filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName || '-'
+									row[3].S = ((data.Table.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName || '-'
+									row[4].S = ((data.Table.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName || '-'
 									row[5].S = (data.Table.GlobalSecondaryIndexes || []).length.toString()
 									row[6].S = ([ data.Table.ProvisionedThroughput.ReadCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.ReadCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
 									row[7].S = ([ data.Table.ProvisionedThroughput.WriteCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.WriteCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
@@ -182,13 +182,13 @@ Ractive.components.tablecreate = Ractive.extend({
 				<table cellpadding='10'>\
 					<tr>\
 						<td>Table name</td>\
-						<td><input type='text' value='{{newtable.table_name}}'></td>\
+						<td><input type='text' value='{{newtable.table_name}}' on-focus='focus'></td>\
 					</tr>\
 					<tr>\
 						<td>Partition key</td>\
 						<td><input type='text' value='{{newtable.primary_key_name}}'></td>\
 						<td>\
-							<select value='{{newtable.primary_key_type}}'>\
+							<select value='{{newtable.primary_key_type}}' on-focus='focus'>\
 								<option value='S'>String</option>\
 								<option value='N'>Number</option>\
 								<option value='B'>Binary</option>\
@@ -202,9 +202,9 @@ Ractive.components.tablecreate = Ractive.extend({
 					{{#if newtable.sort_enabled}}\
 					<tr>\
 						<td>Sort key</td>\
-						<td><input type='text' value='{{newtable.sort_key_name}}'></td>\
+						<td><input type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>\
 						<td>\
-							<select value='{{newtable.sort_key_type}}'>\
+							<select value='{{newtable.sort_key_type}}' on-focus='focus'>\
 								<option value='S'>String</option>\
 								<option value='N'>Number</option>\
 								<option value='B'>Binary</option>\
@@ -225,7 +225,7 @@ Ractive.components.tablecreate = Ractive.extend({
 					</tr>\
 					{{#newtable.lsi}}\
 					<tr>\
-						<td><input type='text' value='{{.name}}' /></td>\
+						<td><input type='text' value='{{.name}}' on-focus='focus' /></td>\
 						<td>{{.type}}</td>\
 						<td>{{newtable.primary_key_name}} ( \
 							{{#if newtable.primary_key_type === 'S' }}String{{/if}}\
@@ -256,8 +256,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					</tr>\
 					<tr>\
 						<td>Table</td>\
-						<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' /></td>\
-						<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' /></td>\
+						<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' on-focus='focus' /></td>\
+						<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' on-focus='focus' /></td>\
 					</tr>\
 				</table>\
 				<br>\
@@ -285,8 +285,11 @@ Ractive.components.tablecreate = Ractive.extend({
 				editing: true,
 			}) )
 		})
+		ractive.on('focus', function() {
+			ractive.set( 'errorMessage' )
+		})
 		ractive.on('create', function() {
-
+			ractive.set( 'errorMessage' )
 
 			var payload = {
 				TableName: ractive.get('newtable.table_name'),
