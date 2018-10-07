@@ -13,7 +13,7 @@ Ractive.components.dynamoui = Ractive.extend({
 			<content>\
 				<tabs active_id='tables' />\
 			</content>",
-	data: {},
+	data: function() { return {} },
 	components: {
 		Window: RactiveWindow.default.Window,
 		WindowHost: RactiveWindow.default.WindowHost,
