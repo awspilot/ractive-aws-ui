@@ -223,12 +223,13 @@ Ractive.components.tablecreate = Ractive.extend({
 						<td>Sort key</td>\
 						<td>Projection type</td>\
 						<td>Projected attributes</td>\
+						<td></td>\
 					</tr>\
 					{{#newtable.LocalSecondaryIndexes:i}}\
 					<tr style='background-color: #ffefef'>\
 						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
 						<td>LSI</td>\
-						<td>{{ newtable.AttributeDefinitions.0.AttributeName }} ( \
+						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> ( \
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}\
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}\
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}\
@@ -262,6 +263,9 @@ Ractive.components.tablecreate = Ractive.extend({
 							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
 							\
 							{{/if}}\
+						</td>\
+						<td>\
+							<a class='btn btn-xs btn-danger' on-click='lsi-delete'><i class='zmdi zmdi-delete'></i></a>\
 						</td>\
 					</tr>\
 					{{/newtable.LocalSecondaryIndexes}}\
@@ -338,7 +342,12 @@ Ractive.components.tablecreate = Ractive.extend({
 			ractive.set(  keypath , ractive.get( keypath ).filter(function(value,index,self) { return self.indexOf(value) === index; }))
 			ractive.set('nonkeyattribute')
 		})
-
+		ractive.on('lsi-delete', function(e) {
+			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').filter(function(val, key ) {
+				return e.resolve() !== 'newtable.LocalSecondaryIndexes.' + key;
+			}))
+			console.log( e.resolve() )
+		})
 
 		ractive.observe('newtable.AttributeDefinitions.0.AttributeName', function() {
 			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').map( function(lsi) {
