@@ -327,9 +327,6 @@ Ractive.components.tablecreate = Ractive.extend({
 
 
 			})
-			console.log(
-				payload
-			)
 		})
 	},
 })
