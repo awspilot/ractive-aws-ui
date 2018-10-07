@@ -19,8 +19,10 @@ Ractive.components.tableview = Ractive.extend({
 				{{/if}}\
 			</div>\
 		</div>",
-	data: {
-		tab: 'data',
+	data: function() {
+		return {
+			tab: 'data',
+		}
 	},
 
 	oninit: function() {
