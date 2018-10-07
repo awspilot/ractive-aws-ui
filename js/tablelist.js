@@ -170,79 +170,121 @@ Ractive.components.tablelistfull = Ractive.extend({
 Ractive.components.tablecreate = Ractive.extend({
 	//isolated: true,
 	template: "\
-		<div style='padding: 30px'>\
-			<h3>Create DynamoDB table</h3>\
-			<br>\
-			<div style='color:red'>{{ err }}</div>\
-			<hr>\
-			DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
-			\
-			<br><br>\
-			<table cellpadding='10'>\
-				<tr>\
-					<td>Table name</td>\
-					<td><input type='text' value='{{newtable.table_name}}'></td>\
-				</tr>\
-				<tr>\
-					<td>Partition key</td>\
-					<td><input type='text' value='{{newtable.primary_key_name}}'></td>\
-					<td>\
-						<select value='{{newtable.primary_key_type}}'>\
-							<option value='S'>String</option>\
-							<option value='N'>Number</option>\
-							<option value='B'>Binary</option>\
-						</select>\
-					</td>\
-				</tr>\
-				<tr>\
-					<td></td>\
-					<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>\
-				</tr>\
-				{{#if newtable.sort_enabled}}\
-				<tr>\
-					<td>Sort key</td>\
-					<td><input type='text' value='{{newtable.sort_key_name}}'></td>\
-					<td>\
-						<select value='{{newtable.sort_key_type}}'>\
-							<option value='S'>String</option>\
-							<option value='N'>Number</option>\
-							<option value='B'>Binary</option>\
-						</select>\
-					</td>\
-				</tr>\
-				{{/if}}\
-			</table>\
-			<br>\
-			<br>\
-			<h4>Provisioned capacity</h4>\
-			<table cellpadding='10'>\
-				<tr>\
-					<td></td>\
-					<td>Read capacity</td>\
-					<td>Write capacity</td>\
-				</tr>\
-				<tr>\
-					<td>Table</td>\
-					<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' /></td>\
-					<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' /></td>\
-				</tr>\
-			</table>\
-			<br>\
-			<hr>\
-			<br>\
-			<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
-			<br>\
-		</div>\
+		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
+			<div style='padding: 30px'>\
+				<h3>Create DynamoDB table</h3>\
+				<br>\
+				<div style='color:red'>{{ err }}</div>\
+				<hr>\
+				DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
+				\
+				<br><br>\
+				<table cellpadding='10'>\
+					<tr>\
+						<td>Table name</td>\
+						<td><input type='text' value='{{newtable.table_name}}'></td>\
+					</tr>\
+					<tr>\
+						<td>Partition key</td>\
+						<td><input type='text' value='{{newtable.primary_key_name}}'></td>\
+						<td>\
+							<select value='{{newtable.primary_key_type}}'>\
+								<option value='S'>String</option>\
+								<option value='N'>Number</option>\
+								<option value='B'>Binary</option>\
+							</select>\
+						</td>\
+					</tr>\
+					<tr>\
+						<td></td>\
+						<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>\
+					</tr>\
+					{{#if newtable.sort_enabled}}\
+					<tr>\
+						<td>Sort key</td>\
+						<td><input type='text' value='{{newtable.sort_key_name}}'></td>\
+						<td>\
+							<select value='{{newtable.sort_key_type}}'>\
+								<option value='S'>String</option>\
+								<option value='N'>Number</option>\
+								<option value='B'>Binary</option>\
+							</select>\
+						</td>\
+					</tr>\
+					{{/if}}\
+				</table>\
+				<br><br>\
+				<h4>Secondary indexes</h4>\
+				<table cellpadding='10' border='1'>\
+					<tr>\
+						<td>Name</td>\
+						<td>Type</td>\
+						<td>Partition key</td>\
+						<td>Sort key</td>\
+						<td>Projected attributes</td>\
+					</tr>\
+					{{#newtable.lsi}}\
+					<tr>\
+						<td><input type='text' value='{{.name}}' /></td>\
+						<td>{{.type}}</td>\
+						<td>{{newtable.primary_key_name}} ( \
+							{{#if newtable.primary_key_type === 'S' }}String{{/if}}\
+							{{#if newtable.primary_key_type === 'N' }}Number{{/if}}\
+							{{#if newtable.primary_key_type === 'B' }}Binary{{/if}}\
+						)</td>\
+						<td>\
+							<input type='text' value='{{.sort_key_name}}' />\
+							<select value='{{.sort_key_type}}'>\
+								<option value='S'>String</option>\
+								<option value='N'>Number</option>\
+								<option value='B'>Binary</option>\
+							</select>\
+						</td>\
+					</tr>\
+					{{/newtable.lsi}}\
+				</table>\
+				<a class='btn btn-md' on-click='add-lsi'>Add LSI</a>\
+				<a class='btn btn-md'>Add GSI</a>\
+				<br>\
+				<br>\
+				<h4>Provisioned capacity</h4>\
+				<table cellpadding='10'>\
+					<tr>\
+						<td></td>\
+						<td>Read capacity</td>\
+						<td>Write capacity</td>\
+					</tr>\
+					<tr>\
+						<td>Table</td>\
+						<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' /></td>\
+						<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' /></td>\
+					</tr>\
+				</table>\
+				<br>\
+				<hr>\
+				<div style='color:red'>{{ errorMessage }}&nbsp;</div>\
+				<br>\
+				<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
+				<br>\
+			</div>\
+		</scrollarea>\
 	",
 	data: {
 		newtable: {
 			table_read_capacity: 1,
 			table_write_capacity: 1,
-		}
+			lsi: [],
+		},
 	},
 
 	oninit: function() {
 		var ractive = this
+		ractive.on('add-lsi', function() {
+			ractive.set('newtable.lsi', ractive.get('newtable.lsi').push({
+				type: 'LSI',
+				editing: true,
+			}) )
+		})
 		ractive.on('create', function() {
 
 
@@ -277,8 +319,9 @@ Ractive.components.tablecreate = Ractive.extend({
 				})
 			}
 			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
+				console.log("createTable", err, data )
 				if (err) {
-					ractive.set(err, JSON.stringify(err))
+					ractive.set( 'errorMessage', err.message )
 					return
 				}
 
