@@ -505,11 +505,16 @@ Ractive.components.tablecreate = Ractive.extend({
 					})
 				delete gsi.KeySchema[0].AttributeType;
 
-				payload.AttributeDefinitions.push({
-					AttributeName: gsi.KeySchema[1].AttributeName,
-					AttributeType: gsi.KeySchema[1].AttributeType,
-				})
-				delete gsi.KeySchema[1].AttributeType;
+				if (gsi.KeySchema[1].AttributeName.trim().length) {
+
+					payload.AttributeDefinitions.push({
+						AttributeName: gsi.KeySchema[1].AttributeName,
+						AttributeType: gsi.KeySchema[1].AttributeType,
+					})
+					delete gsi.KeySchema[1].AttributeType;
+				} else {
+					gsi.KeySchema = [gsi.KeySchema[0]]
+				}
 
 
 				return gsi;
