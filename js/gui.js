@@ -8,16 +8,20 @@ var json_post = function(url, payload, cb ) {
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
-			cb(null, JSON.parse(xhr.responseText))
+			cb(JSON.parse(xhr.responseText))
 		}
 	};
 	var data = JSON.stringify(payload);
+	//xhr.error(cb)
+	//xhr.addEventListener("error", cb );
 	xhr.send(data);
 }
 
 var routeCall = function( call, cb ) {
 	if (window.installation_type === 'apigw') {
-		json_post('/v1/dynamodb', call, cb )
+		json_post('/v1/dynamodb', call, function(data) {
+			cb(data.err, data.data )
+		} )
 		return;
 	}
 	// call.operation
