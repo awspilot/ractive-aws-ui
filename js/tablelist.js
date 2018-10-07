@@ -279,8 +279,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					</tr>\
 					<tr>\
 						<td>Table</td>\
-						<td><input type='text' value='{{newtable.table_read_capacity}}'  size='4' on-focus='focus' /></td>\
-						<td><input type='text' value='{{newtable.table_write_capacity}}' size='4' on-focus='focus' /></td>\
+						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
+						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
 					</tr>\
 				</table>\
 				<br>\
@@ -295,8 +295,11 @@ Ractive.components.tablecreate = Ractive.extend({
 	data: function() {
 		return {
 			newtable: {
-				table_read_capacity: 1,
-				table_write_capacity: 1,
+				ProvisionedThroughput: {
+					ReadCapacityUnits: 1,
+					WriteCapacityUnits: 1,
+				},
+
 				AttributeDefinitions: [
 					{
 						AttributeName: '',
@@ -364,8 +367,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					},
 				],
 				ProvisionedThroughput: {
-					ReadCapacityUnits: ractive.get('newtable.table_read_capacity'),
-					WriteCapacityUnits: ractive.get('newtable.table_write_capacity'),
+					ReadCapacityUnits: ractive.get('newtable.ProvisionedThroughput.ReadCapacityUnits'),
+					WriteCapacityUnits: ractive.get('newtable.ProvisionedThroughput.WriteCapacityUnits'),
 				},
 				LocalSecondaryIndexes: ractive.get('newtable.LocalSecondaryIndexes').map(function(lsi) {
 					if (lsi.Projection.ProjectionType !== 'INCLUDE')
