@@ -110,22 +110,14 @@ Resources:
                             case '/dynamodb':
                             	switch ( event._POST.method ) {
                             		case 'listTables':
-                            			dynamodb.listTables(event._POST.payload, context.done )
-                            			break;
                             		case 'createTable':
-                            			dynamodb.createTable(event._POST.payload, context.done )
-                            			break;
                             		case 'deleteTable':
-                            			dynamodb.deleteTable(event._POST.payload, context.done )
-                            			break;
                             		case 'describeTable':
-                            			dynamodb.describeTable(event._POST.payload, context.done )
-                            			break;
                             		case 'scan':
-                            			dynamodb.scan(event._POST.payload, context.done )
-                            			break;
                             		case 'query':
-                            			dynamodb.query(event._POST.payload, context.done )
+                            			dynamodb[event._POST.method](event._POST.payload, function(err, data) {
+                                            context.done(null, { err: err, data:data } )
+                                        })
                             			break;
                             		default:
                             			context.done(null, { debug: event,});
