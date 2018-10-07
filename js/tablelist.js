@@ -223,9 +223,9 @@ Ractive.components.tablecreate = Ractive.extend({
 						<td>Sort key</td>\
 						<td>Projected attributes</td>\
 					</tr>\
-					{{#newtable.lsi}}\
+					{{#newtable.LocalSecondaryIndexes}}\
 					<tr>\
-						<td><input type='text' value='{{.name}}' on-focus='focus' /></td>\
+						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
 						<td>{{.type}}</td>\
 						<td>{{newtable.primary_key_name}} ( \
 							{{#if newtable.primary_key_type === 'S' }}String{{/if}}\
@@ -233,15 +233,22 @@ Ractive.components.tablecreate = Ractive.extend({
 							{{#if newtable.primary_key_type === 'B' }}Binary{{/if}}\
 						)</td>\
 						<td>\
-							<input type='text' value='{{.sort_key_name}}' />\
+							<input type='text' value='{{.KeySchema[1].AttributeName}}' />\
 							<select value='{{.sort_key_type}}'>\
 								<option value='S'>String</option>\
 								<option value='N'>Number</option>\
 								<option value='B'>Binary</option>\
 							</select>\
 						</td>\
+						<td>\
+							<select>\
+								<option value='ALL'>ALL</option>\
+								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
+								<option value='INCLUDE'>INCLUDE</option>\
+							</select>\
+						</td>\
 					</tr>\
-					{{/newtable.lsi}}\
+					{{/newtable.LocalSecondaryIndexes}}\
 				</table>\
 				<a class='btn btn-md' on-click='add-lsi'>Add LSI</a>\
 				<a class='btn btn-md'>Add GSI</a>\
@@ -273,14 +280,14 @@ Ractive.components.tablecreate = Ractive.extend({
 		newtable: {
 			table_read_capacity: 1,
 			table_write_capacity: 1,
-			lsi: [],
+			LocalSecondaryIndexes: [],
 		},
 	},
 
 	oninit: function() {
 		var ractive = this
 		ractive.on('add-lsi', function() {
-			ractive.set('newtable.lsi', ractive.get('newtable.lsi').push({
+			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').push({
 				type: 'LSI',
 				editing: true,
 			}) )
@@ -312,7 +319,7 @@ Ractive.components.tablecreate = Ractive.extend({
 				},
 			};
 			if (ractive.get('newtable.sort_enabled')) {
-				payload.KeySchema.push(					{
+				payload.KeySchema.push({
 					AttributeName: ractive.get('newtable.sort_key_name'),
 					KeyType: "RANGE"
 				})
@@ -327,7 +334,7 @@ Ractive.components.tablecreate = Ractive.extend({
 					return
 				}
 
-
+				ractive.root.findComponent('tablelist').refresh_tables()
 			})
 		})
 	},
