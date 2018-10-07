@@ -15,7 +15,7 @@ Ractive.components.tablelist = Ractive.extend({
 		</tables>\
 		</scrollarea>\
 		",
-	data: {},
+	data: function() { return {} },
 	refresh_tables: function() {
 		var ractive = this
 
@@ -62,7 +62,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 		\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 28px;'/>\
 		",
-	data: {},
+	data: function() { return {} },
 	refresh_tables: function() {
 		var ractive = this
 
