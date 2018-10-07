@@ -372,6 +372,7 @@ Ractive.components.tablecreate = Ractive.extend({
 					}
 				],
 				LocalSecondaryIndexes: [],
+				GlobalSecondaryIndexes: [],
 			},
 		}
 	},
@@ -483,10 +484,11 @@ Ractive.components.tablecreate = Ractive.extend({
 				if (lsi.Projection.ProjectionType !== 'INCLUDE')
 					delete lsi.Projection.NonKeyAttributes;
 
-				payload.AttributeDefinitions.push({
-					AttributeName: lsi.KeySchema[1].AttributeName,
-					AttributeType: lsi.KeySchema[1].AttributeType,
-				})
+				if ( payload.AttributeDefinitions.map(function(atd) { return atd.AttributeName+'.'+atd.AttributeType }).indexOf( lsi.KeySchema[1].AttributeName + '.' + lsi.KeySchema[1].AttributeType ) === -1 )
+					payload.AttributeDefinitions.push({
+						AttributeName: lsi.KeySchema[1].AttributeName,
+						AttributeType: lsi.KeySchema[1].AttributeType,
+					})
 				delete lsi.KeySchema[1].AttributeType;
 
 
