@@ -120,6 +120,7 @@ Resources:
                             		case 'createTable':
                             		case 'deleteTable':
                             		case 'describeTable':
+                            		case 'updateTable':
                             		case 'scan':
                             		case 'query':
                             			dynamodb[event._POST.method](event._POST.payload, function(err, data) {
