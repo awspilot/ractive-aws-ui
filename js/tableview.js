@@ -21,6 +21,34 @@ Ractive.components.tableview = Ractive.extend({
 				{{#if tab === 'data'}}\
 					<tablebrowse table='{{.table}}'/>\
 				{{/if}}\
+				\
+				{{#if tab === 'metrics'}}\
+					<tablemetrics table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'alarms'}}\
+					<tablealarms table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'capacity'}}\
+					<tablecapacity table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'indexes'}}\
+					<tableindexes table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'globaltables'}}\
+					<tableglobal table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'backups'}}\
+					<tablebackup table='{{.table}}'/>\
+				{{/if}}\
+				\
+				{{#if tab === 'triggers'}}\
+					<tabletriggers table='{{.table}}'/>\
+				{{/if}}\
 			</div>\
 		</div>",
 	data: function() {
@@ -398,4 +426,55 @@ Ractive.components.tableinfo = Ractive.extend({
 		refresh_table()
 
 	},
+})
+
+
+Ractive.components.tablemetrics = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Metrics</h3>\
+		</div>\
+	",
+})
+Ractive.components.tablealarms = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Alarms</h3>\
+		</div>\
+	",
+})
+Ractive.components.tablecapacity = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Capacity</h3>\
+		</div>\
+	",
+})
+Ractive.components.tableindexes = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Indexes</h3>\
+		</div>\
+	",
+})
+Ractive.components.tableglobal = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Global Tables</h3>\
+		</div>\
+	",
+})
+Ractive.components.tablebackup = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Backups</h3>\
+		</div>\
+	",
+})
+Ractive.components.tabletriggers = Ractive.extend({
+	template: "\
+		<div style='padding: 30px'>\
+			<h3>Triggers</h3>\
+		</div>\
+	",
 })
