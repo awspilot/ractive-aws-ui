@@ -118,7 +118,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 					return f;
 				})
 
-				async.waterfall(waterfallz, function( err ) {
+				async.parallel(waterfallz, function( err ) {
 
 
 				})
