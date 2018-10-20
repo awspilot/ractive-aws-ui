@@ -581,8 +581,149 @@ Ractive.components.tableindexes = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
 			<h3>Indexes</h3>\
+			<div>\
+				<a class='btn btn-md btn-primary'>Create index</a>\
+				<a class='btn btn-md btn-default' on-click='delete'>Delete index</a>\
+				\
+				<a class='btn btn-md pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
+			</div>\
+			<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
 		</div>\
 	",
+	oninit: function() {
+		var ractive = this;
+		ractive.on('tabledata.selectrow', function(context) {
+			var keypath = context.resolve()
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+		})
+		ractive.on('delete', function() {
+			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+
+			if ( selected.length === 0 )
+				return alert('Please select an index to delete')
+
+			if ( selected.length > 1 )
+				return alert('Please select one index at a time')
+
+			var tablename = ractive.get('describeTable.TableName')
+			var indexname = selected[0][1].S
+
+			if (confirm('Are you sure you want to delete index ' + indexname + ' from table ' + tablename )) {
+
+				var payload = {
+					TableName: ractive.get('describeTable.TableName'),
+					GlobalSecondaryIndexUpdates: [],
+				};
+
+				payload.GlobalSecondaryIndexUpdates.push({
+					Delete: {
+						IndexName: indexname,
+					}
+				})
+
+				routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+					if (err)
+						return alert( err.message );
+
+					setTimeout(refresh_table,1000)
+
+				})
+
+			}
+
+		})
+		var refresh_table = function() {
+			ractive.set('describeTable', {})
+			ractive.set('rows',[])
+			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+				if (err)
+					return ractive.set('err', err.message );
+
+				ractive.set('describeTable', data.Table)
+				ractive.set('rows',
+					(data.Table.LocalSecondaryIndexes || []).map(function(index){
+						var partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
+						var partition_key_type =
+							({S: 'String', N: 'Number', B: 'Binary'})[
+								data.Table.AttributeDefinitions.filter(function(at) {
+									return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
+								})[0].AttributeType
+							];
+						var sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
+						var sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
+									data.Table.AttributeDefinitions.filter(function(at) {
+										return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
+									})[0] || {}
+								).AttributeType
+							] || '';
+
+
+						return [
+							{ KEY: true },
+							{ S: index.IndexName },
+							{ S: 'N/A' },
+							{ S: 'LSI' },
+							{ S: partition_key_name + ' (' + partition_key_type + ' )' },
+							{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
+							{ S: index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '')},
+							{ N: index.IndexSizeBytes.toString() },
+							{ N: index.ItemCount.toString() },
+						]
+					}).concat(
+						(data.Table.GlobalSecondaryIndexes || []).map(function(index){
+							var partition_key_name;
+							var partition_key_type;
+							var sort_key_name;
+							var sort_key_type;
+							var projection = '';
+							try {
+								partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
+								partition_key_type =
+									({S: 'String', N: 'Number', B: 'Binary'})[
+										data.Table.AttributeDefinitions.filter(function(at) {
+											return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
+										})[0].AttributeType
+									];
+								sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
+								sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
+											data.Table.AttributeDefinitions.filter(function(at) {
+												return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
+											})[0] || {}
+										).AttributeType
+									] || '';
+								projection = index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '');
+							} catch(e) {}
+
+
+
+							return [
+								{ KEY: true },
+								{ S: index.IndexName },
+								{ S: index.IndexStatus },
+								{ S: 'GSI' },
+								{ S: partition_key_name + ' (' + partition_key_type + ' )' },
+								{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
+								{ S: projection },
+								{ N: index.IndexSizeBytes.toString() },
+								{ N: index.ItemCount.toString() },
+							]
+						})
+					)
+				);
+			})
+		}
+		ractive.on('refresh-table', function() {
+			refresh_table()
+		})
+
+		refresh_table()
+	},
+	data: function() {
+		return {
+			columns: [ null, 'Name', 'Status', 'Type', 'Partition key', 'Sort key', 'Attributes', 'Size', 'Item count' ],
+			rows: [],
+		}
+	}
 })
 Ractive.components.tableglobal = Ractive.extend({
 	template: "\
