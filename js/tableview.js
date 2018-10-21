@@ -504,10 +504,12 @@ Ractive.components.tablecapacity = Ractive.extend({
 		ractive.on('cancel', function() {
 			refresh_table()
 		})
+		ractive.on('focus', function() {
+			ractive.set( 'err' )
+		})
+
 		ractive.on('save', function() {
-			ractive.on('focus', function() {
-				ractive.set( 'err' )
-			})
+
 
 
 			var payload = {
@@ -580,14 +582,95 @@ Ractive.components.tablecapacity = Ractive.extend({
 Ractive.components.tableindexes = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
-			<h3>Indexes</h3>\
-			<div>\
-				<a class='btn btn-md btn-primary'>Create index</a>\
-				<a class='btn btn-md btn-default' on-click='delete'>Delete index</a>\
-				\
-				<a class='btn btn-md pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-			</div>\
-			<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
+			{{#if tab === 'create'}}\
+				<h3>Create Global Secondary Index</h3>\
+				<table cellpadding='10' border='0'>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Name</td>\
+						<td><input type='text' value='{{newindex.IndexName}}' on-focus='focus' /></td>\
+					</tr>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Type</td>\
+						<td>GSI</td>\
+					</tr>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Partition key</td>\
+						<td>\
+							<input type='text' value='{{ newindex.KeySchema.0.AttributeName }}' on-focus='focus' />\
+							<select value='{{ newindex.KeySchema.0.AttributeType }}'>\
+								<option value='S'>String</option>\
+								<option value='N'>Number</option>\
+								<option value='B'>Binary</option>\
+							</select>\
+						</td>\
+					</tr>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Sort key</td>\
+						<td>\
+							<input type='text' value='{{ newindex.KeySchema.1.AttributeName }}' on-focus='focus' />\
+							<select value='{{ newindex.KeySchema.1.AttributeType }}'>\
+								<option value='S'>String</option>\
+								<option value='N'>Number</option>\
+								<option value='B'>Binary</option>\
+							</select>\
+						</td>\
+					</tr>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Projection type</td>\
+						<td>\
+							<select value='{{ newindex.Projection.ProjectionType}}'>\
+								<option value='ALL'>ALL</option>\
+								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
+								<option value='INCLUDE'>INCLUDE</option>\
+							</select>\
+						</td>\
+					</tr>\
+					{{#if newindex.Projection.ProjectionType === 'INCLUDE' }}\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Projected attributes</td>\
+						<td>\
+							{{#if newindex.Projection.ProjectionType === 'INCLUDE'}}\
+							\
+							{{#newindex.Projection.NonKeyAttributes}}\
+								<span class='badge badge-info'>{{.}}</span><br>\
+							{{/newindex.Projection.NonKeyAttributes}}\
+							\
+							<input type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
+							\
+							{{/if}}\
+						</td>\
+					</tr>\
+					{{/if}}\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Read capacity</td>\
+						<td>\
+							<input type='text' value='{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}'  size='4' on-focus='focus' />\
+						</td>\
+					</tr>\
+					<tr style='background-color: #ffefef'>\
+						<td style='background-color: #eadfdf'>Write capacity</td>\
+						<td>\
+							<input type='text' value='{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' />\
+						</td>\
+					</tr>\
+					\
+				</table>\
+				<br>\
+				<div style='color:red'>{{ err }}&nbsp;</div>\
+				<br>\
+				<a class='btn btn-md btn-primary' on-click='create-gsi'>Create</a>\
+				<a class='btn btn-md btn-default' on-click='cancel-gsi'>Cancel</a>\
+				<br>\
+			{{else}}\
+				<h3>Indexes</h3>\
+				<div>\
+					<a class='btn btn-md btn-primary' on-click='create'>Create index</a>\
+					<a class='btn btn-md btn-default' on-click='delete'>Delete index</a>\
+					\
+					<a class='btn btn-md pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
+				</div>\
+				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
+			{{/if}}\
 		</div>\
 	",
 	oninit: function() {
@@ -596,6 +679,96 @@ Ractive.components.tableindexes = Ractive.extend({
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 		})
+		ractive.on('focus', function() {
+			ractive.set( 'err' )
+		})
+		ractive.on('create', function() {
+			ractive.set('tab', 'create')
+			ractive.set('newindex', {
+				IndexName: '',
+				KeySchema: [
+					{
+						AttributeName: '',
+						AttributeType: 'S',
+						KeyType: 'HASH',
+					},
+					{
+						AttributeName: '',
+						AttributeType: 'S',
+						KeyType: 'RANGE'
+					},
+				],
+				Projection: {
+					ProjectionType: 'ALL',
+					NonKeyAttributes: [],
+				},
+				ProvisionedThroughput: {
+					ReadCapacityUnits: 1,
+					WriteCapacityUnits: 1,
+				}
+			})
+		})
+		ractive.on('cancel-gsi', function() {
+			ractive.set('tab')
+			ractive.set('newindex')
+		})
+
+		ractive.on('add-nonkey-attribute', function(e) {
+			var keypath = 'newindex.Projection.NonKeyAttributes';
+			ractive.push( keypath , ractive.get('nonkeyattribute'))
+			ractive.set(  keypath , ractive.get( keypath ).filter(function(value,index,self) { return self.indexOf(value) === index; }))
+			ractive.set('nonkeyattribute')
+		})
+		ractive.on('create-gsi', function() {
+			var newindex = JSON.parse(JSON.stringify(ractive.get('newindex')))
+			var AttributeDefinitions = []
+
+			newindex.KeySchema.map(function(ks) {
+				if (ks.KeyType === 'HASH') {
+					AttributeDefinitions.push({
+						AttributeName: ks.AttributeName,
+						AttributeType: ks.AttributeType,
+					})
+					delete ks.AttributeType;
+				}
+				if (ks.KeyType === 'RANGE') {
+					if ( ks.AttributeName.trim() === '' ) {
+						newindex.KeySchema = [ newindex.KeySchema[0] ]
+					} else {
+						AttributeDefinitions.push({
+							AttributeName: ks.AttributeName,
+							AttributeType: ks.AttributeType,
+						})
+						delete ks.AttributeType;
+					}
+
+				}
+			})
+			if ( newindex.Projection.ProjectionType !== 'INCLUDE' )
+				delete newindex.Projection.NonKeyAttributes;
+
+			var payload = {
+				TableName: ractive.get('describeTable.TableName'),
+				AttributeDefinitions: AttributeDefinitions,
+				GlobalSecondaryIndexUpdates: [],
+			};
+
+			payload.GlobalSecondaryIndexUpdates.push({
+				Create: newindex
+			})
+
+			routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+				if (err)
+					return ractive.set('err', err.message );
+
+				ractive.set('tab')
+				ractive.set('newindex')
+				setTimeout(refresh_table,100)
+
+			})
+		})
+
+
 		ractive.on('delete', function() {
 			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
 
@@ -722,6 +895,7 @@ Ractive.components.tableindexes = Ractive.extend({
 		return {
 			columns: [ null, 'Name', 'Status', 'Type', 'Partition key', 'Sort key', 'Attributes', 'Size', 'Item count' ],
 			rows: [],
+			//newindex:
 		}
 	}
 })
