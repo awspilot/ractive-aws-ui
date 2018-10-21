@@ -109,7 +109,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-L,
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-M,
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-U,
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell:before,
-content tabcontent .tabledata .tabledatarow.selected .tabledatacell:after {background-color: #1256b5 !important;color: #fff;border-right: 1px solid transparent;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell:after {background-color: #ddecff !important;color: #fff;/*border-right: 1px solid transparent;*/}
 
 
 content tabcontent .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;}
@@ -234,8 +234,8 @@ body.theme_light left {background-color: #ffffff}
 body.theme_light left > .scrollarea {border: 1px solid #b9b8b6;}
 body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4}
 body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
-body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff}
-body.theme_light content tabhead {background-color: #ececec;}
+body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;}
+body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);}
 body.theme_light content tabhead tab:first-child {}
 body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
 body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
