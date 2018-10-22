@@ -6,7 +6,7 @@
 */
 
 body {font-family: sans-serif;}
-header {position: absolute;top: 0px;left: 0px;right: 0px;height: 56px;}
+header {position: absolute;top: 0px;left: 0px;right: 0px;height: 41px;}
 
 .btn {display: inline-block;user-select: none;border-radius: 1px;border-radius: 3px;}
 .btn:hover {cursor: pointer;}
@@ -229,7 +229,7 @@ body.theme_light .btn-primary {background-color: #1166bb;background-image: linea
 
 
 body.theme_light {background-color: #f0f0f0;color: #999999;}
-body.theme_light header {background-color: #f0f0f0;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
+body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
 body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
 body.theme_light left {background-color: #ffffff}
 body.theme_light left > .scrollarea {border: 1px solid #b9b8b6;}
