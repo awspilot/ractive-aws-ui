@@ -53,7 +53,7 @@ Ractive.components.tableview = Ractive.extend({
 		</div>",
 	data: function() {
 		return {
-			tab: 'data',
+			tab: 'info',
 		}
 	},
 
