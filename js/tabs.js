@@ -18,11 +18,13 @@ Ractive.components.tabs = Ractive.extend({
 				<tablelistfull />\
 			{{else}}\
 				{{#tabs}}\
-					{{#if .type === 'tableview' }}\
-						<tableview table={{.}}  />\
-					{{/if}}\
-					{{#if .type === 'tablecreate' }}\
-						<tablecreate />\
+					{{#if .id === active_id}}\
+						{{#if .type === 'tableview' }}\
+							<tableview table={{.}}  />\
+						{{/if}}\
+						{{#if .type === 'tablecreate' }}\
+							<tablecreate />\
+						{{/if}}\
 					{{/if}}\
 				{{/tabs}}\
 			{{/if}}\
