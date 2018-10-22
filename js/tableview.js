@@ -877,8 +877,8 @@ Ractive.components.tableindexes = Ractive.extend({
 								{ S: partition_key_name + ' (' + partition_key_type + ' )' },
 								{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
 								{ S: projection },
-								{ N: index.IndexSizeBytes.toString() },
-								{ N: index.ItemCount.toString() },
+								{ N: index.hasOwnProperty('IndexSizeBytes') ? index.IndexSizeBytes.toString() : 0 },
+								{ N: index.hasOwnProperty('ItemCount')      ? index.ItemCount.toString()      : 0 },
 							]
 						})
 					)
