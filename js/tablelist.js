@@ -56,11 +56,11 @@ Ractive.components.tablelistfull = Ractive.extend({
 	//isolated: true,
 	template:
 		"\
-			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
-			<a class='btn btn-xs pull-right' on-click='delete'><i class='icon zmdi zmdi-delete'></i></a>\
-			<a class='btn btn-xs pull-right' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
+			<a class='btn btn-sm btn-default pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
+			<a class='btn btn-sm btn-default pull-right' on-click='delete'><i class='icon zmdi zmdi-delete'></i></a>\
+			<a class='btn btn-sm btn-primary pull-right' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
 		\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 28px;'/>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;'/>\
 		",
 	data: function() { return {} },
 	refresh_tables: function() {

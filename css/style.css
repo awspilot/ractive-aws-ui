@@ -8,13 +8,14 @@
 body {font-family: sans-serif;}
 header {position: absolute;top: 0px;left: 0px;right: 0px;height: 56px;}
 
-.btn {display: inline-block;user-select: none;border-radius: 1px;}
+.btn {display: inline-block;user-select: none;border-radius: 1px;border-radius: 3px;}
 .btn:hover {cursor: pointer;}
 .btn > i {vertical-align: top;}
 .btn-xs {min-width: 18px;height: 18px;text-align: center;line-height: 20px;margin-top: 5px;margin-right: 5px;font-size: 11px;}
 .btn-xs .zmdi {font-size: 16px;}
 
-.btn-md {margin-top: 5px;margin-right: 5px;font-size: 15px;padding: 5px 15px;}
+.btn-sm {margin-top: 5px;margin-right: 5px;font-size: 15px;padding: 3px 7px;}
+.btn-md {margin-top: 5px;margin-right: 5px;font-size: 15px;padding: 5px 11px;}
 
 
 
