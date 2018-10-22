@@ -3,17 +3,17 @@ Ractive.components.tableview = Ractive.extend({
 	template:
 		"<div class='tableview {{#if active}}active{{/if}}'>\
 			<div class='tableview-table-tabs'>\
-				<a class='btn-tableview-tab {{#if tab === \"info\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"info\")'><i class='zmdi zmdi-info'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"data\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"data\")'><i class='zmdi zmdi-format-list-bulleted'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"metrics\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"metrics\")'><i class='zmdi zmdi-chart'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"alarms\"}}active{{/if}}'       on-click='@this.set(\"tab\",\"alarms\")'><i class='zmdi zmdi-notifications'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"capacity\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"capacity\")'><i class='zmdi zmdi-memory'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"indexes\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"indexes\")'><i class='zmdi zmdi-format-line-spacing'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"globaltables\"}}active{{/if}}' on-click='@this.set(\"tab\",\"globaltables\")'><i class='zmdi zmdi-globe'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"backups\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"backups\")'><i class='zmdi zmdi-card-sd'></i></a>\
-				<a class='btn-tableview-tab {{#if tab === \"triggers\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"triggers\")'><i class='zmdi zmdi-portable-wifi'></i></a>\
+				<a class='btn-tableview-tab {{#if tab === \"info\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"info\")'><!-- <i class='zmdi zmdi-info'></i>--> Overview </a>\
+				<a class='btn-tableview-tab {{#if tab === \"data\"}}active{{/if}}'         on-click='@this.set(\"tab\",\"data\")'><!--<i class='zmdi zmdi-format-list-bulleted'></i>--> Items</a>\
+				<a class='btn-tableview-tab {{#if tab === \"metrics\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"metrics\")'><!--<i class='zmdi zmdi-chart'></i>--> Metrics</a>\
+				<a class='btn-tableview-tab {{#if tab === \"alarms\"}}active{{/if}}'       on-click='@this.set(\"tab\",\"alarms\")'><!--<i class='zmdi zmdi-notifications'></i>--> Alarms</a>\
+				<a class='btn-tableview-tab {{#if tab === \"capacity\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"capacity\")'><!--<i class='zmdi zmdi-memory'></i>--> Capacity</a>\
+				<a class='btn-tableview-tab {{#if tab === \"indexes\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"indexes\")'><!--<i class='zmdi zmdi-format-line-spacing'></i>--> Indexes</a>\
+				<a class='btn-tableview-tab {{#if tab === \"globaltables\"}}active{{/if}}' on-click='@this.set(\"tab\",\"globaltables\")'><!--<i class='zmdi zmdi-globe'></i>--> Global Tables</a>\
+				<a class='btn-tableview-tab {{#if tab === \"backups\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"backups\")'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>\
+				<a class='btn-tableview-tab {{#if tab === \"triggers\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"triggers\")'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>\
 			</div>\
-			<div style='position: absolute;top: 0px;left: 40px;right: 0px;bottom: 0px;'>\
+			<div style='position: absolute;top: 40px;left: 40px;right: 40px;bottom: 0px;'>\
 				{{#if tab === 'info'}}\
 					<tableinfo table='{{.table}}'/>\
 				{{/if}}\
