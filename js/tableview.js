@@ -19,7 +19,7 @@ Ractive.components.tableview = Ractive.extend({
 				{{/if}}\
 				\
 				{{#if tab === 'data'}}\
-					<tablebrowse table='{{.table}}'/>\
+					<!-- <tablebrowse table='{{.table}}'/> -->\
 				{{/if}}\
 				\
 				{{#if tab === 'metrics'}}\
