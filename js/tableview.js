@@ -557,7 +557,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 				})
 			}
 
-			if ( payload.GlobalSecondaryIndexUpdates.length === 0 )
+			if ( (payload.GlobalSecondaryIndexUpdates || []).length === 0 )
 				delete payload.GlobalSecondaryIndexUpdates;
 
 			//console.log('payload', payload )
