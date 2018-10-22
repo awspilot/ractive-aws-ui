@@ -664,12 +664,12 @@ Ractive.components.tableindexes = Ractive.extend({
 			{{else}}\
 				<h3>Indexes</h3>\
 				<div>\
-					<a class='btn btn-md btn-primary' on-click='create'>Create index</a>\
-					<a class='btn btn-md btn-default' on-click='delete'>Delete index</a>\
+					<a class='btn btn-sm btn-primary' on-click='create'>Create index</a>\
+					<a class='btn btn-sm btn-default' on-click='delete'>Delete index</a>\
 					\
-					<a class='btn btn-md pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
+					<a class='btn btn-sm pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
 				</div>\
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
+				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 128px'/>\
 			{{/if}}\
 		</div>\
 	",
