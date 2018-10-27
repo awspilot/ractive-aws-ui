@@ -19,3 +19,5 @@ ADD css /htdocs/css
 RUN npm install aws-sdk
 CMD /start.sh
 RUN mkdir /var/dynamo
+
+CMD ["sh", "/start.sh"] 
