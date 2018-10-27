@@ -1,11 +1,12 @@
+console.log("Starting static webserver and dynamodb proxy server")
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var AWS = require('aws-sdk');
 AWS.config.update({ accessKeyId: "myKeyId", secretAccessKey: "secretKey", region: "us-east-1" })
 var dynamodb = new AWS.DynamoDB({ endpoint: new AWS.Endpoint('http://localhost:8000') });
-
-
+var is_demo = process.env.DEMO == '1';
+console.log("demo is ", is_demo ? 'ON' : 'OFF' )
 http.createServer(function (request, response) {
 	console.log( request.method, request.url )
 	if ( request.method === 'POST' && request.url === '/v1/dynamodb') {
@@ -19,6 +20,17 @@ http.createServer(function (request, response) {
 				_POST: JSON.parse(body)
 			}
 			response.writeHead(200, { 'Content-Type': 'application/json' });
+
+			if (is_demo) {
+
+				if ( event._POST.method === 'deleteTable' && (['world_cities'].indexOf(event._POST.payload.TableName) !== -1) )
+					return response.end(JSON.stringify({ err: { errorMessage: 'deleteTable forbidden in demo'}, }));
+				if ( event._POST.method === 'updateTable' && (['world_cities'].indexOf(event._POST.payload.TableName) !== -1) )
+					return response.end(JSON.stringify({ err: { errorMessage: 'updateTable forbidden in demo'}, }));
+
+			}
+
+
 			switch ( event._POST.method ) {
 				case 'listTables':
 				case 'createTable':
