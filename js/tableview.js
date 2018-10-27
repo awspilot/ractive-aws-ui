@@ -13,7 +13,7 @@ Ractive.components.tableview = Ractive.extend({
 				<a class='btn-tableview-tab {{#if tab === \"backups\"}}active{{/if}}'      on-click='@this.set(\"tab\",\"backups\")'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>\
 				<a class='btn-tableview-tab {{#if tab === \"triggers\"}}active{{/if}}'     on-click='@this.set(\"tab\",\"triggers\")'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>\
 			</div>\
-			<div style='position: absolute;top: 42px;left: 40px;right: 40px;bottom: 0px;'>\
+			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;'>\
 				{{#if tab === 'info'}}\
 					<tableinfo table='{{.table}}'/>\
 				{{/if}}\
@@ -277,7 +277,7 @@ Ractive.components.tablebrowsesqlhead = Ractive.extend({
 
 Ractive.components.tablebrowsehead = Ractive.extend({
 	template: "\
-		<div class='tablequery' style='padding: 10px;'>\
+		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
 			<select>\
 				<option>SCAN</option>\
 			</select>\
