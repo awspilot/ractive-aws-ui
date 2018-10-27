@@ -151,6 +151,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 			if (confirm('Are you sure you want to delete table ' + tablename )) {
 				routeCall({ method: 'deleteTable', payload: { TableName: tablename } }, function(err, data) {
+					if (err)
+						return alert( err.errorMessage )
 					ractive.refresh_tables()
 				})
 			}
