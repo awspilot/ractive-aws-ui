@@ -2458,70 +2458,70 @@ case 1:
 
 			this.$ = $$[$0-1];
 			return this.$;
-		
+
 break;
 case 2:
- this.$ = $$[$0-2]; if($$[$0]) this.$.push($$[$0]); 
+ this.$ = $$[$0-2]; if($$[$0]) this.$.push($$[$0]);
 break;
 case 3: case 48: case 58: case 68: case 93: case 105: case 141: case 144: case 154: case 169: case 192: case 264: case 280:
- this.$ = [$$[$0]]; 
+ this.$ = [$$[$0]];
 break;
 case 16: case 20: case 22: case 23: case 24: case 25: case 26: case 196: case 198: case 204: case 230: case 231: case 285: case 288: case 289:
- this.$ = $$[$0]; 
+ this.$ = $$[$0];
 break;
 case 17:
- this.$ = $$[$0].substr(1,$$[$0].length-2); 
+ this.$ = $$[$0].substr(1,$$[$0].length-2);
 break;
 case 18:
- this.$ = {database:$$[$0-2], table:$$[$0]}; 
+ this.$ = {database:$$[$0-2], table:$$[$0]};
 break;
 case 19:
- this.$ = {table:$$[$0]}; 
+ this.$ = {table:$$[$0]};
 break;
 case 21:
- this.$ = {index:$$[$0]}; 
+ this.$ = {index:$$[$0]};
 break;
 case 27:
- this.$ = {type:'number', number:$$[$0]}; 
+ this.$ = {type:'number', number:$$[$0]};
 break;
 case 28:
  this.$ = {type:'string', string: $$[$0]}
 break;
 case 29: case 39:
- this.$ = true; 
+ this.$ = true;
 break;
 case 30: case 40:
- this.$ = false; 
+ this.$ = false;
 break;
 case 31:
- this.$ = {type:'boolean', value: true }; 
+ this.$ = {type:'boolean', value: true };
 break;
 case 32:
- this.$ = {type:'boolean', value: false }; 
+ this.$ = {type:'boolean', value: false };
 break;
 case 33: case 34: case 37:
- this.$ = eval($$[$0]); 
+ this.$ = eval($$[$0]);
 break;
 case 35: case 36:
- this.$ = { 'S': eval($$[$0]).toString() } 
+ this.$ = { 'S': eval($$[$0]).toString() }
 break;
 case 38:
- this.$ = { 'N': eval($$[$0]).toString() } 
+ this.$ = { 'N': eval($$[$0]).toString() }
 break;
 case 41:
- this.$ = { 'BOOL': true  } 
+ this.$ = { 'BOOL': true  }
 break;
 case 42:
- this.$ = { 'BOOL': false } 
+ this.$ = { 'BOOL': false }
 break;
 case 43:
- this.$ = null; 
+ this.$ = null;
 break;
 case 44:
- this.$ = { 'NULL': true } 
+ this.$ = { 'NULL': true }
 break;
 case 45:
- this.$ = "\0"; 
+ this.$ = "\0";
 break;
 case 46:
 
@@ -2529,19 +2529,19 @@ case 46:
 				this.$ = $$[$0-1].slice(0,-1)
 			} else
 				this.$ = $$[$0-1];
-		
+
 break;
 case 47: case 57:
 
 			this.$ = $$[$0-2]
 			this.$.push($$[$0]);
-		
+
 break;
 case 49: case 59:
- this.$ = "\0" 
+ this.$ = "\0"
 break;
 case 50: case 51: case 52: case 53: case 54: case 55: case 60: case 61: case 62: case 63: case 64: case 65: case 69: case 70: case 71: case 94: case 114: case 117: case 120: case 124: case 125: case 131: case 132: case 133: case 134: case 135: case 217: case 225:
- this.$ = $$[$0] 
+ this.$ = $$[$0]
 break;
 case 56:
 
@@ -2549,7 +2549,7 @@ case 56:
 				$$[$0-1] = $$[$0-1].slice(0,-1)
 			}
 			this.$ = { 'L': $$[$0-1] }
-		
+
 break;
 case 66:
 
@@ -2561,16 +2561,16 @@ case 66:
 				})
 			}
 			this.$ = $kv
-		
+
 break;
 case 67: case 92: case 140: case 143: case 153: case 168: case 191: case 249: case 263: case 279:
- this.$ = $$[$0-2]; this.$.push($$[$0]); 
+ this.$ = $$[$0-2]; this.$.push($$[$0]);
 break;
 case 72: case 97: case 182: case 188: case 197: case 247: case 275: case 284:
- this.$ = undefined; 
+ this.$ = undefined;
 break;
 case 73: case 74: case 75: case 76: case 77: case 78: case 79: case 80: case 81: case 82: case 83: case 84: case 85: case 86: case 87: case 88: case 89: case 90: case 98: case 99: case 100: case 101: case 102:
- this.$ = [$$[$0-2], $$[$0] ] 
+ this.$ = [$$[$0-2], $$[$0] ]
 break;
 case 91:
 
@@ -2582,10 +2582,10 @@ case 91:
 				})
 			}
 			this.$ = { 'M': $kv }
-		
+
 break;
 case 95: case 96:
- this.$ = eval($$[$0]) 
+ this.$ = eval($$[$0])
 break;
 case 103:
 
@@ -2593,13 +2593,13 @@ case 103:
 				$$[$0-2] = $$[$0-2].slice(0,-1)
 			}
 			this.$ = { 'SS': $$[$0-2] }
-		
+
 break;
 case 104:
 
-			this.$ = $$[$0-2] 
-			this.$.push($$[$0]); 
-		
+			this.$ = $$[$0-2]
+			this.$.push($$[$0]);
+
 break;
 case 106:
 
@@ -2607,16 +2607,16 @@ case 106:
 				$$[$0-2] = $$[$0-2].slice(0,-1)
 			}
 			this.$ = { 'NS': $$[$0-2] }
-		
+
 break;
 case 107:
 
-			this.$ = $$[$0-2] 
-			this.$.push( ($$[$0]).toString() ); 
-		
+			this.$ = $$[$0-2]
+			this.$.push( ($$[$0]).toString() );
+
 break;
 case 108:
- this.$ = [ ($$[$0]).toString() ]; 
+ this.$ = [ ($$[$0]).toString() ];
 break;
 case 109:
 
@@ -2635,7 +2635,7 @@ case 109:
 			if (typeof date === "number") {
 				this.$ = date
 			}
-		
+
 break;
 case 110:
 
@@ -2660,7 +2660,7 @@ case 110:
 			} else {
 				throw $$[$0-2] + " not a function"
 			}
-		
+
 break;
 case 111:
 
@@ -2679,7 +2679,7 @@ case 111:
 			if (typeof date === "number") {
 				this.$ = { N: date.toString() }
 			}
-		
+
 break;
 case 112:
 
@@ -2704,10 +2704,10 @@ case 112:
 			} else {
 				throw $$[$0-2] + " not a function"
 			}
-		
+
 break;
 case 113: case 119:
- this.$ = undefined 
+ this.$ = undefined
 break;
 case 115: case 123:
 
@@ -2720,7 +2720,7 @@ case 115: case 123:
 			if (typeof $$[$0] === "number") {
 				this.$ = { N: $$[$0].toString() }
 			}
-		
+
 break;
 case 116:
 
@@ -2729,15 +2729,15 @@ case 116:
 			} else {
 				throw 'Math.' + $$[$0-3] + " not a function"
 			}
-		
+
 break;
 case 118:
- this.$ = 'random' 
+ this.$ = 'random'
 break;
 case 121:
 
 			this.$ =  '########-####-####-####-############'.replace(/[#]/g, function(c) { var r = Math.random()*16|0, v = c == '#' ? r : (r&0x3|0x8); return v.toString(16); })
- 		
+
 break;
 case 122:
 
@@ -2752,19 +2752,19 @@ case 122:
 						Math.min(36, $$[$0-1])
 					)
 				).replace(/[#]/g, function(c) { var r = Math.random()*16|0, v = c == '#' ? r : (r&0x3|0x8); return v.toString(16); })
-		
+
 break;
 case 126: case 142:
- this.$ = $$[$0-1] 
+ this.$ = $$[$0-1]
 break;
 case 127:
- this.$ = $$[$0-2] + $$[$0] 
+ this.$ = $$[$0-2] + $$[$0]
 break;
 case 128:
- this.$ = $$[$0-2] - $$[$0] 
+ this.$ = $$[$0-2] - $$[$0]
 break;
 case 129:
- this.$ = $$[$0-2] * $$[$0] 
+ this.$ = $$[$0-2] * $$[$0]
 break;
 case 130:
 
@@ -2772,7 +2772,7 @@ case 130:
 				throw 'Division by 0';
 
 			this.$ = $$[$0-2] / $$[$0]
-		
+
 break;
 case 136:
 
@@ -2791,7 +2791,7 @@ case 136:
 
 			};
 
-		
+
 break;
 case 137:
 
@@ -2830,16 +2830,16 @@ case 137:
 				})
 				this.$.dynamodb.RequestItems = RequestItems;
 			}
-		
+
 break;
 case 138:
- this.$ = false 
+ this.$ = false
 break;
 case 139:
- this.$ = true 
+ this.$ = true
 break;
 case 145: case 146: case 147: case 148: case 149: case 150: case 151: case 155: case 156: case 157: case 158: case 159: case 160: case 161: case 170: case 171: case 172: case 173: case 174: case 175: case 176: case 226: case 227:
- this.$ = [ $$[$0-2], $$[$0] ]; 
+ this.$ = [ $$[$0-2], $$[$0] ];
 break;
 case 152:
 
@@ -2886,22 +2886,22 @@ case 152:
 					AttributeUpdates: AttributeUpdates,
 				},
 			}
-		
+
 break;
 case 162:
- this.$ = [ $$[$0-2], $$[$0], '+=' ]; 
+ this.$ = [ $$[$0-2], $$[$0], '+=' ];
 break;
 case 163:
- this.$ = [ $$[$0-2], undefined, 'delete' ]; 
+ this.$ = [ $$[$0-2], undefined, 'delete' ];
 break;
 case 164: case 178: case 250: case 266:
- this.$ = [ $$[$0] ]; 
+ this.$ = [ $$[$0] ];
 break;
 case 165: case 179:
- this.$ = [$$[$0-2], $$[$0]]; 
+ this.$ = [$$[$0-2], $$[$0]];
 break;
 case 166: case 180:
- this.$ = {k: $$[$0-2], v: $$[$0] }; 
+ this.$ = {k: $$[$0-2], v: $$[$0] };
 break;
 case 167:
 
@@ -2917,7 +2917,7 @@ case 167:
 					Item: $kv
 				},
 			}
-		
+
 break;
 case 177:
 
@@ -2932,7 +2932,7 @@ case 177:
 					Key: $kv,
 				}
 			}
-		
+
 break;
 case 181:
 
@@ -2944,37 +2944,37 @@ case 181:
 			yy.extend(this.$.dynamodb,$$[$0-2]);
 			yy.extend(this.$.dynamodb,$$[$0-1]);
 			yy.extend(this.$.dynamodb,$$[$0]);
-		
+
 break;
 case 183:
- this.$ = { Limit: $$[$0] }; 
+ this.$ = { Limit: $$[$0] };
 break;
 case 184:
- this.$ = { ScanIndexForward: true }; 
+ this.$ = { ScanIndexForward: true };
 break;
 case 185:
- this.$ = { ScanIndexForward: false }; 
+ this.$ = { ScanIndexForward: false };
 break;
 case 186: case 277:
- this.$ = { ConsistentRead: false }; 
+ this.$ = { ConsistentRead: false };
 break;
 case 187:
- this.$ = { ConsistentRead: true }; 
+ this.$ = { ConsistentRead: true };
 break;
 case 189:
- this.$ = {distinct:true}; 
+ this.$ = {distinct:true};
 break;
 case 190:
- this.$ = {all:true}; 
+ this.$ = {all:true};
 break;
 case 193: case 281:
- this.$ = {type: 'star', star:true}; 
+ this.$ = {type: 'star', star:true};
 break;
 case 194: case 282:
- this.$ = {type: 'column', column: $$[$0]}; 
+ this.$ = {type: 'column', column: $$[$0]};
 break;
 case 195: case 283:
- this.$ = {type: 'column', column: $$[$0-2], alias: $$[$0] }; 
+ this.$ = {type: 'column', column: $$[$0-2], alias: $$[$0] };
 break;
 case 199:
 
@@ -2988,7 +2988,7 @@ case 199:
 			this.$.ExpressionAttributeValues[ ':partitionKeyValue' ] = $$[$0].partition.partitionKeyValue
 			this.$.KeyConditionExpression = ' #partitionKeyName =  :partitionKeyValue '
 
-		
+
 break;
 case 200:
 
@@ -3038,10 +3038,10 @@ case 200:
 			}
 
 
-		
+
 break;
 case 201: case 286:
- this.$ = {having: $$[$0]}; 
+ this.$ = {having: $$[$0]};
 break;
 case 203:
 
@@ -3080,40 +3080,40 @@ case 203:
 			}
 
 
-		
+
 break;
 case 205: case 232: case 290:
- this.$ = {bind_parameter: $$[$0]}; 
+ this.$ = {bind_parameter: $$[$0]};
 break;
 case 206: case 233: case 291:
- this.$ = {column: $$[$0]}; 
+ this.$ = {column: $$[$0]};
 break;
 case 207: case 234: case 292:
- this.$ = {op: 'AND', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: 'AND', left: $$[$0-2], right: $$[$0]};
 break;
 case 208: case 235: case 293:
- this.$ = {op: 'OR', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: 'OR', left: $$[$0-2], right: $$[$0]};
 break;
 case 209: case 236: case 294:
- this.$ = {op: '=', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: '=', left: $$[$0-2], right: $$[$0]};
 break;
 case 210: case 237: case 295:
- this.$ = {op: '>', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: '>', left: $$[$0-2], right: $$[$0]};
 break;
 case 211: case 238: case 296:
- this.$ = {op: '>=', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: '>=', left: $$[$0-2], right: $$[$0]};
 break;
 case 212: case 239: case 297:
- this.$ = {op: '<', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: '<', left: $$[$0-2], right: $$[$0]};
 break;
 case 213: case 240: case 298:
- this.$ = {op: '<=', left: $$[$0-2], right: $$[$0]}; 
+ this.$ = {op: '<=', left: $$[$0-2], right: $$[$0]};
 break;
 case 214: case 241: case 299:
- this.$ = {op: 'BETWEEN', left: $$[$0-2], right:$$[$0] }; 
+ this.$ = {op: 'BETWEEN', left: $$[$0-2], right:$$[$0] };
 break;
 case 215: case 242: case 300:
- this.$ = {op: 'LIKE', left:$$[$0-2], right: { type: 'string', string: $$[$0] } }; 
+ this.$ = {op: 'LIKE', left:$$[$0-2], right: { type: 'string', string: $$[$0] } };
 break;
 case 216:
 
@@ -3123,7 +3123,7 @@ case 216:
 					partitionKeyValue: $$[$0]
 				}
 			}
-		
+
 break;
 case 218:
 
@@ -3134,7 +3134,7 @@ case 218:
 					op: '='
 				}
 			}
-		
+
 break;
 case 219:
 
@@ -3145,7 +3145,7 @@ case 219:
 					op: '>'
 				}
 			}
-		
+
 break;
 case 220:
 
@@ -3156,7 +3156,7 @@ case 220:
 					op: '>='
 				}
 			}
-		
+
 break;
 case 221:
 
@@ -3167,7 +3167,7 @@ case 221:
 					op: '<'
 				}
 			}
-		
+
 break;
 case 222:
 
@@ -3178,7 +3178,7 @@ case 222:
 					op: '<='
 				}
 			}
-		
+
 break;
 case 223:
 
@@ -3190,7 +3190,7 @@ case 223:
 					op: 'BETWEEN'
 				}
 			}
-		
+
 break;
 case 224:
 
@@ -3201,22 +3201,22 @@ case 224:
 					op: 'BEGINS_WITH'
 				}
 			}
-		
+
 break;
 case 228:
- this.$ = {left: { type: 'number', number: $$[$0-2]}, right: {type: 'number', number: $$[$0] } }; 
+ this.$ = {left: { type: 'number', number: $$[$0-2]}, right: {type: 'number', number: $$[$0] } };
 break;
 case 229:
- this.$ = {left: { type: 'string', string: $$[$0-2]}, right: {type: 'string', string: $$[$0] } }; 
+ this.$ = {left: { type: 'string', string: $$[$0-2]}, right: {type: 'string', string: $$[$0] } };
 break;
 case 243: case 301:
- this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'string', string: $$[$0] } }; 
+ this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'string', string: $$[$0] } };
 break;
 case 244: case 302:
- this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'number', number: $$[$0] } }; 
+ this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'number', number: $$[$0] } };
 break;
 case 245: case 303:
- this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'boolean', value: $$[$0] } }; 
+ this.$ = {op: 'CONTAINS', left:$$[$0-2], right: { type: 'boolean', value: $$[$0] } };
 break;
 case 246:
 
@@ -3227,11 +3227,11 @@ case 246:
 					TableName: $$[$0-6],
 					AttributeDefinitions: $$[$0-4],
 				}
-				
+
 			};
 			yy.extend(this.$.dynamodb,$$[$0-2]); // extend with pk
 			yy.extend(this.$.dynamodb,$$[$0-1]); // extend with indexes
-		
+
 break;
 case 248:
 
@@ -3239,7 +3239,7 @@ case 248:
 				LocalSecondaryIndexes: [],
 				GlobalSecondaryIndexes: []
 			}
-			
+
 			$$[$0].map(function(idx) {
 				if (idx.hasOwnProperty('LSI'))
 					indexes.LocalSecondaryIndexes.push(idx.LSI)
@@ -3247,79 +3247,79 @@ case 248:
 					indexes.GlobalSecondaryIndexes.push(idx.GSI)
 			})
 			this.$ = indexes
-		
+
 break;
 case 251:
 
 			this.$ = {}
-			this.$[$$[$0-4]] = { 
-				IndexName: $$[$0-5], 
-				KeySchema: [ { AttributeName: $$[$0-2], KeyType: 'HASH' } ], 
+			this.$[$$[$0-4]] = {
+				IndexName: $$[$0-5],
+				KeySchema: [ { AttributeName: $$[$0-2], KeyType: 'HASH' } ],
 				Projection: $$[$0],
 			}
-		
+
 break;
 case 252:
 
 			this.$ = {}
-			this.$[$$[$0-5]] = { 
-				IndexName: $$[$0-6], 
-				KeySchema: [ { AttributeName: $$[$0-3], KeyType: 'HASH' } ], 
+			this.$[$$[$0-5]] = {
+				IndexName: $$[$0-6],
+				KeySchema: [ { AttributeName: $$[$0-3], KeyType: 'HASH' } ],
 				Projection: $$[$0-1],
-				ProvisionedThroughput: $$[$0] 
+				ProvisionedThroughput: $$[$0]
 			}
-		
+
 break;
 case 253:
 
 			this.$ = {}
-			this.$[$$[$0-6]] = { 
-				IndexName: $$[$0-7], 
-				KeySchema: [ { AttributeName: $$[$0-4], KeyType: 'HASH' }, { AttributeName: $$[$0-2], KeyType: 'RANGE' } ], 
+			this.$[$$[$0-6]] = {
+				IndexName: $$[$0-7],
+				KeySchema: [ { AttributeName: $$[$0-4], KeyType: 'HASH' }, { AttributeName: $$[$0-2], KeyType: 'RANGE' } ],
 				Projection: $$[$0],
 			}
-		
+
 break;
 case 254:
 
 			this.$ = {}
-			this.$[$$[$0-7]] = { 
-				IndexName: $$[$0-8], 
-				KeySchema: [ { AttributeName: $$[$0-5], KeyType: 'HASH' }, { AttributeName: $$[$0-3], KeyType: 'RANGE' } ], 
+			this.$[$$[$0-7]] = {
+				IndexName: $$[$0-8],
+				KeySchema: [ { AttributeName: $$[$0-5], KeyType: 'HASH' }, { AttributeName: $$[$0-3], KeyType: 'RANGE' } ],
 				Projection: $$[$0-1],
-				ProvisionedThroughput: $$[$0] 
+				ProvisionedThroughput: $$[$0]
 			}
-		
+
 break;
 case 255:
- this.$ = { KeySchema: [ { AttributeName: $$[$0-2], KeyType: 'HASH' }], ProvisionedThroughput: $$[$0] }  
+ this.$ = { KeySchema: [ { AttributeName: $$[$0-2], KeyType: 'HASH' }], ProvisionedThroughput: $$[$0] }
 break;
 case 256:
- this.$ = { KeySchema: [ { AttributeName: $$[$0-4], KeyType: 'HASH' } , { AttributeName: $$[$0-2], KeyType: 'RANGE' } ], ProvisionedThroughput: $$[$0] }  
+ this.$ = { KeySchema: [ { AttributeName: $$[$0-4], KeyType: 'HASH' } , { AttributeName: $$[$0-2], KeyType: 'RANGE' } ], ProvisionedThroughput: $$[$0] }
 break;
 case 257:
- this.$ = { ReadCapacityUnits: 1, WriteCapacityUnits: 1 }; 
+ this.$ = { ReadCapacityUnits: 1, WriteCapacityUnits: 1 };
 break;
 case 258:
- this.$ = { ReadCapacityUnits: eval($$[$0-1]), WriteCapacityUnits: eval($$[$0]) } 
+ this.$ = { ReadCapacityUnits: eval($$[$0-1]), WriteCapacityUnits: eval($$[$0]) }
 break;
 case 259: case 260:
- this.$ = { ProjectionType: 'ALL' }; 
+ this.$ = { ProjectionType: 'ALL' };
 break;
 case 261:
- this.$ = { ProjectionType: 'KEYS_ONLY' } 
+ this.$ = { ProjectionType: 'KEYS_ONLY' }
 break;
 case 262:
- this.$ = { ProjectionType: 'INCLUDE', NonKeyAttributes: $$[$0-1] } 
+ this.$ = { ProjectionType: 'INCLUDE', NonKeyAttributes: $$[$0-1] }
 break;
 case 265:
- this.$ = $$[$0-2]; this.$.push($$[$0]) 
+ this.$ = $$[$0-2]; this.$.push($$[$0])
 break;
 case 267:
- this.$ = { AttributeName: $$[$0-1], AttributeType: 'S'}; 
+ this.$ = { AttributeName: $$[$0-1], AttributeType: 'S'};
 break;
 case 268:
- this.$ = { AttributeName: $$[$0-1], AttributeType: 'N'}; 
+ this.$ = { AttributeName: $$[$0-1], AttributeType: 'N'};
 break;
 case 269:
 
@@ -3328,7 +3328,7 @@ case 269:
 				operation: 'listTables',
 				dynamodb: {}
 			}
-		
+
 break;
 case 270:
 
@@ -3339,7 +3339,7 @@ case 270:
 					TableName: $$[$0]
 				}
 			};
-		
+
 break;
 case 271:
 
@@ -3350,7 +3350,7 @@ case 271:
 					TableName: $$[$0]
 				}
 			};
-		
+
 break;
 case 272:
 
@@ -3368,22 +3368,22 @@ case 272:
 					]
 				}
 			};
-		
+
 break;
 case 273:
 
 			this.$ = {
-				statement: 'SCAN', 
+				statement: 'SCAN',
 				operation: 'scan',
 				dynamodb: $$[$0-2].dynamodb,
 			};
 
 			this.$.columns = $$[$0-2].columns
 			this.$.having  = Object.keys($$[$0-2].having).length ? $$[$0-2].having : undefined;
-			
+
 			yy.extend(this.$.dynamodb, $$[$0-1]);
 			yy.extend(this.$.dynamodb, $$[$0]);
-		
+
 break;
 case 274:
 
@@ -3394,7 +3394,7 @@ case 274:
 				},
 				columns:$$[$0-4],
 				having: {},
-			}; 
+			};
 			yy.extend(this.$,$$[$0]); // filter
 
 
@@ -3407,32 +3407,32 @@ case 274:
 				var ProjectionExpression = []
 				this.$.columns.map(function(c) {
 					if (c.type === "column") {
-						var replaced_name = '#projection_' + c.column.split('-').join('_minus_').split('.').join('_dot_') 
+						var replaced_name = '#projection_' + c.column.split('-').join('_minus_').split('.').join('_dot_')
 						ExpressionAttributeNames_from_projection[replaced_name] = c.column;
 						ProjectionExpression.push(replaced_name)
-					}	
+					}
 				})
-				
+
 				yy.extend(this.$.dynamodb.ExpressionAttributeNames,ExpressionAttributeNames_from_projection);
-				
+
 				if (ProjectionExpression.length)
 					this.$.dynamodb.ProjectionExpression = ProjectionExpression.join(' , ')
-			
+
 			}
 
 
-		
+
 break;
 case 276:
- this.$ = {Limit: $$[$0]}; 
+ this.$ = {Limit: $$[$0]};
 break;
 case 278:
- this.$ = { ConsistentRead: true  }; 
+ this.$ = { ConsistentRead: true  };
 break;
 case 304:
 
 			this.$ = $$[$0]
-		
+
 break;
 }
 },
@@ -5815,5 +5815,5 @@ DynamoUtil.normalizeValue  = DynamoUtil.parse;
 
 module.exports = DynamoUtil
 
-}).call(this,{"isBuffer":require("../../../../../../../../.nvm/versions/node/v4.3.0/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../../../../../../../.nvm/versions/node/v4.3.0/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/is-buffer/index.js":2}]},{},[5]);
+}).call(this,{"isBuffer":require("../../../../../../../../.nvm/versions/node/v9.11.2/lib/node_modules/browserify/node_modules/is-buffer/index.js")})
+},{"../../../../../../../../.nvm/versions/node/v9.11.2/lib/node_modules/browserify/node_modules/is-buffer/index.js":2}]},{},[5]);
