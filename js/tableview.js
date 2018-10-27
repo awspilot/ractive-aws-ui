@@ -19,7 +19,7 @@ Ractive.components.tableview = Ractive.extend({
 				{{/if}}\
 				\
 				{{#if tab === 'data'}}\
-					<tablebrowse table='{{.table}}'/>\
+					<tablebrowse table='{{.table}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
 				{{/if}}\
 				\
 				{{#if tab === 'metrics'}}\
@@ -74,8 +74,8 @@ Ractive.components.tablebrowse = Ractive.extend({
 			<!-- <tablebrowsesqlhead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/> -->\
 			<tablebrowsehead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
 		</div>",
-	data: function() { return {} },
 	refresh_data: function() {
+
 		var ractive = this;
 		this.set('columns', [])
 		this.set('rows', [])
@@ -83,65 +83,125 @@ Ractive.components.tablebrowse = Ractive.extend({
 		var dbrows = null
 		var hash_key = null
 		var range_key = null
+		var fields = {}
+		var columns = [null]
 
-		async.parallel([
+
+		async.waterfall([
 			function(cb) {
-
 
 				routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
 				//ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
 					if (err)
 						return cb(err);
 
-					hash_key = (data.Table.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName;
-					range_key = (data.Table.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+					ractive.set('describeTable', data.Table )
 					cb()
 				})
 			},
-			function(cb) {
-				DynamoDB.explain().query(ractive.get('table.sql'), function(err, call) {
+			function( cb ) {
+				if (ractive.get('type') !== 'scan')
+					return cb()
+
+				fields = {}
+
+				hash_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName;
+				range_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+				columns.push(hash_key)
+				fields[hash_key] = 1;
+				if (range_key) {
+					columns.push(range_key)
+					fields[range_key] = 1;
+				}
+
+
+				var scan_index = ractive.get('scan.table')
+				if (scan_index === '') {
+				} else {
+					var scan_type = scan_index.split(':')[0]
+					scan_index = scan_index.split(':')[1]
+					if (scan_type === 'gsi ') {
+						var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === scan_index})[0]
+
+						var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
+						var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+
+						columns.push(index_hash_key)
+						fields[index_hash_key] = 1;
+
+						if (index_range_key) {
+							columns.push(index_range_key)
+							fields[index_range_key] = 1;
+						}
+					}
+
+
+				}
+
+				var ddb = DynamoDB.explain().table(ractive.get('table.name'))
+				ddb.limit(100)
+				if (scan_index)
+					ddb = ddb.index(scan_index)
+
+				ddb.scan(function(err, data, raw ) {
 					if (err)
-						return cb(err)
+						return alert("scan error")
 
-					routeCall( call, function( err, data ) {
+					console.log(raw.Explain)
+					routeCall( raw.Explain , function(err, data) {
 						if (err)
-							return cb(err)
-
+							return cb(err);
 
 						dbrows = DynamodbFactory.util.parse({ L:
 								(data.Items || []).map(function(item) { return {'M': item } })
 							})
-						//dbrows = data
 						cb()
-					})
-				//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
 
+					});
 				})
 			},
+		// 	function(cb) {
+		// 		DynamoDB.explain().query(ractive.get('table.name'), function(err, call) {
+		// 			if (err)
+		// 				return cb(err)
+		//
+		// 			routeCall( call, function( err, data ) {
+		// 				if (err)
+		// 					return cb(err)
+		//
+		//
+		// 				dbrows = DynamodbFactory.util.parse({ L:
+		// 						(data.Items || []).map(function(item) { return {'M': item } })
+		// 					})
+		// 				//dbrows = data
+		// 				cb()
+		// 			})
+		// 		//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
+		//
+		// 		})
+		// 	},
+
 		], function(err) {
 			if (err)
-				return;
+				ractive.set('err', err.errorMessage )
 
-			var fields = {}
-			var columns = [null]
 			var rows = []
 
-			columns.push(hash_key)
-			fields[hash_key] = 1;
-			if (range_key) {
-				columns.push(range_key)
-				fields[range_key] = 1;
-			}
+
+
 
 			dbrows.map(function(row) {
 				Object.keys(row).map(function(column_name) {
 					if (!fields.hasOwnProperty(column_name)) {
-						fields[column_name] = {};
+						fields[column_name] = 1;
 						columns.push(column_name)
 
 					}
 				})
 			})
+
+			columns = columns.slice(0,10)
+
 			dbrows.map(function(row) {
 				var thisrow = []
 
@@ -181,19 +241,40 @@ Ractive.components.tablebrowse = Ractive.extend({
 		})
 	},
 	oninit: function() {
+		var ractive = this;
 		this.refresh_data()
 
-		this.on('tabledata.refresh', function() {
-			this.refresh_data()
-		})
+		// this.on('tabledata.refresh', function() {
+		// 	this.refresh_data()
+		// })
 
-		this.on('tabledata.run-sql', function() {
-			//alert("run sql")
-			this.refresh_data()
-			console.log(this.get('table.sql'))
-		})
+		// this.on('tabledata.run-sql', function() {
+		// 	//alert("run sql")
+		// 	this.refresh_data()
+		// 	//console.log(this.get('table.sql'))
+		// })
 
+		this.on('tablebrowsehead.run-oop', function() {
+
+			//console.log(
+			//	ractive.findComponent('tablebrowsehead').get()
+			//)
+			this.set('type', ractive.findComponent('tablebrowsehead').get('type') )
+			this.set('scan', ractive.findComponent('tablebrowsehead').get('scan') )
+			this.set('query', ractive.findComponent('tablebrowsehead').get('query') )
+			this.set('sql', ractive.findComponent('tablebrowsehead').get('sql') )
+
+			this.refresh_data()
+			//console.log(this.get('table.sql'))
+		})
 	},
+	data: function() { return {
+		type: 'scan',
+		scan: {
+			table: ''
+		},
+	} },
+
 })
 
 Ractive.components.tablebrowsesqlhead = Ractive.extend({
@@ -276,12 +357,13 @@ Ractive.components.tablebrowsesqlhead = Ractive.extend({
 
 
 Ractive.components.tablebrowsehead = Ractive.extend({
+	isolated: true,
 	template: "\
 		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
-			<select>\
-				<option>SCAN</option>\
+			<select value='{{ .type }}'>\
+				<option value='scan'>SCAN</option>\
 			</select>\
-			<select>\
+			<select value='{{ .scan.table }}'>\
 				<option value=''>\
 					[ Table ]\
 					{{ describeTable.TableName }}:\
@@ -422,7 +504,7 @@ Ractive.components.tablebrowsehead = Ractive.extend({
 			\
 		</div>\
 		<div class='tabledatacontrols'>\
-			<div class='btn btn-xs' on-click='run-sql' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			<div class='btn btn-xs' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
 			\
 			<div class='btn btn-xs pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
 			<div class='btn btn-xs pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
@@ -1001,7 +1083,7 @@ Ractive.components.tableindexes = Ractive.extend({
 
 			routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
 				if (err)
-					return ractive.set('err', err.message );
+					return ractive.set('err', err.message || err.errorMessage );
 
 				ractive.set('tab')
 				ractive.set('newindex')
