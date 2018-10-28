@@ -1,5 +1,5 @@
 Ractive.components.tabledata = Ractive.extend({
-	//isolated: true,
+	isolated: true,
 	template:
 		"\
 		<div class='tabledata' style='{{style}}'>\
