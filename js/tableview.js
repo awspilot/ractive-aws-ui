@@ -505,6 +505,8 @@ Ractive.components.tablebrowsehead = Ractive.extend({
 		</div>\
 		<div class='tabledatacontrols'>\
 			<div class='btn btn-xs' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			<div class='btn btn-xs' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>\
+			<div class='btn btn-xs' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
 			\
 			<div class='btn btn-xs pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
 			<div class='btn btn-xs pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
@@ -727,17 +729,6 @@ Ractive.components.tableinfo = Ractive.extend({
 			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
 				if (err)
 					return ractive.set('err', err.errorMessage );
-
-				console.log(data)
-				// data.Table.total_read =
-				// 	data.Table.ProvisionedThroughput.ReadCapacityUnits +
-				// 	(data.Table.GlobalSecondaryIndexes || []).map(function(gsi) { return gsi.ProvisionedThroughput.ReadCapacityUnits })
-				// 		.reduce(function (total, num) {return total + num;},0);
-				//
-				// data.Table.total_write =
-				// 	data.Table.ProvisionedThroughput.WriteCapacityUnits +
-				// 	(data.Table.GlobalSecondaryIndexes || []).map(function(gsi) { return gsi.ProvisionedThroughput.WriteCapacityUnits })
-				// 		.reduce(function (total, num) {return total + num;},0);
 
 				ractive.set('describeTable', data.Table)
 			})
