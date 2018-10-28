@@ -1,10 +1,12 @@
 {
   "name": "dynamodb-ui",
   "version": "1.0.0",
-  "description": "``` 100% client side HTML gui for AWS DynamoDB.",
+  "description": "100% client side HTML gui for AWS DynamoDB.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "mkdir -p dist/js && concat -o dist/js/libs.js src/libs/ractive/ractive-1.0.0-build-107.min.js src/libs/ractive/ractive-window.min.js src/libs/ractive/ractive-ace.js src/libs/ractive/ractive-scrollarea.js "
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"libs": "mkdir -p dist/js && concat -o dist/js/libs.js src/libs/async-2.6.0.js src/libs/promise-6.1.0.js src/libs/ractive/ractive-1.0.0-build-107.min.js src/libs/ractive/ractive-window.min.js src/libs/ractive/ractive-scrollarea.js src/libs/ace/ace-1.2.9.js src/libs/ractive/ractive-ace.js src/libs/ace/mode_sql.js  src/libs/ace/custom.js ",
+		"dynamodb": "concat -o dist/js/dynamodb.js src/libs/dynamodb/aws-sdk-2.160.0.min.js src/libs/dynamodb/awspilot-dynamodb-sql.js src/libs/dynamodb/dynamodbjs.js",
+		"dynamodb-ui": ""
   },
   "repository": {
     "type": "git",
