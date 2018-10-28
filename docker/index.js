@@ -21,11 +21,12 @@ http.createServer(function (request, response) {
 			}
 			response.writeHead(200, { 'Content-Type': 'application/json' });
 
+			var demo_tables = [ 'cities','countries' ];
 			if (is_demo) {
 
-				if ( event._POST.method === 'deleteTable' && (['world_cities'].indexOf(event._POST.payload.TableName) !== -1) )
+				if ( event._POST.method === 'deleteTable' && (demo_tables.indexOf(event._POST.payload.TableName) !== -1) )
 					return response.end(JSON.stringify({ err: { errorMessage: 'deleteTable forbidden in demo'}, }));
-				if ( event._POST.method === 'updateTable' && (['world_cities'].indexOf(event._POST.payload.TableName) !== -1) )
+				if ( event._POST.method === 'updateTable' && (demo_tables.indexOf(event._POST.payload.TableName) !== -1) )
 					return response.end(JSON.stringify({ err: { errorMessage: 'updateTable forbidden in demo'}, }));
 
 			}
