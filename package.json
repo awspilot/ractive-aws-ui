@@ -1,0 +1,22 @@
+{
+  "name": "dynamodb-ui",
+  "version": "1.0.0",
+  "description": "``` 100% client side HTML gui for AWS DynamoDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianpraja/dynamodb-ui.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adrianpraja/dynamodb-ui/issues"
+  },
+  "homepage": "https://github.com/adrianpraja/dynamodb-ui#readme",
+  "devDependencies": {
+    "webpack": "^4.23.1"
+  }
+}
