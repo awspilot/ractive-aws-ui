@@ -1,4 +1,4 @@
-Ractive.components.tableitems = Ractive.extend({
+Ractive.components.tabletab = Ractive.extend({
 	//isolated: true,
 	template:
 		"<div class='tableview {{#if active}}active{{/if}}'>\

@@ -19,8 +19,8 @@ Ractive.components.tabs = Ractive.extend({
 			{{else}}\
 				{{#tabs}}\
 					{{#if .id === active_id}}\
-						{{#if .type === 'tableview' }}\
-							<tableview table={{.}}  />\
+						{{#if .type === 'tabletab' }}\
+							<tabletab table={{.}}  />\
 						{{/if}}\
 						{{#if .type === 'tablecreate' }}\
 							<tablecreate />\
@@ -35,7 +35,7 @@ Ractive.components.tabs = Ractive.extend({
 	activetabcontent: function() {
 		var ractive = this
 		ractive.active_cache.push(ractive.get('active_id'))
-		ractive.findAllComponents('tableview').map(function( tableview_c ) {
+		ractive.findAllComponents('tabletab').map(function( tableview_c ) {
 			tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id') )
 		})
 	},

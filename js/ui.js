@@ -8,7 +8,7 @@ Ractive.components.dynamoui = Ractive.extend({
 			<WindowHost />\
 			<header></header>\
 			<left>\
-				<tablelist />\
+				<minitablelist />\
 			</left>\
 			<content>\
 				<tabs active_id='tables' />\
