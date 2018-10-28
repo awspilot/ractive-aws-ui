@@ -327,9 +327,21 @@ Ractive.components.tableitems = Ractive.extend({
 		this.on('run-oop', function() {
 			this.refresh_data(null)
 		})
+		this.on('prev', function() {
+			if (ractive.get('scan.LastEvaluatedKey').length < 3)
+				return;
+
+			var next = ractive.pop('scan.LastEvaluatedKey')
+
+			var current = ractive.pop('scan.LastEvaluatedKey')
+
+			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
+
+			ractive.refresh_data(LastEvaluatedKey)
+		})
 		this.on('next', function() {
-			alert('next')
-			console.log(ractive.get('scan'))
+			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
+			ractive.refresh_data(LastEvaluatedKey)
 		})
 
 
