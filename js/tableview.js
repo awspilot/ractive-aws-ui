@@ -1,5 +1,5 @@
 
-Ractive.components.tablebrowse = Ractive.extend({
+Ractive.components.tableitems = Ractive.extend({
 	template: "\
 		<div class='tablebrowse'>\
 			<!-- table query -->\

@@ -19,7 +19,7 @@ Ractive.components.tabletab = Ractive.extend({
 				{{/if}}\
 				\
 				{{#if tab === 'data'}}\
-					<tablebrowse table='{{.table}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
+					<tableitems table='{{.table}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
 				{{/if}}\
 				\
 				{{#if tab === 'metrics'}}\
