@@ -1,5 +1,5 @@
 
-var $session
+var $session;
 (function() {
 	function session() {
 	}
