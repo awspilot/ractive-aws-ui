@@ -62,7 +62,7 @@ window.addEventListener('load', function() {
 	})
 
 	ractive.on('open-table', function(e, table ) {
-		ractive.findComponent('tabs').newtab('tableview', table )
+		ractive.findComponent('tabs').newtab('tableitems', table )
 	})
 	ractive.on('login.switch-account', function(e) {
 		selected_account = ractive.findComponent('login').get(e.resolve())
