@@ -521,17 +521,6 @@ Ractive.components.tablebrowsehead = Ractive.extend({
 			if (err)
 				return ractive.set('err', err.errorMessage );
 
-			console.log(data.Table)
-			// data.Table.total_read =
-			// 	data.Table.ProvisionedThroughput.ReadCapacityUnits +
-			// 	(data.Table.GlobalSecondaryIndexes || []).map(function(gsi) { return gsi.ProvisionedThroughput.ReadCapacityUnits })
-			// 		.reduce(function (total, num) {return total + num;},0);
-			//
-			// data.Table.total_write =
-			// 	data.Table.ProvisionedThroughput.WriteCapacityUnits +
-			// 	(data.Table.GlobalSecondaryIndexes || []).map(function(gsi) { return gsi.ProvisionedThroughput.WriteCapacityUnits })
-			// 		.reduce(function (total, num) {return total + num;},0);
-
 			ractive.set('describeTable', data.Table)
 		})
 
