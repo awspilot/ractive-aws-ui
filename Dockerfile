@@ -14,10 +14,10 @@ ADD docker/index.js /index.js
 ADD docker/start.sh /start.sh
 RUN chmod +x /start.sh
 ADD docker/index.html /htdocs/index.html
-ADD js /htdocs/js
+ADD dist /htdocs/dist
 ADD css /htdocs/css
 RUN npm install aws-sdk
 CMD /start.sh
 RUN mkdir /var/dynamo
 
-CMD ["sh", "/start.sh"] 
+CMD ["sh", "/start.sh"]

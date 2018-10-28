@@ -2,8 +2,6 @@
 Ractive.components.tableitems = Ractive.extend({
 	template: "\
 		<div class='tablebrowse'>\
-			<!-- table query -->\
-			<!-- <tablebrowsesqlhead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/> -->\
 			<tablebrowsehead table='{{table}}' columns='{{columns}}' rows='{{rows}}'/>\
 		</div>",
 	refresh_data: function( LastEvaluatedKey ) {
