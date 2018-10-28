@@ -159,26 +159,6 @@ Ractive.components.tablebrowse = Ractive.extend({
 					});
 				})
 			},
-		// 	function(cb) {
-		// 		DynamoDB.explain().query(ractive.get('table.name'), function(err, call) {
-		// 			if (err)
-		// 				return cb(err)
-		//
-		// 			routeCall( call, function( err, data ) {
-		// 				if (err)
-		// 					return cb(err)
-		//
-		//
-		// 				dbrows = DynamodbFactory.util.parse({ L:
-		// 						(data.Items || []).map(function(item) { return {'M': item } })
-		// 					})
-		// 				//dbrows = data
-		// 				cb()
-		// 			})
-		// 		//ddb.scan({TableName: ractive.get('table.name'), Limit: 100}, function(err, data) {
-		//
-		// 		})
-		// 	},
 
 		], function(err) {
 			if (err)
