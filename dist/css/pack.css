@@ -1,0 +1,684 @@
+/*
+	background: #282828
+	header: #535353
+	border: #383838
+	itembg: #6b6b6b
+*/
+body {
+  font-family: sans-serif;
+}
+header {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 41px;
+}
+.btn {
+  display: inline-block;
+  user-select: none;
+  border-radius: 1px;
+  border-radius: 3px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn > i {
+  vertical-align: top;
+}
+.btn-xs {
+  min-width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 11px;
+}
+.btn-xs .zmdi {
+  font-size: 16px;
+}
+.btn-sm {
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 15px;
+  padding: 3px 7px;
+}
+.btn-md {
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 15px;
+  padding: 5px 11px;
+}
+miniheader {
+  display: block;
+  height: 28px;
+  line-height: 28px;
+  font-size: 12px;
+  padding-left: 10px;
+}
+miniheader .icon:hover {
+  box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
+}
+.miniheaderbody {
+  left: 0px;
+  top: 29px;
+  right: 0px;
+  bottom: 0px;
+}
+left {
+  position: absolute;
+  display: block;
+  top: 56px;
+  left: 0px;
+  width: 260px;
+  bottom: 0px;
+}
+left tables > div {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  padding: 0px 10px;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+content {
+  position: absolute;
+  display: block;
+  top: 56px;
+  left: 265px;
+  right: 0px;
+  bottom: 0px;
+}
+content tabhead {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 28px;
+  overflow: hidden;
+  font-size: 0px;
+}
+content tabhead tab {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  padding: 0px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+content tabhead tab .icon {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+  margin-top: 2px;
+  cursor: pointer;
+  font-size: 14px;
+}
+content tabhead tab .icon:hover {
+  box-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
+}
+content tabcontent {
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.btn-tableview-tab {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 3px 3px 0px 0px;
+}
+.btn-tableview-tab:hover {
+  cursor: pointer;
+}
+.btn-tableview-tab i {
+  line-height: 40px;
+  line-height: 30px;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+content tabcontent .tableview-table-tabs {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  height: 31px;
+  right: 30px;
+  border-bottom: 1px solid #bbb;
+  padding: 0px 20px;
+}
+content tabcontent .tableview {
+  display: none;
+}
+content tabcontent .tableview.active {
+  display: block;
+}
+content tabcontent .tableview .tablebrowse {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+content tabcontent .tablesqlquery {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  height: 119px;
+  overflow: hidden;
+}
+content tabcontent .tablequery {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 0px;
+  height: 119px;
+  overflow: hidden;
+}
+content tabcontent .tabledatacontrols {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  right: 0px;
+  height: 28px;
+  padding-left: 40px;
+}
+content tabcontent .tabledata {
+  display: block;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
+content tabcontent .tabledata .tabledatahead,
+content tabcontent .tabledata .tabledatarow {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+}
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {
+  border-right: 1px solid transparent;
+}
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {
+  background-color: #1868d8;
+}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {
+  background-color: #1868d8 !important;
+}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-K,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-S,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-N,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-BOOL,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-NULL,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-SS,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-NS,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-L,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-M,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell.t-U,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell:before,
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell:after {
+  background-color: #ddecff !important;
+  color: #fff;
+  /*border-right: 1px solid transparent;*/
+}
+content tabcontent .tabledata .tabledatahead {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 20px;
+}
+content tabcontent .tabledata .tabledatarow .zmdi.selectrow {
+  font-size: 14px;
+}
+content tabcontent .tabledata .tabledatahead > div,
+content tabcontent .tabledata .tabledatarow .tabledatacell {
+  display: flex;
+  height: 20px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 6px;
+  position: relative;
+}
+content tabcontent .tabledata .tabledatarow .tabledatacell:before {
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 5px;
+}
+content tabcontent .tabledata .tabledatarow .tabledatacell:after {
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 5px;
+}
+content tabcontent .tabledata .tabledatacontent {
+  position: absolute;
+  top: 23px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow-x: auto;
+}
+content tabcontent .tabledata .tabledatahead > div {
+  font-size: 12px;
+}
+content tabcontent .tabledata .tabledatarow .tabledatacell {
+  font-size: 11px;
+}
+.scrollarea:hover > span {
+  position: absolute;
+  right: 0px;
+  width: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+}
+.pull-right {
+  float: right;
+}
+/* login */
+.loginbox {
+  width: 422px;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding: 22px;
+  position: relative;
+}
+.loginbox {
+  border: 1px solid #383838;
+  background-color: #474747;
+}
+.loginbox account {
+  display: block;
+  height: 74px;
+  position: relative;
+  cursor: pointer;
+  background-color: #424242;
+  border-top: 1px solid #535353;
+}
+.loginbox account:hover {
+  background-color: #474747;
+}
+.loginbox account delete {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 30px;
+}
+.loginbox account name {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: #0a83ca;
+  font-weight: bold;
+}
+.loginbox account key {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 38px;
+  font-size: 12px;
+}
+.loginbox account region {
+  display: block;
+  position: absolute;
+  left: 10px;
+  top: 55px;
+  font-size: 13px;
+}
+.loginbox input[type=text] {
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: #5b5757;
+  border: 1px solid #424242;
+  padding: 10px;
+}
+.loginbox add {
+  display: block;
+  margin-top: 10px;
+  background-color: #424242;
+  border: 1px solid #535353;
+  padding: 10px;
+  text-align: center;
+}
+.loginbox add:active {
+  border: 1px solid #383838;
+}
+/* end */
+/* theme dark */
+body.theme_dark .btn {
+  color: #869094;
+  background: linear-gradient(to bottom, #525a5f 0%, #404548 100%);
+  box-shadow: inset 0 1px #606f75, 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+body.theme_dark .btn:active {
+  box-shadow: inset 0 2px 2px #33373a;
+}
+body.theme_dark .btn-primary {
+  background-color: #1166bb;
+  background-image: linear-gradient(#2d8cec, #1166bb);
+  border: 1px solid #0b4075;
+  border-top-color: #1166bb;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+body.theme_dark {
+  background-color: #535353;
+  color: #aaaaaa;
+}
+body.theme_dark header {
+  background-color: #535353;
+  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+}
+body.theme_dark miniheader {
+  background-color: #424242;
+  border: 1px solid #383838;
+}
+body.theme_dark left {
+  background-color: #474747;
+}
+body.theme_dark left > .scrollarea {
+  border: 1px solid #383838;
+}
+body.theme_dark left tables > div {
+  border-bottom: 1px solid #454545;
+}
+body.theme_dark left tables > div:hover {
+  color: #fff;
+  background-color: #383838;
+  /*border: 1px solid #636363;*/
+}
+body.theme_dark content {
+  border: 1px solid #383838;
+  background-color: #474747;
+}
+body.theme_dark content tabhead {
+  background-color: #424242;
+}
+body.theme_dark content tabhead tab {
+  border-right: 1px solid #383838;
+}
+body.theme_dark content tabhead tab.active {
+  background-color: #535353;
+  color: #fff;
+}
+body.theme_dark content tabcontent {
+  background-color: red;
+}
+body.theme_dark content tabcontent .tableview-table-tabs {
+  background: #424242;
+}
+body.theme_dark .btn-tableview-tab.active i {
+  background-color: #383838;
+}
+body.theme_dark content tabcontent .tabledatacontrols {
+  background-color: #424242;
+  border-bottom: 1px solid #383838;
+}
+body.theme_dark content tabcontent .tabledata {
+  border-top: 1px solid #383838;
+}
+body.theme_dark content tabcontent .tabledata .tabledatahead {
+  background-color: #424242;
+  border-bottom: 1px solid #383838;
+}
+body.theme_dark content tabcontent .tabledata .tabledatahead > div,
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell {
+  border-right: 1px solid #424242;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow {
+  border-bottom: 1px solid #424242;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell:before {
+  background-color: #474747;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell:after {
+  background-color: #474747;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell {
+  background-color: #1868d8 !important;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
+body.theme_dark content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {
+  background-color: #1868d8;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {
+  background-color: transparent;
+  color: #8ea7aa;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {
+  background-color: transparent;
+  color: lightgreen;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {
+  background-color: transparent;
+  color: green;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {
+  background-color: transparent;
+  color: #ff7676;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {
+  background-color: transparent;
+  color: grey;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {
+  background-color: transparent;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {
+  background-color: transparent;
+}
+body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {
+  background-color: #383838;
+}
+/* theme light */
+body.theme_light .btn {
+  color: #869094;
+  background: linear-gradient(to bottom, #fff, #dedede);
+  border: 1px solid #bbb;
+}
+body.theme_light .btn:active {
+  box-shadow: inset 0 2px 2px #cccccc;
+}
+body.theme_light .btn-primary {
+  background-color: #1166bb;
+  background-image: linear-gradient(#2d8cec, #1166bb);
+  border: 1px solid #0b4075;
+  border-top-color: #1166bb;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+body.theme_light {
+  background-color: #f0f0f0;
+  color: #999999;
+}
+body.theme_light header {
+  background-color: #232f3e;
+  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+}
+body.theme_light miniheader {
+  background: linear-gradient(#eee, #e0e0e0);
+  border: 1px solid #b9b8b6;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ccc;
+}
+body.theme_light left {
+  background-color: #ffffff;
+}
+body.theme_light left > .scrollarea {
+  border: 1px solid #b9b8b6;
+}
+body.theme_light left tables > div {
+  border-bottom: 1px solid #e0e0e0;
+  color: #146eb4;
+}
+body.theme_light left tables > div:hover {
+  background-color: #eaf3fe;
+  /*border: 1px solid #636363;*/
+}
+body.theme_light content {
+  border: 1px solid #b9b8b6;
+  background-color: #ffffff;
+  border-top: 1px solid #fff;
+  border-right: 0px;
+}
+body.theme_light content tabhead {
+  background-color: #ececec;
+  background: linear-gradient(#eee, #e0e0e0);
+}
+body.theme_light content tabhead tab {
+  border-right: 1px solid #cccccc;
+}
+body.theme_light content tabhead tab.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+body.theme_light content tabcontent {
+  background-color: #ffffff;
+}
+body.theme_light content tabcontent .tableview-table-tabs {
+  background: #ffffff;
+}
+body.theme_light .btn-tableview-tab {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  color: #635858;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0px 12px;
+}
+body.theme_light .btn-tableview-tab.active {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  color: #000000;
+}
+body.theme_light content tabcontent .tablequery {
+  background-color: #444;
+}
+body.theme_light content tabcontent .tabledatacontrols {
+  background-color: #ffffff;
+  border-bottom: 1px solid #383838;
+}
+body.theme_light content tabcontent .tabledata {
+  border-top: 1px solid #e0e0e0;
+}
+body.theme_light content tabcontent .tabledata .tabledatahead {
+  background: linear-gradient(#eee, #e0e0e0);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #ccc;
+}
+body.theme_light content tabcontent .tabledata .tabledatahead > div,
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {
+  border-right: 1px solid #c3b7b7;
+  border-left: 1px solid #ffffff;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow {
+  border-bottom: 1px solid #e0e0e0;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell:before {
+  background-color: #ffffff;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell:after {
+  background-color: #ffffff;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {
+  background-color: #1868d8 !important;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {
+  background-color: #1868d8;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {
+  background-color: transparent;
+  color: #8ea7aa;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {
+  background-color: transparent;
+  color: #a79b9b;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {
+  background-color: transparent;
+  color: green;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {
+  background-color: transparent;
+  color: #ff7676;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {
+  background-color: transparent;
+  color: grey;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {
+  background-color: transparent;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {
+  background-color: transparent;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {
+  background-color: #f9f3f3;
+}
