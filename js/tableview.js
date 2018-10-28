@@ -221,30 +221,16 @@ Ractive.components.tablebrowse = Ractive.extend({
 	},
 	oninit: function() {
 		var ractive = this;
-		this.refresh_data()
-
-		// this.on('tabledata.refresh', function() {
-		// 	this.refresh_data()
-		// })
-
-		// this.on('tabledata.run-sql', function() {
-		// 	//alert("run sql")
-		// 	this.refresh_data()
-		// 	//console.log(this.get('table.sql'))
-		// })
+		this.refresh_data(null)
 
 		this.on('tablebrowsehead.run-oop', function() {
 
-			//console.log(
-			//	ractive.findComponent('tablebrowsehead').get()
-			//)
 			this.set('type', ractive.findComponent('tablebrowsehead').get('type') )
 			this.set('scan', ractive.findComponent('tablebrowsehead').get('scan') )
 			this.set('query', ractive.findComponent('tablebrowsehead').get('query') )
 			this.set('sql', ractive.findComponent('tablebrowsehead').get('sql') )
 
-			this.refresh_data()
-			//console.log(this.get('table.sql'))
+			this.refresh_data(null)
 		})
 	},
 	data: function() { return {
