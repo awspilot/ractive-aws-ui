@@ -147,7 +147,6 @@ Ractive.components.tablebrowse = Ractive.extend({
 					if (err)
 						return alert("scan error")
 
-					console.log(raw.Explain)
 					routeCall( raw.Explain , function(err, data) {
 						if (err)
 							return cb(err);
