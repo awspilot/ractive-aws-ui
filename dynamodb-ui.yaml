@@ -76,32 +76,12 @@ Resources:
                                 	<html>
                                 	<head>
                                 		<title>DynamoDB UI</title>
-                                		<script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/1.0.0-build-107/ractive.min.js"></script>
-                                		<script src="https://cdn.rawgit.com/databank/ractive-window/master/dist/ractive-window.min.js"></script>
+                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/dist/js/libs.js"></script>
+                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/dist/js/dynamodb.js"></script>
+                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/dist/js/dynamodb-ui.js"></script>
 
-                                		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.160.0.min.js"></script>
+                                		<link rel="stylesheet" href="` + process.env.CDN + `awspilot/dynamodb-ui/master/dist/css/pack.css"/>
 
-                                		<script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
-                                		<script src="https://cdnjs.cloudflare.com/ajax/libs/async/2.6.0/async.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/awspilot-dynamodb-sql.js"></script>
-                                		<script src="https://rawgit.com/awspilot/dynamodb-oop/master/dist/dynamodbjs.js"></script>
-
-                                		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
-
-                                		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/ace/mode_sql.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/ace/custom.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/ractive/ractive-ace.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/ractive/ractive-scrollarea.js"></script>
-
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/session.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/gui.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/tablelist.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/tableview.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/tabledata.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/tabs.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/ui.js"></script>
-                                		<script src="` + process.env.CDN + `awspilot/dynamodb-ui/master/js/login.js"></script>
 
                                 		<link rel="stylesheet" href="` + process.env.CDN + `awspilot/dynamodb-ui/master/css/style.css"/>
                                 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css"/>
