@@ -148,13 +148,15 @@ Ractive.components.tableitems = Ractive.extend({
 			\
 		</div>\
 		<div class='tabledatacontrols'>\
-			<div class='btn btn-xs' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
-			<div class='btn btn-xs' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>\
-			<div class='btn btn-xs' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
+			<div class='btn btn-xs btn-default' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			<div class='btn btn-xs btn-default' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>\
+			<div class='btn btn-xs btn-default' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
 			\
-			<div class='btn btn-xs pull-right' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></div>\
-			<div class='btn btn-xs pull-right' on-click='filter'><i class='zmdi zmdi-filter-list'></i></div>\
-			<div class='btn btn-xs pull-right' on-click='refresh'><i class='zmdi zmdi-refresh'></i></div>\
+			<div class='pull-right'>\
+				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-refresh'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='filter'><i class='zmdi zmdi-filter-list'></i></a>\
+				<a class='btn btn-xs btn-danger' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></a>\
+			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
 	</div>\
