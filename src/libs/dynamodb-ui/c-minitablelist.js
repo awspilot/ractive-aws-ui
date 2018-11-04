@@ -4,8 +4,10 @@ Ractive.components.minitablelist = Ractive.extend({
 		"\
 		<miniheader>\
 			Tables\
-			<a class='btn btn-xs pull-right' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
-			<a class='btn btn-xs pull-right' on-click='create'><i class='icon zmdi zmdi-plus'></i></a>\
+			<div class='pull-right' style='margin-right: 5px;'>\
+				<a class='btn btn-xs btn-default' on-click='create'><i class='icon zmdi zmdi-plus'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
+			</div>\
 		</miniheader>\
 		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
 		<tables>\
