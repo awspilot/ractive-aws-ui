@@ -154,7 +154,17 @@ Ractive.components.tableitems = Ractive.extend({
 			\
 			<div class='pull-right'>\
 				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-refresh'></i></a>\
-				<a class='btn btn-xs btn-default' on-click='filter'><i class='zmdi zmdi-filter-list'></i></a>\
+				<div class='btn-group'>\
+					<button class='btn btn-default btn-xs' type='button'>\
+						<i class='zmdi zmdi-filter-list'></i>\
+					</button>\
+					<button type='button' class='btn btn-xs btn-default dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\
+						<i class='zmdi zmdi-caret-down'></i>\
+					</button>\
+					<div class='dropdown-menu'>\
+						...\
+					</div>\
+				</div>\
 				<a class='btn btn-xs btn-danger' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
