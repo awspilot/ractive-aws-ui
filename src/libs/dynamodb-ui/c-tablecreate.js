@@ -157,8 +157,8 @@ Ractive.components.tablecreate = Ractive.extend({
 					{{/newtable.GlobalSecondaryIndexes}}\
 					\
 				</table>\
-				<a class='btn btn-md' on-click='lsi-add'>Add LSI</a>\
-				<a class='btn btn-md' on-click='gsi-add'>Add GSI</a>\
+				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>\
+				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>\
 				<br>\
 				<br>\
 				<h4>Provisioned capacity</h4>\
