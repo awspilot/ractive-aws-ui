@@ -158,11 +158,14 @@ Ractive.components.tableitems = Ractive.extend({
 					<button class='btn btn-default btn-xs' type='button'>\
 						<i class='zmdi zmdi-filter-list'></i>\
 					</button>\
-					<button type='button' class='btn btn-xs btn-default dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\
+					<button type='button' class='btn btn-xs btn-default dropdown-toggle dropdown-toggle-split' on-click='@this.toggle(\"drowndownfilteropen\")'>\
 						<i class='zmdi zmdi-caret-down'></i>\
 					</button>\
-					<div class='dropdown-menu'>\
-						...\
+					<div class='dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}' style='max-height: 250px;overflow-y: auto;'>\
+						{{#display_columns}}\
+							<li><a> <input type=checkbox checked='{{.show}}' />  {{.name}}</a>\
+						{{/display_columns}}\
+						\
 					</div>\
 				</div>\
 				<a class='btn btn-xs btn-danger' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></a>\
@@ -172,6 +175,63 @@ Ractive.components.tableitems = Ractive.extend({
 	</div>\
 		",
 
+		display_data: function() {
+
+			var dbrows = this.get('rawdata');
+			var hash_key = null
+			var range_key = null
+
+			var columns = [null]
+			var rows = []
+			var display_columns = {}
+			this.get('display_columns').map(function(dc) {
+				if (dc.show)
+					columns.push(dc.name)
+			})
+			var rows = []
+
+
+
+			dbrows.map(function(row) {
+				var thisrow = []
+
+				columns.map(function(column_name) {
+					if (column_name === null) {
+						// checkbox
+						var key = {}
+						key[hash_key] = row[hash_key]
+						if (range_key) key[range_key] = row[range_key]
+						thisrow.push({KEY: key})
+					} else {
+						if (row.hasOwnProperty(column_name)) {
+							if (typeof row[column_name] === 'string')
+								thisrow.push({'S':row[column_name]})
+							else if (typeof row[column_name] === 'number')
+								thisrow.push({'N':row[column_name]})
+							else if (typeof row[column_name] === 'boolean') {
+								thisrow.push({'BOOL':row[column_name].toString()})
+							} else if (row[column_name] === null) {
+								thisrow.push({'NULL': "NULL"})
+							} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
+								thisrow.push({'L': true })
+							} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
+								thisrow.push({'M': true })
+							} else
+								thisrow.push({'U': true })
+						} else {
+							thisrow.push({'U': true })
+						}
+					}
+				})
+				rows.push(thisrow)
+			})
+
+
+
+
+			this.set('columns', columns )
+			this.set('rows', rows )
+		},
 
 		refresh_data: function( LastEvaluatedKey ) {
 
@@ -207,9 +267,11 @@ Ractive.components.tableitems = Ractive.extend({
 					hash_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName;
 					range_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
 					columns.push(hash_key)
+					ractive.add_display_column( hash_key, true )
 					fields[hash_key] = 1;
 					if (range_key) {
 						columns.push(range_key)
+						ractive.add_display_column( range_key, true )
 						fields[range_key] = 1;
 					}
 
@@ -226,10 +288,12 @@ Ractive.components.tableitems = Ractive.extend({
 							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
 
 							columns.push(index_hash_key)
+							ractive.add_display_column( index_hash_key, true )
 							fields[index_hash_key] = 1;
 
 							if (index_range_key) {
 								columns.push(index_range_key)
+								ractive.add_display_column( index_range_key, true )
 								fields[index_range_key] = 1;
 							}
 						}
@@ -264,26 +328,42 @@ Ractive.components.tableitems = Ractive.extend({
 					})
 				},
 
+
+				// save raw data
+				function(cb ) {
+					ractive.set('rawdata', dbrows )
+					cb()
+				}
 			], function(err) {
 				if (err)
 					ractive.set('err', err.errorMessage )
 
+
+				if (ractive.get('autocolumns')) {
+					dbrows.map(function(row) {
+						Object.keys(row).map(function(column_name) {
+							if (!fields.hasOwnProperty(column_name)) {
+								if (columns.length > 10) {
+									ractive.add_display_column( column_name, false )
+								} else {
+									ractive.add_display_column( column_name, true )
+									fields[column_name] = 1;
+									columns.push(column_name)
+								}
+							}
+						})
+					})
+					ractive.set('autocolumns', false)
+				}
+				ractive.display_data()
+				/*
 				var rows = []
 
 
 
 
-				dbrows.map(function(row) {
-					Object.keys(row).map(function(column_name) {
-						if (!fields.hasOwnProperty(column_name)) {
-							fields[column_name] = 1;
-							columns.push(column_name)
 
-						}
-					})
-				})
 
-				columns = columns.slice(0,10)
 
 				dbrows.map(function(row) {
 					var thisrow = []
@@ -320,12 +400,26 @@ Ractive.components.tableitems = Ractive.extend({
 				})
 				ractive.set('columns', columns )
 				ractive.set('rows', rows )
-
+				*/
 			})
 		},
+	add_display_column: function( cname, show ) {
+		var display_columns = this.get('display_columns')
+		if ( display_columns.filter(function(dc) { return dc.name === cname}).length )
+			return;
 
+		display_columns.push({
+			name: cname,
+			show: show,
+		})
+		this.set('display_columns', display_columns )
+	},
 	data: function() { return {
 		type: 'scan',
+		display_columns: [
+			// { name, type, show: true|false|null}
+		],
+		autocolumns: true,
 		scan: {
 			table: '',
 			LastEvaluatedKey: [null],
@@ -356,6 +450,17 @@ Ractive.components.tableitems = Ractive.extend({
 			ractive.refresh_data(LastEvaluatedKey)
 		})
 
+		ractive.observe('display_columns.*.show', function( n, o, keypath ) {
+			if (o === undefined)
+				return;
+
+			if (o == n)
+				return;
+
+			var col = ractive.get(keypath.slice(0,-5)).name
+			console.log(col, n, o )
+			ractive.display_data()
+		})
 
 
 		routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
