@@ -76,46 +76,12 @@ Ractive.components.tableitems = Ractive.extend({
 				\
 				{{#describeTable.LocalSecondaryIndexes:j}}\
 					{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'HASH'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						{{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} )\
 					{{/if}}\
 				{{/describeTable.LocalSecondaryIndexes}}\
 				{{#describeTable.GlobalSecondaryIndexes:j}}\
 					{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}\
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'HASH'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						{{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} )\
 					{{/if}}\
 				{{/describeTable.GlobalSecondaryIndexes}}\
 				= \
