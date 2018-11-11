@@ -20,26 +20,7 @@ Ractive.components.tableitems = Ractive.extend({
 				\
 				{{#describeTable.LocalSecondaryIndexes:j}}\
 				<option value='lsi:{{ .IndexName }}'>\
-					[ LSI ]\
-					{{ .IndexName }}:\
-					{{#.KeySchema:i}}\
-						{{#if .KeyType === 'HASH'}}\
-							{{.AttributeName}}\
-							{{# ~/describeTable.AttributeDefinitions }}\
-								{{#if .AttributeName === ~/.describeTable.LocalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-									{{#if .AttributeType === 'S'}}\
-										( String )\
-									{{/if}}\
-									{{#if .AttributeType === 'N'}}\
-										( Number )\
-									{{/if}}\
-									{{#if .AttributeType === 'B'}}\
-										( Binary )\
-									{{/if}}\
-								{{/if}}\
-							{{/}}\
-						{{/if}}\
-					{{/.KeySchema}}\
+					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
 						, \
 						{{#.KeySchema:i}}\
@@ -87,26 +68,7 @@ Ractive.components.tableitems = Ractive.extend({
 				\
 				{{#describeTable.LocalSecondaryIndexes:j}}\
 				<option value='lsi:{{ .IndexName }}'>\
-					[ LSI ]\
-					{{ .IndexName }}:\
-					{{#.KeySchema:i}}\
-						{{#if .KeyType === 'HASH'}}\
-							{{.AttributeName}}\
-							{{# ~/describeTable.AttributeDefinitions }}\
-								{{#if .AttributeName === ~/.describeTable.LocalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-									{{#if .AttributeType === 'S'}}\
-										( String )\
-									{{/if}}\
-									{{#if .AttributeType === 'N'}}\
-										( Number )\
-									{{/if}}\
-									{{#if .AttributeType === 'B'}}\
-										( Binary )\
-									{{/if}}\
-								{{/if}}\
-							{{/}}\
-						{{/if}}\
-					{{/.KeySchema}}\
+					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
 						, \
 						{{#.KeySchema:i}}\
@@ -310,6 +272,37 @@ Ractive.components.tableitems = Ractive.extend({
 		},
 
 
+
+
+
+
+
+
+
+
+
+			_lsi_hash_key_name: function( indexname ) {
+
+				var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+				if (! index )
+					return;
+
+				return (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+
+			},
+			_lsi_hash_key_type: function( indexname ) {
+				var ractive = this;
+
+				var ret;
+				this.get('describeTable.AttributeDefinitions').map(function( at ) {
+					if ( at.AttributeName === ractive._lsi_hash_key_name( indexname ) )
+						ret = at.AttributeType
+				})
+				return ret;
+			},
+			_lsi_hash_key_type_name: function( indexname ) {
+				return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_hash_key_type( indexname ) ]
+			},
 
 		display_data: function() {
 
