@@ -11,9 +11,7 @@ Ractive.components.tableitems = Ractive.extend({
 			{{#if .type === 'scan' }}\
 			<select value='{{ .scan.table }}'>\
 				<option value=''>\
-					[ Table ]\
-					{{ describeTable.TableName }}:\
-					{{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
 					{{#if describeTable.KeySchema.length === 2}}\
 						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
 					{{/if}}\
@@ -68,29 +66,9 @@ Ractive.components.tableitems = Ractive.extend({
 				\
 				{{#describeTable.GlobalSecondaryIndexes:j}}\
 				<option value='gsi:{{ .IndexName }}'>\
-					[ GSI ]\
-					{{ .IndexName }}:\
-					{{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
+					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
-						, \
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'RANGE'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
 					{{/if}}\
 				</option>\
 				{{/describeTable.GlobalSecondaryIndexes}}\
@@ -100,9 +78,7 @@ Ractive.components.tableitems = Ractive.extend({
 			{{#if .type === 'query' }}\
 			<select value='{{ .query.table }}'>\
 				<option value=''>\
-					[ Table ]\
-					{{ describeTable.TableName }}:\
-					{{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
 					{{#if describeTable.KeySchema.length === 2}}\
 						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
 					{{/if}}\
@@ -157,29 +133,9 @@ Ractive.components.tableitems = Ractive.extend({
 				\
 				{{#describeTable.GlobalSecondaryIndexes:j}}\
 				<option value='gsi:{{ .IndexName }}'>\
-					[ GSI ]\
-					{{ .IndexName }}:\
-					{{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
+					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
-						, \
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'RANGE'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
 					{{/if}}\
 				</option>\
 				{{/describeTable.GlobalSecondaryIndexes}}\
@@ -306,7 +262,6 @@ Ractive.components.tableitems = Ractive.extend({
 
 
 		_gsi_hash_key_name: function( indexname ) {
-			console.log("_gsi_hash_key_name", indexname )
 
 			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
 			if (! index )
@@ -328,6 +283,32 @@ Ractive.components.tableitems = Ractive.extend({
 		_gsi_hash_key_type_name: function( indexname ) {
 			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_hash_key_type( indexname ) ]
 		},
+
+
+
+		_gsi_range_key_name: function( indexname ) {
+
+			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+			if (! index )
+				return;
+
+			return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
+
+		},
+		_gsi_range_key_type: function( indexname ) {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._gsi_range_key_name( indexname ) )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_gsi_range_key_type_name: function( indexname ) {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_range_key_type( indexname ) ]
+		},
+
 
 
 		display_data: function() {
