@@ -1123,7 +1123,7 @@ Ractive.components.tableindexes = Ractive.extend({
 					<a class='btn btn-sm btn-primary' on-click='create'>Create index</a>\
 					<a class='btn btn-sm btn-default' on-click='delete'>Delete index</a>\
 					\
-					<a class='btn btn-sm pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
+					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
 				</div>\
 				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 128px'/>\
 			{{/if}}\
@@ -1388,145 +1388,88 @@ Ractive.components.tableitems = Ractive.extend({
 		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
 			<select value='{{ .type }}'>\
 				<option value='scan'>SCAN</option>\
+				<option value='query'>QUERY</option>\
 			</select>\
+			{{#if .type === 'scan' }}\
 			<select value='{{ .scan.table }}'>\
 				<option value=''>\
-					[ Table ]\
-					{{ describeTable.TableName }}:\
-					{{#describeTable.KeySchema:i}}\
-						{{#if .KeyType === 'HASH'}}\
-							{{.AttributeName}}\
-							{{# ~/describeTable.AttributeDefinitions }}\
-								{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
-									{{#if .AttributeType === 'S'}}\
-										( String )\
-									{{/if}}\
-									{{#if .AttributeType === 'N'}}\
-										( Number )\
-									{{/if}}\
-									{{#if .AttributeType === 'B'}}\
-										( Binary )\
-									{{/if}}\
-								{{/if}}\
-							{{/}}\
-						{{/if}}\
-					{{/describeTable.KeySchema}}\
+					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
 					{{#if describeTable.KeySchema.length === 2}}\
-						, \
-						{{#describeTable.KeySchema:i}}\
-							{{#if .KeyType === 'RANGE'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/describeTable.KeySchema}}\
+						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
 					{{/if}}\
 					\
 				</option>\
 				\
 				{{#describeTable.LocalSecondaryIndexes:j}}\
 				<option value='lsi:{{ .IndexName }}'>\
-					[ LSI ]\
-					{{ .IndexName }}:\
-					{{#.KeySchema:i}}\
-						{{#if .KeyType === 'HASH'}}\
-							{{.AttributeName}}\
-							{{# ~/describeTable.AttributeDefinitions }}\
-								{{#if .AttributeName === ~/.describeTable.LocalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-									{{#if .AttributeType === 'S'}}\
-										( String )\
-									{{/if}}\
-									{{#if .AttributeType === 'N'}}\
-										( Number )\
-									{{/if}}\
-									{{#if .AttributeType === 'B'}}\
-										( Binary )\
-									{{/if}}\
-								{{/if}}\
-							{{/}}\
-						{{/if}}\
-					{{/.KeySchema}}\
+					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
-						, \
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'RANGE'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.LocalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
 					{{/if}}\
 				</option>\
 				{{/describeTable.LocalSecondaryIndexes}}\
 				\
 				{{#describeTable.GlobalSecondaryIndexes:j}}\
 				<option value='gsi:{{ .IndexName }}'>\
-					[ GSI ]\
-					{{ .IndexName }}:\
-					{{#.KeySchema:i}}\
-						{{#if .KeyType === 'HASH'}}\
-							{{.AttributeName}}\
-							{{# ~/describeTable.AttributeDefinitions }}\
-								{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-									{{#if .AttributeType === 'S'}}\
-										( String )\
-									{{/if}}\
-									{{#if .AttributeType === 'N'}}\
-										( Number )\
-									{{/if}}\
-									{{#if .AttributeType === 'B'}}\
-										( Binary )\
-									{{/if}}\
-								{{/if}}\
-							{{/}}\
-						{{/if}}\
-					{{/.KeySchema}}\
+					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
 					{{#if .KeySchema.length === 2}}\
-						, \
-						{{#.KeySchema:i}}\
-							{{#if .KeyType === 'RANGE'}}\
-								{{.AttributeName}}\
-								{{# ~/describeTable.AttributeDefinitions }}\
-									{{#if .AttributeName === ~/.describeTable.GlobalSecondaryIndexes[j].KeySchema[i].AttributeName }}\
-										{{#if .AttributeType === 'S'}}\
-											( String )\
-										{{/if}}\
-										{{#if .AttributeType === 'N'}}\
-											( Number )\
-										{{/if}}\
-										{{#if .AttributeType === 'B'}}\
-											( Binary )\
-										{{/if}}\
-									{{/if}}\
-								{{/}}\
-							{{/if}}\
-						{{/.KeySchema}}\
+						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
 					{{/if}}\
 				</option>\
 				{{/describeTable.GlobalSecondaryIndexes}}\
 			</select>\
+			{{/if}}\
+			\
+			{{#if .type === 'query' }}\
+			<select value='{{ .query.table }}'>\
+				<option value=''>\
+					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+					{{#if describeTable.KeySchema.length === 2}}\
+						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
+					{{/if}}\
+					\
+				</option>\
+				\
+				{{#describeTable.LocalSecondaryIndexes:j}}\
+				<option value='lsi:{{ .IndexName }}'>\
+					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
+					{{#if .KeySchema.length === 2}}\
+						, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
+					{{/if}}\
+				</option>\
+				{{/describeTable.LocalSecondaryIndexes}}\
+				\
+				{{#describeTable.GlobalSecondaryIndexes:j}}\
+				<option value='gsi:{{ .IndexName }}'>\
+					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
+					{{#if .KeySchema.length === 2}}\
+						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
+					{{/if}}\
+				</option>\
+				{{/describeTable.GlobalSecondaryIndexes}}\
+			</select>\
+			<div></div>\
+			\
+			Partition:\
+				\
+				{{#if .query.table === ''  }}\
+					{{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+				{{/if}}\
+				\
+				{{#describeTable.LocalSecondaryIndexes:j}}\
+					{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
+						{{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} )\
+					{{/if}}\
+				{{/describeTable.LocalSecondaryIndexes}}\
+				{{#describeTable.GlobalSecondaryIndexes:j}}\
+					{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}\
+						{{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} )\
+					{{/if}}\
+				{{/describeTable.GlobalSecondaryIndexes}}\
+				= \
+				<input type='text' value='{{.query.partition.value}}'>\
+			\
+			{{/if}}\
 			\
 		</div>\
 		<div class='tabledatacontrols'>\
@@ -1556,6 +1499,150 @@ Ractive.components.tableitems = Ractive.extend({
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
 	</div>\
 		",
+
+		_hash_key_name: function() {
+			return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+		},
+		_hash_key_type: function() {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._hash_key_name() )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_hash_key_type_name: function() {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._hash_key_type() ]
+		},
+
+		_range_key_name: function() {
+			return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+		},
+		_range_key_type: function() {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._range_key_name() )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_range_key_type_name: function() {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._range_key_type() ]
+		},
+
+
+		_gsi_hash_key_name: function( indexname ) {
+
+			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+			if (! index )
+				return;
+
+			return (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+
+		},
+		_gsi_hash_key_type: function( indexname ) {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._gsi_hash_key_name( indexname ) )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_gsi_hash_key_type_name: function( indexname ) {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_hash_key_type( indexname ) ]
+		},
+
+
+
+		_gsi_range_key_name: function( indexname ) {
+
+			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+			if (! index )
+				return;
+
+			return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
+
+		},
+		_gsi_range_key_type: function( indexname ) {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._gsi_range_key_name( indexname ) )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_gsi_range_key_type_name: function( indexname ) {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_range_key_type( indexname ) ]
+		},
+
+
+
+
+
+
+
+
+
+
+
+		_lsi_hash_key_name: function( indexname ) {
+
+			var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+			if (! index )
+				return;
+
+			return (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+
+		},
+		_lsi_hash_key_type: function( indexname ) {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._lsi_hash_key_name( indexname ) )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_lsi_hash_key_type_name: function( indexname ) {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_hash_key_type( indexname ) ]
+		},
+
+
+
+		_lsi_range_key_name: function( indexname ) {
+
+			var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+			if (! index )
+				return;
+
+			return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
+
+		},
+		_lsi_range_key_type: function( indexname ) {
+			var ractive = this;
+
+			var ret;
+			this.get('describeTable.AttributeDefinitions').map(function( at ) {
+				if ( at.AttributeName === ractive._lsi_range_key_name( indexname ) )
+					ret = at.AttributeType
+			})
+			return ret;
+		},
+		_lsi_range_key_type_name: function( indexname ) {
+			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_range_key_type( indexname ) ]
+		},
+
+
+
 
 		display_data: function() {
 
@@ -1646,8 +1733,10 @@ Ractive.components.tableitems = Ractive.extend({
 
 					fields = {}
 
-					hash_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName;
-					range_key = (ractive.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+
+					hash_key = ractive._hash_key_name();
+					range_key = ractive._range_key_name();
+
 					columns.push(hash_key)
 					ractive.add_display_column( hash_key, true )
 					fields[hash_key] = 1;
@@ -1663,7 +1752,7 @@ Ractive.components.tableitems = Ractive.extend({
 					} else {
 						var scan_type = scan_index.split(':')[0]
 						scan_index = scan_index.split(':')[1]
-						if (scan_type === 'gsi ') {
+						if (scan_type === 'gsi') {
 							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === scan_index})[0]
 
 							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
@@ -1710,6 +1799,97 @@ Ractive.components.tableitems = Ractive.extend({
 					})
 				},
 
+				function( cb ) {
+					if (ractive.get('type') !== 'query')
+						return cb()
+
+					fields = {}
+					var query_partition_name = '';
+					var query_partition_type = 'S';
+
+					hash_key = ractive._hash_key_name();
+					range_key = ractive._range_key_name();
+
+					columns.push(hash_key)
+					ractive.add_display_column( hash_key, true )
+					fields[hash_key] = 1;
+					if (range_key) {
+						columns.push(range_key)
+						ractive.add_display_column( range_key, true )
+						fields[range_key] = 1;
+					}
+
+
+					var query_index = ractive.get('query.table')
+					if (query_index === '') {
+						query_partition_name = hash_key
+						query_partition_type = ractive._hash_key_type();
+					} else {
+						var query_type = query_index.split(':')[0]
+						query_index = query_index.split(':')[1]
+						if (query_type === 'gsi') {
+							console.log("entering gsi")
+							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+							console.log("found index", index )
+							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
+							console.log("found gsi hash key = ", index_hash_key )
+
+							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+							query_partition_name = index_hash_key;
+							columns.push(index_hash_key)
+							ractive.add_display_column( index_hash_key, true )
+							fields[index_hash_key] = 1;
+
+							if (index_range_key) {
+								columns.push(index_range_key)
+								ractive.add_display_column( index_range_key, true )
+								fields[index_range_key] = 1;
+							}
+						}
+
+
+					}
+
+					var ddb = DynamoDB.explain().table(ractive.get('table.name'))
+					if (LastEvaluatedKey)
+						ddb.resume( LastEvaluatedKey )
+					ddb.limit(100)
+					if (query_index)
+						ddb = ddb.index(query_index)
+
+					if (query_partition_type === 'S')
+						ddb = ddb.where(query_partition_name).eq( ractive.get('query.partition.value').toString() )
+
+					if (query_partition_type === 'N')
+						ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
+
+
+
+					console.log("query_partition_name=",query_partition_name)
+
+					dbrows = []
+					ddb.query(function(err, data, raw ) {
+						if (err)
+							return alert("query error")
+
+						console.log("got raw query ", raw.Explain )
+
+						routeCall( raw.Explain , function(err, data) {
+							if (err)
+								return cb(err);
+
+							dbrows = DynamodbFactory.util.parse({ L:
+									(data.Items || []).map(function(item) { return {'M': item } })
+								})
+
+							console.log("LastEvaluatedKey=", data.LastEvaluatedKey )
+							ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+							cb()
+
+						});
+					})
+
+				},
 
 				// save raw data
 				function(cb ) {
@@ -1806,6 +1986,9 @@ Ractive.components.tableitems = Ractive.extend({
 			table: '',
 			LastEvaluatedKey: [null],
 		},
+		query: {
+			table: '',
+		}
 	} },
 	oninit: function() {
 		var ractive = this
