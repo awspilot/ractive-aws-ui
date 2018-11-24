@@ -210,7 +210,7 @@ Ractive.components.tableitems = Ractive.extend({
 						\
 					</div>\
 				</div>\
-				<a class='btn btn-xs btn-danger' on-click='delete-selected'><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-danger' on-click='delete-selected' as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
@@ -804,7 +804,7 @@ Ractive.components.tableitems = Ractive.extend({
 		})
 
 
-		ractive.on('selectrow', function(context) {
+		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 		})
