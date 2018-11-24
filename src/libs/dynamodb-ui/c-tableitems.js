@@ -102,8 +102,22 @@ Ractive.components.tableitems = Ractive.extend({
 						<td>Sort</td>\
 						<td>{{ _range_key_name() }}</td>\
 						<td><select><option>{{ _range_key_type_name( ) }}</option></select></td>\
-						<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
-						<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
+						<td>\
+							<select value='{{ ~/query.sort.op }}'>\
+								<option value='eq'>=</option>\
+								<option value='gt'>&gt;</option>\
+								<option value='ge'>&gt;=</option>\
+								<option value='lt'>&lt;</option>\
+								<option value='le'>&lt;=</option>\
+								<option value='between'>between</option>\
+							</select>\
+						</td>\
+						<td>\
+							<input type='text' value='{{ ~/query.sort.value }}'>\
+							{{#if ~/query.sort.op === 'between' }}\
+								<input type='text' value='{{ ~/query.sort.value2 }}'>\
+							{{/if}}\
+						</td>\
 					</tr>\
 					{{/if}}\
 				{{/if}}\
@@ -114,8 +128,22 @@ Ractive.components.tableitems = Ractive.extend({
 							<td>Sort</td>\
 							<td>{{ _gsi_range_key_name( .IndexName ) }}</td>\
 							<td><select><option>{{ _gsi_range_key_type_name( .IndexName ) }}</option></select></td>\
-							<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
-							<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
+							<td>\
+								<select value='{{ ~/query.sort.op }}'>\
+									<option value='eq'>=</option>\
+									<option value='gt'>&gt;</option>\
+									<option value='ge'>&gt;=</option>\
+									<option value='lt'>&lt;</option>\
+									<option value='le'>&lt;=</option>\
+									<option value='between'>between</option>\
+								</select>\
+							</td>\
+							<td>\
+								<input type='text' value='{{ ~/query.sort.value }}'>\
+								{{#if ~/query.sort.op === 'between' }}\
+									<input type='text' value='{{ ~/query.sort.value2 }}'>\
+								{{/if}}\
+							</td>\
 						</tr>\
 						{{/if}}\
 					{{/if}}\
@@ -127,8 +155,22 @@ Ractive.components.tableitems = Ractive.extend({
 							<td>Sort</td>\
 							<td>{{ _lsi_range_key_name( .IndexName ) }}</td>\
 							<td><select><option>{{ _lsi_range_key_type_name( .IndexName ) }}</option></select></td>\
-							<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
-							<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
+							<td>\
+								<select value='{{ ~/query.sort.op }}'>\
+									<option value='eq'>=</option>\
+									<option value='gt'>&gt;</option>\
+									<option value='ge'>&gt;=</option>\
+									<option value='lt'>&lt;</option>\
+									<option value='le'>&lt;=</option>\
+									<option value='between'>between</option>\
+								</select>\
+							</td>\
+							<td>\
+								<input type='text' value='{{ ~/query.sort.value }}'>\
+								{{#if ~/query.sort.op === 'between' }}\
+									<input type='text' value='{{ ~/query.sort.value2 }}'>\
+								{{/if}}\
+							</td>\
 						</tr>\
 						{{/if}}\
 					{{/if}}\
@@ -548,10 +590,10 @@ Ractive.components.tableitems = Ractive.extend({
 						// apply sort
 						console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
 						if (query_sort_type === 'S')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString() )
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString() )
 
 						if (query_sort_type === 'N')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')) )
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')) )
 
 
 					}
@@ -682,6 +724,7 @@ Ractive.components.tableitems = Ractive.extend({
 			sort: {
 				op: 'eq',
 				value: '',
+				value2: '',
 			}
 		}
 	} },
