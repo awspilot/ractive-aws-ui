@@ -1386,90 +1386,189 @@ Ractive.components.tableitems = Ractive.extend({
 	template: "\
 	<div class='tablebrowse'>\
 		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
-			<select value='{{ .type }}'>\
-				<option value='scan'>SCAN</option>\
-				<option value='query'>QUERY</option>\
-			</select>\
-			{{#if .type === 'scan' }}\
-			<select value='{{ .scan.table }}'>\
-				<option value=''>\
-					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
-					{{#if describeTable.KeySchema.length === 2}}\
-						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
+			<table width='100%' border='0'>\
+				<tr>\
+					<td>\
+						<select value='{{ .type }}'>\
+							<option value='scan'>SCAN</option>\
+							<option value='query'>QUERY</option>\
+						</select>\
+					</td>\
+					<td colspan='4'>\
+						{{#if .type === 'scan' }}\
+						<select value='{{ .scan.table }}'>\
+							<option value=''>\
+								[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+								{{#if describeTable.KeySchema.length === 2}}\
+									, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
+								{{/if}}\
+								\
+							</option>\
+							\
+							{{#describeTable.LocalSecondaryIndexes:j}}\
+							<option value='lsi:{{ .IndexName }}'>\
+								[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
+								{{#if .KeySchema.length === 2}}\
+									, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
+								{{/if}}\
+							</option>\
+							{{/describeTable.LocalSecondaryIndexes}}\
+							\
+							{{#describeTable.GlobalSecondaryIndexes:j}}\
+							<option value='gsi:{{ .IndexName }}'>\
+								[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
+								{{#if .KeySchema.length === 2}}\
+									, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
+								{{/if}}\
+							</option>\
+							{{/describeTable.GlobalSecondaryIndexes}}\
+						</select>\
+						{{/if}}\
+						\
+						{{#if .type === 'query' }}\
+						<select value='{{ .query.table }}'>\
+							<option value=''>\
+								[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+								{{#if describeTable.KeySchema.length === 2}}\
+									, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
+								{{/if}}\
+								\
+							</option>\
+							\
+							{{#describeTable.LocalSecondaryIndexes:j}}\
+							<option value='lsi:{{ .IndexName }}'>\
+								[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
+								{{#if .KeySchema.length === 2}}\
+									, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
+								{{/if}}\
+							</option>\
+							{{/describeTable.LocalSecondaryIndexes}}\
+							\
+							{{#describeTable.GlobalSecondaryIndexes:j}}\
+							<option value='gsi:{{ .IndexName }}'>\
+								[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
+								{{#if .KeySchema.length === 2}}\
+									, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
+								{{/if}}\
+							</option>\
+							{{/describeTable.GlobalSecondaryIndexes}}\
+						</select>\
+						{{/if}}\
+					</td>\
+				</tr>\
+				{{#if .type === 'query' }}\
+				<tr>\
+					<td>Partition</td>\
+					{{#if .query.table === ''  }}\
+						<td>{{ _hash_key_name() }}</td>\
+						<td><select><option>{{ _hash_key_type_name() }}</option></select></td>\
 					{{/if}}\
-					\
-				</option>\
-				\
-				{{#describeTable.LocalSecondaryIndexes:j}}\
-				<option value='lsi:{{ .IndexName }}'>\
-					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
-					{{#if .KeySchema.length === 2}}\
-						, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
-					{{/if}}\
-				</option>\
-				{{/describeTable.LocalSecondaryIndexes}}\
-				\
-				{{#describeTable.GlobalSecondaryIndexes:j}}\
-				<option value='gsi:{{ .IndexName }}'>\
-					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
-					{{#if .KeySchema.length === 2}}\
-						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
-					{{/if}}\
-				</option>\
-				{{/describeTable.GlobalSecondaryIndexes}}\
-			</select>\
-			{{/if}}\
-			\
-			{{#if .type === 'query' }}\
-			<select value='{{ .query.table }}'>\
-				<option value=''>\
-					[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
-					{{#if describeTable.KeySchema.length === 2}}\
-						, {{ _range_key_name() }} ( {{ _range_key_type_name() }} ) \
-					{{/if}}\
-					\
-				</option>\
-				\
-				{{#describeTable.LocalSecondaryIndexes:j}}\
-				<option value='lsi:{{ .IndexName }}'>\
-					[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} ) \
-					{{#if .KeySchema.length === 2}}\
-						, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} ) \
-					{{/if}}\
-				</option>\
-				{{/describeTable.LocalSecondaryIndexes}}\
-				\
-				{{#describeTable.GlobalSecondaryIndexes:j}}\
-				<option value='gsi:{{ .IndexName }}'>\
-					[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} ) \
-					{{#if .KeySchema.length === 2}}\
-						, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} ) \
-					{{/if}}\
-				</option>\
-				{{/describeTable.GlobalSecondaryIndexes}}\
-			</select>\
-			<div></div>\
-			\
-			Partition:\
-				\
+					{{#describeTable.LocalSecondaryIndexes:j}}\
+						{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
+							<td>{{ _lsi_hash_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ _lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
+						{{/if}}\
+					{{/describeTable.LocalSecondaryIndexes}}\
+					{{#describeTable.GlobalSecondaryIndexes:j}}\
+						{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}\
+							<td>{{ _gsi_hash_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ _gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
+						{{/if}}\
+					{{/describeTable.GlobalSecondaryIndexes}}\
+					<td><select><option>=</option></select></td>\
+					<td><input type='text' value='{{.query.partition.value}}'></td>\
+				</tr>\
 				{{#if .query.table === ''  }}\
-					{{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
-				{{/if}}\
-				\
-				{{#describeTable.LocalSecondaryIndexes:j}}\
-					{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
-						{{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} )\
+					{{#if describeTable.KeySchema.length === 2}}\
+					<tr>\
+						<td>Sort</td>\
+						<td>{{ _range_key_name() }}</td>\
+						<td><select><option>{{ _range_key_type_name( ) }}</option></select></td>\
+						<td>\
+							<select value='{{ ~/query.sort.op }}'>\
+								<option value='eq'>=</option>\
+								<option value='gt'>&gt;</option>\
+								<option value='ge'>&gt;=</option>\
+								<option value='lt'>&lt;</option>\
+								<option value='le'>&lt;=</option>\
+								<option value='between'>between</option>\
+								{{#if _range_key_type()  === 'S' }}\
+									<option value='begins_with'>begins with</option>\
+								{{/if}}\
+							</select>\
+						</td>\
+						<td>\
+							<input type='text' value='{{ ~/query.sort.value }}'>\
+							{{#if ~/query.sort.op === 'between' }}\
+								<input type='text' value='{{ ~/query.sort.value2 }}'>\
+							{{/if}}\
+						</td>\
+					</tr>\
 					{{/if}}\
-				{{/describeTable.LocalSecondaryIndexes}}\
+				{{/if}}\
 				{{#describeTable.GlobalSecondaryIndexes:j}}\
 					{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}\
-						{{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} )\
+						{{#if .KeySchema.length === 2}}\
+						<tr>\
+							<td>Sort</td>\
+							<td>{{ _gsi_range_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ _gsi_range_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>\
+								<select value='{{ ~/query.sort.op }}'>\
+									<option value='eq'>=</option>\
+									<option value='gt'>&gt;</option>\
+									<option value='ge'>&gt;=</option>\
+									<option value='lt'>&lt;</option>\
+									<option value='le'>&lt;=</option>\
+									<option value='between'>between</option>\
+									{{#if _gsi_range_key_type( .IndexName )  === 'S' }}\
+										<option value='begins_with'>begins with</option>\
+									{{/if}}\
+								</select>\
+							</td>\
+							<td>\
+								<input type='text' value='{{ ~/query.sort.value }}'>\
+								{{#if ~/query.sort.op === 'between' }}\
+									<input type='text' value='{{ ~/query.sort.value2 }}'>\
+								{{/if}}\
+							</td>\
+						</tr>\
+						{{/if}}\
 					{{/if}}\
 				{{/describeTable.GlobalSecondaryIndexes}}\
-				= \
-				<input type='text' value='{{.query.partition.value}}'>\
-			\
-			{{/if}}\
+				{{#describeTable.LocalSecondaryIndexes:j}}\
+					{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
+						{{#if .KeySchema.length === 2}}\
+						<tr>\
+							<td>Sort</td>\
+							<td>{{ _lsi_range_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ _lsi_range_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>\
+								<select value='{{ ~/query.sort.op }}'>\
+									<option value='eq'>=</option>\
+									<option value='gt'>&gt;</option>\
+									<option value='ge'>&gt;=</option>\
+									<option value='lt'>&lt;</option>\
+									<option value='le'>&lt;=</option>\
+									<option value='between'>between</option>\
+									{{#if _lsi_range_key_type( .IndexName )  === 'S' }}\
+										<option value='begins_with'>begins with</option>\
+									{{/if}}\
+								</select>\
+							</td>\
+							<td>\
+								<input type='text' value='{{ ~/query.sort.value }}'>\
+								{{#if ~/query.sort.op === 'between' }}\
+									<input type='text' value='{{ ~/query.sort.value2 }}'>\
+								{{/if}}\
+							</td>\
+						</tr>\
+						{{/if}}\
+					{{/if}}\
+				{{/describeTable.LocalSecondaryIndexes}}\
+				\
+				{{/if}}\
+			</table>\
 			\
 		</div>\
 		<div class='tabledatacontrols'>\
@@ -1806,6 +1905,10 @@ Ractive.components.tableitems = Ractive.extend({
 					fields = {}
 					var query_partition_name = '';
 					var query_partition_type = 'S';
+					var query_sort_name = '';
+					var query_sort_type = 'S';
+
+
 
 					hash_key = ractive._hash_key_name();
 					range_key = ractive._range_key_name();
@@ -1824,18 +1927,26 @@ Ractive.components.tableitems = Ractive.extend({
 					if (query_index === '') {
 						query_partition_name = hash_key
 						query_partition_type = ractive._hash_key_type();
+						if (range_key) {
+							query_sort_name = ractive._range_key_name();
+							query_sort_type = ractive._range_key_type();
+						}
 					} else {
 						var query_type = query_index.split(':')[0]
 						query_index = query_index.split(':')[1]
 						if (query_type === 'gsi') {
-							console.log("entering gsi")
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							console.log("found index", index )
-							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
-							console.log("found gsi hash key = ", index_hash_key )
 
-							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+							var index_hash_key  = ractive._gsi_hash_key_name( index.IndexName )
+							var index_range_key = ractive._gsi_range_key_name( index.IndexName )
 							query_partition_name = index_hash_key;
+							query_partition_type = ractive._gsi_hash_key_type( index.IndexName )
+
+							if (index_range_key) {
+								query_sort_name = ractive._gsi_range_key_name( index.IndexName )
+								query_sort_type = ractive._gsi_range_key_type( index.IndexName )
+							}
+
 							columns.push(index_hash_key)
 							ractive.add_display_column( index_hash_key, true )
 							fields[index_hash_key] = 1;
@@ -1846,7 +1957,30 @@ Ractive.components.tableitems = Ractive.extend({
 								fields[index_range_key] = 1;
 							}
 						}
+						if (query_type === 'lsi') {
 
+							var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+							var index_hash_key  = ractive._lsi_hash_key_name( index.IndexName )
+							var index_range_key = ractive._lsi_range_key_name( index.IndexName )
+							query_partition_name = index_hash_key;
+							query_partition_type = ractive._lsi_hash_key_type( index.IndexName )
+
+							if (index_range_key) {
+								query_sort_name = ractive._lsi_range_key_name( index.IndexName )
+								query_sort_type = ractive._lsi_range_key_type( index.IndexName )
+							}
+
+							columns.push(index_hash_key)
+							ractive.add_display_column( index_hash_key, true )
+							fields[index_hash_key] = 1;
+
+							if (index_range_key) {
+								columns.push(index_range_key)
+								ractive.add_display_column( index_range_key, true )
+								fields[index_range_key] = 1;
+							}
+
+						}
 
 					}
 
@@ -1864,6 +1998,17 @@ Ractive.components.tableitems = Ractive.extend({
 						ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
 
 
+					if ( ractive.get('query.sort.value').length ) {
+						// apply sort
+						console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
+						if (query_sort_type === 'S')
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString() )
+
+						if (query_sort_type === 'N')
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')) )
+
+
+					}
 
 					console.log("query_partition_name=",query_partition_name)
 
@@ -1988,6 +2133,11 @@ Ractive.components.tableitems = Ractive.extend({
 		},
 		query: {
 			table: '',
+			sort: {
+				op: 'eq',
+				value: '',
+				value2: '',
+			}
 		}
 	} },
 	oninit: function() {
