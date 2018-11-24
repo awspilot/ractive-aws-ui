@@ -110,6 +110,9 @@ Ractive.components.tableitems = Ractive.extend({
 								<option value='lt'>&lt;</option>\
 								<option value='le'>&lt;=</option>\
 								<option value='between'>between</option>\
+								{{#if _range_key_type()  === 'S' }}\
+									<option value='begins_with'>begins with</option>\
+								{{/if}}\
 							</select>\
 						</td>\
 						<td>\
@@ -136,6 +139,9 @@ Ractive.components.tableitems = Ractive.extend({
 									<option value='lt'>&lt;</option>\
 									<option value='le'>&lt;=</option>\
 									<option value='between'>between</option>\
+									{{#if _gsi_range_key_type( .IndexName )  === 'S' }}\
+										<option value='begins_with'>begins with</option>\
+									{{/if}}\
 								</select>\
 							</td>\
 							<td>\
@@ -163,6 +169,9 @@ Ractive.components.tableitems = Ractive.extend({
 									<option value='lt'>&lt;</option>\
 									<option value='le'>&lt;=</option>\
 									<option value='between'>between</option>\
+									{{#if _lsi_range_key_type( .IndexName )  === 'S' }}\
+										<option value='begins_with'>begins with</option>\
+									{{/if}}\
 								</select>\
 							</td>\
 							<td>\
@@ -567,7 +576,28 @@ Ractive.components.tableitems = Ractive.extend({
 							}
 						}
 						if (query_type === 'lsi') {
-							console.log("not implemented detecting lsi sort key")
+
+							var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+							var index_hash_key  = ractive._lsi_hash_key_name( index.IndexName )
+							var index_range_key = ractive._lsi_range_key_name( index.IndexName )
+							query_partition_name = index_hash_key;
+							query_partition_type = ractive._lsi_hash_key_type( index.IndexName )
+
+							if (index_range_key) {
+								query_sort_name = ractive._lsi_range_key_name( index.IndexName )
+								query_sort_type = ractive._lsi_range_key_type( index.IndexName )
+							}
+
+							columns.push(index_hash_key)
+							ractive.add_display_column( index_hash_key, true )
+							fields[index_hash_key] = 1;
+
+							if (index_range_key) {
+								columns.push(index_range_key)
+								ractive.add_display_column( index_range_key, true )
+								fields[index_range_key] = 1;
+							}
+
 						}
 
 					}
