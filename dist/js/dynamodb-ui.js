@@ -2377,7 +2377,7 @@ Ractive.components.tabledata = Ractive.extend({
 							{{/if}}\
 						{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
-						{{#if .N}}{{.N}}{{/if}}\
+						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
 						{{#if .BOOL}}{{.BOOL}}{{/if}}\
 						{{#if .NULL}}NULL{{/if}}\
 						{{#if .L}}[...]{{/if}}\
