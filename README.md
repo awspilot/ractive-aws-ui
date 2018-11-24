@@ -10,26 +10,26 @@ This project is work in progress
 - [ ] UI
 -  - [x] "Login" page with AWS Credentials
 -  - [x] Table list
--  - [x] Query editor
--  - [ ] SQL <-> JSON API convertor 
--  - [ ] Query history / log 
+-  - [ ] Query editor
+-  - [ ] SQL <-> JSON API convertor
+-  - [ ] Query history / log
 -  - [x] Table data
 -  - [ ] Item editor
 
 - [ ] Tables
 -  - [x] List
--  - [ ] Filter 
--  - [ ] Create
--  - [ ] View details
--  - [ ] Update
--  - [ ] Delete
+-  - [ ] Filter
+-  - [x] Create
+-  - [x] View details
+-  - [x] Update
+-  - [x] Delete
 
 - [ ] Browse data
 -  - [x] Table data
 -  - [x] Show keys first
--  - [x] Delete rows
--  - [ ] Next page
--  - [ ] Show / hide columns
+-  - [?] Delete rows
+-  - [x] Next page
+-  - [x] Show / hide columns
 -  - [ ] Resize columns
 -  - [ ] Data Type
 -  -  - [x] String
@@ -50,3 +50,5 @@ This project is work in progress
 - [ ] Tools
 -  - [ ] Find all item properties & property types
 -  - [ ] Run a transform function on all items
+-  - [ ] export table as cloudformation
+-  - [ ] show create table ( SQL )
