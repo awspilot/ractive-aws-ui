@@ -102,8 +102,8 @@ Ractive.components.tableitems = Ractive.extend({
 						<td>Sort</td>\
 						<td>{{ _range_key_name() }}</td>\
 						<td><select><option>{{ _range_key_type_name( ) }}</option></select></td>\
-						<td><select value='{{.query.sort.op}}'><option>=</option></select></td>\
-						<td><input type='text' value='{{.query.sort.value}}'></td>\
+						<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
+						<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
 					</tr>\
 					{{/if}}\
 				{{/if}}\
@@ -114,8 +114,8 @@ Ractive.components.tableitems = Ractive.extend({
 							<td>Sort</td>\
 							<td>{{ _gsi_range_key_name( .IndexName ) }}</td>\
 							<td><select><option>{{ _gsi_range_key_type_name( .IndexName ) }}</option></select></td>\
-							<td><select value='{{.query.sort.op}}'><option>=</option></select></td>\
-							<td><input type='text' value='{{.query.sort.value}}'></td>\
+							<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
+							<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
 						</tr>\
 						{{/if}}\
 					{{/if}}\
@@ -127,8 +127,8 @@ Ractive.components.tableitems = Ractive.extend({
 							<td>Sort</td>\
 							<td>{{ _lsi_range_key_name( .IndexName ) }}</td>\
 							<td><select><option>{{ _lsi_range_key_type_name( .IndexName ) }}</option></select></td>\
-							<td><select value='{{.query.sort.op}}'><option>=</option></select></td>\
-							<td><input type='text' value='{{.query.sort.value}}'></td>\
+							<td><select value='{{ ~/query.sort.op }}'><option value='eq'>=</option></select></td>\
+							<td><input type='text' value='{{ ~/query.sort.value }}'></td>\
 						</tr>\
 						{{/if}}\
 					{{/if}}\
@@ -472,6 +472,10 @@ Ractive.components.tableitems = Ractive.extend({
 					fields = {}
 					var query_partition_name = '';
 					var query_partition_type = 'S';
+					var query_sort_name = '';
+					var query_sort_type = 'S';
+
+
 
 					hash_key = ractive._hash_key_name();
 					range_key = ractive._range_key_name();
@@ -490,18 +494,26 @@ Ractive.components.tableitems = Ractive.extend({
 					if (query_index === '') {
 						query_partition_name = hash_key
 						query_partition_type = ractive._hash_key_type();
+						if (range_key) {
+							query_sort_name = ractive._range_key_name();
+							query_sort_type = ractive._range_key_type();
+						}
 					} else {
 						var query_type = query_index.split(':')[0]
 						query_index = query_index.split(':')[1]
 						if (query_type === 'gsi') {
-							console.log("entering gsi")
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							console.log("found index", index )
-							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
-							console.log("found gsi hash key = ", index_hash_key )
 
-							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+							var index_hash_key  = ractive._gsi_hash_key_name( index.IndexName )
+							var index_range_key = ractive._gsi_range_key_name( index.IndexName )
 							query_partition_name = index_hash_key;
+							query_partition_type = ractive._gsi_hash_key_type( index.IndexName )
+
+							if (index_range_key) {
+								query_sort_name = ractive._gsi_range_key_name( index.IndexName )
+								query_sort_type = ractive._gsi_range_key_type( index.IndexName )
+							}
+
 							columns.push(index_hash_key)
 							ractive.add_display_column( index_hash_key, true )
 							fields[index_hash_key] = 1;
@@ -512,7 +524,9 @@ Ractive.components.tableitems = Ractive.extend({
 								fields[index_range_key] = 1;
 							}
 						}
-
+						if (query_type === 'lsi') {
+							console.log("not implemented detecting lsi sort key")
+						}
 
 					}
 
@@ -530,6 +544,17 @@ Ractive.components.tableitems = Ractive.extend({
 						ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
 
 
+					if ( ractive.get('query.sort.value').length ) {
+						// apply sort
+						console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
+						if (query_sort_type === 'S')
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString() )
+
+						if (query_sort_type === 'N')
+							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')) )
+
+
+					}
 
 					console.log("query_partition_name=",query_partition_name)
 
@@ -655,7 +680,7 @@ Ractive.components.tableitems = Ractive.extend({
 		query: {
 			table: '',
 			sort: {
-				op: '=',
+				op: 'eq',
 				value: '',
 			}
 		}
