@@ -28,6 +28,8 @@ http.createServer(function (request, response) {
 					return response.end(JSON.stringify({ err: { errorMessage: 'deleteTable forbidden in demo'}, }));
 				if ( event._POST.method === 'updateTable' && (demo_tables.indexOf(event._POST.payload.TableName) !== -1) )
 					return response.end(JSON.stringify({ err: { errorMessage: 'updateTable forbidden in demo'}, }));
+				if ( event._POST.method === 'deleteItem'  && (demo_tables.indexOf(event._POST.payload.TableName) !== -1) )
+					return response.end(JSON.stringify({ err: { errorMessage: 'deleteItem forbidden in demo'}, }));
 
 			}
 
@@ -40,6 +42,7 @@ http.createServer(function (request, response) {
 				case 'updateTable':
 				case 'scan':
 				case 'query':
+				case 'deleteItem':
 					dynamodb[event._POST.method](event._POST.payload, function(err, data) {
 						response.end(JSON.stringify({ err: err, data:data }));
 					})
