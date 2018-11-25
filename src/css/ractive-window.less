@@ -1,0 +1,133 @@
+
+@light-window-inactive-background: #d6d1d1;
+@light-window-active-background: #f0f2f3;
+
+@dark-window-inactive-background: #1e262c;
+@dark-window-active-background: #484f52;
+
+@window-spacing: 7px;
+
+@window-title-height: 40px;
+@window-title-spacing: 7px;
+
+body.theme_light {
+	.ractive-window {background-color: @light-window-inactive-background;/*color: #d8d5ff;*/border: 1px solid #cccccc;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);}
+	.ractive-window.topmost {background-color: @light-window-active-background;/*color: #d8d5ff;*/}
+
+	.rw-interior > .rw-title {color: #6c8592; }
+	.topmost .rw-interior > .rw-title {}
+
+
+	.ractive-window .rw-body {background-color: #ffffff}
+	.ractive-window.topmost .rw-body {background-color: #f7f9fa;}
+
+
+	.ractive-window .rw-controls button {box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);background-color: #ffffff;}
+	.ractive-window .rw-controls button.rw-close {background-color: #EF5350;color: #ffffff;}
+	.ractive-window .rw-controls button:hover {box-shadow: 0px 0px 2px rgba(0, 120, 231, 0.7);}
+
+	.ractive-window.topmost.resizable .rw-interior > .rw-resize-handle:hover {border-bottom-color: transparent;border-right-color: transparent;}
+	.ractive-window.resizable .rw-interior > .rw-resize-handle {border-bottom: 7px solid transparent;border-right: 7px solid transparent;color: transparent;transition: border-color 0.3s ease;}
+
+	.ractive-window.resizable .rw-interior > .rw-body {border: 1px solid #dadada}
+	.ractive-window.resizable .rw-interior > .rw-dialog-cover {background-color: rgba(204,204,204,.8)}
+}
+
+body.theme_dark {
+	.ractive-window {background-color: @dark-window-inactive-background;color: #eee;border: 1px solid #5f686b;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);}
+	.ractive-window.topmost {background-color: @dark-window-active-background;}
+
+	.rw-interior > .rw-title {color: #fff; }
+	.topmost .rw-interior > .rw-title {}
+
+
+	.ractive-window .rw-body {background-color: #ffffff}
+	.ractive-window.topmost .rw-body {background-color: #2b353b;}
+
+
+	.ractive-window .rw-controls button {box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);background-color: #f4f4f4;}
+	.ractive-window .rw-controls button.rw-close {background-color: #EF5350;color: #ffffff;}
+	.ractive-window .rw-controls button:hover {box-shadow: 0px 0px 2px rgba(0, 120, 231, 0.7);}
+
+	.ractive-window.topmost.resizable .rw-interior > .rw-resize-handle:hover {border-bottom-color: transparent;border-right-color: transparent;}
+	.ractive-window.resizable .rw-interior > .rw-resize-handle {border-bottom: 7px solid transparent;border-right: 7px solid transparent;color: transparent;transition: border-color 0.3s ease;}
+
+	.ractive-window.resizable .rw-interior > .rw-body {border: 1px solid #5f686b}
+	.ractive-window.resizable .rw-interior > .rw-dialog-cover {background-color: rgba(204,204,204,.8)}
+}
+
+
+
+
+
+
+.ractive-window {position: absolute;padding: -1px;box-sizing: border-box;transition: box-shadow 0.5s ease;border-radius: 5px;}
+
+
+
+.ractive-window.resizable {min-width: 10em;min-height: 2em;}
+
+.ractive-window > .rw-interior {cursor: default;}
+
+.ractive-window.maximized {border-radius: 0px;border-left: none;border-right: none;}
+
+.ractive-window.fixed.maximized > .rw-interior .rw-buttons {position: absolute;left: 0;right: 0;bottom: 0.25em;}
+
+.ractive-window.fixed.maximized > .rw-interior {margin-bottom: 3em;}
+
+.ractive-window.maximized > .rw-interior {margin: 2px;}
+
+.ractive-window.fixed > .rw-interior {margin: 5px;}
+
+.ractive-window.resizable > .rw-interior {position: absolute;top: 0px;bottom: 0px;left: 0px;right: 0px;cursor: default;}
+
+.rw-interior > .rw-title {margin: 0px;padding: 0px @window-title-spacing;height: @window-title-height;line-height: @window-title-height }
+
+.ractive-window.resizable > .rw-interior > .rw-title {white-space: nowrap;}
+
+.ractive-window.maximized .rw-title {border-radius: 0;margin: -7px;}
+
+.ractive-window .rw-interior > .rw-body { opacity: .1;}
+.ractive-window.topmost .rw-interior > .rw-body { opacity: 1;}
+.ractive-window.fixed .rw-interior > .rw-body {margin: 0.5em 0.1em 0.1em 0.1em;clear: both;}
+
+.ractive-window.resizable .rw-interior > .rw-body {position: absolute;margin: 0px;top: 40px;bottom: @window-spacing;left: @window-spacing;right: @window-spacing;overflow: auto;z-index: 1;}
+
+.ractive-window.resizable .rw-interior > .rw-dialog-cover {position: absolute;margin: 0px;top: 40px;bottom: @window-spacing;left: @window-spacing;right: @window-spacing;overflow: auto;z-index: 2;}
+.ractive-window.resizable .rw-interior > .rw-dialog {position: relative;top: 0px;margin: 0 auto;min-width: 300px;padding: 10px;z-index: 4;min-height: 100px;
+	background-color: #f0f2f3;
+	box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.4);
+}
+
+.ractive-window.resizable.with-buttons .rw-body {bottom: 2.7em;}
+
+.rw-buttons > button.right {float: right;}
+
+.rw-buttons > button.left {float: left;}
+
+.rw-interior > .rw-buttons {text-align: center;padding-top: 0.1em;}
+
+.ractive-window.fixed .rw-interior > .rw-buttons::after {display: block;content: ' ';clear: both;}
+
+.ractive-window.fixed .rw-interior > .rw-buttons {padding: 0.2em;}
+
+.ractive-window.resizable .rw-interior > .rw-buttons {position: absolute;bottom: 0.1em;left: 0.1em;right: 0.1em;}
+
+.ractive-window.fixed > .rw-interior > .rw-controls {top: 3px;}
+
+.rw-interior > .rw-controls {position: relative;right: 5px;top: 5px;float: right;}
+
+.ractive-window.fixed .rw-interior > .rw-resize-handle,
+.ractive-window.resizable.maximized .rw-interior > .rw-resize-handle {display: none;}
+
+
+
+.ractive-window.resizable .rw-interior > .rw-resize-handle {display: block;position: absolute;bottom: 0px;right: 0px;width: 1px;height: 1px;cursor: se-resize;border-top: 7px solid transparent;border-left: 7px solid transparent;}
+
+.ractive-window > .rw-modal {position: absolute;left: 0px;top: 0px;right: 0px;bottom: 0px;background-color: rgba(0, 0, 0, 0.5);z-index: 10;}
+
+.ractive-window-host-modal {position: absolute;left: 0px;top: 0px;right: 0px;bottom: 0px;background-color: rgba(0, 0, 0, 0.5);z-index: 10000;}
+
+
+
+.ractive-window .rw-controls button {margin: 0px 2px;width: 30px;height: 30px;}
