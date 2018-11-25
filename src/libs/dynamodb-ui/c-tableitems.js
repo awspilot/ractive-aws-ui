@@ -211,7 +211,7 @@ Ractive.components.tableitems = Ractive.extend({
 					</div>\
 				</div>\
 				<a class='btn btn-xs btn-default' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i></a>\
-				<a class='btn btn-xs btn-danger'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
@@ -807,6 +807,12 @@ Ractive.components.tableitems = Ractive.extend({
 		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+
+			ractive.set('selection_length',
+				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
+			)
+
+
 		})
 		ractive.on('create-item-window', function() {
 			var describeTable = this.get('describeTable')
