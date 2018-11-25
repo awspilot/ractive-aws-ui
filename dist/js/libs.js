@@ -5969,6 +5969,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
   } ]
 }, {}, [ 6 ]);
 //# sourceMappingURL=/polyfills/promise-6.1.0.js.map
+/*! jQuery v1.10.1 | (c) 2005, 2013 jQuery Foundation, Inc. | jquery.org/license
+//@ sourceMappingURL=jquery.min.map
+*/
+(function(e,t){var n,r,i=typeof t,o=e.location,a=e.document,s=a.documentElement,l=e.jQuery,u=e.$,c={},p=[],f="1.10.1",d=p.concat,h=p.push,g=p.slice,m=p.indexOf,y=c.toString,v=c.hasOwnProperty,b=f.trim,x=function(e,t){return new x.fn.init(e,t,r)},w=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,T=/\S+/g,C=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,N=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,k=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,E=/^[\],:{}\s]*$/,S=/(?:^|:|,)(?:\s*\[)+/g,A=/\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,j=/"[^"\\\r\n]*"|true|false|null|-?(?:\d+\.|)\d+(?:[eE][+-]?\d+|)/g,D=/^-ms-/,L=/-([\da-z])/gi,H=function(e,t){return t.toUpperCase()},q=function(e){(a.addEventListener||"load"===e.type||"complete"===a.readyState)&&(_(),x.ready())},_=function(){a.addEventListener?(a.removeEventListener("DOMContentLoaded",q,!1),e.removeEventListener("load",q,!1)):(a.detachEvent("onreadystatechange",q),e.detachEvent("onload",q))};x.fn=x.prototype={jquery:f,constructor:x,init:function(e,n,r){var i,o;if(!e)return this;if("string"==typeof e){if(i="<"===e.charAt(0)&&">"===e.charAt(e.length-1)&&e.length>=3?[null,e,null]:N.exec(e),!i||!i[1]&&n)return!n||n.jquery?(n||r).find(e):this.constructor(n).find(e);if(i[1]){if(n=n instanceof x?n[0]:n,x.merge(this,x.parseHTML(i[1],n&&n.nodeType?n.ownerDocument||n:a,!0)),k.test(i[1])&&x.isPlainObject(n))for(i in n)x.isFunction(this[i])?this[i](n[i]):this.attr(i,n[i]);return this}if(o=a.getElementById(i[2]),o&&o.parentNode){if(o.id!==i[2])return r.find(e);this.length=1,this[0]=o}return this.context=a,this.selector=e,this}return e.nodeType?(this.context=this[0]=e,this.length=1,this):x.isFunction(e)?r.ready(e):(e.selector!==t&&(this.selector=e.selector,this.context=e.context),x.makeArray(e,this))},selector:"",length:0,toArray:function(){return g.call(this)},get:function(e){return null==e?this.toArray():0>e?this[this.length+e]:this[e]},pushStack:function(e){var t=x.merge(this.constructor(),e);return t.prevObject=this,t.context=this.context,t},each:function(e,t){return x.each(this,e,t)},ready:function(e){return x.ready.promise().done(e),this},slice:function(){return this.pushStack(g.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(e){var t=this.length,n=+e+(0>e?t:0);return this.pushStack(n>=0&&t>n?[this[n]]:[])},map:function(e){return this.pushStack(x.map(this,function(t,n){return e.call(t,n,t)}))},end:function(){return this.prevObject||this.constructor(null)},push:h,sort:[].sort,splice:[].splice},x.fn.init.prototype=x.fn,x.extend=x.fn.extend=function(){var e,n,r,i,o,a,s=arguments[0]||{},l=1,u=arguments.length,c=!1;for("boolean"==typeof s&&(c=s,s=arguments[1]||{},l=2),"object"==typeof s||x.isFunction(s)||(s={}),u===l&&(s=this,--l);u>l;l++)if(null!=(o=arguments[l]))for(i in o)e=s[i],r=o[i],s!==r&&(c&&r&&(x.isPlainObject(r)||(n=x.isArray(r)))?(n?(n=!1,a=e&&x.isArray(e)?e:[]):a=e&&x.isPlainObject(e)?e:{},s[i]=x.extend(c,a,r)):r!==t&&(s[i]=r));return s},x.extend({expando:"jQuery"+(f+Math.random()).replace(/\D/g,""),noConflict:function(t){return e.$===x&&(e.$=u),t&&e.jQuery===x&&(e.jQuery=l),x},isReady:!1,readyWait:1,holdReady:function(e){e?x.readyWait++:x.ready(!0)},ready:function(e){if(e===!0?!--x.readyWait:!x.isReady){if(!a.body)return setTimeout(x.ready);x.isReady=!0,e!==!0&&--x.readyWait>0||(n.resolveWith(a,[x]),x.fn.trigger&&x(a).trigger("ready").off("ready"))}},isFunction:function(e){return"function"===x.type(e)},isArray:Array.isArray||function(e){return"array"===x.type(e)},isWindow:function(e){return null!=e&&e==e.window},isNumeric:function(e){return!isNaN(parseFloat(e))&&isFinite(e)},type:function(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?c[y.call(e)]||"object":typeof e},isPlainObject:function(e){var n;if(!e||"object"!==x.type(e)||e.nodeType||x.isWindow(e))return!1;try{if(e.constructor&&!v.call(e,"constructor")&&!v.call(e.constructor.prototype,"isPrototypeOf"))return!1}catch(r){return!1}if(x.support.ownLast)for(n in e)return v.call(e,n);for(n in e);return n===t||v.call(e,n)},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},error:function(e){throw Error(e)},parseHTML:function(e,t,n){if(!e||"string"!=typeof e)return null;"boolean"==typeof t&&(n=t,t=!1),t=t||a;var r=k.exec(e),i=!n&&[];return r?[t.createElement(r[1])]:(r=x.buildFragment([e],t,i),i&&x(i).remove(),x.merge([],r.childNodes))},parseJSON:function(n){return e.JSON&&e.JSON.parse?e.JSON.parse(n):null===n?n:"string"==typeof n&&(n=x.trim(n),n&&E.test(n.replace(A,"@").replace(j,"]").replace(S,"")))?Function("return "+n)():(x.error("Invalid JSON: "+n),t)},parseXML:function(n){var r,i;if(!n||"string"!=typeof n)return null;try{e.DOMParser?(i=new DOMParser,r=i.parseFromString(n,"text/xml")):(r=new ActiveXObject("Microsoft.XMLDOM"),r.async="false",r.loadXML(n))}catch(o){r=t}return r&&r.documentElement&&!r.getElementsByTagName("parsererror").length||x.error("Invalid XML: "+n),r},noop:function(){},globalEval:function(t){t&&x.trim(t)&&(e.execScript||function(t){e.eval.call(e,t)})(t)},camelCase:function(e){return e.replace(D,"ms-").replace(L,H)},nodeName:function(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()},each:function(e,t,n){var r,i=0,o=e.length,a=M(e);if(n){if(a){for(;o>i;i++)if(r=t.apply(e[i],n),r===!1)break}else for(i in e)if(r=t.apply(e[i],n),r===!1)break}else if(a){for(;o>i;i++)if(r=t.call(e[i],i,e[i]),r===!1)break}else for(i in e)if(r=t.call(e[i],i,e[i]),r===!1)break;return e},trim:b&&!b.call("\ufeff\u00a0")?function(e){return null==e?"":b.call(e)}:function(e){return null==e?"":(e+"").replace(C,"")},makeArray:function(e,t){var n=t||[];return null!=e&&(M(Object(e))?x.merge(n,"string"==typeof e?[e]:e):h.call(n,e)),n},inArray:function(e,t,n){var r;if(t){if(m)return m.call(t,e,n);for(r=t.length,n=n?0>n?Math.max(0,r+n):n:0;r>n;n++)if(n in t&&t[n]===e)return n}return-1},merge:function(e,n){var r=n.length,i=e.length,o=0;if("number"==typeof r)for(;r>o;o++)e[i++]=n[o];else while(n[o]!==t)e[i++]=n[o++];return e.length=i,e},grep:function(e,t,n){var r,i=[],o=0,a=e.length;for(n=!!n;a>o;o++)r=!!t(e[o],o),n!==r&&i.push(e[o]);return i},map:function(e,t,n){var r,i=0,o=e.length,a=M(e),s=[];if(a)for(;o>i;i++)r=t(e[i],i,n),null!=r&&(s[s.length]=r);else for(i in e)r=t(e[i],i,n),null!=r&&(s[s.length]=r);return d.apply([],s)},guid:1,proxy:function(e,n){var r,i,o;return"string"==typeof n&&(o=e[n],n=e,e=o),x.isFunction(e)?(r=g.call(arguments,2),i=function(){return e.apply(n||this,r.concat(g.call(arguments)))},i.guid=e.guid=e.guid||x.guid++,i):t},access:function(e,n,r,i,o,a,s){var l=0,u=e.length,c=null==r;if("object"===x.type(r)){o=!0;for(l in r)x.access(e,n,l,r[l],!0,a,s)}else if(i!==t&&(o=!0,x.isFunction(i)||(s=!0),c&&(s?(n.call(e,i),n=null):(c=n,n=function(e,t,n){return c.call(x(e),n)})),n))for(;u>l;l++)n(e[l],r,s?i:i.call(e[l],l,n(e[l],r)));return o?e:c?n.call(e):u?n(e[0],r):a},now:function(){return(new Date).getTime()},swap:function(e,t,n,r){var i,o,a={};for(o in t)a[o]=e.style[o],e.style[o]=t[o];i=n.apply(e,r||[]);for(o in t)e.style[o]=a[o];return i}}),x.ready.promise=function(t){if(!n)if(n=x.Deferred(),"complete"===a.readyState)setTimeout(x.ready);else if(a.addEventListener)a.addEventListener("DOMContentLoaded",q,!1),e.addEventListener("load",q,!1);else{a.attachEvent("onreadystatechange",q),e.attachEvent("onload",q);var r=!1;try{r=null==e.frameElement&&a.documentElement}catch(i){}r&&r.doScroll&&function o(){if(!x.isReady){try{r.doScroll("left")}catch(e){return setTimeout(o,50)}_(),x.ready()}}()}return n.promise(t)},x.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(e,t){c["[object "+t+"]"]=t.toLowerCase()});function M(e){var t=e.length,n=x.type(e);return x.isWindow(e)?!1:1===e.nodeType&&t?!0:"array"===n||"function"!==n&&(0===t||"number"==typeof t&&t>0&&t-1 in e)}r=x(a),function(e,t){var n,r,i,o,a,s,l,u,c,p,f,d,h,g,m,y,v,b="sizzle"+-new Date,w=e.document,T=0,C=0,N=lt(),k=lt(),E=lt(),S=!1,A=function(){return 0},j=typeof t,D=1<<31,L={}.hasOwnProperty,H=[],q=H.pop,_=H.push,M=H.push,O=H.slice,F=H.indexOf||function(e){var t=0,n=this.length;for(;n>t;t++)if(this[t]===e)return t;return-1},B="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",P="[\\x20\\t\\r\\n\\f]",R="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",W=R.replace("w","w#"),$="\\["+P+"*("+R+")"+P+"*(?:([*^$|!~]?=)"+P+"*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|("+W+")|)|)"+P+"*\\]",I=":("+R+")(?:\\(((['\"])((?:\\\\.|[^\\\\])*?)\\3|((?:\\\\.|[^\\\\()[\\]]|"+$.replace(3,8)+")*)|.*)\\)|)",z=RegExp("^"+P+"+|((?:^|[^\\\\])(?:\\\\.)*)"+P+"+$","g"),X=RegExp("^"+P+"*,"+P+"*"),U=RegExp("^"+P+"*([>+~]|"+P+")"+P+"*"),V=RegExp(P+"*[+~]"),Y=RegExp("="+P+"*([^\\]'\"]*)"+P+"*\\]","g"),J=RegExp(I),G=RegExp("^"+W+"$"),Q={ID:RegExp("^#("+R+")"),CLASS:RegExp("^\\.("+R+")"),TAG:RegExp("^("+R.replace("w","w*")+")"),ATTR:RegExp("^"+$),PSEUDO:RegExp("^"+I),CHILD:RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+P+"*(even|odd|(([+-]|)(\\d*)n|)"+P+"*(?:([+-]|)"+P+"*(\\d+)|))"+P+"*\\)|)","i"),bool:RegExp("^(?:"+B+")$","i"),needsContext:RegExp("^"+P+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+P+"*((?:-\\d)?\\d*)"+P+"*\\)|)(?=[^-]|$)","i")},K=/^[^{]+\{\s*\[native \w/,Z=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,et=/^(?:input|select|textarea|button)$/i,tt=/^h\d$/i,nt=/'|\\/g,rt=RegExp("\\\\([\\da-f]{1,6}"+P+"?|("+P+")|.)","ig"),it=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:0>r?String.fromCharCode(r+65536):String.fromCharCode(55296|r>>10,56320|1023&r)};try{M.apply(H=O.call(w.childNodes),w.childNodes),H[w.childNodes.length].nodeType}catch(ot){M={apply:H.length?function(e,t){_.apply(e,O.call(t))}:function(e,t){var n=e.length,r=0;while(e[n++]=t[r++]);e.length=n-1}}}function at(e,t,n,i){var o,a,s,l,u,c,d,m,y,x;if((t?t.ownerDocument||t:w)!==f&&p(t),t=t||f,n=n||[],!e||"string"!=typeof e)return n;if(1!==(l=t.nodeType)&&9!==l)return[];if(h&&!i){if(o=Z.exec(e))if(s=o[1]){if(9===l){if(a=t.getElementById(s),!a||!a.parentNode)return n;if(a.id===s)return n.push(a),n}else if(t.ownerDocument&&(a=t.ownerDocument.getElementById(s))&&v(t,a)&&a.id===s)return n.push(a),n}else{if(o[2])return M.apply(n,t.getElementsByTagName(e)),n;if((s=o[3])&&r.getElementsByClassName&&t.getElementsByClassName)return M.apply(n,t.getElementsByClassName(s)),n}if(r.qsa&&(!g||!g.test(e))){if(m=d=b,y=t,x=9===l&&e,1===l&&"object"!==t.nodeName.toLowerCase()){c=bt(e),(d=t.getAttribute("id"))?m=d.replace(nt,"\\$&"):t.setAttribute("id",m),m="[id='"+m+"'] ",u=c.length;while(u--)c[u]=m+xt(c[u]);y=V.test(e)&&t.parentNode||t,x=c.join(",")}if(x)try{return M.apply(n,y.querySelectorAll(x)),n}catch(T){}finally{d||t.removeAttribute("id")}}}return At(e.replace(z,"$1"),t,n,i)}function st(e){return K.test(e+"")}function lt(){var e=[];function t(n,r){return e.push(n+=" ")>o.cacheLength&&delete t[e.shift()],t[n]=r}return t}function ut(e){return e[b]=!0,e}function ct(e){var t=f.createElement("div");try{return!!e(t)}catch(n){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function pt(e,t,n){e=e.split("|");var r,i=e.length,a=n?null:t;while(i--)(r=o.attrHandle[e[i]])&&r!==t||(o.attrHandle[e[i]]=a)}function ft(e,t){var n=e.getAttributeNode(t);return n&&n.specified?n.value:e[t]===!0?t.toLowerCase():null}function dt(e,t){return e.getAttribute(t,"type"===t.toLowerCase()?1:2)}function ht(e){return"input"===e.nodeName.toLowerCase()?e.defaultValue:t}function gt(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&(~t.sourceIndex||D)-(~e.sourceIndex||D);if(r)return r;if(n)while(n=n.nextSibling)if(n===t)return-1;return e?1:-1}function mt(e){return function(t){var n=t.nodeName.toLowerCase();return"input"===n&&t.type===e}}function yt(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function vt(e){return ut(function(t){return t=+t,ut(function(n,r){var i,o=e([],n.length,t),a=o.length;while(a--)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}s=at.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return t?"HTML"!==t.nodeName:!1},r=at.support={},p=at.setDocument=function(e){var n=e?e.ownerDocument||e:w,i=n.parentWindow;return n!==f&&9===n.nodeType&&n.documentElement?(f=n,d=n.documentElement,h=!s(n),i&&i.frameElement&&i.attachEvent("onbeforeunload",function(){p()}),r.attributes=ct(function(e){return e.innerHTML="<a href='#'></a>",pt("type|href|height|width",dt,"#"===e.firstChild.getAttribute("href")),pt(B,ft,null==e.getAttribute("disabled")),e.className="i",!e.getAttribute("className")}),r.input=ct(function(e){return e.innerHTML="<input>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")}),pt("value",ht,r.attributes&&r.input),r.getElementsByTagName=ct(function(e){return e.appendChild(n.createComment("")),!e.getElementsByTagName("*").length}),r.getElementsByClassName=ct(function(e){return e.innerHTML="<div class='a'></div><div class='a i'></div>",e.firstChild.className="i",2===e.getElementsByClassName("i").length}),r.getById=ct(function(e){return d.appendChild(e).id=b,!n.getElementsByName||!n.getElementsByName(b).length}),r.getById?(o.find.ID=function(e,t){if(typeof t.getElementById!==j&&h){var n=t.getElementById(e);return n&&n.parentNode?[n]:[]}},o.filter.ID=function(e){var t=e.replace(rt,it);return function(e){return e.getAttribute("id")===t}}):(delete o.find.ID,o.filter.ID=function(e){var t=e.replace(rt,it);return function(e){var n=typeof e.getAttributeNode!==j&&e.getAttributeNode("id");return n&&n.value===t}}),o.find.TAG=r.getElementsByTagName?function(e,n){return typeof n.getElementsByTagName!==j?n.getElementsByTagName(e):t}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){while(n=o[i++])1===n.nodeType&&r.push(n);return r}return o},o.find.CLASS=r.getElementsByClassName&&function(e,n){return typeof n.getElementsByClassName!==j&&h?n.getElementsByClassName(e):t},m=[],g=[],(r.qsa=st(n.querySelectorAll))&&(ct(function(e){e.innerHTML="<select><option selected=''></option></select>",e.querySelectorAll("[selected]").length||g.push("\\["+P+"*(?:value|"+B+")"),e.querySelectorAll(":checked").length||g.push(":checked")}),ct(function(e){var t=n.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("t",""),e.querySelectorAll("[t^='']").length&&g.push("[*^$]="+P+"*(?:''|\"\")"),e.querySelectorAll(":enabled").length||g.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),g.push(",.*:")})),(r.matchesSelector=st(y=d.webkitMatchesSelector||d.mozMatchesSelector||d.oMatchesSelector||d.msMatchesSelector))&&ct(function(e){r.disconnectedMatch=y.call(e,"div"),y.call(e,"[s!='']:x"),m.push("!=",I)}),g=g.length&&RegExp(g.join("|")),m=m.length&&RegExp(m.join("|")),v=st(d.contains)||d.compareDocumentPosition?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)while(t=t.parentNode)if(t===e)return!0;return!1},r.sortDetached=ct(function(e){return 1&e.compareDocumentPosition(n.createElement("div"))}),A=d.compareDocumentPosition?function(e,t){if(e===t)return S=!0,0;var i=t.compareDocumentPosition&&e.compareDocumentPosition&&e.compareDocumentPosition(t);return i?1&i||!r.sortDetached&&t.compareDocumentPosition(e)===i?e===n||v(w,e)?-1:t===n||v(w,t)?1:c?F.call(c,e)-F.call(c,t):0:4&i?-1:1:e.compareDocumentPosition?-1:1}:function(e,t){var r,i=0,o=e.parentNode,a=t.parentNode,s=[e],l=[t];if(e===t)return S=!0,0;if(!o||!a)return e===n?-1:t===n?1:o?-1:a?1:c?F.call(c,e)-F.call(c,t):0;if(o===a)return gt(e,t);r=e;while(r=r.parentNode)s.unshift(r);r=t;while(r=r.parentNode)l.unshift(r);while(s[i]===l[i])i++;return i?gt(s[i],l[i]):s[i]===w?-1:l[i]===w?1:0},n):f},at.matches=function(e,t){return at(e,null,null,t)},at.matchesSelector=function(e,t){if((e.ownerDocument||e)!==f&&p(e),t=t.replace(Y,"='$1']"),!(!r.matchesSelector||!h||m&&m.test(t)||g&&g.test(t)))try{var n=y.call(e,t);if(n||r.disconnectedMatch||e.document&&11!==e.document.nodeType)return n}catch(i){}return at(t,f,null,[e]).length>0},at.contains=function(e,t){return(e.ownerDocument||e)!==f&&p(e),v(e,t)},at.attr=function(e,n){(e.ownerDocument||e)!==f&&p(e);var i=o.attrHandle[n.toLowerCase()],a=i&&L.call(o.attrHandle,n.toLowerCase())?i(e,n,!h):t;return a===t?r.attributes||!h?e.getAttribute(n):(a=e.getAttributeNode(n))&&a.specified?a.value:null:a},at.error=function(e){throw Error("Syntax error, unrecognized expression: "+e)},at.uniqueSort=function(e){var t,n=[],i=0,o=0;if(S=!r.detectDuplicates,c=!r.sortStable&&e.slice(0),e.sort(A),S){while(t=e[o++])t===e[o]&&(i=n.push(o));while(i--)e.splice(n[i],1)}return e},a=at.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(1===i||9===i||11===i){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=a(e)}else if(3===i||4===i)return e.nodeValue}else for(;t=e[r];r++)n+=a(t);return n},o=at.selectors={cacheLength:50,createPseudo:ut,match:Q,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(rt,it),e[3]=(e[4]||e[5]||"").replace(rt,it),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||at.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&at.error(e[0]),e},PSEUDO:function(e){var n,r=!e[5]&&e[2];return Q.CHILD.test(e[0])?null:(e[3]&&e[4]!==t?e[2]=e[4]:r&&J.test(r)&&(n=bt(r,!0))&&(n=r.indexOf(")",r.length-n)-r.length)&&(e[0]=e[0].slice(0,n),e[2]=r.slice(0,n)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(rt,it).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=N[e+" "];return t||(t=RegExp("(^|"+P+")"+e+"("+P+"|$)"))&&N(e,function(e){return t.test("string"==typeof e.className&&e.className||typeof e.getAttribute!==j&&e.getAttribute("class")||"")})},ATTR:function(e,t,n){return function(r){var i=at.attr(r,e);return null==i?"!="===t:t?(i+="","="===t?i===n:"!="===t?i!==n:"^="===t?n&&0===i.indexOf(n):"*="===t?n&&i.indexOf(n)>-1:"$="===t?n&&i.slice(-n.length)===n:"~="===t?(" "+i+" ").indexOf(n)>-1:"|="===t?i===n||i.slice(0,n.length+1)===n+"-":!1):!0}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),s="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,l){var u,c,p,f,d,h,g=o!==a?"nextSibling":"previousSibling",m=t.parentNode,y=s&&t.nodeName.toLowerCase(),v=!l&&!s;if(m){if(o){while(g){p=t;while(p=p[g])if(s?p.nodeName.toLowerCase()===y:1===p.nodeType)return!1;h=g="only"===e&&!h&&"nextSibling"}return!0}if(h=[a?m.firstChild:m.lastChild],a&&v){c=m[b]||(m[b]={}),u=c[e]||[],d=u[0]===T&&u[1],f=u[0]===T&&u[2],p=d&&m.childNodes[d];while(p=++d&&p&&p[g]||(f=d=0)||h.pop())if(1===p.nodeType&&++f&&p===t){c[e]=[T,d,f];break}}else if(v&&(u=(t[b]||(t[b]={}))[e])&&u[0]===T)f=u[1];else while(p=++d&&p&&p[g]||(f=d=0)||h.pop())if((s?p.nodeName.toLowerCase()===y:1===p.nodeType)&&++f&&(v&&((p[b]||(p[b]={}))[e]=[T,f]),p===t))break;return f-=i,f===r||0===f%r&&f/r>=0}}},PSEUDO:function(e,t){var n,r=o.pseudos[e]||o.setFilters[e.toLowerCase()]||at.error("unsupported pseudo: "+e);return r[b]?r(t):r.length>1?(n=[e,e,"",t],o.setFilters.hasOwnProperty(e.toLowerCase())?ut(function(e,n){var i,o=r(e,t),a=o.length;while(a--)i=F.call(e,o[a]),e[i]=!(n[i]=o[a])}):function(e){return r(e,0,n)}):r}},pseudos:{not:ut(function(e){var t=[],n=[],r=l(e.replace(z,"$1"));return r[b]?ut(function(e,t,n,i){var o,a=r(e,null,i,[]),s=e.length;while(s--)(o=a[s])&&(e[s]=!(t[s]=o))}):function(e,i,o){return t[0]=e,r(t,null,o,n),!n.pop()}}),has:ut(function(e){return function(t){return at(e,t).length>0}}),contains:ut(function(e){return function(t){return(t.textContent||t.innerText||a(t)).indexOf(e)>-1}}),lang:ut(function(e){return G.test(e||"")||at.error("unsupported lang: "+e),e=e.replace(rt,it).toLowerCase(),function(t){var n;do if(n=h?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return n=n.toLowerCase(),n===e||0===n.indexOf(e+"-");while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===d},focus:function(e){return e===f.activeElement&&(!f.hasFocus||f.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeName>"@"||3===e.nodeType||4===e.nodeType)return!1;return!0},parent:function(e){return!o.pseudos.empty(e)},header:function(e){return tt.test(e.nodeName)},input:function(e){return et.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||t.toLowerCase()===e.type)},first:vt(function(){return[0]}),last:vt(function(e,t){return[t-1]}),eq:vt(function(e,t,n){return[0>n?n+t:n]}),even:vt(function(e,t){var n=0;for(;t>n;n+=2)e.push(n);return e}),odd:vt(function(e,t){var n=1;for(;t>n;n+=2)e.push(n);return e}),lt:vt(function(e,t,n){var r=0>n?n+t:n;for(;--r>=0;)e.push(r);return e}),gt:vt(function(e,t,n){var r=0>n?n+t:n;for(;t>++r;)e.push(r);return e})}};for(n in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})o.pseudos[n]=mt(n);for(n in{submit:!0,reset:!0})o.pseudos[n]=yt(n);function bt(e,t){var n,r,i,a,s,l,u,c=k[e+" "];if(c)return t?0:c.slice(0);s=e,l=[],u=o.preFilter;while(s){(!n||(r=X.exec(s)))&&(r&&(s=s.slice(r[0].length)||s),l.push(i=[])),n=!1,(r=U.exec(s))&&(n=r.shift(),i.push({value:n,type:r[0].replace(z," ")}),s=s.slice(n.length));for(a in o.filter)!(r=Q[a].exec(s))||u[a]&&!(r=u[a](r))||(n=r.shift(),i.push({value:n,type:a,matches:r}),s=s.slice(n.length));if(!n)break}return t?s.length:s?at.error(e):k(e,l).slice(0)}function xt(e){var t=0,n=e.length,r="";for(;n>t;t++)r+=e[t].value;return r}function wt(e,t,n){var r=t.dir,o=n&&"parentNode"===r,a=C++;return t.first?function(t,n,i){while(t=t[r])if(1===t.nodeType||o)return e(t,n,i)}:function(t,n,s){var l,u,c,p=T+" "+a;if(s){while(t=t[r])if((1===t.nodeType||o)&&e(t,n,s))return!0}else while(t=t[r])if(1===t.nodeType||o)if(c=t[b]||(t[b]={}),(u=c[r])&&u[0]===p){if((l=u[1])===!0||l===i)return l===!0}else if(u=c[r]=[p],u[1]=e(t,n,s)||i,u[1]===!0)return!0}}function Tt(e){return e.length>1?function(t,n,r){var i=e.length;while(i--)if(!e[i](t,n,r))return!1;return!0}:e[0]}function Ct(e,t,n,r,i){var o,a=[],s=0,l=e.length,u=null!=t;for(;l>s;s++)(o=e[s])&&(!n||n(o,r,i))&&(a.push(o),u&&t.push(s));return a}function Nt(e,t,n,r,i,o){return r&&!r[b]&&(r=Nt(r)),i&&!i[b]&&(i=Nt(i,o)),ut(function(o,a,s,l){var u,c,p,f=[],d=[],h=a.length,g=o||St(t||"*",s.nodeType?[s]:s,[]),m=!e||!o&&t?g:Ct(g,f,e,s,l),y=n?i||(o?e:h||r)?[]:a:m;if(n&&n(m,y,s,l),r){u=Ct(y,d),r(u,[],s,l),c=u.length;while(c--)(p=u[c])&&(y[d[c]]=!(m[d[c]]=p))}if(o){if(i||e){if(i){u=[],c=y.length;while(c--)(p=y[c])&&u.push(m[c]=p);i(null,y=[],u,l)}c=y.length;while(c--)(p=y[c])&&(u=i?F.call(o,p):f[c])>-1&&(o[u]=!(a[u]=p))}}else y=Ct(y===a?y.splice(h,y.length):y),i?i(null,a,y,l):M.apply(a,y)})}function kt(e){var t,n,r,i=e.length,a=o.relative[e[0].type],s=a||o.relative[" "],l=a?1:0,c=wt(function(e){return e===t},s,!0),p=wt(function(e){return F.call(t,e)>-1},s,!0),f=[function(e,n,r){return!a&&(r||n!==u)||((t=n).nodeType?c(e,n,r):p(e,n,r))}];for(;i>l;l++)if(n=o.relative[e[l].type])f=[wt(Tt(f),n)];else{if(n=o.filter[e[l].type].apply(null,e[l].matches),n[b]){for(r=++l;i>r;r++)if(o.relative[e[r].type])break;return Nt(l>1&&Tt(f),l>1&&xt(e.slice(0,l-1).concat({value:" "===e[l-2].type?"*":""})).replace(z,"$1"),n,r>l&&kt(e.slice(l,r)),i>r&&kt(e=e.slice(r)),i>r&&xt(e))}f.push(n)}return Tt(f)}function Et(e,t){var n=0,r=t.length>0,a=e.length>0,s=function(s,l,c,p,d){var h,g,m,y=[],v=0,b="0",x=s&&[],w=null!=d,C=u,N=s||a&&o.find.TAG("*",d&&l.parentNode||l),k=T+=null==C?1:Math.random()||.1;for(w&&(u=l!==f&&l,i=n);null!=(h=N[b]);b++){if(a&&h){g=0;while(m=e[g++])if(m(h,l,c)){p.push(h);break}w&&(T=k,i=++n)}r&&((h=!m&&h)&&v--,s&&x.push(h))}if(v+=b,r&&b!==v){g=0;while(m=t[g++])m(x,y,l,c);if(s){if(v>0)while(b--)x[b]||y[b]||(y[b]=q.call(p));y=Ct(y)}M.apply(p,y),w&&!s&&y.length>0&&v+t.length>1&&at.uniqueSort(p)}return w&&(T=k,u=C),x};return r?ut(s):s}l=at.compile=function(e,t){var n,r=[],i=[],o=E[e+" "];if(!o){t||(t=bt(e)),n=t.length;while(n--)o=kt(t[n]),o[b]?r.push(o):i.push(o);o=E(e,Et(i,r))}return o};function St(e,t,n){var r=0,i=t.length;for(;i>r;r++)at(e,t[r],n);return n}function At(e,t,n,i){var a,s,u,c,p,f=bt(e);if(!i&&1===f.length){if(s=f[0]=f[0].slice(0),s.length>2&&"ID"===(u=s[0]).type&&r.getById&&9===t.nodeType&&h&&o.relative[s[1].type]){if(t=(o.find.ID(u.matches[0].replace(rt,it),t)||[])[0],!t)return n;e=e.slice(s.shift().value.length)}a=Q.needsContext.test(e)?0:s.length;while(a--){if(u=s[a],o.relative[c=u.type])break;if((p=o.find[c])&&(i=p(u.matches[0].replace(rt,it),V.test(s[0].type)&&t.parentNode||t))){if(s.splice(a,1),e=i.length&&xt(s),!e)return M.apply(n,i),n;break}}}return l(e,f)(i,t,!h,n,V.test(e)),n}o.pseudos.nth=o.pseudos.eq;function jt(){}jt.prototype=o.filters=o.pseudos,o.setFilters=new jt,r.sortStable=b.split("").sort(A).join("")===b,p(),[0,0].sort(A),r.detectDuplicates=S,x.find=at,x.expr=at.selectors,x.expr[":"]=x.expr.pseudos,x.unique=at.uniqueSort,x.text=at.getText,x.isXMLDoc=at.isXML,x.contains=at.contains}(e);var O={};function F(e){var t=O[e]={};return x.each(e.match(T)||[],function(e,n){t[n]=!0}),t}x.Callbacks=function(e){e="string"==typeof e?O[e]||F(e):x.extend({},e);var n,r,i,o,a,s,l=[],u=!e.once&&[],c=function(t){for(r=e.memory&&t,i=!0,a=s||0,s=0,o=l.length,n=!0;l&&o>a;a++)if(l[a].apply(t[0],t[1])===!1&&e.stopOnFalse){r=!1;break}n=!1,l&&(u?u.length&&c(u.shift()):r?l=[]:p.disable())},p={add:function(){if(l){var t=l.length;(function i(t){x.each(t,function(t,n){var r=x.type(n);"function"===r?e.unique&&p.has(n)||l.push(n):n&&n.length&&"string"!==r&&i(n)})})(arguments),n?o=l.length:r&&(s=t,c(r))}return this},remove:function(){return l&&x.each(arguments,function(e,t){var r;while((r=x.inArray(t,l,r))>-1)l.splice(r,1),n&&(o>=r&&o--,a>=r&&a--)}),this},has:function(e){return e?x.inArray(e,l)>-1:!(!l||!l.length)},empty:function(){return l=[],o=0,this},disable:function(){return l=u=r=t,this},disabled:function(){return!l},lock:function(){return u=t,r||p.disable(),this},locked:function(){return!u},fireWith:function(e,t){return t=t||[],t=[e,t.slice?t.slice():t],!l||i&&!u||(n?u.push(t):c(t)),this},fire:function(){return p.fireWith(this,arguments),this},fired:function(){return!!i}};return p},x.extend({Deferred:function(e){var t=[["resolve","done",x.Callbacks("once memory"),"resolved"],["reject","fail",x.Callbacks("once memory"),"rejected"],["notify","progress",x.Callbacks("memory")]],n="pending",r={state:function(){return n},always:function(){return i.done(arguments).fail(arguments),this},then:function(){var e=arguments;return x.Deferred(function(n){x.each(t,function(t,o){var a=o[0],s=x.isFunction(e[t])&&e[t];i[o[1]](function(){var e=s&&s.apply(this,arguments);e&&x.isFunction(e.promise)?e.promise().done(n.resolve).fail(n.reject).progress(n.notify):n[a+"With"](this===r?n.promise():this,s?[e]:arguments)})}),e=null}).promise()},promise:function(e){return null!=e?x.extend(e,r):r}},i={};return r.pipe=r.then,x.each(t,function(e,o){var a=o[2],s=o[3];r[o[1]]=a.add,s&&a.add(function(){n=s},t[1^e][2].disable,t[2][2].lock),i[o[0]]=function(){return i[o[0]+"With"](this===i?r:this,arguments),this},i[o[0]+"With"]=a.fireWith}),r.promise(i),e&&e.call(i,i),i},when:function(e){var t=0,n=g.call(arguments),r=n.length,i=1!==r||e&&x.isFunction(e.promise)?r:0,o=1===i?e:x.Deferred(),a=function(e,t,n){return function(r){t[e]=this,n[e]=arguments.length>1?g.call(arguments):r,n===s?o.notifyWith(t,n):--i||o.resolveWith(t,n)}},s,l,u;if(r>1)for(s=Array(r),l=Array(r),u=Array(r);r>t;t++)n[t]&&x.isFunction(n[t].promise)?n[t].promise().done(a(t,u,n)).fail(o.reject).progress(a(t,l,s)):--i;return i||o.resolveWith(u,n),o.promise()}}),x.support=function(t){var n,r,o,s,l,u,c,p,f,d=a.createElement("div");if(d.setAttribute("className","t"),d.innerHTML="  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>",n=d.getElementsByTagName("*")||[],r=d.getElementsByTagName("a")[0],!r||!r.style||!n.length)return t;s=a.createElement("select"),u=s.appendChild(a.createElement("option")),o=d.getElementsByTagName("input")[0],r.style.cssText="top:1px;float:left;opacity:.5",t.getSetAttribute="t"!==d.className,t.leadingWhitespace=3===d.firstChild.nodeType,t.tbody=!d.getElementsByTagName("tbody").length,t.htmlSerialize=!!d.getElementsByTagName("link").length,t.style=/top/.test(r.getAttribute("style")),t.hrefNormalized="/a"===r.getAttribute("href"),t.opacity=/^0.5/.test(r.style.opacity),t.cssFloat=!!r.style.cssFloat,t.checkOn=!!o.value,t.optSelected=u.selected,t.enctype=!!a.createElement("form").enctype,t.html5Clone="<:nav></:nav>"!==a.createElement("nav").cloneNode(!0).outerHTML,t.inlineBlockNeedsLayout=!1,t.shrinkWrapBlocks=!1,t.pixelPosition=!1,t.deleteExpando=!0,t.noCloneEvent=!0,t.reliableMarginRight=!0,t.boxSizingReliable=!0,o.checked=!0,t.noCloneChecked=o.cloneNode(!0).checked,s.disabled=!0,t.optDisabled=!u.disabled;try{delete d.test}catch(h){t.deleteExpando=!1}o=a.createElement("input"),o.setAttribute("value",""),t.input=""===o.getAttribute("value"),o.value="t",o.setAttribute("type","radio"),t.radioValue="t"===o.value,o.setAttribute("checked","t"),o.setAttribute("name","t"),l=a.createDocumentFragment(),l.appendChild(o),t.appendChecked=o.checked,t.checkClone=l.cloneNode(!0).cloneNode(!0).lastChild.checked,d.attachEvent&&(d.attachEvent("onclick",function(){t.noCloneEvent=!1}),d.cloneNode(!0).click());for(f in{submit:!0,change:!0,focusin:!0})d.setAttribute(c="on"+f,"t"),t[f+"Bubbles"]=c in e||d.attributes[c].expando===!1;d.style.backgroundClip="content-box",d.cloneNode(!0).style.backgroundClip="",t.clearCloneStyle="content-box"===d.style.backgroundClip;for(f in x(t))break;return t.ownLast="0"!==f,x(function(){var n,r,o,s="padding:0;margin:0;border:0;display:block;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;",l=a.getElementsByTagName("body")[0];l&&(n=a.createElement("div"),n.style.cssText="border:0;width:0;height:0;position:absolute;top:0;left:-9999px;margin-top:1px",l.appendChild(n).appendChild(d),d.innerHTML="<table><tr><td></td><td>t</td></tr></table>",o=d.getElementsByTagName("td"),o[0].style.cssText="padding:0;margin:0;border:0;display:none",p=0===o[0].offsetHeight,o[0].style.display="",o[1].style.display="none",t.reliableHiddenOffsets=p&&0===o[0].offsetHeight,d.innerHTML="",d.style.cssText="box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;padding:1px;border:1px;display:block;width:4px;margin-top:1%;position:absolute;top:1%;",x.swap(l,null!=l.style.zoom?{zoom:1}:{},function(){t.boxSizing=4===d.offsetWidth}),e.getComputedStyle&&(t.pixelPosition="1%"!==(e.getComputedStyle(d,null)||{}).top,t.boxSizingReliable="4px"===(e.getComputedStyle(d,null)||{width:"4px"}).width,r=d.appendChild(a.createElement("div")),r.style.cssText=d.style.cssText=s,r.style.marginRight=r.style.width="0",d.style.width="1px",t.reliableMarginRight=!parseFloat((e.getComputedStyle(r,null)||{}).marginRight)),typeof d.style.zoom!==i&&(d.innerHTML="",d.style.cssText=s+"width:1px;padding:1px;display:inline;zoom:1",t.inlineBlockNeedsLayout=3===d.offsetWidth,d.style.display="block",d.innerHTML="<div></div>",d.firstChild.style.width="5px",t.shrinkWrapBlocks=3!==d.offsetWidth,t.inlineBlockNeedsLayout&&(l.style.zoom=1)),l.removeChild(n),n=d=o=r=null)
+}),n=s=l=u=r=o=null,t}({});var B=/(?:\{[\s\S]*\}|\[[\s\S]*\])$/,P=/([A-Z])/g;function R(e,n,r,i){if(x.acceptData(e)){var o,a,s=x.expando,l=e.nodeType,u=l?x.cache:e,c=l?e[s]:e[s]&&s;if(c&&u[c]&&(i||u[c].data)||r!==t||"string"!=typeof n)return c||(c=l?e[s]=p.pop()||x.guid++:s),u[c]||(u[c]=l?{}:{toJSON:x.noop}),("object"==typeof n||"function"==typeof n)&&(i?u[c]=x.extend(u[c],n):u[c].data=x.extend(u[c].data,n)),a=u[c],i||(a.data||(a.data={}),a=a.data),r!==t&&(a[x.camelCase(n)]=r),"string"==typeof n?(o=a[n],null==o&&(o=a[x.camelCase(n)])):o=a,o}}function W(e,t,n){if(x.acceptData(e)){var r,i,o=e.nodeType,a=o?x.cache:e,s=o?e[x.expando]:x.expando;if(a[s]){if(t&&(r=n?a[s]:a[s].data)){x.isArray(t)?t=t.concat(x.map(t,x.camelCase)):t in r?t=[t]:(t=x.camelCase(t),t=t in r?[t]:t.split(" ")),i=t.length;while(i--)delete r[t[i]];if(n?!I(r):!x.isEmptyObject(r))return}(n||(delete a[s].data,I(a[s])))&&(o?x.cleanData([e],!0):x.support.deleteExpando||a!=a.window?delete a[s]:a[s]=null)}}}x.extend({cache:{},noData:{applet:!0,embed:!0,object:"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"},hasData:function(e){return e=e.nodeType?x.cache[e[x.expando]]:e[x.expando],!!e&&!I(e)},data:function(e,t,n){return R(e,t,n)},removeData:function(e,t){return W(e,t)},_data:function(e,t,n){return R(e,t,n,!0)},_removeData:function(e,t){return W(e,t,!0)},acceptData:function(e){if(e.nodeType&&1!==e.nodeType&&9!==e.nodeType)return!1;var t=e.nodeName&&x.noData[e.nodeName.toLowerCase()];return!t||t!==!0&&e.getAttribute("classid")===t}}),x.fn.extend({data:function(e,n){var r,i,o=null,a=0,s=this[0];if(e===t){if(this.length&&(o=x.data(s),1===s.nodeType&&!x._data(s,"parsedAttrs"))){for(r=s.attributes;r.length>a;a++)i=r[a].name,0===i.indexOf("data-")&&(i=x.camelCase(i.slice(5)),$(s,i,o[i]));x._data(s,"parsedAttrs",!0)}return o}return"object"==typeof e?this.each(function(){x.data(this,e)}):arguments.length>1?this.each(function(){x.data(this,e,n)}):s?$(s,e,x.data(s,e)):null},removeData:function(e){return this.each(function(){x.removeData(this,e)})}});function $(e,n,r){if(r===t&&1===e.nodeType){var i="data-"+n.replace(P,"-$1").toLowerCase();if(r=e.getAttribute(i),"string"==typeof r){try{r="true"===r?!0:"false"===r?!1:"null"===r?null:+r+""===r?+r:B.test(r)?x.parseJSON(r):r}catch(o){}x.data(e,n,r)}else r=t}return r}function I(e){var t;for(t in e)if(("data"!==t||!x.isEmptyObject(e[t]))&&"toJSON"!==t)return!1;return!0}x.extend({queue:function(e,n,r){var i;return e?(n=(n||"fx")+"queue",i=x._data(e,n),r&&(!i||x.isArray(r)?i=x._data(e,n,x.makeArray(r)):i.push(r)),i||[]):t},dequeue:function(e,t){t=t||"fx";var n=x.queue(e,t),r=n.length,i=n.shift(),o=x._queueHooks(e,t),a=function(){x.dequeue(e,t)};"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,a,o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return x._data(e,n)||x._data(e,n,{empty:x.Callbacks("once memory").add(function(){x._removeData(e,t+"queue"),x._removeData(e,n)})})}}),x.fn.extend({queue:function(e,n){var r=2;return"string"!=typeof e&&(n=e,e="fx",r--),r>arguments.length?x.queue(this[0],e):n===t?this:this.each(function(){var t=x.queue(this,e,n);x._queueHooks(this,e),"fx"===e&&"inprogress"!==t[0]&&x.dequeue(this,e)})},dequeue:function(e){return this.each(function(){x.dequeue(this,e)})},delay:function(e,t){return e=x.fx?x.fx.speeds[e]||e:e,t=t||"fx",this.queue(t,function(t,n){var r=setTimeout(t,e);n.stop=function(){clearTimeout(r)}})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,n){var r,i=1,o=x.Deferred(),a=this,s=this.length,l=function(){--i||o.resolveWith(a,[a])};"string"!=typeof e&&(n=e,e=t),e=e||"fx";while(s--)r=x._data(a[s],e+"queueHooks"),r&&r.empty&&(i++,r.empty.add(l));return l(),o.promise(n)}});var z,X,U=/[\t\r\n\f]/g,V=/\r/g,Y=/^(?:input|select|textarea|button|object)$/i,J=/^(?:a|area)$/i,G=/^(?:checked|selected)$/i,Q=x.support.getSetAttribute,K=x.support.input;x.fn.extend({attr:function(e,t){return x.access(this,x.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){x.removeAttr(this,e)})},prop:function(e,t){return x.access(this,x.prop,e,t,arguments.length>1)},removeProp:function(e){return e=x.propFix[e]||e,this.each(function(){try{this[e]=t,delete this[e]}catch(n){}})},addClass:function(e){var t,n,r,i,o,a=0,s=this.length,l="string"==typeof e&&e;if(x.isFunction(e))return this.each(function(t){x(this).addClass(e.call(this,t,this.className))});if(l)for(t=(e||"").match(T)||[];s>a;a++)if(n=this[a],r=1===n.nodeType&&(n.className?(" "+n.className+" ").replace(U," "):" ")){o=0;while(i=t[o++])0>r.indexOf(" "+i+" ")&&(r+=i+" ");n.className=x.trim(r)}return this},removeClass:function(e){var t,n,r,i,o,a=0,s=this.length,l=0===arguments.length||"string"==typeof e&&e;if(x.isFunction(e))return this.each(function(t){x(this).removeClass(e.call(this,t,this.className))});if(l)for(t=(e||"").match(T)||[];s>a;a++)if(n=this[a],r=1===n.nodeType&&(n.className?(" "+n.className+" ").replace(U," "):"")){o=0;while(i=t[o++])while(r.indexOf(" "+i+" ")>=0)r=r.replace(" "+i+" "," ");n.className=e?x.trim(r):""}return this},toggleClass:function(e,t){var n=typeof e,r="boolean"==typeof t;return x.isFunction(e)?this.each(function(n){x(this).toggleClass(e.call(this,n,this.className,t),t)}):this.each(function(){if("string"===n){var o,a=0,s=x(this),l=t,u=e.match(T)||[];while(o=u[a++])l=r?l:!s.hasClass(o),s[l?"addClass":"removeClass"](o)}else(n===i||"boolean"===n)&&(this.className&&x._data(this,"__className__",this.className),this.className=this.className||e===!1?"":x._data(this,"__className__")||"")})},hasClass:function(e){var t=" "+e+" ",n=0,r=this.length;for(;r>n;n++)if(1===this[n].nodeType&&(" "+this[n].className+" ").replace(U," ").indexOf(t)>=0)return!0;return!1},val:function(e){var n,r,i,o=this[0];{if(arguments.length)return i=x.isFunction(e),this.each(function(n){var o;1===this.nodeType&&(o=i?e.call(this,n,x(this).val()):e,null==o?o="":"number"==typeof o?o+="":x.isArray(o)&&(o=x.map(o,function(e){return null==e?"":e+""})),r=x.valHooks[this.type]||x.valHooks[this.nodeName.toLowerCase()],r&&"set"in r&&r.set(this,o,"value")!==t||(this.value=o))});if(o)return r=x.valHooks[o.type]||x.valHooks[o.nodeName.toLowerCase()],r&&"get"in r&&(n=r.get(o,"value"))!==t?n:(n=o.value,"string"==typeof n?n.replace(V,""):null==n?"":n)}}}),x.extend({valHooks:{option:{get:function(e){var t=x.find.attr(e,"value");return null!=t?t:e.text}},select:{get:function(e){var t,n,r=e.options,i=e.selectedIndex,o="select-one"===e.type||0>i,a=o?null:[],s=o?i+1:r.length,l=0>i?s:o?i:0;for(;s>l;l++)if(n=r[l],!(!n.selected&&l!==i||(x.support.optDisabled?n.disabled:null!==n.getAttribute("disabled"))||n.parentNode.disabled&&x.nodeName(n.parentNode,"optgroup"))){if(t=x(n).val(),o)return t;a.push(t)}return a},set:function(e,t){var n,r,i=e.options,o=x.makeArray(t),a=i.length;while(a--)r=i[a],(r.selected=x.inArray(x(r).val(),o)>=0)&&(n=!0);return n||(e.selectedIndex=-1),o}}},attr:function(e,n,r){var o,a,s=e.nodeType;if(e&&3!==s&&8!==s&&2!==s)return typeof e.getAttribute===i?x.prop(e,n,r):(1===s&&x.isXMLDoc(e)||(n=n.toLowerCase(),o=x.attrHooks[n]||(x.expr.match.bool.test(n)?X:z)),r===t?o&&"get"in o&&null!==(a=o.get(e,n))?a:(a=x.find.attr(e,n),null==a?t:a):null!==r?o&&"set"in o&&(a=o.set(e,r,n))!==t?a:(e.setAttribute(n,r+""),r):(x.removeAttr(e,n),t))},removeAttr:function(e,t){var n,r,i=0,o=t&&t.match(T);if(o&&1===e.nodeType)while(n=o[i++])r=x.propFix[n]||n,x.expr.match.bool.test(n)?K&&Q||!G.test(n)?e[r]=!1:e[x.camelCase("default-"+n)]=e[r]=!1:x.attr(e,n,""),e.removeAttribute(Q?n:r)},attrHooks:{type:{set:function(e,t){if(!x.support.radioValue&&"radio"===t&&x.nodeName(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},propFix:{"for":"htmlFor","class":"className"},prop:function(e,n,r){var i,o,a,s=e.nodeType;if(e&&3!==s&&8!==s&&2!==s)return a=1!==s||!x.isXMLDoc(e),a&&(n=x.propFix[n]||n,o=x.propHooks[n]),r!==t?o&&"set"in o&&(i=o.set(e,r,n))!==t?i:e[n]=r:o&&"get"in o&&null!==(i=o.get(e,n))?i:e[n]},propHooks:{tabIndex:{get:function(e){var t=x.find.attr(e,"tabindex");return t?parseInt(t,10):Y.test(e.nodeName)||J.test(e.nodeName)&&e.href?0:-1}}}}),X={set:function(e,t,n){return t===!1?x.removeAttr(e,n):K&&Q||!G.test(n)?e.setAttribute(!Q&&x.propFix[n]||n,n):e[x.camelCase("default-"+n)]=e[n]=!0,n}},x.each(x.expr.match.bool.source.match(/\w+/g),function(e,n){var r=x.expr.attrHandle[n]||x.find.attr;x.expr.attrHandle[n]=K&&Q||!G.test(n)?function(e,n,i){var o=x.expr.attrHandle[n],a=i?t:(x.expr.attrHandle[n]=t)!=r(e,n,i)?n.toLowerCase():null;return x.expr.attrHandle[n]=o,a}:function(e,n,r){return r?t:e[x.camelCase("default-"+n)]?n.toLowerCase():null}}),K&&Q||(x.attrHooks.value={set:function(e,n,r){return x.nodeName(e,"input")?(e.defaultValue=n,t):z&&z.set(e,n,r)}}),Q||(z={set:function(e,n,r){var i=e.getAttributeNode(r);return i||e.setAttributeNode(i=e.ownerDocument.createAttribute(r)),i.value=n+="","value"===r||n===e.getAttribute(r)?n:t}},x.expr.attrHandle.id=x.expr.attrHandle.name=x.expr.attrHandle.coords=function(e,n,r){var i;return r?t:(i=e.getAttributeNode(n))&&""!==i.value?i.value:null},x.valHooks.button={get:function(e,n){var r=e.getAttributeNode(n);return r&&r.specified?r.value:t},set:z.set},x.attrHooks.contenteditable={set:function(e,t,n){z.set(e,""===t?!1:t,n)}},x.each(["width","height"],function(e,n){x.attrHooks[n]={set:function(e,r){return""===r?(e.setAttribute(n,"auto"),r):t}}})),x.support.hrefNormalized||x.each(["href","src"],function(e,t){x.propHooks[t]={get:function(e){return e.getAttribute(t,4)}}}),x.support.style||(x.attrHooks.style={get:function(e){return e.style.cssText||t},set:function(e,t){return e.style.cssText=t+""}}),x.support.optSelected||(x.propHooks.selected={get:function(e){var t=e.parentNode;return t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex),null}}),x.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){x.propFix[this.toLowerCase()]=this}),x.support.enctype||(x.propFix.enctype="encoding"),x.each(["radio","checkbox"],function(){x.valHooks[this]={set:function(e,n){return x.isArray(n)?e.checked=x.inArray(x(e).val(),n)>=0:t}},x.support.checkOn||(x.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var Z=/^(?:input|select|textarea)$/i,et=/^key/,tt=/^(?:mouse|contextmenu)|click/,nt=/^(?:focusinfocus|focusoutblur)$/,rt=/^([^.]*)(?:\.(.+)|)$/;function it(){return!0}function ot(){return!1}function at(){try{return a.activeElement}catch(e){}}x.event={global:{},add:function(e,n,r,o,a){var s,l,u,c,p,f,d,h,g,m,y,v=x._data(e);if(v){r.handler&&(c=r,r=c.handler,a=c.selector),r.guid||(r.guid=x.guid++),(l=v.events)||(l=v.events={}),(f=v.handle)||(f=v.handle=function(e){return typeof x===i||e&&x.event.triggered===e.type?t:x.event.dispatch.apply(f.elem,arguments)},f.elem=e),n=(n||"").match(T)||[""],u=n.length;while(u--)s=rt.exec(n[u])||[],g=y=s[1],m=(s[2]||"").split(".").sort(),g&&(p=x.event.special[g]||{},g=(a?p.delegateType:p.bindType)||g,p=x.event.special[g]||{},d=x.extend({type:g,origType:y,data:o,handler:r,guid:r.guid,selector:a,needsContext:a&&x.expr.match.needsContext.test(a),namespace:m.join(".")},c),(h=l[g])||(h=l[g]=[],h.delegateCount=0,p.setup&&p.setup.call(e,o,m,f)!==!1||(e.addEventListener?e.addEventListener(g,f,!1):e.attachEvent&&e.attachEvent("on"+g,f))),p.add&&(p.add.call(e,d),d.handler.guid||(d.handler.guid=r.guid)),a?h.splice(h.delegateCount++,0,d):h.push(d),x.event.global[g]=!0);e=null}},remove:function(e,t,n,r,i){var o,a,s,l,u,c,p,f,d,h,g,m=x.hasData(e)&&x._data(e);if(m&&(c=m.events)){t=(t||"").match(T)||[""],u=t.length;while(u--)if(s=rt.exec(t[u])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d){p=x.event.special[d]||{},d=(r?p.delegateType:p.bindType)||d,f=c[d]||[],s=s[2]&&RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),l=o=f.length;while(o--)a=f[o],!i&&g!==a.origType||n&&n.guid!==a.guid||s&&!s.test(a.namespace)||r&&r!==a.selector&&("**"!==r||!a.selector)||(f.splice(o,1),a.selector&&f.delegateCount--,p.remove&&p.remove.call(e,a));l&&!f.length&&(p.teardown&&p.teardown.call(e,h,m.handle)!==!1||x.removeEvent(e,d,m.handle),delete c[d])}else for(d in c)x.event.remove(e,d+t[u],n,r,!0);x.isEmptyObject(c)&&(delete m.handle,x._removeData(e,"events"))}},trigger:function(n,r,i,o){var s,l,u,c,p,f,d,h=[i||a],g=v.call(n,"type")?n.type:n,m=v.call(n,"namespace")?n.namespace.split("."):[];if(u=f=i=i||a,3!==i.nodeType&&8!==i.nodeType&&!nt.test(g+x.event.triggered)&&(g.indexOf(".")>=0&&(m=g.split("."),g=m.shift(),m.sort()),l=0>g.indexOf(":")&&"on"+g,n=n[x.expando]?n:new x.Event(g,"object"==typeof n&&n),n.isTrigger=o?2:3,n.namespace=m.join("."),n.namespace_re=n.namespace?RegExp("(^|\\.)"+m.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,n.result=t,n.target||(n.target=i),r=null==r?[n]:x.makeArray(r,[n]),p=x.event.special[g]||{},o||!p.trigger||p.trigger.apply(i,r)!==!1)){if(!o&&!p.noBubble&&!x.isWindow(i)){for(c=p.delegateType||g,nt.test(c+g)||(u=u.parentNode);u;u=u.parentNode)h.push(u),f=u;f===(i.ownerDocument||a)&&h.push(f.defaultView||f.parentWindow||e)}d=0;while((u=h[d++])&&!n.isPropagationStopped())n.type=d>1?c:p.bindType||g,s=(x._data(u,"events")||{})[n.type]&&x._data(u,"handle"),s&&s.apply(u,r),s=l&&u[l],s&&x.acceptData(u)&&s.apply&&s.apply(u,r)===!1&&n.preventDefault();if(n.type=g,!o&&!n.isDefaultPrevented()&&(!p._default||p._default.apply(h.pop(),r)===!1)&&x.acceptData(i)&&l&&i[g]&&!x.isWindow(i)){f=i[l],f&&(i[l]=null),x.event.triggered=g;try{i[g]()}catch(y){}x.event.triggered=t,f&&(i[l]=f)}return n.result}},dispatch:function(e){e=x.event.fix(e);var n,r,i,o,a,s=[],l=g.call(arguments),u=(x._data(this,"events")||{})[e.type]||[],c=x.event.special[e.type]||{};if(l[0]=e,e.delegateTarget=this,!c.preDispatch||c.preDispatch.call(this,e)!==!1){s=x.event.handlers.call(this,e,u),n=0;while((o=s[n++])&&!e.isPropagationStopped()){e.currentTarget=o.elem,a=0;while((i=o.handlers[a++])&&!e.isImmediatePropagationStopped())(!e.namespace_re||e.namespace_re.test(i.namespace))&&(e.handleObj=i,e.data=i.data,r=((x.event.special[i.origType]||{}).handle||i.handler).apply(o.elem,l),r!==t&&(e.result=r)===!1&&(e.preventDefault(),e.stopPropagation()))}return c.postDispatch&&c.postDispatch.call(this,e),e.result}},handlers:function(e,n){var r,i,o,a,s=[],l=n.delegateCount,u=e.target;if(l&&u.nodeType&&(!e.button||"click"!==e.type))for(;u!=this;u=u.parentNode||this)if(1===u.nodeType&&(u.disabled!==!0||"click"!==e.type)){for(o=[],a=0;l>a;a++)i=n[a],r=i.selector+" ",o[r]===t&&(o[r]=i.needsContext?x(r,this).index(u)>=0:x.find(r,this,null,[u]).length),o[r]&&o.push(i);o.length&&s.push({elem:u,handlers:o})}return n.length>l&&s.push({elem:this,handlers:n.slice(l)}),s},fix:function(e){if(e[x.expando])return e;var t,n,r,i=e.type,o=e,s=this.fixHooks[i];s||(this.fixHooks[i]=s=tt.test(i)?this.mouseHooks:et.test(i)?this.keyHooks:{}),r=s.props?this.props.concat(s.props):this.props,e=new x.Event(o),t=r.length;while(t--)n=r[t],e[n]=o[n];return e.target||(e.target=o.srcElement||a),3===e.target.nodeType&&(e.target=e.target.parentNode),e.metaKey=!!e.metaKey,s.filter?s.filter(e,o):e},props:"altKey bubbles cancelable ctrlKey currentTarget eventPhase metaKey relatedTarget shiftKey target timeStamp view which".split(" "),fixHooks:{},keyHooks:{props:"char charCode key keyCode".split(" "),filter:function(e,t){return null==e.which&&(e.which=null!=t.charCode?t.charCode:t.keyCode),e}},mouseHooks:{props:"button buttons clientX clientY fromElement offsetX offsetY pageX pageY screenX screenY toElement".split(" "),filter:function(e,n){var r,i,o,s=n.button,l=n.fromElement;return null==e.pageX&&null!=n.clientX&&(i=e.target.ownerDocument||a,o=i.documentElement,r=i.body,e.pageX=n.clientX+(o&&o.scrollLeft||r&&r.scrollLeft||0)-(o&&o.clientLeft||r&&r.clientLeft||0),e.pageY=n.clientY+(o&&o.scrollTop||r&&r.scrollTop||0)-(o&&o.clientTop||r&&r.clientTop||0)),!e.relatedTarget&&l&&(e.relatedTarget=l===e.target?n.toElement:l),e.which||s===t||(e.which=1&s?1:2&s?3:4&s?2:0),e}},special:{load:{noBubble:!0},focus:{trigger:function(){if(this!==at()&&this.focus)try{return this.focus(),!1}catch(e){}},delegateType:"focusin"},blur:{trigger:function(){return this===at()&&this.blur?(this.blur(),!1):t},delegateType:"focusout"},click:{trigger:function(){return x.nodeName(this,"input")&&"checkbox"===this.type&&this.click?(this.click(),!1):t},_default:function(e){return x.nodeName(e.target,"a")}},beforeunload:{postDispatch:function(e){e.result!==t&&(e.originalEvent.returnValue=e.result)}}},simulate:function(e,t,n,r){var i=x.extend(new x.Event,n,{type:e,isSimulated:!0,originalEvent:{}});r?x.event.trigger(i,null,t):x.event.dispatch.call(t,i),i.isDefaultPrevented()&&n.preventDefault()}},x.removeEvent=a.removeEventListener?function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n,!1)}:function(e,t,n){var r="on"+t;e.detachEvent&&(typeof e[r]===i&&(e[r]=null),e.detachEvent(r,n))},x.Event=function(e,n){return this instanceof x.Event?(e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||e.returnValue===!1||e.getPreventDefault&&e.getPreventDefault()?it:ot):this.type=e,n&&x.extend(this,n),this.timeStamp=e&&e.timeStamp||x.now(),this[x.expando]=!0,t):new x.Event(e,n)},x.Event.prototype={isDefaultPrevented:ot,isPropagationStopped:ot,isImmediatePropagationStopped:ot,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=it,e&&(e.preventDefault?e.preventDefault():e.returnValue=!1)},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=it,e&&(e.stopPropagation&&e.stopPropagation(),e.cancelBubble=!0)},stopImmediatePropagation:function(){this.isImmediatePropagationStopped=it,this.stopPropagation()}},x.each({mouseenter:"mouseover",mouseleave:"mouseout"},function(e,t){x.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,o=e.handleObj;return(!i||i!==r&&!x.contains(r,i))&&(e.type=o.origType,n=o.handler.apply(this,arguments),e.type=t),n}}}),x.support.submitBubbles||(x.event.special.submit={setup:function(){return x.nodeName(this,"form")?!1:(x.event.add(this,"click._submit keypress._submit",function(e){var n=e.target,r=x.nodeName(n,"input")||x.nodeName(n,"button")?n.form:t;r&&!x._data(r,"submitBubbles")&&(x.event.add(r,"submit._submit",function(e){e._submit_bubble=!0}),x._data(r,"submitBubbles",!0))}),t)},postDispatch:function(e){e._submit_bubble&&(delete e._submit_bubble,this.parentNode&&!e.isTrigger&&x.event.simulate("submit",this.parentNode,e,!0))},teardown:function(){return x.nodeName(this,"form")?!1:(x.event.remove(this,"._submit"),t)}}),x.support.changeBubbles||(x.event.special.change={setup:function(){return Z.test(this.nodeName)?(("checkbox"===this.type||"radio"===this.type)&&(x.event.add(this,"propertychange._change",function(e){"checked"===e.originalEvent.propertyName&&(this._just_changed=!0)}),x.event.add(this,"click._change",function(e){this._just_changed&&!e.isTrigger&&(this._just_changed=!1),x.event.simulate("change",this,e,!0)})),!1):(x.event.add(this,"beforeactivate._change",function(e){var t=e.target;Z.test(t.nodeName)&&!x._data(t,"changeBubbles")&&(x.event.add(t,"change._change",function(e){!this.parentNode||e.isSimulated||e.isTrigger||x.event.simulate("change",this.parentNode,e,!0)}),x._data(t,"changeBubbles",!0))}),t)},handle:function(e){var n=e.target;return this!==n||e.isSimulated||e.isTrigger||"radio"!==n.type&&"checkbox"!==n.type?e.handleObj.handler.apply(this,arguments):t},teardown:function(){return x.event.remove(this,"._change"),!Z.test(this.nodeName)}}),x.support.focusinBubbles||x.each({focus:"focusin",blur:"focusout"},function(e,t){var n=0,r=function(e){x.event.simulate(t,e.target,x.event.fix(e),!0)};x.event.special[t]={setup:function(){0===n++&&a.addEventListener(e,r,!0)},teardown:function(){0===--n&&a.removeEventListener(e,r,!0)}}}),x.fn.extend({on:function(e,n,r,i,o){var a,s;if("object"==typeof e){"string"!=typeof n&&(r=r||n,n=t);for(a in e)this.on(a,n,r,e[a],o);return this}if(null==r&&null==i?(i=n,r=n=t):null==i&&("string"==typeof n?(i=r,r=t):(i=r,r=n,n=t)),i===!1)i=ot;else if(!i)return this;return 1===o&&(s=i,i=function(e){return x().off(e),s.apply(this,arguments)},i.guid=s.guid||(s.guid=x.guid++)),this.each(function(){x.event.add(this,e,i,r,n)})},one:function(e,t,n,r){return this.on(e,t,n,r,1)},off:function(e,n,r){var i,o;if(e&&e.preventDefault&&e.handleObj)return i=e.handleObj,x(e.delegateTarget).off(i.namespace?i.origType+"."+i.namespace:i.origType,i.selector,i.handler),this;if("object"==typeof e){for(o in e)this.off(o,n,e[o]);return this}return(n===!1||"function"==typeof n)&&(r=n,n=t),r===!1&&(r=ot),this.each(function(){x.event.remove(this,e,r,n)})},trigger:function(e,t){return this.each(function(){x.event.trigger(e,t,this)})},triggerHandler:function(e,n){var r=this[0];return r?x.event.trigger(e,n,r,!0):t}});var st=/^.[^:#\[\.,]*$/,lt=/^(?:parents|prev(?:Until|All))/,ut=x.expr.match.needsContext,ct={children:!0,contents:!0,next:!0,prev:!0};x.fn.extend({find:function(e){var t,n=[],r=this,i=r.length;if("string"!=typeof e)return this.pushStack(x(e).filter(function(){for(t=0;i>t;t++)if(x.contains(r[t],this))return!0}));for(t=0;i>t;t++)x.find(e,r[t],n);return n=this.pushStack(i>1?x.unique(n):n),n.selector=this.selector?this.selector+" "+e:e,n},has:function(e){var t,n=x(e,this),r=n.length;return this.filter(function(){for(t=0;r>t;t++)if(x.contains(this,n[t]))return!0})},not:function(e){return this.pushStack(ft(this,e||[],!0))},filter:function(e){return this.pushStack(ft(this,e||[],!1))},is:function(e){return!!ft(this,"string"==typeof e&&ut.test(e)?x(e):e||[],!1).length},closest:function(e,t){var n,r=0,i=this.length,o=[],a=ut.test(e)||"string"!=typeof e?x(e,t||this.context):0;for(;i>r;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(11>n.nodeType&&(a?a.index(n)>-1:1===n.nodeType&&x.find.matchesSelector(n,e))){n=o.push(n);break}return this.pushStack(o.length>1?x.unique(o):o)},index:function(e){return e?"string"==typeof e?x.inArray(this[0],x(e)):x.inArray(e.jquery?e[0]:e,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){var n="string"==typeof e?x(e,t):x.makeArray(e&&e.nodeType?[e]:e),r=x.merge(this.get(),n);return this.pushStack(x.unique(r))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}});function pt(e,t){do e=e[t];while(e&&1!==e.nodeType);return e}x.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return x.dir(e,"parentNode")},parentsUntil:function(e,t,n){return x.dir(e,"parentNode",n)},next:function(e){return pt(e,"nextSibling")},prev:function(e){return pt(e,"previousSibling")},nextAll:function(e){return x.dir(e,"nextSibling")},prevAll:function(e){return x.dir(e,"previousSibling")},nextUntil:function(e,t,n){return x.dir(e,"nextSibling",n)},prevUntil:function(e,t,n){return x.dir(e,"previousSibling",n)},siblings:function(e){return x.sibling((e.parentNode||{}).firstChild,e)},children:function(e){return x.sibling(e.firstChild)},contents:function(e){return x.nodeName(e,"iframe")?e.contentDocument||e.contentWindow.document:x.merge([],e.childNodes)}},function(e,t){x.fn[e]=function(n,r){var i=x.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=x.filter(r,i)),this.length>1&&(ct[e]||(i=x.unique(i)),lt.test(e)&&(i=i.reverse())),this.pushStack(i)}}),x.extend({filter:function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?x.find.matchesSelector(r,e)?[r]:[]:x.find.matches(e,x.grep(t,function(e){return 1===e.nodeType}))},dir:function(e,n,r){var i=[],o=e[n];while(o&&9!==o.nodeType&&(r===t||1!==o.nodeType||!x(o).is(r)))1===o.nodeType&&i.push(o),o=o[n];return i},sibling:function(e,t){var n=[];for(;e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n}});function ft(e,t,n){if(x.isFunction(t))return x.grep(e,function(e,r){return!!t.call(e,r,e)!==n});if(t.nodeType)return x.grep(e,function(e){return e===t!==n});if("string"==typeof t){if(st.test(t))return x.filter(t,e,n);t=x.filter(t,e)}return x.grep(e,function(e){return x.inArray(e,t)>=0!==n})}function dt(e){var t=ht.split("|"),n=e.createDocumentFragment();if(n.createElement)while(t.length)n.createElement(t.pop());return n}var ht="abbr|article|aside|audio|bdi|canvas|data|datalist|details|figcaption|figure|footer|header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",gt=/ jQuery\d+="(?:null|\d+)"/g,mt=RegExp("<(?:"+ht+")[\\s/>]","i"),yt=/^\s+/,vt=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/gi,bt=/<([\w:]+)/,xt=/<tbody/i,wt=/<|&#?\w+;/,Tt=/<(?:script|style|link)/i,Ct=/^(?:checkbox|radio)$/i,Nt=/checked\s*(?:[^=]|=\s*.checked.)/i,kt=/^$|\/(?:java|ecma)script/i,Et=/^true\/(.*)/,St=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,At={option:[1,"<select multiple='multiple'>","</select>"],legend:[1,"<fieldset>","</fieldset>"],area:[1,"<map>","</map>"],param:[1,"<object>","</object>"],thead:[1,"<table>","</table>"],tr:[2,"<table><tbody>","</tbody></table>"],col:[2,"<table><tbody></tbody><colgroup>","</colgroup></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:x.support.htmlSerialize?[0,"",""]:[1,"X<div>","</div>"]},jt=dt(a),Dt=jt.appendChild(a.createElement("div"));At.optgroup=At.option,At.tbody=At.tfoot=At.colgroup=At.caption=At.thead,At.th=At.td,x.fn.extend({text:function(e){return x.access(this,function(e){return e===t?x.text(this):this.empty().append((this[0]&&this[0].ownerDocument||a).createTextNode(e))},null,e,arguments.length)},append:function(){return this.domManip(arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=Lt(this,e);t.appendChild(e)}})},prepend:function(){return this.domManip(arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=Lt(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return this.domManip(arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return this.domManip(arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},remove:function(e,t){var n,r=e?x.filter(e,this):this,i=0;for(;null!=(n=r[i]);i++)t||1!==n.nodeType||x.cleanData(Ft(n)),n.parentNode&&(t&&x.contains(n.ownerDocument,n)&&_t(Ft(n,"script")),n.parentNode.removeChild(n));return this},empty:function(){var e,t=0;for(;null!=(e=this[t]);t++){1===e.nodeType&&x.cleanData(Ft(e,!1));while(e.firstChild)e.removeChild(e.firstChild);e.options&&x.nodeName(e,"select")&&(e.options.length=0)}return this},clone:function(e,t){return e=null==e?!1:e,t=null==t?e:t,this.map(function(){return x.clone(this,e,t)})},html:function(e){return x.access(this,function(e){var n=this[0]||{},r=0,i=this.length;if(e===t)return 1===n.nodeType?n.innerHTML.replace(gt,""):t;if(!("string"!=typeof e||Tt.test(e)||!x.support.htmlSerialize&&mt.test(e)||!x.support.leadingWhitespace&&yt.test(e)||At[(bt.exec(e)||["",""])[1].toLowerCase()])){e=e.replace(vt,"<$1></$2>");try{for(;i>r;r++)n=this[r]||{},1===n.nodeType&&(x.cleanData(Ft(n,!1)),n.innerHTML=e);n=0}catch(o){}}n&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=x.map(this,function(e){return[e.nextSibling,e.parentNode]}),t=0;return this.domManip(arguments,function(n){var r=e[t++],i=e[t++];i&&(r&&r.parentNode!==i&&(r=this.nextSibling),x(this).remove(),i.insertBefore(n,r))},!0),t?this:this.remove()},detach:function(e){return this.remove(e,!0)},domManip:function(e,t,n){e=d.apply([],e);var r,i,o,a,s,l,u=0,c=this.length,p=this,f=c-1,h=e[0],g=x.isFunction(h);if(g||!(1>=c||"string"!=typeof h||x.support.checkClone)&&Nt.test(h))return this.each(function(r){var i=p.eq(r);g&&(e[0]=h.call(this,r,i.html())),i.domManip(e,t,n)});if(c&&(l=x.buildFragment(e,this[0].ownerDocument,!1,!n&&this),r=l.firstChild,1===l.childNodes.length&&(l=r),r)){for(a=x.map(Ft(l,"script"),Ht),o=a.length;c>u;u++)i=l,u!==f&&(i=x.clone(i,!0,!0),o&&x.merge(a,Ft(i,"script"))),t.call(this[u],i,u);if(o)for(s=a[a.length-1].ownerDocument,x.map(a,qt),u=0;o>u;u++)i=a[u],kt.test(i.type||"")&&!x._data(i,"globalEval")&&x.contains(s,i)&&(i.src?x._evalUrl(i.src):x.globalEval((i.text||i.textContent||i.innerHTML||"").replace(St,"")));l=r=null}return this}});function Lt(e,t){return x.nodeName(e,"table")&&x.nodeName(1===t.nodeType?t:t.firstChild,"tr")?e.getElementsByTagName("tbody")[0]||e.appendChild(e.ownerDocument.createElement("tbody")):e}function Ht(e){return e.type=(null!==x.find.attr(e,"type"))+"/"+e.type,e}function qt(e){var t=Et.exec(e.type);return t?e.type=t[1]:e.removeAttribute("type"),e}function _t(e,t){var n,r=0;for(;null!=(n=e[r]);r++)x._data(n,"globalEval",!t||x._data(t[r],"globalEval"))}function Mt(e,t){if(1===t.nodeType&&x.hasData(e)){var n,r,i,o=x._data(e),a=x._data(t,o),s=o.events;if(s){delete a.handle,a.events={};for(n in s)for(r=0,i=s[n].length;i>r;r++)x.event.add(t,n,s[n][r])}a.data&&(a.data=x.extend({},a.data))}}function Ot(e,t){var n,r,i;if(1===t.nodeType){if(n=t.nodeName.toLowerCase(),!x.support.noCloneEvent&&t[x.expando]){i=x._data(t);for(r in i.events)x.removeEvent(t,r,i.handle);t.removeAttribute(x.expando)}"script"===n&&t.text!==e.text?(Ht(t).text=e.text,qt(t)):"object"===n?(t.parentNode&&(t.outerHTML=e.outerHTML),x.support.html5Clone&&e.innerHTML&&!x.trim(t.innerHTML)&&(t.innerHTML=e.innerHTML)):"input"===n&&Ct.test(e.type)?(t.defaultChecked=t.checked=e.checked,t.value!==e.value&&(t.value=e.value)):"option"===n?t.defaultSelected=t.selected=e.defaultSelected:("input"===n||"textarea"===n)&&(t.defaultValue=e.defaultValue)}}x.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){x.fn[e]=function(e){var n,r=0,i=[],o=x(e),a=o.length-1;for(;a>=r;r++)n=r===a?this:this.clone(!0),x(o[r])[t](n),h.apply(i,n.get());return this.pushStack(i)}});function Ft(e,n){var r,o,a=0,s=typeof e.getElementsByTagName!==i?e.getElementsByTagName(n||"*"):typeof e.querySelectorAll!==i?e.querySelectorAll(n||"*"):t;if(!s)for(s=[],r=e.childNodes||e;null!=(o=r[a]);a++)!n||x.nodeName(o,n)?s.push(o):x.merge(s,Ft(o,n));return n===t||n&&x.nodeName(e,n)?x.merge([e],s):s}function Bt(e){Ct.test(e.type)&&(e.defaultChecked=e.checked)}x.extend({clone:function(e,t,n){var r,i,o,a,s,l=x.contains(e.ownerDocument,e);if(x.support.html5Clone||x.isXMLDoc(e)||!mt.test("<"+e.nodeName+">")?o=e.cloneNode(!0):(Dt.innerHTML=e.outerHTML,Dt.removeChild(o=Dt.firstChild)),!(x.support.noCloneEvent&&x.support.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||x.isXMLDoc(e)))for(r=Ft(o),s=Ft(e),a=0;null!=(i=s[a]);++a)r[a]&&Ot(i,r[a]);if(t)if(n)for(s=s||Ft(e),r=r||Ft(o),a=0;null!=(i=s[a]);a++)Mt(i,r[a]);else Mt(e,o);return r=Ft(o,"script"),r.length>0&&_t(r,!l&&Ft(e,"script")),r=s=i=null,o},buildFragment:function(e,t,n,r){var i,o,a,s,l,u,c,p=e.length,f=dt(t),d=[],h=0;for(;p>h;h++)if(o=e[h],o||0===o)if("object"===x.type(o))x.merge(d,o.nodeType?[o]:o);else if(wt.test(o)){s=s||f.appendChild(t.createElement("div")),l=(bt.exec(o)||["",""])[1].toLowerCase(),c=At[l]||At._default,s.innerHTML=c[1]+o.replace(vt,"<$1></$2>")+c[2],i=c[0];while(i--)s=s.lastChild;if(!x.support.leadingWhitespace&&yt.test(o)&&d.push(t.createTextNode(yt.exec(o)[0])),!x.support.tbody){o="table"!==l||xt.test(o)?"<table>"!==c[1]||xt.test(o)?0:s:s.firstChild,i=o&&o.childNodes.length;while(i--)x.nodeName(u=o.childNodes[i],"tbody")&&!u.childNodes.length&&o.removeChild(u)}x.merge(d,s.childNodes),s.textContent="";while(s.firstChild)s.removeChild(s.firstChild);s=f.lastChild}else d.push(t.createTextNode(o));s&&f.removeChild(s),x.support.appendChecked||x.grep(Ft(d,"input"),Bt),h=0;while(o=d[h++])if((!r||-1===x.inArray(o,r))&&(a=x.contains(o.ownerDocument,o),s=Ft(f.appendChild(o),"script"),a&&_t(s),n)){i=0;while(o=s[i++])kt.test(o.type||"")&&n.push(o)}return s=null,f},cleanData:function(e,t){var n,r,o,a,s=0,l=x.expando,u=x.cache,c=x.support.deleteExpando,f=x.event.special;for(;null!=(n=e[s]);s++)if((t||x.acceptData(n))&&(o=n[l],a=o&&u[o])){if(a.events)for(r in a.events)f[r]?x.event.remove(n,r):x.removeEvent(n,r,a.handle);
+u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(l):n[l]=null,p.push(o))}},_evalUrl:function(e){return x.ajax({url:e,type:"GET",dataType:"script",async:!1,global:!1,"throws":!0})}}),x.fn.extend({wrapAll:function(e){if(x.isFunction(e))return this.each(function(t){x(this).wrapAll(e.call(this,t))});if(this[0]){var t=x(e,this[0].ownerDocument).eq(0).clone(!0);this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){var e=this;while(e.firstChild&&1===e.firstChild.nodeType)e=e.firstChild;return e}).append(this)}return this},wrapInner:function(e){return x.isFunction(e)?this.each(function(t){x(this).wrapInner(e.call(this,t))}):this.each(function(){var t=x(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=x.isFunction(e);return this.each(function(n){x(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(){return this.parent().each(function(){x.nodeName(this,"body")||x(this).replaceWith(this.childNodes)}).end()}});var Pt,Rt,Wt,$t=/alpha\([^)]*\)/i,It=/opacity\s*=\s*([^)]*)/,zt=/^(top|right|bottom|left)$/,Xt=/^(none|table(?!-c[ea]).+)/,Ut=/^margin/,Vt=RegExp("^("+w+")(.*)$","i"),Yt=RegExp("^("+w+")(?!px)[a-z%]+$","i"),Jt=RegExp("^([+-])=("+w+")","i"),Gt={BODY:"block"},Qt={position:"absolute",visibility:"hidden",display:"block"},Kt={letterSpacing:0,fontWeight:400},Zt=["Top","Right","Bottom","Left"],en=["Webkit","O","Moz","ms"];function tn(e,t){if(t in e)return t;var n=t.charAt(0).toUpperCase()+t.slice(1),r=t,i=en.length;while(i--)if(t=en[i]+n,t in e)return t;return r}function nn(e,t){return e=t||e,"none"===x.css(e,"display")||!x.contains(e.ownerDocument,e)}function rn(e,t){var n,r,i,o=[],a=0,s=e.length;for(;s>a;a++)r=e[a],r.style&&(o[a]=x._data(r,"olddisplay"),n=r.style.display,t?(o[a]||"none"!==n||(r.style.display=""),""===r.style.display&&nn(r)&&(o[a]=x._data(r,"olddisplay",ln(r.nodeName)))):o[a]||(i=nn(r),(n&&"none"!==n||!i)&&x._data(r,"olddisplay",i?n:x.css(r,"display"))));for(a=0;s>a;a++)r=e[a],r.style&&(t&&"none"!==r.style.display&&""!==r.style.display||(r.style.display=t?o[a]||"":"none"));return e}x.fn.extend({css:function(e,n){return x.access(this,function(e,n,r){var i,o,a={},s=0;if(x.isArray(n)){for(o=Rt(e),i=n.length;i>s;s++)a[n[s]]=x.css(e,n[s],!1,o);return a}return r!==t?x.style(e,n,r):x.css(e,n)},e,n,arguments.length>1)},show:function(){return rn(this,!0)},hide:function(){return rn(this)},toggle:function(e){var t="boolean"==typeof e;return this.each(function(){(t?e:nn(this))?x(this).show():x(this).hide()})}}),x.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=Wt(e,"opacity");return""===n?"1":n}}}},cssNumber:{columnCount:!0,fillOpacity:!0,fontWeight:!0,lineHeight:!0,opacity:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{"float":x.support.cssFloat?"cssFloat":"styleFloat"},style:function(e,n,r,i){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var o,a,s,l=x.camelCase(n),u=e.style;if(n=x.cssProps[l]||(x.cssProps[l]=tn(u,l)),s=x.cssHooks[n]||x.cssHooks[l],r===t)return s&&"get"in s&&(o=s.get(e,!1,i))!==t?o:u[n];if(a=typeof r,"string"===a&&(o=Jt.exec(r))&&(r=(o[1]+1)*o[2]+parseFloat(x.css(e,n)),a="number"),!(null==r||"number"===a&&isNaN(r)||("number"!==a||x.cssNumber[l]||(r+="px"),x.support.clearCloneStyle||""!==r||0!==n.indexOf("background")||(u[n]="inherit"),s&&"set"in s&&(r=s.set(e,r,i))===t)))try{u[n]=r}catch(c){}}},css:function(e,n,r,i){var o,a,s,l=x.camelCase(n);return n=x.cssProps[l]||(x.cssProps[l]=tn(e.style,l)),s=x.cssHooks[n]||x.cssHooks[l],s&&"get"in s&&(a=s.get(e,!0,r)),a===t&&(a=Wt(e,n,i)),"normal"===a&&n in Kt&&(a=Kt[n]),""===r||r?(o=parseFloat(a),r===!0||x.isNumeric(o)?o||0:a):a}}),e.getComputedStyle?(Rt=function(t){return e.getComputedStyle(t,null)},Wt=function(e,n,r){var i,o,a,s=r||Rt(e),l=s?s.getPropertyValue(n)||s[n]:t,u=e.style;return s&&(""!==l||x.contains(e.ownerDocument,e)||(l=x.style(e,n)),Yt.test(l)&&Ut.test(n)&&(i=u.width,o=u.minWidth,a=u.maxWidth,u.minWidth=u.maxWidth=u.width=l,l=s.width,u.width=i,u.minWidth=o,u.maxWidth=a)),l}):a.documentElement.currentStyle&&(Rt=function(e){return e.currentStyle},Wt=function(e,n,r){var i,o,a,s=r||Rt(e),l=s?s[n]:t,u=e.style;return null==l&&u&&u[n]&&(l=u[n]),Yt.test(l)&&!zt.test(n)&&(i=u.left,o=e.runtimeStyle,a=o&&o.left,a&&(o.left=e.currentStyle.left),u.left="fontSize"===n?"1em":l,l=u.pixelLeft+"px",u.left=i,a&&(o.left=a)),""===l?"auto":l});function on(e,t,n){var r=Vt.exec(t);return r?Math.max(0,r[1]-(n||0))+(r[2]||"px"):t}function an(e,t,n,r,i){var o=n===(r?"border":"content")?4:"width"===t?1:0,a=0;for(;4>o;o+=2)"margin"===n&&(a+=x.css(e,n+Zt[o],!0,i)),r?("content"===n&&(a-=x.css(e,"padding"+Zt[o],!0,i)),"margin"!==n&&(a-=x.css(e,"border"+Zt[o]+"Width",!0,i))):(a+=x.css(e,"padding"+Zt[o],!0,i),"padding"!==n&&(a+=x.css(e,"border"+Zt[o]+"Width",!0,i)));return a}function sn(e,t,n){var r=!0,i="width"===t?e.offsetWidth:e.offsetHeight,o=Rt(e),a=x.support.boxSizing&&"border-box"===x.css(e,"boxSizing",!1,o);if(0>=i||null==i){if(i=Wt(e,t,o),(0>i||null==i)&&(i=e.style[t]),Yt.test(i))return i;r=a&&(x.support.boxSizingReliable||i===e.style[t]),i=parseFloat(i)||0}return i+an(e,t,n||(a?"border":"content"),r,o)+"px"}function ln(e){var t=a,n=Gt[e];return n||(n=un(e,t),"none"!==n&&n||(Pt=(Pt||x("<iframe frameborder='0' width='0' height='0'/>").css("cssText","display:block !important")).appendTo(t.documentElement),t=(Pt[0].contentWindow||Pt[0].contentDocument).document,t.write("<!doctype html><html><body>"),t.close(),n=un(e,t),Pt.detach()),Gt[e]=n),n}function un(e,t){var n=x(t.createElement(e)).appendTo(t.body),r=x.css(n[0],"display");return n.remove(),r}x.each(["height","width"],function(e,n){x.cssHooks[n]={get:function(e,r,i){return r?0===e.offsetWidth&&Xt.test(x.css(e,"display"))?x.swap(e,Qt,function(){return sn(e,n,i)}):sn(e,n,i):t},set:function(e,t,r){var i=r&&Rt(e);return on(e,t,r?an(e,n,r,x.support.boxSizing&&"border-box"===x.css(e,"boxSizing",!1,i),i):0)}}}),x.support.opacity||(x.cssHooks.opacity={get:function(e,t){return It.test((t&&e.currentStyle?e.currentStyle.filter:e.style.filter)||"")?.01*parseFloat(RegExp.$1)+"":t?"1":""},set:function(e,t){var n=e.style,r=e.currentStyle,i=x.isNumeric(t)?"alpha(opacity="+100*t+")":"",o=r&&r.filter||n.filter||"";n.zoom=1,(t>=1||""===t)&&""===x.trim(o.replace($t,""))&&n.removeAttribute&&(n.removeAttribute("filter"),""===t||r&&!r.filter)||(n.filter=$t.test(o)?o.replace($t,i):o+" "+i)}}),x(function(){x.support.reliableMarginRight||(x.cssHooks.marginRight={get:function(e,n){return n?x.swap(e,{display:"inline-block"},Wt,[e,"marginRight"]):t}}),!x.support.pixelPosition&&x.fn.position&&x.each(["top","left"],function(e,n){x.cssHooks[n]={get:function(e,r){return r?(r=Wt(e,n),Yt.test(r)?x(e).position()[n]+"px":r):t}}})}),x.expr&&x.expr.filters&&(x.expr.filters.hidden=function(e){return 0>=e.offsetWidth&&0>=e.offsetHeight||!x.support.reliableHiddenOffsets&&"none"===(e.style&&e.style.display||x.css(e,"display"))},x.expr.filters.visible=function(e){return!x.expr.filters.hidden(e)}),x.each({margin:"",padding:"",border:"Width"},function(e,t){x.cssHooks[e+t]={expand:function(n){var r=0,i={},o="string"==typeof n?n.split(" "):[n];for(;4>r;r++)i[e+Zt[r]+t]=o[r]||o[r-2]||o[0];return i}},Ut.test(e)||(x.cssHooks[e+t].set=on)});var cn=/%20/g,pn=/\[\]$/,fn=/\r?\n/g,dn=/^(?:submit|button|image|reset|file)$/i,hn=/^(?:input|select|textarea|keygen)/i;x.fn.extend({serialize:function(){return x.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=x.prop(this,"elements");return e?x.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!x(this).is(":disabled")&&hn.test(this.nodeName)&&!dn.test(e)&&(this.checked||!Ct.test(e))}).map(function(e,t){var n=x(this).val();return null==n?null:x.isArray(n)?x.map(n,function(e){return{name:t.name,value:e.replace(fn,"\r\n")}}):{name:t.name,value:n.replace(fn,"\r\n")}}).get()}}),x.param=function(e,n){var r,i=[],o=function(e,t){t=x.isFunction(t)?t():null==t?"":t,i[i.length]=encodeURIComponent(e)+"="+encodeURIComponent(t)};if(n===t&&(n=x.ajaxSettings&&x.ajaxSettings.traditional),x.isArray(e)||e.jquery&&!x.isPlainObject(e))x.each(e,function(){o(this.name,this.value)});else for(r in e)gn(r,e[r],n,o);return i.join("&").replace(cn,"+")};function gn(e,t,n,r){var i;if(x.isArray(t))x.each(t,function(t,i){n||pn.test(e)?r(e,i):gn(e+"["+("object"==typeof i?t:"")+"]",i,n,r)});else if(n||"object"!==x.type(t))r(e,t);else for(i in t)gn(e+"["+i+"]",t[i],n,r)}x.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "),function(e,t){x.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),x.fn.extend({hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)},bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}});var mn,yn,vn=x.now(),bn=/\?/,xn=/#.*$/,wn=/([?&])_=[^&]*/,Tn=/^(.*?):[ \t]*([^\r\n]*)\r?$/gm,Cn=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Nn=/^(?:GET|HEAD)$/,kn=/^\/\//,En=/^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,Sn=x.fn.load,An={},jn={},Dn="*/".concat("*");try{yn=o.href}catch(Ln){yn=a.createElement("a"),yn.href="",yn=yn.href}mn=En.exec(yn.toLowerCase())||[];function Hn(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(T)||[];if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function qn(e,n,r,i){var o={},a=e===jn;function s(l){var u;return o[l]=!0,x.each(e[l]||[],function(e,l){var c=l(n,r,i);return"string"!=typeof c||a||o[c]?a?!(u=c):t:(n.dataTypes.unshift(c),s(c),!1)}),u}return s(n.dataTypes[0])||!o["*"]&&s("*")}function _n(e,n){var r,i,o=x.ajaxSettings.flatOptions||{};for(i in n)n[i]!==t&&((o[i]?e:r||(r={}))[i]=n[i]);return r&&x.extend(!0,e,r),e}x.fn.load=function(e,n,r){if("string"!=typeof e&&Sn)return Sn.apply(this,arguments);var i,o,a,s=this,l=e.indexOf(" ");return l>=0&&(i=e.slice(l,e.length),e=e.slice(0,l)),x.isFunction(n)?(r=n,n=t):n&&"object"==typeof n&&(a="POST"),s.length>0&&x.ajax({url:e,type:a,dataType:"html",data:n}).done(function(e){o=arguments,s.html(i?x("<div>").append(x.parseHTML(e)).find(i):e)}).complete(r&&function(e,t){s.each(r,o||[e.responseText,t,e])}),this},x.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){x.fn[t]=function(e){return this.on(t,e)}}),x.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:yn,type:"GET",isLocal:Cn.test(mn[1]),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":Dn,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/xml/,html:/html/,json:/json/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":x.parseJSON,"text xml":x.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?_n(_n(e,x.ajaxSettings),t):_n(x.ajaxSettings,e)},ajaxPrefilter:Hn(An),ajaxTransport:Hn(jn),ajax:function(e,n){"object"==typeof e&&(n=e,e=t),n=n||{};var r,i,o,a,s,l,u,c,p=x.ajaxSetup({},n),f=p.context||p,d=p.context&&(f.nodeType||f.jquery)?x(f):x.event,h=x.Deferred(),g=x.Callbacks("once memory"),m=p.statusCode||{},y={},v={},b=0,w="canceled",C={readyState:0,getResponseHeader:function(e){var t;if(2===b){if(!c){c={};while(t=Tn.exec(a))c[t[1].toLowerCase()]=t[2]}t=c[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return 2===b?a:null},setRequestHeader:function(e,t){var n=e.toLowerCase();return b||(e=v[n]=v[n]||e,y[e]=t),this},overrideMimeType:function(e){return b||(p.mimeType=e),this},statusCode:function(e){var t;if(e)if(2>b)for(t in e)m[t]=[m[t],e[t]];else C.always(e[C.status]);return this},abort:function(e){var t=e||w;return u&&u.abort(t),k(0,t),this}};if(h.promise(C).complete=g.add,C.success=C.done,C.error=C.fail,p.url=((e||p.url||yn)+"").replace(xn,"").replace(kn,mn[1]+"//"),p.type=n.method||n.type||p.method||p.type,p.dataTypes=x.trim(p.dataType||"*").toLowerCase().match(T)||[""],null==p.crossDomain&&(r=En.exec(p.url.toLowerCase()),p.crossDomain=!(!r||r[1]===mn[1]&&r[2]===mn[2]&&(r[3]||("http:"===r[1]?"80":"443"))===(mn[3]||("http:"===mn[1]?"80":"443")))),p.data&&p.processData&&"string"!=typeof p.data&&(p.data=x.param(p.data,p.traditional)),qn(An,p,n,C),2===b)return C;l=p.global,l&&0===x.active++&&x.event.trigger("ajaxStart"),p.type=p.type.toUpperCase(),p.hasContent=!Nn.test(p.type),o=p.url,p.hasContent||(p.data&&(o=p.url+=(bn.test(o)?"&":"?")+p.data,delete p.data),p.cache===!1&&(p.url=wn.test(o)?o.replace(wn,"$1_="+vn++):o+(bn.test(o)?"&":"?")+"_="+vn++)),p.ifModified&&(x.lastModified[o]&&C.setRequestHeader("If-Modified-Since",x.lastModified[o]),x.etag[o]&&C.setRequestHeader("If-None-Match",x.etag[o])),(p.data&&p.hasContent&&p.contentType!==!1||n.contentType)&&C.setRequestHeader("Content-Type",p.contentType),C.setRequestHeader("Accept",p.dataTypes[0]&&p.accepts[p.dataTypes[0]]?p.accepts[p.dataTypes[0]]+("*"!==p.dataTypes[0]?", "+Dn+"; q=0.01":""):p.accepts["*"]);for(i in p.headers)C.setRequestHeader(i,p.headers[i]);if(p.beforeSend&&(p.beforeSend.call(f,C,p)===!1||2===b))return C.abort();w="abort";for(i in{success:1,error:1,complete:1})C[i](p[i]);if(u=qn(jn,p,n,C)){C.readyState=1,l&&d.trigger("ajaxSend",[C,p]),p.async&&p.timeout>0&&(s=setTimeout(function(){C.abort("timeout")},p.timeout));try{b=1,u.send(y,k)}catch(N){if(!(2>b))throw N;k(-1,N)}}else k(-1,"No Transport");function k(e,n,r,i){var c,y,v,w,T,N=n;2!==b&&(b=2,s&&clearTimeout(s),u=t,a=i||"",C.readyState=e>0?4:0,c=e>=200&&300>e||304===e,r&&(w=Mn(p,C,r)),w=On(p,w,C,c),c?(p.ifModified&&(T=C.getResponseHeader("Last-Modified"),T&&(x.lastModified[o]=T),T=C.getResponseHeader("etag"),T&&(x.etag[o]=T)),204===e||"HEAD"===p.type?N="nocontent":304===e?N="notmodified":(N=w.state,y=w.data,v=w.error,c=!v)):(v=N,(e||!N)&&(N="error",0>e&&(e=0))),C.status=e,C.statusText=(n||N)+"",c?h.resolveWith(f,[y,N,C]):h.rejectWith(f,[C,N,v]),C.statusCode(m),m=t,l&&d.trigger(c?"ajaxSuccess":"ajaxError",[C,p,c?y:v]),g.fireWith(f,[C,N]),l&&(d.trigger("ajaxComplete",[C,p]),--x.active||x.event.trigger("ajaxStop")))}return C},getJSON:function(e,t,n){return x.get(e,t,n,"json")},getScript:function(e,n){return x.get(e,t,n,"script")}}),x.each(["get","post"],function(e,n){x[n]=function(e,r,i,o){return x.isFunction(r)&&(o=o||i,i=r,r=t),x.ajax({url:e,type:n,dataType:o,data:r,success:i})}});function Mn(e,n,r){var i,o,a,s,l=e.contents,u=e.dataTypes;while("*"===u[0])u.shift(),o===t&&(o=e.mimeType||n.getResponseHeader("Content-Type"));if(o)for(s in l)if(l[s]&&l[s].test(o)){u.unshift(s);break}if(u[0]in r)a=u[0];else{for(s in r){if(!u[0]||e.converters[s+" "+u[0]]){a=s;break}i||(i=s)}a=a||i}return a?(a!==u[0]&&u.unshift(a),r[a]):t}function On(e,t,n,r){var i,o,a,s,l,u={},c=e.dataTypes.slice();if(c[1])for(a in e.converters)u[a.toLowerCase()]=e.converters[a];o=c.shift();while(o)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!l&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),l=o,o=c.shift())if("*"===o)o=l;else if("*"!==l&&l!==o){if(a=u[l+" "+o]||u["* "+o],!a)for(i in u)if(s=i.split(" "),s[1]===o&&(a=u[l+" "+s[0]]||u["* "+s[0]])){a===!0?a=u[i]:u[i]!==!0&&(o=s[0],c.unshift(s[1]));break}if(a!==!0)if(a&&e["throws"])t=a(t);else try{t=a(t)}catch(p){return{state:"parsererror",error:a?p:"No conversion from "+l+" to "+o}}}return{state:"success",data:t}}x.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/(?:java|ecma)script/},converters:{"text script":function(e){return x.globalEval(e),e}}}),x.ajaxPrefilter("script",function(e){e.cache===t&&(e.cache=!1),e.crossDomain&&(e.type="GET",e.global=!1)}),x.ajaxTransport("script",function(e){if(e.crossDomain){var n,r=a.head||x("head")[0]||a.documentElement;return{send:function(t,i){n=a.createElement("script"),n.async=!0,e.scriptCharset&&(n.charset=e.scriptCharset),n.src=e.url,n.onload=n.onreadystatechange=function(e,t){(t||!n.readyState||/loaded|complete/.test(n.readyState))&&(n.onload=n.onreadystatechange=null,n.parentNode&&n.parentNode.removeChild(n),n=null,t||i(200,"success"))},r.insertBefore(n,r.firstChild)},abort:function(){n&&n.onload(t,!0)}}}});var Fn=[],Bn=/(=)\?(?=&|$)|\?\?/;x.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Fn.pop()||x.expando+"_"+vn++;return this[e]=!0,e}}),x.ajaxPrefilter("json jsonp",function(n,r,i){var o,a,s,l=n.jsonp!==!1&&(Bn.test(n.url)?"url":"string"==typeof n.data&&!(n.contentType||"").indexOf("application/x-www-form-urlencoded")&&Bn.test(n.data)&&"data");return l||"jsonp"===n.dataTypes[0]?(o=n.jsonpCallback=x.isFunction(n.jsonpCallback)?n.jsonpCallback():n.jsonpCallback,l?n[l]=n[l].replace(Bn,"$1"+o):n.jsonp!==!1&&(n.url+=(bn.test(n.url)?"&":"?")+n.jsonp+"="+o),n.converters["script json"]=function(){return s||x.error(o+" was not called"),s[0]},n.dataTypes[0]="json",a=e[o],e[o]=function(){s=arguments},i.always(function(){e[o]=a,n[o]&&(n.jsonpCallback=r.jsonpCallback,Fn.push(o)),s&&x.isFunction(a)&&a(s[0]),s=a=t}),"script"):t});var Pn,Rn,Wn=0,$n=e.ActiveXObject&&function(){var e;for(e in Pn)Pn[e](t,!0)};function In(){try{return new e.XMLHttpRequest}catch(t){}}function zn(){try{return new e.ActiveXObject("Microsoft.XMLHTTP")}catch(t){}}x.ajaxSettings.xhr=e.ActiveXObject?function(){return!this.isLocal&&In()||zn()}:In,Rn=x.ajaxSettings.xhr(),x.support.cors=!!Rn&&"withCredentials"in Rn,Rn=x.support.ajax=!!Rn,Rn&&x.ajaxTransport(function(n){if(!n.crossDomain||x.support.cors){var r;return{send:function(i,o){var a,s,l=n.xhr();if(n.username?l.open(n.type,n.url,n.async,n.username,n.password):l.open(n.type,n.url,n.async),n.xhrFields)for(s in n.xhrFields)l[s]=n.xhrFields[s];n.mimeType&&l.overrideMimeType&&l.overrideMimeType(n.mimeType),n.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");try{for(s in i)l.setRequestHeader(s,i[s])}catch(u){}l.send(n.hasContent&&n.data||null),r=function(e,i){var s,u,c,p;try{if(r&&(i||4===l.readyState))if(r=t,a&&(l.onreadystatechange=x.noop,$n&&delete Pn[a]),i)4!==l.readyState&&l.abort();else{p={},s=l.status,u=l.getAllResponseHeaders(),"string"==typeof l.responseText&&(p.text=l.responseText);try{c=l.statusText}catch(f){c=""}s||!n.isLocal||n.crossDomain?1223===s&&(s=204):s=p.text?200:404}}catch(d){i||o(-1,d)}p&&o(s,c,p,u)},n.async?4===l.readyState?setTimeout(r):(a=++Wn,$n&&(Pn||(Pn={},x(e).unload($n)),Pn[a]=r),l.onreadystatechange=r):r()},abort:function(){r&&r(t,!0)}}}});var Xn,Un,Vn=/^(?:toggle|show|hide)$/,Yn=RegExp("^(?:([+-])=|)("+w+")([a-z%]*)$","i"),Jn=/queueHooks$/,Gn=[nr],Qn={"*":[function(e,t){var n=this.createTween(e,t),r=n.cur(),i=Yn.exec(t),o=i&&i[3]||(x.cssNumber[e]?"":"px"),a=(x.cssNumber[e]||"px"!==o&&+r)&&Yn.exec(x.css(n.elem,e)),s=1,l=20;if(a&&a[3]!==o){o=o||a[3],i=i||[],a=+r||1;do s=s||".5",a/=s,x.style(n.elem,e,a+o);while(s!==(s=n.cur()/r)&&1!==s&&--l)}return i&&(a=n.start=+a||+r||0,n.unit=o,n.end=i[1]?a+(i[1]+1)*i[2]:+i[2]),n}]};function Kn(){return setTimeout(function(){Xn=t}),Xn=x.now()}function Zn(e,t,n){var r,i=(Qn[t]||[]).concat(Qn["*"]),o=0,a=i.length;for(;a>o;o++)if(r=i[o].call(n,t,e))return r}function er(e,t,n){var r,i,o=0,a=Gn.length,s=x.Deferred().always(function(){delete l.elem}),l=function(){if(i)return!1;var t=Xn||Kn(),n=Math.max(0,u.startTime+u.duration-t),r=n/u.duration||0,o=1-r,a=0,l=u.tweens.length;for(;l>a;a++)u.tweens[a].run(o);return s.notifyWith(e,[u,o,n]),1>o&&l?n:(s.resolveWith(e,[u]),!1)},u=s.promise({elem:e,props:x.extend({},t),opts:x.extend(!0,{specialEasing:{}},n),originalProperties:t,originalOptions:n,startTime:Xn||Kn(),duration:n.duration,tweens:[],createTween:function(t,n){var r=x.Tween(e,u.opts,t,n,u.opts.specialEasing[t]||u.opts.easing);return u.tweens.push(r),r},stop:function(t){var n=0,r=t?u.tweens.length:0;if(i)return this;for(i=!0;r>n;n++)u.tweens[n].run(1);return t?s.resolveWith(e,[u,t]):s.rejectWith(e,[u,t]),this}}),c=u.props;for(tr(c,u.opts.specialEasing);a>o;o++)if(r=Gn[o].call(u,e,c,u.opts))return r;return x.map(c,Zn,u),x.isFunction(u.opts.start)&&u.opts.start.call(e,u),x.fx.timer(x.extend(l,{elem:e,anim:u,queue:u.opts.queue})),u.progress(u.opts.progress).done(u.opts.done,u.opts.complete).fail(u.opts.fail).always(u.opts.always)}function tr(e,t){var n,r,i,o,a;for(n in e)if(r=x.camelCase(n),i=t[r],o=e[n],x.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),a=x.cssHooks[r],a&&"expand"in a){o=a.expand(o),delete e[r];for(n in o)n in e||(e[n]=o[n],t[n]=i)}else t[r]=i}x.Animation=x.extend(er,{tweener:function(e,t){x.isFunction(e)?(t=e,e=["*"]):e=e.split(" ");var n,r=0,i=e.length;for(;i>r;r++)n=e[r],Qn[n]=Qn[n]||[],Qn[n].unshift(t)},prefilter:function(e,t){t?Gn.unshift(e):Gn.push(e)}});function nr(e,t,n){var r,i,o,a,s,l,u=this,c={},p=e.style,f=e.nodeType&&nn(e),d=x._data(e,"fxshow");n.queue||(s=x._queueHooks(e,"fx"),null==s.unqueued&&(s.unqueued=0,l=s.empty.fire,s.empty.fire=function(){s.unqueued||l()}),s.unqueued++,u.always(function(){u.always(function(){s.unqueued--,x.queue(e,"fx").length||s.empty.fire()})})),1===e.nodeType&&("height"in t||"width"in t)&&(n.overflow=[p.overflow,p.overflowX,p.overflowY],"inline"===x.css(e,"display")&&"none"===x.css(e,"float")&&(x.support.inlineBlockNeedsLayout&&"inline"!==ln(e.nodeName)?p.zoom=1:p.display="inline-block")),n.overflow&&(p.overflow="hidden",x.support.shrinkWrapBlocks||u.always(function(){p.overflow=n.overflow[0],p.overflowX=n.overflow[1],p.overflowY=n.overflow[2]}));for(r in t)if(i=t[r],Vn.exec(i)){if(delete t[r],o=o||"toggle"===i,i===(f?"hide":"show"))continue;c[r]=d&&d[r]||x.style(e,r)}if(!x.isEmptyObject(c)){d?"hidden"in d&&(f=d.hidden):d=x._data(e,"fxshow",{}),o&&(d.hidden=!f),f?x(e).show():u.done(function(){x(e).hide()}),u.done(function(){var t;x._removeData(e,"fxshow");for(t in c)x.style(e,t,c[t])});for(r in c)a=Zn(f?d[r]:0,r,u),r in d||(d[r]=a.start,f&&(a.end=a.start,a.start="width"===r||"height"===r?1:0))}}function rr(e,t,n,r,i){return new rr.prototype.init(e,t,n,r,i)}x.Tween=rr,rr.prototype={constructor:rr,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||"swing",this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(x.cssNumber[n]?"":"px")},cur:function(){var e=rr.propHooks[this.prop];return e&&e.get?e.get(this):rr.propHooks._default.get(this)},run:function(e){var t,n=rr.propHooks[this.prop];return this.pos=t=this.options.duration?x.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):rr.propHooks._default.set(this),this}},rr.prototype.init.prototype=rr.prototype,rr.propHooks={_default:{get:function(e){var t;return null==e.elem[e.prop]||e.elem.style&&null!=e.elem.style[e.prop]?(t=x.css(e.elem,e.prop,""),t&&"auto"!==t?t:0):e.elem[e.prop]},set:function(e){x.fx.step[e.prop]?x.fx.step[e.prop](e):e.elem.style&&(null!=e.elem.style[x.cssProps[e.prop]]||x.cssHooks[e.prop])?x.style(e.elem,e.prop,e.now+e.unit):e.elem[e.prop]=e.now}}},rr.propHooks.scrollTop=rr.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},x.each(["toggle","show","hide"],function(e,t){var n=x.fn[t];x.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(ir(t,!0),e,r,i)}}),x.fn.extend({fadeTo:function(e,t,n,r){return this.filter(nn).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=x.isEmptyObject(e),o=x.speed(t,n,r),a=function(){var t=er(this,x.extend({},e),o);(i||x._data(this,"finish"))&&t.stop(!0)};return a.finish=a,i||o.queue===!1?this.each(a):this.queue(o.queue,a)},stop:function(e,n,r){var i=function(e){var t=e.stop;delete e.stop,t(r)};return"string"!=typeof e&&(r=n,n=e,e=t),n&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,n=null!=e&&e+"queueHooks",o=x.timers,a=x._data(this);if(n)a[n]&&a[n].stop&&i(a[n]);else for(n in a)a[n]&&a[n].stop&&Jn.test(n)&&i(a[n]);for(n=o.length;n--;)o[n].elem!==this||null!=e&&o[n].queue!==e||(o[n].anim.stop(r),t=!1,o.splice(n,1));(t||!r)&&x.dequeue(this,e)})},finish:function(e){return e!==!1&&(e=e||"fx"),this.each(function(){var t,n=x._data(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=x.timers,a=r?r.length:0;for(n.finish=!0,x.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;a>t;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}});function ir(e,t){var n,r={height:e},i=0;for(t=t?1:0;4>i;i+=2-t)n=Zt[i],r["margin"+n]=r["padding"+n]=e;return t&&(r.opacity=r.width=e),r}x.each({slideDown:ir("show"),slideUp:ir("hide"),slideToggle:ir("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){x.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),x.speed=function(e,t,n){var r=e&&"object"==typeof e?x.extend({},e):{complete:n||!n&&t||x.isFunction(e)&&e,duration:e,easing:n&&t||t&&!x.isFunction(t)&&t};return r.duration=x.fx.off?0:"number"==typeof r.duration?r.duration:r.duration in x.fx.speeds?x.fx.speeds[r.duration]:x.fx.speeds._default,(null==r.queue||r.queue===!0)&&(r.queue="fx"),r.old=r.complete,r.complete=function(){x.isFunction(r.old)&&r.old.call(this),r.queue&&x.dequeue(this,r.queue)},r},x.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2}},x.timers=[],x.fx=rr.prototype.init,x.fx.tick=function(){var e,n=x.timers,r=0;for(Xn=x.now();n.length>r;r++)e=n[r],e()||n[r]!==e||n.splice(r--,1);n.length||x.fx.stop(),Xn=t},x.fx.timer=function(e){e()&&x.timers.push(e)&&x.fx.start()},x.fx.interval=13,x.fx.start=function(){Un||(Un=setInterval(x.fx.tick,x.fx.interval))},x.fx.stop=function(){clearInterval(Un),Un=null},x.fx.speeds={slow:600,fast:200,_default:400},x.fx.step={},x.expr&&x.expr.filters&&(x.expr.filters.animated=function(e){return x.grep(x.timers,function(t){return e===t.elem}).length}),x.fn.offset=function(e){if(arguments.length)return e===t?this:this.each(function(t){x.offset.setOffset(this,e,t)});var n,r,o={top:0,left:0},a=this[0],s=a&&a.ownerDocument;if(s)return n=s.documentElement,x.contains(n,a)?(typeof a.getBoundingClientRect!==i&&(o=a.getBoundingClientRect()),r=or(s),{top:o.top+(r.pageYOffset||n.scrollTop)-(n.clientTop||0),left:o.left+(r.pageXOffset||n.scrollLeft)-(n.clientLeft||0)}):o},x.offset={setOffset:function(e,t,n){var r=x.css(e,"position");"static"===r&&(e.style.position="relative");var i=x(e),o=i.offset(),a=x.css(e,"top"),s=x.css(e,"left"),l=("absolute"===r||"fixed"===r)&&x.inArray("auto",[a,s])>-1,u={},c={},p,f;l?(c=i.position(),p=c.top,f=c.left):(p=parseFloat(a)||0,f=parseFloat(s)||0),x.isFunction(t)&&(t=t.call(e,n,o)),null!=t.top&&(u.top=t.top-o.top+p),null!=t.left&&(u.left=t.left-o.left+f),"using"in t?t.using.call(e,u):i.css(u)}},x.fn.extend({position:function(){if(this[0]){var e,t,n={top:0,left:0},r=this[0];return"fixed"===x.css(r,"position")?t=r.getBoundingClientRect():(e=this.offsetParent(),t=this.offset(),x.nodeName(e[0],"html")||(n=e.offset()),n.top+=x.css(e[0],"borderTopWidth",!0),n.left+=x.css(e[0],"borderLeftWidth",!0)),{top:t.top-n.top-x.css(r,"marginTop",!0),left:t.left-n.left-x.css(r,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){var e=this.offsetParent||s;while(e&&!x.nodeName(e,"html")&&"static"===x.css(e,"position"))e=e.offsetParent;return e||s})}}),x.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,n){var r=/Y/.test(n);x.fn[e]=function(i){return x.access(this,function(e,i,o){var a=or(e);return o===t?a?n in a?a[n]:a.document.documentElement[i]:e[i]:(a?a.scrollTo(r?x(a).scrollLeft():o,r?o:x(a).scrollTop()):e[i]=o,t)},e,i,arguments.length,null)}});function or(e){return x.isWindow(e)?e:9===e.nodeType?e.defaultView||e.parentWindow:!1}x.each({Height:"height",Width:"width"},function(e,n){x.each({padding:"inner"+e,content:n,"":"outer"+e},function(r,i){x.fn[i]=function(i,o){var a=arguments.length&&(r||"boolean"!=typeof i),s=r||(i===!0||o===!0?"margin":"border");return x.access(this,function(n,r,i){var o;return x.isWindow(n)?n.document.documentElement["client"+e]:9===n.nodeType?(o=n.documentElement,Math.max(n.body["scroll"+e],o["scroll"+e],n.body["offset"+e],o["offset"+e],o["client"+e])):i===t?x.css(n,r,s):x.style(n,r,i,s)},n,a?i:t,a,null)}})}),x.fn.size=function(){return this.length},x.fn.andSelf=x.fn.addBack,"object"==typeof module&&module&&"object"==typeof module.exports?module.exports=x:(e.jQuery=e.$=x,"function"==typeof define&&define.amd&&define("jquery",[],function(){return x}))})(window);
+
 !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):function(){var n=t.Ractive,i=e();t.Ractive=i,i.noConflict=function(){return t.Ractive=n,i}}()}(this,function(){"use strict";function t(t,e){return Object.prototype.hasOwnProperty.call(t,e)}function e(e){for(var n=[],i=arguments.length-1;i-->0;)n[i]=arguments[i+1];for(var r=0;r<n.length;r++){var s=n[r];for(var a in s)a in e||!t(s,a)||(e[a]=s[a])}return e}function n(e){void 0===e&&(e={});var n=[];for(var i in e)t(e,i)&&n.push([i,e[i]]);return n}function i(t,e){return null===t&&null===e?!0:o(t)||o(e)?!1:t===e}function r(t){return!isNaN(parseFloat(t))&&isFinite(t)}function s(t){return t&&"[object Object]"===aa.call(t)}function a(t){return!(!t||!o(t)&&!u(t))}function o(t){return"object"==typeof t}function u(t){return"function"==typeof t}function h(t){return"string"==typeof t}function l(t){return"number"==typeof t}function c(t,e){return t.replace(/%s/g,function(){return e.shift()})}function d(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];throw t=c(t,e),new Error(t)}function f(){Xs.DEBUG&&ga.apply(null,arguments)}function p(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];t=c(t,e),ya(t,e)}function m(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];t=c(t,e),ja[t]||(ja[t]=!0,ya(t,e))}function v(){Xs.DEBUG&&p.apply(null,arguments)}function g(){Xs.DEBUG&&m.apply(null,arguments)}function y(t,e,n){var i=b(t,e,n);return i?i[t][n]:null}function b(t,e,n){for(;e;){if(n in e[t])return e;if(e.isolated)return null;e=e.parent}}function w(t,e,n,i){if(t===e)return null;if(i){var r=y("interpolators",n,i);if(r)return r(t,e)||null;d(Ma(i,"interpolator"))}return Ba.number(t,e)||Ba.array(t,e)||Ba.object(t,e)||null}function x(t){return h(t)?t.replace(Da,"\\$&"):t}function _(t){return t?t.replace(Ra,".$1"):""}function k(t){var e,n=[];for(t=_(t);e=Ka.exec(t);){var i=e.index+e[1].length;n.push(t.substr(0,i)),t=t.substr(i+1)}return n.push(t),n}function E(t){return h(t)?t.replace(La,"$1$2"):t}function A(t,e){var n=t.indexOf(e);-1===n&&t.push(e)}function C(t,e){for(var n=0,i=t.length;i>n;n++)if(t[n]==e)return!0;return!1}function S(t,e){var n;if(!oa(t)||!oa(e))return!1;if(t.length!==e.length)return!1;for(n=t.length;n--;)if(t[n]!==e[n])return!1;return!0}function O(t){return h(t)?[t]:void 0===t?[]:t}function j(t){return t[t.length-1]}function N(t,e){if(t){var n=t.indexOf(e);-1!==n&&t.splice(n,1)}}function T(){for(var t=[],e=arguments.length;e--;)t[e]=arguments[e];for(var n=t.concat.apply([],t),i=n.length;i--;){var r=n.indexOf(n[i]);~r&&i>r&&n.splice(i,1)}return n}function V(t){for(var e=[],n=t.length;n--;)e[n]=t[n];return e}function P(t,e){for(var n=t.length,i=0;n>i;i++){var r=e(t[i]);if(r)return r}}function I(){Fa.push(Va=[])}function M(){var t=Fa.pop();return Va=Fa[Fa.length-1],t}function B(t){Va&&Va.push(t)}function R(t){t.bind()}function K(t){t.cancel()}function D(t){t.destroyed()}function L(t){t.handleChange()}function F(t){t.mark()}function z(t){t.mark(!0)}function U(t){t.marked()}function $(t){t.markedAll()}function q(t){t.render()}function H(t){t.shuffled()}function Z(t){t.teardown()}function W(t){t.unbind()}function G(t){t.unrender()}function Y(t){t.unrender(!0)}function Q(t){t.update()}function J(t){return t.toString()}function X(t){return t.toString(!0)}function tt(t,e){if(!/this/.test(t.toString()))return t;var n=Ha.call(t,e);for(var i in t)n[i]=t[i];return n}function et(t,e,n){return n&&u(e)&&t.parent&&t.parent.isRoot?(t.boundValue||(t.boundValue=tt(e._r_unbound||e,t.parent.ractive)),t.boundValue):e}function nt(t){t.updateFromBindings(!0)}function it(t){for(var e=t.length;e--;)if(t[e].bound){var n=t[e].owner;if(n){var i="checked"===n.name?n.node.checked:n.node.value;return{value:i}}}}function rt(t){if(t){var e=Za[t];Za[t]=[];for(var n=e.length;n--;)e[n]();var i=Wa[t];for(Wa[t]=[],n=i.length;n--;)i[n].model.register(i[n].item)}else rt("early"),rt("mark")}function st(t,e,n,i){t.shuffling=!0;for(var r=e.length;r--;){var s=e[r];r!==s&&(r in t.childByKey&&t.childByKey[r].rebind(~s?t.joinKey(s):void 0,t.childByKey[r],!i),!~s&&t.keyModels[r]?t.keyModels[r].rebind(void 0,t.keyModels[r],!1):~s&&t.keyModels[r]&&(t.keyModels[s]||t.childByKey[s].getKeyModel(s),t.keyModels[r].rebind(t.keyModels[s],t.keyModels[r],!1)))}var a=t.source().length!==t.source().value.length;for(t.links.forEach(function(t){return t.shuffle(e)}),n||rt("early"),r=t.deps.length;r--;)t.deps[r].shuffle&&t.deps[r].shuffle(e);t[n?"marked":"mark"](),n||rt("mark"),a&&t.notifyUpstream(),t.shuffling=!1}function at(t,e,n,i){var r=t.r||t;if(!r||!h(r))return e;if("."===r||"@"===r[0]||(e||n).isKey||(e||n).isKeypath)return e;var s=r.split("/"),a=k(s[s.length-1]),o=a[a.length-1],u=e||n;u&&1===a.length&&o!==u.key&&i&&(a=ot(o,i)||a);for(var l=a.length,c=!0,d=!1;u&&l--;)u.shuffling&&(d=!0),a[l]!=u.key&&(c=!1),u=u.parent;return!e&&c&&d?n:e&&!c&&d?n:e}function ot(t,e){for(;e;){var n=e.aliases;if(n&&n[t]){for(var i=(e.owner.iterations?e.owner:e).owner.template.z,r=0;r<i.length;r++)if(i[r].n===t){var s=i[r].x;if(!s.r)return!1;var a=s.r.split("/");return k(a[a.length-1])}return}e=e.componentParent||e.parent}}function ut(t){t.detach()}function ht(t){t.detachNodes()}function lt(t){!t.ready||t.outros.length||t.outroChildren||(t.outrosComplete||(t.outrosComplete=!0,t.parent&&!t.parent.outrosComplete?t.parent.decrementOutros(t):t.detachNodes()),t.intros.length||t.totalChildren||(u(t.callback)&&t.callback(),t.parent&&!t.notifiedTotal&&(t.notifiedTotal=!0,t.parent.decrementTotal())))}function ct(t){var e,n,i=t.detachQueue,r=dt(t),s=i.length,a=0;t:for(;s--;){for(e=i[s].node,a=r.length;a--;)if(n=r[a].element.node,n===e||n.contains(e)||e.contains(n))continue t;i[s].detach(),i.splice(s,1)}}function dt(t,e){var n=e;if(n){for(var i=t.children.length;i--;)n=dt(t.children[i],n);return t.outros.length&&(n=n.concat(t.outros)),n}n=[];for(var r=t;r.parent;)r=r.parent;return dt(r,n)}function ft(t){t.dispatch()}function pt(){var t=eo.immediateObservers;eo.immediateObservers=[],t.forEach(ft);var e,n=eo.fragments.length;for(t=eo.fragments,eo.fragments=[];n--;)e=t[n],e.update();eo.transitionManager.ready(),t=eo.deferredObservers,eo.deferredObservers=[],t.forEach(ft);var i=eo.tasks;for(eo.tasks=[],n=0;n<i.length;n+=1)i[n]();return eo.fragments.length||eo.immediateObservers.length||eo.deferredObservers.length||eo.tasks.length?pt():void 0}function mt(){no.start();var t,e,n=performance.now();for(t=0;t<io.length;t+=1)e=io[t],e.tick(n)||io.splice(t--,1);no.end(),io.length?requestAnimationFrame(mt):ro=!1}function vt(e,n){var i={};if(!n)return e;n+=".";for(var r in e)t(e,r)&&(i[n+r]=e[r]);return i}function gt(t){var e;return oo[t]||(e=t?t+".":"",oo[t]=function(n,i){var r;return h(n)?(r={},r[e+n]=i,r):o(n)?e?vt(n,t):n:void 0}),oo[t]}function yt(t){for(var e=[],n=0;n<t.length;n++)e[n]=(t.childByKey[n]||{}).value;return e}function bt(e,n){var i=e;if("."===n)return e.findContext();if("~"===n[0])return e.ractive.viewmodel.joinAll(k(n.slice(2)));if("."===n[0]||"^"===n[0]){var r=e,s=n.split("/"),a="^^"===s[0],o=a?null:e.findContext();for(a&&s.unshift("^^");"^^"===s[0];)for(s.shift(),o=null;r&&!o;)o=r.context,r=r.parent.component?r.parent.component.up:r.parent;if(!o&&a)throw new Error("Invalid context parent reference ('"+n+"'). There is not context at that level.");for(;"."===s[0]||".."===s[0];){var h=s.shift();".."===h&&(o=o.parent)}return n=s.join("/"),"."===n[0]&&(n=n.slice(1)),o.joinAll(k(n))}var l=k(n);if(l.length){var c=l.shift();if("@"===c[0]){if("@this"===c||"@"===c)return e.ractive.viewmodel.getRactiveModel().joinAll(l);if("@index"===c||"@key"===c){l.length&&wt(c);var d=e.findRepeatingFragment();if(!d.isIteration)return;return d.context&&d.context.getKeyModel(d["i"===n[1]?"index":"key"])}if("@global"===c)return fo.joinAll(l);if("@shared"===c)return co.joinAll(l);if("@keypath"===c||"@rootpath"===c){for(var f="r"===n[1]?e.ractive.root:null,p=e.findContext();f&&p.isRoot&&p.ractive.component;)p=p.ractive.component.up.findContext();return p.getKeypathModel(f)}if("@context"===c)return new po(e.getContext());if("@local"===c)return e.getContext()._data.joinAll(l);if("@style"===c)return e.ractive.constructor._cssModel.joinAll(l);throw new Error("Invalid special reference '"+c+"'")}var m=e.findContext();if(m.has(c))return m.joinKey(c).joinAll(l);for(var g=!1,y=e.ractive.warnAboutAmbiguity;e;){if(e.isIteration){if(c===e.parent.keyRef)return l.length&&wt(c),e.context.getKeyModel(e.key);if(c===e.parent.indexRef)return l.length&&wt(c),e.context.getKeyModel(e.index)}if(e.aliases&&t(e.aliases,c)){var b=e.aliases[c];if(0===l.length)return b;if(u(b.joinAll))return b.joinAll(l)}if(e.context&&e.context.has(c))return g?(y&&v("'"+n+"' resolved but is ambiguous and will create a mapping to a parent component."),m.root.createLink(c,e.context.joinKey(c),c,{implicit:!0}).joinAll(l)):(y&&v("'"+n+"' resolved but is ambiguous."),e.context.joinKey(c).joinAll(l));(e.componentParent||!e.parent&&e.ractive.component)&&!e.ractive.isolated?(e=e.componentParent||e.ractive.component.up,g=!0):e=e.parent}var w=i.ractive;return w.resolveInstanceMembers&&"data"!==c&&c in w?w.viewmodel.getRactiveModel().joinKey(c).joinAll(l):(y&&v("'"+n+"' is ambiguous and did not resolve."),m.joinKey(c).joinAll(l))}}function wt(t){throw new Error("An index or key reference ("+t+") cannot have child properties")}function xt(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];var i=t.fragment||t._fakeFragment||(t._fakeFragment=new vo(t));return i.getContext.apply(i,e)}function _t(){for(var t=[],e=arguments.length;e--;)t[e]=arguments[e];return this.ctx||(this.ctx=new mo.Context(this)),t.unshift(na(this.ctx)),ea.apply(null,t)}function kt(t){for(var e=t;e&&!e.context;)e=e.parent;return e?e:t&&t.ractive.fragment}function Et(t,e){var n=yo,i=e&&e.deep,r=e&&e.shuffle,s=no.start();e&&"keep"in e&&(yo=e.keep);for(var a=t.length;a--;){var o=t[a][0],u=t[a][1],h=t[a][2];if(!o)throw no.end(),new Error("Failed to set invalid keypath '"+h+"'");if(i)St(o,u);else if(r){var l=u,c=o.get();if(l||(l=c),void 0===c)o.set(l);else{if(!oa(c)||!oa(l))throw no.end(),new Error("You cannot merge an array with a non-array");var d=Ot(r);o.merge(l,d)}}else o.set(u)}return no.end(),yo=n,s}function At(t,e,n,i){if(!n&&("."===e[0]||"^"===e[1]))return v("Attempted to set a relative keypath from a non-relative context. You can use a context object to set relative keypaths."),[];var r=k(e),s=n||t.viewmodel;return bo.test(e)?s.findMatches(r):s===t.viewmodel?!t.component||t.isolated||s.has(r[0])||"@"===e[0]||!e[0]||i?[s.joinAll(r)]:[bt(t.fragment||new vo(t),e)]:[s.joinAll(r)]}function Ct(e,n,i,r){var a=[];if(s(n)){var o=function(i){t(n,i)&&a.push.apply(a,At(e,i,null,r).map(function(t){return[t,n[i],i]}))};for(var u in n)o(u)}else a.push.apply(a,At(e,n,null,r).map(function(t){return[t,i,n]}));return a}function St(e,n){var i=e.get(!1,wo);if(null==i||!o(n))return e.set(n);if(!o(i))return e.set(n);for(var r in n)t(n,r)&&St(e.joinKey(r),n[r])}function Ot(t){if(t===!0)return null;if(u(t))return t;if(h(t))return xo[t]||(xo[t]=function(e){return e[t]});throw new Error("If supplied, options.compare must be a string, function, or true")}function jt(t,e,n,i){if(!h(e)||!r(n))throw new Error("Bad arguments");var s=Ct(t,e,n,i&&i.isolated);return Et(s.map(function(t){var e=t[0],n=t[1],i=e.get();if(!r(n)||!r(i))throw new Error(_o);return[e,i+n]}))}function Nt(t,e,n){var i=l(e)?e:1,r=o(e)?e:n;return jt(this,t,i,r)}function Tt(t){var e=Promise.resolve(t);return ia(e,"stop",{value:Oa}),e}function Vt(t,e){t=t||{};var n;return t.easing&&(n=u(t.easing)?t.easing:e.easing[t.easing]),{easing:n||ko,duration:"duration"in t?t.duration:400,complete:t.complete||Oa,step:t.step||Oa,interpolator:t.interpolator}}function Pt(t,e,n,r){r=Vt(r,t);var s=e.get();if(i(s,n))return r.complete(r.to),Tt(n);var a=w(s,n,t,r.interpolator);return a?e.animate(s,n,r,a):(no.start(),e.set(n),no.end(),Tt(n))}function It(t,e,n){if(o(t)){var i=sa(t);throw new Error("ractive.animate(...) no longer supports objects. Instead of ractive.animate({\n  "+i.map(function(e){return"'"+e+"': "+t[e]}).join("\n  ")+"\n}, {...}), do\n\n"+i.map(function(e){return"ractive.animate('"+e+"', "+t[e]+", {...});"}).join("\n")+"\n")}return Pt(this,this.viewmodel.joinAll(k(t)),e,n)}function Mt(t,e){t.event&&t._eventQueue.push(t.event),t.event=e}function Bt(t){t._eventQueue.length?t.event=t._eventQueue.pop():t.event=null}function Rt(t,e){var n=e?Eo:Ao;if(n[t])return n[t];var i=t.split("."),r=[],s=!1;e&&(i.unshift("this"),s=!0);for(var a=Math.pow(2,i.length)-(e?1:0),o=0;a>o;o++){for(var u=[],h=0;h<i.length;h++)u.push(1&o>>h?"*":i[h]);r.unshift(u.join("."))}return s&&(i.length>2?r.push.apply(r,Rt(t,!1)):(r.push("*"),r.push(t))),n[t]=r,r}function Kt(t,e,n,i){if(void 0===i&&(i=[]),e){n.name=e,i.unshift(n);var r=t._nsSubs?Rt(e,!0):["*",e];return Dt(t,r,n,i,!0)}}function Dt(t,e,n,i,r){void 0===r&&(r=!1);var s=!0;if(r||t._nsSubs){Mt(t,n);for(var a=e.length;a--;)e[a]in t._subs&&(s=Lt(t,t._subs[e[a]],n,i)&&s);Bt(t)}if(t.parent&&s){if(r&&t.component){var o=t.component.name+"."+e[e.length-1];e=Rt(o,!1),n&&!n.component&&(n.component=t)}s=Dt(t.parent,e,n,i)}return s}function Lt(t,e,n,i){var r=null,s=!1;e=e.slice();for(var a=0,o=e.length;o>a;a+=1)e[a].off||e[a].handler.apply(t,i)!==!1||(s=!0);return n&&s&&(r=n.event)&&(r.preventDefault&&r.preventDefault(),r.stopPropagation&&r.stopPropagation()),!s}function Ft(t,e){void 0===e&&(e=null);var n=[];return zt(t,e,n),n}function zt(t,e,n){t.isAnchor?e&&t.name!==e||n.push(t):t.items?t.items.forEach(function(t){return zt(t,e,n)}):t.iterations?t.iterations.forEach(function(t){return zt(t,e,n)}):t.fragment&&!t.component&&zt(t.fragment,e,n)}function Ut(t,e){void 0===e&&(e=null);var n=Ft(t.fragment,e),i={},r=t._children.byName;n.forEach(function(t){var e=t.name;e in i||(i[e]=0);var n=i[e],s=(r[e]||[])[n];s&&s.lastBound!==t&&(s.lastBound&&s.lastBound.removeChild(s),t.addChild(s)),i[e]++})}function $t(t){t.instance.fragment.rendered&&(t.shouldDestroy=!0,t.instance.unrender()),t.instance.el=null}function qt(t,e){void 0===e&&(e={});var n,i=this._children;if(t.parent&&t.parent!==this)throw new Error("Instance "+t._guid+" is already attached to a different instance "+t.parent._guid+". Please detach it from the other instance using detachChild first.");if(t.parent)throw new Error("Instance "+t._guid+" is already attached to this instance.");var r={instance:t,ractive:this,name:e.name||t.constructor.name||"Ractive",target:e.target||!1,bubble:Ht,findNextNode:Zt};if(r.nameOption=e.name,r.target){var s;(s=i.byName[r.target])||(s=[],this.set("@this.children.byName."+r.target,s)),n=e.prepend?0:void 0!==e.insertAt?e.insertAt:s.length}else r.up=this.fragment,r.external=!0;t.set({"@this.parent":this,"@this.root":this.root}),t.component=r,i.push(r),So.fire(t);var a=no.start();return r.target?($t(r),this.splice("@this.children.byName."+r.target,n,0,r),Ut(this,r.target)):t.isolated||t.viewmodel.attached(this.fragment),no.end(),a.ractive=t,a.then(function(){return t})}function Ht(){no.addFragment(this.instance.fragment)}function Zt(){return this.anchor?this.anchor.findNextNode():void 0}function Wt(){return this.isDetached?this.el:(this.el&&N(this.el.__ractive_instances__,this),this.el=this.fragment.detach(),this.isDetached=!0,Oo.fire(this),this.el)}function Gt(t){for(var e,n,i=this._children,r=i.length;r--;)if(i[r].instance===t){n=r,e=i[r];break}if(!e||t.parent!==this)throw new Error("Instance "+t._guid+" is not attached to this instance.");var s=no.start();return e.anchor&&e.anchor.removeChild(e),t.isolated||t.viewmodel.detached(),no.end(),i.splice(n,1),e.target&&(this.splice("@this.children.byName."+e.target,i.byName[e.target].indexOf(e),1),Ut(this,e.target)),t.set({"@this.parent":void 0,"@this.root":t}),t.component=null,jo.fire(t),s.ractive=t,s.then(function(){return t})}function Yt(t,e){var n=this;if(void 0===e&&(e={}),!this.el)throw new Error("Cannot call ractive.find('"+t+"') unless instance is rendered to the DOM");var i=this.fragment.find(t,e);if(i)return i;if(e.remote)for(var r=0;r<this._children.length;r++)if(n._children[r].instance.fragment.rendered&&(i=n._children[r].instance.find(t,e)))return i}function Qt(t,e){if(void 0===e&&(e={}),!this.el)throw new Error("Cannot call ractive.findAll('"+t+"', ...) unless instance is rendered to the DOM");return oa(e.result)||(e.result=[]),this.fragment.findAll(t,e),e.remote&&this._children.forEach(function(n){!n.target&&n.instance.fragment&&n.instance.fragment.rendered&&n.instance.findAll(t,e)}),e.result}function Jt(t,e){return!e&&o(t)&&(e=t,t=""),e=e||{},oa(e.result)||(e.result=[]),this.fragment.findAllComponents(t,e),e.remote&&this._children.forEach(function(n){!n.target&&n.instance.fragment&&n.instance.fragment.rendered&&(t&&n.name!==t||e.result.push(n.instance),n.instance.findAllComponents(t,e))}),e.result}function Xt(t,e){var n=this;void 0===e&&(e={}),o(t)&&(e=t,t="");var i=this.fragment.findComponent(t,e);if(i)return i;if(e.remote){if(!t&&this._children.length)return this._children[0].instance;for(var r=0;r<this._children.length;r++)if(!n._children[r].target){if(n._children[r].name===t)return n._children[r].instance;if(i=n._children[r].instance.findComponent(t,e))return i}}}function te(t){return this.container?this.container.component&&this.container.component.name===t?this.container:this.container.findContainer(t):null}function ee(t){return this.parent?this.parent.component&&this.parent.component.name===t?this.parent:this.parent.findParent(t):null}function ne(t,e,n){for(void 0===e&&(e=!0);t&&(t.type!==Bo||n&&t.name!==n)&&(!e||t.type!==Uo&&t.type!==Lo);)t=t.owner?t.owner:t.component?t.containerFragment||t.component.up:t.parent?t.parent:t.up?t.up:void 0;return t}function ie(t,e,n){var i=[],r=re(t,e,n);if(!r)return null;var s=r.length-2-r[1],a=Math.min(t,r[0]),o=a+r[1];i.startIndex=a;var u;for(u=0;a>u;u+=1)i.push(u);for(;o>u;u+=1)i.push(-1);for(;t>u;u+=1)i.push(u+s);return 0!==s?i.touchedFrom=r[0]:i.touchedFrom=t,i}function re(t,e,n){switch(e){case"splice":for(void 0!==n[0]&&n[0]<0&&(n[0]=t+Math.max(n[0],-t)),void 0===n[0]&&(n[0]=0);n.length<2;)n.push(t-n[0]);return l(n[1])||(n[1]=t-n[0]),n[1]=Math.min(n[1],t-n[0]),n;case"sort":case"reverse":return null;case"pop":return t?[t-1,1]:[0,0];case"push":return[t,0].concat(n);case"shift":return[0,t?1:0];case"unshift":return[0,0].concat(n)}}function se(t,e,n){e.parent&&e.parent.wrapper&&e.parent.adapt();var i=no.start();return e.mark(n&&n.force),e.notifyUpstream(),no.end(),Eu.fire(t,e),i}function ae(t,e){var n,i;return h(t)?(i=k(t),n=e):n=t,se(this,i?this.viewmodel.joinAll(i):this.viewmodel,n)}function oe(e,n,i){var r=[];if(s(n))for(var a in n)t(n,a)&&r.push([ue(e,a).model,n[a]]);else r.push([ue(e,n).model,i]);return r}function ue(t,e){var n=t.fragment;return h(e)?{model:bt(n,e),instance:n.ractive}:{model:n.findContext(),instance:e}}function he(t,e){return t.attributes&&t.attributes.find(function(t){return t.template.t===gu&&~t.template.n.indexOf(e)})}function le(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];var i;if(e[0]instanceof Pu){var r=e.shift();i=na(r),ea(i,r)}else i=!o(e[0])||null!==e[0]&&e[0].constructor!==Object?Pu.forRactive(this):Pu.forRactive(this,e.shift());return Kt(this,t,i,e)}function ce(t,e){if(!h(t))return this.viewmodel.get(!0,t);var n,i=k(t),r=i[0];return this.viewmodel.has(r)||this.component&&!this.isolated&&(n=bt(this.fragment||new vo(this),r)),n=this.viewmodel.joinAll(i),n.get(!0,e)}function de(t){h(t)&&qu&&(t=qu.call(document,t));var e;if(t){if(t._ractive)return t._ractive.proxy.getContext();if((e=t.__ractive_instances__)&&1===e.length)return xt(e[0])}}function fe(t){return g("getNodeInfo has been renamed to getContext, and the getNodeInfo alias will be removed in a future release."),de(t)}function pe(t,e){return h(t)&&(t=this.find(t,e)),de(t)}function me(t,e){return h(t)&&(t=this.find(t,e)),fe(t)}function ve(){return ka.createDocumentFragment()}function ge(t){var e;if(t&&"boolean"!=typeof t){if(!_a||!ka||!t)return null;if(t.nodeType)return t;if(h(t)){if(e=ka.getElementById(t),!e&&ka.querySelector)try{e=ka.querySelector(t)}catch(n){}if(e&&e.nodeType)return e}return t[0]&&t[0].nodeType?t[0]:null}}function ye(t){return t&&"unknown"!=typeof t.parentNode&&t.parentNode&&t.parentNode.removeChild(t),t}function be(t){return null==t||l(t)&&isNaN(t)||!t.toString?"":""+t}function we(t){return be(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/'/g,"&#39;")}function xe(t,e){if(!this.fragment.rendered)throw new Error("The API has changed - you must call `ractive.render(target[, anchor])` to render your Ractive instance. Once rendered you can use `ractive.insert()`.");if(t=ge(t),e=ge(e)||null,!t)throw new Error("You must specify a valid target to insert into");t.insertBefore(this.detach(),e),this.el=t,(t.__ractive_instances__||(t.__ractive_instances__=[])).push(this),this.isDetached=!1,_e(this)}function _e(t){Xu.fire(t),t.findAllComponents("*").forEach(function(t){_e(t.instance)})}function ke(t,e,n){var i,r=n&&(n.ractive||n.instance)||this,s=k(t);!r.viewmodel.has(s[0])&&r.component&&(i=bt(r.component.up,s[0]),i=i.joinAll(s.slice(1)));var a=i||r.viewmodel.joinAll(s),o=this.viewmodel.joinAll(k(e),{lastLink:!1});if(Ee(a,o)||Ee(o,a))throw new Error("A keypath cannot be linked to itself.");var u=no.start();return o.link(a,n&&n.keypath||t),no.end(),u}function Ee(t,e){for(var n=e;n;){if(n===t||n.owner===t)return!0;n=n.target||n.parent}}function Ae(t,e){var n=e&&t.model?t.model.get():t.newValue;t.oldValue=t.oldFn?t.oldFn.call(t.oldContext,void 0,n,t.keypath):n}function Ce(t,e,n){var i=t.oldValues;t.oldFn?(n||(t.oldValues={}),sa(e).forEach(function(n){var r=[i[n],e[n],n],s=t.pattern.exec(n);s&&r.push.apply(r,s.slice(1)),t.oldValues[n]=t.oldFn.apply(t.oldContext,r)})):n?sa(e).forEach(function(t){return i[t]=e[t]}):t.oldValues=e}function Se(){return-1}function Oe(t,e,n){var i,r,a=this,o=[];s(t)?(i=t,r=e||{}):u(t)?(i={"":t},r=e||{}):(i={},i[t]=e,r=n||{});var h=!1;return sa(i).forEach(function(t){var e=i[t],n=function(){for(var t=[],n=arguments.length;n--;)t[n]=arguments[n];return h?void 0:e.apply(this,t)},s=t.split(" ");s.length>1&&(s=s.filter(function(t){return t})),s.forEach(function(t){r.keypath=t;var e=je(a,t,n,r);e&&o.push(e)})}),this._observers.push.apply(this._observers,o),{cancel:function(){return o.forEach(function(t){return t.cancel()})},isSilenced:function(){return h},silence:function(){return h=!0},resume:function(){return h=!1}}}function je(t,e,n,i){var r=k(e),s=r.indexOf("*");~s||(s=r.indexOf("**")),i.fragment=i.fragment||t.fragment;var a;if(i.fragment?~r[0].indexOf(".*")?(a=i.fragment.findContext(),s=0,r[0]=r[0].slice(1)):a=0===s?i.fragment.findContext():bt(i.fragment,r[0]):a=t.viewmodel.joinKey(r[0]),a||(a=t.viewmodel.joinKey(r[0])),~s){var o=r.indexOf("**");return~o&&(o+1!==r.length||~r.indexOf("*"))?void g("Recursive observers may only specify a single '**' at the end of the path."):(a=a.joinAll(r.slice(1,s)),new ih(t,a,r.slice(s),n,i))}return a=a.joinAll(r.slice(1)),i.array?new sh(t,a,n,i):new th(t,a,n,i)}function Ne(t,e,n){return s(t)||u(t)?(n=ea(e||{},oh),this.observe(t,n)):(n=ea(n||{},oh),this.observe(t,e,n))}function Te(t,e){var n=this;if(t){var i=t.split(" ").map(uh).filter(hh);i.forEach(function(t){var i=n._subs[t];if(i&&e){var r=i.find(function(t){return t.callback===e});r&&(N(i,r),r.off=!0,t.indexOf(".")&&n._nsSubs--)}else i&&(t.indexOf(".")&&(n._nsSubs-=i.length),i.length=0)})}else this._subs={};return this}function Ve(e,n){var i=this,r=o(e)?e:{};h(e)&&(r[e]=n);var s=!1,a=[],u=function(e){var n=r[e],o=function(){for(var t=[],e=arguments.length;e--;)t[e]=arguments[e];return s?void 0:n.apply(this,t)},u={callback:n,handler:o};if(t(r,e)){var h=e.split(" ").map(uh).filter(hh);h.forEach(function(t){(i._subs[t]||(i._subs[t]=[])).push(u),t.indexOf(".")&&i._nsSubs++,a.push([t,u])})}};for(var l in r)u(l);return{cancel:function(){return a.forEach(function(t){return i.off(t[0],t[1].callback)})},isSilenced:function(){return s},silence:function(){return s=!0},resume:function(){return s=!1}}}function Pe(t,e){var n=this.on(t,function(){e.apply(this,arguments),n.cancel()});return n}function Ie(t,e){void 0===e&&(e={});var n=k(t);if(this.viewmodel.has(n[0])){var i=this.viewmodel.joinAll(n);if(!i.isLink)return;for(;(i=i.target)&&e.canonical!==!1&&i.isLink;);if(i)return{ractive:i.root.ractive,keypath:i.getKeypath()}}}function Me(t){fh.push(t),ph=!0}function Be(t){var e=Ke();e&&(t||ph)&&(vh?e.styleSheet.cssText=Re(null):e.innerHTML=Re(null),ph=!1)}function Re(t){var e=t?fh.filter(function(e){return~t.indexOf(e.id)}):fh;return e.forEach(function(t){return t.applied=!0}),e.reduce(function(t,e){return""+(t?t+"\n\n/* {"+e.id+"} */\n"+e.styles:"")},dh)}function Ke(){return ka&&!mh&&(mh=ka.createElement("style"),mh.type="text/css",mh.setAttribute("data-ractive-css",""),ka.getElementsByTagName("head")[0].appendChild(mh),vh=!!mh.styleSheet),mh}function De(t){return t.trim()}function Le(t){return t.str}function Fe(t,e){for(var n,i=[];n=Eh.exec(t);)i.push({str:n[0],base:n[1],modifiers:n[2]});for(var r=i.map(Le),s=[],a=i.length;a--;){var o=r.slice(),u=i[a];o[a]=u.base+e+u.modifiers||"";var h=r.slice();h[a]=e+" "+h[a],s.push(o.join(" "),h.join(" "))}return s.join(", ")}function ze(t,e){var n,i='[data-ractive-css~="{'+e+'}"]';return n=Ch.test(t)?t.replace(Ch,i):xh(t,function(t,e){return t=t.replace(_h,function(t,e){if(Ah.test(e))return t;var n=e.split(",").map(De),r=n.map(function(t){return Fe(t,i)}).join(", ")+" ";return t.replace(e,r)}),e(t)},[kh])}function Ue(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}function $e(){return Ue()+Ue()+"-"+Ue()+"-"+Ue()+"-"+Ue()+"-"+Ue()+Ue()+Ue()}function qe(t,e,n){var i=o(t)?e:n,r=this._cssModel;r.locked=!0;var s=Et(Ct({viewmodel:r},t,e,!0),i);r.locked=!1;var a=no.start();return this.extensions.forEach(function(t){var e=t._cssModel;e.mark(),e.downstreamChanged("",1)}),no.end(),He(this,!i||i.apply!==!1),s.then(function(){return a})}function He(t,e){var n=Ze(t),i=t.extensions.map(function(t){return He(t,!1)}).reduce(function(t,e){return e||t},!1);if(e&&(n||i)){var r=t._cssDef;(!r||r&&r.applied)&&Be(!0)}return n||i}function Ze(t){var e=t._css;if(u(e)){var n=t._cssDef,i=Ge(t,e),r=n.transform?ze(i,n.id):i;if(n.styles!==r)return n.styles=r,!0}}function We(t){for(var e=t,n=[];e;)e.prototype.cssId&&n.push(e.prototype.cssId),e=e.Parent;return n}function Ge(t,e){var n=t.cssData,i=t._cssModel,r=function(t){return i.joinAll(k(t)).get()};r.__proto__=n;var s=e.call(t,r);return h(s)?s:""}function Ye(t,e,n){var i=h(t.css)&&!Oh.test(t.css)?ge(t.css)||t.css:t.css,r=t.cssId||$e();o(i)?i="textContent"in i?i.textContent:i.innerHTML:u(i)&&(e._css=t.css,i=Ge(e,i));var s=e._cssDef={transform:!t.noCssTransform};s.styles=s.transform?ze(i,r):i,s.id=n.cssId=r,e._cssIds.push(r),Me(e._cssDef)}function Qe(t){t&&t.constructor!==Object&&(u(t)||(o(t)?v("If supplied, options.data should be a plain JavaScript object - using a non-POJO as the root object may work, but is discouraged"):d("data option must be an object or a function, `"+t+"` is not valid")))}function Je(){return{}}function Xe(t,e){Qe(e);var n=u(t);e||n||(e=Je);var i=u(e);return n||i?function(){var r=i?tn(e,this):e,s=n?tn(t,this):t;return en(r,s)}:en(e,t)}function tn(t,e){var n=t.call(e);if(n)return o(n)||d("Data function must return an object"),n.constructor!==Object&&g("Data function returned something other than a plain JavaScript object. This might work, but is strongly discouraged"),n}function en(t,e){if(t&&e){for(var n in e)n in t||(t[n]=e[n]);return t}return t||e}function nn(t,e){void 0===e&&(e=0);for(var n=new Array(e);e--;)n[e]="_"+e;return new Function([],"return function ("+n.join(",")+"){return("+t+");};")()}function rn(t,e){var n,i="return ("+t.replace(Vh,function(t,e){return n=!0,'__ractive.get("'+e+'")'})+");";n&&(i="var __ractive = this; "+i);var r=new Function(i);return n?r.bind(e):r}function sn(t){if(!t.matchString("="))return null;var e=t.pos;t.sp();var n=t.matchPattern(Rh);if(!n)return t.pos=e,null;if(!t.matchPattern(Kh))return null;var i=t.matchPattern(Rh);return i?(t.sp(),t.matchString("=")?[n,i]:(t.pos=e,null)):(t.pos=e,null)}function an(t){var e;return(e=t.matchPattern(Dh))?{t:Xo,v:e}:null}function on(t){return t.replace(Lh,"\\$&")}function un(t){return t.replace(Zh,function(t,e){var n;return n="#"!==e[0]?qh[e]:"x"===e[1]?parseInt(e.substring(2),16):parseInt(e.substring(1),10),n?Gh(ln(n)):t})}function hn(t){return t.replace(Jh,"&amp;").replace(Yh,"&lt;").replace(Qh,"&gt;")}function ln(t){return t?10===t?32:128>t?t:159>=t?Hh[t-128]:55296>t?t:57343>=t?Xh:65535>=t?t:Wh?t>=65536&&131071>=t?t:t>=131072&&196607>=t?t:Xh:Xh:Xh}function cn(t){var e;return(e=t.matchPattern(nl))?{t:Wo,v:e}:null}function dn(t){var e=t.remaining();return"true"===e.substr(0,4)?(t.pos+=4,{t:Jo,v:"true"}):"false"===e.substr(0,5)?(t.pos+=5,{t:Jo,v:"false"}):null}function fn(t){return JSON.parse('"'+t.replace(cl,pn)+'"')}function pn(t){switch(t){case"\n":return"\\n";case"\r":return"\\r";case"	":return"\\t";case"\b":return"\\b";case"\f":return"\\f"}}function mn(t){if(!t.matchString("`"))return null;for(var e,n="",i=!1,r=[];!i;)if(e=t.matchPattern(ll)||t.matchPattern(rl)||t.matchString("$")||t.matchString('"'))if('"'===e)n+='\\"';else if("\\`"===e)n+="`";else if("$"===e)if(t.matchString("{")){r.push({t:Go,v:fn(n)}),n="",t.sp();var s=En(t);s||t.error("Expected valid expression"),r.push({t:au,x:s}),t.sp(),t.matchString("}")||t.error("Expected closing '}' after interpolated expression")}else n+="$";else n+=e;else e=t.matchPattern(sl),e?n+="\\u"+("000"+e.charCodeAt(1).toString(16)).slice(-4):i=!0;if(n.length&&r.push({t:Go,v:fn(n)}),t.matchString("`")||t.error("Expected closing '`'"),1===r.length)return r[0];for(var a,o=r.pop();a=r.pop();)o={t:uu,s:"+",o:[a,o]};return{t:au,x:o}}function vn(t){var e;return(e=hl(t))?vl.test(e.v)?e.v:'"'+e.v.replace(/"/g,'\\"')+'"':(e=cn(t))?e.v:(e=t.matchPattern(dl))?e:null}function gn(t){var e,n=t.pos;t.sp();var i="'"!==t.nextChar()&&'"'!==t.nextChar();i&&(e=t.matchPattern(fl));var r=e?En(t):vn(t);if(null===r)return t.pos=n,null;if(t.sp(),i&&(","===t.nextChar()||"}"===t.nextChar())){e||dl.test(r)||t.error("Expected a valid reference, but found '"+r+"' instead.");var s={t:eu,k:r,v:{t:nu,n:r}};return e&&(s.p=!0),s}if(!t.matchString(":"))return t.pos=n,null;t.sp();var a=En(t);return null===a?(t.pos=n,null):{t:eu,k:r,v:a}}function yn(t){var e=t.pos,n=gn(t);if(null===n)return null;var i=[n];if(t.matchString(",")){var r=yn(t);return r?i.concat(r):(t.pos=e,null)}return i}function bn(t){return cn(t)||dn(t)||hl(t)||mn(t)||gl(t)||yl(t)||an(t)}function wn(t){var e,n,i,r,s,a=t.pos;e=t.matchPattern(xl)||"",n=!e&&t.relaxedNames&&t.matchPattern(ml)||t.matchPattern(pl);var o=e.length+(n&&n.length||0);if("@."===e&&(e="@",n=n?"this."+n:"this"),!n&&e&&(n=e,e=""),!n)return null;if("@"===e)if(_l.test(n))if(!~n.indexOf("event")&&!~n.indexOf("node")||t.inEvent){if(~n.indexOf("context"))return t.pos=t.pos-(n.length-7),{t:au,x:{t:nu,n:"@context"}}}else t.error("@event and @node are only valid references within an event directive");else t.error("Unrecognized special reference @"+n);if(!e&&!t.relaxedNames&&wl.test(n))return t.pos=a,null;if(!e&&bl.test(n))return i=bl.exec(n)[0],t.pos=a+i.length,{t:tu,v:i};if(r=(e||"")+_(n),t.matchString("("))if(s=r.lastIndexOf("."),-1!==s&&"]"!==n[n.length-1])if(0===s)r=".",t.pos=a;else{var u=r.length;r=r.substr(0,s),t.pos=a+(o-(u-s))}else t.pos-=1;return{t:nu,n:r.replace(/^this\./,"./").replace(/^this$/,".")}}function xn(t){if(!t.matchString("("))return null;t.sp();var e=En(t);return e||t.error(tl),t.sp(),t.matchString(")")||t.error(el),{t:au,x:e}}function _n(t){if(t.strictRefinement||t.sp(),t.matchString(".")){t.sp();var e=t.matchPattern(dl);if(e)return{t:iu,n:e};t.error("Expected a property name")}if(t.matchString("[")){t.sp();var n=En(t);return n||t.error(tl),t.sp(),t.matchString("]")||t.error("Expected ']'"),{t:iu,x:n}}return null}function kn(t){var e=jl(t);
 if(!e)return null;var n=t.pos;if(t.sp(),!t.matchString("?"))return t.pos=n,e;t.sp();var i=En(t);i||t.error(tl),t.sp(),t.matchString(":")||t.error('Expected ":"'),t.sp();var r=En(t);return r||t.error(tl),{t:ou,o:[e,i,r]}}function En(t){if(t.allowExpressions===!1){var e=wn(t);return t.sp(),e}return kn(t)}function An(t,e){var n,i=[],r=t.pos;do{t.sp(),e&&(n=t.matchPattern(fl));var s=En(t);if(null===s&&i.length)t.error(tl);else if(null===s)return t.pos=r,null;n&&(s.p=!0),i.push(s),t.sp()}while(t.matchString(","));return i}function Cn(t,e){var n=t.pos,i=En(t);if(!i){var r=t.matchPattern(/^(\w+)/);return r?{t:nu,n:r}:null}for(var s=0;s<e.length;s+=1)if(t.remaining().substr(0,e[s].length)===e[s])return i;return t.pos=n,wn(t)}function Sn(t){function e(t){for(var e=[],n=a-1;n>=0;n--)e.push("x$"+n);return e.length?"(function(){var "+e.join(",")+";return("+t+");})()":t}function n(t){if(h(t))return t;switch(t.t){case Jo:case tu:case Wo:case Xo:return t.v;case Go:return JSON.stringify(String(t.v));case Yo:return t.m&&On(t.m)?"[].concat("+r(t.m,"[","]",n)+")":"["+(t.m?t.m.map(n).join(","):"")+"]";case Qo:return t.m&&On(t.m)?"Object.assign({},"+r(t.m,"{","}",i)+")":"{"+(t.m?t.m.map(function(t){return t.k+":"+n(t.v)}).join(","):"")+"}";case su:return("typeof"===t.s?"typeof ":t.s)+n(t.o);case uu:return n(t.o[0])+("in"===t.s.substr(0,2)?" "+t.s+" ":t.s)+n(t.o[1]);case hu:if(t.o&&On(t.o)){var e=a++;return"(x$"+e+"="+n(t.x)+").apply(x$"+e+","+n({t:Yo,m:t.o})+")"}return n(t.x)+"("+(t.o?t.o.map(n).join(","):"")+")";case au:return"("+n(t.x)+")";case ru:return n(t.x)+n(t.r);case iu:return t.n?"."+t.n:"["+n(t.x)+"]";case ou:return n(t.o[0])+"?"+n(t.o[1])+":"+n(t.o[2]);case nu:return"_"+s.indexOf(t.n);default:throw new Error("Expected legal JavaScript")}}function i(t){return t.p?n(t.k):t.k+":"+n(t.v)}function r(t,e,n,i){var r=t.reduce(function(t,r){return r.p?t.str+=""+(t.open?n+",":t.str.length?",":"")+i(r):t.str+=""+(t.str.length?t.open?",":","+e:e)+i(r),t.open=!r.p,t},{open:!1,str:""});return r.open&&(r.str+=n),r.str}var s,a=0;jn(t,s=[]);var o=n(t);return{r:s,s:e(o)}}function On(t){for(var e=0;e<t.length;e++)if(t[e].p)return!0;return!1}function jn(t,e){t.t===nu&&h(t.n)&&(~e.indexOf(t.n)||e.unshift(t.n));var n=t.o||t.m;if(n)if(s(n))jn(n,e);else for(var i=n.length;i--;)jn(n[i],e);t.k&&t.t===eu&&!h(t.k)&&jn(t.k,e),t.x&&jn(t.x,e),t.r&&jn(t.r,e),t.v&&jn(t.v,e)}function Nn(t,e){var n;if(t){for(;t.t===au&&t.x;)t=t.x;if(t.t===nu){var i=t.n;~i.indexOf("@context")?e.x=Sn(t):e.r=t.n}else(n=Tn(t))?e.rx=n:e.x=Sn(t);return e}}function Tn(t){for(var e,n=[];t.t===ru&&t.r.t===iu;)e=t.r,e.x?e.x.t===nu?n.unshift(e.x):n.unshift(Sn(e.x)):n.unshift(e.n),t=t.x;return t.t!==nu?null:{r:t.n,m:n}}function Vn(t){for(var e=[],n=0,i=0;i<t.length;i++)"-"===t[i]&&"\\"!==t[i-1]&&(e.push(t.substring(n,i).replace(Fl,"")),n=i+1);return e.push(t.substring(n).replace(Fl,"")),e}function Pn(t){var e,n,i,r;if(t.sp(),e=t.matchPattern(Nl),!e)return null;for(i=e.length,n=0;n<t.tags.length;n++)~(r=e.indexOf(t.tags[n].open))&&i>r&&(i=r);return i<e.length&&(t.pos-=e.length-i,e=e.substr(0,i),!e)?null:{n:e}}function In(t){var e=t.pos;if(/[=\/>\s]/.test(t.nextChar())||t.error("Expected `=`, `/`, `>` or whitespace"),t.sp(),!t.matchString("="))return t.pos=e,null;t.sp();var n=t.pos,i=t.sectionDepth,r=Rn(t,"'")||Rn(t,'"')||Bn(t);return null===r&&t.error("Expected valid attribute value"),t.sectionDepth!==i&&(t.pos=n,t.error("An attribute value must contain as many opening section tags as closing section tags")),r.length?1===r.length&&h(r[0])?un(r[0]):r:""}function Mn(t){var e,n,i=t.pos;if(e=t.matchPattern(Kl),!e)return null;var r=e,s=t.tags.map(function(t){return t.open});return-1!==(n=zh(r,s))&&(e=e.substr(0,n),t.pos=i+e.length),e}function Bn(t){t.inAttribute=!0;for(var e=[],n=zn(t)||Mn(t);n;)e.push(n),n=zn(t)||Mn(t);return e.length?(t.inAttribute=!1,e):null}function Rn(t,e){var n=t.pos;if(!t.matchString(e))return null;t.inAttribute=e;for(var i=[],r=zn(t)||Kn(t,e);null!==r;)i.push(r),r=zn(t)||Kn(t,e);return t.matchString(e)?(t.inAttribute=!1,i):(t.pos=n,null)}function Kn(t,e){var n=t.remaining(),i=t.tags.map(function(t){return t.open});i.push(e);var r=zh(n,i);return-1===r&&t.error("Quoted attribute value must have a closing quote"),r?(t.pos+=r,n.substr(0,r)):null}function Dn(t){var e,n,i=Pn(t,!1);if(!i)return null;if(n=Rl[i.n])i.t=n.t,n.v&&(i.v=n.v),delete i.n,t.sp(),"="===t.nextChar()&&(i.f=In(t));else if(e=Il.exec(i.n))i.n=e[1],i.t=yu,Fn(t,i);else if(e=Ml.exec(i.n))i.n=e[1],i.t=bu,Fn(t,i),i.v="in-out"===e[2]?"t0":"in"===e[2]?"t1":"t2";else if(e=Vl.exec(i.n))i.n=Vn(e[1]),i.t=gu,t.inEvent=!0,Ln(t,i)?Pl.test(i.f)&&(t.pos-=i.f.length,t.error("Cannot use reserved event names (change, reset, teardown, update, construct, config, init, render, unrender, complete, detach, insert, destruct, attachchild, detachchild)")):Fn(t,i,!0),t.inEvent=!1;else if(e=Bl.exec(i.n)){var r="bind"===e[2];i.n=r?e[3]:e[1],i.t=Fo,Fn(t,i,!1,!0),!i.f&&r&&(i.f=[{t:To,r:e[3]}])}else{t.sp();var s="="===t.nextChar()?In(t):null;if(i.f=null!=s?s:i.f,t.sanitizeEventAttributes&&Tl.test(i.n))return{exclude:!0};i.f=i.f||(""===i.f?"":0),i.t=Fo}return i}function Ln(t,e){var n=t.pos;t.matchString("=")||t.error("Missing required directive arguments");var i=t.matchString("'")||t.matchString('"');t.sp();var r=t.matchPattern(Dl);if(void 0!==r)if(i){if(t.sp(),t.matchString(i))return(e.f=r)||!0;t.pos=n}else{if(t.matchPattern(Ll))return(e.f=r)||!0;t.pos=n}else t.pos=n}function Fn(t,e,n,i){if(void 0===n&&(n=!1),void 0===i&&(i=!1),t.sp(),!t.matchString("="))return void(n&&t.error("Missing required directive arguments"));t.sp();var r=t.matchString('"')||t.matchString("'"),s=t.spreadArgs;t.spreadArgs=!0,t.inUnquotedAttribute=!r;var a=i?Cn(t,[r||" ","/",">"]):{m:An(t),t:Yo};if(t.inUnquotedAttribute=!1,t.spreadArgs=s,r&&(t.sp(),t.matchString(r)!==r&&t.error("Expected matching quote '"+r+"'")),i){var o={t:To};Nn(a,o),e.f=[o]}else e.f=Sn(a)}function zn(t){var e,n;if(t.interpolate[t.inside]===!1)return null;for(n=0;n<t.tags.length;n+=1)if(e=Un(t,t.tags[n]))return e;return t.inTag&&!t.inAttribute&&(e=Dn(t))?(t.sp(),e):void 0}function Un(t,e){var n,i,r,s=t.pos;if(t.matchString("\\"+e.open)){if(0===s||"\\"!==t.str[s-1])return e.open}else if(!t.matchString(e.open))return null;if(n=sn(t))return t.matchString(e.close)?(e.open=n[0],e.close=n[1],t.sortMustacheTags(),zl):null;if(t.sp(),t.matchString("/")){t.pos-=1;var a=t.pos;if(an(t))t.pos=a;else{if(t.pos=a-e.close.length,t.inAttribute)return t.pos=s,null;t.error("Attempted to close a section that wasn't open")}}for(r=0;r<e.readers.length;r+=1)if(i=e.readers[r],n=i(t,e))return e.isStatic&&(n.s=1),t.includeLinePositions&&(n.p=t.getLinePos(s)),n;return t.pos=s,null}function $n(t,e){var n=En(t);if(!n)return null;t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'");var i={t:Vo};return Nn(n,i),i}function qn(t,e){if(!t.matchString("&"))return null;t.sp();var n=En(t);if(!n)return null;t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'");var i={t:Vo};return Nn(n,i),i}function Hn(t){var e,n=[],i=t.pos;if(t.sp(),e=Zn(t)){for(e.x=Nn(e.x,{}),n.push(e),t.sp();t.matchString(",");)e=Zn(t),e||t.error("Expected another alias."),e.x=Nn(e.x,{}),n.push(e),t.sp();return n}return t.pos=i,null}function Zn(t){var e=t.pos;t.sp();var n=En(t,[]);if(!n)return t.pos=e,null;if(t.sp(),!t.matchPattern($l))return t.pos=e,null;t.sp();var i=t.matchPattern(Ul);return i||t.error("Expected a legal alias name."),{n:i,x:n}}function Wn(t,e){var n,i=t.matchString(">")||t.matchString("yield"),r={t:">"===i?Ro:$o};if(!i)return null;if(t.sp(),">"===i||!(n=t.matchString("with"))){t.relaxedNames=t.strictRefinement=!0;var s=En(t);if(t.relaxedNames=t.strictRefinement=!1,!s&&">"===i)return null;s&&(Nn(s,r),t.sp(),">"!==i&&(n=t.matchString("with")))}if(t.sp(),n||">"===i)if(n=Hn(t),n&&n.length)r.z=n;else if(">"===i){var a=En(t);a&&(r.c={},Nn(a,r.c))}else t.error("Expected one or more aliases");return t.sp(),t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'"),r}function Gn(t,e){if(!t.matchString("!"))return null;var n=t.remaining().indexOf(e.close);return-1!==n?(t.pos+=n+e.close.length,{t:Ko}):void 0}function Yn(t,e){var n,i,r=t.pos;try{n=Cn(t,[e.close])}catch(s){i=s}if(!n){if("!"===t.str.charAt(r))return t.pos=r,null;if(i)throw i}if(!t.matchString(e.close)&&(t.error("Expected closing delimiter '"+e.close+"' after reference"),!n)){if("!"===t.nextChar())return null;t.error("Expected expression or legal reference")}var a={t:To};return Nn(n,a),a}function Qn(t,e){var n=t.pos;if(!t.matchString(e.open))return null;if(t.sp(),!t.matchString("/"))return t.pos=n,null;t.sp();var i=t.remaining(),r=i.indexOf(e.close);if(-1!==r){var s={t:Mo,r:i.substr(0,r).split(" ")[0]};return t.pos+=r,t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'"),s}return t.pos=n,null}function Jn(t,e){var n=t.pos;return t.matchString(e.open)?t.matchPattern(ql)?(t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'"),{t:mu}):(t.pos=n,null):null}function Xn(t,e){var n=t.pos;if(!t.matchString(e.open))return null;if(!t.matchPattern(Hl))return t.pos=n,null;var i=En(t);return t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'"),{t:vu,x:i}}function ti(t,e){var n,i,r,s,a,o,u,h,l,c,d=!1,f=t.pos;if(t.matchString("^")){if(t.matchString("^/"))return t.pos=f,null;i={t:Po,f:[],n:cu}}else{if(!t.matchString("#"))return null;i={t:Po,f:[]},t.matchString("partial")&&(t.pos=f-t.standardDelimiters[0].length,t.error("Partial definitions can only be at the top level of the template, or immediately inside components")),(o=t.matchPattern(Yl))&&(c=o,i.n=Zl[o])}if(t.sp(),"with"===o){var p=Hn(t);p&&(d=!0,i.z=p,i.t=Zo)}else if("each"===o){var m=Zn(t);m&&(i.z=[{n:m.n,x:{r:"."}}],n=m.x)}if(!d){if(n||(n=En(t)),n||t.error("Expected expression"),l=t.matchPattern(Wl)){var v;(v=t.matchPattern(Gl))?i.i=l+","+v:i.i=l}!o&&n.n&&(c=n.n)}t.sp(),t.matchString(e.close)||t.error("Expected closing delimiter '"+e.close+"'"),t.sectionDepth+=1,s=i.f;var g;do if(g=t.pos,r=Qn(t,e))c&&r.r!==c&&(o?(t.pos=g,t.error("Expected "+e.open+"/"+c+e.close)):r.r&&t.warn("Expected "+e.open+"/"+c+e.close+" but found "+e.open+"/"+r.r+e.close)),t.sectionDepth-=1,h=!0;else if(!d&&(r=Xn(t,e))){i.n===cu&&t.error("{{else}} not allowed in {{#unless}}"),a&&t.error("illegal {{elseif...}} after {{else}}"),u||(u=[]);var y={t:Po,n:lu,f:s=[]};Nn(r.x,y),u.push(y)}else if(!d&&(r=Jn(t,e)))i.n===cu&&t.error("{{else}} not allowed in {{#unless}}"),a&&t.error("there can only be one {{else}} block, at the end of a section"),a=!0,u||(u=[]),u.push({t:Po,n:cu,f:s=[]});else{if(r=t.read(bc),!r)break;s.push(r)}while(!h);return u&&(i.l=u),d||Nn(n,i),i.f.length||delete i.f,i}function ei(t){var e=t.pos;if(t.textOnlyMode||!t.matchString(Ql))return null;var n=t.remaining(),i=n.indexOf(Jl);-1===i&&t.error("Illegal HTML - expected closing comment sequence ('-->')");var r=n.substr(0,i);t.pos+=i+3;var s={t:Ko,c:r};return t.includeLinePositions&&(s.p=t.getLinePos(e)),s}function ni(t){return t.t===Ko||t.t===Do}function ii(t){return(t.t===Po||t.t===Io)&&t.f}function ri(t,e,n,i,r){if(!h(t)){var s,a,o,u,l,c,d;for(ec(t),s=t.length;s--;)a=t[s],a.exclude?t.splice(s,1):e&&a.t===Ko&&t.splice(s,1);for(nc(t,i?sc:null,r?ac:null),s=t.length;s--;){if(a=t[s],a.f){var f=a.t===Bo&&rc.test(a.e);l=n||f,!n&&f&&nc(a.f,oc,uc),l||(o=t[s-1],u=t[s+1],(!o||h(o)&&ac.test(o))&&(c=!0),(!u||h(u)&&sc.test(u))&&(d=!0)),ri(a.f,e,l,c,d)}a.l&&(ri(a.l,e,n,c,d),a.l.forEach(function(t){return t.l=1}),a.l.unshift(s+1,0),t.splice.apply(t,a.l),delete a.l),a.m&&(ri(a.m,e,n,c,d),a.m.length<1&&delete a.m)}for(s=t.length;s--;)h(t[s])&&(h(t[s+1])&&(t[s]=t[s]+t[s+1],t.splice(s+1,1)),n||(t[s]=t[s].replace(ic," ")),""===t[s]&&t.splice(s,1))}}function si(t){var e,n=t.pos;return t.matchString("</")?(e=t.matchPattern(hc))?t.inside&&e!==t.inside?(t.pos=n,null):{t:zo,e:e}:(t.pos-=2,void t.error("Illegal closing tag")):null}function ai(t){var e,n,i,r,s,a,o,u,h,l,c,d=t.pos;if(t.inside||t.inAttribute||t.textOnlyMode)return null;if(!t.matchString("<"))return null;if("/"===t.nextChar())return null;var f={};if(t.includeLinePositions&&(f.p=t.getLinePos(d)),t.matchString("!"))return f.t=Ho,t.matchPattern(/^doctype/i)||t.error("Expected DOCTYPE declaration"),f.a=t.matchPattern(/^(.+?)>/),f;if(c=t.matchString("#"))t.sp(),f.t=Lo,f.n=t.matchPattern(cc);else if(f.t=Bo,f.e=t.matchPattern(lc),!f.e)return null;for(dc.test(t.nextChar())||t.error("Illegal tag name"),t.sp(),t.inTag=!0;e=zn(t);)e!==!1&&(f.m||(f.m=[]),f.m.push(e)),t.sp();if(t.inTag=!1,t.sp(),t.matchString("/")&&(n=!0),!t.matchString(">"))return null;var p=(f.e||f.n).toLowerCase(),m=t.preserveWhitespace;if(!n&&(c||!$h.test(f.e))){c||(t.elementStack.push(p),p in t.interpolate&&(t.inside=p)),i=[],r=na(null);do{if(u=t.pos,h=t.remaining(),!h){if("script"===t.inside){o=!0;break}t.error("Missing end "+(t.elementStack.length>1?"tags":"tag")+" ("+t.elementStack.reverse().map(function(t){return"</"+t+">"}).join("")+")")}if(c||oi(p,h))if(!c&&(l=si(t))){o=!0;var v=l.e.toLowerCase();if(v!==p&&(t.pos=u,!~t.elementStack.indexOf(v))){var g="Unexpected closing tag";$h.test(v)&&(g+=" (<"+v+"> is a void element - it cannot contain children)"),t.error(g)}}else if(c&&ui(t,f.n))o=!0;else{var y={open:t.standardDelimiters[0],close:t.standardDelimiters[1]},b=[Qn,Xn,Jn];b.some(function(e){return e(t,y)})?(o=!0,t.pos=u):(a=t.read(wc))?(r[a.n]&&(t.pos=u,t.error("Duplicate partial definition")),ri(a.f,t.stripComments,m,!m,!m),r[a.n]=a.f,s=!0):(a=t.read(bc))?i.push(a):o=!0}else o=!0}while(!o);i.length&&(f.f=i),s&&(f.p=r),t.elementStack.pop()}return t.inside=null,t.sanitizeElements&&-1!==t.sanitizeElements.indexOf(p)?fc:f}function oi(t,e){var n=/^<([a-zA-Z][a-zA-Z0-9]*)/.exec(e),i=pc[t];return n&&i?!~i.indexOf(n[1].toLowerCase()):!0}function ui(t,e){var n=t.pos;return t.matchString("</")?(t.matchString("#"),t.sp(),t.matchString(e)?(t.sp(),t.matchString(">")?!0:(t.pos=n,null)):(t.pos=n,null)):null}function hi(t){var e,n,i,r=t.remaining();return t.textOnlyMode?(n=t.tags.map(function(t){return t.open}),n=n.concat(t.tags.map(function(t){return"\\"+t.open})),e=zh(r,n)):(i=t.inside?"</"+t.inside:"<",t.inside&&!t.interpolate[t.inside]?e=r.indexOf(i):(n=t.tags.map(function(t){return t.open}),n=n.concat(t.tags.map(function(t){return"\\"+t.open})),t.inAttribute===!0?n.push('"',"'","=","<",">","`"):t.inAttribute?n.push(t.inAttribute):n.push(i),e=zh(r,n))),e?(-1===e&&(e=r.length),t.pos+=e,t.inside&&"textarea"!==t.inside||t.textOnlyMode?r.substr(0,e):un(r.substr(0,e))):null}function li(t){var e,n,i=t.pos,r=t.standardDelimiters;if(!t.matchString(r[0]))return null;if(!t.matchPattern(mc))return t.pos=i,null;var s=t.matchPattern(/^[a-zA-Z_$][a-zA-Z_$0-9\-\/]*/);s||t.error("expected legal partial name"),t.sp(),t.matchString(r[1])||t.error("Expected closing delimiter '"+r[1]+"'");var a=[],o=r[0],u=r[1];do(e=Qn(t,{open:o,close:u}))?("partial"!==e.r&&t.error("Expected "+o+"/partial"+u),n=!0):(e=t.read(bc),e||t.error("Expected "+o+"/partial"+u),a.push(e));while(!n);return{t:qo,n:s,f:a}}function ci(t){for(var e=[],n=na(null),i=!1,r=t.preserveWhitespace;t.pos<t.str.length;){var s=t.pos,a=void 0,o=void 0;(o=t.read(wc))?(n[o.n]&&(t.pos=s,t.error("Duplicated partial definition")),ri(o.f,t.stripComments,r,!r,!r),n[o.n]=o.f,i=!0):(a=t.read(bc))?e.push(a):t.error("Unexpected template content")}var u={v:Th,t:e};return i&&(u.p=n),u}function di(t,e){sa(t).forEach(function(n){if(fi(n,t))return pi(t,e);var i=t[n];mi(i)&&di(i,e)})}function fi(t,e){return"s"===t&&oa(e.r)}function pi(t,e){var n=t.s,i=t.r;e[n]||(e[n]=nn(n,i.length))}function mi(t){return oa(t)||s(t)}function vi(t,e){return new _c(t,e||{}).result}function gi(t,e,n){t||d("Missing Ractive.parse - cannot parse "+e+". "+n)}function yi(t,e){return gi(nn,"new expression function",Ec),nn(t,e)}function bi(t,e){return gi(rn,'compution string "${str}"',Ac),rn(t,e)}function wi(t,e){return Sc[t]?Sc[t]:Sc[t]=yi(t,e)}function xi(t){if(t){var e=t.e;e&&sa(e).forEach(function(t){Sc[t]||(Sc[t]=e[t])})}}function _i(t){var e=t._config.template;if(e&&e.fn){var n=ki(t,e.fn);return n!==e.result?(e.result=n,n):void 0}}function ki(t,e){return e.call(t,{fromId:Cc.fromId,isParsed:Cc.isParsed,parse:function(e,n){return void 0===n&&(n=Cc.getParseOptions(t)),Cc.parse(e,n)}})}function Ei(t,e){return h(t)?t=Ai(t,e):(Ci(t),xi(t)),t}function Ai(t,e){return"#"===t[0]&&(t=Cc.fromId(t)),Cc.parseFor(t,e)}function Ci(t){if(void 0==t)throw new Error("The template cannot be "+t+".");if(!l(t.v))throw new Error("The template parser was passed a non-string template, but the template doesn't have a version.  Make sure you're passing in the template you think you are.");if(t.v!==Th)throw new Error("Mismatched template version (expected "+Th+", got "+t.v+") Please ensure you are using the latest version of Ractive.js in your build process as well as in your app")}function Si(e,n,i){if(n)for(var r in n)(i||!t(e,r))&&(e[r]=n[r])}function Oi(t,e,n){function i(){var t=ji(i._parent,e),r="_super"in this,s=this._super;this._super=t;var a=n.apply(this,arguments);return r?this._super=s:delete this._super,a}return/_super/.test(n)?(i._parent=t,i._method=n,i):n}function ji(t,e){if(e in t){var n=t[e];return u(n)?n:function(){return n}}return Oa}function Ni(t,e,n){return"options."+t+" has been deprecated in favour of options."+e+"."+(n?" You cannot specify both options, please use options."+e+".":"")}function Ti(t,e,n){if(e in t){if(n in t)throw new Error(Ni(e,n,!0));v(Ni(e,n)),t[n]=t[e]}}function Vi(t){Ti(t,"beforeInit","onconstruct"),Ti(t,"init","onrender"),Ti(t,"complete","oncomplete"),Ti(t,"eventDefinitions","events"),oa(t.adaptors)&&Ti(t,"adaptors","adapt")}function Pi(e,n,i,r,s){Vi(r);for(var a in r)if(t(Bc,a)){var o=r[a];"el"!==a&&u(o)?v(a+" is a Ractive option that does not expect a function and will be ignored","init"===e?i:null):i[a]=o}if(r.append&&r.enhance)throw new Error("Cannot use append and enhance at the same time");Pc.forEach(function(t){t[e](n,i,r,s)}),gh[e](n,i,r,s),Oc[e](n,i,r,s),jh[e](n,i,r,s),Ii(n.prototype,i,r)}function Ii(e,n,i){for(var r in i)if(!Rc[r]&&t(i,r)){var s=i[r];u(s)&&(r in Np&&!Lc.test(s.toString())&&v("Overriding Ractive prototype function '"+r+"' without calling the '"+Lc+"' method can be very dangerous."),s=Oi(e,r,s)),n[r]=s}}function Mi(t){var e={};return t.forEach(function(t){return e[t]=!0}),e}function Bi(t,e){return e.r?bt(t,e.r):e.x?new Wc(t,e.x):e.rx?new Xc(t,e.rx):void 0}function Ri(t,e){for(var n={},i=0;i<t.length;i++)n[t[i].n]=Bi(e,t[i].x);for(var r in n)n[r].reference();return n}function Ki(t){return h(t)?xh(t,function(t,e){return t.split(";").filter(function(t){return!!t.trim()}).map(e).reduce(function(t,e){var n=e.indexOf(":"),i=e.substr(0,n).trim();return t[i]=e.substr(n+1).trim(),t},{})}):{}}function Di(t){for(var e=t.split(nd),n=e.length;n--;)e[n]||e.splice(n,1);return e}function Li(t){var e=t.element,n=t.name;if("value"===n){if(t.interpolator&&(t.interpolator.bound=!0),"select"===e.name&&"value"===n)return e.getAttribute("multiple")?Fi:zi;if("textarea"===e.name)return Hi;if(null!=e.getAttribute("contenteditable"))return Ui;if("input"===e.name){var i=e.getAttribute("type");if("file"===i)return Oa;if("radio"===i&&e.binding&&"name"===e.binding.attribute.name)return $i;if(~id.indexOf(i))return Hi}return qi}var r=e.node;if(t.isTwoway&&"name"===n){if("radio"===r.type)return Zi;if("checkbox"===r.type)return Wi}if("style"===n)return Gi;if(0===n.indexOf("style-"))return Yi;if("class"===n&&(!r.namespaceURI||r.namespaceURI===Hu))return Qi;if(0===n.indexOf("class-"))return Ji;if(t.isBoolean){var s=e.getAttribute("type");return!t.interpolator||"checked"!==n||"checkbox"!==s&&"radio"!==s||(t.interpolator.bound=!0),Xi}return t.namespace&&t.namespace!==t.node.namespaceURI?er:tr}function Fi(t){var e=this.getValue();oa(e)||(e=[e]);var n=this.node.options,i=n.length;if(t)for(;i--;)n[i].selected=!1;else for(;i--;){var r=n[i],s=r._ractive?r._ractive.value:r.value;r.selected=C(e,s)}}function zi(t){var e=this.getValue();if(!this.locked){this.node._ractive.value=e;var n=this.node.options,i=n.length,r=!1;if(t)for(;i--;)n[i].selected=!1;else for(;i--;){var s=n[i],a=s._ractive?s._ractive.value:s.value;if(s.disabled&&s.selected&&(r=!0),a==e)return void(s.selected=!0)}r||(this.node.selectedIndex=-1)}}function Ui(t){var e=this.getValue();this.locked||(t?this.node.innerHTML="":this.node.innerHTML=void 0===e?"":e)}function $i(t){var e=this.node,n=e.checked,i=this.getValue();return t?e.checked=!1:(e.value=this.node._ractive.value=i,e.checked=this.element.compare(i,this.element.getAttribute("name")),void(n&&!e.checked&&this.element.binding&&this.element.binding.rendered&&this.element.binding.group.model.set(this.element.binding.group.getValue())))}function qi(t){if(!this.locked)if(t)this.node.removeAttribute("value"),this.node.value=this.node._ractive.value=null;else{var e=this.getValue();this.node.value=this.node._ractive.value=e,this.node.setAttribute("value",be(e))}}function Hi(t){if(!this.locked)if(t)this.node._ractive.value="",this.node.removeAttribute("value");else{var e=this.getValue();this.node._ractive.value=e,this.node.value=be(e),this.node.setAttribute("value",be(e))}}function Zi(t){t?this.node.checked=!1:this.node.checked=this.element.compare(this.getValue(),this.element.binding.getValue())}function Wi(t){var e=this,n=e.element,i=e.node,r=n.binding,s=this.getValue(),a=n.getAttribute("value");if(oa(s)){for(var o=s.length;o--;)if(n.compare(a,s[o]))return void(r.isChecked=i.checked=!0);r.isChecked=i.checked=!1}else r.isChecked=i.checked=n.compare(s,a)}function Gi(t){for(var e=t?{}:Ki(this.getValue()||""),n=this.node.style,i=sa(e),r=this.previous||[],s=0;s<i.length;){if(i[s]in n){var a=e[i[s]].replace("!important","");n.setProperty(i[s],a,a.length!==e[i[s]].length?"important":"")}s++}for(s=r.length;s--;)!~i.indexOf(r[s])&&r[s]in n&&n.setProperty(r[s],"","");this.previous=i}function Yi(t){if(this.style||(this.style=ed(this.name.substr(6))),!t||this.node.style.getPropertyValue(this.style)===this.last){var e=t?"":be(this.getValue()),n=e.replace("!important","");this.node.style.setProperty(this.style,n,n.length!==e.length?"important":""),this.last=n}}function Qi(t){var e=t?[]:Di(be(this.getValue())),n=this.node.className;n=void 0!==n.baseVal?n.baseVal:n;var i=Di(n),r=this.previous||i.slice(0),s=e.concat(i.filter(function(t){return!~r.indexOf(t)})).join(" ");s!==n&&(h(this.node.className)?this.node.className=s:this.node.className.baseVal=s),this.previous=e}function Ji(t){var e=this.name.substr(6),n=this.node.className;n=void 0!==n.baseVal?n.baseVal:n;var i=Di(n),r=t?!1:this.getValue();this.inlineClass||(this.inlineClass=e),r&&!~i.indexOf(e)?i.push(e):!r&&~i.indexOf(e)&&i.splice(i.indexOf(e),1),h(this.node.className)?this.node.className=i.join(" "):this.node.className.baseVal=i.join(" ")}function Xi(t){if(!this.locked)if(t)this.useProperty&&(this.node[this.propertyName]=!1),this.node.removeAttribute(this.propertyName);else if(this.useProperty)this.node[this.propertyName]=this.getValue();else{var e=this.getValue();e?this.node.setAttribute(this.propertyName,h(e)?e:""):this.node.removeAttribute(this.propertyName)}}function tr(t){t?this.node.getAttribute(this.name)===this.value&&this.node.removeAttribute(this.name):(this.value=be(this.getString()),this.node.setAttribute(this.name,this.value))}function er(t){t?this.value===this.node.getAttributeNS(this.namespace,this.name.slice(this.name.indexOf(":")+1))&&this.node.removeAttributeNS(this.namespace,this.name.slice(this.name.indexOf(":")+1)):(this.value=be(this.getString()),this.node.setAttributeNS(this.namespace,this.name.slice(this.name.indexOf(":")+1),this.value))}function nr(){return ad}function ir(t,e){if(ud.test(t))return[];var n=e?"svg":"div";return t?(sd.innerHTML="<"+n+" "+t+"></"+n+">")&&V(sd.childNodes[0].attributes):[]}function rr(t,e){for(var n=t.length;n--;)if(t[n].name===e.name)return!1;return!0}function sr(t,e){for(var n="xmlns:"+e;t;){if(t.hasAttribute&&t.hasAttribute(n))return t.getAttribute(n);t=t.parentNode}return Ju[e]}function ar(){return hd}function or(t,e,n){0===e?t.value=!0:"true"===e?t.value=!0:"false"===e||"0"===e?t.value=!1:t.value=e;var i=t.element[t.flag];return t.element[t.flag]=t.value,n&&!t.element.attributes.binding&&i!==t.value&&t.element.recreateTwowayBinding(),t.value}function ur(t){Fc.call(this,t)}function hr(){var t=this;return this.torndown?(v("ractive.teardown() was called on a Ractive instance that was already torn down"),Promise.resolve()):(this.shouldDestroy=!0,lr(this,function(){return t.fragment.rendered?t.unrender():Promise.resolve()}))}function lr(t,e){t.torndown=!0,t.fragment.unbind(),t._observers.slice().forEach(K),t.el&&t.el.__ractive_instances__&&N(t.el.__ractive_instances__,t);var n=e();return fd.fire(t),n.then(function(){pd.fire(t),t.viewmodel.teardown()}),n}function cr(t,e){return t.applyValue=function(t){this.parent.value[e]=t,t&&t.viewmodel?(this.link(t.viewmodel.getRactiveModel(),e),this._link.markedAll()):(this.link(na(Qa),e),this._link.markedAll())},t.applyValue(t.parent.ractive[e],e),t._link.set=function(e){return t.applyValue(e)},t._link.applyValue=function(e){return t.applyValue(e)},t._link}function dr(t,e){t._link&&t._link.implicit&&t._link.isDetached()&&t.attach(e);for(var n in t.childByKey)if(n in t.value)dr(t.childByKey[n],e);else if(!t.childByKey[n]._link||t.childByKey[n]._link.isDetached()){var i=bt(e,n);i&&t.childByKey[n].link(i,n,{implicit:!0})}}function fr(t){t._link&&t._link.implicit&&t.unlink();for(var e in t.childByKey)fr(t.childByKey[e])}function pr(t,e,n){var i,r,s,a,l;return u(n)&&(i=tt(n,t),s=n.toString(),a=!0),h(n)&&(i=bi(n,t),s=n),o(n)&&(h(n.get)?(i=bi(n.get,t),s=n.get):u(n.get)?(i=tt(n.get,t),s=n.get.toString(),a=!0):d("`%s` computation must have a `get()` method",e),u(n.set)&&(r=tt(n.set,t),l=n.set.toString())),{getter:i,setter:r,getterString:s,setterString:l,getterUseStack:a}}function mr(t,e,i){var r=(t.constructor["_"+i]||[]).concat(n(e[i]||[])),s="on"===i?"once":i+"Once";r.forEach(function(e){var n=e[0],r=e[1];u(r)?t[i](n,r):o(r)&&u(r.handler)&&t[r.once?s:i](n,r.handler,na(r))})}function vr(e,n){Xs.DEBUG&&ba(),yr(e),br(e),mr(e,n,"on"),!t(n,"delegate")&&e.parent&&e.parent.delegate!==e.delegate&&(e.delegate=!1),gd.fire(e,n);for(var i=yd.length;i--;){var r=yd[i];e[r]=ea(na(e.constructor[r]||null),n[r])}e._attributePartial&&(e.partials["extra-attributes"]=e._attributePartial,delete e._attributePartial);var s=new vd({adapt:gr(e,e.adapt,n),data:Nh.init(e.constructor,e,n),ractive:e});e.adapt=s.adaptors,e.viewmodel=s;var a=ea(na(e.constructor.prototype.computed),n.computed);for(var o in a)if("__proto__"!==o){var u=pr(e,o,a[o]);s.compute(o,u)}}function gr(t,e,n){function i(e){return h(e)&&(e=y("adaptors",t,e),e||d(Ma(e,"adaptor"))),e}e=e.map(i);var r=O(n.adapt).map(i),s=[e,r];return t.parent&&!t.isolated&&s.push(t.parent.viewmodel.adaptors),T.apply(null,s)}function yr(t){t._guid="r-"+bd++,t._subs=na(null),t._nsSubs=0,t._config={},t.event=null,t._eventQueue=[],t._observers=[],t._children=[],t._children.byName={},t.children=t._children,t.component||(t.root=t,t.parent=t.container=null)}function br(t){var e=t.component,n=t.constructor.attributes;if(n&&e){var i=e.template,r=i.m?i.m.slice():[],s=r.filter(function(t){return t.t===Fo}).map(function(t){return t.n});n.required.forEach(function(t){~s.indexOf(t)||v("Component '"+e.name+"' requires attribute '"+t+"' to be provided")});for(var a=n.optional.concat(n.required),o=[],u=r.length;u--;){var h=r[u];h.t!==Fo||~a.indexOf(h.n)||(n.mapAll?o.unshift({t:Fo,n:h.n,f:[{t:To,r:"~/"+h.n}]}):o.unshift(r.splice(u,1)[0]))}o.length&&(e.template={t:i.t,e:i.e,f:i.f,m:r,p:i.p}),t._attributePartial=o}}function wr(t){this.item&&this.removeChild(this.item);var e=t.instance;t.anchor=this,t.up=this.up,t.name=t.nameOption||this.name,this.name=t.name,e.isolated||e.viewmodel.attached(this.up),this.rendered&&_r(this,t)}function xr(t){this.item===t&&(kr(this,t),this.name=this.template.n)}function _r(t,e){if(t.rendered){e.shouldDestroy=!1,e.up=t.up,t.item=e,t.instance=e.instance;var n=t.up.findNextNode(t);e.instance.fragment.rendered&&e.instance.unrender(),e.partials=e.instance.partials,e.instance.partials=ea(na(e.partials),e.partials,t._partials),e.instance.fragment.unbind(),e.instance.fragment.componentParent=t.up,e.instance.fragment.bind(e.instance.viewmodel),t.attributes.forEach(R),t.eventHandlers.forEach(R),t.attributes.forEach(q),t.eventHandlers.forEach(q);var i=t.up.findParentNode();Ss(e.instance,i,i.contains(n)?n:null,t.occupants),e.lastBound!==t&&(e.lastBound=t)}}function kr(t,e){t.rendered&&(e.shouldDestroy=!0,e.instance.unrender(),t.eventHandlers.forEach(G),t.attributes.forEach(G),t.eventHandlers.forEach(W),t.attributes.forEach(W),e.instance.el=e.instance.anchor=null,e.instance.fragment.componentParent=null,e.up=null,e.anchor=null,t.item=null,t.instance=null)}function Er(){var t=xd;xd=[],t.forEach(Ut)}function Ar(t,e,n,i){void 0===i&&(i={}),e&&e.f&&e.f.s&&(t.fn=wi(e.f.s,e.f.r.length),i.register===!0&&(t.models=Cr(t,e,n,i)))}function Cr(t,e,n,i){return void 0===i&&(i={}),e.f.r.map(function(e,r){var s;return i.specialRef&&(s=i.specialRef(e,r))?s:(s=bt(n,e),i.register===!0&&s.register(t),s)})}function Sr(t,e){e&&e.f&&e.f.s&&(t.models&&t.models.forEach(function(e){e&&e.unregister&&e.unregister(t)}),t.models=null)}function Or(){this._ractive.binding.handleChange()}function jr(t,e,n){var i=t+"-bindingGroup";return e[i]||(e[i]=new Nd(i,e,n))}function Nr(){var t=this,e=this.bindings.filter(function(t){return t.node&&t.node.checked}).map(function(t){return t.element.getAttribute("value")}),n=[];return e.forEach(function(e){t.bindings[0].arrayContains(n,e)||n.push(e)}),n}function Tr(){Or.call(this);var t=this._ractive.binding.model.get();this.value=void 0==t?"":t}function Vr(t){var e;return function(){var n=this;e&&clearTimeout(e),e=setTimeout(function(){var t=n._ractive.binding;t.rendered&&Or.call(n),e=null},t)}}function Pr(t){return t.selectedOptions?V(t.selectedOptions):t.options?V(t.options).filter(function(t){return t.selected}):[]}function Ir(t){return Dd[t]||(Dd[t]=[])}function Mr(){var t=this.bindings.filter(function(t){return t.node.checked});return t.length>0?t[0].element.getAttribute("value"):void 0}function Br(t){return t&&t.template.f&&1===t.template.f.length&&!t.template.f[0].s?t.template.f[0].t===To?!0:(t.template.f[0].t===Vo&&v("It is not possible create a binding using a triple mustache."),!1):!1}function Rr(t){var e=t.name,n=t.attributeByName,i=Br(n.value),r=Br(n.contenteditable),s=t.getAttribute("contenteditable");if((s||r)&&i)return Id;if("input"===e){var a=t.getAttribute("type");if("radio"===a){var o=Br(n.name),u=Br(n.checked);return o&&u?(v("A radio input can have two-way binding on its name attribute, or its checked attribute - not both",{ractive:t.root}),Fd):o?Fd:u?Ld:null}if("checkbox"===a){var h=Br(n.name),l=Br(n.checked);return h&&l?jd:h?Pd:l?jd:null}return"file"===a&&i?Bd:"number"===a&&i?Kd:"range"===a&&i?Kd:i?Md:null}return"select"===e&&i?t.getAttribute("multiple")?Rd:zd:"textarea"===e&&i?Md:null}function Kr(t){var e=t.attributeByName.name;return"radio"===t.getAttribute("type")&&(e||{}).interpolator&&t.getAttribute("value")===e.interpolator.model.get()}function Dr(t){var e=t.toString();return e?" "+e:""}function Lr(t){var e=t.getAttribute("xmlns");if(e)return e;if("svg"===t.name)return Wu;var n=t.parent;return n?"foreignobject"===n.name?Hu:n.node.namespaceURI:t.ractive.el.namespaceURI}function Fr(t){for(var e,n=t.type,i=t.currentTarget,r=i._ractive&&i._ractive.proxy,s=t.target,a=!0;a&&s&&s!==i;){var o=s._ractive&&s._ractive.proxy;o&&o.up.delegate===r&&zr(t,s,i)&&(e=o.listeners&&o.listeners[n],e&&e.forEach(function(e){a=e.call(s,t)!==!1&&a})),s=s.parentNode||s.correspondingUseElement}return a}function zr(t,e,n){if(qd&&t instanceof qd)for(var i=e;i&&i!==n;){if(i.disabled)return!1;i=i.parentNode||i.correspondingUseElement}return!0}function Ur(t){var e=this,n=this._ractive.proxy;n.listeners&&n.listeners[t.type]&&n.listeners[t.type].forEach(function(n){
 return n.call(e,t)})}function $r(){var t=this._ractive.proxy;no.start(),t.formBindings.forEach(qr),no.end()}function qr(t){t.model.set(t.resetValue)}function Hr(t,e,n,i){if(n){var r=n[0];if(r&&3===r.nodeType){var s=r.nodeValue.indexOf(i);n.shift(),0===s?r.nodeValue.length!==i.length&&n.unshift(r.splitText(i.length)):r.nodeValue=i}else r=t.node=ka.createTextNode(i),n[0]?e.insertBefore(r,n[0]):e.appendChild(r);t.node=r}else t.node||(t.node=ka.createTextNode(i)),e.appendChild(t.node)}function Zr(t){rf.call(this,t)}function Wr(t){t.sp();var e=vn(t);if(!e)return null;var n={key:e};if(t.sp(),!t.matchString(":"))return null;t.sp();var i=t.read();return i?(n.value=i.v,n):null}function Gr(t){var e=t.template.f,n=t.element.instance.viewmodel,i=n.value;if(1===e.length&&e[0].t===To){var r=Bi(t.up,e[0]),s=r.get(!1);e[0].s?!o(s)||e[0].x?n.joinKey(k(t.name)).set(s):v("Cannot copy non-computed object value from static mapping '"+t.name+"'"):(t.model=r,t.link=n.createLink(t.name,r,e[0].r,{mapping:!0}),void 0===s&&!r.isReadonly&&t.name in i&&r.set(i[t.name]))}else t.boundFragment=new lp({owner:t,template:e}).bind(),t.model=n.joinKey(k(t.name)),t.model.set(t.boundFragment.valueOf()),t.boundFragment.bubble=function(){lp.prototype.bubble.call(t.boundFragment),no.scheduleTask(function(){t.boundFragment.update(),t.model.set(t.boundFragment.valueOf())})}}function Yr(t,n,i){var r=Qr(t,n,i||{});if(r)return r;if(r=Cc.fromId(n,{noThrow:!0})){var s=Cc.parseFor(r,t);return s.p&&e(t.partials,s.p),t.partials[n]=s.t}}function Qr(e,n,i){var r=ts(n,i.owner);if(r)return r;var s=b("partials",e,n);if(s){r=s.partials[n];var a;if(u(r)){if(a=r,a.styleSet)return a;a=r.bind(s),a.isOwner=t(s.partials,n),r=a.call(e,Cc)}if(!r&&""!==r)return void v(Ia,n,"partial","partial",{ractive:e});if(!Cc.isParsed(r)){var o=Cc.parseFor(r,s);o.p&&v("Partials ({{>%s}}) cannot contain nested inline partials",n,{ractive:e});var h=a?s:Jr(s,n);h.partials[n]=r=o.t}return a&&(r._fn=a),r.v?r.t:r}}function Jr(e,n){return t(e.partials,n)?e:Xr(e.constructor,n)}function Xr(e,n){return e?t(e.partials,n)?e:Xr(e.Parent,n):void 0}function ts(e,n){if(n){if(n.template&&n.template.p&&!oa(n.template.p)&&t(n.template.p,e))return n.template.p[e];if(n.up&&n.up.owner)return ts(e,n.up.owner)}}function es(t){Zr.call(this,t);var e=t.template;e.t===$o?this.yielder=1:e.t===Bo&&(this.type=Ro,this.macro=t.macro)}function ns(t,e){t.partial=e,is(t);var n={owner:t,template:t.partial};t.yielder&&(n.ractive=t.container.parent),t.fn&&(n.cssIds=t.fn._cssIds);var i=t.fragment=new lp(n);t.template.z&&(i.aliases=Ri(t.template.z,t.containerFragment||t.up))}function is(t){t.template.c&&(t.partial=[{t:Po,n:fu,f:t.partial}],ea(t.partial[0],t.template.c))}function rs(t,e,n){var i=e;return oa(i)?t.partial=i:o(i)?oa(i.t)?t.partial=i.t:h(i.template)&&(t.partial=us(i.template,i.template,t.ractive).t):u(i)&&i.styleSet?(t.fn=i,t.fragment&&(t.fragment.cssIds=i._cssIds)):null!=i&&(i=Yr(t.ractive,""+i,t.containerFragment||t.up),i?(t.name=e,i.styleSet?(t.fn=i,t.fragment&&(t.fragment.cssIds=i._cssIds)):t.partial=i):n?t.partial=us(""+e,""+e,t.ractive).t:t.name=e),t.partial}function ss(t){if(rs(this,t,!0),!this.initing){if(this.dirtyTemplate=!0,this.fnTemplate=this.partial,!this.updating){var e=no.start();return this.bubble(),no.end(),e}this.bubble(),no.promise()}}function as(t,e){var n=this.fragment.aliases||(this.fragment.aliases={});e?n[e]=this._data.joinAll(k(t)):n[t]=this._data}function os(e){var n=e.fn,i=e.fragment,r=e.template=ea({},e.template),s=e.handle=i.getContext({proxy:e,aliasLocal:as,name:e.template.e||e.name,attributes:{},setTemplate:ss.bind(e),template:r});if(r.p||(r.p={}),r.p=s.partials=ea({},r.p),t(r.p,"content")||(r.p.content=r.f||[]),oa(n.attributes)){e._attrs={};var a=function(){this.dirty=!0,e.dirtyAttrs=!0,e.bubble()};if(oa(r.m)){var o=r.m;r.p[bf]=r.m=o.filter(function(t){return!~n.attributes.indexOf(t.n)}),o.filter(function(t){return~n.attributes.indexOf(t.n)}).forEach(function(t){var n=new lp({template:t.f,owner:e});n.bubble=a,n.findFirstNode=Oa,e._attrs[t.n]=n})}else r.p[bf]=[]}else r.p[bf]=r.m;e._attrs&&(sa(e._attrs).forEach(function(t){e._attrs[t].bind()}),e.refreshAttrs()),e.initing=1,e.proxy=n(s,s.attributes)||{},e.partial||(e.partial=[]),e.fnTemplate=e.partial,e.initing=0,is(e),i.resetTemplate(e.partial)}function us(t,e,n){var i;try{i=Cc.parse(e,Cc.getParseOptions(n))}catch(r){v("Could not parse partial from expression '"+t+"'\n"+r.message)}return i||{t:[]}}function hs(t){for(var e=t,n=t;e;)e.delegate&&(n=e),e=e.parent;return n}function ls(t){return!t||oa(t)&&0===t.length||s(t)&&0===sa(t).length}function cs(t,e){return e||oa(t)?du:a(t)?pu:void 0===t?null:lu}function ds(t,e){var n=t.up.findNextNode(t);if(n){var i=ve();e.render(i),n.parentNode.insertBefore(i,n)}else e.render(t.up.findParentNode())}function fs(){Sf=!ka[Of]}function ps(){Sf=!1}function ms(){Sf=!0}function vs(e,n,i){for(var r=n;r;){if(t(r,e)&&(void 0===i||i?r.rendering:r.unrendering))return r[e];r=r.component&&r.component.ractive}return n[e]}function gs(t){return rp[t]||(rp[t]=Bu(t))}function ys(e,n){var i,r=b("components",e,n);if(r&&(i=r.components[n],i&&!i.isInstance&&!i.then)){var s=i.bind(r);if(s.isOwner=t(r.components,n),i=s(),!i)return void v(Ia,n,"component","component",{ractive:e});h(i)&&(i=ys(e,i)),i._fn=s,r.components[n]=i}return i}function bs(t,e){var n=e.template.p||{},i=e.template.e,r=ea({},e,{template:{t:Bo,e:i},macro:function(r){r.setTemplate(n["async-loading"]||[]),t.then(function(t){e.up.ractive.components[i]=t,n["async-loaded"]?(r.partials.component=[e.template],r.setTemplate(n["async-loaded"])):r.setTemplate([e.template])},function(t){n["async-failed"]?(r.aliasLocal("error","error"),r.set("@local.error",t),r.setTemplate(n["async-failed"])):r.setTemplate([])})}});return new es(r)}function ws(t){if(h(t.template))return new Af(t);var e,n,i=t.template.t;if(i===Bo)return n=t.template.e,e=b("partials",t.up.ractive,n),e&&(e=e.partials[n],e.styleSet)?(t.macro=e,new es(t)):(e=ys(t.up.ractive,n))?u(e.then)?bs(e,t):new wd(t,e):new(e=hp[n.toLowerCase()]||$d)(t);var r;if(i===Fo){var s=t.owner;(!s||s.type!==Lo&&s.type!==Uo&&s.type!==Bo)&&(s=ne(t.up)),t.element=s,r=s.type===Uo||s.type===Lo?vf:ld}else r=up[i];if(!r)throw new Error("Unrecognised item type "+i);return new r(t)}function xs(t,e,n,i){return void 0===i&&(i=0),t.map(function(t){if(t.type===No)return t.template;if(t.fragment)return t.fragment.iterations?t.fragment.iterations.map(function(t){return xs(t.items,e,n,i)}).join(""):xs(t.fragment.items,e,n,i);var r=n+"-"+i++,s=t.model||t.newModel;return e[r]=s?s.wrapper?s.wrapperValue:s.get():void 0,"${"+r+"}"}).join("")}function _s(t){t.unrender(!0)}function ks(t,e){return t[e._guid]||(t[e._guid]=[])}function Es(t,e){var n=ks(t.queue,e);for(t.hook.fire(e);n.length;)Es(t,n.shift());delete t.queue[e._guid]}function As(e,n,i){sa(e.viewmodel.computations).forEach(function(n){var i=e.viewmodel.computations[n];t(e.viewmodel.value,n)&&i.set(e.viewmodel.value[n])}),Dc.init(e.constructor,e,n),pp.fire(e),mp.begin(e);var r=e.fragment=Cs(e,i);if(r&&r.bind(e.viewmodel),mp.end(e),mr(e,n,"observe"),r){var s=ge(e.el||e.target);if(s){var a=e.render(s,e.append);Xs.DEBUG_PROMISES&&a["catch"](function(t){throw g("Promise debugging is enabled, to help solve errors that happen asynchronously. Some browsers will log unhandled promise rejections, in which case you can safely disable promise debugging:\n  Ractive.DEBUG_PROMISES = false;"),v("An error happened during rendering",{ractive:e}),f(t),t})}}}function Cs(t,e){if(void 0===e&&(e={}),t.template){var n=[].concat(t.constructor._cssIds||[],e.cssIds||[]);return new lp({owner:t,template:t.template,cssIds:n})}}function Ss(t,e,n,i){t.rendering=!0;var r=no.start();if(no.scheduleTask(function(){return vp.fire(t)},!0),t.fragment.rendered)throw new Error("You cannot call ractive.render() on an already rendered instance! Call ractive.unrender() first");if(t.destroyed&&(t.destroyed=!1,t.fragment=Cs(t).bind(t.viewmodel)),n=ge(n)||t.anchor,t.el=t.target=e,t.anchor=n,t.cssId&&Be(),e)if((e.__ractive_instances__||(e.__ractive_instances__=[])).push(t),n){var s=ka.createDocumentFragment();t.fragment.render(s),e.insertBefore(s,n)}else t.fragment.render(e,i);return no.end(),t.rendering=!1,r.then(function(){t.torndown||gp.fire(t)})}function Os(t,e){if(this.torndown)return v("ractive.render() was called on a Ractive instance that was already torn down"),Promise.resolve();if(t=ge(t)||this.el,!this.append&&t){var n=t.__ractive_instances__;n&&n.forEach(Z),this.enhance||(t.innerHTML="")}var i=this.enhance?V(t.childNodes):null,r=Ss(this,t,e,i);if(i)for(;i.length;)t.removeChild(i.pop());return r}function js(t){if(t=t||{},!o(t))throw new Error("The reset method takes either no arguments, or an object containing new data");t=Nh.init(this.constructor,this,{data:t});var e=no.start(),n=this.viewmodel.wrapper;n&&n.reset?n.reset(t)===!1&&this.viewmodel.set(t):this.viewmodel.set(t);for(var i,r=Dc.reset(this),s=r.length;s--;)if(yp.indexOf(r[s])>-1){i=!0;break}return i&&(_p.fire(this),this.fragment.resetTemplate(this.template),xp.fire(this),bp.fire(this)),no.end(),wp.fire(this,t),e}function Ns(t,e,n,i){t.forEach(function(t){if(t.type===Ro&&(t.refName===e||t.name===e))return t.inAttribute=n,void i.push(t);if(t.fragment)Ns(t.fragment.iterations||t.fragment.items,e,n,i);else if(oa(t.items))Ns(t.items,e,n,i);else if(t.type===Uo&&t.instance){if(t.instance.partials[e])return;Ns(t.instance.fragment.items,e,n,i)}t.type===Bo&&oa(t.attributes)&&Ns(t.attributes,e,!0,i)})}function Ts(t){Oc.init(null,this,{template:t});var e=this.transitionsEnabled;this.transitionsEnabled=!1;var n=this.component;n&&(n.shouldDestroy=!0),this.unrender(),n&&(n.shouldDestroy=!1);var i=no.start();this.fragment.unbind().unrender(!0),this.fragment=new lp({template:this.template,root:this,owner:this});var r=ve();return this.fragment.bind(this.viewmodel).render(r),n&&!n.external?this.fragment.findParentNode().insertBefore(r,n.findNextNode()):this.el.insertBefore(r,this.anchor),no.end(),this.transitionsEnabled=e,i}function Vs(t,e,n){var i=this,r=o(t)?e:n;return Et(Ct(i,t,e,r&&r.isolated),r)}function Ps(t,e,n){var i=l(e)?-e:-1,r=o(e)?e:n;return jt(this,t,i,r)}function Is(t,e){if(!h(t))throw new TypeError(Pa);return Et(At(this,t,null,e&&e.isolated).map(function(t){return[t,!t.get()]}),e)}function Ms(){var t=[this.cssId].concat(this.findAllComponents().map(function(t){return t.cssId})),e=sa(t.reduce(function(t,e){return t[e]=!0,t},{}));return Re(e)}function Bs(){return this.fragment.toString(!0)}function Rs(){return this.fragment.toString(!1)}function Ks(t,e,n){e instanceof HTMLElement||s(e)&&(n=e),e=e||this.event.node,e&&e._ractive||d("No node was supplied for transition "+t),n=n||{};var i=e._ractive.proxy,r=new Xf({owner:i,up:i.up,name:t,params:n});r.bind();var a=no.start();return no.registerTransition(r),no.end(),a.then(function(){return r.unbind()}),a}function Ds(t){var e=no.start();return this.viewmodel.joinAll(k(t),{lastLink:!1}).unlink(),no.end(),e}function Ls(){if(!this.fragment.rendered)return v("ractive.unrender() was called on a Ractive instance that was not rendered"),Promise.resolve();this.unrendering=!0;var t=no.start(),e=!this.component||(this.component.anchor||{}).shouldDestroy||this.component.shouldDestroy||this.shouldDestroy;return this.fragment.unrender(e),e&&(this.destroyed=!0),N(this.el.__ractive_instances__,this),Op.fire(this),no.end(),this.unrendering=!1,t}function Fs(t,e){var n=no.start();return t?this.viewmodel.joinAll(k(t)).updateFromBindings(e!==!1):this.viewmodel.updateFromBindings(!0),no.end(),n}function zs(t){return t&&t instanceof this}function Us(t){return this._cssModel.joinAll(k(t)).get()}function $s(t,e,n){var i=o(t)?e:n,r=co;return Et(Ct({viewmodel:r},t,e,!0),i)}function qs(t){return co.joinAll(k(t)).get()}function Hs(){for(var t=[],e=arguments.length;e--;)t[e]=arguments[e];return t.length?t.reduce(Ws,this):Ws(this)}function Zs(t,e){return void 0===e&&(e={}),Ws(this,e,t)}function Ws(t,e,i){void 0===e&&(e={});var r,s=u(i)&&i;if(e.prototype instanceof Xs)throw new Error("Ractive no longer supports multiple inheritance.");if(s){if(!(s.prototype instanceof t))throw new Error("Only classes that inherit the appropriate prototype may be used with extend");if(!Tp.test(s.toString()))throw new Error("Only classes that call super in their constructor may be used with extend");r=s.prototype}else s=function(t){return this instanceof s?(vr(this,t||{}),void As(this,t||{},{})):new s(t)},r=na(t.prototype),r.constructor=s,s.prototype=r;if(ra(s,{defaults:{value:r},extend:{value:Hs,writable:!0,configurable:!0},extendWith:{value:Zs,writable:!0,configurable:!0},extensions:{value:[]},isInstance:{value:zs},Parent:{value:t},Ractive:{value:Xs},styleGet:{value:Us.bind(s),configurable:!0},styleSet:{value:qe.bind(s),configurable:!0}}),Dc.extend(t,r,e,s),s._on=(t._on||[]).concat(n(e.on)),s._observe=(t._observe||[]).concat(n(e.observe)),t.extensions.push(s),e.attributes){var a;a=oa(e.attributes)?{optional:e.attributes,required:[]}:e.attributes,oa(a.required)||(a.required=[]),oa(a.optional)||(a.optional=[]),s.attributes=a}return Nh.extend(t,r,e,s),e.computed&&(r.computed=ea(na(t.prototype.computed),e.computed)),s}function Gs(t,e){if(!u(t))throw new Error("The macro must be a function");return ea(t,e),ra(t,{extensions:{value:[]},_cssIds:{value:[]},cssData:{value:ea(na(this.cssData),t.cssData||{})},styleGet:{value:Us.bind(t)},styleSet:{value:qe.bind(t)}}),ia(t,"_cssModel",{value:new Sh(t)}),t.css&&Ye(t,t,t),this.extensions.push(t),t}function Ys(){for(var t=[],e=arguments.length;e--;)t[e]=arguments[e];return t.map(x).join(".")}function Qs(t){return k(t).map(E)}function Js(t,e,n){return y(e,n,t)}function Xs(t){return this instanceof Xs?(vr(this,t||{}),void As(this,t||{},{})):new Xs(t)}Object.assign||(Object.assign=function(t){for(var e=[],n=arguments.length-1;n-->0;)e[n]=arguments[n+1];if(null==t)throw new TypeError("Cannot convert undefined or null to object");for(var i=Object(t),r=e.length,s=0;r>s;s++){var a=e[s];for(var o in a)Object.prototype.hasOwnProperty.call(a,o)&&(i[o]=a[o])}return i});var ta=Object,ea=ta.assign,na=ta.create,ia=ta.defineProperty,ra=ta.defineProperties,sa=ta.keys,aa=Object.prototype.toString,oa=Array.isArray;if(Array.prototype.find||ia(Array.prototype,"find",{value:function(e,n){if(null===this||void 0===this)throw new TypeError("Array.prototype.find called on null or undefined");if(!u(e))throw new TypeError(e+" is not a function");for(var i=Object(this),r=i.length>>>0,s=0;r>s;s++)if(t(i,s)&&e.call(n,i[s],s,i))return i[s];return void 0},configurable:!0,writable:!0}),"undefined"!=typeof window&&window.Node&&window.Node.prototype&&!window.Node.prototype.contains&&(Node.prototype.contains=function(t){var e=this;if(!t)throw new TypeError("node required");do if(e===t)return!0;while(t=t&&t.parentNode);return!1}),"undefined"!=typeof window&&window.performance&&!window.performance.now){window.performance=window.performance||{};var ua=Date.now();window.performance.now=function(){return Date.now()-ua}}if("undefined"!=typeof window&&!window.Promise){var ha={},la={},ca={},da=window.Promise=function(t){var e,n,i=[],r=[],s=ha,a=function(t){return function(a){s===ha&&(e=a,s=t,n=pa(s===la?i:r,e),fa(n))}},o=a(la),h=a(ca);try{t(o,h)}catch(l){h(l)}return{then:function(t,e){var a=new da(function(o,h){var l=function(t,e,n){u(t)?e.push(function(e){try{ma(a,t(e),o,h)}catch(n){h(n)}}):e.push(n)};l(t,i,o),l(e,r,h),s!==ha&&fa(n)});return a},"catch":function(t){return this.then(null,t)}}};da.all=function(t){return new da(function(e,n){var i,r,s=[];if(!t.length)return void e(s);var a=function(t,r){t&&u(t.then)?t.then(function(t){s[r]=t,--i||e(s)},n):(s[r]=t,--i||e(s))};for(i=r=t.length;r--;)a(t[r],r)})},da.resolve=function(t){return new da(function(e){e(t)})},da.reject=function(t){return new da(function(e,n){n(t)})};var fa=function(t){setTimeout(t,0)},pa=function(t,e){return function(){for(var n=void 0;n=t.shift();)n(e)}},ma=function(t,e,n,i){var r;if(e===t)throw new TypeError("A promise's fulfillment handler cannot return the same promise");if(e instanceof da)e.then(n,i);else if(e&&(o(e)||u(e))){try{r=e.then}catch(s){return void i(s)}if(u(r)){var a,h=function(e){a||(a=!0,ma(t,e,n,i))},l=function(t){a||(a=!0,i(t))};try{r.call(e,h,l)}catch(s){if(!a)return i(s),void(a=!0)}}else n(e)}else n(e)}}if(!("undefined"==typeof window||window.requestAnimationFrame&&window.cancelAnimationFrame)){var va=0;window.requestAnimationFrame=function(t){var e=Date.now(),n=Math.max(0,16-(e-va)),i=window.setTimeout(function(){t(e+n)},n);return va=e+n,i},window.cancelAnimationFrame=function(t){clearTimeout(t)}}var ga,ya,ba,wa={el:void 0,append:!1,delegate:!0,template:null,allowExpressions:!0,delimiters:["{{","}}"],tripleDelimiters:["{{{","}}}"],staticDelimiters:["[[","]]"],staticTripleDelimiters:["[[[","]]]"],csp:!0,interpolate:!1,preserveWhitespace:!1,sanitize:!1,stripComments:!0,contextLines:0,data:{},computed:{},syncComputedChildren:!1,resolveInstanceMembers:!0,warnAboutAmbiguity:!1,adapt:[],isolated:!0,twoway:!0,lazy:!1,noIntro:!1,noOutro:!1,transitionsEnabled:!0,complete:void 0,nestedTransitions:!0,css:null,noCssTransform:!1},xa={linear:function(t){return t},easeIn:function(t){return Math.pow(t,3)},easeOut:function(t){return Math.pow(t-1,3)+1},easeInOut:function(t){return(t/=.5)<1?.5*Math.pow(t,3):.5*(Math.pow(t-2,3)+2)}},_a="undefined"!=typeof window?window:null,ka=_a?document:null,Ea=!!ka,Aa="undefined"!=typeof console&&u(console.warn)&&u(console.warn.apply),Ca=ka?ka.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure","1.1"):!1,Sa=["o","ms","moz","webkit"],Oa=function(){},ja={};if(Aa){var Na=["%cRactive.js %c1.0.0-edge %cin debug mode, %cmore...","color: rgb(114, 157, 52); font-weight: normal;","color: rgb(85, 85, 85); font-weight: normal;","color: rgb(85, 85, 85); font-weight: normal;","color: rgb(82, 140, 224); font-weight: normal; text-decoration: underline;"],Ta="You're running Ractive 1.0.0-edge in debug mode - messages will be printed to the console to help you fix problems and optimise your application.\n\nTo disable debug mode, add this line at the start of your app:\n  Ractive.DEBUG = false;\n\nTo disable debug mode when your app is minified, add this snippet:\n  Ractive.DEBUG = /unminified/.test(function(){/*unminified*/});\n\nGet help and support:\n  http://ractive.js.org\n  http://stackoverflow.com/questions/tagged/ractivejs\n  http://groups.google.com/forum/#!forum/ractive-js\n  http://twitter.com/ractivejs\n\nFound a bug? Raise an issue:\n  https://github.com/ractivejs/ractive/issues\n\n";ba=function(){if(Xs.WELCOME_MESSAGE===!1)return void(ba=Oa);var t="WELCOME_MESSAGE"in Xs?Xs.WELCOME_MESSAGE:Ta,e=!!console.groupCollapsed;e&&console.groupCollapsed.apply(console,Na),console.log(t),e&&console.groupEnd(Na),ba=Oa},ya=function(t,e){if(ba(),o(e[e.length-1])){var n=e.pop(),i=n?n.ractive:null;if(i){var r;i.component&&(r=i.component.name)&&(t="<"+r+"> "+t);var s;(s=n.node||i.fragment&&i.fragment.rendered&&i.find("*"))&&e.push(s)}}console.warn.apply(console,["%cRactive.js: %c"+t,"color: rgb(114, 157, 52);","color: rgb(85, 85, 85);"].concat(e))},ga=function(){console.log.apply(console,arguments)}}else ya=ga=ba=Oa;var Va,Pa="Bad arguments",Ia='A function was specified for "%s" %s, but no %s was returned',Ma=function(t,e){return'Missing "'+t+'" '+e+" plugin. You may need to download a plugin via http://ractive.js.org/integrations/#"+e+"s"},Ba={number:function(t,e){if(!r(t)||!r(e))return null;t=+t,e=+e;var n=e-t;return n?function(e){return t+e*n}:function(){return t}},array:function(t,e){var n,i;if(!oa(t)||!oa(e))return null;var r=[],s=[];for(i=n=Math.min(t.length,e.length);i--;)s[i]=w(t[i],e[i]);for(i=n;i<t.length;i+=1)r[i]=t[i];for(i=n;i<e.length;i+=1)r[i]=e[i];return function(t){for(var e=n;e--;)r[e]=s[e](t);return r}},object:function(e,n){if(!s(e)||!s(n))return null;var i=[],r={},a={},o=function(s){t(e,s)&&(t(n,s)?(i.push(s),a[s]=w(e[s],n[s])||function(){return n[s]}):r[s]=e[s])};for(var u in e)o(u);for(var h in n)t(n,h)&&!t(e,h)&&(r[h]=n[h]);var l=i.length;return function(t){for(var e=l;e--;){var n=i[e];r[n]=a[n](t)}return r}}},Ra=/\[\s*(\*|[0-9]|[1-9][0-9]+)\s*\]/g,Ka=/([^\\](?:\\\\)*)\./,Da=/\\|\./g,La=/((?:\\)+)\1|\\(\.)/g,Fa=[],za=function(t,e){this.value=t,this.isReadonly=this.isKey=!0,this.deps=[],this.links=[],this.parent=e},Ua=za.prototype;Ua.get=function(t){return t&&B(this),E(this.value)},Ua.getKeypath=function(){return E(this.value)},Ua.has=function(){return!1},Ua.rebind=function(t,e){for(var n=this,i=this.deps.length;i--;)n.deps[i].rebind(t,e,!1);for(i=this.links.length;i--;)n.links[i].relinking(t,!1)},Ua.register=function(t){this.deps.push(t)},Ua.registerLink=function(t){A(this.links,t)},Ua.unregister=function(t){N(this.deps,t)},Ua.unregisterLink=function(t){N(this.links,t)},za.prototype.reference=Oa,za.prototype.unreference=Oa;var $a=function(t,e){this.parent=t,this.ractive=e,this.value=e?t.getKeypath(e):t.getKeypath(),this.deps=[],this.children={},this.isReadonly=this.isKeypath=!0},qa=$a.prototype;qa.get=function(t){return t&&B(this),this.value},qa.getChild=function(t){if(!(t._guid in this.children)){var e=new $a(this.parent,t);this.children[t._guid]=e,e.owner=this}return this.children[t._guid]},qa.getKeypath=function(){return this.value},qa.handleChange=function(){for(var t=this,e=sa(this.children),n=e.length;n--;)t.children[e[n]].handleChange();this.deps.forEach(L)},qa.has=function(){return!1},qa.rebindChildren=function(t){for(var e=this,n=sa(this.children),i=n.length;i--;){var r=e.children[n[i]];r.value=t.getKeypath(r.ractive),r.handleChange()}},qa.rebind=function(t,e){for(var n=this,i=t?t.getKeypathModel(this.ractive):void 0,r=sa(this.children),s=r.length;s--;)n.children[r[s]].rebind(t,e,!1);for(s=this.deps.length;s--;)n.deps[s].rebind(i,n,!1)},qa.register=function(t){this.deps.push(t)},qa.removeChild=function(t){t.ractive&&delete this.children[t.ractive._guid]},qa.teardown=function(){var t=this;this.owner&&this.owner.removeChild(this);for(var e=sa(this.children),n=e.length;n--;)t.children[e[n]].teardown()},qa.unregister=function(t){N(this.deps,t),this.deps.length||this.teardown()},$a.prototype.reference=Oa,$a.prototype.unreference=Oa;var Ha=Function.prototype.bind,Za={early:[],mark:[]},Wa={early:[],mark:[]},Ga=function(t){this.deps=[],this.children=[],this.childByKey={},this.links=[],this.keyModels={},this.bindings=[],this.patternObservers=[],t&&(this.parent=t,this.root=t.root)},Ya=Ga.prototype;Ya.addShuffleTask=function(t,e){void 0===e&&(e="early"),Za[e].push(t)},Ya.addShuffleRegister=function(t,e){void 0===e&&(e="early"),Wa[e].push({model:this,item:t})},Ya.downstreamChanged=function(){},Ya.findMatches=function(t){var e,n,i=t.length,r=[this],s=function(){var i=t[n];"*"===i?(e=[],r.forEach(function(t){e.push.apply(e,t.getValueChildren(t.get()))})):e=r.map(function(t){return t.joinKey(i)}),r=e};for(n=0;i>n;n+=1)s();return e},Ya.getKeyModel=function(t,e){return void 0===t||e?(t in this.keyModels||(this.keyModels[t]=new za(x(t),this)),this.keyModels[t]):this.parent.getKeyModel(t,!0)},Ya.getKeypath=function(t){if(t!==this.ractive&&this._link)return this._link.target.getKeypath(t);if(!this.keypath){var e=this.parent&&this.parent.getKeypath(t);this.keypath=e?this.parent.getKeypath(t)+"."+x(this.key):x(this.key)}return this.keypath},Ya.getValueChildren=function(t){var e,n=this;if(oa(t))e=[],"length"in this&&this.length!==t.length&&e.push(this.joinKey("length")),t.forEach(function(t,i){e.push(n.joinKey(i))});else if(s(t)||u(t))e=sa(t).map(function(t){return n.joinKey(t)});else if(null!=t)return[];return e},Ya.getVirtual=function(t){var e=this,n=this.get(t,{virtual:!1});if(s(n)){for(var i=oa(n)?[]:{},r=sa(n),a=r.length;a--;){var o=e.childByKey[r[a]];o?o._link?i[r[a]]=o._link.getVirtual():i[r[a]]=o.getVirtual():i[r[a]]=n[r[a]]}for(a=this.children.length;a--;){var u=e.children[a];u.key in i||!u._link||(i[u.key]=u._link.getVirtual())}return i}return n},Ya.has=function(e){if(this._link)return this._link.has(e);var n=this.get();if(!n)return!1;if(e=E(e),t(n,e))return!0;for(var i=n.constructor;i!==Function&&i!==Array&&i!==Object;){if(t(i.prototype,e))return!0;i=i.constructor}return!1},Ya.joinAll=function(t,e){for(var n=this,i=0;i<t.length;i+=1){if(e&&e.lastLink===!1&&i+1===t.length&&n.childByKey[t[i]]&&n.childByKey[t[i]]._link)return n.childByKey[t[i]];n=n.joinKey(t[i],e)}return n},Ya.notifyUpstream=function(t){for(var e=this,n=this.parent,i=t||[this.key];n;)n.patternObservers.length&&n.patternObservers.forEach(function(t){return t.notify(i.slice())}),i.unshift(n.key),n.links.forEach(function(t){return t.notifiedUpstream(i,e.root)}),n.deps.forEach(function(t){return t.handleChange(i)}),n.downstreamChanged(t),n=n.parent},Ya.rebind=function(t,e,n){var i=this;this._link&&this._link.rebind(t,e,!1);for(var r=this.deps.length;r--;)i.deps[r].rebind&&i.deps[r].rebind(t,e,n);for(r=this.links.length;r--;){var s=i.links[r];s.owner._link&&s.relinking(t,n)}for(r=this.children.length;r--;){var a=i.children[r];a.rebind(t?t.joinKey(a.key):void 0,a,n)}for(this.keypathModel&&this.keypathModel.rebind(t,e,!1),r=this.bindings.length;r--;)i.bindings[r].rebind(t,e,n)},Ya.reference=function(){"refs"in this?this.refs++:this.refs=1},Ya.register=function(t){this.deps.push(t)},Ya.registerLink=function(t){A(this.links,t)},Ya.registerPatternObserver=function(t){this.patternObservers.push(t),this.register(t)},Ya.registerTwowayBinding=function(t){this.bindings.push(t)},Ya.unreference=function(){"refs"in this&&this.refs--},Ya.unregister=function(t){N(this.deps,t)},Ya.unregisterLink=function(t){N(this.links,t)},Ya.unregisterPatternObserver=function(t){N(this.patternObservers,t),this.unregister(t)},Ya.unregisterTwowayBinding=function(t){N(this.bindings,t)},Ya.updateFromBindings=function(t){for(var e=this,n=this.bindings.length;n--;){var i=e.bindings[n].getValue();i!==e.value&&e.set(i)}if(!this.bindings.length){var r=it(this.deps);r&&r.value!==this.value&&this.set(r.value)}t&&(this.children.forEach(nt),this.links.forEach(nt),this._link&&this._link.updateFromBindings(t))},za.prototype.addShuffleTask=Ga.prototype.addShuffleTask,za.prototype.addShuffleRegister=Ga.prototype.addShuffleRegister,$a.prototype.addShuffleTask=Ga.prototype.addShuffleTask,$a.prototype.addShuffleRegister=Ga.prototype.addShuffleRegister;var Qa={key:"@missing",animate:Oa,applyValue:Oa,get:Oa,getKeypath:function(){return this.key},joinAll:function(){return this},joinKey:function(){return this},mark:Oa,registerLink:Oa,shufle:Oa,set:Oa,unregisterLink:Oa};Qa.parent=Qa;var Ja=function(e){function n(t,n,i,r){e.call(this,t),this.owner=n,this.target=i,this.key=void 0===r?n.key:r,n.isLink&&(this.sourcePath=n.sourcePath+"."+this.key),i.registerLink(this),t&&(this.isReadonly=t.isReadonly),this.isLink=!0}e&&(n.__proto__=e);var i=n.prototype=Object.create(e&&e.prototype);return i.constructor=n,i.animate=function(t,e,n,i){return this.target.animate(t,e,n,i)},i.applyValue=function(t){this.boundValue&&(this.boundValue=null),this.target.applyValue(t)},i.attach=function(t){var e=bt(t,this.key);e?this.relinking(e,!1):this.owner.unlink()},i.detach=function(){this.relinking(Qa,!1)},i.get=function(t,e){void 0===e&&(e={}),t&&(B(this),e.unwrap="unwrap"in e?e.unwrap:!0);var n="shouldBind"in e?e.shouldBind:!0;return e.shouldBind=this.mapping&&this.target.parent&&this.target.parent.isRoot,et(this,this.target.get(!1,e),n)},i.getKeypath=function(t){return t&&t!==this.root.ractive?this.target.getKeypath(t):e.prototype.getKeypath.call(this,t)},i.getKeypathModel=function(t){return this.keypathModel||(this.keypathModel=new $a(this)),t&&t!==this.root.ractive?this.keypathModel.getChild(t):this.keypathModel},i.handleChange=function(){this.deps.forEach(L),this.links.forEach(L),this.notifyUpstream()},i.isDetached=function(){return this.virtual&&this.target===Qa},i.joinKey=function(e){if(void 0===e||""===e)return this;if(!t(this.childByKey,e)){var i=new n(this,this,this.target.joinKey(e),e);this.children.push(i),this.childByKey[e]=i}return this.childByKey[e]},i.mark=function(t){this.target.mark(t)},i.marked=function(){this.boundValue&&(this.boundValue=null),this.links.forEach(U),this.deps.forEach(L)},i.markedAll=function(){this.children.forEach($),this.marked()},i.notifiedUpstream=function(t,e){var n=this;if(this.links.forEach(function(e){return e.notifiedUpstream(t,n.root)}),this.deps.forEach(L),t&&this.rootLink&&this.root!==e){var i=t.slice(1);i.unshift(this.key),this.notifyUpstream(i)}},i.relinked=function(){this.target.registerLink(this),this.children.forEach(function(t){return t.relinked()})},i.relinking=function(t,e){var n=this;this.rootLink&&this.sourcePath&&(t=at(this.sourcePath,t,this.target)),t&&this.target!==t&&(this.target.unregisterLink(this),this.keypathModel&&this.keypathModel.rebindChildren(t),this.target=t,this.children.forEach(function(n){n.relinking(t.joinKey(n.key),e)}),this.rootLink&&this.addShuffleTask(function(){n.relinked(),e||(n.markedAll(),n.notifyUpstream())}))},i.set=function(t){this.boundValue&&(this.boundValue=null),this.target.set(t)},i.shuffle=function(t){this.shuffling||(this.target.shuffling?st(this,t,!0):this.target.shuffle?this.target.shuffle(t):this.target.mark())},i.source=function(){return this.target.source?this.target.source():this.target},i.teardown=function(){this._link&&this._link.teardown(),this.target.unregisterLink(this),this.children.forEach(Z)},n}(Ga);Ga.prototype.link=function(t,e,n){var i=this._link||new Ja(this.parent,this,t,this.key);return i.implicit=n&&n.implicit,i.mapping=n&&n.mapping,i.sourcePath=e,i.rootLink=!0,this._link&&this._link.relinking(t,!1),this.rebind(i,this,!1),rt(),this._link=i,i.markedAll(),this.notifyUpstream(),i},Ga.prototype.unlink=function(){if(this._link){var t=this._link;this._link=void 0,t.rebind(this,t,!1),rt(),t.teardown(),this.notifyUpstream()}};var Xa=function(t,e){this.callback=t,this.parent=e,this.intros=[],this.outros=[],this.children=[],this.totalChildren=this.outroChildren=0,this.detachQueue=[],this.outrosComplete=!1,e&&e.addChild(this)},to=Xa.prototype;to.add=function(t){var e=t.isIntro?this.intros:this.outros;t.starting=!0,e.push(t)},to.addChild=function(t){this.children.push(t),this.totalChildren+=1,this.outroChildren+=1},to.decrementOutros=function(){this.outroChildren-=1,lt(this)},to.decrementTotal=function(){this.totalChildren-=1,lt(this)},to.detachNodes=function(){this.detachQueue.forEach(ut),this.children.forEach(ht),this.detachQueue=[]},to.ready=function(){this.detachQueue.length&&ct(this)},to.remove=function(t){var e=t.isIntro?this.intros:this.outros;N(e,t),lt(this)},to.start=function(){this.children.forEach(function(t){return t.start()}),this.intros.concat(this.outros).forEach(function(t){return t.start()}),this.ready=!0,lt(this)};var eo,no={start:function(){var t,e=new Promise(function(e){return t=e});return eo={previousBatch:eo,transitionManager:new Xa(t,eo&&eo.transitionManager),fragments:[],tasks:[],immediateObservers:[],deferredObservers:[],promise:e},e},end:function(){pt(),eo.previousBatch||eo.transitionManager.start(),eo=eo.previousBatch},addFragment:function(t){A(eo.fragments,t)},addFragmentToRoot:function(t){if(eo){for(var e=eo;e.previousBatch;)e=e.previousBatch;A(e.fragments,t)}},addObserver:function(t,e){eo?A(e?eo.deferredObservers:eo.immediateObservers,t):t.dispatch()},registerTransition:function(t){t._manager=eo.transitionManager,eo.transitionManager.add(t)},detachWhenReady:function(t){eo.transitionManager.detachQueue.push(t)},scheduleTask:function(t,e){var n;if(eo){for(n=eo;e&&n.previousBatch;)n=n.previousBatch;n.tasks.push(t)}else t()},promise:function(){if(!eo)return Promise.resolve();for(var t=eo;t.previousBatch;)t=t.previousBatch;return t.promise||Promise.resolve()}},io=[],ro=!1,so=function(t){this.duration=t.duration,this.step=t.step,this.complete=t.complete,this.easing=t.easing,this.start=performance.now(),this.end=this.start+this.duration,this.running=!0,io.push(this),ro||requestAnimationFrame(mt)},ao=so.prototype;ao.tick=function(t){
@@ -6501,3 +6508,18502 @@ define(
 			.ace-custom .ace_xml-pe {color: #494949}\
 			.ace-custom .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWNgYGBgYIiPj/8PAARgAh2NTMh8AAAAAElFTkSuQmCC) right repeat-y}\
 		";var r=e("../lib/dom");r.importCssString(t.cssText,t.cssClass)})
+
+/*
+	https://raw.githubusercontent.com/josdejong/jsoneditor/master/dist/jsoneditor-minimalist.js
+*/
+
+/*!
+ * jsoneditor.js
+ *
+ * @brief
+ * JSONEditor is a web-based tool to view, edit, format, and validate JSON.
+ * It has various modes such as a tree editor, a code editor, and a plain text
+ * editor.
+ *
+ * Supported browsers: Chrome, Firefox, Safari, Opera, Internet Explorer 8+
+ *
+ * @license
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy
+ * of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ *
+ * Copyright (c) 2011-2017 Jos de Jong, http://jsoneditoronline.org
+ *
+ * @author  Jos de Jong, <wjosdejong@gmail.com>
+ * @version 5.26.2
+ * @date    2018-11-13
+ */
+;(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["JSONEditor"] = factory();
+	else
+		root["JSONEditor"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Ajv;
+	try {
+	  Ajv = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"ajv\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	}
+	catch (err) {
+	  // no problem... when we need Ajv we will throw a neat exception
+	}
+
+	var ace = __webpack_require__(1); // may be undefined in case of minimalist bundle
+	var VanillaPicker = __webpack_require__(5); // may be undefined in case of minimalist bundle
+
+	var treemode = __webpack_require__(6);
+	var textmode = __webpack_require__(28);
+	var util = __webpack_require__(12);
+
+	if (typeof Promise === 'undefined') {
+	  console.error('Promise undefined. Please load a Promise polyfill in the browser in order to use JSONEditor');
+	}
+
+	/**
+	 * @constructor JSONEditor
+	 * @param {Element} container    Container element
+	 * @param {Object}  [options]    Object with options. available options:
+	 *                               {String} mode        Editor mode. Available values:
+	 *                                                    'tree' (default), 'view',
+	 *                                                    'form', 'text', and 'code'.
+	 *                               {function} onChange  Callback method, triggered
+	 *                                                    on change of contents.
+	 *                                                    Does not pass the contents itself.
+	 *                                                    See also `onChangeJSON` and
+	 *                                                    `onChangeText`.
+	 *                               {function} onChangeJSON  Callback method, triggered
+	 *                                                        in modes on change of contents,
+	 *                                                        passing the changed contents
+	 *                                                        as JSON.
+	 *                                                        Only applicable for modes
+	 *                                                        'tree', 'view', and 'form'.
+	 *                               {function} onChangeText  Callback method, triggered
+	 *                                                        in modes on change of contents,
+	 *                                                        passing the changed contents
+	 *                                                        as stringified JSON.
+	 *                               {function} onError   Callback method, triggered
+	 *                                                    when an error occurs
+	 *                               {Boolean} search     Enable search box.
+	 *                                                    True by default
+	 *                                                    Only applicable for modes
+	 *                                                    'tree', 'view', and 'form'
+	 *                               {Boolean} history    Enable history (undo/redo).
+	 *                                                    True by default
+	 *                                                    Only applicable for modes
+	 *                                                    'tree', 'view', and 'form'
+	 *                               {String} name        Field name for the root node.
+	 *                                                    Only applicable for modes
+	 *                                                    'tree', 'view', and 'form'
+	 *                               {Number} indentation     Number of indentation
+	 *                                                        spaces. 4 by default.
+	 *                                                        Only applicable for
+	 *                                                        modes 'text' and 'code'
+	 *                               {boolean} escapeUnicode  If true, unicode
+	 *                                                        characters are escaped.
+	 *                                                        false by default.
+	 *                               {boolean} sortObjectKeys If true, object keys are
+	 *                                                        sorted before display.
+	 *                                                        false by default.
+	 *                               {function} onSelectionChange Callback method,
+	 *                                                            triggered on node selection change
+	 *                                                            Only applicable for modes
+	 *                                                            'tree', 'view', and 'form'
+	 *                               {function} onTextSelectionChange Callback method,
+	 *                                                                triggered on text selection change
+	 *                                                                Only applicable for modes
+	 *                               {HTMLElement} modalAnchor        The anchor element to apply an
+	 *                                                                overlay and display the modals in a
+	 *                                                                centered location.
+	 *                                                                Defaults to document.body
+	 *                                                                'text' and 'code'
+	 *                               {function} onEvent Callback method, triggered
+	 *                                                  when an event occurs in
+	 *                                                  a JSON field or value.
+	 *                                                  Only applicable for
+	 *                                                  modes 'form', 'tree' and
+	 *                                                  'view'
+	 * @param {Object | undefined} json JSON object
+	 */
+	function JSONEditor (container, options, json) {
+	  if (!(this instanceof JSONEditor)) {
+	    throw new Error('JSONEditor constructor called without "new".');
+	  }
+
+	  // check for unsupported browser (IE8 and older)
+	  var ieVersion = util.getInternetExplorerVersion();
+	  if (ieVersion != -1 && ieVersion < 9) {
+	    throw new Error('Unsupported browser, IE9 or newer required. ' +
+	        'Please install the newest version of your browser.');
+	  }
+
+	  if (options) {
+	    // check for deprecated options
+	    if (options.error) {
+	      console.warn('Option "error" has been renamed to "onError"');
+	      options.onError = options.error;
+	      delete options.error;
+	    }
+	    if (options.change) {
+	      console.warn('Option "change" has been renamed to "onChange"');
+	      options.onChange = options.change;
+	      delete options.change;
+	    }
+	    if (options.editable) {
+	      console.warn('Option "editable" has been renamed to "onEditable"');
+	      options.onEditable = options.editable;
+	      delete options.editable;
+	    }
+
+	    // warn if onChangeJSON is used when mode can be `text` or `code`
+	    if (options.onChangeJSON) {
+	      if (options.mode === 'text' || options.mode === 'code' ||
+	          (options.modes && (options.modes.indexOf('text') !== -1 || options.modes.indexOf('code') !== -1))) {
+	        console.warn('Option "onChangeJSON" is not applicable to modes "text" and "code". ' +
+	            'Use "onChangeText" or "onChange" instead.');
+	      }
+	    }
+
+	    // validate options
+	    if (options) {
+	      Object.keys(options).forEach(function (option) {
+	        if (JSONEditor.VALID_OPTIONS.indexOf(option) === -1) {
+	          console.warn('Unknown option "' + option + '". This option will be ignored');
+	        }
+	      });
+	    }
+	  }
+
+	  if (arguments.length) {
+	    this._create(container, options, json);
+	  }
+	}
+
+	/**
+	 * Configuration for all registered modes. Example:
+	 * {
+	 *     tree: {
+	 *         mixin: TreeEditor,
+	 *         data: 'json'
+	 *     },
+	 *     text: {
+	 *         mixin: TextEditor,
+	 *         data: 'text'
+	 *     }
+	 * }
+	 *
+	 * @type { Object.<String, {mixin: Object, data: String} > }
+	 */
+	JSONEditor.modes = {};
+
+	// debounce interval for JSON schema vaidation in milliseconds
+	JSONEditor.prototype.DEBOUNCE_INTERVAL = 150;
+
+	JSONEditor.VALID_OPTIONS = [
+	  'ajv', 'schema', 'schemaRefs','templates',
+	  'ace', 'theme', 'autocomplete',
+	  'onChange', 'onChangeJSON', 'onChangeText',
+	  'onEditable', 'onError', 'onEvent', 'onModeChange', 'onValidate',
+	  'onSelectionChange', 'onTextSelectionChange',
+	  'colorPicker', 'onColorPicker',
+	  'timestampTag',
+	  'escapeUnicode', 'history', 'search', 'mode', 'modes', 'name', 'indentation',
+	  'sortObjectKeys', 'navigationBar', 'statusBar', 'mainMenuBar', 'languages', 'language', 'enableSort', 'enableTransform'
+	];
+
+	/**
+	 * Create the JSONEditor
+	 * @param {Element} container    Container element
+	 * @param {Object}  [options]    See description in constructor
+	 * @param {Object | undefined} json JSON object
+	 * @private
+	 */
+	JSONEditor.prototype._create = function (container, options, json) {
+	  this.container = container;
+	  this.options = options || {};
+	  this.json = json || {};
+
+	  var mode = this.options.mode || (this.options.modes && this.options.modes[0]) || 'tree';
+	  this.setMode(mode);
+	};
+
+	/**
+	 * Destroy the editor. Clean up DOM, event listeners, and web workers.
+	 */
+	JSONEditor.prototype.destroy = function () {};
+
+	/**
+	 * Set JSON object in editor
+	 * @param {Object | undefined} json      JSON data
+	 */
+	JSONEditor.prototype.set = function (json) {
+	  this.json = json;
+	};
+
+	/**
+	 * Get JSON from the editor
+	 * @returns {Object} json
+	 */
+	JSONEditor.prototype.get = function () {
+	  return this.json;
+	};
+
+	/**
+	 * Set string containing JSON for the editor
+	 * @param {String | undefined} jsonText
+	 */
+	JSONEditor.prototype.setText = function (jsonText) {
+	  this.json = util.parse(jsonText);
+	};
+
+	/**
+	 * Get stringified JSON contents from the editor
+	 * @returns {String} jsonText
+	 */
+	JSONEditor.prototype.getText = function () {
+	  return JSON.stringify(this.json);
+	};
+
+	/**
+	 * Set a field name for the root node.
+	 * @param {String | undefined} name
+	 */
+	JSONEditor.prototype.setName = function (name) {
+	  if (!this.options) {
+	    this.options = {};
+	  }
+	  this.options.name = name;
+	};
+
+	/**
+	 * Get the field name for the root node.
+	 * @return {String | undefined} name
+	 */
+	JSONEditor.prototype.getName = function () {
+	  return this.options && this.options.name;
+	};
+
+	/**
+	 * Change the mode of the editor.
+	 * JSONEditor will be extended with all methods needed for the chosen mode.
+	 * @param {String} mode     Available modes: 'tree' (default), 'view', 'form',
+	 *                          'text', and 'code'.
+	 */
+	JSONEditor.prototype.setMode = function (mode) {
+	  // if the mode is the same as current mode (and it's not the first time), do nothing.
+	  if (mode === this.options.mode && this.create) {
+	    return;
+	  }
+
+	  var container = this.container;
+	  var options = util.extend({}, this.options);
+	  var oldMode = options.mode;
+	  var data;
+	  var name;
+
+	  options.mode = mode;
+	  var config = JSONEditor.modes[mode];
+	  if (config) {
+	    try {
+	      var asText = (config.data == 'text');
+	      name = this.getName();
+	      data = this[asText ? 'getText' : 'get'](); // get text or json
+
+	      this.destroy();
+	      util.clear(this);
+	      util.extend(this, config.mixin);
+	      this.create(container, options);
+
+	      this.setName(name);
+	      this[asText ? 'setText' : 'set'](data); // set text or json
+
+	      if (typeof config.load === 'function') {
+	        try {
+	          config.load.call(this);
+	        }
+	        catch (err) {
+	          console.error(err);
+	        }
+	      }
+
+	      if (typeof options.onModeChange === 'function' && mode !== oldMode) {
+	        try {
+	          options.onModeChange(mode, oldMode);
+	        }
+	        catch (err) {
+	          console.error(err);
+	        }
+	      }
+	    }
+	    catch (err) {
+	      this._onError(err);
+	    }
+	  }
+	  else {
+	    throw new Error('Unknown mode "' + options.mode + '"');
+	  }
+	};
+
+	/**
+	 * Get the current mode
+	 * @return {string}
+	 */
+	JSONEditor.prototype.getMode = function () {
+	  return this.options.mode;
+	};
+
+	/**
+	 * Throw an error. If an error callback is configured in options.error, this
+	 * callback will be invoked. Else, a regular error is thrown.
+	 * @param {Error} err
+	 * @private
+	 */
+	JSONEditor.prototype._onError = function(err) {
+	  if (this.options && typeof this.options.onError === 'function') {
+	    this.options.onError(err);
+	  }
+	  else {
+	    throw err;
+	  }
+	};
+
+	/**
+	 * Set a JSON schema for validation of the JSON object.
+	 * To remove the schema, call JSONEditor.setSchema(null)
+	 * @param {Object | null} schema
+	 * @param {Object.<string, Object>=} schemaRefs Schemas that are referenced using the `$ref` property from the JSON schema that are set in the `schema` option,
+	 +  the object structure in the form of `{reference_key: schemaObject}`
+	 */
+	JSONEditor.prototype.setSchema = function (schema, schemaRefs) {
+	  // compile a JSON schema validator if a JSON schema is provided
+	  if (schema) {
+	    var ajv;
+	    try {
+	      // grab ajv from options if provided, else create a new instance
+	      ajv = this.options.ajv || Ajv({ allErrors: true, verbose: true });
+
+	    }
+	    catch (err) {
+	      console.warn('Failed to create an instance of Ajv, JSON Schema validation is not available. Please use a JSONEditor bundle including Ajv, or pass an instance of Ajv as via the configuration option `ajv`.');
+	    }
+
+	    if (ajv) {
+	      if(schemaRefs) {
+	        for (var ref in schemaRefs) {
+	          ajv.removeSchema(ref);  // When updating a schema - old refs has to be removed first
+	          if(schemaRefs[ref]) {
+	            ajv.addSchema(schemaRefs[ref], ref);
+	          }
+	        }
+	        this.options.schemaRefs = schemaRefs;
+	      }
+	      this.validateSchema = ajv.compile(schema);
+
+	      // add schema to the options, so that when switching to an other mode,
+	      // the set schema is not lost
+	      this.options.schema = schema;
+
+	      // validate now
+	      this.validate();
+	    }
+
+	    this.refresh(); // update DOM
+	  }
+	  else {
+	    // remove current schema
+	    this.validateSchema = null;
+	    this.options.schema = null;
+	    this.options.schemaRefs = null;
+	    this.validate(); // to clear current error messages
+	    this.refresh();  // update DOM
+	  }
+	};
+
+	/**
+	 * Validate current JSON object against the configured JSON schema
+	 * Throws an exception when no JSON schema is configured
+	 */
+	JSONEditor.prototype.validate = function () {
+	  // must be implemented by treemode and textmode
+	};
+
+	/**
+	 * Refresh the rendered contents
+	 */
+	JSONEditor.prototype.refresh = function () {
+	  // can be implemented by treemode and textmode
+	};
+
+	/**
+	 * Register a plugin with one ore multiple modes for the JSON Editor.
+	 *
+	 * A mode is described as an object with properties:
+	 *
+	 * - `mode: String`           The name of the mode.
+	 * - `mixin: Object`          An object containing the mixin functions which
+	 *                            will be added to the JSONEditor. Must contain functions
+	 *                            create, get, getText, set, and setText. May have
+	 *                            additional functions.
+	 *                            When the JSONEditor switches to a mixin, all mixin
+	 *                            functions are added to the JSONEditor, and then
+	 *                            the function `create(container, options)` is executed.
+	 * - `data: 'text' | 'json'`  The type of data that will be used to load the mixin.
+	 * - `[load: function]`       An optional function called after the mixin
+	 *                            has been loaded.
+	 *
+	 * @param {Object | Array} mode  A mode object or an array with multiple mode objects.
+	 */
+	JSONEditor.registerMode = function (mode) {
+	  var i, prop;
+
+	  if (util.isArray(mode)) {
+	    // multiple modes
+	    for (i = 0; i < mode.length; i++) {
+	      JSONEditor.registerMode(mode[i]);
+	    }
+	  }
+	  else {
+	    // validate the new mode
+	    if (!('mode' in mode)) throw new Error('Property "mode" missing');
+	    if (!('mixin' in mode)) throw new Error('Property "mixin" missing');
+	    if (!('data' in mode)) throw new Error('Property "data" missing');
+	    var name = mode.mode;
+	    if (name in JSONEditor.modes) {
+	      throw new Error('Mode "' + name + '" already registered');
+	    }
+
+	    // validate the mixin
+	    if (typeof mode.mixin.create !== 'function') {
+	      throw new Error('Required function "create" missing on mixin');
+	    }
+	    var reserved = ['setMode', 'registerMode', 'modes'];
+	    for (i = 0; i < reserved.length; i++) {
+	      prop = reserved[i];
+	      if (prop in mode.mixin) {
+	        throw new Error('Reserved property "' + prop + '" not allowed in mixin');
+	      }
+	    }
+
+	    JSONEditor.modes[name] = mode;
+	  }
+	};
+
+	// register tree and text modes
+	JSONEditor.registerMode(treemode);
+	JSONEditor.registerMode(textmode);
+
+	// expose some of the libraries that can be used customized
+	JSONEditor.ace = ace;
+	JSONEditor.Ajv = Ajv;
+	JSONEditor.VanillaPicker = VanillaPicker;
+
+	// default export for TypeScript ES6 projects
+	JSONEditor.default = JSONEditor;
+
+	module.exports = JSONEditor;
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ace
+	if (window.ace) {
+	  // use the already loaded instance of Ace
+	  ace = window.ace
+	}
+	else {
+	  try {
+	    // load brace
+	    ace = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"brace\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	    // load required Ace plugins
+	    __webpack_require__(2);
+	    __webpack_require__(4);
+	  }
+	  catch (err) {
+	    // failed to load brace (can be minimalist bundle).
+	    // No worries, the editor will fall back to plain text if needed.
+	  }
+	}
+
+	module.exports = ace;
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	ace.define("ace/mode/json_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(acequire, exports, module) {
+	"use strict";
+
+	var oop = acequire("../lib/oop");
+	var TextHighlightRules = acequire("./text_highlight_rules").TextHighlightRules;
+
+	var JsonHighlightRules = function() {
+	    this.$rules = {
+	        "start" : [
+	            {
+	                token : "variable", // single line
+	                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]\\s*(?=:)'
+	            }, {
+	                token : "string", // single line
+	                regex : '"',
+	                next  : "string"
+	            }, {
+	                token : "constant.numeric", // hex
+	                regex : "0[xX][0-9a-fA-F]+\\b"
+	            }, {
+	                token : "constant.numeric", // float
+	                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
+	            }, {
+	                token : "constant.language.boolean",
+	                regex : "(?:true|false)\\b"
+	            }, {
+	                token : "text", // single quoted strings are not allowed
+	                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+	            }, {
+	                token : "comment", // comments are not allowed, but who cares?
+	                regex : "\\/\\/.*$"
+	            }, {
+	                token : "comment.start", // comments are not allowed, but who cares?
+	                regex : "\\/\\*",
+	                next  : "comment"
+	            }, {
+	                token : "paren.lparen",
+	                regex : "[[({]"
+	            }, {
+	                token : "paren.rparen",
+	                regex : "[\\])}]"
+	            }, {
+	                token : "text",
+	                regex : "\\s+"
+	            }
+	        ],
+	        "string" : [
+	            {
+	                token : "constant.language.escape",
+	                regex : /\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|["\\\/bfnrt])/
+	            }, {
+	                token : "string",
+	                regex : '"|$',
+	                next  : "start"
+	            }, {
+	                defaultToken : "string"
+	            }
+	        ],
+	        "comment" : [
+	            {
+	                token : "comment.end", // comments are not allowed, but who cares?
+	                regex : "\\*\\/",
+	                next  : "start"
+	            }, {
+	                defaultToken: "comment"
+	            }
+	        ]
+	    };
+
+	};
+
+	oop.inherits(JsonHighlightRules, TextHighlightRules);
+
+	exports.JsonHighlightRules = JsonHighlightRules;
+	});
+
+	ace.define("ace/mode/matching_brace_outdent",["require","exports","module","ace/range"], function(acequire, exports, module) {
+	"use strict";
+
+	var Range = acequire("../range").Range;
+
+	var MatchingBraceOutdent = function() {};
+
+	(function() {
+
+	    this.checkOutdent = function(line, input) {
+	        if (! /^\s+$/.test(line))
+	            return false;
+
+	        return /^\s*\}/.test(input);
+	    };
+
+	    this.autoOutdent = function(doc, row) {
+	        var line = doc.getLine(row);
+	        var match = line.match(/^(\s*\})/);
+
+	        if (!match) return 0;
+
+	        var column = match[1].length;
+	        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+
+	        if (!openBracePos || openBracePos.row == row) return 0;
+
+	        var indent = this.$getIndent(doc.getLine(openBracePos.row));
+	        doc.replace(new Range(row, 0, row, column-1), indent);
+	    };
+
+	    this.$getIndent = function(line) {
+	        return line.match(/^\s*/)[0];
+	    };
+
+	}).call(MatchingBraceOutdent.prototype);
+
+	exports.MatchingBraceOutdent = MatchingBraceOutdent;
+	});
+
+	ace.define("ace/mode/folding/cstyle",["require","exports","module","ace/lib/oop","ace/range","ace/mode/folding/fold_mode"], function(acequire, exports, module) {
+	"use strict";
+
+	var oop = acequire("../../lib/oop");
+	var Range = acequire("../../range").Range;
+	var BaseFoldMode = acequire("./fold_mode").FoldMode;
+
+	var FoldMode = exports.FoldMode = function(commentRegex) {
+	    if (commentRegex) {
+	        this.foldingStartMarker = new RegExp(
+	            this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.start)
+	        );
+	        this.foldingStopMarker = new RegExp(
+	            this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + commentRegex.end)
+	        );
+	    }
+	};
+	oop.inherits(FoldMode, BaseFoldMode);
+
+	(function() {
+
+	    this.foldingStartMarker = /([\{\[\(])[^\}\]\)]*$|^\s*(\/\*)/;
+	    this.foldingStopMarker = /^[^\[\{\(]*([\}\]\)])|^[\s\*]*(\*\/)/;
+	    this.singleLineBlockCommentRe= /^\s*(\/\*).*\*\/\s*$/;
+	    this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/;
+	    this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/;
+	    this._getFoldWidgetBase = this.getFoldWidget;
+	    this.getFoldWidget = function(session, foldStyle, row) {
+	        var line = session.getLine(row);
+
+	        if (this.singleLineBlockCommentRe.test(line)) {
+	            if (!this.startRegionRe.test(line) && !this.tripleStarBlockCommentRe.test(line))
+	                return "";
+	        }
+
+	        var fw = this._getFoldWidgetBase(session, foldStyle, row);
+
+	        if (!fw && this.startRegionRe.test(line))
+	            return "start"; // lineCommentRegionStart
+
+	        return fw;
+	    };
+
+	    this.getFoldWidgetRange = function(session, foldStyle, row, forceMultiline) {
+	        var line = session.getLine(row);
+
+	        if (this.startRegionRe.test(line))
+	            return this.getCommentRegionBlock(session, line, row);
+
+	        var match = line.match(this.foldingStartMarker);
+	        if (match) {
+	            var i = match.index;
+
+	            if (match[1])
+	                return this.openingBracketBlock(session, match[1], row, i);
+
+	            var range = session.getCommentFoldRange(row, i + match[0].length, 1);
+
+	            if (range && !range.isMultiLine()) {
+	                if (forceMultiline) {
+	                    range = this.getSectionRange(session, row);
+	                } else if (foldStyle != "all")
+	                    range = null;
+	            }
+
+	            return range;
+	        }
+
+	        if (foldStyle === "markbegin")
+	            return;
+
+	        var match = line.match(this.foldingStopMarker);
+	        if (match) {
+	            var i = match.index + match[0].length;
+
+	            if (match[1])
+	                return this.closingBracketBlock(session, match[1], row, i);
+
+	            return session.getCommentFoldRange(row, i, -1);
+	        }
+	    };
+
+	    this.getSectionRange = function(session, row) {
+	        var line = session.getLine(row);
+	        var startIndent = line.search(/\S/);
+	        var startRow = row;
+	        var startColumn = line.length;
+	        row = row + 1;
+	        var endRow = row;
+	        var maxRow = session.getLength();
+	        while (++row < maxRow) {
+	            line = session.getLine(row);
+	            var indent = line.search(/\S/);
+	            if (indent === -1)
+	                continue;
+	            if  (startIndent > indent)
+	                break;
+	            var subRange = this.getFoldWidgetRange(session, "all", row);
+
+	            if (subRange) {
+	                if (subRange.start.row <= startRow) {
+	                    break;
+	                } else if (subRange.isMultiLine()) {
+	                    row = subRange.end.row;
+	                } else if (startIndent == indent) {
+	                    break;
+	                }
+	            }
+	            endRow = row;
+	        }
+
+	        return new Range(startRow, startColumn, endRow, session.getLine(endRow).length);
+	    };
+	    this.getCommentRegionBlock = function(session, line, row) {
+	        var startColumn = line.search(/\s*$/);
+	        var maxRow = session.getLength();
+	        var startRow = row;
+
+	        var re = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/;
+	        var depth = 1;
+	        while (++row < maxRow) {
+	            line = session.getLine(row);
+	            var m = re.exec(line);
+	            if (!m) continue;
+	            if (m[1]) depth--;
+	            else depth++;
+
+	            if (!depth) break;
+	        }
+
+	        var endRow = row;
+	        if (endRow > startRow) {
+	            return new Range(startRow, startColumn, endRow, line.length);
+	        }
+	    };
+
+	}).call(FoldMode.prototype);
+
+	});
+
+	ace.define("ace/mode/json",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/json_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/behaviour/cstyle","ace/mode/folding/cstyle","ace/worker/worker_client"], function(acequire, exports, module) {
+	"use strict";
+
+	var oop = acequire("../lib/oop");
+	var TextMode = acequire("./text").Mode;
+	var HighlightRules = acequire("./json_highlight_rules").JsonHighlightRules;
+	var MatchingBraceOutdent = acequire("./matching_brace_outdent").MatchingBraceOutdent;
+	var CstyleBehaviour = acequire("./behaviour/cstyle").CstyleBehaviour;
+	var CStyleFoldMode = acequire("./folding/cstyle").FoldMode;
+	var WorkerClient = acequire("../worker/worker_client").WorkerClient;
+
+	var Mode = function() {
+	    this.HighlightRules = HighlightRules;
+	    this.$outdent = new MatchingBraceOutdent();
+	    this.$behaviour = new CstyleBehaviour();
+	    this.foldingRules = new CStyleFoldMode();
+	};
+	oop.inherits(Mode, TextMode);
+
+	(function() {
+
+	    this.getNextLineIndent = function(state, line, tab) {
+	        var indent = this.$getIndent(line);
+
+	        if (state == "start") {
+	            var match = line.match(/^.*[\{\(\[]\s*$/);
+	            if (match) {
+	                indent += tab;
+	            }
+	        }
+
+	        return indent;
+	    };
+
+	    this.checkOutdent = function(state, line, input) {
+	        return this.$outdent.checkOutdent(line, input);
+	    };
+
+	    this.autoOutdent = function(state, doc, row) {
+	        this.$outdent.autoOutdent(doc, row);
+	    };
+
+	    this.createWorker = function(session) {
+	        var worker = new WorkerClient(["ace"], __webpack_require__(3), "JsonWorker");
+	        worker.attachToDocument(session.getDocument());
+
+	        worker.on("annotate", function(e) {
+	            session.setAnnotations(e.data);
+	        });
+
+	        worker.on("terminate", function() {
+	            session.clearAnnotations();
+	        });
+
+	        return worker;
+	    };
+
+
+	    this.$id = "ace/mode/json";
+	}).call(Mode.prototype);
+
+	exports.Mode = Mode;
+	});
+
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports.id = 'ace/mode/json_worker';
+	module.exports.src = "\"no use strict\";!function(window){function resolveModuleId(id,paths){for(var testPath=id,tail=\"\";testPath;){var alias=paths[testPath];if(\"string\"==typeof alias)return alias+tail;if(alias)return alias.location.replace(/\\/*$/,\"/\")+(tail||alias.main||alias.name);if(alias===!1)return\"\";var i=testPath.lastIndexOf(\"/\");if(-1===i)break;tail=testPath.substr(i)+tail,testPath=testPath.slice(0,i)}return id}if(!(void 0!==window.window&&window.document||window.acequire&&window.define)){window.console||(window.console=function(){var msgs=Array.prototype.slice.call(arguments,0);postMessage({type:\"log\",data:msgs})},window.console.error=window.console.warn=window.console.log=window.console.trace=window.console),window.window=window,window.ace=window,window.onerror=function(message,file,line,col,err){postMessage({type:\"error\",data:{message:message,data:err.data,file:file,line:line,col:col,stack:err.stack}})},window.normalizeModule=function(parentId,moduleName){if(-1!==moduleName.indexOf(\"!\")){var chunks=moduleName.split(\"!\");return window.normalizeModule(parentId,chunks[0])+\"!\"+window.normalizeModule(parentId,chunks[1])}if(\".\"==moduleName.charAt(0)){var base=parentId.split(\"/\").slice(0,-1).join(\"/\");for(moduleName=(base?base+\"/\":\"\")+moduleName;-1!==moduleName.indexOf(\".\")&&previous!=moduleName;){var previous=moduleName;moduleName=moduleName.replace(/^\\.\\//,\"\").replace(/\\/\\.\\//,\"/\").replace(/[^\\/]+\\/\\.\\.\\//,\"\")}}return moduleName},window.acequire=function acequire(parentId,id){if(id||(id=parentId,parentId=null),!id.charAt)throw Error(\"worker.js acequire() accepts only (parentId, id) as arguments\");id=window.normalizeModule(parentId,id);var module=window.acequire.modules[id];if(module)return module.initialized||(module.initialized=!0,module.exports=module.factory().exports),module.exports;if(!window.acequire.tlns)return console.log(\"unable to load \"+id);var path=resolveModuleId(id,window.acequire.tlns);return\".js\"!=path.slice(-3)&&(path+=\".js\"),window.acequire.id=id,window.acequire.modules[id]={},importScripts(path),window.acequire(parentId,id)},window.acequire.modules={},window.acequire.tlns={},window.define=function(id,deps,factory){if(2==arguments.length?(factory=deps,\"string\"!=typeof id&&(deps=id,id=window.acequire.id)):1==arguments.length&&(factory=id,deps=[],id=window.acequire.id),\"function\"!=typeof factory)return window.acequire.modules[id]={exports:factory,initialized:!0},void 0;deps.length||(deps=[\"require\",\"exports\",\"module\"]);var req=function(childId){return window.acequire(id,childId)};window.acequire.modules[id]={exports:{},factory:function(){var module=this,returnExports=factory.apply(this,deps.map(function(dep){switch(dep){case\"require\":return req;case\"exports\":return module.exports;case\"module\":return module;default:return req(dep)}}));return returnExports&&(module.exports=returnExports),module}}},window.define.amd={},acequire.tlns={},window.initBaseUrls=function(topLevelNamespaces){for(var i in topLevelNamespaces)acequire.tlns[i]=topLevelNamespaces[i]},window.initSender=function(){var EventEmitter=window.acequire(\"ace/lib/event_emitter\").EventEmitter,oop=window.acequire(\"ace/lib/oop\"),Sender=function(){};return function(){oop.implement(this,EventEmitter),this.callback=function(data,callbackId){postMessage({type:\"call\",id:callbackId,data:data})},this.emit=function(name,data){postMessage({type:\"event\",name:name,data:data})}}.call(Sender.prototype),new Sender};var main=window.main=null,sender=window.sender=null;window.onmessage=function(e){var msg=e.data;if(msg.event&&sender)sender._signal(msg.event,msg.data);else if(msg.command)if(main[msg.command])main[msg.command].apply(main,msg.args);else{if(!window[msg.command])throw Error(\"Unknown command:\"+msg.command);window[msg.command].apply(window,msg.args)}else if(msg.init){window.initBaseUrls(msg.tlns),acequire(\"ace/lib/es5-shim\"),sender=window.sender=window.initSender();var clazz=acequire(msg.module)[msg.classname];main=window.main=new clazz(sender)}}}}(this),ace.define(\"ace/lib/oop\",[\"require\",\"exports\",\"module\"],function(acequire,exports){\"use strict\";exports.inherits=function(ctor,superCtor){ctor.super_=superCtor,ctor.prototype=Object.create(superCtor.prototype,{constructor:{value:ctor,enumerable:!1,writable:!0,configurable:!0}})},exports.mixin=function(obj,mixin){for(var key in mixin)obj[key]=mixin[key];return obj},exports.implement=function(proto,mixin){exports.mixin(proto,mixin)}}),ace.define(\"ace/range\",[\"require\",\"exports\",\"module\"],function(acequire,exports){\"use strict\";var comparePoints=function(p1,p2){return p1.row-p2.row||p1.column-p2.column},Range=function(startRow,startColumn,endRow,endColumn){this.start={row:startRow,column:startColumn},this.end={row:endRow,column:endColumn}};(function(){this.isEqual=function(range){return this.start.row===range.start.row&&this.end.row===range.end.row&&this.start.column===range.start.column&&this.end.column===range.end.column},this.toString=function(){return\"Range: [\"+this.start.row+\"/\"+this.start.column+\"] -> [\"+this.end.row+\"/\"+this.end.column+\"]\"},this.contains=function(row,column){return 0==this.compare(row,column)},this.compareRange=function(range){var cmp,end=range.end,start=range.start;return cmp=this.compare(end.row,end.column),1==cmp?(cmp=this.compare(start.row,start.column),1==cmp?2:0==cmp?1:0):-1==cmp?-2:(cmp=this.compare(start.row,start.column),-1==cmp?-1:1==cmp?42:0)},this.comparePoint=function(p){return this.compare(p.row,p.column)},this.containsRange=function(range){return 0==this.comparePoint(range.start)&&0==this.comparePoint(range.end)},this.intersects=function(range){var cmp=this.compareRange(range);return-1==cmp||0==cmp||1==cmp},this.isEnd=function(row,column){return this.end.row==row&&this.end.column==column},this.isStart=function(row,column){return this.start.row==row&&this.start.column==column},this.setStart=function(row,column){\"object\"==typeof row?(this.start.column=row.column,this.start.row=row.row):(this.start.row=row,this.start.column=column)},this.setEnd=function(row,column){\"object\"==typeof row?(this.end.column=row.column,this.end.row=row.row):(this.end.row=row,this.end.column=column)},this.inside=function(row,column){return 0==this.compare(row,column)?this.isEnd(row,column)||this.isStart(row,column)?!1:!0:!1},this.insideStart=function(row,column){return 0==this.compare(row,column)?this.isEnd(row,column)?!1:!0:!1},this.insideEnd=function(row,column){return 0==this.compare(row,column)?this.isStart(row,column)?!1:!0:!1},this.compare=function(row,column){return this.isMultiLine()||row!==this.start.row?this.start.row>row?-1:row>this.end.row?1:this.start.row===row?column>=this.start.column?0:-1:this.end.row===row?this.end.column>=column?0:1:0:this.start.column>column?-1:column>this.end.column?1:0},this.compareStart=function(row,column){return this.start.row==row&&this.start.column==column?-1:this.compare(row,column)},this.compareEnd=function(row,column){return this.end.row==row&&this.end.column==column?1:this.compare(row,column)},this.compareInside=function(row,column){return this.end.row==row&&this.end.column==column?1:this.start.row==row&&this.start.column==column?-1:this.compare(row,column)},this.clipRows=function(firstRow,lastRow){if(this.end.row>lastRow)var end={row:lastRow+1,column:0};else if(firstRow>this.end.row)var end={row:firstRow,column:0};if(this.start.row>lastRow)var start={row:lastRow+1,column:0};else if(firstRow>this.start.row)var start={row:firstRow,column:0};return Range.fromPoints(start||this.start,end||this.end)},this.extend=function(row,column){var cmp=this.compare(row,column);if(0==cmp)return this;if(-1==cmp)var start={row:row,column:column};else var end={row:row,column:column};return Range.fromPoints(start||this.start,end||this.end)},this.isEmpty=function(){return this.start.row===this.end.row&&this.start.column===this.end.column},this.isMultiLine=function(){return this.start.row!==this.end.row},this.clone=function(){return Range.fromPoints(this.start,this.end)},this.collapseRows=function(){return 0==this.end.column?new Range(this.start.row,0,Math.max(this.start.row,this.end.row-1),0):new Range(this.start.row,0,this.end.row,0)},this.toScreenRange=function(session){var screenPosStart=session.documentToScreenPosition(this.start),screenPosEnd=session.documentToScreenPosition(this.end);return new Range(screenPosStart.row,screenPosStart.column,screenPosEnd.row,screenPosEnd.column)},this.moveBy=function(row,column){this.start.row+=row,this.start.column+=column,this.end.row+=row,this.end.column+=column}}).call(Range.prototype),Range.fromPoints=function(start,end){return new Range(start.row,start.column,end.row,end.column)},Range.comparePoints=comparePoints,Range.comparePoints=function(p1,p2){return p1.row-p2.row||p1.column-p2.column},exports.Range=Range}),ace.define(\"ace/apply_delta\",[\"require\",\"exports\",\"module\"],function(acequire,exports){\"use strict\";exports.applyDelta=function(docLines,delta){var row=delta.start.row,startColumn=delta.start.column,line=docLines[row]||\"\";switch(delta.action){case\"insert\":var lines=delta.lines;if(1===lines.length)docLines[row]=line.substring(0,startColumn)+delta.lines[0]+line.substring(startColumn);else{var args=[row,1].concat(delta.lines);docLines.splice.apply(docLines,args),docLines[row]=line.substring(0,startColumn)+docLines[row],docLines[row+delta.lines.length-1]+=line.substring(startColumn)}break;case\"remove\":var endColumn=delta.end.column,endRow=delta.end.row;row===endRow?docLines[row]=line.substring(0,startColumn)+line.substring(endColumn):docLines.splice(row,endRow-row+1,line.substring(0,startColumn)+docLines[endRow].substring(endColumn))}}}),ace.define(\"ace/lib/event_emitter\",[\"require\",\"exports\",\"module\"],function(acequire,exports){\"use strict\";var EventEmitter={},stopPropagation=function(){this.propagationStopped=!0},preventDefault=function(){this.defaultPrevented=!0};EventEmitter._emit=EventEmitter._dispatchEvent=function(eventName,e){this._eventRegistry||(this._eventRegistry={}),this._defaultHandlers||(this._defaultHandlers={});var listeners=this._eventRegistry[eventName]||[],defaultHandler=this._defaultHandlers[eventName];if(listeners.length||defaultHandler){\"object\"==typeof e&&e||(e={}),e.type||(e.type=eventName),e.stopPropagation||(e.stopPropagation=stopPropagation),e.preventDefault||(e.preventDefault=preventDefault),listeners=listeners.slice();for(var i=0;listeners.length>i&&(listeners[i](e,this),!e.propagationStopped);i++);return defaultHandler&&!e.defaultPrevented?defaultHandler(e,this):void 0}},EventEmitter._signal=function(eventName,e){var listeners=(this._eventRegistry||{})[eventName];if(listeners){listeners=listeners.slice();for(var i=0;listeners.length>i;i++)listeners[i](e,this)}},EventEmitter.once=function(eventName,callback){var _self=this;callback&&this.addEventListener(eventName,function newCallback(){_self.removeEventListener(eventName,newCallback),callback.apply(null,arguments)})},EventEmitter.setDefaultHandler=function(eventName,callback){var handlers=this._defaultHandlers;if(handlers||(handlers=this._defaultHandlers={_disabled_:{}}),handlers[eventName]){var old=handlers[eventName],disabled=handlers._disabled_[eventName];disabled||(handlers._disabled_[eventName]=disabled=[]),disabled.push(old);var i=disabled.indexOf(callback);-1!=i&&disabled.splice(i,1)}handlers[eventName]=callback},EventEmitter.removeDefaultHandler=function(eventName,callback){var handlers=this._defaultHandlers;if(handlers){var disabled=handlers._disabled_[eventName];if(handlers[eventName]==callback)handlers[eventName],disabled&&this.setDefaultHandler(eventName,disabled.pop());else if(disabled){var i=disabled.indexOf(callback);-1!=i&&disabled.splice(i,1)}}},EventEmitter.on=EventEmitter.addEventListener=function(eventName,callback,capturing){this._eventRegistry=this._eventRegistry||{};var listeners=this._eventRegistry[eventName];return listeners||(listeners=this._eventRegistry[eventName]=[]),-1==listeners.indexOf(callback)&&listeners[capturing?\"unshift\":\"push\"](callback),callback},EventEmitter.off=EventEmitter.removeListener=EventEmitter.removeEventListener=function(eventName,callback){this._eventRegistry=this._eventRegistry||{};var listeners=this._eventRegistry[eventName];if(listeners){var index=listeners.indexOf(callback);-1!==index&&listeners.splice(index,1)}},EventEmitter.removeAllListeners=function(eventName){this._eventRegistry&&(this._eventRegistry[eventName]=[])},exports.EventEmitter=EventEmitter}),ace.define(\"ace/anchor\",[\"require\",\"exports\",\"module\",\"ace/lib/oop\",\"ace/lib/event_emitter\"],function(acequire,exports){\"use strict\";var oop=acequire(\"./lib/oop\"),EventEmitter=acequire(\"./lib/event_emitter\").EventEmitter,Anchor=exports.Anchor=function(doc,row,column){this.$onChange=this.onChange.bind(this),this.attach(doc),column===void 0?this.setPosition(row.row,row.column):this.setPosition(row,column)};(function(){function $pointsInOrder(point1,point2,equalPointsInOrder){var bColIsAfter=equalPointsInOrder?point1.column<=point2.column:point1.column<point2.column;return point1.row<point2.row||point1.row==point2.row&&bColIsAfter}function $getTransformedPoint(delta,point,moveIfEqual){var deltaIsInsert=\"insert\"==delta.action,deltaRowShift=(deltaIsInsert?1:-1)*(delta.end.row-delta.start.row),deltaColShift=(deltaIsInsert?1:-1)*(delta.end.column-delta.start.column),deltaStart=delta.start,deltaEnd=deltaIsInsert?deltaStart:delta.end;return $pointsInOrder(point,deltaStart,moveIfEqual)?{row:point.row,column:point.column}:$pointsInOrder(deltaEnd,point,!moveIfEqual)?{row:point.row+deltaRowShift,column:point.column+(point.row==deltaEnd.row?deltaColShift:0)}:{row:deltaStart.row,column:deltaStart.column}}oop.implement(this,EventEmitter),this.getPosition=function(){return this.$clipPositionToDocument(this.row,this.column)},this.getDocument=function(){return this.document},this.$insertRight=!1,this.onChange=function(delta){if(!(delta.start.row==delta.end.row&&delta.start.row!=this.row||delta.start.row>this.row)){var point=$getTransformedPoint(delta,{row:this.row,column:this.column},this.$insertRight);this.setPosition(point.row,point.column,!0)}},this.setPosition=function(row,column,noClip){var pos;if(pos=noClip?{row:row,column:column}:this.$clipPositionToDocument(row,column),this.row!=pos.row||this.column!=pos.column){var old={row:this.row,column:this.column};this.row=pos.row,this.column=pos.column,this._signal(\"change\",{old:old,value:pos})}},this.detach=function(){this.document.removeEventListener(\"change\",this.$onChange)},this.attach=function(doc){this.document=doc||this.document,this.document.on(\"change\",this.$onChange)},this.$clipPositionToDocument=function(row,column){var pos={};return row>=this.document.getLength()?(pos.row=Math.max(0,this.document.getLength()-1),pos.column=this.document.getLine(pos.row).length):0>row?(pos.row=0,pos.column=0):(pos.row=row,pos.column=Math.min(this.document.getLine(pos.row).length,Math.max(0,column))),0>column&&(pos.column=0),pos}}).call(Anchor.prototype)}),ace.define(\"ace/document\",[\"require\",\"exports\",\"module\",\"ace/lib/oop\",\"ace/apply_delta\",\"ace/lib/event_emitter\",\"ace/range\",\"ace/anchor\"],function(acequire,exports){\"use strict\";var oop=acequire(\"./lib/oop\"),applyDelta=acequire(\"./apply_delta\").applyDelta,EventEmitter=acequire(\"./lib/event_emitter\").EventEmitter,Range=acequire(\"./range\").Range,Anchor=acequire(\"./anchor\").Anchor,Document=function(textOrLines){this.$lines=[\"\"],0===textOrLines.length?this.$lines=[\"\"]:Array.isArray(textOrLines)?this.insertMergedLines({row:0,column:0},textOrLines):this.insert({row:0,column:0},textOrLines)};(function(){oop.implement(this,EventEmitter),this.setValue=function(text){var len=this.getLength()-1;this.remove(new Range(0,0,len,this.getLine(len).length)),this.insert({row:0,column:0},text)},this.getValue=function(){return this.getAllLines().join(this.getNewLineCharacter())},this.createAnchor=function(row,column){return new Anchor(this,row,column)},this.$split=0===\"aaa\".split(/a/).length?function(text){return text.replace(/\\r\\n|\\r/g,\"\\n\").split(\"\\n\")}:function(text){return text.split(/\\r\\n|\\r|\\n/)},this.$detectNewLine=function(text){var match=text.match(/^.*?(\\r\\n|\\r|\\n)/m);this.$autoNewLine=match?match[1]:\"\\n\",this._signal(\"changeNewLineMode\")},this.getNewLineCharacter=function(){switch(this.$newLineMode){case\"windows\":return\"\\r\\n\";case\"unix\":return\"\\n\";default:return this.$autoNewLine||\"\\n\"}},this.$autoNewLine=\"\",this.$newLineMode=\"auto\",this.setNewLineMode=function(newLineMode){this.$newLineMode!==newLineMode&&(this.$newLineMode=newLineMode,this._signal(\"changeNewLineMode\"))},this.getNewLineMode=function(){return this.$newLineMode},this.isNewLine=function(text){return\"\\r\\n\"==text||\"\\r\"==text||\"\\n\"==text},this.getLine=function(row){return this.$lines[row]||\"\"},this.getLines=function(firstRow,lastRow){return this.$lines.slice(firstRow,lastRow+1)},this.getAllLines=function(){return this.getLines(0,this.getLength())},this.getLength=function(){return this.$lines.length},this.getTextRange=function(range){return this.getLinesForRange(range).join(this.getNewLineCharacter())},this.getLinesForRange=function(range){var lines;if(range.start.row===range.end.row)lines=[this.getLine(range.start.row).substring(range.start.column,range.end.column)];else{lines=this.getLines(range.start.row,range.end.row),lines[0]=(lines[0]||\"\").substring(range.start.column);var l=lines.length-1;range.end.row-range.start.row==l&&(lines[l]=lines[l].substring(0,range.end.column))}return lines},this.insertLines=function(row,lines){return console.warn(\"Use of document.insertLines is deprecated. Use the insertFullLines method instead.\"),this.insertFullLines(row,lines)},this.removeLines=function(firstRow,lastRow){return console.warn(\"Use of document.removeLines is deprecated. Use the removeFullLines method instead.\"),this.removeFullLines(firstRow,lastRow)},this.insertNewLine=function(position){return console.warn(\"Use of document.insertNewLine is deprecated. Use insertMergedLines(position, ['', '']) instead.\"),this.insertMergedLines(position,[\"\",\"\"])},this.insert=function(position,text){return 1>=this.getLength()&&this.$detectNewLine(text),this.insertMergedLines(position,this.$split(text))},this.insertInLine=function(position,text){var start=this.clippedPos(position.row,position.column),end=this.pos(position.row,position.column+text.length);return this.applyDelta({start:start,end:end,action:\"insert\",lines:[text]},!0),this.clonePos(end)},this.clippedPos=function(row,column){var length=this.getLength();void 0===row?row=length:0>row?row=0:row>=length&&(row=length-1,column=void 0);var line=this.getLine(row);return void 0==column&&(column=line.length),column=Math.min(Math.max(column,0),line.length),{row:row,column:column}},this.clonePos=function(pos){return{row:pos.row,column:pos.column}},this.pos=function(row,column){return{row:row,column:column}},this.$clipPosition=function(position){var length=this.getLength();return position.row>=length?(position.row=Math.max(0,length-1),position.column=this.getLine(length-1).length):(position.row=Math.max(0,position.row),position.column=Math.min(Math.max(position.column,0),this.getLine(position.row).length)),position},this.insertFullLines=function(row,lines){row=Math.min(Math.max(row,0),this.getLength());var column=0;this.getLength()>row?(lines=lines.concat([\"\"]),column=0):(lines=[\"\"].concat(lines),row--,column=this.$lines[row].length),this.insertMergedLines({row:row,column:column},lines)},this.insertMergedLines=function(position,lines){var start=this.clippedPos(position.row,position.column),end={row:start.row+lines.length-1,column:(1==lines.length?start.column:0)+lines[lines.length-1].length};return this.applyDelta({start:start,end:end,action:\"insert\",lines:lines}),this.clonePos(end)},this.remove=function(range){var start=this.clippedPos(range.start.row,range.start.column),end=this.clippedPos(range.end.row,range.end.column);return this.applyDelta({start:start,end:end,action:\"remove\",lines:this.getLinesForRange({start:start,end:end})}),this.clonePos(start)},this.removeInLine=function(row,startColumn,endColumn){var start=this.clippedPos(row,startColumn),end=this.clippedPos(row,endColumn);return this.applyDelta({start:start,end:end,action:\"remove\",lines:this.getLinesForRange({start:start,end:end})},!0),this.clonePos(start)},this.removeFullLines=function(firstRow,lastRow){firstRow=Math.min(Math.max(0,firstRow),this.getLength()-1),lastRow=Math.min(Math.max(0,lastRow),this.getLength()-1);var deleteFirstNewLine=lastRow==this.getLength()-1&&firstRow>0,deleteLastNewLine=this.getLength()-1>lastRow,startRow=deleteFirstNewLine?firstRow-1:firstRow,startCol=deleteFirstNewLine?this.getLine(startRow).length:0,endRow=deleteLastNewLine?lastRow+1:lastRow,endCol=deleteLastNewLine?0:this.getLine(endRow).length,range=new Range(startRow,startCol,endRow,endCol),deletedLines=this.$lines.slice(firstRow,lastRow+1);return this.applyDelta({start:range.start,end:range.end,action:\"remove\",lines:this.getLinesForRange(range)}),deletedLines},this.removeNewLine=function(row){this.getLength()-1>row&&row>=0&&this.applyDelta({start:this.pos(row,this.getLine(row).length),end:this.pos(row+1,0),action:\"remove\",lines:[\"\",\"\"]})},this.replace=function(range,text){if(range instanceof Range||(range=Range.fromPoints(range.start,range.end)),0===text.length&&range.isEmpty())return range.start;if(text==this.getTextRange(range))return range.end;this.remove(range);var end;return end=text?this.insert(range.start,text):range.start},this.applyDeltas=function(deltas){for(var i=0;deltas.length>i;i++)this.applyDelta(deltas[i])},this.revertDeltas=function(deltas){for(var i=deltas.length-1;i>=0;i--)this.revertDelta(deltas[i])},this.applyDelta=function(delta,doNotValidate){var isInsert=\"insert\"==delta.action;(isInsert?1>=delta.lines.length&&!delta.lines[0]:!Range.comparePoints(delta.start,delta.end))||(isInsert&&delta.lines.length>2e4&&this.$splitAndapplyLargeDelta(delta,2e4),applyDelta(this.$lines,delta,doNotValidate),this._signal(\"change\",delta))},this.$splitAndapplyLargeDelta=function(delta,MAX){for(var lines=delta.lines,l=lines.length,row=delta.start.row,column=delta.start.column,from=0,to=0;;){from=to,to+=MAX-1;var chunk=lines.slice(from,to);if(to>l){delta.lines=chunk,delta.start.row=row+from,delta.start.column=column;break}chunk.push(\"\"),this.applyDelta({start:this.pos(row+from,column),end:this.pos(row+to,column=0),action:delta.action,lines:chunk},!0)}},this.revertDelta=function(delta){this.applyDelta({start:this.clonePos(delta.start),end:this.clonePos(delta.end),action:\"insert\"==delta.action?\"remove\":\"insert\",lines:delta.lines.slice()})},this.indexToPosition=function(index,startRow){for(var lines=this.$lines||this.getAllLines(),newlineLength=this.getNewLineCharacter().length,i=startRow||0,l=lines.length;l>i;i++)if(index-=lines[i].length+newlineLength,0>index)return{row:i,column:index+lines[i].length+newlineLength};return{row:l-1,column:lines[l-1].length}},this.positionToIndex=function(pos,startRow){for(var lines=this.$lines||this.getAllLines(),newlineLength=this.getNewLineCharacter().length,index=0,row=Math.min(pos.row,lines.length),i=startRow||0;row>i;++i)index+=lines[i].length+newlineLength;return index+pos.column}}).call(Document.prototype),exports.Document=Document}),ace.define(\"ace/lib/lang\",[\"require\",\"exports\",\"module\"],function(acequire,exports){\"use strict\";exports.last=function(a){return a[a.length-1]},exports.stringReverse=function(string){return string.split(\"\").reverse().join(\"\")},exports.stringRepeat=function(string,count){for(var result=\"\";count>0;)1&count&&(result+=string),(count>>=1)&&(string+=string);return result};var trimBeginRegexp=/^\\s\\s*/,trimEndRegexp=/\\s\\s*$/;exports.stringTrimLeft=function(string){return string.replace(trimBeginRegexp,\"\")},exports.stringTrimRight=function(string){return string.replace(trimEndRegexp,\"\")},exports.copyObject=function(obj){var copy={};for(var key in obj)copy[key]=obj[key];return copy},exports.copyArray=function(array){for(var copy=[],i=0,l=array.length;l>i;i++)copy[i]=array[i]&&\"object\"==typeof array[i]?this.copyObject(array[i]):array[i];return copy},exports.deepCopy=function deepCopy(obj){if(\"object\"!=typeof obj||!obj)return obj;var copy;if(Array.isArray(obj)){copy=[];for(var key=0;obj.length>key;key++)copy[key]=deepCopy(obj[key]);return copy}if(\"[object Object]\"!==Object.prototype.toString.call(obj))return obj;copy={};for(var key in obj)copy[key]=deepCopy(obj[key]);return copy},exports.arrayToMap=function(arr){for(var map={},i=0;arr.length>i;i++)map[arr[i]]=1;return map},exports.createMap=function(props){var map=Object.create(null);for(var i in props)map[i]=props[i];return map},exports.arrayRemove=function(array,value){for(var i=0;array.length>=i;i++)value===array[i]&&array.splice(i,1)},exports.escapeRegExp=function(str){return str.replace(/([.*+?^${}()|[\\]\\/\\\\])/g,\"\\\\$1\")},exports.escapeHTML=function(str){return str.replace(/&/g,\"&#38;\").replace(/\"/g,\"&#34;\").replace(/'/g,\"&#39;\").replace(/</g,\"&#60;\")},exports.getMatchOffsets=function(string,regExp){var matches=[];return string.replace(regExp,function(str){matches.push({offset:arguments[arguments.length-2],length:str.length})}),matches},exports.deferredCall=function(fcn){var timer=null,callback=function(){timer=null,fcn()},deferred=function(timeout){return deferred.cancel(),timer=setTimeout(callback,timeout||0),deferred};return deferred.schedule=deferred,deferred.call=function(){return this.cancel(),fcn(),deferred},deferred.cancel=function(){return clearTimeout(timer),timer=null,deferred},deferred.isPending=function(){return timer},deferred},exports.delayedCall=function(fcn,defaultTimeout){var timer=null,callback=function(){timer=null,fcn()},_self=function(timeout){null==timer&&(timer=setTimeout(callback,timeout||defaultTimeout))};return _self.delay=function(timeout){timer&&clearTimeout(timer),timer=setTimeout(callback,timeout||defaultTimeout)},_self.schedule=_self,_self.call=function(){this.cancel(),fcn()},_self.cancel=function(){timer&&clearTimeout(timer),timer=null},_self.isPending=function(){return timer},_self}}),ace.define(\"ace/worker/mirror\",[\"require\",\"exports\",\"module\",\"ace/range\",\"ace/document\",\"ace/lib/lang\"],function(acequire,exports){\"use strict\";acequire(\"../range\").Range;var Document=acequire(\"../document\").Document,lang=acequire(\"../lib/lang\"),Mirror=exports.Mirror=function(sender){this.sender=sender;var doc=this.doc=new Document(\"\"),deferredUpdate=this.deferredUpdate=lang.delayedCall(this.onUpdate.bind(this)),_self=this;sender.on(\"change\",function(e){var data=e.data;if(data[0].start)doc.applyDeltas(data);else for(var i=0;data.length>i;i+=2){if(Array.isArray(data[i+1]))var d={action:\"insert\",start:data[i],lines:data[i+1]};else var d={action:\"remove\",start:data[i],end:data[i+1]};doc.applyDelta(d,!0)}return _self.$timeout?deferredUpdate.schedule(_self.$timeout):(_self.onUpdate(),void 0)})};(function(){this.$timeout=500,this.setTimeout=function(timeout){this.$timeout=timeout},this.setValue=function(value){this.doc.setValue(value),this.deferredUpdate.schedule(this.$timeout)},this.getValue=function(callbackId){this.sender.callback(this.doc.getValue(),callbackId)},this.onUpdate=function(){},this.isPending=function(){return this.deferredUpdate.isPending()}}).call(Mirror.prototype)}),ace.define(\"ace/mode/json/json_parse\",[\"require\",\"exports\",\"module\"],function(){\"use strict\";var at,ch,text,value,escapee={'\"':'\"',\"\\\\\":\"\\\\\",\"/\":\"/\",b:\"\\b\",f:\"\\f\",n:\"\\n\",r:\"\\r\",t:\"\t\"},error=function(m){throw{name:\"SyntaxError\",message:m,at:at,text:text}},next=function(c){return c&&c!==ch&&error(\"Expected '\"+c+\"' instead of '\"+ch+\"'\"),ch=text.charAt(at),at+=1,ch},number=function(){var number,string=\"\";for(\"-\"===ch&&(string=\"-\",next(\"-\"));ch>=\"0\"&&\"9\">=ch;)string+=ch,next();if(\".\"===ch)for(string+=\".\";next()&&ch>=\"0\"&&\"9\">=ch;)string+=ch;if(\"e\"===ch||\"E\"===ch)for(string+=ch,next(),(\"-\"===ch||\"+\"===ch)&&(string+=ch,next());ch>=\"0\"&&\"9\">=ch;)string+=ch,next();return number=+string,isNaN(number)?(error(\"Bad number\"),void 0):number},string=function(){var hex,i,uffff,string=\"\";if('\"'===ch)for(;next();){if('\"'===ch)return next(),string;if(\"\\\\\"===ch)if(next(),\"u\"===ch){for(uffff=0,i=0;4>i&&(hex=parseInt(next(),16),isFinite(hex));i+=1)uffff=16*uffff+hex;string+=String.fromCharCode(uffff)}else{if(\"string\"!=typeof escapee[ch])break;string+=escapee[ch]}else string+=ch}error(\"Bad string\")},white=function(){for(;ch&&\" \">=ch;)next()},word=function(){switch(ch){case\"t\":return next(\"t\"),next(\"r\"),next(\"u\"),next(\"e\"),!0;case\"f\":return next(\"f\"),next(\"a\"),next(\"l\"),next(\"s\"),next(\"e\"),!1;case\"n\":return next(\"n\"),next(\"u\"),next(\"l\"),next(\"l\"),null}error(\"Unexpected '\"+ch+\"'\")},array=function(){var array=[];if(\"[\"===ch){if(next(\"[\"),white(),\"]\"===ch)return next(\"]\"),array;for(;ch;){if(array.push(value()),white(),\"]\"===ch)return next(\"]\"),array;next(\",\"),white()}}error(\"Bad array\")},object=function(){var key,object={};if(\"{\"===ch){if(next(\"{\"),white(),\"}\"===ch)return next(\"}\"),object;for(;ch;){if(key=string(),white(),next(\":\"),Object.hasOwnProperty.call(object,key)&&error('Duplicate key \"'+key+'\"'),object[key]=value(),white(),\"}\"===ch)return next(\"}\"),object;next(\",\"),white()}}error(\"Bad object\")};return value=function(){switch(white(),ch){case\"{\":return object();case\"[\":return array();case'\"':return string();case\"-\":return number();default:return ch>=\"0\"&&\"9\">=ch?number():word()}},function(source,reviver){var result;return text=source,at=0,ch=\" \",result=value(),white(),ch&&error(\"Syntax error\"),\"function\"==typeof reviver?function walk(holder,key){var k,v,value=holder[key];if(value&&\"object\"==typeof value)for(k in value)Object.hasOwnProperty.call(value,k)&&(v=walk(value,k),void 0!==v?value[k]=v:delete value[k]);return reviver.call(holder,key,value)}({\"\":result},\"\"):result}}),ace.define(\"ace/mode/json_worker\",[\"require\",\"exports\",\"module\",\"ace/lib/oop\",\"ace/worker/mirror\",\"ace/mode/json/json_parse\"],function(acequire,exports){\"use strict\";var oop=acequire(\"../lib/oop\"),Mirror=acequire(\"../worker/mirror\").Mirror,parse=acequire(\"./json/json_parse\"),JsonWorker=exports.JsonWorker=function(sender){Mirror.call(this,sender),this.setTimeout(200)};oop.inherits(JsonWorker,Mirror),function(){this.onUpdate=function(){var value=this.doc.getValue(),errors=[];try{value&&parse(value)}catch(e){var pos=this.doc.indexToPosition(e.at-1);errors.push({row:pos.row,column:pos.column,text:e.message,type:\"error\"})}this.sender.emit(\"annotate\",errors)}}.call(JsonWorker.prototype)}),ace.define(\"ace/lib/es5-shim\",[\"require\",\"exports\",\"module\"],function(){function Empty(){}function doesDefinePropertyWork(object){try{return Object.defineProperty(object,\"sentinel\",{}),\"sentinel\"in object}catch(exception){}}function toInteger(n){return n=+n,n!==n?n=0:0!==n&&n!==1/0&&n!==-(1/0)&&(n=(n>0||-1)*Math.floor(Math.abs(n))),n}Function.prototype.bind||(Function.prototype.bind=function(that){var target=this;if(\"function\"!=typeof target)throw new TypeError(\"Function.prototype.bind called on incompatible \"+target);var args=slice.call(arguments,1),bound=function(){if(this instanceof bound){var result=target.apply(this,args.concat(slice.call(arguments)));return Object(result)===result?result:this}return target.apply(that,args.concat(slice.call(arguments)))};return target.prototype&&(Empty.prototype=target.prototype,bound.prototype=new Empty,Empty.prototype=null),bound});var defineGetter,defineSetter,lookupGetter,lookupSetter,supportsAccessors,call=Function.prototype.call,prototypeOfArray=Array.prototype,prototypeOfObject=Object.prototype,slice=prototypeOfArray.slice,_toString=call.bind(prototypeOfObject.toString),owns=call.bind(prototypeOfObject.hasOwnProperty);if((supportsAccessors=owns(prototypeOfObject,\"__defineGetter__\"))&&(defineGetter=call.bind(prototypeOfObject.__defineGetter__),defineSetter=call.bind(prototypeOfObject.__defineSetter__),lookupGetter=call.bind(prototypeOfObject.__lookupGetter__),lookupSetter=call.bind(prototypeOfObject.__lookupSetter__)),2!=[1,2].splice(0).length)if(function(){function makeArray(l){var a=Array(l+2);return a[0]=a[1]=0,a}var lengthBefore,array=[];return array.splice.apply(array,makeArray(20)),array.splice.apply(array,makeArray(26)),lengthBefore=array.length,array.splice(5,0,\"XXX\"),lengthBefore+1==array.length,lengthBefore+1==array.length?!0:void 0\n}()){var array_splice=Array.prototype.splice;Array.prototype.splice=function(start,deleteCount){return arguments.length?array_splice.apply(this,[void 0===start?0:start,void 0===deleteCount?this.length-start:deleteCount].concat(slice.call(arguments,2))):[]}}else Array.prototype.splice=function(pos,removeCount){var length=this.length;pos>0?pos>length&&(pos=length):void 0==pos?pos=0:0>pos&&(pos=Math.max(length+pos,0)),length>pos+removeCount||(removeCount=length-pos);var removed=this.slice(pos,pos+removeCount),insert=slice.call(arguments,2),add=insert.length;if(pos===length)add&&this.push.apply(this,insert);else{var remove=Math.min(removeCount,length-pos),tailOldPos=pos+remove,tailNewPos=tailOldPos+add-remove,tailCount=length-tailOldPos,lengthAfterRemove=length-remove;if(tailOldPos>tailNewPos)for(var i=0;tailCount>i;++i)this[tailNewPos+i]=this[tailOldPos+i];else if(tailNewPos>tailOldPos)for(i=tailCount;i--;)this[tailNewPos+i]=this[tailOldPos+i];if(add&&pos===lengthAfterRemove)this.length=lengthAfterRemove,this.push.apply(this,insert);else for(this.length=lengthAfterRemove+add,i=0;add>i;++i)this[pos+i]=insert[i]}return removed};Array.isArray||(Array.isArray=function(obj){return\"[object Array]\"==_toString(obj)});var boxedString=Object(\"a\"),splitString=\"a\"!=boxedString[0]||!(0 in boxedString);if(Array.prototype.forEach||(Array.prototype.forEach=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,thisp=arguments[1],i=-1,length=self.length>>>0;if(\"[object Function]\"!=_toString(fun))throw new TypeError;for(;length>++i;)i in self&&fun.call(thisp,self[i],i,object)}),Array.prototype.map||(Array.prototype.map=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0,result=Array(length),thisp=arguments[1];if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");for(var i=0;length>i;i++)i in self&&(result[i]=fun.call(thisp,self[i],i,object));return result}),Array.prototype.filter||(Array.prototype.filter=function(fun){var value,object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0,result=[],thisp=arguments[1];if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");for(var i=0;length>i;i++)i in self&&(value=self[i],fun.call(thisp,value,i,object)&&result.push(value));return result}),Array.prototype.every||(Array.prototype.every=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0,thisp=arguments[1];if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");for(var i=0;length>i;i++)if(i in self&&!fun.call(thisp,self[i],i,object))return!1;return!0}),Array.prototype.some||(Array.prototype.some=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0,thisp=arguments[1];if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");for(var i=0;length>i;i++)if(i in self&&fun.call(thisp,self[i],i,object))return!0;return!1}),Array.prototype.reduce||(Array.prototype.reduce=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0;if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");if(!length&&1==arguments.length)throw new TypeError(\"reduce of empty array with no initial value\");var result,i=0;if(arguments.length>=2)result=arguments[1];else for(;;){if(i in self){result=self[i++];break}if(++i>=length)throw new TypeError(\"reduce of empty array with no initial value\")}for(;length>i;i++)i in self&&(result=fun.call(void 0,result,self[i],i,object));return result}),Array.prototype.reduceRight||(Array.prototype.reduceRight=function(fun){var object=toObject(this),self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):object,length=self.length>>>0;if(\"[object Function]\"!=_toString(fun))throw new TypeError(fun+\" is not a function\");if(!length&&1==arguments.length)throw new TypeError(\"reduceRight of empty array with no initial value\");var result,i=length-1;if(arguments.length>=2)result=arguments[1];else for(;;){if(i in self){result=self[i--];break}if(0>--i)throw new TypeError(\"reduceRight of empty array with no initial value\")}do i in this&&(result=fun.call(void 0,result,self[i],i,object));while(i--);return result}),Array.prototype.indexOf&&-1==[0,1].indexOf(1,2)||(Array.prototype.indexOf=function(sought){var self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):toObject(this),length=self.length>>>0;if(!length)return-1;var i=0;for(arguments.length>1&&(i=toInteger(arguments[1])),i=i>=0?i:Math.max(0,length+i);length>i;i++)if(i in self&&self[i]===sought)return i;return-1}),Array.prototype.lastIndexOf&&-1==[0,1].lastIndexOf(0,-3)||(Array.prototype.lastIndexOf=function(sought){var self=splitString&&\"[object String]\"==_toString(this)?this.split(\"\"):toObject(this),length=self.length>>>0;if(!length)return-1;var i=length-1;for(arguments.length>1&&(i=Math.min(i,toInteger(arguments[1]))),i=i>=0?i:length-Math.abs(i);i>=0;i--)if(i in self&&sought===self[i])return i;return-1}),Object.getPrototypeOf||(Object.getPrototypeOf=function(object){return object.__proto__||(object.constructor?object.constructor.prototype:prototypeOfObject)}),!Object.getOwnPropertyDescriptor){var ERR_NON_OBJECT=\"Object.getOwnPropertyDescriptor called on a non-object: \";Object.getOwnPropertyDescriptor=function(object,property){if(\"object\"!=typeof object&&\"function\"!=typeof object||null===object)throw new TypeError(ERR_NON_OBJECT+object);if(owns(object,property)){var descriptor,getter,setter;if(descriptor={enumerable:!0,configurable:!0},supportsAccessors){var prototype=object.__proto__;object.__proto__=prototypeOfObject;var getter=lookupGetter(object,property),setter=lookupSetter(object,property);if(object.__proto__=prototype,getter||setter)return getter&&(descriptor.get=getter),setter&&(descriptor.set=setter),descriptor}return descriptor.value=object[property],descriptor}}}if(Object.getOwnPropertyNames||(Object.getOwnPropertyNames=function(object){return Object.keys(object)}),!Object.create){var createEmpty;createEmpty=null===Object.prototype.__proto__?function(){return{__proto__:null}}:function(){var empty={};for(var i in empty)empty[i]=null;return empty.constructor=empty.hasOwnProperty=empty.propertyIsEnumerable=empty.isPrototypeOf=empty.toLocaleString=empty.toString=empty.valueOf=empty.__proto__=null,empty},Object.create=function(prototype,properties){var object;if(null===prototype)object=createEmpty();else{if(\"object\"!=typeof prototype)throw new TypeError(\"typeof prototype[\"+typeof prototype+\"] != 'object'\");var Type=function(){};Type.prototype=prototype,object=new Type,object.__proto__=prototype}return void 0!==properties&&Object.defineProperties(object,properties),object}}if(Object.defineProperty){var definePropertyWorksOnObject=doesDefinePropertyWork({}),definePropertyWorksOnDom=\"undefined\"==typeof document||doesDefinePropertyWork(document.createElement(\"div\"));if(!definePropertyWorksOnObject||!definePropertyWorksOnDom)var definePropertyFallback=Object.defineProperty}if(!Object.defineProperty||definePropertyFallback){var ERR_NON_OBJECT_DESCRIPTOR=\"Property description must be an object: \",ERR_NON_OBJECT_TARGET=\"Object.defineProperty called on non-object: \",ERR_ACCESSORS_NOT_SUPPORTED=\"getters & setters can not be defined on this javascript engine\";Object.defineProperty=function(object,property,descriptor){if(\"object\"!=typeof object&&\"function\"!=typeof object||null===object)throw new TypeError(ERR_NON_OBJECT_TARGET+object);if(\"object\"!=typeof descriptor&&\"function\"!=typeof descriptor||null===descriptor)throw new TypeError(ERR_NON_OBJECT_DESCRIPTOR+descriptor);if(definePropertyFallback)try{return definePropertyFallback.call(Object,object,property,descriptor)}catch(exception){}if(owns(descriptor,\"value\"))if(supportsAccessors&&(lookupGetter(object,property)||lookupSetter(object,property))){var prototype=object.__proto__;object.__proto__=prototypeOfObject,delete object[property],object[property]=descriptor.value,object.__proto__=prototype}else object[property]=descriptor.value;else{if(!supportsAccessors)throw new TypeError(ERR_ACCESSORS_NOT_SUPPORTED);owns(descriptor,\"get\")&&defineGetter(object,property,descriptor.get),owns(descriptor,\"set\")&&defineSetter(object,property,descriptor.set)}return object}}Object.defineProperties||(Object.defineProperties=function(object,properties){for(var property in properties)owns(properties,property)&&Object.defineProperty(object,property,properties[property]);return object}),Object.seal||(Object.seal=function(object){return object}),Object.freeze||(Object.freeze=function(object){return object});try{Object.freeze(function(){})}catch(exception){Object.freeze=function(freezeObject){return function(object){return\"function\"==typeof object?object:freezeObject(object)}}(Object.freeze)}if(Object.preventExtensions||(Object.preventExtensions=function(object){return object}),Object.isSealed||(Object.isSealed=function(){return!1}),Object.isFrozen||(Object.isFrozen=function(){return!1}),Object.isExtensible||(Object.isExtensible=function(object){if(Object(object)===object)throw new TypeError;for(var name=\"\";owns(object,name);)name+=\"?\";object[name]=!0;var returnValue=owns(object,name);return delete object[name],returnValue}),!Object.keys){var hasDontEnumBug=!0,dontEnums=[\"toString\",\"toLocaleString\",\"valueOf\",\"hasOwnProperty\",\"isPrototypeOf\",\"propertyIsEnumerable\",\"constructor\"],dontEnumsLength=dontEnums.length;for(var key in{toString:null})hasDontEnumBug=!1;Object.keys=function(object){if(\"object\"!=typeof object&&\"function\"!=typeof object||null===object)throw new TypeError(\"Object.keys called on a non-object\");var keys=[];for(var name in object)owns(object,name)&&keys.push(name);if(hasDontEnumBug)for(var i=0,ii=dontEnumsLength;ii>i;i++){var dontEnum=dontEnums[i];owns(object,dontEnum)&&keys.push(dontEnum)}return keys}}Date.now||(Date.now=function(){return(new Date).getTime()});var ws=\"\t\\n\u000b\\f\\r   ᠎             　\\u2028\\u2029﻿\";if(!String.prototype.trim||ws.trim()){ws=\"[\"+ws+\"]\";var trimBeginRegexp=RegExp(\"^\"+ws+ws+\"*\"),trimEndRegexp=RegExp(ws+ws+\"*$\");String.prototype.trim=function(){return(this+\"\").replace(trimBeginRegexp,\"\").replace(trimEndRegexp,\"\")}}var toObject=function(o){if(null==o)throw new TypeError(\"can't convert \"+o+\" to object\");return Object(o)}});";
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	ace.define("ace/ext/searchbox",["require","exports","module","ace/lib/dom","ace/lib/lang","ace/lib/event","ace/keyboard/hash_handler","ace/lib/keys"], function(acequire, exports, module) {
+	"use strict";
+
+	var dom = acequire("../lib/dom");
+	var lang = acequire("../lib/lang");
+	var event = acequire("../lib/event");
+	var searchboxCss = "\
+	.ace_search {\
+	background-color: #ddd;\
+	color: #666;\
+	border: 1px solid #cbcbcb;\
+	border-top: 0 none;\
+	overflow: hidden;\
+	margin: 0;\
+	padding: 4px 6px 0 4px;\
+	position: absolute;\
+	top: 0;\
+	z-index: 99;\
+	white-space: normal;\
+	}\
+	.ace_search.left {\
+	border-left: 0 none;\
+	border-radius: 0px 0px 5px 0px;\
+	left: 0;\
+	}\
+	.ace_search.right {\
+	border-radius: 0px 0px 0px 5px;\
+	border-right: 0 none;\
+	right: 0;\
+	}\
+	.ace_search_form, .ace_replace_form {\
+	margin: 0 20px 4px 0;\
+	overflow: hidden;\
+	line-height: 1.9;\
+	}\
+	.ace_replace_form {\
+	margin-right: 0;\
+	}\
+	.ace_search_form.ace_nomatch {\
+	outline: 1px solid red;\
+	}\
+	.ace_search_field {\
+	border-radius: 3px 0 0 3px;\
+	background-color: white;\
+	color: black;\
+	border: 1px solid #cbcbcb;\
+	border-right: 0 none;\
+	box-sizing: border-box!important;\
+	outline: 0;\
+	padding: 0;\
+	font-size: inherit;\
+	margin: 0;\
+	line-height: inherit;\
+	padding: 0 6px;\
+	min-width: 17em;\
+	vertical-align: top;\
+	}\
+	.ace_searchbtn {\
+	border: 1px solid #cbcbcb;\
+	line-height: inherit;\
+	display: inline-block;\
+	padding: 0 6px;\
+	background: #fff;\
+	border-right: 0 none;\
+	border-left: 1px solid #dcdcdc;\
+	cursor: pointer;\
+	margin: 0;\
+	position: relative;\
+	box-sizing: content-box!important;\
+	color: #666;\
+	}\
+	.ace_searchbtn:last-child {\
+	border-radius: 0 3px 3px 0;\
+	border-right: 1px solid #cbcbcb;\
+	}\
+	.ace_searchbtn:disabled {\
+	background: none;\
+	cursor: default;\
+	}\
+	.ace_searchbtn:hover {\
+	background-color: #eef1f6;\
+	}\
+	.ace_searchbtn.prev, .ace_searchbtn.next {\
+	padding: 0px 0.7em\
+	}\
+	.ace_searchbtn.prev:after, .ace_searchbtn.next:after {\
+	content: \"\";\
+	border: solid 2px #888;\
+	width: 0.5em;\
+	height: 0.5em;\
+	border-width:  2px 0 0 2px;\
+	display:inline-block;\
+	transform: rotate(-45deg);\
+	}\
+	.ace_searchbtn.next:after {\
+	border-width: 0 2px 2px 0 ;\
+	}\
+	.ace_searchbtn_close {\
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAcCAYAAABRVo5BAAAAZ0lEQVR42u2SUQrAMAhDvazn8OjZBilCkYVVxiis8H4CT0VrAJb4WHT3C5xU2a2IQZXJjiQIRMdkEoJ5Q2yMqpfDIo+XY4k6h+YXOyKqTIj5REaxloNAd0xiKmAtsTHqW8sR2W5f7gCu5nWFUpVjZwAAAABJRU5ErkJggg==) no-repeat 50% 0;\
+	border-radius: 50%;\
+	border: 0 none;\
+	color: #656565;\
+	cursor: pointer;\
+	font: 16px/16px Arial;\
+	padding: 0;\
+	height: 14px;\
+	width: 14px;\
+	top: 9px;\
+	right: 7px;\
+	position: absolute;\
+	}\
+	.ace_searchbtn_close:hover {\
+	background-color: #656565;\
+	background-position: 50% 100%;\
+	color: white;\
+	}\
+	.ace_button {\
+	margin-left: 2px;\
+	cursor: pointer;\
+	-webkit-user-select: none;\
+	-moz-user-select: none;\
+	-o-user-select: none;\
+	-ms-user-select: none;\
+	user-select: none;\
+	overflow: hidden;\
+	opacity: 0.7;\
+	border: 1px solid rgba(100,100,100,0.23);\
+	padding: 1px;\
+	box-sizing:    border-box!important;\
+	color: black;\
+	}\
+	.ace_button:hover {\
+	background-color: #eee;\
+	opacity:1;\
+	}\
+	.ace_button:active {\
+	background-color: #ddd;\
+	}\
+	.ace_button.checked {\
+	border-color: #3399ff;\
+	opacity:1;\
+	}\
+	.ace_search_options{\
+	margin-bottom: 3px;\
+	text-align: right;\
+	-webkit-user-select: none;\
+	-moz-user-select: none;\
+	-o-user-select: none;\
+	-ms-user-select: none;\
+	user-select: none;\
+	clear: both;\
+	}\
+	.ace_search_counter {\
+	float: left;\
+	font-family: arial;\
+	padding: 0 8px;\
+	}";
+	var HashHandler = acequire("../keyboard/hash_handler").HashHandler;
+	var keyUtil = acequire("../lib/keys");
+
+	var MAX_COUNT = 999;
+
+	dom.importCssString(searchboxCss, "ace_searchbox");
+
+	var html = '<div class="ace_search right">\
+	    <span action="hide" class="ace_searchbtn_close"></span>\
+	    <div class="ace_search_form">\
+	        <input class="ace_search_field" placeholder="Search for" spellcheck="false"></input>\
+	        <span action="findPrev" class="ace_searchbtn prev"></span>\
+	        <span action="findNext" class="ace_searchbtn next"></span>\
+	        <span action="findAll" class="ace_searchbtn" title="Alt-Enter">All</span>\
+	    </div>\
+	    <div class="ace_replace_form">\
+	        <input class="ace_search_field" placeholder="Replace with" spellcheck="false"></input>\
+	        <span action="replaceAndFindNext" class="ace_searchbtn">Replace</span>\
+	        <span action="replaceAll" class="ace_searchbtn">All</span>\
+	    </div>\
+	    <div class="ace_search_options">\
+	        <span action="toggleReplace" class="ace_button" title="Toggel Replace mode"\
+	            style="float:left;margin-top:-2px;padding:0 5px;">+</span>\
+	        <span class="ace_search_counter"></span>\
+	        <span action="toggleRegexpMode" class="ace_button" title="RegExp Search">.*</span>\
+	        <span action="toggleCaseSensitive" class="ace_button" title="CaseSensitive Search">Aa</span>\
+	        <span action="toggleWholeWords" class="ace_button" title="Whole Word Search">\\b</span>\
+	        <span action="searchInSelection" class="ace_button" title="Search In Selection">S</span>\
+	    </div>\
+	</div>'.replace(/> +/g, ">");
+
+	var SearchBox = function(editor, range, showReplaceForm) {
+	    var div = dom.createElement("div");
+	    div.innerHTML = html;
+	    this.element = div.firstChild;
+
+	    this.setSession = this.setSession.bind(this);
+
+	    this.$init();
+	    this.setEditor(editor);
+	};
+
+	(function() {
+	    this.setEditor = function(editor) {
+	        editor.searchBox = this;
+	        editor.renderer.scroller.appendChild(this.element);
+	        this.editor = editor;
+	    };
+
+	    this.setSession = function(e) {
+	        this.searchRange = null;
+	        this.$syncOptions(true);
+	    };
+
+	    this.$initElements = function(sb) {
+	        this.searchBox = sb.querySelector(".ace_search_form");
+	        this.replaceBox = sb.querySelector(".ace_replace_form");
+	        this.searchOption = sb.querySelector("[action=searchInSelection]");
+	        this.replaceOption = sb.querySelector("[action=toggleReplace]");
+	        this.regExpOption = sb.querySelector("[action=toggleRegexpMode]");
+	        this.caseSensitiveOption = sb.querySelector("[action=toggleCaseSensitive]");
+	        this.wholeWordOption = sb.querySelector("[action=toggleWholeWords]");
+	        this.searchInput = this.searchBox.querySelector(".ace_search_field");
+	        this.replaceInput = this.replaceBox.querySelector(".ace_search_field");
+	        this.searchCounter = sb.querySelector(".ace_search_counter");
+	    };
+
+	    this.$init = function() {
+	        var sb = this.element;
+
+	        this.$initElements(sb);
+
+	        var _this = this;
+	        event.addListener(sb, "mousedown", function(e) {
+	            setTimeout(function(){
+	                _this.activeInput.focus();
+	            }, 0);
+	            event.stopPropagation(e);
+	        });
+	        event.addListener(sb, "click", function(e) {
+	            var t = e.target || e.srcElement;
+	            var action = t.getAttribute("action");
+	            if (action && _this[action])
+	                _this[action]();
+	            else if (_this.$searchBarKb.commands[action])
+	                _this.$searchBarKb.commands[action].exec(_this);
+	            event.stopPropagation(e);
+	        });
+
+	        event.addCommandKeyListener(sb, function(e, hashId, keyCode) {
+	            var keyString = keyUtil.keyCodeToString(keyCode);
+	            var command = _this.$searchBarKb.findKeyCommand(hashId, keyString);
+	            if (command && command.exec) {
+	                command.exec(_this);
+	                event.stopEvent(e);
+	            }
+	        });
+
+	        this.$onChange = lang.delayedCall(function() {
+	            _this.find(false, false);
+	        });
+
+	        event.addListener(this.searchInput, "input", function() {
+	            _this.$onChange.schedule(20);
+	        });
+	        event.addListener(this.searchInput, "focus", function() {
+	            _this.activeInput = _this.searchInput;
+	            _this.searchInput.value && _this.highlight();
+	        });
+	        event.addListener(this.replaceInput, "focus", function() {
+	            _this.activeInput = _this.replaceInput;
+	            _this.searchInput.value && _this.highlight();
+	        });
+	    };
+	    this.$closeSearchBarKb = new HashHandler([{
+	        bindKey: "Esc",
+	        name: "closeSearchBar",
+	        exec: function(editor) {
+	            editor.searchBox.hide();
+	        }
+	    }]);
+	    this.$searchBarKb = new HashHandler();
+	    this.$searchBarKb.bindKeys({
+	        "Ctrl-f|Command-f": function(sb) {
+	            var isReplace = sb.isReplace = !sb.isReplace;
+	            sb.replaceBox.style.display = isReplace ? "" : "none";
+	            sb.replaceOption.checked = false;
+	            sb.$syncOptions();
+	            sb.searchInput.focus();
+	        },
+	        "Ctrl-H|Command-Option-F": function(sb) {
+	            sb.replaceOption.checked = true;
+	            sb.$syncOptions();
+	            sb.replaceInput.focus();
+	        },
+	        "Ctrl-G|Command-G": function(sb) {
+	            sb.findNext();
+	        },
+	        "Ctrl-Shift-G|Command-Shift-G": function(sb) {
+	            sb.findPrev();
+	        },
+	        "esc": function(sb) {
+	            setTimeout(function() { sb.hide();});
+	        },
+	        "Return": function(sb) {
+	            if (sb.activeInput == sb.replaceInput)
+	                sb.replace();
+	            sb.findNext();
+	        },
+	        "Shift-Return": function(sb) {
+	            if (sb.activeInput == sb.replaceInput)
+	                sb.replace();
+	            sb.findPrev();
+	        },
+	        "Alt-Return": function(sb) {
+	            if (sb.activeInput == sb.replaceInput)
+	                sb.replaceAll();
+	            sb.findAll();
+	        },
+	        "Tab": function(sb) {
+	            (sb.activeInput == sb.replaceInput ? sb.searchInput : sb.replaceInput).focus();
+	        }
+	    });
+
+	    this.$searchBarKb.addCommands([{
+	        name: "toggleRegexpMode",
+	        bindKey: {win: "Alt-R|Alt-/", mac: "Ctrl-Alt-R|Ctrl-Alt-/"},
+	        exec: function(sb) {
+	            sb.regExpOption.checked = !sb.regExpOption.checked;
+	            sb.$syncOptions();
+	        }
+	    }, {
+	        name: "toggleCaseSensitive",
+	        bindKey: {win: "Alt-C|Alt-I", mac: "Ctrl-Alt-R|Ctrl-Alt-I"},
+	        exec: function(sb) {
+	            sb.caseSensitiveOption.checked = !sb.caseSensitiveOption.checked;
+	            sb.$syncOptions();
+	        }
+	    }, {
+	        name: "toggleWholeWords",
+	        bindKey: {win: "Alt-B|Alt-W", mac: "Ctrl-Alt-B|Ctrl-Alt-W"},
+	        exec: function(sb) {
+	            sb.wholeWordOption.checked = !sb.wholeWordOption.checked;
+	            sb.$syncOptions();
+	        }
+	    }, {
+	        name: "toggleReplace",
+	        exec: function(sb) {
+	            sb.replaceOption.checked = !sb.replaceOption.checked;
+	            sb.$syncOptions();
+	        }
+	    }, {
+	        name: "searchInSelection",
+	        exec: function(sb) {
+	            sb.searchOption.checked = !sb.searchRange;
+	            sb.setSearchRange(sb.searchOption.checked && sb.editor.getSelectionRange());
+	            sb.$syncOptions();
+	        }
+	    }]);
+
+	    this.setSearchRange = function(range) {
+	        this.searchRange = range;
+	        if (range) {
+	            this.searchRangeMarker = this.editor.session.addMarker(range, "ace_active-line");
+	        } else if (this.searchRangeMarker) {
+	            this.editor.session.removeMarker(this.searchRangeMarker);
+	            this.searchRangeMarker = null;
+	        }
+	    };
+
+	    this.$syncOptions = function(preventScroll) {
+	        dom.setCssClass(this.replaceOption, "checked", this.searchRange);
+	        dom.setCssClass(this.searchOption, "checked", this.searchOption.checked);
+	        this.replaceOption.textContent = this.replaceOption.checked ? "-" : "+";
+	        dom.setCssClass(this.regExpOption, "checked", this.regExpOption.checked);
+	        dom.setCssClass(this.wholeWordOption, "checked", this.wholeWordOption.checked);
+	        dom.setCssClass(this.caseSensitiveOption, "checked", this.caseSensitiveOption.checked);
+	        this.replaceBox.style.display = this.replaceOption.checked ? "" : "none";
+	        this.find(false, false, preventScroll);
+	    };
+
+	    this.highlight = function(re) {
+	        this.editor.session.highlight(re || this.editor.$search.$options.re);
+	        this.editor.renderer.updateBackMarkers();
+	    };
+	    this.find = function(skipCurrent, backwards, preventScroll) {
+	        var range = this.editor.find(this.searchInput.value, {
+	            skipCurrent: skipCurrent,
+	            backwards: backwards,
+	            wrap: true,
+	            regExp: this.regExpOption.checked,
+	            caseSensitive: this.caseSensitiveOption.checked,
+	            wholeWord: this.wholeWordOption.checked,
+	            preventScroll: preventScroll,
+	            range: this.searchRange
+	        });
+	        var noMatch = !range && this.searchInput.value;
+	        dom.setCssClass(this.searchBox, "ace_nomatch", noMatch);
+	        this.editor._emit("findSearchBox", { match: !noMatch });
+	        this.highlight();
+	        this.updateCounter();
+	    };
+	    this.updateCounter = function() {
+	        var editor = this.editor;
+	        var regex = editor.$search.$options.re;
+	        var all = 0;
+	        var before = 0;
+	        if (regex) {
+	            var value = this.searchRange
+	                ? editor.session.getTextRange(this.searchRange)
+	                : editor.getValue();
+
+	            var offset = editor.session.doc.positionToIndex(editor.selection.anchor);
+	            if (this.searchRange)
+	                offset -= editor.session.doc.positionToIndex(this.searchRange.start);
+
+	            var last = regex.lastIndex = 0;
+	            var m;
+	            while ((m = regex.exec(value))) {
+	                all++;
+	                last = m.index;
+	                if (last <= offset)
+	                    before++;
+	                if (all > MAX_COUNT)
+	                    break;
+	                if (!m[0]) {
+	                    regex.lastIndex = last += 1;
+	                    if (last >= value.length)
+	                        break;
+	                }
+	            }
+	        }
+	        this.searchCounter.textContent = before + " of " + (all > MAX_COUNT ? MAX_COUNT + "+" : all);
+	    };
+	    this.findNext = function() {
+	        this.find(true, false);
+	    };
+	    this.findPrev = function() {
+	        this.find(true, true);
+	    };
+	    this.findAll = function(){
+	        var range = this.editor.findAll(this.searchInput.value, {
+	            regExp: this.regExpOption.checked,
+	            caseSensitive: this.caseSensitiveOption.checked,
+	            wholeWord: this.wholeWordOption.checked
+	        });
+	        var noMatch = !range && this.searchInput.value;
+	        dom.setCssClass(this.searchBox, "ace_nomatch", noMatch);
+	        this.editor._emit("findSearchBox", { match: !noMatch });
+	        this.highlight();
+	        this.hide();
+	    };
+	    this.replace = function() {
+	        if (!this.editor.getReadOnly())
+	            this.editor.replace(this.replaceInput.value);
+	    };
+	    this.replaceAndFindNext = function() {
+	        if (!this.editor.getReadOnly()) {
+	            this.editor.replace(this.replaceInput.value);
+	            this.findNext();
+	        }
+	    };
+	    this.replaceAll = function() {
+	        if (!this.editor.getReadOnly())
+	            this.editor.replaceAll(this.replaceInput.value);
+	    };
+
+	    this.hide = function() {
+	        this.active = false;
+	        this.setSearchRange(null);
+	        this.editor.off("changeSession", this.setSession);
+
+	        this.element.style.display = "none";
+	        this.editor.keyBinding.removeKeyboardHandler(this.$closeSearchBarKb);
+	        this.editor.focus();
+	    };
+	    this.show = function(value, isReplace) {
+	        this.active = true;
+	        this.editor.on("changeSession", this.setSession);
+	        this.element.style.display = "";
+	        this.replaceOption.checked = isReplace;
+
+	        if (value)
+	            this.searchInput.value = value;
+
+	        this.searchInput.focus();
+	        this.searchInput.select();
+
+	        this.editor.keyBinding.addKeyboardHandler(this.$closeSearchBarKb);
+
+	        this.$syncOptions(true);
+	    };
+
+	    this.isFocused = function() {
+	        var el = document.activeElement;
+	        return el == this.searchInput || el == this.replaceInput;
+	    };
+	}).call(SearchBox.prototype);
+
+	exports.SearchBox = SearchBox;
+
+	exports.Search = function(editor, isReplace) {
+	    var sb = editor.searchBox || new SearchBox(editor);
+	    sb.show(editor.session.getTextRange(), isReplace);
+	};
+
+	});
+	                (function() {
+	                    ace.acequire(["ace/ext/searchbox"], function() {});
+	                })();
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var VanillaPicker;
+
+	if (window.Picker) {
+	  // use the already loaded instance of VanillaPicker
+	  VanillaPicker = window.Picker;
+	}
+	else {
+	  try {
+	    // load color picker
+	    // Note that we load the ES5 distribution bundle
+	    // instead of the "default" as the default currently
+	    // points to `src/picker.js` which is ES6 code (v2.3.0).
+	    VanillaPicker = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"vanilla-picker/dist/vanilla-picker\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	  }
+	  catch (err) {
+	    // probably running the minimalist bundle
+	  }
+	}
+
+	module.exports = VanillaPicker;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var VanillaPicker = __webpack_require__(5);
+	var Highlighter = __webpack_require__(7);
+	var History = __webpack_require__(8);
+	var SearchBox = __webpack_require__(9);
+	var ContextMenu = __webpack_require__(10);
+	var TreePath = __webpack_require__(16);
+	var Node = __webpack_require__(17);
+	var ModeSwitcher = __webpack_require__(26);
+	var util = __webpack_require__(12);
+	var autocomplete = __webpack_require__(27);
+	var showSortModal = __webpack_require__(22);
+	var showTransformModal = __webpack_require__(24);
+	var translate = __webpack_require__(15).translate;
+	var setLanguages = __webpack_require__(15).setLanguages;
+	var setLanguage = __webpack_require__(15).setLanguage;
+
+	var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
+
+	// create a mixin with the functions for tree mode
+	var treemode = {};
+
+	/**
+	 * Create a tree editor
+	 * @param {Element} container    Container element
+	 * @param {Object}  [options]    Object with options. available options:
+	 *                               {String} mode            Editor mode. Available values:
+	 *                                                        'tree' (default), 'view',
+	 *                                                        and 'form'.
+	 *                               {Boolean} search         Enable search box.
+	 *                                                        True by default
+	 *                               {Boolean} history        Enable history (undo/redo).
+	 *                                                        True by default
+	 *                               {function} onChange      Callback method, triggered
+	 *                                                        on change of contents.
+	 *                                                        Does not pass the changed contents.
+	 *                               {function} onChangeJSON  Callback method, triggered
+	 *                                                        in modes on change of contents,
+	 *                                                        passing the changed contents
+	 *                                                        as JSON.
+	 *                                                        Only applicable for modes
+	 *                                                        'tree', 'view', and 'form'.
+	 *                               {function} onChangeText  Callback method, triggered
+	 *                                                        in modes on change of contents,
+	 *                                                        passing the changed contents
+	 *                                                        as stringified JSON.
+	 *                               {String} name            Field name for the root node.
+	 *                               {boolean} escapeUnicode  If true, unicode
+	 *                                                        characters are escaped.
+	 *                                                        false by default.
+	 *                               {Object} schema          A JSON Schema for validation
+	 *                               {function} onEvent       Function triggered
+	 *                                                        when an event occurs
+	 *                                                        in a field or value.
+	 * @private
+	 */
+	treemode.create = function (container, options) {
+	  if (!container) {
+	    throw new Error('No container element provided.');
+	  }
+	  this.container = container;
+	  this.dom = {};
+	  this.highlighter = new Highlighter();
+	  this.selection = undefined; // will hold the last input selection
+	  this.multiselection = {
+	    nodes: []
+	  };
+	  this.validateSchema = null; // will be set in .setSchema(schema)
+	  this.validationSequence = 0;
+	  this.errorNodes = [];
+
+	  this.node = null;
+	  this.focusTarget = null;
+
+	  this._setOptions(options);
+
+	  if (options.autocomplete)
+	      this.autocomplete = new autocomplete(options.autocomplete);
+
+	  if (this.options.history && this.options.mode !== 'view') {
+	    this.history = new History(this);
+	  }
+
+	  this._createFrame();
+	  this._createTable();
+	};
+
+	/**
+	 * Destroy the editor. Clean up DOM, event listeners, and web workers.
+	 */
+	treemode.destroy = function () {
+	  if (this.frame && this.container && this.frame.parentNode == this.container) {
+	    this.container.removeChild(this.frame);
+	    this.frame = null;
+	  }
+	  this.container = null;
+
+	  this.dom = null;
+
+	  this.clear();
+	  this.node = null;
+	  this.focusTarget = null;
+	  this.selection = null;
+	  this.multiselection = null;
+	  this.errorNodes = null;
+	  this.validateSchema = null;
+	  this._debouncedValidate = null;
+
+	  if (this.history) {
+	    this.history.destroy();
+	    this.history = null;
+	  }
+
+	  if (this.searchBox) {
+	    this.searchBox.destroy();
+	    this.searchBox = null;
+	  }
+
+	  if (this.modeSwitcher) {
+	    this.modeSwitcher.destroy();
+	    this.modeSwitcher = null;
+	  }
+	};
+
+	/**
+	 * Initialize and set default options
+	 * @param {Object}  [options]    See description in constructor
+	 * @private
+	 */
+	treemode._setOptions = function (options) {
+	  this.options = {
+	    search: true,
+	    history: true,
+	    mode: 'tree',
+	    name: undefined,   // field name of root node
+	    schema: null,
+	    schemaRefs: null,
+	    autocomplete: null,
+	    navigationBar : true,
+	    mainMenuBar: true,
+	    onSelectionChange: null,
+	    colorPicker: true,
+	    onColorPicker: function (parent, color, onChange) {
+	      if (VanillaPicker) {
+	        new VanillaPicker({
+	          parent: parent,
+	          color: color,
+	          popup: 'bottom',
+	          onDone: function (color) {
+	            var alpha = color.rgba[3];
+	            var hex = (alpha === 1)
+	                ? color.hex.substr(0, 7)  // return #RRGGBB
+	                : color.hex;               // return #RRGGBBAA
+	            onChange(hex);
+	          }
+	        }).show();
+	      }
+	      else {
+	        console.warn('Cannot open color picker: the `vanilla-picker` library is not included in the bundle. ' +
+	            'Either use the full bundle or implement your own color picker using `onColorPicker`.')
+	      }
+	    },
+	    timestampTag: true,
+	    onEvent: null,
+	    enableSort: true,
+	    enableTransform: true
+	  };
+
+	  // copy all options
+	  if (options) {
+	    for (var prop in options) {
+	      if (options.hasOwnProperty(prop)) {
+	        this.options[prop] = options[prop];
+	      }
+	    }
+	  }
+
+	  // compile a JSON schema validator if a JSON schema is provided
+	  this.setSchema(this.options.schema, this.options.schemaRefs);
+
+	  // create a debounced validate function
+	  this._debouncedValidate = util.debounce(this.validate.bind(this), this.DEBOUNCE_INTERVAL);
+
+	  if (options.onSelectionChange) {
+	    this.onSelectionChange(options.onSelectionChange);
+	  }
+
+	  setLanguages(this.options.languages);
+	  setLanguage(this.options.language)
+	};
+
+	/**
+	 * Set new JSON object in editor.
+	 * Resets the state of the editor (expanded nodes, search, selection).
+	 *
+	 * @param {*} json
+	 */
+	treemode.set = function (json) {
+	  // verify if json is valid JSON, ignore when a function
+	  if (json instanceof Function || (json === undefined)) {
+	    this.clear();
+	  }
+	  else {
+	    this.content.removeChild(this.table);  // Take the table offline
+
+	    // replace the root node
+	    var params = {
+	      field: this.options.name,
+	      value: json
+	    };
+	    var node = new Node(this, params);
+	    this._setRoot(node);
+
+	    // validate JSON schema (if configured)
+	    this.validate();
+
+	    // expand
+	    var recurse = false;
+	    this.node.expand(recurse);
+
+	    this.content.appendChild(this.table);  // Put the table online again
+	  }
+
+	  // TODO: maintain history, store last state and previous document
+	  if (this.history) {
+	    this.history.clear();
+	  }
+
+	  // clear search
+	  if (this.searchBox) {
+	    this.searchBox.clear();
+	  }
+	};
+
+	/**
+	 * Update JSON object in editor.
+	 * Maintains the state of the editor (expanded nodes, search, selection).
+	 *
+	 * @param {*} json
+	 */
+	treemode.update = function (json) {
+	  // don't update if there are no changes
+	  if (this.node.deepEqual(json)) {
+	    return;
+	  }
+
+	  var selection = this.getSelection();
+
+	  // apply the changed json
+	  this.onChangeDisabled = true; // don't fire an onChange event
+	  this.node.update(json);
+	  this.onChangeDisabled = false;
+
+	  // validate JSON schema
+	  this.validate();
+
+	  // update search result if any
+	  if (this.searchBox && !this.searchBox.isEmpty()) {
+	    this.searchBox.forceSearch();
+	  }
+
+	  // update selection if any
+	  if (selection && selection.start && selection.end) {
+	    // only keep/update the selection if both start and end node still exists,
+	    // else we clear the selection
+	    var startNode = this.node.findNodeByPath(selection.start.path);
+	    var endNode = this.node.findNodeByPath(selection.end.path);
+	    if (startNode && endNode) {
+	      this.setSelection(selection.start, selection.end);
+	    }
+	    else {
+	      this.setSelection({}, {}); // clear selection
+	    }
+	  }
+	  else {
+	    this.setSelection({}, {}); // clear selection
+	  }
+	};
+
+	/**
+	 * Get JSON object from editor
+	 * @return {Object | undefined} json
+	 */
+	treemode.get = function () {
+	  // remove focus from currently edited node
+	  if (this.focusTarget) {
+	    var node = Node.getNodeFromTarget(this.focusTarget);
+	    if (node) {
+	      node.blur();
+	    }
+	  }
+
+	  if (this.node) {
+	    return this.node.getValue();
+	  }
+	  else {
+	    return undefined;
+	  }
+	};
+
+	/**
+	 * Get the text contents of the editor
+	 * @return {String} jsonText
+	 */
+	treemode.getText = function() {
+	  return JSON.stringify(this.get());
+	};
+
+	/**
+	 * Set the text contents of the editor.
+	 * Resets the state of the editor (expanded nodes, search, selection).
+	 * @param {String} jsonText
+	 */
+	treemode.setText = function(jsonText) {
+	  try {
+	    this.set(util.parse(jsonText)); // this can throw an error
+	  }
+	  catch (err) {
+	    // try to sanitize json, replace JavaScript notation with JSON notation
+	    var sanitizedJsonText = util.sanitize(jsonText);
+
+	    // try to parse again
+	    this.set(util.parse(sanitizedJsonText)); // this can throw an error
+	  }
+	};
+
+	/**
+	 * Update the text contents of the editor.
+	 * Maintains the state of the editor (expanded nodes, search, selection).
+	 * @param {String} jsonText
+	 */
+	treemode.updateText = function(jsonText) {
+	  try {
+	    this.update(util.parse(jsonText)); // this can throw an error
+	  }
+	  catch (err) {
+	    // try to sanitize json, replace JavaScript notation with JSON notation
+	    var sanitizedJsonText = util.sanitize(jsonText);
+
+	    // try to parse again
+	    this.update(util.parse(sanitizedJsonText)); // this can throw an error
+	  }
+	};
+
+	/**
+	 * Set a field name for the root node.
+	 * @param {String | undefined} name
+	 */
+	treemode.setName = function (name) {
+	  this.options.name = name;
+	  if (this.node) {
+	    this.node.updateField(this.options.name);
+	  }
+	};
+
+	/**
+	 * Get the field name for the root node.
+	 * @return {String | undefined} name
+	 */
+	treemode.getName = function () {
+	  return this.options.name;
+	};
+
+	/**
+	 * Set focus to the editor. Focus will be set to:
+	 * - the first editable field or value, or else
+	 * - to the expand button of the root node, or else
+	 * - to the context menu button of the root node, or else
+	 * - to the first button in the top menu
+	 */
+	treemode.focus = function () {
+	  var input = this.scrollableContent.querySelector('[contenteditable=true]');
+	  if (input) {
+	    input.focus();
+	  }
+	  else if (this.node.dom.expand) {
+	    this.node.dom.expand.focus();
+	  }
+	  else if (this.node.dom.menu) {
+	    this.node.dom.menu.focus();
+	  }
+	  else {
+	    // focus to the first button in the menu
+	    input = this.frame.querySelector('button');
+	    if (input) {
+	      input.focus();
+	    }
+	  }
+	};
+
+	/**
+	 * Remove the root node from the editor
+	 */
+	treemode.clear = function () {
+	  if (this.node) {
+	    this.node.hide();
+	    delete this.node;
+	  }
+
+	  if (this.treePath) {
+	    this.treePath.reset();
+	  }
+	};
+
+	/**
+	 * Set the root node for the json editor
+	 * @param {Node} node
+	 * @private
+	 */
+	treemode._setRoot = function (node) {
+	  this.clear();
+
+	  this.node = node;
+
+	  // append to the dom
+	  this.tbody.appendChild(node.getDom());
+	};
+
+	/**
+	 * Search text in all nodes
+	 * The nodes will be expanded when the text is found one of its childs,
+	 * else it will be collapsed. Searches are case insensitive.
+	 * @param {String} text
+	 * @return {Object[]} results  Array with nodes containing the search results
+	 *                             The result objects contains fields:
+	 *                             - {Node} node,
+	 *                             - {String} elem  the dom element name where
+	 *                                              the result is found ('field' or
+	 *                                              'value')
+	 */
+	treemode.search = function (text) {
+	  var results;
+	  if (this.node) {
+	    this.content.removeChild(this.table);  // Take the table offline
+	    results = this.node.search(text);
+	    this.content.appendChild(this.table);  // Put the table online again
+	  }
+	  else {
+	    results = [];
+	  }
+
+	  return results;
+	};
+
+	/**
+	 * Expand all nodes
+	 */
+	treemode.expandAll = function () {
+	  if (this.node) {
+	    this.content.removeChild(this.table);  // Take the table offline
+	    this.node.expand();
+	    this.content.appendChild(this.table);  // Put the table online again
+	  }
+	};
+
+	/**
+	 * Collapse all nodes
+	 */
+	treemode.collapseAll = function () {
+	  if (this.node) {
+	    this.content.removeChild(this.table);  // Take the table offline
+	    this.node.collapse();
+	    this.content.appendChild(this.table);  // Put the table online again
+	  }
+	};
+
+	/**
+	 * The method onChange is called whenever a field or value is changed, created,
+	 * deleted, duplicated, etc.
+	 * @param {String} action  Change action. Available values: "editField",
+	 *                         "editValue", "changeType", "appendNode",
+	 *                         "removeNode", "duplicateNode", "moveNode", "expand",
+	 *                         "collapse".
+	 * @param {Object} params  Object containing parameters describing the change.
+	 *                         The parameters in params depend on the action (for
+	 *                         example for "editValue" the Node, old value, and new
+	 *                         value are provided). params contains all information
+	 *                         needed to undo or redo the action.
+	 * @private
+	 */
+	treemode._onAction = function (action, params) {
+	  // add an action to the history
+	  if (this.history) {
+	    this.history.add(action, params);
+	  }
+
+	  this._onChange();
+	};
+
+	/**
+	 * Handle a change:
+	 * - Validate JSON schema
+	 * - Send a callback to the onChange listener if provided
+	 * @private
+	 */
+	treemode._onChange = function () {
+	  if (this.onChangeDisabled) {
+	    return;
+	  }
+
+	  // selection can be changed after undo/redo
+	  this.selection = this.getDomSelection();
+
+	  // validate JSON schema (if configured)
+	  this._debouncedValidate();
+
+	  if (this.treePath) {
+	    var selectedNode = this.selection
+	        ?  this.node.findNodeByInternalPath(this.selection.path)
+	        : this.multiselection
+	            ? this.multiselection.nodes[0]
+	            : undefined;
+
+	    if (selectedNode) {
+	      this._updateTreePath(selectedNode.getNodePath())
+	    }
+	    else {
+	      this.treePath.reset()
+	    }
+	  }
+
+	  // trigger the onChange callback
+	  if (this.options.onChange) {
+	    try {
+	      this.options.onChange();
+	    }
+	    catch (err) {
+	      console.error('Error in onChange callback: ', err);
+	    }
+	  }
+
+	  // trigger the onChangeJSON callback
+	  if (this.options.onChangeJSON) {
+	    try {
+	      this.options.onChangeJSON(this.get());
+	    }
+	    catch (err) {
+	      console.error('Error in onChangeJSON callback: ', err);
+	    }
+	  }
+
+	  // trigger the onChangeText callback
+	  if (this.options.onChangeText) {
+	    try {
+	      this.options.onChangeText(this.getText());
+	    }
+	    catch (err) {
+	      console.error('Error in onChangeText callback: ', err);
+	    }
+	  }
+	};
+
+	/**
+	 * Validate current JSON object against the configured JSON schema
+	 * Throws an exception when no JSON schema is configured
+	 */
+	treemode.validate = function () {
+	  var root = this.node;
+	  if (!root) { // TODO: this should be redundant but is needed on mode switch
+	    return;
+	  }
+
+	  var json = root.getValue();
+
+	  // check for duplicate keys
+	  var duplicateErrors = root.validate();
+
+	  // execute JSON schema validation
+	  var schemaErrors = [];
+	  if (this.validateSchema) {
+	    var valid = this.validateSchema(json);
+	    if (!valid) {
+	      // apply all new errors
+	      schemaErrors = this.validateSchema.errors
+	          .map(function (error) {
+	            return util.improveSchemaError(error);
+	          })
+	          .map(function findNode (error) {
+	            return {
+	              node: root.findNode(error.dataPath),
+	              error: error
+	            }
+	          })
+	          .filter(function hasNode (entry) {
+	            return entry.node != null
+	          });
+	    }
+	  }
+
+	  // execute custom validation and after than merge and render all errors
+	  try {
+	    this.validationSequence++;
+	    var me = this;
+	    var seq = this.validationSequence;
+	    this._validateCustom(json)
+	        .then(function (customValidationErrors) {
+	          // only apply when there was no other validation started whilst resolving async results
+	          if (seq === me.validationSequence) {
+	            var errorNodes = [].concat(duplicateErrors, schemaErrors, customValidationErrors || []);
+	            me._renderValidationErrors(errorNodes);
+	          }
+	        })
+	        .catch(function (err) {
+	          console.error(err);
+	        });
+	  }
+	  catch (err) {
+	    console.error(err);
+	  }
+	};
+
+	treemode._renderValidationErrors = function (errorNodes) {
+	  // clear all current errors
+	  if (this.errorNodes) {
+	    this.errorNodes.forEach(function (node) {
+	      node.setError(null);
+	    });
+	  }
+
+	  // render the new errors
+	  var parentPairs = errorNodes
+	      .reduce(function (all, entry) {
+	        return entry.node
+	            .findParents()
+	            .filter(function (parent) {
+	              return !all.some(function (pair) {
+	                return pair[0] === parent;
+	              });
+	            })
+	            .map(function (parent) {
+	              return [parent, entry.node];
+	            })
+	            .concat(all);
+	      }, []);
+
+	  this.errorNodes = parentPairs
+	      .map(function (pair) {
+	        return {
+	          node: pair[0],
+	          child: pair[1],
+	          error: {
+	            message: pair[0].type === 'object'
+	                ? 'Contains invalid properties' // object
+	                : 'Contains invalid items'      // array
+	          }
+	        };
+	      })
+	      .concat(errorNodes)
+	      .map(function setError (entry) {
+	        entry.node.setError(entry.error, entry.child);
+	        return entry.node;
+	      });
+	};
+
+	/**
+	 * Execute custom validation if configured.
+	 *
+	 * Returns a promise resolving with the custom errors (or nothing).
+	 */
+	treemode._validateCustom = function (json) {
+	  try {
+	    if (this.options.onValidate) {
+	      var root = this.node;
+	      var customValidateResults = this.options.onValidate(json);
+
+	      var resultPromise = util.isPromise(customValidateResults)
+	          ? customValidateResults
+	          : Promise.resolve(customValidateResults);
+
+	      return resultPromise.then(function (customValidationPathErrors) {
+	        if (Array.isArray(customValidationPathErrors)) {
+	          return customValidationPathErrors
+	              .filter(function (error) {
+	                var valid = util.isValidValidationError(error);
+
+	                if (!valid) {
+	                  console.warn('Ignoring a custom validation error with invalid structure. ' +
+	                      'Expected structure: {path: [...], message: "..."}. ' +
+	                      'Actual error:', error);
+	                }
+
+	                return valid;
+	              })
+	              .map(function (error) {
+	                var node;
+	                try {
+	                  node = (error && error.path) ? root.findNodeByPath(error.path) : null
+	                }
+	                catch (err) {
+	                  // stay silent here, we throw a generic warning if no node is found
+	                }
+	                if (!node) {
+	                  console.warn('Ignoring validation error: node not found. Path:', error.path, 'Error:', error);
+	                }
+
+	                return {
+	                  node: node,
+	                  error: error
+	                }
+	              })
+	              .filter(function (entry) {
+	                return entry && entry.node && entry.error && entry.error.message
+	              });
+	        }
+	        else {
+	          return null;
+	        }
+	      });
+	    }
+	  }
+	  catch (err) {
+	    return Promise.reject(err);
+	  }
+
+	  return Promise.resolve(null);
+	};
+
+	/**
+	 * Refresh the rendered contents
+	 */
+	treemode.refresh = function () {
+	  if (this.node) {
+	    this.node.updateDom({recurse: true});
+	  }
+	};
+
+	/**
+	 * Start autoscrolling when given mouse position is above the top of the
+	 * editor contents, or below the bottom.
+	 * @param {Number} mouseY  Absolute mouse position in pixels
+	 */
+	treemode.startAutoScroll = function (mouseY) {
+	  var me = this;
+	  var content = this.scrollableContent;
+	  var top = util.getAbsoluteTop(content);
+	  var height = content.clientHeight;
+	  var bottom = top + height;
+	  var margin = 24;
+	  var interval = 50; // ms
+
+	  if ((mouseY < top + margin) && content.scrollTop > 0) {
+	    this.autoScrollStep = ((top + margin) - mouseY) / 3;
+	  }
+	  else if (mouseY > bottom - margin &&
+	      height + content.scrollTop < content.scrollHeight) {
+	    this.autoScrollStep = ((bottom - margin) - mouseY) / 3;
+	  }
+	  else {
+	    this.autoScrollStep = undefined;
+	  }
+
+	  if (this.autoScrollStep) {
+	    if (!this.autoScrollTimer) {
+	      this.autoScrollTimer = setInterval(function () {
+	        if (me.autoScrollStep) {
+	          content.scrollTop -= me.autoScrollStep;
+	        }
+	        else {
+	          me.stopAutoScroll();
+	        }
+	      }, interval);
+	    }
+	  }
+	  else {
+	    this.stopAutoScroll();
+	  }
+	};
+
+	/**
+	 * Stop auto scrolling. Only applicable when scrolling
+	 */
+	treemode.stopAutoScroll = function () {
+	  if (this.autoScrollTimer) {
+	    clearTimeout(this.autoScrollTimer);
+	    delete this.autoScrollTimer;
+	  }
+	  if (this.autoScrollStep) {
+	    delete this.autoScrollStep;
+	  }
+	};
+
+
+	/**
+	 * Set the focus to an element in the editor, set text selection, and
+	 * set scroll position.
+	 * @param {Object} selection  An object containing fields:
+	 *                            {Element | undefined} dom     The dom element
+	 *                                                          which has focus
+	 *                            {Range | TextRange} range     A text selection
+	 *                            {Node[]} nodes                Nodes in case of multi selection
+	 *                            {Number} scrollTop            Scroll position
+	 */
+	treemode.setDomSelection = function (selection) {
+	  if (!selection) {
+	    return;
+	  }
+
+	  if ('scrollTop' in selection && this.scrollableContent) {
+	    // TODO: animated scroll
+	    this.scrollableContent.scrollTop = selection.scrollTop;
+	  }
+	  if (selection.paths) {
+	    // multi-select
+	    var me = this;
+	    var nodes = selection.paths.map(function (path) {
+	      return me.node.findNodeByInternalPath(path);
+	    });
+
+	    this.select(nodes);
+	  }
+	  else {
+	    // find the actual DOM element where to apply the focus
+	    var node = selection.path
+	        ? this.node.findNodeByInternalPath(selection.path)
+	        : null;
+	    var container = (node && selection.domName)
+	        ? node.dom[selection.domName]
+	        : null;
+	    if (selection.range && container) {
+	      var range = Object.assign({}, selection.range, { container: container });
+	      util.setSelectionOffset(range);
+	    }
+	    else if (node) { // just a fallback
+	      node.focus();
+	    }
+	  }
+	};
+
+	/**
+	 * Get the current focus
+	 * @return {Object} selection An object containing fields:
+	 *                            {Element | undefined} dom     The dom element
+	 *                                                          which has focus
+	 *                            {Range | TextRange} range     A text selection
+	 *                            {Node[]} nodes                Nodes in case of multi selection
+	 *                            {Number} scrollTop            Scroll position
+	 */
+	treemode.getDomSelection = function () {
+	  // find the node and field name of the current target,
+	  // so we can store the current selection in a serializable
+	  // way (internal node path and domName)
+	  var node = Node.getNodeFromTarget(this.focusTarget);
+	  var focusTarget = this.focusTarget;
+	  var domName = node
+	      ? Object.keys(node.dom).find(function (domName) {
+	        return node.dom[domName] === focusTarget;
+	      })
+	      : null;
+
+	  var range = util.getSelectionOffset();
+	  if (range && range.container.nodeName !== 'DIV') { // filter on (editable) divs)
+	    range = null;
+	  }
+	  if (range && range.container !== focusTarget) {
+	    range = null;
+	  }
+	  if (range) {
+	    // we cannot rely on the current instance of the container,
+	    // we need to store the internal node path and field and
+	    // find the actual DOM field when applying the selection
+	    delete range.container;
+	  }
+
+	  return {
+	    path: node ? node.getInternalPath() : null,
+	    domName: domName,
+	    range: range,
+	    paths: this.multiselection.length > 0
+	        ? this.multiselection.nodes.map(function (node) {
+	            return node.getInternalPath();
+	          })
+	        : null,
+	    scrollTop: this.scrollableContent ? this.scrollableContent.scrollTop : 0
+	  };
+	};
+
+	/**
+	 * Adjust the scroll position such that given top position is shown at 1/4
+	 * of the window height.
+	 * @param {Number} top
+	 * @param {function(boolean)} [callback]   Callback, executed when animation is
+	 *                                         finished. The callback returns true
+	 *                                         when animation is finished, or false
+	 *                                         when not.
+	 */
+	treemode.scrollTo = function (top, callback) {
+	  var content = this.scrollableContent;
+	  if (content) {
+	    var editor = this;
+	    // cancel any running animation
+	    if (editor.animateTimeout) {
+	      clearTimeout(editor.animateTimeout);
+	      delete editor.animateTimeout;
+	    }
+	    if (editor.animateCallback) {
+	      editor.animateCallback(false);
+	      delete editor.animateCallback;
+	    }
+
+	    // calculate final scroll position
+	    var height = content.clientHeight;
+	    var bottom = content.scrollHeight - height;
+	    var finalScrollTop = Math.min(Math.max(top - height / 4, 0), bottom);
+
+	    // animate towards the new scroll position
+	    var animate = function () {
+	      var scrollTop = content.scrollTop;
+	      var diff = (finalScrollTop - scrollTop);
+	      if (Math.abs(diff) > 3) {
+	        content.scrollTop += diff / 3;
+	        editor.animateCallback = callback;
+	        editor.animateTimeout = setTimeout(animate, 50);
+	      }
+	      else {
+	        // finished
+	        if (callback) {
+	          callback(true);
+	        }
+	        content.scrollTop = finalScrollTop;
+	        delete editor.animateTimeout;
+	        delete editor.animateCallback;
+	      }
+	    };
+	    animate();
+	  }
+	  else {
+	    if (callback) {
+	      callback(false);
+	    }
+	  }
+	};
+
+	/**
+	 * Create main frame
+	 * @private
+	 */
+	treemode._createFrame = function () {
+	  // create the frame
+	  this.frame = document.createElement('div');
+	  this.frame.className = 'jsoneditor jsoneditor-mode-' + this.options.mode;
+	  this.container.appendChild(this.frame);
+
+	  this.contentOuter = document.createElement('div');
+	  this.contentOuter.className = 'jsoneditor-outer';
+
+	  // create one global event listener to handle all events from all nodes
+	  var editor = this;
+	  function onEvent(event) {
+	    // when switching to mode "code" or "text" via the menu, some events
+	    // are still fired whilst the _onEvent methods is already removed.
+	    if (editor._onEvent) {
+	      editor._onEvent(event);
+	    }
+	  }
+	  this.frame.onclick = function (event) {
+	    var target = event.target;// || event.srcElement;
+
+	    onEvent(event);
+
+	    // prevent default submit action of buttons when editor is located
+	    // inside a form
+	    if (target.nodeName == 'BUTTON') {
+	      event.preventDefault();
+	    }
+	  };
+	  this.frame.oninput = onEvent;
+	  this.frame.onchange = onEvent;
+	  this.frame.onkeydown = onEvent;
+	  this.frame.onkeyup = onEvent;
+	  this.frame.oncut = onEvent;
+	  this.frame.onpaste = onEvent;
+	  this.frame.onmousedown = onEvent;
+	  this.frame.onmouseup = onEvent;
+	  this.frame.onmouseover = onEvent;
+	  this.frame.onmouseout = onEvent;
+	  // Note: focus and blur events do not propagate, therefore they defined
+	  // using an eventListener with useCapture=true
+	  // see http://www.quirksmode.org/blog/archives/2008/04/delegating_the.html
+	  util.addEventListener(this.frame, 'focus', onEvent, true);
+	  util.addEventListener(this.frame, 'blur', onEvent, true);
+	  this.frame.onfocusin = onEvent;  // for IE
+	  this.frame.onfocusout = onEvent; // for IE
+
+	  if (this.options.mainMenuBar) {
+	    util.addClassName(this.contentOuter, 'has-main-menu-bar');
+
+	    // create menu
+	    this.menu = document.createElement('div');
+	    this.menu.className = 'jsoneditor-menu';
+	    this.frame.appendChild(this.menu);
+
+	    // create expand all button
+	    var expandAll = document.createElement('button');
+	    expandAll.type = 'button';
+	    expandAll.className = 'jsoneditor-expand-all';
+	    expandAll.title = translate('expandAll');
+	    expandAll.onclick = function () {
+	      editor.expandAll();
+	    };
+	    this.menu.appendChild(expandAll);
+
+	    // create collapse all button
+	    var collapseAll = document.createElement('button');
+	    collapseAll.type = 'button';
+	    collapseAll.title = translate('collapseAll');
+	    collapseAll.className = 'jsoneditor-collapse-all';
+	    collapseAll.onclick = function () {
+	      editor.collapseAll();
+	    };
+	    this.menu.appendChild(collapseAll);
+
+	    // create sort button
+	    if (this.options.enableSort) {
+	      var sort = document.createElement('button');
+	      sort.type = 'button';
+	      sort.className = 'jsoneditor-sort';
+	      sort.title = translate('sortTitleShort');
+	      sort.onclick = function () {
+	        var anchor = editor.options.modalAnchor || DEFAULT_MODAL_ANCHOR;
+	        showSortModal(editor.node, anchor)
+	      };
+	      this.menu.appendChild(sort);
+	    }
+
+	    // create transform button
+	    if (this.options.enableTransform) {
+	      var transform = document.createElement('button');
+	      transform.type = 'button';
+	      transform.title = translate('transformTitleShort');
+	      transform.className = 'jsoneditor-transform';
+	      transform.onclick = function () {
+	        var anchor = editor.options.modalAnchor || DEFAULT_MODAL_ANCHOR;
+	        showTransformModal(editor.node, anchor)
+	      };
+	      this.menu.appendChild(transform);
+	    }
+
+	    // create undo/redo buttons
+	    if (this.history) {
+	      // create undo button
+	      var undo = document.createElement('button');
+	      undo.type = 'button';
+	      undo.className = 'jsoneditor-undo jsoneditor-separator';
+	      undo.title = translate('undo');
+	      undo.onclick = function () {
+	        editor._onUndo();
+	      };
+	      this.menu.appendChild(undo);
+	      this.dom.undo = undo;
+
+	      // create redo button
+	      var redo = document.createElement('button');
+	      redo.type = 'button';
+	      redo.className = 'jsoneditor-redo';
+	      redo.title = translate('redo');
+	      redo.onclick = function () {
+	        editor._onRedo();
+	      };
+	      this.menu.appendChild(redo);
+	      this.dom.redo = redo;
+
+	      // register handler for onchange of history
+	      this.history.onChange = function () {
+	        undo.disabled = !editor.history.canUndo();
+	        redo.disabled = !editor.history.canRedo();
+	      };
+	      this.history.onChange();
+	    }
+
+	    // create mode box
+	    if (this.options && this.options.modes && this.options.modes.length) {
+	      var me = this;
+	      this.modeSwitcher = new ModeSwitcher(this.menu, this.options.modes, this.options.mode, function onSwitch(mode) {
+	        // switch mode and restore focus
+	        me.setMode(mode);
+	        me.modeSwitcher.focus();
+	      });
+	    }
+
+	    // create search box
+	    if (this.options.search) {
+	      this.searchBox = new SearchBox(this, this.menu);
+	    }
+	  }
+
+	  if (this.options.navigationBar) {
+	    // create second menu row for treepath
+	    this.navBar = document.createElement('div');
+	    this.navBar.className = 'jsoneditor-navigation-bar nav-bar-empty';
+	    this.frame.appendChild(this.navBar);
+
+	    this.treePath = new TreePath(this.navBar, this.frame);
+	    this.treePath.onSectionSelected(this._onTreePathSectionSelected.bind(this));
+	    this.treePath.onContextMenuItemSelected(this._onTreePathMenuItemSelected.bind(this));
+	  }
+	};
+
+	/**
+	 * Perform an undo action
+	 * @private
+	 */
+	treemode._onUndo = function () {
+	  if (this.history) {
+	    // undo last action
+	    this.history.undo();
+
+	    // fire change event
+	    this._onChange();
+	  }
+	};
+
+	/**
+	 * Perform a redo action
+	 * @private
+	 */
+	treemode._onRedo = function () {
+	  if (this.history) {
+	    // redo last action
+	    this.history.redo();
+
+	    // fire change event
+	    this._onChange();
+	  }
+	};
+
+	/**
+	 * Event handler
+	 * @param event
+	 * @private
+	 */
+	treemode._onEvent = function (event) {
+	  // don't process events when coming from the color picker
+	  if (Node.targetIsColorPicker(event.target)) {
+	    return;
+	  }
+
+	  if (event.type === 'keydown') {
+	    this._onKeyDown(event);
+	  }
+
+	  if (event.type === 'focus') {
+	    this.focusTarget = event.target;
+	  }
+
+	  if (event.type === 'mousedown') {
+	    this._startDragDistance(event);
+	  }
+	  if (event.type === 'mousemove' || event.type === 'mouseup' || event.type === 'click') {
+	    this._updateDragDistance(event);
+	  }
+
+	  var node = Node.getNodeFromTarget(event.target);
+
+	  if (node && this.options && this.options.navigationBar && node && (event.type === 'keydown' || event.type === 'mousedown')) {
+	    // apply on next tick, right after the new key press is applied
+	    var me = this;
+	    setTimeout(function () {
+	      me._updateTreePath(node.getNodePath());
+	    })
+	  }
+
+	  if (node && node.selected) {
+	    if (event.type === 'click') {
+	      if (event.target === node.dom.menu) {
+	        this.showContextMenu(event.target);
+
+	        // stop propagation (else we will open the context menu of a single node)
+	        return;
+	      }
+
+	      // deselect a multi selection
+	      if (!event.hasMoved) {
+	        this.deselect();
+	      }
+	    }
+
+	    if (event.type === 'mousedown') {
+	      // drag multiple nodes
+	      Node.onDragStart(this.multiselection.nodes, event);
+	    }
+	  }
+	  else {
+	    // filter mouse events in the contents part of the editor (not the main menu)
+	    if (event.type === 'mousedown' && util.hasParentNode(event.target, this.content)) {
+	      this.deselect();
+
+	      if (node && event.target === node.dom.drag) {
+	        // drag a singe node
+	        Node.onDragStart(node, event);
+	      }
+	      else if (!node || (event.target !== node.dom.field && event.target !== node.dom.value && event.target !== node.dom.select)) {
+	        // select multiple nodes
+	        this._onMultiSelectStart(event);
+	      }
+	    }
+	  }
+
+	  if (node) {
+	    node.onEvent(event);
+	  }
+	};
+
+	/**
+	 * Update TreePath components
+	 * @param {Array<Node>} pathNodes list of nodes in path from root to selection
+	 * @private
+	 */
+	treemode._updateTreePath = function (pathNodes) {
+	  if (pathNodes && pathNodes.length) {
+	    util.removeClassName(this.navBar, 'nav-bar-empty');
+
+	    var pathObjs = [];
+	    pathNodes.forEach(function (node) {
+	      var pathObj = {
+	        name: getName(node),
+	        node: node,
+	        children: []
+	      };
+	      if (node.childs && node.childs.length) {
+	        node.childs.forEach(function (childNode) {
+	          pathObj.children.push({
+	            name: getName(childNode),
+	            node: childNode
+	          });
+	        });
+	      }
+	      pathObjs.push(pathObj);
+	    });
+	    this.treePath.setPath(pathObjs);
+	  } else {
+	    util.addClassName(this.navBar, 'nav-bar-empty');
+	  }
+
+	  function getName(node) {
+	    return node.parent
+	        ? ((node.parent.type === 'array') ? node.index : node.field)
+	        : node.type;
+	  }
+	};
+
+	/**
+	 * Callback for tree path section selection - focus the selected node in the tree
+	 * @param {Object} pathObj path object that was represents the selected section node
+	 * @private
+	 */
+	treemode._onTreePathSectionSelected = function (pathObj) {
+	  if(pathObj && pathObj.node) {
+	    pathObj.node.expandTo();
+	    pathObj.node.focus();
+	  }
+	};
+
+	/**
+	 * Callback for tree path menu item selection - rebuild the path accrding to the new selection and focus the selected node in the tree
+	 * @param {Object} pathObj path object that was represents the parent section node
+	 * @param {String} selection selected section child
+	 * @private
+	 */
+	treemode._onTreePathMenuItemSelected = function (pathObj, selection) {
+	  if(pathObj && pathObj.children.length) {
+	    var selectionObj = pathObj.children.find(function (obj) {
+	      return obj.name === selection;
+	    });
+	    if(selectionObj && selectionObj.node) {
+	      this._updateTreePath(selectionObj.node.getNodePath());
+	      selectionObj.node.expandTo();
+	      selectionObj.node.focus();
+	    }
+	  }
+	};
+
+	treemode._startDragDistance = function (event) {
+	  this.dragDistanceEvent = {
+	    initialTarget: event.target,
+	    initialPageX: event.pageX,
+	    initialPageY: event.pageY,
+	    dragDistance: 0,
+	    hasMoved: false
+	  };
+	};
+
+	treemode._updateDragDistance = function (event) {
+	  if (!this.dragDistanceEvent) {
+	    this._startDragDistance(event);
+	  }
+
+	  var diffX = event.pageX - this.dragDistanceEvent.initialPageX;
+	  var diffY = event.pageY - this.dragDistanceEvent.initialPageY;
+
+	  this.dragDistanceEvent.dragDistance = Math.sqrt(diffX * diffX + diffY * diffY);
+	  this.dragDistanceEvent.hasMoved =
+	      this.dragDistanceEvent.hasMoved || this.dragDistanceEvent.dragDistance > 10;
+
+	  event.dragDistance = this.dragDistanceEvent.dragDistance;
+	  event.hasMoved = this.dragDistanceEvent.hasMoved;
+
+	  return event.dragDistance;
+	};
+
+	/**
+	 * Start multi selection of nodes by dragging the mouse
+	 * @param event
+	 * @private
+	 */
+	treemode._onMultiSelectStart = function (event) {
+	  var node = Node.getNodeFromTarget(event.target);
+
+	  if (this.options.mode !== 'tree' || this.options.onEditable !== undefined) {
+	    // dragging not allowed in modes 'view' and 'form'
+	    // TODO: allow multiselection of items when option onEditable is specified
+	    return;
+	  }
+
+	  this.multiselection = {
+	    start: node || null,
+	    end: null,
+	    nodes: []
+	  };
+
+	  this._startDragDistance(event);
+
+	  var editor = this;
+	  if (!this.mousemove) {
+	    this.mousemove = util.addEventListener(window, 'mousemove', function (event) {
+	      editor._onMultiSelect(event);
+	    });
+	  }
+	  if (!this.mouseup) {
+	    this.mouseup = util.addEventListener(window, 'mouseup', function (event ) {
+	      editor._onMultiSelectEnd(event);
+	    });
+	  }
+
+	  event.preventDefault();
+	};
+
+	/**
+	 * Multiselect nodes by dragging
+	 * @param event
+	 * @private
+	 */
+	treemode._onMultiSelect = function (event) {
+	  event.preventDefault();
+
+	  this._updateDragDistance(event);
+	  if (!event.hasMoved) {
+	    return;
+	  }
+
+	  var node = Node.getNodeFromTarget(event.target);
+
+	  if (node) {
+	    if (this.multiselection.start == null) {
+	      this.multiselection.start = node;
+	    }
+	    this.multiselection.end = node;
+	  }
+
+	  // deselect previous selection
+	  this.deselect();
+
+	  // find the selected nodes in the range from first to last
+	  var start = this.multiselection.start;
+	  var end = this.multiselection.end || this.multiselection.start;
+	  if (start && end) {
+	    // find the top level childs, all having the same parent
+	    this.multiselection.nodes = this._findTopLevelNodes(start, end);
+	    if (this.multiselection.nodes && this.multiselection.nodes.length) {
+	      var firstNode = this.multiselection.nodes[0];
+	      if (this.multiselection.start === firstNode || this.multiselection.start.isDescendantOf(firstNode)) {
+	        this.multiselection.direction = 'down';
+	      } else {
+	        this.multiselection.direction = 'up';
+	      }
+	    }
+	    this.select(this.multiselection.nodes);
+	  }
+	};
+
+	/**
+	 * End of multiselect nodes by dragging
+	 * @private
+	 */
+	treemode._onMultiSelectEnd = function () {
+	  // set focus to the context menu button of the first node
+	  if (this.multiselection.nodes[0]) {
+	    this.multiselection.nodes[0].dom.menu.focus();
+	  }
+
+	  this.multiselection.start = null;
+	  this.multiselection.end = null;
+
+	  // cleanup global event listeners
+	  if (this.mousemove) {
+	    util.removeEventListener(window, 'mousemove', this.mousemove);
+	    delete this.mousemove;
+	  }
+	  if (this.mouseup) {
+	    util.removeEventListener(window, 'mouseup', this.mouseup);
+	    delete this.mouseup;
+	  }
+	};
+
+	/**
+	 * deselect currently selected nodes
+	 * @param {boolean} [clearStartAndEnd=false]  If true, the `start` and `end`
+	 *                                            state is cleared too.
+	 */
+	treemode.deselect = function (clearStartAndEnd) {
+	  var selectionChanged = !!this.multiselection.nodes.length;
+	  this.multiselection.nodes.forEach(function (node) {
+	    node.setSelected(false);
+	  });
+	  this.multiselection.nodes = [];
+
+	  if (clearStartAndEnd) {
+	    this.multiselection.start = null;
+	    this.multiselection.end = null;
+	  }
+
+	  if (selectionChanged) {
+	    if (this._selectionChangedHandler) {
+	      this._selectionChangedHandler();
+	    }
+	  }
+	};
+
+	/**
+	 * select nodes
+	 * @param {Node[] | Node} nodes
+	 */
+	treemode.select = function (nodes) {
+	  if (!Array.isArray(nodes)) {
+	    return this.select([nodes]);
+	  }
+
+	  if (nodes) {
+	    this.deselect();
+
+	    this.multiselection.nodes = nodes.slice(0);
+
+	    var first = nodes[0];
+	    nodes.forEach(function (node) {
+	      node.expandPathToNode();
+	      node.setSelected(true, node === first);
+	    });
+
+	    if (this._selectionChangedHandler) {
+	      var selection = this.getSelection();
+	      this._selectionChangedHandler(selection.start, selection.end);
+	    }
+	  }
+	};
+
+	/**
+	 * From two arbitrary selected nodes, find their shared parent node.
+	 * From that parent node, select the two child nodes in the brances going to
+	 * nodes `start` and `end`, and select all childs in between.
+	 * @param {Node} start
+	 * @param {Node} end
+	 * @return {Array.<Node>} Returns an ordered list with child nodes
+	 * @private
+	 */
+	treemode._findTopLevelNodes = function (start, end) {
+	  var startPath = start.getNodePath();
+	  var endPath = end.getNodePath();
+	  var i = 0;
+	  while (i < startPath.length && startPath[i] === endPath[i]) {
+	    i++;
+	  }
+	  var root = startPath[i - 1];
+	  var startChild = startPath[i];
+	  var endChild = endPath[i];
+
+	  if (!startChild || !endChild) {
+	    if (root.parent) {
+	      // startChild is a parent of endChild or vice versa
+	      startChild = root;
+	      endChild = root;
+	      root = root.parent
+	    }
+	    else {
+	      // we have selected the root node (which doesn't have a parent)
+	      startChild = root.childs[0];
+	      endChild = root.childs[root.childs.length - 1];
+	    }
+	  }
+
+	  if (root && startChild && endChild) {
+	    var startIndex = root.childs.indexOf(startChild);
+	    var endIndex = root.childs.indexOf(endChild);
+	    var firstIndex = Math.min(startIndex, endIndex);
+	    var lastIndex = Math.max(startIndex, endIndex);
+
+	    return root.childs.slice(firstIndex, lastIndex + 1);
+	  }
+	  else {
+	    return [];
+	  }
+	};
+
+	/**
+	 * Event handler for keydown. Handles shortcut keys
+	 * @param {Event} event
+	 * @private
+	 */
+	treemode._onKeyDown = function (event) {
+	  var keynum = event.which || event.keyCode;
+	  var altKey = event.altKey;
+	  var ctrlKey = event.ctrlKey;
+	  var metaKey = event.metaKey;
+	  var shiftKey = event.shiftKey;
+	  var handled = false;
+
+	  if (keynum == 9) { // Tab or Shift+Tab
+	    var me = this;
+	    setTimeout(function () {
+	      // select all text when moving focus to an editable div
+	      util.selectContentEditable(me.focusTarget);
+	    }, 0);
+	  }
+
+	  if (this.searchBox) {
+	    if (ctrlKey && keynum == 70) { // Ctrl+F
+	      this.searchBox.dom.search.focus();
+	      this.searchBox.dom.search.select();
+	      handled = true;
+	    }
+	    else if (keynum == 114 || (ctrlKey && keynum == 71)) { // F3 or Ctrl+G
+	      var focus = true;
+	      if (!shiftKey) {
+	        // select next search result (F3 or Ctrl+G)
+	        this.searchBox.next(focus);
+	      }
+	      else {
+	        // select previous search result (Shift+F3 or Ctrl+Shift+G)
+	        this.searchBox.previous(focus);
+	      }
+
+	      handled = true;
+	    }
+	  }
+
+	  if (this.history) {
+	    if (ctrlKey && !shiftKey && keynum == 90) { // Ctrl+Z
+	      // undo
+	      this._onUndo();
+	      handled = true;
+	    }
+	    else if (ctrlKey && shiftKey && keynum == 90) { // Ctrl+Shift+Z
+	      // redo
+	      this._onRedo();
+	      handled = true;
+	    }
+	  }
+
+	  if ((this.options.autocomplete) && (!handled)) {
+	      if (!ctrlKey && !altKey && !metaKey && (event.key.length == 1 || keynum == 8 || keynum == 46)) {
+	          handled = false;
+	          var jsonElementType = "";
+	          if (event.target.className.indexOf("jsoneditor-value") >= 0) jsonElementType = "value";
+	          if (event.target.className.indexOf("jsoneditor-field") >= 0) jsonElementType = "field";
+
+	          var node = Node.getNodeFromTarget(event.target);
+	          // Activate autocomplete
+	          setTimeout(function (hnode, element) {
+	              if (element.innerText.length > 0) {
+	                  var result = this.options.autocomplete.getOptions(element.innerText, hnode.getPath(), jsonElementType, hnode.editor);
+	                  if (result === null) {
+	                      this.autocomplete.hideDropDown();
+	                  } else if (typeof result.then === 'function') {
+	                      // probably a promise
+	                      if (result.then(function (obj) {
+	                          if (obj === null) {
+	                              this.autocomplete.hideDropDown();
+	                          } else if (obj.options) {
+	                              this.autocomplete.show(element, obj.startFrom, obj.options);
+	                          } else {
+	                              this.autocomplete.show(element, 0, obj);
+	                          }
+	                      }.bind(this)));
+	                  } else {
+	                      // definitely not a promise
+	                      if (result.options)
+	                          this.autocomplete.show(element, result.startFrom, result.options);
+	                      else
+	                          this.autocomplete.show(element, 0, result);
+	                  }
+	              }
+	              else
+	                  this.autocomplete.hideDropDown();
+
+	          }.bind(this, node, event.target), 50);
+	      }
+	  }
+
+	  if (handled) {
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	};
+
+	/**
+	 * Create main table
+	 * @private
+	 */
+	treemode._createTable = function () {
+	  if (this.options.navigationBar) {
+	    util.addClassName(this.contentOuter, 'has-nav-bar');
+	  }
+
+	  this.scrollableContent = document.createElement('div');
+	  this.scrollableContent.className = 'jsoneditor-tree';
+	  this.contentOuter.appendChild(this.scrollableContent);
+
+	  // the jsoneditor-tree-inner div with bottom padding is here to
+	  // keep space for the action menu dropdown. It's created as a
+	  // separate div instead of using scrollableContent to work around
+	  // and issue in the Chrome browser showing scrollable contents outside of the div
+	  // see https://github.com/josdejong/jsoneditor/issues/557
+	  this.content = document.createElement('div');
+	  this.content.className = 'jsoneditor-tree-inner';
+	  this.scrollableContent.appendChild(this.content);
+
+	  this.table = document.createElement('table');
+	  this.table.className = 'jsoneditor-tree';
+	  this.content.appendChild(this.table);
+
+	  // create colgroup where the first two columns don't have a fixed
+	  // width, and the edit columns do have a fixed width
+	  var col;
+	  this.colgroupContent = document.createElement('colgroup');
+	  if (this.options.mode === 'tree') {
+	    col = document.createElement('col');
+	    col.width = "24px";
+	    this.colgroupContent.appendChild(col);
+	  }
+	  col = document.createElement('col');
+	  col.width = "24px";
+	  this.colgroupContent.appendChild(col);
+	  col = document.createElement('col');
+	  this.colgroupContent.appendChild(col);
+	  this.table.appendChild(this.colgroupContent);
+
+	  this.tbody = document.createElement('tbody');
+	  this.table.appendChild(this.tbody);
+
+	  this.frame.appendChild(this.contentOuter);
+	};
+
+	/**
+	 * Show a contextmenu for this node.
+	 * Used for multiselection
+	 * @param {HTMLElement} anchor   Anchor element to attach the context menu to.
+	 * @param {function} [onClose]   Callback method called when the context menu
+	 *                               is being closed.
+	 */
+	treemode.showContextMenu = function (anchor, onClose) {
+	  var items = [];
+	  var selectedNodes = this.multiselection.nodes.slice();
+
+	  // create duplicate button
+	  items.push({
+	    text: translate('duplicateText'),
+	    title: translate('duplicateTitle'),
+	    className: 'jsoneditor-duplicate',
+	    click: function () {
+	      Node.onDuplicate(selectedNodes );
+	    }
+	  });
+
+	  // create remove button
+	  items.push({
+	    text: translate('remove'),
+	    title: translate('removeTitle'),
+	    className: 'jsoneditor-remove',
+	    click: function () {
+	      Node.onRemove(selectedNodes);
+	    }
+	  });
+
+	  var menu = new ContextMenu(items, {close: onClose});
+	  menu.show(anchor, this.frame);
+	};
+
+	/**
+	 * Get current selected nodes
+	 * @return {{start:SerializableNode, end: SerializableNode}}
+	 */
+	treemode.getSelection = function () {
+	  var selection = {
+	    start: null,
+	    end: null
+	  };
+	  if (this.multiselection.nodes && this.multiselection.nodes.length) {
+	    if (this.multiselection.nodes.length) {
+	      var selection1 = this.multiselection.nodes[0];
+	      var selection2 = this.multiselection.nodes[this.multiselection.nodes.length - 1];
+	      if (this.multiselection.direction === 'down') {
+	        selection.start = selection1.serialize();
+	        selection.end = selection2.serialize();
+	      } else {
+	        selection.start = selection2.serialize();
+	        selection.end = selection1.serialize();
+	      }
+	    }
+	  }
+	  return selection;
+	};
+
+	/**
+	 * Callback registration for selection change
+	 * @param {selectionCallback} callback
+	 *
+	 * @callback selectionCallback
+	 */
+	treemode.onSelectionChange = function (callback) {
+	  if (typeof callback === 'function') {
+	    this._selectionChangedHandler = util.debounce(callback, this.DEBOUNCE_INTERVAL);
+	  }
+	};
+
+	/**
+	 * Select range of nodes.
+	 * For selecting single node send only the start parameter
+	 * For clear the selection do not send any parameter
+	 * If the nodes are not from the same level the first common parent will be selected
+	 * @param {{path: Array.<String>}} start object contains the path for selection start
+	 * @param {{path: Array.<String>}} end object contains the path for selection end
+	 */
+	treemode.setSelection = function (start, end) {
+	  // check for old usage
+	  if (start && start.dom && start.range) {
+	    console.warn('setSelection/getSelection usage for text selection is deprecated and should not be used, see documentation for supported selection options');
+	    this.setDomSelection(start);
+	  }
+
+	  var nodes = this._getNodeInstancesByRange(start, end);
+
+	  nodes.forEach(function(node) {
+	    node.expandTo();
+	  });
+	  this.select(nodes);
+	};
+
+	/**
+	 * Returns a set of Nodes according to a range of selection
+	 * @param {{path: Array.<String>}} start object contains the path for range start
+	 * @param {{path: Array.<String>}=} end object contains the path for range end
+	 * @return {Array.<Node>} Node instances on the given range
+	 * @private
+	 */
+	treemode._getNodeInstancesByRange = function (start, end) {
+	  var startNode, endNode;
+
+	  if (start && start.path) {
+	    startNode = this.node.findNodeByPath(start.path);
+	    if (end && end.path) {
+	      endNode = this.node.findNodeByPath(end.path);
+	    }
+	  }
+
+	  var nodes = [];
+	  if (startNode instanceof Node) {
+	    if (endNode instanceof Node && endNode !== startNode) {
+	      if (startNode.parent === endNode.parent) {
+	        var start, end;
+	        if (startNode.getIndex() < endNode.getIndex()) {
+	          start = startNode;
+	          end = endNode;
+	        } else {
+	          start = endNode;
+	          end = startNode;
+	        }
+	        var current = start;
+	        nodes.push(current);
+	        do {
+	          current = current.nextSibling();
+	          nodes.push(current);
+	        } while (current && current !== end);
+	      } else {
+	        nodes = this._findTopLevelNodes(startNode, endNode);
+	      }
+	    } else {
+	      nodes.push(startNode);
+	    }
+	  }
+
+	  return nodes;
+
+	};
+
+	treemode.getNodesByRange = function (start, end) {
+	  var nodes = this._getNodeInstancesByRange(start, end);
+	  var serializableNodes = [];
+
+	  nodes.forEach(function (node){
+	    serializableNodes.push(node.serialize());
+	  });
+
+	  return serializableNodes;
+	};
+
+	// define modes
+	module.exports = [
+	  {
+	    mode: 'tree',
+	    mixin: treemode,
+	    data: 'json'
+	  },
+	  {
+	    mode: 'view',
+	    mixin: treemode,
+	    data: 'json'
+	  },
+	  {
+	    mode: 'form',
+	    mixin: treemode,
+	    data: 'json'
+	  }
+	];
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * The highlighter can highlight/unhighlight a node, and
+	 * animate the visibility of a context menu.
+	 * @constructor Highlighter
+	 */
+	function Highlighter () {
+	  this.locked = false;
+	}
+
+	/**
+	 * Hightlight given node and its childs
+	 * @param {Node} node
+	 */
+	Highlighter.prototype.highlight = function (node) {
+	  if (this.locked) {
+	    return;
+	  }
+
+	  if (this.node != node) {
+	    // unhighlight current node
+	    if (this.node) {
+	      this.node.setHighlight(false);
+	    }
+
+	    // highlight new node
+	    this.node = node;
+	    this.node.setHighlight(true);
+	  }
+
+	  // cancel any current timeout
+	  this._cancelUnhighlight();
+	};
+
+	/**
+	 * Unhighlight currently highlighted node.
+	 * Will be done after a delay
+	 */
+	Highlighter.prototype.unhighlight = function () {
+	  if (this.locked) {
+	    return;
+	  }
+
+	  var me = this;
+	  if (this.node) {
+	    this._cancelUnhighlight();
+
+	    // do the unhighlighting after a small delay, to prevent re-highlighting
+	    // the same node when moving from the drag-icon to the contextmenu-icon
+	    // or vice versa.
+	    this.unhighlightTimer = setTimeout(function () {
+	      me.node.setHighlight(false);
+	      me.node = undefined;
+	      me.unhighlightTimer = undefined;
+	    }, 0);
+	  }
+	};
+
+	/**
+	 * Cancel an unhighlight action (if before the timeout of the unhighlight action)
+	 * @private
+	 */
+	Highlighter.prototype._cancelUnhighlight = function () {
+	  if (this.unhighlightTimer) {
+	    clearTimeout(this.unhighlightTimer);
+	    this.unhighlightTimer = undefined;
+	  }
+	};
+
+	/**
+	 * Lock highlighting or unhighlighting nodes.
+	 * methods highlight and unhighlight do not work while locked.
+	 */
+	Highlighter.prototype.lock = function () {
+	  this.locked = true;
+	};
+
+	/**
+	 * Unlock highlighting or unhighlighting nodes
+	 */
+	Highlighter.prototype.unlock = function () {
+	  this.locked = false;
+	};
+
+	module.exports = Highlighter;
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @constructor History
+	 * Store action history, enables undo and redo
+	 * @param {JSONEditor} editor
+	 */
+	function History (editor) {
+	  this.editor = editor;
+	  this.history = [];
+	  this.index = -1;
+
+	  this.clear();
+
+	  // helper function to find a Node from a path
+	  function findNode(path) {
+	    return editor.node.findNodeByInternalPath(path)
+	  }
+
+	  // map with all supported actions
+	  this.actions = {
+	    'editField': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var node = parentNode.childs[params.index];
+	        node.updateField(params.oldValue);
+	      },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var node = parentNode.childs[params.index];
+	        node.updateField(params.newValue);
+	      }
+	    },
+	    'editValue': {
+	      'undo': function (params) {
+	        findNode(params.path).updateValue(params.oldValue);
+	      },
+	      'redo': function (params) {
+	        findNode(params.path).updateValue(params.newValue);
+	      }
+	    },
+	    'changeType': {
+	      'undo': function (params) {
+	        findNode(params.path).changeType(params.oldType);
+	      },
+	      'redo': function (params) {
+	        findNode(params.path).changeType(params.newType);
+	      }
+	    },
+
+	    'appendNodes': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.paths.map(findNode).forEach(function (node) {
+	          parentNode.removeChild(node);
+	        });
+	       },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.nodes.forEach(function (node) {
+	          parentNode.appendChild(node);
+	        });
+	      }
+	    },
+	    'insertBeforeNodes': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.paths.map(findNode).forEach(function (node) {
+	          parentNode.removeChild(node);
+	        });
+	      },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var beforeNode = findNode(params.beforePath);
+	        params.nodes.forEach(function (node) {
+	          parentNode.insertBefore(node, beforeNode);
+	        });
+	      }
+	    },
+	    'insertAfterNodes': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.paths.map(findNode).forEach(function (node) {
+	          parentNode.removeChild(node);
+	        });
+	      },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var afterNode = findNode(params.afterPath);
+	        params.nodes.forEach(function (node) {
+	          parentNode.insertAfter(node, afterNode);
+	          afterNode = node;
+	        });
+	      }
+	    },
+	    'removeNodes': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var beforeNode = parentNode.childs[params.index] || parentNode.append;
+	        params.nodes.forEach(function (node) {
+	          parentNode.insertBefore(node, beforeNode);
+	        });
+	      },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.paths.map(findNode).forEach(function (node) {
+	          parentNode.removeChild(node);
+	        });
+	      }
+	    },
+	    'duplicateNodes': {
+	      'undo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        params.clonePaths.map(findNode).forEach(function (node) {
+	          parentNode.removeChild(node);
+	        });
+	      },
+	      'redo': function (params) {
+	        var parentNode = findNode(params.parentPath);
+	        var afterNode = findNode(params.afterPath);
+	        var nodes = params.paths.map(findNode);
+	        nodes.forEach(function (node) {
+	          var clone = node.clone();
+	          parentNode.insertAfter(clone, afterNode);
+	          afterNode = clone;
+	        });
+	      }
+	    },
+	    'moveNodes': {
+	      'undo': function (params) {
+	        var oldParentNode = findNode(params.oldParentPath);
+	        var newParentNode = findNode(params.newParentPath);
+	        var oldBeforeNode = oldParentNode.childs[params.oldIndex] || oldParentNode.append;
+
+	        // first copy the nodes, then move them
+	        var nodes = newParentNode.childs.slice(params.newIndex, params.newIndex + params.count);
+
+	        nodes.forEach(function (node, index) {
+	          node.field = params.fieldNames[index];
+	          oldParentNode.moveBefore(node, oldBeforeNode);
+	        });
+
+	        // This is a hack to work around an issue that we don't know tha original
+	        // path of the new parent after dragging, as the node is already moved at that time.
+	        if (params.newParentPathRedo === null) {
+	          params.newParentPathRedo = newParentNode.getInternalPath();
+	        }
+	      },
+	      'redo': function (params) {
+	        var oldParentNode = findNode(params.oldParentPathRedo);
+	        var newParentNode = findNode(params.newParentPathRedo);
+	        var newBeforeNode = newParentNode.childs[params.newIndexRedo] || newParentNode.append;
+
+	        // first copy the nodes, then move them
+	        var nodes = oldParentNode.childs.slice(params.oldIndexRedo, params.oldIndexRedo + params.count);
+
+	        nodes.forEach(function (node, index) {
+	          node.field = params.fieldNames[index];
+	          newParentNode.moveBefore(node, newBeforeNode);
+	        });
+	      }
+	    },
+
+	    'sort': {
+	      'undo': function (params) {
+	        var node = findNode(params.path);
+	        node.hideChilds();
+	        node.childs = params.oldChilds;
+	        node.updateDom({updateIndexes: true});
+	        node.showChilds();
+	      },
+	      'redo': function (params) {
+	        var node = findNode(params.path);
+	        node.hideChilds();
+	        node.childs = params.newChilds;
+	        node.updateDom({updateIndexes: true});
+	        node.showChilds();
+	      }
+	    },
+
+	    'transform': {
+	      'undo': function (params) {
+	        findNode(params.path).setInternalValue(params.oldValue);
+
+	        // TODO: would be nice to restore the state of the node and childs
+	      },
+	      'redo': function (params) {
+	        findNode(params.path).setInternalValue(params.newValue);
+
+	        // TODO: would be nice to restore the state of the node and childs
+	      }
+	    }
+
+	    // TODO: restore the original caret position and selection with each undo
+	    // TODO: implement history for actions "expand", "collapse", "scroll", "setDocument"
+	  };
+	}
+
+	/**
+	 * The method onChange is executed when the History is changed, and can
+	 * be overloaded.
+	 */
+	History.prototype.onChange = function () {};
+
+	/**
+	 * Add a new action to the history
+	 * @param {String} action  The executed action. Available actions: "editField",
+	 *                         "editValue", "changeType", "appendNode",
+	 *                         "removeNode", "duplicateNode", "moveNode"
+	 * @param {Object} params  Object containing parameters describing the change.
+	 *                         The parameters in params depend on the action (for
+	 *                         example for "editValue" the Node, old value, and new
+	 *                         value are provided). params contains all information
+	 *                         needed to undo or redo the action.
+	 */
+	History.prototype.add = function (action, params) {
+	  this.index++;
+	  this.history[this.index] = {
+	    'action': action,
+	    'params': params,
+	    'timestamp': new Date()
+	  };
+
+	  // remove redo actions which are invalid now
+	  if (this.index < this.history.length - 1) {
+	    this.history.splice(this.index + 1, this.history.length - this.index - 1);
+	  }
+
+	  // fire onchange event
+	  this.onChange();
+	};
+
+	/**
+	 * Clear history
+	 */
+	History.prototype.clear = function () {
+	  this.history = [];
+	  this.index = -1;
+
+	  // fire onchange event
+	  this.onChange();
+	};
+
+	/**
+	 * Check if there is an action available for undo
+	 * @return {Boolean} canUndo
+	 */
+	History.prototype.canUndo = function () {
+	  return (this.index >= 0);
+	};
+
+	/**
+	 * Check if there is an action available for redo
+	 * @return {Boolean} canRedo
+	 */
+	History.prototype.canRedo = function () {
+	  return (this.index < this.history.length - 1);
+	};
+
+	/**
+	 * Undo the last action
+	 */
+	History.prototype.undo = function () {
+	  if (this.canUndo()) {
+	    var obj = this.history[this.index];
+	    if (obj) {
+	      var action = this.actions[obj.action];
+	      if (action && action.undo) {
+	        action.undo(obj.params);
+	        if (obj.params.oldSelection) {
+	          try {
+	            this.editor.setDomSelection(obj.params.oldSelection);
+	          }
+	          catch (err) {
+	            console.error(err);
+	          }
+	        }
+	      }
+	      else {
+	        console.error(new Error('unknown action "' + obj.action + '"'));
+	      }
+	    }
+	    this.index--;
+
+	    // fire onchange event
+	    this.onChange();
+	  }
+	};
+
+	/**
+	 * Redo the last action
+	 */
+	History.prototype.redo = function () {
+	  if (this.canRedo()) {
+	    this.index++;
+
+	    var obj = this.history[this.index];
+	    if (obj) {
+	      var action = this.actions[obj.action];
+	      if (action && action.redo) {
+	        action.redo(obj.params);
+	        if (obj.params.newSelection) {
+	          try {
+	            this.editor.setDomSelection(obj.params.newSelection);
+	          }
+	          catch (err) {
+	            console.error(err);
+	          }
+	        }
+	      }
+	      else {
+	        console.error(new Error('unknown action "' + obj.action + '"'));
+	      }
+	    }
+
+	    // fire onchange event
+	    this.onChange();
+	  }
+	};
+
+	/**
+	 * Destroy history
+	 */
+	History.prototype.destroy = function () {
+	  this.editor = null;
+
+	  this.history = [];
+	  this.index = -1;
+	};
+
+	module.exports = History;
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @constructor SearchBox
+	 * Create a search box in given HTML container
+	 * @param {JSONEditor} editor    The JSON Editor to attach to
+	 * @param {Element} container               HTML container element of where to
+	 *                                          create the search box
+	 */
+	function SearchBox (editor, container) {
+	  var searchBox = this;
+
+	  this.editor = editor;
+	  this.timeout = undefined;
+	  this.delay = 200; // ms
+	  this.lastText = undefined;
+
+	  this.dom = {};
+	  this.dom.container = container;
+
+	  var table = document.createElement('table');
+	  this.dom.table = table;
+	  table.className = 'jsoneditor-search';
+	  container.appendChild(table);
+	  var tbody = document.createElement('tbody');
+	  this.dom.tbody = tbody;
+	  table.appendChild(tbody);
+	  var tr = document.createElement('tr');
+	  tbody.appendChild(tr);
+
+	  var td = document.createElement('td');
+	  tr.appendChild(td);
+	  var results = document.createElement('div');
+	  this.dom.results = results;
+	  results.className = 'jsoneditor-results';
+	  td.appendChild(results);
+
+	  td = document.createElement('td');
+	  tr.appendChild(td);
+	  var divInput = document.createElement('div');
+	  this.dom.input = divInput;
+	  divInput.className = 'jsoneditor-frame';
+	  divInput.title = 'Search fields and values';
+	  td.appendChild(divInput);
+
+	  // table to contain the text input and search button
+	  var tableInput = document.createElement('table');
+	  divInput.appendChild(tableInput);
+	  var tbodySearch = document.createElement('tbody');
+	  tableInput.appendChild(tbodySearch);
+	  tr = document.createElement('tr');
+	  tbodySearch.appendChild(tr);
+
+	  var refreshSearch = document.createElement('button');
+	  refreshSearch.type = 'button';
+	  refreshSearch.className = 'jsoneditor-refresh';
+	  td = document.createElement('td');
+	  td.appendChild(refreshSearch);
+	  tr.appendChild(td);
+
+	  var search = document.createElement('input');
+	  // search.type = 'button';
+	  this.dom.search = search;
+	  search.oninput = function (event) {
+	    searchBox._onDelayedSearch(event);
+	  };
+	  search.onchange = function (event) { // For IE 9
+	    searchBox._onSearch();
+	  };
+	  search.onkeydown = function (event) {
+	    searchBox._onKeyDown(event);
+	  };
+	  search.onkeyup = function (event) {
+	    searchBox._onKeyUp(event);
+	  };
+	  refreshSearch.onclick = function (event) {
+	    search.select();
+	  };
+
+	  // TODO: ESC in FF restores the last input, is a FF bug, https://bugzilla.mozilla.org/show_bug.cgi?id=598819
+	  td = document.createElement('td');
+	  td.appendChild(search);
+	  tr.appendChild(td);
+
+	  var searchNext = document.createElement('button');
+	  searchNext.type = 'button';
+	  searchNext.title = 'Next result (Enter)';
+	  searchNext.className = 'jsoneditor-next';
+	  searchNext.onclick = function () {
+	    searchBox.next();
+	  };
+	  td = document.createElement('td');
+	  td.appendChild(searchNext);
+	  tr.appendChild(td);
+
+	  var searchPrevious = document.createElement('button');
+	  searchPrevious.type = 'button';
+	  searchPrevious.title = 'Previous result (Shift+Enter)';
+	  searchPrevious.className = 'jsoneditor-previous';
+	  searchPrevious.onclick = function () {
+	    searchBox.previous();
+	  };
+	  td = document.createElement('td');
+	  td.appendChild(searchPrevious);
+	  tr.appendChild(td);
+	}
+
+	/**
+	 * Go to the next search result
+	 * @param {boolean} [focus]   If true, focus will be set to the next result
+	 *                            focus is false by default.
+	 */
+	SearchBox.prototype.next = function(focus) {
+	  if (this.results != undefined) {
+	    var index = (this.resultIndex != undefined) ? this.resultIndex + 1 : 0;
+	    if (index > this.results.length - 1) {
+	      index = 0;
+	    }
+	    this._setActiveResult(index, focus);
+	  }
+	};
+
+	/**
+	 * Go to the prevous search result
+	 * @param {boolean} [focus]   If true, focus will be set to the next result
+	 *                            focus is false by default.
+	 */
+	SearchBox.prototype.previous = function(focus) {
+	  if (this.results != undefined) {
+	    var max = this.results.length - 1;
+	    var index = (this.resultIndex != undefined) ? this.resultIndex - 1 : max;
+	    if (index < 0) {
+	      index = max;
+	    }
+	    this._setActiveResult(index, focus);
+	  }
+	};
+
+	/**
+	 * Set new value for the current active result
+	 * @param {Number} index
+	 * @param {boolean} [focus]   If true, focus will be set to the next result.
+	 *                            focus is false by default.
+	 * @private
+	 */
+	SearchBox.prototype._setActiveResult = function(index, focus) {
+	  // de-activate current active result
+	  if (this.activeResult) {
+	    var prevNode = this.activeResult.node;
+	    var prevElem = this.activeResult.elem;
+	    if (prevElem == 'field') {
+	      delete prevNode.searchFieldActive;
+	    }
+	    else {
+	      delete prevNode.searchValueActive;
+	    }
+	    prevNode.updateDom();
+	  }
+
+	  if (!this.results || !this.results[index]) {
+	    // out of range, set to undefined
+	    this.resultIndex = undefined;
+	    this.activeResult = undefined;
+	    return;
+	  }
+
+	  this.resultIndex = index;
+
+	  // set new node active
+	  var node = this.results[this.resultIndex].node;
+	  var elem = this.results[this.resultIndex].elem;
+	  if (elem == 'field') {
+	    node.searchFieldActive = true;
+	  }
+	  else {
+	    node.searchValueActive = true;
+	  }
+	  this.activeResult = this.results[this.resultIndex];
+	  node.updateDom();
+
+	  // TODO: not so nice that the focus is only set after the animation is finished
+	  node.scrollTo(function () {
+	    if (focus) {
+	      node.focus(elem);
+	    }
+	  });
+	};
+
+	/**
+	 * Cancel any running onDelayedSearch.
+	 * @private
+	 */
+	SearchBox.prototype._clearDelay = function() {
+	  if (this.timeout != undefined) {
+	    clearTimeout(this.timeout);
+	    delete this.timeout;
+	  }
+	};
+
+	/**
+	 * Start a timer to execute a search after a short delay.
+	 * Used for reducing the number of searches while typing.
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onDelayedSearch = function (event) {
+	  // execute the search after a short delay (reduces the number of
+	  // search actions while typing in the search text box)
+	  this._clearDelay();
+	  var searchBox = this;
+	  this.timeout = setTimeout(function (event) {
+	    searchBox._onSearch();
+	  },
+	  this.delay);
+	};
+
+	/**
+	 * Handle onSearch event
+	 * @param {boolean} [forceSearch]  If true, search will be executed again even
+	 *                                 when the search text is not changed.
+	 *                                 Default is false.
+	 * @private
+	 */
+	SearchBox.prototype._onSearch = function (forceSearch) {
+	  this._clearDelay();
+
+	  var value = this.dom.search.value;
+	  var text = (value.length > 0) ? value : undefined;
+	  if (text !== this.lastText || forceSearch) {
+	    // only search again when changed
+	    this.lastText = text;
+	    this.results = this.editor.search(text);
+	    var MAX_SEARCH_RESULTS = this.results[0]
+	        ? this.results[0].node.MAX_SEARCH_RESULTS
+	        : Infinity;
+
+	    // try to maintain the current active result if this is still part of the new search results
+	    var activeResultIndex = 0;
+	    if (this.activeResult) {
+	      for (var i = 0; i < this.results.length; i++) {
+	        if (this.results[i].node === this.activeResult.node) {
+	          activeResultIndex = i;
+	          break;
+	        }
+	      }
+	    }
+
+	    this._setActiveResult(activeResultIndex, false);
+
+	    // display search results
+	    if (text !== undefined) {
+	      var resultCount = this.results.length;
+	      if (resultCount === 0) {
+	        this.dom.results.innerHTML = 'no&nbsp;results';
+	      }
+	      else if (resultCount === 1) {
+	        this.dom.results.innerHTML = '1&nbsp;result';
+	      }
+	      else if (resultCount > MAX_SEARCH_RESULTS) {
+	        this.dom.results.innerHTML = MAX_SEARCH_RESULTS + '+&nbsp;results';
+	      }
+	      else {
+	        this.dom.results.innerHTML = resultCount + '&nbsp;results';
+	      }
+	    }
+	    else {
+	      this.dom.results.innerHTML = '';
+	    }
+	  }
+	};
+
+	/**
+	 * Handle onKeyDown event in the input box
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onKeyDown = function (event) {
+	  var keynum = event.which;
+	  if (keynum == 27) { // ESC
+	    this.dom.search.value = '';  // clear search
+	    this._onSearch();
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	  else if (keynum == 13) { // Enter
+	    if (event.ctrlKey) {
+	      // force to search again
+	      this._onSearch(true);
+	    }
+	    else if (event.shiftKey) {
+	      // move to the previous search result
+	      this.previous();
+	    }
+	    else {
+	      // move to the next search result
+	      this.next();
+	    }
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	};
+
+	/**
+	 * Handle onKeyUp event in the input box
+	 * @param {Event} event
+	 * @private
+	 */
+	SearchBox.prototype._onKeyUp = function (event) {
+	  var keynum = event.keyCode;
+	  if (keynum != 27 && keynum != 13) { // !show and !Enter
+	    this._onDelayedSearch(event);   // For IE 9
+	  }
+	};
+
+	/**
+	 * Clear the search results
+	 */
+	SearchBox.prototype.clear = function () {
+	  this.dom.search.value = '';
+	  this._onSearch();
+	};
+
+	/**
+	 * Refresh searchResults if there is a search value
+	 */
+	SearchBox.prototype.forceSearch = function () {
+	  this._onSearch(true);
+	};
+
+	/**
+	 * Test whether the search box value is empty
+	 * @returns {boolean} Returns true when empty.
+	 */
+	SearchBox.prototype.isEmpty = function () {
+	  return this.dom.search.value === '';
+	};
+
+	/**
+	 * Destroy the search box
+	 */
+	SearchBox.prototype.destroy = function () {
+	  this.editor = null;
+	  this.dom.container.removeChild(this.dom.table);
+	  this.dom = null;
+
+	  this.results = null;
+	  this.activeResult = null;
+
+	  this._clearDelay();
+
+	};
+
+	module.exports = SearchBox;
+
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var createAbsoluteAnchor = __webpack_require__(11).createAbsoluteAnchor;
+	var util = __webpack_require__(12);
+	var translate = __webpack_require__(15).translate;
+
+	/**
+	 * A context menu
+	 * @param {Object[]} items    Array containing the menu structure
+	 *                            TODO: describe structure
+	 * @param {Object} [options]  Object with options. Available options:
+	 *                            {function} close    Callback called when the
+	 *                                                context menu is being closed.
+	 * @constructor
+	 */
+	function ContextMenu (items, options) {
+	  this.dom = {};
+
+	  var me = this;
+	  var dom = this.dom;
+	  this.anchor = undefined;
+	  this.items = items;
+	  this.eventListeners = {};
+	  this.selection = undefined; // holds the selection before the menu was opened
+	  this.onClose = options ? options.close : undefined;
+
+	  // create root element
+	  var root = document.createElement('div');
+	  root.className = 'jsoneditor-contextmenu-root';
+	  dom.root = root;
+
+	  // create a container element
+	  var menu = document.createElement('div');
+	  menu.className = 'jsoneditor-contextmenu';
+	  dom.menu = menu;
+	  root.appendChild(menu);
+
+	  // create a list to hold the menu items
+	  var list = document.createElement('ul');
+	  list.className = 'jsoneditor-menu';
+	  menu.appendChild(list);
+	  dom.list = list;
+	  dom.items = []; // list with all buttons
+
+	  // create a (non-visible) button to set the focus to the menu
+	  var focusButton = document.createElement('button');
+	  focusButton.type = 'button';
+	  dom.focusButton = focusButton;
+	  var li = document.createElement('li');
+	  li.style.overflow = 'hidden';
+	  li.style.height = '0';
+	  li.appendChild(focusButton);
+	  list.appendChild(li);
+
+	  function createMenuItems (list, domItems, items) {
+	    items.forEach(function (item) {
+	      if (item.type == 'separator') {
+	        // create a separator
+	        var separator = document.createElement('div');
+	        separator.className = 'jsoneditor-separator';
+	        li = document.createElement('li');
+	        li.appendChild(separator);
+	        list.appendChild(li);
+	      }
+	      else {
+	        var domItem = {};
+
+	        // create a menu item
+	        var li = document.createElement('li');
+	        list.appendChild(li);
+
+	        // create a button in the menu item
+	        var button = document.createElement('button');
+	        button.type = 'button';
+	        button.className = item.className;
+	        domItem.button = button;
+	        if (item.title) {
+	          button.title = item.title;
+	        }
+	        if (item.click) {
+	          button.onclick = function (event) {
+	            event.preventDefault();
+	            me.hide();
+	            item.click();
+	          };
+	        }
+	        li.appendChild(button);
+
+	        // create the contents of the button
+	        if (item.submenu) {
+	          // add the icon to the button
+	          var divIcon = document.createElement('div');
+	          divIcon.className = 'jsoneditor-icon';
+	          button.appendChild(divIcon);
+	          var divText = document.createElement('div');
+	          divText.className = 'jsoneditor-text' +
+	              (item.click ? '' : ' jsoneditor-right-margin');
+	          divText.appendChild(document.createTextNode(item.text));
+	          button.appendChild(divText);
+
+	          var buttonSubmenu;
+	          if (item.click) {
+	            // submenu and a button with a click handler
+	            button.className += ' jsoneditor-default';
+
+	            var buttonExpand = document.createElement('button');
+	            buttonExpand.type = 'button';
+	            domItem.buttonExpand = buttonExpand;
+	            buttonExpand.className = 'jsoneditor-expand';
+	            buttonExpand.innerHTML = '<div class="jsoneditor-expand"></div>';
+	            li.appendChild(buttonExpand);
+	            if (item.submenuTitle) {
+	              buttonExpand.title = item.submenuTitle;
+	            }
+
+	            buttonSubmenu = buttonExpand;
+	          }
+	          else {
+	            // submenu and a button without a click handler
+	            var divExpand = document.createElement('div');
+	            divExpand.className = 'jsoneditor-expand';
+	            button.appendChild(divExpand);
+
+	            buttonSubmenu = button;
+	          }
+
+	          // attach a handler to expand/collapse the submenu
+	          buttonSubmenu.onclick = function (event) {
+	            event.preventDefault();
+	            me._onExpandItem(domItem);
+	            buttonSubmenu.focus();
+	          };
+
+	          // create the submenu
+	          var domSubItems = [];
+	          domItem.subItems = domSubItems;
+	          var ul = document.createElement('ul');
+	          domItem.ul = ul;
+	          ul.className = 'jsoneditor-menu';
+	          ul.style.height = '0';
+	          li.appendChild(ul);
+	          createMenuItems(ul, domSubItems, item.submenu);
+	        }
+	        else {
+	          // no submenu, just a button with clickhandler
+	          button.innerHTML = '<div class="jsoneditor-icon"></div>' +
+	              '<div class="jsoneditor-text">' + translate(item.text) + '</div>';
+	        }
+
+	        domItems.push(domItem);
+	      }
+	    });
+	  }
+	  createMenuItems(list, this.dom.items, items);
+
+	  // TODO: when the editor is small, show the submenu on the right instead of inline?
+
+	  // calculate the max height of the menu with one submenu expanded
+	  this.maxHeight = 0; // height in pixels
+	  items.forEach(function (item) {
+	    var height = (items.length + (item.submenu ? item.submenu.length : 0)) * 24;
+	    me.maxHeight = Math.max(me.maxHeight, height);
+	  });
+	}
+
+	/**
+	 * Get the currently visible buttons
+	 * @return {Array.<HTMLElement>} buttons
+	 * @private
+	 */
+	ContextMenu.prototype._getVisibleButtons = function () {
+	  var buttons = [];
+	  var me = this;
+	  this.dom.items.forEach(function (item) {
+	    buttons.push(item.button);
+	    if (item.buttonExpand) {
+	      buttons.push(item.buttonExpand);
+	    }
+	    if (item.subItems && item == me.expandedItem) {
+	      item.subItems.forEach(function (subItem) {
+	        buttons.push(subItem.button);
+	        if (subItem.buttonExpand) {
+	          buttons.push(subItem.buttonExpand);
+	        }
+	        // TODO: change to fully recursive method
+	      });
+	    }
+	  });
+
+	  return buttons;
+	};
+
+	// currently displayed context menu, a singleton. We may only have one visible context menu
+	ContextMenu.visibleMenu = undefined;
+
+	/**
+	 * Attach the menu to an anchor
+	 * @param {HTMLElement} anchor  Anchor where the menu will be attached as sibling.
+	 * @param {HTMLElement} frame   The root of the JSONEditor window
+	 */
+	ContextMenu.prototype.show = function (anchor, frame) {
+	  this.hide();
+
+	  // determine whether to display the menu below or above the anchor
+	  var showBelow = true;
+	  var parent = anchor.parentNode;
+	  var anchorRect = anchor.getBoundingClientRect();
+	  var parentRect = parent.getBoundingClientRect();
+	  var frameRect = frame.getBoundingClientRect();
+
+	  var me = this;
+	  this.dom.absoluteAnchor = createAbsoluteAnchor(anchor, frame, function () {
+	    me.hide()
+	  });
+
+	  if (anchorRect.bottom + this.maxHeight < frameRect.bottom) {
+	    // fits below -> show below
+	  }
+	  else if (anchorRect.top - this.maxHeight > frameRect.top) {
+	    // fits above -> show above
+	    showBelow = false;
+	  }
+	  else {
+	    // doesn't fit above nor below -> show below
+	  }
+
+	  var topGap = anchorRect.top - parentRect.top;
+
+	  // position the menu
+	  if (showBelow) {
+	    // display the menu below the anchor
+	    var anchorHeight = anchor.offsetHeight;
+	    this.dom.menu.style.left = '0';
+	    this.dom.menu.style.top = topGap + anchorHeight + 'px';
+	    this.dom.menu.style.bottom = '';
+	  }
+	  else {
+	    // display the menu above the anchor
+	    this.dom.menu.style.left = '0';
+	    this.dom.menu.style.top = '';
+	    this.dom.menu.style.bottom = '0px';
+	  }
+
+	  // attach the menu to the temporary, absolute anchor
+	  // parent.insertBefore(this.dom.root, anchor);
+	  this.dom.absoluteAnchor.appendChild(this.dom.root);
+
+	  // move focus to the first button in the context menu
+	  this.selection = util.getSelection();
+	  this.anchor = anchor;
+	  setTimeout(function () {
+	    me.dom.focusButton.focus();
+	  }, 0);
+
+	  if (ContextMenu.visibleMenu) {
+	    ContextMenu.visibleMenu.hide();
+	  }
+	  ContextMenu.visibleMenu = this;
+	};
+
+	/**
+	 * Hide the context menu if visible
+	 */
+	ContextMenu.prototype.hide = function () {
+	  // remove temporary absolutely positioned anchor
+	  if (this.dom.absoluteAnchor) {
+	    this.dom.absoluteAnchor.destroy();
+	    delete this.dom.absoluteAnchor;
+	  }
+
+	  // remove the menu from the DOM
+	  if (this.dom.root.parentNode) {
+	    this.dom.root.parentNode.removeChild(this.dom.root);
+	    if (this.onClose) {
+	      this.onClose();
+	    }
+	  }
+
+	  if (ContextMenu.visibleMenu == this) {
+	    ContextMenu.visibleMenu = undefined;
+	  }
+	};
+
+	/**
+	 * Expand a submenu
+	 * Any currently expanded submenu will be hided.
+	 * @param {Object} domItem
+	 * @private
+	 */
+	ContextMenu.prototype._onExpandItem = function (domItem) {
+	  var me = this;
+	  var alreadyVisible = (domItem == this.expandedItem);
+
+	  // hide the currently visible submenu
+	  var expandedItem = this.expandedItem;
+	  if (expandedItem) {
+	    //var ul = expandedItem.ul;
+	    expandedItem.ul.style.height = '0';
+	    expandedItem.ul.style.padding = '';
+	    setTimeout(function () {
+	      if (me.expandedItem != expandedItem) {
+	        expandedItem.ul.style.display = '';
+	        util.removeClassName(expandedItem.ul.parentNode, 'jsoneditor-selected');
+	      }
+	    }, 300); // timeout duration must match the css transition duration
+	    this.expandedItem = undefined;
+	  }
+
+	  if (!alreadyVisible) {
+	    var ul = domItem.ul;
+	    ul.style.display = 'block';
+	    var height = ul.clientHeight; // force a reflow in Firefox
+	    setTimeout(function () {
+	      if (me.expandedItem == domItem) {
+	        var childsHeight = 0;
+	        for (var i = 0; i < ul.childNodes.length; i++) {
+	          childsHeight += ul.childNodes[i].clientHeight;
+	        }
+	        ul.style.height = childsHeight + 'px';
+	        ul.style.padding = '5px 10px';
+	      }
+	    }, 0);
+	    util.addClassName(ul.parentNode, 'jsoneditor-selected');
+	    this.expandedItem = domItem;
+	  }
+	};
+
+	/**
+	 * Handle onkeydown event
+	 * @param {Event} event
+	 * @private
+	 */
+	ContextMenu.prototype._onKeyDown = function (event) {
+	  var target = event.target;
+	  var keynum = event.which;
+	  var handled = false;
+	  var buttons, targetIndex, prevButton, nextButton;
+
+	  if (keynum == 27) { // ESC
+	    // hide the menu on ESC key
+
+	    // restore previous selection and focus
+	    if (this.selection) {
+	      util.setSelection(this.selection);
+	    }
+	    if (this.anchor) {
+	      this.anchor.focus();
+	    }
+
+	    this.hide();
+
+	    handled = true;
+	  }
+	  else if (keynum == 9) { // Tab
+	    if (!event.shiftKey) { // Tab
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      if (targetIndex == buttons.length - 1) {
+	        // move to first button
+	        buttons[0].focus();
+	        handled = true;
+	      }
+	    }
+	    else { // Shift+Tab
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      if (targetIndex == 0) {
+	        // move to last button
+	        buttons[buttons.length - 1].focus();
+	        handled = true;
+	      }
+	    }
+	  }
+	  else if (keynum == 37) { // Arrow Left
+	    if (target.className == 'jsoneditor-expand') {
+	      buttons = this._getVisibleButtons();
+	      targetIndex = buttons.indexOf(target);
+	      prevButton = buttons[targetIndex - 1];
+	      if (prevButton) {
+	        prevButton.focus();
+	      }
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 38) { // Arrow Up
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    prevButton = buttons[targetIndex - 1];
+	    if (prevButton && prevButton.className == 'jsoneditor-expand') {
+	      // skip expand button
+	      prevButton = buttons[targetIndex - 2];
+	    }
+	    if (!prevButton) {
+	      // move to last button
+	      prevButton = buttons[buttons.length - 1];
+	    }
+	    if (prevButton) {
+	      prevButton.focus();
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 39) { // Arrow Right
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    nextButton = buttons[targetIndex + 1];
+	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+	      nextButton.focus();
+	    }
+	    handled = true;
+	  }
+	  else if (keynum == 40) { // Arrow Down
+	    buttons = this._getVisibleButtons();
+	    targetIndex = buttons.indexOf(target);
+	    nextButton = buttons[targetIndex + 1];
+	    if (nextButton && nextButton.className == 'jsoneditor-expand') {
+	      // skip expand button
+	      nextButton = buttons[targetIndex + 2];
+	    }
+	    if (!nextButton) {
+	      // move to first button
+	      nextButton = buttons[0];
+	    }
+	    if (nextButton) {
+	      nextButton.focus();
+	      handled = true;
+	    }
+	    handled = true;
+	  }
+	  // TODO: arrow left and right
+
+	  if (handled) {
+	    event.stopPropagation();
+	    event.preventDefault();
+	  }
+	};
+
+	module.exports = ContextMenu;
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var util = __webpack_require__(12);
+
+	/**
+	 * Create an anchor element absolutely positioned in the `parent`
+	 * element.
+	 * @param {HTMLElement} anchor
+	 * @param {HTMLElement} parent
+	 * @param [onDestroy(function(anchor)]  Callback when the anchor is destroyed
+	 * @returns {HTMLElement}
+	 */
+	exports.createAbsoluteAnchor = function (anchor, parent, onDestroy) {
+	  var root = getRootNode(anchor);
+	  var eventListeners = {};
+
+	  var anchorRect = anchor.getBoundingClientRect();
+	  var frameRect = parent.getBoundingClientRect();
+
+	  var absoluteAnchor = document.createElement('div');
+	  absoluteAnchor.className = 'jsoneditor-anchor';
+	  absoluteAnchor.style.position = 'absolute';
+	  absoluteAnchor.style.left = (anchorRect.left - frameRect.left) + 'px';
+	  absoluteAnchor.style.top = (anchorRect.top - frameRect.top) + 'px';
+	  absoluteAnchor.style.width = (anchorRect.width - 2) + 'px';
+	  absoluteAnchor.style.height = (anchorRect.height - 2) + 'px';
+	  absoluteAnchor.style.boxSizing = 'border-box';
+	  parent.appendChild(absoluteAnchor);
+
+	  function destroy () {
+	    // remove temporary absolutely positioned anchor
+	    if (absoluteAnchor && absoluteAnchor.parentNode) {
+	      absoluteAnchor.parentNode.removeChild(absoluteAnchor);
+
+	      // remove all event listeners
+	      // all event listeners are supposed to be attached to document.
+	      for (var name in eventListeners) {
+	        if (eventListeners.hasOwnProperty(name)) {
+	          var fn = eventListeners[name];
+	          if (fn) {
+	            util.removeEventListener(root, name, fn);
+	          }
+	          delete eventListeners[name];
+	        }
+	      }
+
+	      if (typeof onDestroy === 'function') {
+	        onDestroy(anchor);
+	      }
+	    }
+	  }
+
+	  // create and attach event listeners
+	  var destroyIfOutside = function (event) {
+	    var target = event.target;
+	    if ((target !== absoluteAnchor) && !util.isChildOf(target, absoluteAnchor)) {
+	      destroy();
+	    }
+	  }
+
+	  eventListeners.mousedown = util.addEventListener(root, 'mousedown', destroyIfOutside);
+	  eventListeners.mousewheel = util.addEventListener(root, 'mousewheel', destroyIfOutside);
+	  // eventListeners.scroll = util.addEventListener(root, 'scroll', destroyIfOutside);
+
+	  absoluteAnchor.destroy = destroy;
+
+	  return absoluteAnchor
+	}
+
+	/**
+	 * Node.getRootNode shim
+	 * @param  {HTMLElement} node node to check
+	 * @return {HTMLElement}      node's rootNode or `window` if there is ShadowDOM is not supported.
+	 */
+	function getRootNode(node){
+	  return (typeof node.getRootNode === 'function')
+	      ? node.getRootNode()
+	      : window;
+	}
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var jsonlint = __webpack_require__(13);
+	var jsonMap = __webpack_require__(14);
+
+	/**
+	 * Parse JSON using the parser built-in in the browser.
+	 * On exception, the jsonString is validated and a detailed error is thrown.
+	 * @param {String} jsonString
+	 * @return {JSON} json
+	 */
+	exports.parse = function parse(jsonString) {
+	  try {
+	    return JSON.parse(jsonString);
+	  }
+	  catch (err) {
+	    // try to throw a more detailed error message using validate
+	    exports.validate(jsonString);
+
+	    // rethrow the original error
+	    throw err;
+	  }
+	};
+
+	/**
+	 * Sanitize a JSON-like string containing. For example changes JavaScript
+	 * notation into JSON notation.
+	 * This function for example changes a string like "{a: 2, 'b': {c: 'd'}"
+	 * into '{"a": 2, "b": {"c": "d"}'
+	 * @param {string} jsString
+	 * @returns {string} json
+	 */
+	exports.sanitize = function (jsString) {
+	  // escape all single and double quotes inside strings
+	  var chars = [];
+	  var i = 0;
+
+	  //If JSON starts with a function (characters/digits/"_-"), remove this function.
+	  //This is useful for "stripping" JSONP objects to become JSON
+	  //For example: /* some comment */ function_12321321 ( [{"a":"b"}] ); => [{"a":"b"}]
+	  var match = jsString.match(/^\s*(\/\*(.|[\r\n])*?\*\/)?\s*[\da-zA-Z_$]+\s*\(([\s\S]*)\)\s*;?\s*$/);
+	  if (match) {
+	    jsString = match[3];
+	  }
+
+	  var controlChars = {
+	    '\b': '\\b',
+	    '\f': '\\f',
+	    '\n': '\\n',
+	    '\r': '\\r',
+	    '\t': '\\t'
+	  };
+
+	  var quote = '\'';
+	  var quoteDbl = '"';
+	  var quoteLeft = '\u2018';
+	  var quoteRight = '\u2019';
+	  var quoteDblLeft = '\u201C';
+	  var quoteDblRight = '\u201D';
+	  var graveAccent = '\u0060';
+	  var acuteAccent = '\u00B4';
+
+	  // helper functions to get the current/prev/next character
+	  function curr () { return jsString.charAt(i);     }
+	  function next()  { return jsString.charAt(i + 1); }
+	  function prev()  { return jsString.charAt(i - 1); }
+
+	  // get the last parsed non-whitespace character
+	  function lastNonWhitespace () {
+	    var p = chars.length - 1;
+
+	    while (p >= 0) {
+	      var pp = chars[p];
+	      if (pp !== ' ' && pp !== '\n' && pp !== '\r' && pp !== '\t') { // non whitespace
+	        return pp;
+	      }
+	      p--;
+	    }
+
+	    return '';
+	  }
+
+	  // skip a block comment '/* ... */'
+	  function skipBlockComment () {
+	    i += 2;
+	    while (i < jsString.length && (curr() !== '*' || next() !== '/')) {
+	      i++;
+	    }
+	    i += 2;
+	  }
+
+	  // skip a comment '// ...'
+	  function skipComment () {
+	    i += 2;
+	    while (i < jsString.length && (curr() !== '\n')) {
+	      i++;
+	    }
+	  }
+
+	  // parse single or double quoted string
+	  function parseString(endQuote) {
+	    chars.push('"');
+	    i++;
+	    var c = curr();
+	    while (i < jsString.length && c !== endQuote) {
+	      if (c === '"' && prev() !== '\\') {
+	        // unescaped double quote, escape it
+	        chars.push('\\"');
+	      }
+	      else if (controlChars.hasOwnProperty(c)) {
+	        // replace unescaped control characters with escaped ones
+	        chars.push(controlChars[c])
+	      }
+	      else if (c === '\\') {
+	        // remove the escape character when followed by a single quote ', not needed
+	        i++;
+	        c = curr();
+	        if (c !== '\'') {
+	          chars.push('\\');
+	        }
+	        chars.push(c);
+	      }
+	      else {
+	        // regular character
+	        chars.push(c);
+	      }
+
+	      i++;
+	      c = curr();
+	    }
+	    if (c === endQuote) {
+	      chars.push('"');
+	      i++;
+	    }
+	  }
+
+	  // parse an unquoted key
+	  function parseKey() {
+	    var specialValues = ['null', 'true', 'false'];
+	    var key = '';
+	    var c = curr();
+
+	    var regexp = /[a-zA-Z_$\d]/; // letter, number, underscore, dollar character
+	    while (regexp.test(c)) {
+	      key += c;
+	      i++;
+	      c = curr();
+	    }
+
+	    if (specialValues.indexOf(key) === -1) {
+	      chars.push('"' + key + '"');
+	    }
+	    else {
+	      chars.push(key);
+	    }
+	  }
+
+	  while(i < jsString.length) {
+	    var c = curr();
+
+	    if (c === '/' && next() === '*') {
+	      skipBlockComment();
+	    }
+	    else if (c === '/' && next() === '/') {
+	      skipComment();
+	    }
+	    else if (c === '\u00A0' || (c >= '\u2000' && c <= '\u200A') || c === '\u202F' || c === '\u205F' || c === '\u3000') {
+	      // special white spaces (like non breaking space)
+	      chars.push(' ')
+	      i++
+	    }
+	    else if (c === quote) {
+	      parseString(quote);
+	    }
+	    else if (c === quoteDbl) {
+	      parseString(quoteDbl);
+	    }
+	    else if (c === graveAccent) {
+	      parseString(acuteAccent);
+	    }
+	    else if (c === quoteLeft) {
+	      parseString(quoteRight);
+	    }
+	    else if (c === quoteDblLeft) {
+	      parseString(quoteDblRight);
+	    }
+	    else if (/[a-zA-Z_$]/.test(c) && ['{', ','].indexOf(lastNonWhitespace()) !== -1) {
+	      // an unquoted object key (like a in '{a:2}')
+	      parseKey();
+	    }
+	    else {
+	      chars.push(c);
+	      i++;
+	    }
+	  }
+
+	  return chars.join('');
+	};
+
+	/**
+	 * Escape unicode characters.
+	 * For example input '\u2661' (length 1) will output '\\u2661' (length 5).
+	 * @param {string} text
+	 * @return {string}
+	 */
+	exports.escapeUnicodeChars = function (text) {
+	  // see https://www.wikiwand.com/en/UTF-16
+	  // note: we leave surrogate pairs as two individual chars,
+	  // as JSON doesn't interpret them as a single unicode char.
+	  return text.replace(/[\u007F-\uFFFF]/g, function(c) {
+	    return '\\u'+('0000' + c.charCodeAt(0).toString(16)).slice(-4);
+	  })
+	};
+
+	/**
+	 * Validate a string containing a JSON object
+	 * This method uses JSONLint to validate the String. If JSONLint is not
+	 * available, the built-in JSON parser of the browser is used.
+	 * @param {String} jsonString   String with an (invalid) JSON object
+	 * @throws Error
+	 */
+	exports.validate = function validate(jsonString) {
+	  if (typeof(jsonlint) != 'undefined') {
+	    jsonlint.parse(jsonString);
+	  }
+	  else {
+	    JSON.parse(jsonString);
+	  }
+	};
+
+	/**
+	 * Extend object a with the properties of object b
+	 * @param {Object} a
+	 * @param {Object} b
+	 * @return {Object} a
+	 */
+	exports.extend = function extend(a, b) {
+	  for (var prop in b) {
+	    if (b.hasOwnProperty(prop)) {
+	      a[prop] = b[prop];
+	    }
+	  }
+	  return a;
+	};
+
+	/**
+	 * Remove all properties from object a
+	 * @param {Object} a
+	 * @return {Object} a
+	 */
+	exports.clear = function clear (a) {
+	  for (var prop in a) {
+	    if (a.hasOwnProperty(prop)) {
+	      delete a[prop];
+	    }
+	  }
+	  return a;
+	};
+
+	/**
+	 * Get the type of an object
+	 * @param {*} object
+	 * @return {String} type
+	 */
+	exports.type = function type (object) {
+	  if (object === null) {
+	    return 'null';
+	  }
+	  if (object === undefined) {
+	    return 'undefined';
+	  }
+	  if ((object instanceof Number) || (typeof object === 'number')) {
+	    return 'number';
+	  }
+	  if ((object instanceof String) || (typeof object === 'string')) {
+	    return 'string';
+	  }
+	  if ((object instanceof Boolean) || (typeof object === 'boolean')) {
+	    return 'boolean';
+	  }
+	  if ((object instanceof RegExp) || (typeof object === 'regexp')) {
+	    return 'regexp';
+	  }
+	  if (exports.isArray(object)) {
+	    return 'array';
+	  }
+
+	  return 'object';
+	};
+
+	/**
+	 * Test whether a text contains a url (matches when a string starts
+	 * with 'http://*' or 'https://*' and has no whitespace characters)
+	 * @param {String} text
+	 */
+	var isUrlRegex = /^https?:\/\/\S+$/;
+	exports.isUrl = function isUrl (text) {
+	  return (typeof text == 'string' || text instanceof String) &&
+	      isUrlRegex.test(text);
+	};
+
+	/**
+	 * Tes whether given object is an Array
+	 * @param {*} obj
+	 * @returns {boolean} returns true when obj is an array
+	 */
+	exports.isArray = function (obj) {
+	  return Object.prototype.toString.call(obj) === '[object Array]';
+	};
+
+	/**
+	 * Retrieve the absolute left value of a DOM element
+	 * @param {Element} elem    A dom element, for example a div
+	 * @return {Number} left    The absolute left position of this element
+	 *                          in the browser page.
+	 */
+	exports.getAbsoluteLeft = function getAbsoluteLeft(elem) {
+	  var rect = elem.getBoundingClientRect();
+	  return rect.left + window.pageXOffset || document.scrollLeft || 0;
+	};
+
+	/**
+	 * Retrieve the absolute top value of a DOM element
+	 * @param {Element} elem    A dom element, for example a div
+	 * @return {Number} top     The absolute top position of this element
+	 *                          in the browser page.
+	 */
+	exports.getAbsoluteTop = function getAbsoluteTop(elem) {
+	  var rect = elem.getBoundingClientRect();
+	  return rect.top + window.pageYOffset || document.scrollTop || 0;
+	};
+
+	/**
+	 * add a className to the given elements style
+	 * @param {Element} elem
+	 * @param {String} className
+	 */
+	exports.addClassName = function addClassName(elem, className) {
+	  var classes = elem.className.split(' ');
+	  if (classes.indexOf(className) == -1) {
+	    classes.push(className); // add the class to the array
+	    elem.className = classes.join(' ');
+	  }
+	};
+
+	/**
+	 * add a className to the given elements style
+	 * @param {Element} elem
+	 * @param {String} className
+	 */
+	exports.removeClassName = function removeClassName(elem, className) {
+	  var classes = elem.className.split(' ');
+	  var index = classes.indexOf(className);
+	  if (index != -1) {
+	    classes.splice(index, 1); // remove the class from the array
+	    elem.className = classes.join(' ');
+	  }
+	};
+
+	/**
+	 * Strip the formatting from the contents of a div
+	 * the formatting from the div itself is not stripped, only from its childs.
+	 * @param {Element} divElement
+	 */
+	exports.stripFormatting = function stripFormatting(divElement) {
+	  var childs = divElement.childNodes;
+	  for (var i = 0, iMax = childs.length; i < iMax; i++) {
+	    var child = childs[i];
+
+	    // remove the style
+	    if (child.style) {
+	      // TODO: test if child.attributes does contain style
+	      child.removeAttribute('style');
+	    }
+
+	    // remove all attributes
+	    var attributes = child.attributes;
+	    if (attributes) {
+	      for (var j = attributes.length - 1; j >= 0; j--) {
+	        var attribute = attributes[j];
+	        if (attribute.specified === true) {
+	          child.removeAttribute(attribute.name);
+	        }
+	      }
+	    }
+
+	    // recursively strip childs
+	    exports.stripFormatting(child);
+	  }
+	};
+
+	/**
+	 * Set focus to the end of an editable div
+	 * code from Nico Burns
+	 * http://stackoverflow.com/users/140293/nico-burns
+	 * http://stackoverflow.com/questions/1125292/how-to-move-cursor-to-end-of-contenteditable-entity
+	 * @param {Element} contentEditableElement   A content editable div
+	 */
+	exports.setEndOfContentEditable = function setEndOfContentEditable(contentEditableElement) {
+	  var range, selection;
+	  if(document.createRange) {
+	    range = document.createRange();//Create a range (a range is a like the selection but invisible)
+	    range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+	    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+	    selection = window.getSelection();//get the selection object (allows you to change selection)
+	    selection.removeAllRanges();//remove any selections already made
+	    selection.addRange(range);//make the range you have just created the visible selection
+	  }
+	};
+
+	/**
+	 * Select all text of a content editable div.
+	 * http://stackoverflow.com/a/3806004/1262753
+	 * @param {Element} contentEditableElement   A content editable div
+	 */
+	exports.selectContentEditable = function selectContentEditable(contentEditableElement) {
+	  if (!contentEditableElement || contentEditableElement.nodeName != 'DIV') {
+	    return;
+	  }
+
+	  var sel, range;
+	  if (window.getSelection && document.createRange) {
+	    range = document.createRange();
+	    range.selectNodeContents(contentEditableElement);
+	    sel = window.getSelection();
+	    sel.removeAllRanges();
+	    sel.addRange(range);
+	  }
+	};
+
+	/**
+	 * Get text selection
+	 * http://stackoverflow.com/questions/4687808/contenteditable-selected-text-save-and-restore
+	 * @return {Range | TextRange | null} range
+	 */
+	exports.getSelection = function getSelection() {
+	  if (window.getSelection) {
+	    var sel = window.getSelection();
+	    if (sel.getRangeAt && sel.rangeCount) {
+	      return sel.getRangeAt(0);
+	    }
+	  }
+	  return null;
+	};
+
+	/**
+	 * Set text selection
+	 * http://stackoverflow.com/questions/4687808/contenteditable-selected-text-save-and-restore
+	 * @param {Range | TextRange | null} range
+	 */
+	exports.setSelection = function setSelection(range) {
+	  if (range) {
+	    if (window.getSelection) {
+	      var sel = window.getSelection();
+	      sel.removeAllRanges();
+	      sel.addRange(range);
+	    }
+	  }
+	};
+
+	/**
+	 * Get selected text range
+	 * @return {Object} params  object containing parameters:
+	 *                              {Number}  startOffset
+	 *                              {Number}  endOffset
+	 *                              {Element} container  HTML element holding the
+	 *                                                   selected text element
+	 *                          Returns null if no text selection is found
+	 */
+	exports.getSelectionOffset = function getSelectionOffset() {
+	  var range = exports.getSelection();
+
+	  if (range && 'startOffset' in range && 'endOffset' in range &&
+	      range.startContainer && (range.startContainer == range.endContainer)) {
+	    return {
+	      startOffset: range.startOffset,
+	      endOffset: range.endOffset,
+	      container: range.startContainer.parentNode
+	    };
+	  }
+
+	  return null;
+	};
+
+	/**
+	 * Set selected text range in given element
+	 * @param {Object} params   An object containing:
+	 *                              {Element} container
+	 *                              {Number} startOffset
+	 *                              {Number} endOffset
+	 */
+	exports.setSelectionOffset = function setSelectionOffset(params) {
+	  if (document.createRange && window.getSelection) {
+	    var selection = window.getSelection();
+	    if(selection) {
+	      var range = document.createRange();
+
+	      if (!params.container.firstChild) {
+	        params.container.appendChild(document.createTextNode(''));
+	      }
+
+	      // TODO: do not suppose that the first child of the container is a textnode,
+	      //       but recursively find the textnodes
+	      range.setStart(params.container.firstChild, params.startOffset);
+	      range.setEnd(params.container.firstChild, params.endOffset);
+
+	      exports.setSelection(range);
+	    }
+	  }
+	};
+
+	/**
+	 * Get the inner text of an HTML element (for example a div element)
+	 * @param {Element} element
+	 * @param {Object} [buffer]
+	 * @return {String} innerText
+	 */
+	exports.getInnerText = function getInnerText(element, buffer) {
+	  var first = (buffer == undefined);
+	  if (first) {
+	    buffer = {
+	      'text': '',
+	      'flush': function () {
+	        var text = this.text;
+	        this.text = '';
+	        return text;
+	      },
+	      'set': function (text) {
+	        this.text = text;
+	      }
+	    };
+	  }
+
+	  // text node
+	  if (element.nodeValue) {
+	    return buffer.flush() + element.nodeValue;
+	  }
+
+	  // divs or other HTML elements
+	  if (element.hasChildNodes()) {
+	    var childNodes = element.childNodes;
+	    var innerText = '';
+
+	    for (var i = 0, iMax = childNodes.length; i < iMax; i++) {
+	      var child = childNodes[i];
+
+	      if (child.nodeName == 'DIV' || child.nodeName == 'P') {
+	        var prevChild = childNodes[i - 1];
+	        var prevName = prevChild ? prevChild.nodeName : undefined;
+	        if (prevName && prevName != 'DIV' && prevName != 'P' && prevName != 'BR') {
+	          innerText += '\n';
+	          buffer.flush();
+	        }
+	        innerText += exports.getInnerText(child, buffer);
+	        buffer.set('\n');
+	      }
+	      else if (child.nodeName == 'BR') {
+	        innerText += buffer.flush();
+	        buffer.set('\n');
+	      }
+	      else {
+	        innerText += exports.getInnerText(child, buffer);
+	      }
+	    }
+
+	    return innerText;
+	  }
+	  else {
+	    if (element.nodeName == 'P' && exports.getInternetExplorerVersion() != -1) {
+	      // On Internet Explorer, a <p> with hasChildNodes()==false is
+	      // rendered with a new line. Note that a <p> with
+	      // hasChildNodes()==true is rendered without a new line
+	      // Other browsers always ensure there is a <br> inside the <p>,
+	      // and if not, the <p> does not render a new line
+	      return buffer.flush();
+	    }
+	  }
+
+	  // br or unknown
+	  return '';
+	};
+
+	/**
+	 * Test whether an element has the provided parent node somewhere up the node tree.
+	 * @param {Element} elem
+	 * @param {Element} parent
+	 * @return {boolean}
+	 */
+	exports.hasParentNode = function (elem, parent) {
+	  var e = elem ? elem.parentNode : undefined;
+
+	  while (e) {
+	    if (e === parent) {
+	      return true;
+	    }
+	    e = e.parentNode;
+	  }
+
+	  return false;
+	}
+
+	/**
+	 * Returns the version of Internet Explorer or a -1
+	 * (indicating the use of another browser).
+	 * Source: http://msdn.microsoft.com/en-us/library/ms537509(v=vs.85).aspx
+	 * @return {Number} Internet Explorer version, or -1 in case of an other browser
+	 */
+	exports.getInternetExplorerVersion = function getInternetExplorerVersion() {
+	  if (_ieVersion == -1) {
+	    var rv = -1; // Return value assumes failure.
+	    if (typeof navigator !== 'undefined' && navigator.appName == 'Microsoft Internet Explorer') {
+	      var ua = navigator.userAgent;
+	      var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+	      if (re.exec(ua) != null) {
+	        rv = parseFloat( RegExp.$1 );
+	      }
+	    }
+
+	    _ieVersion = rv;
+	  }
+
+	  return _ieVersion;
+	};
+
+	/**
+	 * Test whether the current browser is Firefox
+	 * @returns {boolean} isFirefox
+	 */
+	exports.isFirefox = function isFirefox () {
+	  return (typeof navigator !== 'undefined' && navigator.userAgent.indexOf("Firefox") !== -1);
+	};
+
+	/**
+	 * cached internet explorer version
+	 * @type {Number}
+	 * @private
+	 */
+	var _ieVersion = -1;
+
+	/**
+	 * Add and event listener. Works for all browsers
+	 * @param {Element}     element    An html element
+	 * @param {string}      action     The action, for example "click",
+	 *                                 without the prefix "on"
+	 * @param {function}    listener   The callback function to be executed
+	 * @param {boolean}     [useCapture] false by default
+	 * @return {function}   the created event listener
+	 */
+	exports.addEventListener = function addEventListener(element, action, listener, useCapture) {
+	  if (element.addEventListener) {
+	    if (useCapture === undefined)
+	      useCapture = false;
+
+	    if (action === "mousewheel" && exports.isFirefox()) {
+	      action = "DOMMouseScroll";  // For Firefox
+	    }
+
+	    element.addEventListener(action, listener, useCapture);
+	    return listener;
+	  } else if (element.attachEvent) {
+	    // Old IE browsers
+	    var f = function () {
+	      return listener.call(element, window.event);
+	    };
+	    element.attachEvent("on" + action, f);
+	    return f;
+	  }
+	};
+
+	/**
+	 * Remove an event listener from an element
+	 * @param {Element}  element   An html dom element
+	 * @param {string}   action    The name of the event, for example "mousedown"
+	 * @param {function} listener  The listener function
+	 * @param {boolean}  [useCapture]   false by default
+	 */
+	exports.removeEventListener = function removeEventListener(element, action, listener, useCapture) {
+	  if (element.removeEventListener) {
+	    if (useCapture === undefined)
+	      useCapture = false;
+
+	    if (action === "mousewheel" && exports.isFirefox()) {
+	      action = "DOMMouseScroll";  // For Firefox
+	    }
+
+	    element.removeEventListener(action, listener, useCapture);
+	  } else if (element.detachEvent) {
+	    // Old IE browsers
+	    element.detachEvent("on" + action, listener);
+	  }
+	};
+
+	/**
+	 * Test if an element is a child of a parent element.
+	 * @param {Element} elem
+	 * @param {Element} parent
+	 * @return {boolean} returns true if elem is a child of the parent
+	 */
+	exports.isChildOf = function (elem, parent) {
+	  var e = elem.parentNode;
+	  while (e) {
+	    if (e === parent) {
+	      return true;
+	    }
+	    e = e.parentNode;
+	  }
+
+	  return false;
+	};
+
+	/**
+	 * Parse a JSON path like '.items[3].name' into an array
+	 * @param {string} jsonPath
+	 * @return {Array}
+	 */
+	exports.parsePath = function parsePath(jsonPath) {
+	  var prop, remainder;
+
+	  if (jsonPath.length === 0) {
+	    return [];
+	  }
+
+	  // find a match like '.prop'
+	  var match = jsonPath.match(/^\.([\w$]+)/);
+	  if (match) {
+	    prop = match[1];
+	    remainder = jsonPath.substr(prop.length + 1);
+	  }
+	  else if (jsonPath[0] === '[') {
+	    // find a match like
+	    var end = jsonPath.indexOf(']');
+	    if (end === -1) {
+	      throw new SyntaxError('Character ] expected in path');
+	    }
+	    if (end === 1) {
+	      throw new SyntaxError('Index expected after [');
+	    }
+
+	    var value = jsonPath.substring(1, end);
+	    if (value[0] === '\'') {
+	      // ajv produces string prop names with single quotes, so we need
+	      // to reformat them into valid double-quoted JSON strings
+	      value = '\"' + value.substring(1, value.length - 1) + '\"';
+	    }
+
+	    prop = value === '*' ? value : JSON.parse(value); // parse string and number
+	    remainder = jsonPath.substr(end + 1);
+	  }
+	  else {
+	    throw new SyntaxError('Failed to parse path');
+	  }
+
+	  return [prop].concat(parsePath(remainder))
+	};
+
+	/**
+	 * Stringify an array with a path in a JSON path like '.items[3].name'
+	 * @param {Array.<string | number>} path
+	 * @returns {string}
+	 */
+	exports.stringifyPath = function stringifyPath(path) {
+	  return path
+	      .map(function (p) {
+	        return typeof p === 'number' ? ('[' + p + ']') : ('.' + p);
+	      })
+	      .join('');
+	};
+
+	/**
+	 * Improve the error message of a JSON schema error
+	 * @param {Object} error
+	 * @return {Object} The error
+	 */
+	exports.improveSchemaError = function (error) {
+	  if (error.keyword === 'enum' && Array.isArray(error.schema)) {
+	    var enums = error.schema;
+	    if (enums) {
+	      enums = enums.map(function (value) {
+	        return JSON.stringify(value);
+	      });
+
+	      if (enums.length > 5) {
+	        var more = ['(' + (enums.length - 5) + ' more...)'];
+	        enums = enums.slice(0, 5);
+	        enums.push(more);
+	      }
+	      error.message = 'should be equal to one of: ' + enums.join(', ');
+	    }
+	  }
+
+	  if (error.keyword === 'additionalProperties') {
+	    error.message = 'should NOT have additional property: ' + error.params.additionalProperty;
+	  }
+
+	  return error;
+	};
+
+	/**
+	 * Test whether something is a Promise
+	 * @param {*} object
+	 * @returns {boolean} Returns true when object is a promise, false otherwise
+	 */
+	exports.isPromise = function (object) {
+	  return object && typeof object.then === 'function' && typeof object.catch === 'function';
+	};
+
+	/**
+	 * Test whether a custom validation error has the correct structure
+	 * @param {*} validationError The error to be checked.
+	 * @returns {boolean} Returns true if the structure is ok, false otherwise
+	 */
+	exports.isValidValidationError = function (validationError) {
+	  return typeof validationError === 'object' &&
+	      Array.isArray(validationError.path) &&
+	      typeof validationError.message === 'string';
+	};
+
+	/**
+	 * Test whether the child rect fits completely inside the parent rect.
+	 * @param {ClientRect} parent
+	 * @param {ClientRect} child
+	 * @param {number} margin
+	 */
+	exports.insideRect = function (parent, child, margin) {
+	  var _margin = margin !== undefined ? margin : 0;
+	  return child.left   - _margin >= parent.left
+	      && child.right  + _margin <= parent.right
+	      && child.top    - _margin >= parent.top
+	      && child.bottom + _margin <= parent.bottom;
+	};
+
+	/**
+	 * Returns a function, that, as long as it continues to be invoked, will not
+	 * be triggered. The function will be called after it stops being called for
+	 * N milliseconds.
+	 *
+	 * Source: https://davidwalsh.name/javascript-debounce-function
+	 *
+	 * @param {function} func
+	 * @param {number} wait                 Number in milliseconds
+	 * @param {boolean} [immediate=false]   If `immediate` is passed, trigger the
+	 *                                      function on the leading edge, instead
+	 *                                      of the trailing.
+	 * @return {function} Return the debounced function
+	 */
+	exports.debounce = function debounce(func, wait, immediate) {
+	  var timeout;
+	  return function() {
+	    var context = this, args = arguments;
+	    var later = function() {
+	      timeout = null;
+	      if (!immediate) func.apply(context, args);
+	    };
+	    var callNow = immediate && !timeout;
+	    clearTimeout(timeout);
+	    timeout = setTimeout(later, wait);
+	    if (callNow) func.apply(context, args);
+	  };
+	};
+
+	/**
+	 * Determines the difference between two texts.
+	 * Can only detect one removed or inserted block of characters.
+	 * @param {string} oldText
+	 * @param {string} newText
+	 * @return {{start: number, end: number}} Returns the start and end
+	 *                                        of the changed part in newText.
+	 */
+	exports.textDiff = function textDiff(oldText, newText) {
+	  var len = newText.length;
+	  var start = 0;
+	  var oldEnd = oldText.length;
+	  var newEnd = newText.length;
+
+	  while (newText.charAt(start) === oldText.charAt(start)
+	  && start < len) {
+	    start++;
+	  }
+
+	  while (newText.charAt(newEnd - 1) === oldText.charAt(oldEnd - 1)
+	  && newEnd > start && oldEnd > 0) {
+	    newEnd--;
+	    oldEnd--;
+	  }
+
+	  return {start: start, end: newEnd};
+	};
+
+
+	/**
+	 * Return an object with the selection range or cursor position (if both have the same value)
+	 * Support also old browsers (IE8-)
+	 * Source: http://ourcodeworld.com/articles/read/282/how-to-get-the-current-cursor-position-and-selection-within-a-text-input-or-textarea-in-javascript
+	 * @param {DOMElement} el A dom element of a textarea or input text.
+	 * @return {Object} reference Object with 2 properties (start and end) with the identifier of the location of the cursor and selected text.
+	 **/
+	exports.getInputSelection = function(el) {
+	  var startIndex = 0, endIndex = 0, normalizedValue, range, textInputRange, len, endRange;
+
+	  if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+	      startIndex = el.selectionStart;
+	      endIndex = el.selectionEnd;
+	  } else {
+	      range = document.selection.createRange();
+
+	      if (range && range.parentElement() == el) {
+	          len = el.value.length;
+	          normalizedValue = el.value.replace(/\r\n/g, "\n");
+
+	          // Create a working TextRange that lives only in the input
+	          textInputRange = el.createTextRange();
+	          textInputRange.moveToBookmark(range.getBookmark());
+
+	          // Check if the startIndex and endIndex of the selection are at the very end
+	          // of the input, since moveStart/moveEnd doesn't return what we want
+	          // in those cases
+	          endRange = el.createTextRange();
+	          endRange.collapse(false);
+
+	          if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+	              startIndex = endIndex = len;
+	          } else {
+	              startIndex = -textInputRange.moveStart("character", -len);
+	              startIndex += normalizedValue.slice(0, startIndex).split("\n").length - 1;
+
+	              if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+	                  endIndex = len;
+	              } else {
+	                  endIndex = -textInputRange.moveEnd("character", -len);
+	                  endIndex += normalizedValue.slice(0, endIndex).split("\n").length - 1;
+	              }
+	          }
+	      }
+	  }
+
+	  return {
+	      startIndex: startIndex,
+	      endIndex: endIndex,
+	      start: _positionForIndex(startIndex),
+	      end: _positionForIndex(endIndex)
+	  };
+
+	  /**
+	   * Returns textarea row and column position for certain index
+	   * @param {Number} index text index
+	   * @returns {{row: Number, col: Number}}
+	   */
+	  function _positionForIndex(index) {
+	    var textTillIndex = el.value.substring(0,index);
+	    var row = (textTillIndex.match(/\n/g) || []).length + 1;
+	    var col = textTillIndex.length - textTillIndex.lastIndexOf("\n");
+
+	    return {
+	      row: row,
+	      column: col
+	    }
+	  }
+	}
+
+	/**
+	 * Returns the index for certaion position in text element
+	 * @param {DOMElement} el A dom element of a textarea or input text.
+	 * @param {Number} row row value, > 0, if exceeds rows number - last row will be returned
+	 * @param {Number} column column value, > 0, if exceeds column length - end of column will be returned
+	 * @returns {Number} index of position in text, -1 if not found
+	 */
+	exports.getIndexForPosition = function(el, row, column) {
+	  var text = el.value || '';
+	  if (row > 0 && column > 0) {
+	    var rows = text.split('\n', row);
+	    row = Math.min(rows.length, row);
+	    column = Math.min(rows[row - 1].length, column - 1);
+	    var columnCount = (row == 1 ? column : column + 1); // count new line on multiple rows
+	    return rows.slice(0, row - 1).join('\n').length + columnCount;
+	  }
+	  return -1;
+	}
+
+	/**
+	 * Returns location of json paths in certain json string
+	 * @param {String} text json string
+	 * @param {Array<String>} paths array of json paths
+	 * @returns {Array<{path: String, line: Number, row: Number}>}
+	 */
+	exports.getPositionForPath = function(text, paths) {
+	  var me = this;
+	  var result = [];
+	  var jsmap;
+	  if (!paths || !paths.length) {
+	    return result;
+	  }
+
+	  try {
+	    jsmap = jsonMap.parse(text);
+	  } catch (err) {
+	    return result;
+	  }
+
+	  paths.forEach(function (path) {
+	    var pathArr = me.parsePath(path);
+	    var pointerName = pathArr.length ? "/" + pathArr.join("/") : "";
+	    var pointer = jsmap.pointers[pointerName];
+	    if (pointer) {
+	      result.push({
+	        path: path,
+	        line: pointer.key ? pointer.key.line : (pointer.value ? pointer.value.line : 0),
+	        column: pointer.key ? pointer.key.column : (pointer.value ? pointer.value.column : 0)
+	      });
+	    }
+	  });
+
+	  return result;
+
+	}
+
+	/**
+	 * Get the applied color given a color name or code
+	 * Source: https://stackoverflow.com/questions/6386090/validating-css-color-names/33184805
+	 * @param {string} color
+	 * @returns {string | null} returns the color if the input is a valid
+	 *                   color, and returns null otherwise. Example output:
+	 *                   'rgba(255,0,0,0.7)' or 'rgb(255,0,0)'
+	 */
+	exports.getColorCSS = function (color) {
+	  var ele = document.createElement('div');
+	  ele.style.color = color;
+	  return ele.style.color.split(/\s+/).join('').toLowerCase() || null;
+	}
+
+	/**
+	 * Test if a string contains a valid color name or code.
+	 * @param {string} color
+	 * @returns {boolean} returns true if a valid color, false otherwise
+	 */
+	exports.isValidColor = function (color) {
+	  return !!exports.getColorCSS(color);
+	}
+
+	if (typeof Element !== 'undefined') {
+	  // Polyfill for array remove
+	  (function () {
+	    function polyfill (item) {
+	      if (item.hasOwnProperty('remove')) {
+	        return;
+	      }
+	      Object.defineProperty(item, 'remove', {
+	        configurable: true,
+	        enumerable: true,
+	        writable: true,
+	        value: function remove() {
+	          if (this.parentNode != null)
+	            this.parentNode.removeChild(this);
+	        }
+	      });
+	    }
+
+	    if (typeof Element !== 'undefined')       { polyfill(Element.prototype); }
+	    if (typeof CharacterData !== 'undefined') { polyfill(CharacterData.prototype); }
+	    if (typeof DocumentType !== 'undefined')  { polyfill(DocumentType.prototype); }
+	  })();
+	}
+
+
+	// Polyfill for startsWith
+	if (!String.prototype.startsWith) {
+	    String.prototype.startsWith = function (searchString, position) {
+	        position = position || 0;
+	        return this.substr(position, searchString.length) === searchString;
+	    };
+	}
+
+	// Polyfill for Array.find
+	if (!Array.prototype.find) {
+	  Array.prototype.find = function(callback) {
+	    for (var i = 0; i < this.length; i++) {
+	      var element = this[i];
+	      if ( callback.call(this, element, i, this) ) {
+	        return element;
+	      }
+	    }
+	  }
+	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* Jison generated parser */
+	var jsonlint = (function(){
+	var parser = {trace: function trace() { },
+	yy: {},
+	symbols_: {"error":2,"JSONString":3,"STRING":4,"JSONNumber":5,"NUMBER":6,"JSONNullLiteral":7,"NULL":8,"JSONBooleanLiteral":9,"TRUE":10,"FALSE":11,"JSONText":12,"JSONValue":13,"EOF":14,"JSONObject":15,"JSONArray":16,"{":17,"}":18,"JSONMemberList":19,"JSONMember":20,":":21,",":22,"[":23,"]":24,"JSONElementList":25,"$accept":0,"$end":1},
+	terminals_: {2:"error",4:"STRING",6:"NUMBER",8:"NULL",10:"TRUE",11:"FALSE",14:"EOF",17:"{",18:"}",21:":",22:",",23:"[",24:"]"},
+	productions_: [0,[3,1],[5,1],[7,1],[9,1],[9,1],[12,2],[13,1],[13,1],[13,1],[13,1],[13,1],[13,1],[15,2],[15,3],[20,3],[19,1],[19,3],[16,2],[16,3],[25,1],[25,3]],
+	performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
+
+	var $0 = $$.length - 1;
+	switch (yystate) {
+	case 1: // replace escaped characters with actual character
+	          this.$ = yytext.replace(/\\(\\|")/g, "$"+"1")
+	                     .replace(/\\n/g,'\n')
+	                     .replace(/\\r/g,'\r')
+	                     .replace(/\\t/g,'\t')
+	                     .replace(/\\v/g,'\v')
+	                     .replace(/\\f/g,'\f')
+	                     .replace(/\\b/g,'\b');
+
+	break;
+	case 2:this.$ = Number(yytext);
+	break;
+	case 3:this.$ = null;
+	break;
+	case 4:this.$ = true;
+	break;
+	case 5:this.$ = false;
+	break;
+	case 6:return this.$ = $$[$0-1];
+	break;
+	case 13:this.$ = {};
+	break;
+	case 14:this.$ = $$[$0-1];
+	break;
+	case 15:this.$ = [$$[$0-2], $$[$0]];
+	break;
+	case 16:this.$ = {}; this.$[$$[$0][0]] = $$[$0][1];
+	break;
+	case 17:this.$ = $$[$0-2]; $$[$0-2][$$[$0][0]] = $$[$0][1];
+	break;
+	case 18:this.$ = [];
+	break;
+	case 19:this.$ = $$[$0-1];
+	break;
+	case 20:this.$ = [$$[$0]];
+	break;
+	case 21:this.$ = $$[$0-2]; $$[$0-2].push($$[$0]);
+	break;
+	}
+	},
+	table: [{3:5,4:[1,12],5:6,6:[1,13],7:3,8:[1,9],9:4,10:[1,10],11:[1,11],12:1,13:2,15:7,16:8,17:[1,14],23:[1,15]},{1:[3]},{14:[1,16]},{14:[2,7],18:[2,7],22:[2,7],24:[2,7]},{14:[2,8],18:[2,8],22:[2,8],24:[2,8]},{14:[2,9],18:[2,9],22:[2,9],24:[2,9]},{14:[2,10],18:[2,10],22:[2,10],24:[2,10]},{14:[2,11],18:[2,11],22:[2,11],24:[2,11]},{14:[2,12],18:[2,12],22:[2,12],24:[2,12]},{14:[2,3],18:[2,3],22:[2,3],24:[2,3]},{14:[2,4],18:[2,4],22:[2,4],24:[2,4]},{14:[2,5],18:[2,5],22:[2,5],24:[2,5]},{14:[2,1],18:[2,1],21:[2,1],22:[2,1],24:[2,1]},{14:[2,2],18:[2,2],22:[2,2],24:[2,2]},{3:20,4:[1,12],18:[1,17],19:18,20:19},{3:5,4:[1,12],5:6,6:[1,13],7:3,8:[1,9],9:4,10:[1,10],11:[1,11],13:23,15:7,16:8,17:[1,14],23:[1,15],24:[1,21],25:22},{1:[2,6]},{14:[2,13],18:[2,13],22:[2,13],24:[2,13]},{18:[1,24],22:[1,25]},{18:[2,16],22:[2,16]},{21:[1,26]},{14:[2,18],18:[2,18],22:[2,18],24:[2,18]},{22:[1,28],24:[1,27]},{22:[2,20],24:[2,20]},{14:[2,14],18:[2,14],22:[2,14],24:[2,14]},{3:20,4:[1,12],20:29},{3:5,4:[1,12],5:6,6:[1,13],7:3,8:[1,9],9:4,10:[1,10],11:[1,11],13:30,15:7,16:8,17:[1,14],23:[1,15]},{14:[2,19],18:[2,19],22:[2,19],24:[2,19]},{3:5,4:[1,12],5:6,6:[1,13],7:3,8:[1,9],9:4,10:[1,10],11:[1,11],13:31,15:7,16:8,17:[1,14],23:[1,15]},{18:[2,17],22:[2,17]},{18:[2,15],22:[2,15]},{22:[2,21],24:[2,21]}],
+	defaultActions: {16:[2,6]},
+	parseError: function parseError(str, hash) {
+	    throw new Error(str);
+	},
+	parse: function parse(input) {
+	    var self = this,
+	        stack = [0],
+	        vstack = [null], // semantic value stack
+	        lstack = [], // location stack
+	        table = this.table,
+	        yytext = '',
+	        yylineno = 0,
+	        yyleng = 0,
+	        recovering = 0,
+	        TERROR = 2,
+	        EOF = 1;
+
+	    //this.reductionCount = this.shiftCount = 0;
+
+	    this.lexer.setInput(input);
+	    this.lexer.yy = this.yy;
+	    this.yy.lexer = this.lexer;
+	    if (typeof this.lexer.yylloc == 'undefined')
+	        this.lexer.yylloc = {};
+	    var yyloc = this.lexer.yylloc;
+	    lstack.push(yyloc);
+
+	    if (typeof this.yy.parseError === 'function')
+	        this.parseError = this.yy.parseError;
+
+	    function popStack (n) {
+	        stack.length = stack.length - 2*n;
+	        vstack.length = vstack.length - n;
+	        lstack.length = lstack.length - n;
+	    }
+
+	    function lex() {
+	        var token;
+	        token = self.lexer.lex() || 1; // $end = 1
+	        // if token isn't its numeric value, convert
+	        if (typeof token !== 'number') {
+	            token = self.symbols_[token] || token;
+	        }
+	        return token;
+	    }
+
+	    var symbol, preErrorSymbol, state, action, a, r, yyval={},p,len,newState, expected;
+	    while (true) {
+	        // retreive state number from top of stack
+	        state = stack[stack.length-1];
+
+	        // use default actions if available
+	        if (this.defaultActions[state]) {
+	            action = this.defaultActions[state];
+	        } else {
+	            if (symbol == null)
+	                symbol = lex();
+	            // read action for current state and first input
+	            action = table[state] && table[state][symbol];
+	        }
+
+	        // handle parse error
+	        _handle_error:
+	        if (typeof action === 'undefined' || !action.length || !action[0]) {
+
+	            if (!recovering) {
+	                // Report error
+	                expected = [];
+	                for (p in table[state]) if (this.terminals_[p] && p > 2) {
+	                    expected.push("'"+this.terminals_[p]+"'");
+	                }
+	                var errStr = '';
+	                if (this.lexer.showPosition) {
+	                    errStr = 'Parse error on line '+(yylineno+1)+":\n"+this.lexer.showPosition()+"\nExpecting "+expected.join(', ') + ", got '" + this.terminals_[symbol]+ "'";
+	                } else {
+	                    errStr = 'Parse error on line '+(yylineno+1)+": Unexpected " +
+	                                  (symbol == 1 /*EOF*/ ? "end of input" :
+	                                              ("'"+(this.terminals_[symbol] || symbol)+"'"));
+	                }
+	                this.parseError(errStr,
+	                    {text: this.lexer.match, token: this.terminals_[symbol] || symbol, line: this.lexer.yylineno, loc: yyloc, expected: expected});
+	            }
+
+	            // just recovered from another error
+	            if (recovering == 3) {
+	                if (symbol == EOF) {
+	                    throw new Error(errStr || 'Parsing halted.');
+	                }
+
+	                // discard current lookahead and grab another
+	                yyleng = this.lexer.yyleng;
+	                yytext = this.lexer.yytext;
+	                yylineno = this.lexer.yylineno;
+	                yyloc = this.lexer.yylloc;
+	                symbol = lex();
+	            }
+
+	            // try to recover from error
+	            while (1) {
+	                // check for error recovery rule in this state
+	                if ((TERROR.toString()) in table[state]) {
+	                    break;
+	                }
+	                if (state == 0) {
+	                    throw new Error(errStr || 'Parsing halted.');
+	                }
+	                popStack(1);
+	                state = stack[stack.length-1];
+	            }
+
+	            preErrorSymbol = symbol; // save the lookahead token
+	            symbol = TERROR;         // insert generic error symbol as new lookahead
+	            state = stack[stack.length-1];
+	            action = table[state] && table[state][TERROR];
+	            recovering = 3; // allow 3 real symbols to be shifted before reporting a new error
+	        }
+
+	        // this shouldn't happen, unless resolve defaults are off
+	        if (action[0] instanceof Array && action.length > 1) {
+	            throw new Error('Parse Error: multiple actions possible at state: '+state+', token: '+symbol);
+	        }
+
+	        switch (action[0]) {
+
+	            case 1: // shift
+	                //this.shiftCount++;
+
+	                stack.push(symbol);
+	                vstack.push(this.lexer.yytext);
+	                lstack.push(this.lexer.yylloc);
+	                stack.push(action[1]); // push state
+	                symbol = null;
+	                if (!preErrorSymbol) { // normal execution/no error
+	                    yyleng = this.lexer.yyleng;
+	                    yytext = this.lexer.yytext;
+	                    yylineno = this.lexer.yylineno;
+	                    yyloc = this.lexer.yylloc;
+	                    if (recovering > 0)
+	                        recovering--;
+	                } else { // error just occurred, resume old lookahead f/ before error
+	                    symbol = preErrorSymbol;
+	                    preErrorSymbol = null;
+	                }
+	                break;
+
+	            case 2: // reduce
+	                //this.reductionCount++;
+
+	                len = this.productions_[action[1]][1];
+
+	                // perform semantic action
+	                yyval.$ = vstack[vstack.length-len]; // default to $$ = $1
+	                // default location, uses first token for firsts, last for lasts
+	                yyval._$ = {
+	                    first_line: lstack[lstack.length-(len||1)].first_line,
+	                    last_line: lstack[lstack.length-1].last_line,
+	                    first_column: lstack[lstack.length-(len||1)].first_column,
+	                    last_column: lstack[lstack.length-1].last_column
+	                };
+	                r = this.performAction.call(yyval, yytext, yyleng, yylineno, this.yy, action[1], vstack, lstack);
+
+	                if (typeof r !== 'undefined') {
+	                    return r;
+	                }
+
+	                // pop off stack
+	                if (len) {
+	                    stack = stack.slice(0,-1*len*2);
+	                    vstack = vstack.slice(0, -1*len);
+	                    lstack = lstack.slice(0, -1*len);
+	                }
+
+	                stack.push(this.productions_[action[1]][0]);    // push nonterminal (reduce)
+	                vstack.push(yyval.$);
+	                lstack.push(yyval._$);
+	                // goto new state = table[STATE][NONTERMINAL]
+	                newState = table[stack[stack.length-2]][stack[stack.length-1]];
+	                stack.push(newState);
+	                break;
+
+	            case 3: // accept
+	                return true;
+	        }
+
+	    }
+
+	    return true;
+	}};
+	/* Jison generated lexer */
+	var lexer = (function(){
+	var lexer = ({EOF:1,
+	parseError:function parseError(str, hash) {
+	        if (this.yy.parseError) {
+	            this.yy.parseError(str, hash);
+	        } else {
+	            throw new Error(str);
+	        }
+	    },
+	setInput:function (input) {
+	        this._input = input;
+	        this._more = this._less = this.done = false;
+	        this.yylineno = this.yyleng = 0;
+	        this.yytext = this.matched = this.match = '';
+	        this.conditionStack = ['INITIAL'];
+	        this.yylloc = {first_line:1,first_column:0,last_line:1,last_column:0};
+	        return this;
+	    },
+	input:function () {
+	        var ch = this._input[0];
+	        this.yytext+=ch;
+	        this.yyleng++;
+	        this.match+=ch;
+	        this.matched+=ch;
+	        var lines = ch.match(/\n/);
+	        if (lines) this.yylineno++;
+	        this._input = this._input.slice(1);
+	        return ch;
+	    },
+	unput:function (ch) {
+	        this._input = ch + this._input;
+	        return this;
+	    },
+	more:function () {
+	        this._more = true;
+	        return this;
+	    },
+	less:function (n) {
+	        this._input = this.match.slice(n) + this._input;
+	    },
+	pastInput:function () {
+	        var past = this.matched.substr(0, this.matched.length - this.match.length);
+	        return (past.length > 20 ? '...':'') + past.substr(-20).replace(/\n/g, "");
+	    },
+	upcomingInput:function () {
+	        var next = this.match;
+	        if (next.length < 20) {
+	            next += this._input.substr(0, 20-next.length);
+	        }
+	        return (next.substr(0,20)+(next.length > 20 ? '...':'')).replace(/\n/g, "");
+	    },
+	showPosition:function () {
+	        var pre = this.pastInput();
+	        var c = new Array(pre.length + 1).join("-");
+	        return pre + this.upcomingInput() + "\n" + c+"^";
+	    },
+	next:function () {
+	        if (this.done) {
+	            return this.EOF;
+	        }
+	        if (!this._input) this.done = true;
+
+	        var token,
+	            match,
+	            tempMatch,
+	            index,
+	            col,
+	            lines;
+	        if (!this._more) {
+	            this.yytext = '';
+	            this.match = '';
+	        }
+	        var rules = this._currentRules();
+	        for (var i=0;i < rules.length; i++) {
+	            tempMatch = this._input.match(this.rules[rules[i]]);
+	            if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
+	                match = tempMatch;
+	                index = i;
+	                if (!this.options.flex) break;
+	            }
+	        }
+	        if (match) {
+	            lines = match[0].match(/\n.*/g);
+	            if (lines) this.yylineno += lines.length;
+	            this.yylloc = {first_line: this.yylloc.last_line,
+	                           last_line: this.yylineno+1,
+	                           first_column: this.yylloc.last_column,
+	                           last_column: lines ? lines[lines.length-1].length-1 : this.yylloc.last_column + match[0].length}
+	            this.yytext += match[0];
+	            this.match += match[0];
+	            this.yyleng = this.yytext.length;
+	            this._more = false;
+	            this._input = this._input.slice(match[0].length);
+	            this.matched += match[0];
+	            token = this.performAction.call(this, this.yy, this, rules[index],this.conditionStack[this.conditionStack.length-1]);
+	            if (this.done && this._input) this.done = false;
+	            if (token) return token;
+	            else return;
+	        }
+	        if (this._input === "") {
+	            return this.EOF;
+	        } else {
+	            this.parseError('Lexical error on line '+(this.yylineno+1)+'. Unrecognized text.\n'+this.showPosition(),
+	                    {text: "", token: null, line: this.yylineno});
+	        }
+	    },
+	lex:function lex() {
+	        var r = this.next();
+	        if (typeof r !== 'undefined') {
+	            return r;
+	        } else {
+	            return this.lex();
+	        }
+	    },
+	begin:function begin(condition) {
+	        this.conditionStack.push(condition);
+	    },
+	popState:function popState() {
+	        return this.conditionStack.pop();
+	    },
+	_currentRules:function _currentRules() {
+	        return this.conditions[this.conditionStack[this.conditionStack.length-1]].rules;
+	    },
+	topState:function () {
+	        return this.conditionStack[this.conditionStack.length-2];
+	    },
+	pushState:function begin(condition) {
+	        this.begin(condition);
+	    }});
+	lexer.options = {};
+	lexer.performAction = function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+
+	var YYSTATE=YY_START
+	switch($avoiding_name_collisions) {
+	case 0:/* skip whitespace */
+	break;
+	case 1:return 6
+	break;
+	case 2:yy_.yytext = yy_.yytext.substr(1,yy_.yyleng-2); return 4
+	break;
+	case 3:return 17
+	break;
+	case 4:return 18
+	break;
+	case 5:return 23
+	break;
+	case 6:return 24
+	break;
+	case 7:return 22
+	break;
+	case 8:return 21
+	break;
+	case 9:return 10
+	break;
+	case 10:return 11
+	break;
+	case 11:return 8
+	break;
+	case 12:return 14
+	break;
+	case 13:return 'INVALID'
+	break;
+	}
+	};
+	lexer.rules = [/^(?:\s+)/,/^(?:(-?([0-9]|[1-9][0-9]+))(\.[0-9]+)?([eE][-+]?[0-9]+)?\b)/,/^(?:"(?:\\[\\"bfnrt/]|\\u[a-fA-F0-9]{4}|[^\\\0-\x09\x0a-\x1f"])*")/,/^(?:\{)/,/^(?:\})/,/^(?:\[)/,/^(?:\])/,/^(?:,)/,/^(?::)/,/^(?:true\b)/,/^(?:false\b)/,/^(?:null\b)/,/^(?:$)/,/^(?:.)/];
+	lexer.conditions = {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],"inclusive":true}};
+
+
+	;
+	return lexer;})()
+	parser.lexer = lexer;
+	return parser;
+	})();
+	if (true) {
+	  exports.parser = jsonlint;
+	  exports.parse = jsonlint.parse.bind(jsonlint);
+	}
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var escapedChars = {
+	  'b': '\b',
+	  'f': '\f',
+	  'n': '\n',
+	  'r': '\r',
+	  't': '\t',
+	  '"': '"',
+	  '/': '/',
+	  '\\': '\\'
+	};
+
+	var A_CODE = 'a'.charCodeAt();
+
+
+	exports.parse = function (source) {
+	  var pointers = {};
+	  var line = 0;
+	  var column = 0;
+	  var pos = 0;
+	  return {
+	    data: _parse('', true),
+	    pointers: pointers
+	  };
+
+	  function _parse(ptr, topLevel) {
+	    whitespace();
+	    var data;
+	    map(ptr, 'value');
+	    var char = getChar();
+	    switch (char) {
+	      case 't': read('rue'); data = true; break;
+	      case 'f': read('alse'); data = false; break;
+	      case 'n': read('ull'); data = null; break;
+	      case '"': data = parseString(); break;
+	      case '[': data = parseArray(ptr); break;
+	      case '{': data = parseObject(ptr); break;
+	      default:
+	        backChar();
+	        if ('-0123456789'.indexOf(char) >= 0)
+	          data = parseNumber();
+	        else
+	          unexpectedToken();
+	    }
+	    map(ptr, 'valueEnd');
+	    whitespace();
+	    if (topLevel && pos < source.length) unexpectedToken();
+	    return data;
+	  }
+
+	  function whitespace() {
+	    loop:
+	      while (pos < source.length) {
+	        switch (source[pos]) {
+	          case ' ': column++; break;
+	          case '\t': column += 4; break;
+	          case '\r': column = 0; break;
+	          case '\n': column = 0; line++; break;
+	          default: break loop;
+	        }
+	        pos++;
+	      }
+	  }
+
+	  function parseString() {
+	    var str = '';
+	    var char;
+	    while (true) {
+	      char = getChar();
+	      if (char == '"') {
+	        break;
+	      } else if (char == '\\') {
+	        char = getChar();
+	        if (char in escapedChars)
+	          str += escapedChars[char];
+	        else if (char == 'u')
+	          str += getCharCode();
+	        else
+	          wasUnexpectedToken();
+	      } else {
+	        str += char;
+	      }
+	    }
+	    return str;
+	  }
+
+	  function parseNumber() {
+	    var numStr = '';
+	    if (source[pos] == '-') numStr += getChar();
+
+	    numStr += source[pos] == '0'
+	              ? getChar()
+	              : getDigits();
+
+	    if (source[pos] == '.')
+	      numStr += getChar() + getDigits();
+
+	    if (source[pos] == 'e' || source[pos] == 'E') {
+	      numStr += getChar();
+	      if (source[pos] == '+' || source[pos] == '-') numStr += getChar();
+	      numStr += getDigits();
+	    }
+
+	    return +numStr;
+	  }
+
+	  function parseArray(ptr) {
+	    whitespace();
+	    var arr = [];
+	    var i = 0;
+	    if (getChar() == ']') return arr;
+	    backChar();
+
+	    while (true) {
+	      var itemPtr = ptr + '/' + i;
+	      arr.push(_parse(itemPtr));
+	      whitespace();
+	      var char = getChar();
+	      if (char == ']') break;
+	      if (char != ',') wasUnexpectedToken();
+	      whitespace();
+	      i++;
+	    }
+	    return arr;
+	  }
+
+	  function parseObject(ptr) {
+	    whitespace();
+	    var obj = {};
+	    if (getChar() == '}') return obj;
+	    backChar();
+
+	    while (true) {
+	      var loc = getLoc();
+	      if (getChar() != '"') wasUnexpectedToken();
+	      var key = parseString();
+	      var propPtr = ptr + '/' + escapeJsonPointer(key);
+	      mapLoc(propPtr, 'key', loc);
+	      map(propPtr, 'keyEnd');
+	      whitespace();
+	      if (getChar() != ':') wasUnexpectedToken();
+	      whitespace();
+	      obj[key] = _parse(propPtr);
+	      whitespace();
+	      var char = getChar();
+	      if (char == '}') break;
+	      if (char != ',') wasUnexpectedToken();
+	      whitespace();
+	    }
+	    return obj;
+	  }
+
+	  function read(str) {
+	    for (var i=0; i<str.length; i++)
+	      if (getChar() !== str[i]) wasUnexpectedToken();
+	  }
+
+	  function getChar() {
+	    checkUnexpectedEnd();
+	    var char = source[pos];
+	    pos++;
+	    column++; // new line?
+	    return char;
+	  }
+
+	  function backChar() {
+	    pos--;
+	    column--;
+	  }
+
+	  function getCharCode() {
+	    var count = 4;
+	    var code = 0;
+	    while (count--) {
+	      code <<= 4;
+	      var char = getChar().toLowerCase();
+	      if (char >= 'a' && char <= 'f')
+	        code += char.charCodeAt() - A_CODE + 10;
+	      else if (char >= '0' && char <= '9')
+	        code += +char;
+	      else
+	        wasUnexpectedToken();
+	    }
+	    return String.fromCharCode(code);
+	  }
+
+	  function getDigits() {
+	    var digits = '';
+	    while (source[pos] >= '0' && source[pos] <= '9')
+	      digits += getChar();
+
+	    if (digits.length) return digits;
+	    checkUnexpectedEnd();
+	    unexpectedToken();
+	  }
+
+	  function map(ptr, prop) {
+	    mapLoc(ptr, prop, getLoc());
+	  }
+
+	  function mapLoc(ptr, prop, loc) {
+	    pointers[ptr] = pointers[ptr] || {};
+	    pointers[ptr][prop] = loc;
+	  }
+
+	  function getLoc() {
+	    return {
+	      line: line,
+	      column: column,
+	      pos: pos
+	    };
+	  }
+
+	  function unexpectedToken() {
+	    throw new SyntaxError('Unexpected token ' + source[pos] + ' in JSON at position ' + pos);
+	  }
+
+	  function wasUnexpectedToken() {
+	    backChar();
+	    unexpectedToken();
+	  }
+
+	  function checkUnexpectedEnd() {
+	    if (pos >= source.length)
+	      throw new SyntaxError('Unexpected end of JSON input');
+	  }
+	};
+
+
+	exports.stringify = function (data, _, whitespace) {
+	  if (!validType(data)) return;
+	  var wsLine = 0;
+	  var wsPos, wsColumn;
+	  switch (typeof whitespace) {
+	    case 'number':
+	      var len = whitespace > 10
+	                  ? 10
+	                  : whitespace < 0
+	                    ? 0
+	                    : Math.floor(whitespace);
+	      whitespace = len && repeat(len, ' ');
+	      wsPos = len;
+	      wsColumn = len;
+	      break;
+	    case 'string':
+	      whitespace = whitespace.slice(0, 10);
+	      wsPos = 0;
+	      wsColumn = 0;
+	      for (var j=0; j<whitespace.length; j++) {
+	        var char = whitespace[j];
+	        switch (char) {
+	          case ' ': wsColumn++; break;
+	          case '\t': wsColumn += 4; break;
+	          case '\r': wsColumn = 0; break;
+	          case '\n': wsColumn = 0; wsLine++; break;
+	          default: throw new Error('whitespace characters not allowed in JSON');
+	        }
+	        wsPos++;
+	      }
+	      break;
+	    default:
+	      whitespace = undefined;
+	  }
+
+	  var json = '';
+	  var pointers = {};
+	  var line = 0;
+	  var column = 0;
+	  var pos = 0;
+	  _stringify(data, 0, '');
+	  return {
+	    json: json,
+	    pointers: pointers
+	  };
+
+	  function _stringify(_data, lvl, ptr) {
+	    map(ptr, 'value');
+	    switch (typeof _data) {
+	      case 'number':
+	      case 'boolean':
+	        out('' + _data); break;
+	      case 'string':
+	        out(quoted(_data)); break;
+	      case 'object':
+	        if (_data === null)
+	          out('null');
+	        else if (typeof _data.toJSON == 'function')
+	          out(quoted(_data.toJSON()));
+	        else if (Array.isArray(_data))
+	          stringifyArray();
+	        else
+	          stringifyObject();
+	    }
+	    map(ptr, 'valueEnd');
+
+	    function stringifyArray() {
+	      if (_data.length) {
+	        out('[');
+	        var itemLvl = lvl + 1;
+	        for (var i=0; i<_data.length; i++) {
+	          if (i) out(',');
+	          indent(itemLvl);
+	          var item = validType(_data[i]) ? _data[i] : null;
+	          var itemPtr = ptr + '/' + i;
+	          _stringify(item, itemLvl, itemPtr);
+	        }
+	        indent(lvl);
+	        out(']');
+	      } else {
+	        out('[]');
+	      }
+	    }
+
+	    function stringifyObject() {
+	      var keys = Object.keys(_data);
+	      if (keys.length) {
+	        out('{');
+	        var propLvl = lvl + 1;
+	        for (var i=0; i<keys.length; i++) {
+	          var key = keys[i];
+	          var value = _data[key];
+	          if (validType(value)) {
+	            if (i) out(',');
+	            var propPtr = ptr + '/' + escapeJsonPointer(key);
+	            indent(propLvl);
+	            map(propPtr, 'key');
+	            out(quoted(key));
+	            map(propPtr, 'keyEnd');
+	            out(':');
+	            if (whitespace) out(' ');
+	            _stringify(value, propLvl, propPtr);
+	          }
+	        }
+	        indent(lvl);
+	        out('}');
+	      } else {
+	        out('{}');
+	      }
+	    }
+	  }
+
+	  function out(str) {
+	    column += str.length;
+	    pos += str.length;
+	    json += str;
+	  }
+
+	  function indent(lvl) {
+	    if (whitespace) {
+	      json += '\n' + repeat(lvl, whitespace);
+	      line++;
+	      column = 0;
+	      while (lvl--) {
+	        if (wsLine) {
+	          line += wsLine;
+	          column = wsColumn;
+	        } else {
+	          column += wsColumn;
+	        }
+	        pos += wsPos;
+	      }
+	      pos += 1; // \n character
+	    }
+	  }
+
+	  function map(ptr, prop) {
+	    pointers[ptr] = pointers[ptr] || {};
+	    pointers[ptr][prop] = {
+	      line: line,
+	      column: column,
+	      pos: pos
+	    };
+	  }
+
+	  function repeat(n, str) {
+	    return Array(n + 1).join(str);
+	  }
+	};
+
+
+	var VALID_TYPES = ['number', 'boolean', 'string', 'object'];
+	function validType(data) {
+	  return VALID_TYPES.indexOf(typeof data) >= 0;
+	}
+
+
+	var ESC_QUOTE = /"|\\/g;
+	var ESC_B = /[\b]/g;
+	var ESC_F = /\f/g;
+	var ESC_N = /\n/g;
+	var ESC_R = /\r/g;
+	var ESC_T = /\t/g;
+	function quoted(str) {
+	  str = str.replace(ESC_QUOTE, '\\$&')
+	           .replace(ESC_F, '\\f')
+	           .replace(ESC_B, '\\b')
+	           .replace(ESC_N, '\\n')
+	           .replace(ESC_R, '\\r')
+	           .replace(ESC_T, '\\t');
+	  return '"' + str + '"';
+	}
+
+
+	var ESC_0 = /~/g;
+	var ESC_1 = /\//g;
+	function escapeJsonPointer(str) {
+	  return str.replace(ESC_0, '~0')
+	            .replace(ESC_1, '~1');
+	}
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _locales = ['en', 'pt-BR'];
+	var _defs = {
+	  en: {
+	    'array': 'Array',
+	    'auto': 'Auto',
+	    'appendText': 'Append',
+	    'appendTitle': 'Append a new field with type \'auto\' after this field (Ctrl+Shift+Ins)',
+	    'appendSubmenuTitle': 'Select the type of the field to be appended',
+	    'appendTitleAuto': 'Append a new field with type \'auto\' (Ctrl+Shift+Ins)',
+	    'ascending': 'Ascending',
+	    'ascendingTitle': 'Sort the childs of this ${type} in ascending order',
+	    'actionsMenu': 'Click to open the actions menu (Ctrl+M)',
+	    'collapseAll': 'Collapse all fields',
+	    'descending': 'Descending',
+	    'descendingTitle': 'Sort the childs of this ${type} in descending order',
+	    'drag': 'Drag to move this field (Alt+Shift+Arrows)',
+	    'duplicateKey': 'duplicate key',
+	    'duplicateText': 'Duplicate',
+	    'duplicateTitle': 'Duplicate selected fields (Ctrl+D)',
+	    'duplicateField': 'Duplicate this field (Ctrl+D)',
+	    'empty': 'empty',
+	    'expandAll': 'Expand all fields',
+	    'expandTitle': 'Click to expand/collapse this field (Ctrl+E). \n' +
+	    'Ctrl+Click to expand/collapse including all childs.',
+	    'insert': 'Insert',
+	    'insertTitle': 'Insert a new field with type \'auto\' before this field (Ctrl+Ins)',
+	    'insertSub': 'Select the type of the field to be inserted',
+	    'object': 'Object',
+	    'ok': 'Ok',
+	    'redo': 'Redo (Ctrl+Shift+Z)',
+	    'removeText': 'Remove',
+	    'removeTitle': 'Remove selected fields (Ctrl+Del)',
+	    'removeField': 'Remove this field (Ctrl+Del)',
+	    'selectNode': 'Select a node...',
+	    'showAll': 'show all',
+	    'showMore': 'show more',
+	    'showMoreStatus': 'displaying ${visibleChilds} of ${totalChilds} items.',
+	    'sort': 'Sort',
+	    'sortTitle': 'Sort the childs of this ${type}',
+	    'sortTitleShort': 'Sort contents',
+	    'sortFieldLabel': 'Field:',
+	    'sortDirectionLabel': 'Direction:',
+	    'sortFieldTitle': 'Select the nested field by which to sort the array or object',
+	    'sortAscending': 'Ascending',
+	    'sortAscendingTitle': 'Sort the selected field in ascending order',
+	    'sortDescending': 'Descending',
+	    'sortDescendingTitle': 'Sort the selected field in descending order',
+	    'string': 'String',
+	    'transform': 'Transform',
+	    'transformTitle': 'Filter, sort, or transform the childs of this ${type}',
+	    'transformTitleShort': 'Filter, sort, or transform contents',
+	    'transformQueryTitle': 'Enter a JMESPath query',
+	    'transformWizardLabel': 'Wizard',
+	    'transformWizardFilter': 'Filter',
+	    'transformWizardSortBy': 'Sort by',
+	    'transformWizardSelectFields': 'Select fields',
+	    'transformQueryLabel': 'Query',
+	    'transformPreviewLabel': 'Preview',
+	    'type': 'Type',
+	    'typeTitle': 'Change the type of this field',
+	    'openUrl': 'Ctrl+Click or Ctrl+Enter to open url in new window',
+	    'undo': 'Undo last action (Ctrl+Z)',
+	    'validationCannotMove': 'Cannot move a field into a child of itself',
+	    'autoType': 'Field type "auto". ' +
+	    'The field type is automatically determined from the value ' +
+	    'and can be a string, number, boolean, or null.',
+	    'objectType': 'Field type "object". ' +
+	    'An object contains an unordered set of key/value pairs.',
+	    'arrayType': 'Field type "array". ' +
+	    'An array contains an ordered collection of values.',
+	    'stringType': 'Field type "string". ' +
+	    'Field type is not determined from the value, ' +
+	    'but always returned as string.'
+	  },
+	  'pt-BR': {
+	    'array': 'Lista',
+	    'auto': 'Automatico',
+	    'appendText': 'Adicionar',
+	    'appendTitle': 'Adicionar novo campo com tipo \'auto\' depois deste campo (Ctrl+Shift+Ins)',
+	    'appendSubmenuTitle': 'Selecione o tipo do campo a ser adicionado',
+	    'appendTitleAuto': 'Adicionar novo campo com tipo \'auto\' (Ctrl+Shift+Ins)',
+	    'ascending': 'Ascendente',
+	    'ascendingTitle': 'Organizar filhor do tipo ${type} em crescente',
+	    'actionsMenu': 'Clique para abrir o menu de ações (Ctrl+M)',
+	    'collapseAll': 'Fechar todos campos',
+	    'descending': 'Descendente',
+	    'descendingTitle': 'Organizar o filhos do tipo ${type} em decrescente',
+	    'duplicateKey': 'chave duplicada',
+	    'drag': 'Arraste para mover este campo (Alt+Shift+Arrows)',
+	    'duplicateText': 'Duplicar',
+	    'duplicateTitle': 'Duplicar campos selecionados (Ctrl+D)',
+	    'duplicateField': 'Duplicar este campo (Ctrl+D)',
+	    'empty': 'vazio',
+	    'expandAll': 'Expandir todos campos',
+	    'expandTitle': 'Clique para expandir/encolher este campo (Ctrl+E). \n' +
+	    'Ctrl+Click para expandir/encolher incluindo todos os filhos.',
+	    'insert': 'Inserir',
+	    'insertTitle': 'Inserir um novo campo do tipo \'auto\' antes deste campo (Ctrl+Ins)',
+	    'insertSub': 'Selecionar o tipo de campo a ser inserido',
+	    'object': 'Objeto',
+	    'ok': 'Ok',
+	    'redo': 'Refazer (Ctrl+Shift+Z)',
+	    'removeText': 'Remover',
+	    'removeTitle': 'Remover campos selecionados (Ctrl+Del)',
+	    'removeField': 'Remover este campo (Ctrl+Del)',
+	    // TODO: correctly translate
+	    'selectNode': 'Select a node...',
+	    // TODO: correctly translate
+	    'showAll': 'mostre tudo',
+	    // TODO: correctly translate
+	    'showMore': 'mostre mais',
+	    // TODO: correctly translate
+	    'showMoreStatus': 'exibindo ${visibleChilds} de ${totalChilds} itens.',
+	    'sort': 'Organizar',
+	    'sortTitle': 'Organizar os filhos deste ${type}',
+	    // TODO: correctly translate
+	    'sortTitleShort': 'Organizar os filhos',
+	    // TODO: correctly translate
+	    'sortFieldLabel': 'Field:',
+	    // TODO: correctly translate
+	    'sortDirectionLabel': 'Direction:',
+	    // TODO: correctly translate
+	    'sortFieldTitle': 'Select the nested field by which to sort the array or object',
+	    // TODO: correctly translate
+	    'sortAscending': 'Ascending',
+	    // TODO: correctly translate
+	    'sortAscendingTitle': 'Sort the selected field in ascending order',
+	    // TODO: correctly translate
+	    'sortDescending': 'Descending',
+	    // TODO: correctly translate
+	    'sortDescendingTitle': 'Sort the selected field in descending order',
+	    'string': 'Texto',
+	    // TODO: correctly translate
+	    'transform': 'Transform',
+	    // TODO: correctly translate
+	    'transformTitle': 'Filter, sort, or transform the childs of this ${type}',
+	    // TODO: correctly translate
+	    'transformTitleShort': 'Filter, sort, or transform contents',
+	    // TODO: correctly translate
+	    'transformQueryTitle': 'Enter a JMESPath query',
+	    // TODO: correctly translate
+	    'transformWizardLabel': 'Wizard',
+	    // TODO: correctly translate
+	    'transformWizardFilter': 'Filter',
+	    // TODO: correctly translate
+	    'transformWizardSortBy': 'Sort by',
+	    // TODO: correctly translate
+	    'transformWizardSelectFields': 'Select fields',
+	    // TODO: correctly translate
+	    'transformQueryLabel': 'Query',
+	    // TODO: correctly translate
+	    'transformPreviewLabel': 'Preview',
+	    'type': 'Tipo',
+	    'typeTitle': 'Mudar o tipo deste campo',
+	    'openUrl': 'Ctrl+Click ou Ctrl+Enter para abrir link em nova janela',
+	    'undo': 'Desfazer último ação (Ctrl+Z)',
+	    'validationCannotMove': 'Não pode mover um campo como filho dele mesmo',
+	    'autoType': 'Campo do tipo "auto". ' +
+	    'O tipo do campo é determinao automaticamente a partir do seu valor ' +
+	    'e pode ser texto, número, verdade/falso ou nulo.',
+	    'objectType': 'Campo do tipo "objeto". ' +
+	    'Um objeto contém uma lista de pares com chave e valor.',
+	    'arrayType': 'Campo do tipo "lista". ' +
+	    'Uma lista contem uma coleção de valores ordenados.',
+	    'stringType': 'Campo do tipo "string". ' +
+	    'Campo do tipo nao é determinado através do seu valor, ' +
+	    'mas sempre retornara um texto.'
+	  }
+	};
+
+	var _defaultLang = 'en';
+	var _lang;
+	var userLang = typeof navigator !== 'undefined'
+	    ? navigator.language || navigator.userLanguage
+	    : undefined;
+	_lang = _locales.find(function (l) {
+	  return l === userLang;
+	});
+	if (!_lang) {
+	  _lang = _defaultLang;
+	}
+
+	module.exports = {
+	  // supported locales
+	  _locales: _locales,
+	  _defs: _defs,
+	  _lang: _lang,
+	  setLanguage: function (lang) {
+	    if (!lang) {
+	      return;
+	    }
+	    var langFound = _locales.find(function (l) {
+	      return l === lang;
+	    });
+	    if (langFound) {
+	      _lang = langFound;
+	    } else {
+	      console.error('Language not found');
+	    }
+	  },
+	  setLanguages: function (languages) {
+	    if (!languages) {
+	      return;
+	    }
+	    for (var key in languages) {
+	      var langFound = _locales.find(function (l) {
+	        return l === key;
+	      });
+	      if (!langFound) {
+	        _locales.push(key);
+	      }
+	      _defs[key] = Object.assign({}, _defs[_defaultLang], _defs[key], languages[key]);
+	    }
+	  },
+	  translate: function (key, data, lang) {
+	    if (!lang) {
+	      lang = _lang;
+	    }
+	    var text = _defs[lang][key];
+	    if (data) {
+	      for (key in data) {
+	        text = text.replace('${' + key + '}', data[key]);
+	      }
+	    }
+	    return text || key;
+	  }
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var ContextMenu = __webpack_require__(10);
+	var translate = __webpack_require__(15).translate;
+
+	/**
+	 * Creates a component that visualize path selection in tree based editors
+	 * @param {HTMLElement} container
+	 * @param {HTMLElement} root
+	 * @constructor
+	 */
+	function TreePath(container, root) {
+	  if (container) {
+	    this.root = root;
+	    this.path = document.createElement('div');
+	    this.path.className = 'jsoneditor-treepath';
+	    container.appendChild(this.path);
+	    this.reset();
+	  }
+	}
+
+	/**
+	 * Reset component to initial status
+	 */
+	TreePath.prototype.reset = function () {
+	  this.path.innerHTML = translate('selectNode');
+	};
+
+	/**
+	 * Renders the component UI according to a given path objects
+	 * @param {Array<{name: String, childs: Array}>} pathObjs a list of path objects
+	 *
+	 */
+	TreePath.prototype.setPath = function (pathObjs) {
+	  var me = this;
+
+	  this.path.innerHTML = '';
+
+	  if (pathObjs && pathObjs.length) {
+	    pathObjs.forEach(function (pathObj, idx) {
+	      var pathEl = document.createElement('span');
+	      var sepEl;
+	      pathEl.className = 'jsoneditor-treepath-element';
+	      pathEl.innerText = pathObj.name;
+	      pathEl.onclick = _onSegmentClick.bind(me, pathObj);
+
+	      me.path.appendChild(pathEl);
+
+	      if (pathObj.children.length) {
+	        sepEl = document.createElement('span');
+	        sepEl.className = 'jsoneditor-treepath-seperator';
+	        sepEl.innerHTML = '&#9658;';
+
+	        sepEl.onclick = function () {
+	          var items = [];
+	          pathObj.children.forEach(function (child) {
+	            items.push({
+	              'text': child.name,
+	              'className': 'jsoneditor-type-modes' + (pathObjs[idx + 1] + 1 && pathObjs[idx + 1].name === child.name ? ' jsoneditor-selected' : ''),
+	              'click': _onContextMenuItemClick.bind(me, pathObj, child.name)
+	            });
+	          });
+	          var menu = new ContextMenu(items);
+	          menu.show(sepEl, me.root);
+	        };
+
+	        me.path.appendChild(sepEl);
+	      }
+
+	      if(idx === pathObjs.length - 1) {
+	        var leftRectPos = (sepEl || pathEl).getBoundingClientRect().left;
+	        if(me.path.offsetWidth < leftRectPos) {
+	          me.path.scrollLeft = leftRectPos;
+	        }
+	      }
+	    });
+	  }
+
+	  function _onSegmentClick(pathObj) {
+	    if (this.selectionCallback) {
+	      this.selectionCallback(pathObj);
+	    }
+	  }
+
+	  function _onContextMenuItemClick(pathObj, selection) {
+	    if (this.contextMenuCallback) {
+	      this.contextMenuCallback(pathObj, selection);
+	    }
+	  }
+	};
+
+	/**
+	 * set a callback function for selection of path section
+	 * @param {Function} callback function to invoke when section is selected
+	 */
+	TreePath.prototype.onSectionSelected = function (callback) {
+	  if (typeof callback === 'function') {
+	    this.selectionCallback = callback;
+	  }
+	};
+
+	/**
+	 * set a callback function for selection of path section
+	 * @param {Function} callback function to invoke when section is selected
+	 */
+	TreePath.prototype.onContextMenuItemSelected = function (callback) {
+	  if (typeof callback === 'function') {
+	    this.contextMenuCallback = callback;
+	  }
+	};
+
+	module.exports = TreePath;
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var jmespath = __webpack_require__(18);
+	var naturalSort = __webpack_require__(19);
+	var createAbsoluteAnchor = __webpack_require__(11).createAbsoluteAnchor;
+	var ContextMenu = __webpack_require__(10);
+	var appendNodeFactory = __webpack_require__(20);
+	var showMoreNodeFactory = __webpack_require__(21);
+	var showSortModal = __webpack_require__(22);
+	var showTransformModal = __webpack_require__(24);
+	var util = __webpack_require__(12);
+	var translate = __webpack_require__(15).translate;
+
+	var DEFAULT_MODAL_ANCHOR = document.body; // TODO: this constant is defined twice
+
+	var YEAR_2000 = 946684800000;
+
+	/**
+	 * @constructor Node
+	 * Create a new Node
+	 * @param {./treemode} editor
+	 * @param {Object} [params] Can contain parameters:
+	 *                          {string}  field
+	 *                          {boolean} fieldEditable
+	 *                          {*}       value
+	 *                          {String}  type  Can have values 'auto', 'array',
+	 *                                          'object', or 'string'.
+	 */
+	function Node (editor, params) {
+	  /** @type {./treemode} */
+	  this.editor = editor;
+	  this.dom = {};
+	  this.expanded = false;
+
+	  if(params && (params instanceof Object)) {
+	    this.setField(params.field, params.fieldEditable);
+	    if ('value' in params) {
+	      this.setValue(params.value, params.type);
+	    }
+	    if ('internalValue' in params) {
+	      this.setInternalValue(params.internalValue);
+	    }
+	  }
+	  else {
+	    this.setField('');
+	    this.setValue(null);
+	  }
+
+	  this._debouncedOnChangeValue = util.debounce(this._onChangeValue.bind(this), Node.prototype.DEBOUNCE_INTERVAL);
+	  this._debouncedOnChangeField = util.debounce(this._onChangeField.bind(this), Node.prototype.DEBOUNCE_INTERVAL);
+	}
+
+	// debounce interval for keyboard input in milliseconds
+	Node.prototype.DEBOUNCE_INTERVAL = 150;
+
+	// search will stop iterating as soon as the max is reached
+	Node.prototype.MAX_SEARCH_RESULTS = 999;
+
+	// number of visible childs rendered initially in large arrays/objects (with a "show more" button to show more)
+	Node.prototype.MAX_VISIBLE_CHILDS = 100;
+
+	// default value for the max visible childs of large arrays
+	Node.prototype.visibleChilds = Node.prototype.MAX_VISIBLE_CHILDS;
+
+	/**
+	 * Determine whether the field and/or value of this node are editable
+	 * @private
+	 */
+	Node.prototype._updateEditability = function () {
+	  this.editable = {
+	    field: true,
+	    value: true
+	  };
+
+	  if (this.editor) {
+	    this.editable.field = this.editor.options.mode === 'tree';
+	    this.editable.value = this.editor.options.mode !== 'view';
+
+	    if ((this.editor.options.mode === 'tree' || this.editor.options.mode === 'form') &&
+	        (typeof this.editor.options.onEditable === 'function')) {
+	      var editable = this.editor.options.onEditable({
+	        field: this.field,
+	        value: this.value,
+	        path: this.getPath()
+	      });
+
+	      if (typeof editable === 'boolean') {
+	        this.editable.field = editable;
+	        this.editable.value = editable;
+	      }
+	      else {
+	        if (typeof editable.field === 'boolean') this.editable.field = editable.field;
+	        if (typeof editable.value === 'boolean') this.editable.value = editable.value;
+	      }
+	    }
+	  }
+	};
+
+	/**
+	 * Get the path of this node
+	 * @return {{string|number}[]} Array containing the path to this node.
+	 * Element is a number if is the index of an array, a string otherwise.
+	 */
+	Node.prototype.getPath = function () {
+	  var node = this;
+	  var path = [];
+	  while (node) {
+	    var field = node.getName();
+	    if (field !== undefined) {
+	      path.unshift(field);
+	    }
+	    node = node.parent;
+	  }
+	  return path;
+	};
+
+	/**
+	 * Get the internal path of this node, a list with the child indexes.
+	 * @return {String[]} Array containing the internal path to this node
+	 */
+	Node.prototype.getInternalPath = function () {
+	  var node = this;
+	  var internalPath = [];
+	  while (node) {
+	    if (node.parent) {
+	      internalPath.unshift(node.getIndex());
+	    }
+	    node = node.parent;
+	  }
+	  return internalPath;
+	};
+
+	/**
+	 * Get node serializable name
+	 * @returns {String|Number}
+	 */
+	Node.prototype.getName = function () {
+	 return !this.parent
+	 ? undefined  // do not add an (optional) field name of the root node
+	 :  (this.parent.type != 'array')
+	     ? this.field
+	     : this.index;
+	};
+
+	/**
+	 * Find child node by serializable path
+	 * @param {Array<String>} path
+	 */
+	Node.prototype.findNodeByPath = function (path) {
+	  if (!path) {
+	    return;
+	  }
+
+	  if (path.length == 0) {
+	    return this;
+	  }
+
+	  if (path.length && this.childs && this.childs.length) {
+	    for (var i=0; i < this.childs.length; ++i) {
+	      if (('' + path[0]) === ('' + this.childs[i].getName())) {
+	        return this.childs[i].findNodeByPath(path.slice(1));
+	      }
+	    }
+	  }
+	};
+
+	/**
+	 * Find child node by an internal path: the indexes of the childs nodes
+	 * @param {Array<String>} internalPath
+	 * @return {Node | undefined} Returns the node if the path exists.
+	 *                            Returns undefined otherwise.
+	 */
+	Node.prototype.findNodeByInternalPath = function (internalPath) {
+	  if (!internalPath) {
+	    return undefined;
+	  }
+
+	  var node = this;
+	  for (var i = 0; i < internalPath.length && node; i++) {
+	    var childIndex = internalPath[i];
+	    node = node.childs[childIndex];
+	  }
+
+	  return node;
+	};
+
+	/**
+	 * @typedef {{value: String|Object|Number|Boolean, path: Array.<String|Number>}} SerializableNode
+	 *
+	 * Returns serializable representation for the node
+	 * @return {SerializableNode}
+	 */
+	Node.prototype.serialize = function () {
+	  return {
+	    value: this.getValue(),
+	    path: this.getPath()
+	  };
+	};
+
+	/**
+	 * Find a Node from a JSON path like '.items[3].name'
+	 * @param {string} jsonPath
+	 * @return {Node | null} Returns the Node when found, returns null if not found
+	 */
+	Node.prototype.findNode = function (jsonPath) {
+	  var path = util.parsePath(jsonPath);
+	  var node = this;
+	  while (node && path.length > 0) {
+	    var prop = path.shift();
+	    if (typeof prop === 'number') {
+	      if (node.type !== 'array') {
+	        throw new Error('Cannot get child node at index ' + prop + ': node is no array');
+	      }
+	      node = node.childs[prop];
+	    }
+	    else { // string
+	      if (node.type !== 'object') {
+	        throw new Error('Cannot get child node ' + prop + ': node is no object');
+	      }
+	      node = node.childs.filter(function (child) {
+	        return child.field === prop;
+	      })[0];
+	    }
+	  }
+
+	  return node;
+	};
+
+	/**
+	 * Find all parents of this node. The parents are ordered from root node towards
+	 * the original node.
+	 * @return {Array.<Node>}
+	 */
+	Node.prototype.findParents = function () {
+	  var parents = [];
+	  var parent = this.parent;
+	  while (parent) {
+	    parents.unshift(parent);
+	    parent = parent.parent;
+	  }
+	  return parents;
+	};
+
+	/**
+	 *
+	 * @param {{dataPath: string, keyword: string, message: string, params: Object, schemaPath: string} | null} error
+	 * @param {Node} [child]  When this is the error of a parent node, pointing
+	 *                        to an invalid child node, the child node itself
+	 *                        can be provided. If provided, clicking the error
+	 *                        icon will set focus to the invalid child node.
+	 */
+	Node.prototype.setError = function (error, child) {
+	  this.error = error;
+	  this.errorChild = child;
+
+	  if (this.dom && this.dom.tr) {
+	    this.updateError();
+	  }
+	};
+
+	/**
+	 * Render the error
+	 */
+	Node.prototype.updateError = function() {
+	  var error = this.error;
+	  var tdError = this.dom.tdError;
+	  if (error && this.dom && this.dom.tr) {
+	    util.addClassName(this.dom.tr, 'jsoneditor-validation-error');
+
+	    if (!tdError) {
+	      tdError = document.createElement('td');
+	      this.dom.tdError = tdError;
+	      this.dom.tdValue.parentNode.appendChild(tdError);
+	    }
+
+	    var popover = document.createElement('div');
+	    popover.className = 'jsoneditor-popover jsoneditor-right';
+	    popover.appendChild(document.createTextNode(error.message));
+
+	    var button = document.createElement('button');
+	    button.type = 'button';
+	    button.className = 'jsoneditor-button jsoneditor-schema-error';
+	    button.appendChild(popover);
+
+	    // update the direction of the popover
+	    button.onmouseover = button.onfocus = function updateDirection() {
+	      var directions = ['right', 'above', 'below', 'left'];
+	      for (var i = 0; i < directions.length; i++) {
+	        var direction = directions[i];
+	        popover.className = 'jsoneditor-popover jsoneditor-' + direction;
+
+	        var contentRect = this.editor.content.getBoundingClientRect();
+	        var popoverRect = popover.getBoundingClientRect();
+	        var margin = 20; // account for a scroll bar
+	        var fit = util.insideRect(contentRect, popoverRect, margin);
+
+	        if (fit) {
+	          break;
+	        }
+	      }
+	    }.bind(this);
+
+	    // when clicking the error icon, expand all nodes towards the invalid
+	    // child node, and set focus to the child node
+	    var child = this.errorChild;
+	    if (child) {
+	      button.onclick = function showInvalidNode() {
+	        child.findParents().forEach(function (parent) {
+	          parent.expand(false);
+	        });
+
+	        child.scrollTo(function () {
+	          child.focus();
+	        });
+	      };
+	    }
+
+	    // apply the error message to the node
+	    while (tdError.firstChild) {
+	      tdError.removeChild(tdError.firstChild);
+	    }
+	    tdError.appendChild(button);
+	  }
+	  else {
+	    util.removeClassName(this.dom.tr, 'jsoneditor-validation-error');
+
+	    if (tdError) {
+	      this.dom.tdError.parentNode.removeChild(this.dom.tdError);
+	      delete this.dom.tdError;
+	    }
+	  }
+	};
+
+	/**
+	 * Get the index of this node: the index in the list of childs where this
+	 * node is part of
+	 * @return {number | null} Returns the index, or null if this is the root node
+	 */
+	Node.prototype.getIndex = function () {
+	  if (this.parent) {
+	    var index = this.parent.childs.indexOf(this);
+	    return index !== -1 ? index : null;
+	  }
+	  else {
+	    return -1;
+	  }
+	};
+
+	/**
+	 * Set parent node
+	 * @param {Node} parent
+	 */
+	Node.prototype.setParent = function(parent) {
+	  this.parent = parent;
+	};
+
+	/**
+	 * Set field
+	 * @param {String}  field
+	 * @param {boolean} [fieldEditable]
+	 */
+	Node.prototype.setField = function(field, fieldEditable) {
+	  this.field = field;
+	  this.previousField = field;
+	  this.fieldEditable = (fieldEditable === true);
+	};
+
+	/**
+	 * Get field
+	 * @return {String}
+	 */
+	Node.prototype.getField = function() {
+	  if (this.field === undefined) {
+	    this._getDomField();
+	  }
+
+	  return this.field;
+	};
+
+	/**
+	 * Set value. Value is a JSON structure or an element String, Boolean, etc.
+	 * @param {*} value
+	 * @param {String} [type]  Specify the type of the value. Can be 'auto',
+	 *                         'array', 'object', or 'string'
+	 */
+	Node.prototype.setValue = function(value, type) {
+	  var childValue, child, visible;
+	  var i, j;
+	  var notUpdateDom = false;
+	  var previousChilds = this.childs;
+
+	  this.type = this._getType(value);
+
+	  // check if type corresponds with the provided type
+	  if (type && type !== this.type) {
+	    if (type === 'string' && this.type === 'auto') {
+	      this.type = type;
+	    }
+	    else {
+	      throw new Error('Type mismatch: ' +
+	          'cannot cast value of type "' + this.type +
+	          ' to the specified type "' + type + '"');
+	    }
+	  }
+
+	  if (this.type === 'array') {
+	    // array
+	    if (!this.childs) {
+	      this.childs = [];
+	    }
+
+	    for (i = 0; i < value.length; i++) {
+	      childValue = value[i];
+	      if (childValue !== undefined && !(childValue instanceof Function)) {
+	        if (i < this.childs.length) {
+	          // reuse existing child, keep its state
+	          child = this.childs[i];
+
+	          child.fieldEditable = false;
+	          child.index = i;
+	          child.setValue(childValue);
+	        }
+	        else {
+	          // create a new child
+	          child = new Node(this.editor, {
+	            value: childValue
+	          });
+	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          this.appendChild(child, visible, notUpdateDom);
+	        }
+	      }
+	    }
+
+	    // cleanup redundant childs
+	    // we loop backward to prevent issues with shifting index numbers
+	    for (j = this.childs.length; j >= value.length; j--) {
+	      this.removeChild(this.childs[j], notUpdateDom);
+	    }
+	  }
+	  else if (this.type === 'object') {
+	    // object
+	    if (!this.childs) {
+	      this.childs = [];
+	    }
+
+	    // cleanup redundant childs
+	    // we loop backward to prevent issues with shifting index numbers
+	    for (j = this.childs.length - 1; j >= 0; j--) {
+	      if (!value.hasOwnProperty(this.childs[j].field)) {
+	        this.removeChild(this.childs[j], notUpdateDom);
+	      }
+	    }
+
+	    i = 0;
+	    for (var childField in value) {
+	      if (value.hasOwnProperty(childField)) {
+	        childValue = value[childField];
+	        if (childValue !== undefined && !(childValue instanceof Function)) {
+	          child = this.findChildByProperty(childField);
+
+	          if (child) {
+	            // reuse existing child, keep its state
+	            child.setField(childField, true);
+	            child.setValue(childValue);
+	          }
+	          else {
+	            // create a new child
+	            child = new Node(this.editor, {
+	              field: childField,
+	              value: childValue
+	            });
+	            visible = i < this.MAX_VISIBLE_CHILDS;
+	            this.appendChild(child, visible, notUpdateDom);
+	          }
+	        }
+	        i++;
+	      }
+
+	    }
+	    this.value = '';
+
+	    // sort object keys
+	    if (this.editor.options.sortObjectKeys === true) {
+	      this.sort([], 'asc');
+	    }
+	  }
+	  else {
+	    // value
+	    this.hideChilds();
+
+	    delete this.append;
+	    delete this.showMore;
+	    delete this.expanded;
+	    delete this.childs;
+
+	    this.value = value;
+	  }
+
+	  // recreate the DOM if switching from an object/array to auto/string or vice versa
+	  // needed to recreated the expand button for example
+	  if (Array.isArray(previousChilds) !== Array.isArray(this.childs)) {
+	    this.recreateDom();
+	  }
+
+	  this.updateDom({'updateIndexes': true});
+
+	  this.previousValue = this.value; // used only to check for changes in DOM vs JS model
+	};
+
+	/**
+	 * Set internal value
+	 * @param {*} internalValue  Internal value structure keeping type,
+	 *                           order and duplicates in objects
+	 */
+	Node.prototype.setInternalValue = function(internalValue) {
+	  var childValue, child, visible;
+	  var i, j;
+	  var notUpdateDom = false;
+	  var previousChilds = this.childs;
+
+	  this.type = internalValue.type;
+
+	  if (internalValue.type === 'array') {
+	    // array
+	    if (!this.childs) {
+	      this.childs = [];
+	    }
+
+	    for (i = 0; i < internalValue.childs.length; i++) {
+	      childValue = internalValue.childs[i];
+	      if (childValue !== undefined && !(childValue instanceof Function)) {
+	        if (i < this.childs.length) {
+	          // reuse existing child, keep its state
+	          child = this.childs[i];
+
+	          child.fieldEditable = false;
+	          child.index = i;
+	          child.setInternalValue(childValue);
+	        }
+	        else {
+	          // create a new child
+	          child = new Node(this.editor, {
+	            internalValue: childValue
+	          });
+	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          this.appendChild(child, visible, notUpdateDom);
+	        }
+	      }
+	    }
+
+	    // cleanup redundant childs
+	    // we loop backward to prevent issues with shifting index numbers
+	    for (j = this.childs.length; j >= internalValue.childs.length; j--) {
+	      this.removeChild(this.childs[j], notUpdateDom);
+	    }
+	  }
+	  else if (internalValue.type === 'object') {
+	    // object
+	    if (!this.childs) {
+	      this.childs = [];
+	    }
+
+	    for (i = 0; i < internalValue.childs.length; i++) {
+	      childValue = internalValue.childs[i];
+	      if (childValue !== undefined && !(childValue instanceof Function)) {
+	        if (i < this.childs.length) {
+	          // reuse existing child, keep its state
+	          child = this.childs[i];
+
+	          delete child.index;
+	          child.setField(childValue.field, true);
+	          child.setInternalValue(childValue.value);
+	        }
+	        else {
+	          // create a new child
+	          child = new Node(this.editor, {
+	            field: childValue.field,
+	            internalValue: childValue.value
+	          });
+	          visible = i < this.MAX_VISIBLE_CHILDS;
+	          this.appendChild(child, visible, notUpdateDom);
+	        }
+	      }
+	    }
+
+	    // cleanup redundant childs
+	    // we loop backward to prevent issues with shifting index numbers
+	    for (j = this.childs.length; j >= internalValue.childs.length; j--) {
+	      this.removeChild(this.childs[j], notUpdateDom);
+	    }
+	  }
+	  else {
+	    // value
+	    this.hideChilds();
+
+	    delete this.append;
+	    delete this.showMore;
+	    delete this.expanded;
+	    delete this.childs;
+
+	    this.value = internalValue.value;
+	  }
+
+	  // recreate the DOM if switching from an object/array to auto/string or vice versa
+	  // needed to recreated the expand button for example
+	  if (Array.isArray(previousChilds) !== Array.isArray(this.childs)) {
+	    this.recreateDom();
+	  }
+
+	  this.updateDom({'updateIndexes': true});
+
+	  this.previousValue = this.value; // used only to check for changes in DOM vs JS model
+	};
+
+	/**
+	 * Remove the DOM of this node and it's childs and recreate it again
+	 */
+	Node.prototype.recreateDom = function() {
+	  if (this.dom && this.dom.tr && this.dom.tr.parentNode) {
+	    var domAnchor = this._detachFromDom();
+
+	    this.clearDom();
+
+	    this._attachToDom(domAnchor);
+	  }
+	  else {
+	    this.clearDom();
+	  }
+	};
+
+	/**
+	 * Get value. Value is a JSON structure
+	 * @return {*} value
+	 */
+	Node.prototype.getValue = function() {
+	  if (this.type == 'array') {
+	    var arr = [];
+	    this.childs.forEach (function (child) {
+	      arr.push(child.getValue());
+	    });
+	    return arr;
+	  }
+	  else if (this.type == 'object') {
+	    var obj = {};
+	    this.childs.forEach (function (child) {
+	      obj[child.getField()] = child.getValue();
+	    });
+	    return obj;
+	  }
+	  else {
+	    if (this.value === undefined) {
+	      this._getDomValue();
+	    }
+
+	    return this.value;
+	  }
+	};
+
+	/**
+	 * Get internal value, a structure which maintains ordering and duplicates in objects
+	 * @return {*} value
+	 */
+	Node.prototype.getInternalValue = function() {
+	  if (this.type === 'array') {
+	    return {
+	      type: this.type,
+	      childs: this.childs.map (function (child) {
+	        return child.getInternalValue();
+	      })
+	    };
+	  }
+	  else if (this.type === 'object') {
+	    return {
+	      type: this.type,
+	      childs: this.childs.map(function (child) {
+	        return {
+	          field: child.getField(),
+	          value: child.getInternalValue()
+	        }
+	      })
+	    };
+	  }
+	  else {
+	    if (this.value === undefined) {
+	      this._getDomValue();
+	    }
+
+	    return {
+	      type: this.type,
+	      value: this.value
+	    };
+	  }
+	};
+
+	/**
+	 * Get the nesting level of this node
+	 * @return {Number} level
+	 */
+	Node.prototype.getLevel = function() {
+	  return (this.parent ? this.parent.getLevel() + 1 : 0);
+	};
+
+	/**
+	 * Get jsonpath of the current node
+	 * @return {Node[]} Returns an array with nodes
+	 */
+	Node.prototype.getNodePath = function () {
+	  var path = this.parent ? this.parent.getNodePath() : [];
+	  path.push(this);
+	  return path;
+	};
+
+	/**
+	 * Create a clone of a node
+	 * The complete state of a clone is copied, including whether it is expanded or
+	 * not. The DOM elements are not cloned.
+	 * @return {Node} clone
+	 */
+	Node.prototype.clone = function() {
+	  var clone = new Node(this.editor);
+	  clone.type = this.type;
+	  clone.field = this.field;
+	  clone.fieldInnerText = this.fieldInnerText;
+	  clone.fieldEditable = this.fieldEditable;
+	  clone.previousField = this.previousField;
+	  clone.value = this.value;
+	  clone.valueInnerText = this.valueInnerText;
+	  clone.previousValue = this.previousValue;
+	  clone.expanded = this.expanded;
+	  clone.visibleChilds = this.visibleChilds;
+
+	  if (this.childs) {
+	    // an object or array
+	    var cloneChilds = [];
+	    this.childs.forEach(function (child) {
+	      var childClone = child.clone();
+	      childClone.setParent(clone);
+	      cloneChilds.push(childClone);
+	    });
+	    clone.childs = cloneChilds;
+	  }
+	  else {
+	    // a value
+	    clone.childs = undefined;
+	  }
+
+	  return clone;
+	};
+
+	/**
+	 * Expand this node and optionally its childs.
+	 * @param {boolean} [recurse] Optional recursion, true by default. When
+	 *                            true, all childs will be expanded recursively
+	 */
+	Node.prototype.expand = function(recurse) {
+	  if (!this.childs) {
+	    return;
+	  }
+
+	  // set this node expanded
+	  this.expanded = true;
+	  if (this.dom.expand) {
+	    this.dom.expand.className = 'jsoneditor-button jsoneditor-expanded';
+	  }
+
+	  this.showChilds();
+
+	  if (recurse !== false) {
+	    this.childs.forEach(function (child) {
+	      child.expand(recurse);
+	    });
+	  }
+	};
+
+	/**
+	 * Collapse this node and optionally its childs.
+	 * @param {boolean} [recurse] Optional recursion, true by default. When
+	 *                            true, all childs will be collapsed recursively
+	 */
+	Node.prototype.collapse = function(recurse) {
+	  if (!this.childs) {
+	    return;
+	  }
+
+	  this.hideChilds();
+
+	  // collapse childs in case of recurse
+	  if (recurse !== false) {
+	    this.childs.forEach(function (child) {
+	      child.collapse(recurse);
+	    });
+
+	  }
+
+	  // make this node collapsed
+	  if (this.dom.expand) {
+	    this.dom.expand.className = 'jsoneditor-button jsoneditor-collapsed';
+	  }
+	  this.expanded = false;
+	};
+
+	/**
+	 * Recursively show all childs when they are expanded
+	 */
+	Node.prototype.showChilds = function() {
+	  var childs = this.childs;
+	  if (!childs) {
+	    return;
+	  }
+	  if (!this.expanded) {
+	    return;
+	  }
+
+	  var tr = this.dom.tr;
+	  var table = tr ? tr.parentNode : undefined;
+	  if (table) {
+	    // show row with append button
+	    var append = this.getAppendDom();
+	    if (!append.parentNode) {
+	      var nextTr = tr.nextSibling;
+	      if (nextTr) {
+	        table.insertBefore(append, nextTr);
+	      }
+	      else {
+	        table.appendChild(append);
+	      }
+	    }
+
+	    // show childs
+	    var iMax = Math.min(this.childs.length, this.visibleChilds);
+	    var nextTr = this._getNextTr();
+	    for (var i = 0; i < iMax; i++) {
+	      var child = this.childs[i];
+	      if (!child.getDom().parentNode) {
+	        table.insertBefore(child.getDom(), nextTr);
+	      }
+	      child.showChilds();
+	    }
+
+	    // show "show more childs" if limited
+	    var showMore = this.getShowMoreDom();
+	    var nextTr = this._getNextTr();
+	    if (!showMore.parentNode) {
+	      table.insertBefore(showMore, nextTr);
+	    }
+	    this.showMore.updateDom(); // to update the counter
+	  }
+	};
+
+	Node.prototype._getNextTr = function() {
+	  if (this.showMore && this.showMore.getDom().parentNode) {
+	    return this.showMore.getDom();
+	  }
+
+	  if (this.append && this.append.getDom().parentNode) {
+	    return this.append.getDom();
+	  }
+	};
+
+	/**
+	 * Hide the node with all its childs
+	 * @param {{resetVisibleChilds: boolean}} [options]
+	 */
+	Node.prototype.hide = function(options) {
+	  var tr = this.dom.tr;
+	  var table = tr ? tr.parentNode : undefined;
+	  if (table) {
+	    table.removeChild(tr);
+	  }
+	  this.hideChilds(options);
+	};
+
+
+	/**
+	 * Recursively hide all childs
+	 * @param {{resetVisibleChilds: boolean}} [options]
+	 */
+	Node.prototype.hideChilds = function(options) {
+	  var childs = this.childs;
+	  if (!childs) {
+	    return;
+	  }
+	  if (!this.expanded) {
+	    return;
+	  }
+
+	  // hide append row
+	  var append = this.getAppendDom();
+	  if (append.parentNode) {
+	    append.parentNode.removeChild(append);
+	  }
+
+	  // hide childs
+	  this.childs.forEach(function (child) {
+	    child.hide();
+	  });
+
+	  // hide "show more" row
+	  var showMore = this.getShowMoreDom();
+	  if (showMore.parentNode) {
+	    showMore.parentNode.removeChild(showMore);
+	  }
+
+	  // reset max visible childs
+	  if (!options || options.resetVisibleChilds) {
+	    delete this.visibleChilds;
+	  }
+	};
+
+
+	/**
+	 * Goes through the path from the node to the root and ensures that it is expanded
+	 */
+	Node.prototype.expandTo = function() {
+	  var currentNode = this.parent;
+	  while (currentNode) {
+	    if (!currentNode.expanded) {
+	      currentNode.expand();
+	    }
+	    currentNode = currentNode.parent;
+	  }
+	};
+
+
+	/**
+	 * Add a new child to the node.
+	 * Only applicable when Node value is of type array or object
+	 * @param {Node} node
+	 * @param {boolean} [visible] If true (default), the child will be rendered
+	 * @param {boolean} [updateDom]  If true (default), the DOM of both parent
+	 *                               node and appended node will be updated
+	 *                               (child count, indexes)
+	 */
+	Node.prototype.appendChild = function(node, visible, updateDom) {
+	  if (this._hasChilds()) {
+	    // adjust the link to the parent
+	    node.setParent(this);
+	    node.fieldEditable = (this.type == 'object');
+	    if (this.type == 'array') {
+	      node.index = this.childs.length;
+	    }
+	    if (this.type === 'object' && node.field == undefined) {
+	      // initialize field value if needed
+	      node.setField('');
+	    }
+	    this.childs.push(node);
+
+	    if (this.expanded && visible !== false) {
+	      // insert into the DOM, before the appendRow
+	      var newTr = node.getDom();
+	      var nextTr = this._getNextTr();
+	      var table = nextTr ? nextTr.parentNode : undefined;
+	      if (nextTr && table) {
+	        table.insertBefore(newTr, nextTr);
+	      }
+
+	      node.showChilds();
+
+	      this.visibleChilds++;
+	    }
+
+	    if (updateDom !== false) {
+	      this.updateDom({'updateIndexes': true});
+	      node.updateDom({'recurse': true});
+	    }
+	  }
+	};
+
+
+	/**
+	 * Move a node from its current parent to this node
+	 * Only applicable when Node value is of type array or object
+	 * @param {Node} node
+	 * @param {Node} beforeNode
+	 */
+	Node.prototype.moveBefore = function(node, beforeNode) {
+	  if (this._hasChilds()) {
+	    // create a temporary row, to prevent the scroll position from jumping
+	    // when removing the node
+	    var tbody = (this.dom.tr) ? this.dom.tr.parentNode : undefined;
+	    if (tbody) {
+	      var trTemp = document.createElement('tr');
+	      trTemp.style.height = tbody.clientHeight + 'px';
+	      tbody.appendChild(trTemp);
+	    }
+
+	    if (node.parent) {
+	      node.parent.removeChild(node);
+	    }
+
+	    if (beforeNode instanceof AppendNode || !beforeNode) {
+	      // the this.childs.length + 1 is to reckon with the node that we're about to add
+	      if (this.childs.length + 1 > this.visibleChilds) {
+	        var lastVisibleNode = this.childs[this.visibleChilds - 1];
+	        this.insertBefore(node, lastVisibleNode);
+	      }
+	      else {
+	        this.appendChild(node);
+	      }
+	    }
+	    else {
+	      this.insertBefore(node, beforeNode);
+	    }
+
+	    if (tbody) {
+	      tbody.removeChild(trTemp);
+	    }
+	  }
+	};
+
+	/**
+	 * Insert a new child before a given node
+	 * Only applicable when Node value is of type array or object
+	 * @param {Node} node
+	 * @param {Node} beforeNode
+	 */
+	Node.prototype.insertBefore = function(node, beforeNode) {
+	  if (this._hasChilds()) {
+	    this.visibleChilds++;
+
+	    // initialize field value if needed
+	    if (this.type === 'object' && node.field == undefined) {
+	      node.setField('');
+	    }
+
+	    if (beforeNode === this.append) {
+	      // append to the child nodes
+
+	      // adjust the link to the parent
+	      node.setParent(this);
+	      node.fieldEditable = (this.type == 'object');
+	      this.childs.push(node);
+	    }
+	    else {
+	      // insert before a child node
+	      var index = this.childs.indexOf(beforeNode);
+	      if (index == -1) {
+	        throw new Error('Node not found');
+	      }
+
+	      // adjust the link to the parent
+	      node.setParent(this);
+	      node.fieldEditable = (this.type == 'object');
+	      this.childs.splice(index, 0, node);
+	    }
+
+	    if (this.expanded) {
+	      // insert into the DOM
+	      var newTr = node.getDom();
+	      var nextTr = beforeNode.getDom();
+	      var table = nextTr ? nextTr.parentNode : undefined;
+	      if (nextTr && table) {
+	        table.insertBefore(newTr, nextTr);
+	      }
+
+	      node.showChilds();
+	      this.showChilds();
+	    }
+
+	    this.updateDom({'updateIndexes': true});
+	    node.updateDom({'recurse': true});
+	  }
+	};
+
+	/**
+	 * Insert a new child before a given node
+	 * Only applicable when Node value is of type array or object
+	 * @param {Node} node
+	 * @param {Node} afterNode
+	 */
+	Node.prototype.insertAfter = function(node, afterNode) {
+	  if (this._hasChilds()) {
+	    var index = this.childs.indexOf(afterNode);
+	    var beforeNode = this.childs[index + 1];
+	    if (beforeNode) {
+	      this.insertBefore(node, beforeNode);
+	    }
+	    else {
+	      this.appendChild(node);
+	    }
+	  }
+	};
+
+	/**
+	 * Search in this node
+	 * Searches are case insensitive.
+	 * @param {String} text
+	 * @param {Node[]} [results] Array where search results will be added
+	 *                           used to count and limit the results whilst iterating
+	 * @return {Node[]} results  Array with nodes containing the search text
+	 */
+	Node.prototype.search = function(text, results) {
+	  if (!Array.isArray(results)) {
+	    results = [];
+	  }
+	  var index;
+	  var search = text ? text.toLowerCase() : undefined;
+
+	  // delete old search data
+	  delete this.searchField;
+	  delete this.searchValue;
+
+	  // search in field
+	  if (this.field !== undefined && results.length <= this.MAX_SEARCH_RESULTS) {
+	    var field = String(this.field).toLowerCase();
+	    index = field.indexOf(search);
+	    if (index !== -1) {
+	      this.searchField = true;
+	      results.push({
+	        'node': this,
+	        'elem': 'field'
+	      });
+	    }
+
+	    // update dom
+	    this._updateDomField();
+	  }
+
+	  // search in value
+	  if (this._hasChilds()) {
+	    // array, object
+
+	    // search the nodes childs
+	    if (this.childs) {
+	      this.childs.forEach(function (child) {
+	        child.search(text, results);
+	      });
+	    }
+	  }
+	  else {
+	    // string, auto
+	    if (this.value !== undefined  && results.length <= this.MAX_SEARCH_RESULTS) {
+	      var value = String(this.value).toLowerCase();
+	      index = value.indexOf(search);
+	      if (index !== -1) {
+	        this.searchValue = true;
+	        results.push({
+	          'node': this,
+	          'elem': 'value'
+	        });
+	      }
+
+	      // update dom
+	      this._updateDomValue();
+	    }
+	  }
+
+	  return results;
+	};
+
+	/**
+	 * Move the scroll position such that this node is in the visible area.
+	 * The node will not get the focus
+	 * @param {function(boolean)} [callback]
+	 */
+	Node.prototype.scrollTo = function(callback) {
+	  this.expandPathToNode();
+
+	  if (this.dom.tr && this.dom.tr.parentNode) {
+	    this.editor.scrollTo(this.dom.tr.offsetTop, callback);
+	  }
+	};
+
+	/**
+	 * if the node is not visible, expand its parents
+	 */
+	Node.prototype.expandPathToNode = function () {
+	  var node = this;
+	  var recurse = false;
+	  while (node && node.parent) {
+	    // expand visible childs of the parent if needed
+	    var index = node.parent.type === 'array'
+	        ? node.index
+	        : node.parent.childs.indexOf(node);
+	    while (node.parent.visibleChilds < index + 1) {
+	      node.parent.visibleChilds += Node.prototype.MAX_VISIBLE_CHILDS;
+	    }
+
+	    // expand the parent itself
+	    node.parent.expand(recurse);
+	    node = node.parent;
+	  }
+	};
+
+
+	// stores the element name currently having the focus
+	Node.focusElement = undefined;
+
+	/**
+	 * Set focus to this node
+	 * @param {String} [elementName]  The field name of the element to get the
+	 *                                focus available values: 'drag', 'menu',
+	 *                                'expand', 'field', 'value' (default)
+	 */
+	Node.prototype.focus = function(elementName) {
+	  Node.focusElement = elementName;
+
+	  if (this.dom.tr && this.dom.tr.parentNode) {
+	    var dom = this.dom;
+
+	    switch (elementName) {
+	      case 'drag':
+	        if (dom.drag) {
+	          dom.drag.focus();
+	        }
+	        else {
+	          dom.menu.focus();
+	        }
+	        break;
+
+	      case 'menu':
+	        dom.menu.focus();
+	        break;
+
+	      case 'expand':
+	        if (this._hasChilds()) {
+	          dom.expand.focus();
+	        }
+	        else if (dom.field && this.fieldEditable) {
+	          dom.field.focus();
+	          util.selectContentEditable(dom.field);
+	        }
+	        else if (dom.value && !this._hasChilds()) {
+	          dom.value.focus();
+	          util.selectContentEditable(dom.value);
+	        }
+	        else {
+	          dom.menu.focus();
+	        }
+	        break;
+
+	      case 'field':
+	        if (dom.field && this.fieldEditable) {
+	          dom.field.focus();
+	          util.selectContentEditable(dom.field);
+	        }
+	        else if (dom.value && !this._hasChilds()) {
+	          dom.value.focus();
+	          util.selectContentEditable(dom.value);
+	        }
+	        else if (this._hasChilds()) {
+	          dom.expand.focus();
+	        }
+	        else {
+	          dom.menu.focus();
+	        }
+	        break;
+
+	      case 'value':
+	      default:
+	        if (dom.select) {
+	          // enum select box
+	          dom.select.focus();
+	        }
+	        else if (dom.value && !this._hasChilds()) {
+	          dom.value.focus();
+	          util.selectContentEditable(dom.value);
+	        }
+	        else if (dom.field && this.fieldEditable) {
+	          dom.field.focus();
+	          util.selectContentEditable(dom.field);
+	        }
+	        else if (this._hasChilds()) {
+	          dom.expand.focus();
+	        }
+	        else {
+	          dom.menu.focus();
+	        }
+	        break;
+	    }
+	  }
+	};
+
+	/**
+	 * Select all text in an editable div after a delay of 0 ms
+	 * @param {Element} editableDiv
+	 */
+	Node.select = function(editableDiv) {
+	  setTimeout(function () {
+	    util.selectContentEditable(editableDiv);
+	  }, 0);
+	};
+
+	/**
+	 * Update the values from the DOM field and value of this node
+	 */
+	Node.prototype.blur = function() {
+	  // retrieve the actual field and value from the DOM.
+	  this._getDomValue(false);
+	  this._getDomField(false);
+	};
+
+	/**
+	 * Check if given node is a child. The method will check recursively to find
+	 * this node.
+	 * @param {Node} node
+	 * @return {boolean} containsNode
+	 */
+	Node.prototype.containsNode = function(node) {
+	  if (this == node) {
+	    return true;
+	  }
+
+	  var childs = this.childs;
+	  if (childs) {
+	    // TODO: use the js5 Array.some() here?
+	    for (var i = 0, iMax = childs.length; i < iMax; i++) {
+	      if (childs[i].containsNode(node)) {
+	        return true;
+	      }
+	    }
+	  }
+
+	  return false;
+	};
+
+	/**
+	 * Remove a child from the node.
+	 * Only applicable when Node value is of type array or object
+	 * @param {Node} node   The child node to be removed;
+	 * @param {boolean} [updateDom]  If true (default), the DOM of the parent
+	 *                               node will be updated (like child count)
+	 * @return {Node | undefined} node  The removed node on success,
+	 *                                             else undefined
+	 */
+	Node.prototype.removeChild = function(node, updateDom) {
+	  if (this.childs) {
+	    var index = this.childs.indexOf(node);
+
+	    if (index !== -1) {
+	      if (index < this.visibleChilds && this.expanded) {
+	        this.visibleChilds--;
+	      }
+
+	      node.hide();
+
+	      // delete old search results
+	      delete node.searchField;
+	      delete node.searchValue;
+
+	      var removedNode = this.childs.splice(index, 1)[0];
+	      removedNode.parent = null;
+
+	      if (updateDom !== false) {
+	        this.updateDom({'updateIndexes': true});
+	      }
+
+	      return removedNode;
+	    }
+	  }
+
+	  return undefined;
+	};
+
+	/**
+	 * Remove a child node node from this node
+	 * This method is equal to Node.removeChild, except that _remove fire an
+	 * onChange event.
+	 * @param {Node} node
+	 * @private
+	 */
+	Node.prototype._remove = function (node) {
+	  this.removeChild(node);
+	};
+
+	/**
+	 * Change the type of the value of this Node
+	 * @param {String} newType
+	 */
+	Node.prototype.changeType = function (newType) {
+	  var oldType = this.type;
+
+	  if (oldType == newType) {
+	    // type is not changed
+	    return;
+	  }
+
+	  if ((newType == 'string' || newType == 'auto') &&
+	      (oldType == 'string' || oldType == 'auto')) {
+	    // this is an easy change
+	    this.type = newType;
+	  }
+	  else {
+	    // change from array to object, or from string/auto to object/array
+	    var domAnchor = this._detachFromDom();
+
+	    // delete the old DOM
+	    this.clearDom();
+
+	    // adjust the field and the value
+	    this.type = newType;
+
+	    // adjust childs
+	    if (newType == 'object') {
+	      if (!this.childs) {
+	        this.childs = [];
+	      }
+
+	      this.childs.forEach(function (child) {
+	        child.clearDom();
+	        delete child.index;
+	        child.fieldEditable = true;
+	        if (child.field == undefined) {
+	          child.field = '';
+	        }
+	      });
+
+	      if (oldType == 'string' || oldType == 'auto') {
+	        this.expanded = true;
+	      }
+	    }
+	    else if (newType == 'array') {
+	      if (!this.childs) {
+	        this.childs = [];
+	      }
+
+	      this.childs.forEach(function (child, index) {
+	        child.clearDom();
+	        child.fieldEditable = false;
+	        child.index = index;
+	      });
+
+	      if (oldType == 'string' || oldType == 'auto') {
+	        this.expanded = true;
+	      }
+	    }
+	    else {
+	      this.expanded = false;
+	    }
+
+	    this._attachToDom(domAnchor);
+	  }
+
+	  if (newType == 'auto' || newType == 'string') {
+	    // cast value to the correct type
+	    if (newType == 'string') {
+	      this.value = String(this.value);
+	    }
+	    else {
+	      this.value = this._stringCast(String(this.value));
+	    }
+
+	    this.focus();
+	  }
+
+	  this.updateDom({'updateIndexes': true});
+	};
+
+	/**
+	 * Test whether the JSON contents of this node are deep equal to provided JSON object.
+	 * @param {*} json
+	 */
+	Node.prototype.deepEqual = function (json) {
+	  var i;
+
+	  if (this.type === 'array') {
+	    if (!Array.isArray(json)) {
+	      return false;
+	    }
+
+	    if (this.childs.length !== json.length) {
+	      return false;
+	    }
+
+	    for (i = 0; i < this.childs.length; i++) {
+	      if (!this.childs[i].deepEqual(json[i])) {
+	        return false;
+	      }
+	    }
+	  }
+	  else if (this.type === 'object') {
+	    if (typeof json !== 'object' || !json) {
+	      return false;
+	    }
+
+	    // TODO: for better efficiency, we could create a property `isDuplicate` on all of the childs
+	    // and keep that up to date. This should make deepEqual about 20% faster.
+	    var props = {};
+	    var propCount = 0;
+	    for (i = 0; i < this.childs.length; i++) {
+	      var child = this.childs[i];
+	      if (!props[child.field]) {
+	        // We can have childs with duplicate field names.
+	        // We take the first, and ignore the others.
+	        props[child.field] = true;
+	        propCount++;
+
+	        if (!(child.field in json)) {
+	          return false;
+	        }
+
+	        if (!child.deepEqual(json[child.field])) {
+	          return false;
+	        }
+	      }
+	    }
+
+	    if (propCount !== Object.keys(json).length) {
+	      return false;
+	    }
+	  }
+	  else {
+	    if (this.value !== json) {
+	      return false;
+	    }
+	  }
+
+	  return true;
+	};
+
+	/**
+	 * Retrieve value from DOM
+	 * @param {boolean} [silent]  If true (default), no errors will be thrown in
+	 *                            case of invalid data
+	 * @private
+	 */
+	Node.prototype._getDomValue = function(silent) {
+	  if (this.dom.value && this.type != 'array' && this.type != 'object') {
+	    this.valueInnerText = util.getInnerText(this.dom.value);
+	  }
+
+	  if (this.valueInnerText != undefined) {
+	    try {
+	      // retrieve the value
+	      var value;
+	      if (this.type == 'string') {
+	        value = this._unescapeHTML(this.valueInnerText);
+	      }
+	      else {
+	        var str = this._unescapeHTML(this.valueInnerText);
+	        value = this._stringCast(str);
+	      }
+	      if (value !== this.value) {
+	        this.value = value;
+	        this._debouncedOnChangeValue();
+	      }
+	    }
+	    catch (err) {
+	      this.value = undefined;
+	      // TODO: sent an action with the new, invalid value?
+	      if (silent !== true) {
+	        throw err;
+	      }
+	    }
+	  }
+	};
+
+	/**
+	 * Handle a changed value
+	 * @private
+	 */
+	Node.prototype._onChangeValue = function () {
+	  // get current selection, then override the range such that we can select
+	  // the added/removed text on undo/redo
+	  var oldSelection = this.editor.getDomSelection();
+	  if (oldSelection.range) {
+	    var undoDiff = util.textDiff(String(this.value), String(this.previousValue));
+	    oldSelection.range.startOffset = undoDiff.start;
+	    oldSelection.range.endOffset = undoDiff.end;
+	  }
+	  var newSelection = this.editor.getDomSelection();
+	  if (newSelection.range) {
+	    var redoDiff = util.textDiff(String(this.previousValue), String(this.value));
+	    newSelection.range.startOffset = redoDiff.start;
+	    newSelection.range.endOffset = redoDiff.end;
+	  }
+
+	  this.editor._onAction('editValue', {
+	    path: this.getInternalPath(),
+	    oldValue: this.previousValue,
+	    newValue: this.value,
+	    oldSelection: oldSelection,
+	    newSelection: newSelection
+	  });
+
+	  this.previousValue = this.value;
+	};
+
+	/**
+	 * Handle a changed field
+	 * @private
+	 */
+	Node.prototype._onChangeField = function () {
+	  // get current selection, then override the range such that we can select
+	  // the added/removed text on undo/redo
+	  var oldSelection = this.editor.getDomSelection();
+	  var previous = this.previousField || '';
+	  if (oldSelection.range) {
+	    var undoDiff = util.textDiff(this.field, previous);
+	    oldSelection.range.startOffset = undoDiff.start;
+	    oldSelection.range.endOffset = undoDiff.end;
+	  }
+	  var newSelection = this.editor.getDomSelection();
+	  if (newSelection.range) {
+	    var redoDiff = util.textDiff(previous, this.field);
+	    newSelection.range.startOffset = redoDiff.start;
+	    newSelection.range.endOffset = redoDiff.end;
+	  }
+
+	  this.editor._onAction('editField', {
+	    parentPath: this.parent.getInternalPath(),
+	    index: this.getIndex(),
+	    oldValue: this.previousField,
+	    newValue: this.field,
+	    oldSelection: oldSelection,
+	    newSelection: newSelection
+	  });
+
+	  this.previousField = this.field;
+	};
+
+	/**
+	 * Update dom value:
+	 * - the text color of the value, depending on the type of the value
+	 * - the height of the field, depending on the width
+	 * - background color in case it is empty
+	 * @private
+	 */
+	Node.prototype._updateDomValue = function () {
+	  var domValue = this.dom.value;
+	  if (domValue) {
+	    var classNames = ['jsoneditor-value'];
+
+	    // set text color depending on value type
+	    var value = this.value;
+	    var type = (this.type == 'auto') ? util.type(value) : this.type;
+	    var isUrl = type == 'string' && util.isUrl(value);
+	    classNames.push('jsoneditor-' + type);
+	    if (isUrl) {
+	      classNames.push('jsoneditor-url');
+	    }
+
+	    // visual styling when empty
+	    var isEmpty = (String(this.value) == '' && this.type != 'array' && this.type != 'object');
+	    if (isEmpty) {
+	      classNames.push('jsoneditor-empty');
+	    }
+
+	    // highlight when there is a search result
+	    if (this.searchValueActive) {
+	      classNames.push('jsoneditor-highlight-active');
+	    }
+	    if (this.searchValue) {
+	      classNames.push('jsoneditor-highlight');
+	    }
+
+	    domValue.className = classNames.join(' ');
+
+	    // update title
+	    if (type == 'array' || type == 'object') {
+	      var count = this.childs ? this.childs.length : 0;
+	      domValue.title = this.type + ' containing ' + count + ' items';
+	    }
+	    else if (isUrl && this.editable.value) {
+	      domValue.title = translate('openUrl');
+	    }
+	    else {
+	      domValue.title = '';
+	    }
+
+	    // show checkbox when the value is a boolean
+	    if (type === 'boolean' && this.editable.value) {
+	      if (!this.dom.checkbox) {
+	        this.dom.checkbox = document.createElement('input');
+	        this.dom.checkbox.type = 'checkbox';
+	        this.dom.tdCheckbox = document.createElement('td');
+	        this.dom.tdCheckbox.className = 'jsoneditor-tree';
+	        this.dom.tdCheckbox.appendChild(this.dom.checkbox);
+
+	        this.dom.tdValue.parentNode.insertBefore(this.dom.tdCheckbox, this.dom.tdValue);
+	      }
+
+	      this.dom.checkbox.checked = this.value;
+	    }
+	    else {
+	      // cleanup checkbox when displayed
+	      if (this.dom.tdCheckbox) {
+	        this.dom.tdCheckbox.parentNode.removeChild(this.dom.tdCheckbox);
+	        delete this.dom.tdCheckbox;
+	        delete this.dom.checkbox;
+	      }
+	    }
+
+	    // create select box when this node has an enum object
+	    if (this.enum && this.editable.value) {
+	      if (!this.dom.select) {
+	        this.dom.select = document.createElement('select');
+	        this.id = this.field + "_" + new Date().getUTCMilliseconds();
+	        this.dom.select.id = this.id;
+	        this.dom.select.name = this.dom.select.id;
+
+	        //Create the default empty option
+	        this.dom.select.option = document.createElement('option');
+	        this.dom.select.option.value = '';
+	        this.dom.select.option.innerHTML = '--';
+	        this.dom.select.appendChild(this.dom.select.option);
+
+	        //Iterate all enum values and add them as options
+	        for(var i = 0; i < this.enum.length; i++) {
+	          this.dom.select.option = document.createElement('option');
+	          this.dom.select.option.value = this.enum[i];
+	          this.dom.select.option.innerHTML = this.enum[i];
+	          if(this.dom.select.option.value == this.value){
+	            this.dom.select.option.selected = true;
+	          }
+	          this.dom.select.appendChild(this.dom.select.option);
+	        }
+
+	        this.dom.tdSelect = document.createElement('td');
+	        this.dom.tdSelect.className = 'jsoneditor-tree';
+	        this.dom.tdSelect.appendChild(this.dom.select);
+	        this.dom.tdValue.parentNode.insertBefore(this.dom.tdSelect, this.dom.tdValue);
+	      }
+
+	      // If the enum is inside a composite type display
+	      // both the simple input and the dropdown field
+	      if(this.schema && (
+	          !this.schema.hasOwnProperty("oneOf") &&
+	          !this.schema.hasOwnProperty("anyOf") &&
+	          !this.schema.hasOwnProperty("allOf"))
+	      ) {
+	        this.valueFieldHTML = this.dom.tdValue.innerHTML;
+	        this.dom.tdValue.style.visibility = 'hidden';
+	        this.dom.tdValue.innerHTML = '';
+	      } else {
+	        delete this.valueFieldHTML;
+	      }
+	    }
+	    else {
+	      // cleanup select box when displayed
+	      if (this.dom.tdSelect) {
+	        this.dom.tdSelect.parentNode.removeChild(this.dom.tdSelect);
+	        delete this.dom.tdSelect;
+	        delete this.dom.select;
+	        this.dom.tdValue.innerHTML = this.valueFieldHTML;
+	        this.dom.tdValue.style.visibility = '';
+	        delete this.valueFieldHTML;
+	      }
+	    }
+
+	    // show color picker when value is a color
+	    if (this.editable.value &&
+	        this.editor.options.colorPicker &&
+	        typeof value === 'string' &&
+	        util.isValidColor(value)) {
+
+	      if (!this.dom.color) {
+	        this.dom.color = document.createElement('div');
+	        this.dom.color.className = 'jsoneditor-color';
+
+	        this.dom.tdColor = document.createElement('td');
+	        this.dom.tdColor.className = 'jsoneditor-tree';
+	        this.dom.tdColor.appendChild(this.dom.color);
+
+	        this.dom.tdValue.parentNode.insertBefore(this.dom.tdColor, this.dom.tdValue);
+
+	        // this is a bit hacky, overriding the text color like this. find a nicer solution
+	        this.dom.value.style.color = '#1A1A1A';
+	      }
+
+	      // update the color background
+	      this.dom.color.style.backgroundColor = value;
+	    }
+	    else {
+	      // cleanup color picker when displayed
+	      this._deleteDomColor();
+	    }
+
+	    // show date tag when value is a timestamp in milliseconds
+	    if (this.editor.options.timestampTag &&
+	        typeof value === 'number' &&
+	        value > YEAR_2000 &&
+	        !isNaN(new Date(value).valueOf())) {
+
+	      if (!this.dom.date) {
+	        this.dom.date = document.createElement('div');
+	        this.dom.date.className = 'jsoneditor-date'
+	        this.dom.value.parentNode.appendChild(this.dom.date);
+	      }
+
+	      this.dom.date.innerHTML = new Date(value).toISOString();
+	      this.dom.date.title = new Date(value).toString();
+	    }
+	    else {
+	      // cleanup date tag
+	      if (this.dom.date) {
+	        this.dom.date.parentNode.removeChild(this.dom.date);
+	        delete this.dom.date;
+	      }
+	    }
+
+	    // strip formatting from the contents of the editable div
+	    util.stripFormatting(domValue);
+	  }
+	};
+
+	Node.prototype._deleteDomColor = function () {
+	  if (this.dom.color) {
+	    this.dom.tdColor.parentNode.removeChild(this.dom.tdColor);
+	    delete this.dom.tdColor;
+	    delete this.dom.color;
+
+	    this.dom.value.style.color = '';
+	  }
+	}
+
+	/**
+	 * Update dom field:
+	 * - the text color of the field, depending on the text
+	 * - the height of the field, depending on the width
+	 * - background color in case it is empty
+	 * @private
+	 */
+	Node.prototype._updateDomField = function () {
+	  var domField = this.dom.field;
+	  if (domField) {
+	    // make backgound color lightgray when empty
+	    var isEmpty = (String(this.field) == '' && this.parent.type != 'array');
+	    if (isEmpty) {
+	      util.addClassName(domField, 'jsoneditor-empty');
+	    }
+	    else {
+	      util.removeClassName(domField, 'jsoneditor-empty');
+	    }
+
+	    // highlight when there is a search result
+	    if (this.searchFieldActive) {
+	      util.addClassName(domField, 'jsoneditor-highlight-active');
+	    }
+	    else {
+	      util.removeClassName(domField, 'jsoneditor-highlight-active');
+	    }
+	    if (this.searchField) {
+	      util.addClassName(domField, 'jsoneditor-highlight');
+	    }
+	    else {
+	      util.removeClassName(domField, 'jsoneditor-highlight');
+	    }
+
+	    // strip formatting from the contents of the editable div
+	    util.stripFormatting(domField);
+	  }
+	};
+
+	/**
+	 * Retrieve field from DOM
+	 * @param {boolean} [silent]  If true (default), no errors will be thrown in
+	 *                            case of invalid data
+	 * @private
+	 */
+	Node.prototype._getDomField = function(silent) {
+	  if (this.dom.field && this.fieldEditable) {
+	    this.fieldInnerText = util.getInnerText(this.dom.field);
+	  }
+
+	  if (this.fieldInnerText != undefined) {
+	    try {
+	      var field = this._unescapeHTML(this.fieldInnerText);
+
+	      if (field !== this.field) {
+	        this.field = field;
+	        this._debouncedOnChangeField();
+	      }
+	    }
+	    catch (err) {
+	      this.field = undefined;
+	      // TODO: sent an action here, with the new, invalid value?
+	      if (silent !== true) {
+	        throw err;
+	      }
+	    }
+	  }
+	};
+
+	/**
+	 * Validate this node and all it's childs
+	 * @return {Array.<{node: Node, error: {message: string}}>} Returns a list with duplicates
+	 */
+	Node.prototype.validate = function () {
+	  var errors = [];
+
+	  // find duplicate keys
+	  if (this.type === 'object') {
+	    var keys = {};
+	    var duplicateKeys = [];
+	    for (var i = 0; i < this.childs.length; i++) {
+	      var child = this.childs[i];
+	      if (keys.hasOwnProperty(child.field)) {
+	        duplicateKeys.push(child.field);
+	      }
+	      keys[child.field] = true;
+	    }
+
+	    if (duplicateKeys.length > 0) {
+	      errors = this.childs
+	          .filter(function (node) {
+	            return duplicateKeys.indexOf(node.field) !== -1;
+	          })
+	          .map(function (node) {
+	            return {
+	              node: node,
+	              error: {
+	                message: translate('duplicateKey') + ' "' + node.field + '"'
+	              }
+	            }
+	          });
+	    }
+	  }
+
+	  // recurse over the childs
+	  if (this.childs) {
+	    for (var i = 0; i < this.childs.length; i++) {
+	      var e = this.childs[i].validate();
+	      if (e.length > 0) {
+	        errors = errors.concat(e);
+	      }
+	    }
+	  }
+
+	  return errors;
+	};
+
+	/**
+	 * Clear the dom of the node
+	 */
+	Node.prototype.clearDom = function() {
+	  // TODO: hide the node first?
+	  //this.hide();
+	  // TODO: recursively clear dom?
+
+	  this.dom = {};
+	};
+
+	/**
+	 * Get the HTML DOM TR element of the node.
+	 * The dom will be generated when not yet created
+	 * @return {Element} tr    HTML DOM TR Element
+	 */
+	Node.prototype.getDom = function() {
+	  var dom = this.dom;
+	  if (dom.tr) {
+	    return dom.tr;
+	  }
+
+	  this._updateEditability();
+
+	  // create row
+	  dom.tr = document.createElement('tr');
+	  dom.tr.node = this;
+
+	  if (this.editor.options.mode === 'tree') { // note: we take here the global setting
+	    var tdDrag = document.createElement('td');
+	    if (this.editable.field) {
+	      // create draggable area
+	      if (this.parent) {
+	        var domDrag = document.createElement('button');
+	        domDrag.type = 'button';
+	        dom.drag = domDrag;
+	        domDrag.className = 'jsoneditor-button jsoneditor-dragarea';
+	        domDrag.title = translate('drag');
+	        tdDrag.appendChild(domDrag);
+	      }
+	    }
+	    dom.tr.appendChild(tdDrag);
+
+	    // create context menu
+	    var tdMenu = document.createElement('td');
+	    var menu = document.createElement('button');
+	    menu.type = 'button';
+	    dom.menu = menu;
+	    menu.className = 'jsoneditor-button jsoneditor-contextmenu';
+	    menu.title = translate('actionsMenu');
+	    tdMenu.appendChild(dom.menu);
+	    dom.tr.appendChild(tdMenu);
+	  }
+
+	  // create tree and field
+	  var tdField = document.createElement('td');
+	  dom.tr.appendChild(tdField);
+	  dom.tree = this._createDomTree();
+	  tdField.appendChild(dom.tree);
+
+	  this.updateDom({'updateIndexes': true});
+
+	  return dom.tr;
+	};
+
+	/**
+	 * Test whether a Node is rendered and visible
+	 * @returns {boolean}
+	 */
+	Node.prototype.isVisible = function () {
+	  return this.dom && this.dom.tr && this.dom.tr.parentNode || false
+	};
+
+	/**
+	 * DragStart event, fired on mousedown on the dragarea at the left side of a Node
+	 * @param {Node[] | Node} nodes
+	 * @param {Event} event
+	 */
+	Node.onDragStart = function (nodes, event) {
+	  if (!Array.isArray(nodes)) {
+	    return Node.onDragStart([nodes], event);
+	  }
+	  if (nodes.length === 0) {
+	    return;
+	  }
+
+	  var firstNode = nodes[0];
+	  var lastNode = nodes[nodes.length - 1];
+	  var parent = firstNode.parent;
+	  var draggedNode = Node.getNodeFromTarget(event.target);
+	  var editor = firstNode.editor;
+
+	  // in case of multiple selected nodes, offsetY prevents the selection from
+	  // jumping when you start dragging one of the lower down nodes in the selection
+	  var offsetY = util.getAbsoluteTop(draggedNode.dom.tr) - util.getAbsoluteTop(firstNode.dom.tr);
+
+	  if (!editor.mousemove) {
+	    editor.mousemove = util.addEventListener(window, 'mousemove', function (event) {
+	      Node.onDrag(nodes, event);
+	    });
+	  }
+
+	  if (!editor.mouseup) {
+	    editor.mouseup = util.addEventListener(window, 'mouseup',function (event ) {
+	      Node.onDragEnd(nodes, event);
+	    });
+	  }
+
+	  editor.highlighter.lock();
+	  editor.drag = {
+	    oldCursor: document.body.style.cursor,
+	    oldSelection: editor.getDomSelection(),
+	    oldPaths: nodes.map(getInternalPath),
+	    oldParent: parent,
+	    oldNextNode: parent.childs[lastNode.getIndex() + 1] || parent.append,
+	    oldParentPathRedo: parent.getInternalPath(),
+	    oldIndexRedo: firstNode.getIndex(),
+	    mouseX: event.pageX,
+	    offsetY: offsetY,
+	    level: firstNode.getLevel()
+	  };
+	  document.body.style.cursor = 'move';
+
+	  event.preventDefault();
+	};
+
+	/**
+	 * Drag event, fired when moving the mouse while dragging a Node
+	 * @param {Node[] | Node} nodes
+	 * @param {Event} event
+	 */
+	Node.onDrag = function (nodes, event) {
+	  if (!Array.isArray(nodes)) {
+	    return Node.onDrag([nodes], event);
+	  }
+	  if (nodes.length === 0) {
+	    return;
+	  }
+
+	  // TODO: this method has grown too large. Split it in a number of methods
+	  var editor = nodes[0].editor;
+	  var mouseY = event.pageY - editor.drag.offsetY;
+	  var mouseX = event.pageX;
+	  var trThis, trPrev, trNext, trFirst, trLast, trRoot;
+	  var nodePrev, nodeNext;
+	  var topThis, topPrev, topFirst, heightThis, bottomNext, heightNext;
+	  var moved = false;
+
+	  // TODO: add an ESC option, which resets to the original position
+
+	  // move up/down
+	  var firstNode = nodes[0];
+	  trThis = firstNode.dom.tr;
+	  topThis = util.getAbsoluteTop(trThis);
+	  heightThis = trThis.offsetHeight;
+	  if (mouseY < topThis) {
+	    // move up
+	    trPrev = trThis;
+	    do {
+	      trPrev = trPrev.previousSibling;
+	      nodePrev = Node.getNodeFromTarget(trPrev);
+	      topPrev = trPrev ? util.getAbsoluteTop(trPrev) : 0;
+	    }
+	    while (trPrev && mouseY < topPrev);
+
+	    if (nodePrev && !nodePrev.parent) {
+	      nodePrev = undefined;
+	    }
+
+	    if (!nodePrev) {
+	      // move to the first node
+	      trRoot = trThis.parentNode.firstChild;
+	      trPrev = trRoot ? trRoot.nextSibling : undefined;
+	      nodePrev = Node.getNodeFromTarget(trPrev);
+	      if (nodePrev == firstNode) {
+	        nodePrev = undefined;
+	      }
+	    }
+
+	    if (nodePrev && nodePrev.isVisible()) {
+	      // check if mouseY is really inside the found node
+	      trPrev = nodePrev.dom.tr;
+	      topPrev = trPrev ? util.getAbsoluteTop(trPrev) : 0;
+	      if (mouseY > topPrev + heightThis) {
+	        nodePrev = undefined;
+	      }
+	    }
+
+	    if (nodePrev) {
+	      nodes.forEach(function (node) {
+	        nodePrev.parent.moveBefore(node, nodePrev);
+	      });
+	      moved = true;
+	    }
+	  }
+	  else {
+	    // move down
+	    var lastNode = nodes[nodes.length - 1];
+	    trLast = (lastNode.expanded && lastNode.append) ? lastNode.append.getDom() : lastNode.dom.tr;
+	    trFirst = trLast ? trLast.nextSibling : undefined;
+	    if (trFirst) {
+	      topFirst = util.getAbsoluteTop(trFirst);
+	      trNext = trFirst;
+	      do {
+	        nodeNext = Node.getNodeFromTarget(trNext);
+	        if (trNext) {
+	          bottomNext = trNext.nextSibling ?
+	              util.getAbsoluteTop(trNext.nextSibling) : 0;
+	          heightNext = trNext ? (bottomNext - topFirst) : 0;
+
+	          if (nodeNext &&
+	              nodeNext.parent.childs.length == nodes.length &&
+	              nodeNext.parent.childs[nodes.length - 1] == lastNode) {
+	            // We are about to remove the last child of this parent,
+	            // which will make the parents appendNode visible.
+	            topThis += 27;
+	            // TODO: dangerous to suppose the height of the appendNode a constant of 27 px.
+	          }
+
+	          trNext = trNext.nextSibling;
+	        }
+	      }
+	      while (trNext && mouseY > topThis + heightNext);
+
+	      if (nodeNext && nodeNext.parent) {
+	        // calculate the desired level
+	        var diffX = (mouseX - editor.drag.mouseX);
+	        var diffLevel = Math.round(diffX / 24 / 2);
+	        var level = editor.drag.level + diffLevel; // desired level
+	        var levelNext = nodeNext.getLevel();     // level to be
+
+	        // find the best fitting level (move upwards over the append nodes)
+	        trPrev = nodeNext.dom.tr && nodeNext.dom.tr.previousSibling;
+	        while (levelNext < level && trPrev) {
+	          nodePrev = Node.getNodeFromTarget(trPrev);
+
+	          var isDraggedNode = nodes.some(function (node) {
+	            return node === nodePrev || nodePrev.isDescendantOf(node);
+	          });
+
+	          if (isDraggedNode) {
+	            // neglect the dragged nodes themselves and their childs
+	          }
+	          else if (nodePrev instanceof AppendNode) {
+	            var childs = nodePrev.parent.childs;
+	            if (childs.length != nodes.length || childs[nodes.length - 1] != lastNode) {
+	              // non-visible append node of a list of childs
+	              // consisting of not only this node (else the
+	              // append node will change into a visible "empty"
+	              // text when removing this node).
+	              nodeNext = Node.getNodeFromTarget(trPrev);
+	              levelNext = nodeNext.getLevel();
+	            }
+	            else {
+	              break;
+	            }
+	          }
+	          else {
+	            break;
+	          }
+
+	          trPrev = trPrev.previousSibling;
+	        }
+
+	        if (nodeNext instanceof AppendNode && !nodeNext.isVisible() &&
+	            nodeNext.parent.showMore.isVisible()) {
+	          nodeNext = nodeNext._nextNode();
+	        }
+
+	        // move the node when its position is changed
+	        if (nodeNext && nodeNext.dom.tr && trLast.nextSibling != nodeNext.dom.tr) {
+	          nodes.forEach(function (node) {
+	            nodeNext.parent.moveBefore(node, nodeNext);
+	          });
+	          moved = true;
+	        }
+	      }
+	    }
+	  }
+
+	  if (moved) {
+	    // update the dragging parameters when moved
+	    editor.drag.mouseX = mouseX;
+	    editor.drag.level = firstNode.getLevel();
+	  }
+
+	  // auto scroll when hovering around the top of the editor
+	  editor.startAutoScroll(mouseY);
+
+	  event.preventDefault();
+	};
+
+	/**
+	 * Drag event, fired on mouseup after having dragged a node
+	 * @param {Node[] | Node} nodes
+	 * @param {Event} event
+	 */
+	Node.onDragEnd = function (nodes, event) {
+	  if (!Array.isArray(nodes)) {
+	    return Node.onDrag([nodes], event);
+	  }
+	  if (nodes.length === 0) {
+	    return;
+	  }
+
+	  var firstNode = nodes[0];
+	  var editor = firstNode.editor;
+
+	  // set focus to the context menu button of the first node
+	  if (nodes[0]) {
+	    nodes[0].dom.menu.focus();
+	  }
+
+	  var oldParentPath = editor.drag.oldParent.getInternalPath();
+	  var newParentPath = firstNode.parent.getInternalPath();
+	  var sameParent = editor.drag.oldParent === firstNode.parent;
+	  var oldIndex = editor.drag.oldNextNode.getIndex();
+	  var newIndex = firstNode.getIndex();
+	  var oldParentPathRedo = editor.drag.oldParentPathRedo;
+
+	  var oldIndexRedo = editor.drag.oldIndexRedo;
+	  var newIndexRedo = (sameParent && oldIndexRedo < newIndex)
+	      ? (newIndex + nodes.length)
+	      : newIndex;
+
+	  if (!sameParent || oldIndexRedo !== newIndex) {
+	    // only register this action if the node is actually moved to another place
+	    editor._onAction('moveNodes', {
+	      count: nodes.length,
+	      fieldNames: nodes.map(getField),
+
+	      oldParentPath: oldParentPath,
+	      newParentPath: newParentPath,
+	      oldIndex: oldIndex,
+	      newIndex: newIndex,
+
+	      oldIndexRedo: oldIndexRedo,
+	      newIndexRedo: newIndexRedo,
+	      oldParentPathRedo: oldParentPathRedo,
+	      newParentPathRedo: null, // This is a hack, value will be filled in during undo
+
+	      oldSelection: editor.drag.oldSelection,
+	      newSelection: editor.getDomSelection()
+	    });
+	  }
+
+	  document.body.style.cursor = editor.drag.oldCursor;
+	  editor.highlighter.unlock();
+	  nodes.forEach(function (node) {
+	    node.updateDom();
+
+	    if (event.target !== node.dom.drag && event.target !== node.dom.menu) {
+	      editor.highlighter.unhighlight();
+	    }
+	  });
+	  delete editor.drag;
+
+	  if (editor.mousemove) {
+	    util.removeEventListener(window, 'mousemove', editor.mousemove);
+	    delete editor.mousemove;
+	  }
+	  if (editor.mouseup) {
+	    util.removeEventListener(window, 'mouseup', editor.mouseup);
+	    delete editor.mouseup;
+	  }
+
+	  // Stop any running auto scroll
+	  editor.stopAutoScroll();
+
+	  event.preventDefault();
+	};
+
+	/**
+	 * Test if this node is a sescendant of an other node
+	 * @param {Node} node
+	 * @return {boolean} isDescendant
+	 * @private
+	 */
+	Node.prototype.isDescendantOf = function (node) {
+	  var n = this.parent;
+	  while (n) {
+	    if (n == node) {
+	      return true;
+	    }
+	    n = n.parent;
+	  }
+
+	  return false;
+	};
+
+	/**
+	 * Create an editable field
+	 * @return {Element} domField
+	 * @private
+	 */
+	Node.prototype._createDomField = function () {
+	  return document.createElement('div');
+	};
+
+	/**
+	 * Set highlighting for this node and all its childs.
+	 * Only applied to the currently visible (expanded childs)
+	 * @param {boolean} highlight
+	 */
+	Node.prototype.setHighlight = function (highlight) {
+	  if (this.dom.tr) {
+	    if (highlight) {
+	      util.addClassName(this.dom.tr, 'jsoneditor-highlight');
+	    }
+	    else {
+	      util.removeClassName(this.dom.tr, 'jsoneditor-highlight');
+	    }
+
+	    if (this.append) {
+	      this.append.setHighlight(highlight);
+	    }
+
+	    if (this.childs) {
+	      this.childs.forEach(function (child) {
+	        child.setHighlight(highlight);
+	      });
+	    }
+	  }
+	};
+
+	/**
+	 * Select or deselect a node
+	 * @param {boolean} selected
+	 * @param {boolean} [isFirst]
+	 */
+	Node.prototype.setSelected = function (selected, isFirst) {
+	  this.selected = selected;
+
+	  if (this.dom.tr) {
+	    if (selected) {
+	      util.addClassName(this.dom.tr, 'jsoneditor-selected');
+	    }
+	    else {
+	      util.removeClassName(this.dom.tr, 'jsoneditor-selected');
+	    }
+
+	    if (isFirst) {
+	      util.addClassName(this.dom.tr, 'jsoneditor-first');
+	    }
+	    else {
+	      util.removeClassName(this.dom.tr, 'jsoneditor-first');
+	    }
+
+	    if (this.append) {
+	      this.append.setSelected(selected);
+	    }
+
+	    if (this.showMore) {
+	      this.showMore.setSelected(selected);
+	    }
+
+	    if (this.childs) {
+	      this.childs.forEach(function (child) {
+	        child.setSelected(selected);
+	      });
+	    }
+	  }
+	};
+
+	/**
+	 * Update the value of the node. Only primitive types are allowed, no Object
+	 * or Array is allowed.
+	 * @param {String | Number | Boolean | null} value
+	 */
+	Node.prototype.updateValue = function (value) {
+	  this.value = value;
+	  this.previousValue = value;
+	  this.updateDom();
+	};
+
+	/**
+	 * Update the field of the node.
+	 * @param {String} field
+	 */
+	Node.prototype.updateField = function (field) {
+	  this.field = field;
+	  this.previousField = field;
+	  this.updateDom();
+	};
+
+	/**
+	 * Update the HTML DOM, optionally recursing through the childs
+	 * @param {Object} [options] Available parameters:
+	 *                          {boolean} [recurse]         If true, the
+	 *                          DOM of the childs will be updated recursively.
+	 *                          False by default.
+	 *                          {boolean} [updateIndexes]   If true, the childs
+	 *                          indexes of the node will be updated too. False by
+	 *                          default.
+	 */
+	Node.prototype.updateDom = function (options) {
+	  // update level indentation
+	  var domTree = this.dom.tree;
+	  if (domTree) {
+	    domTree.style.marginLeft = this.getLevel() * 24 + 'px';
+	  }
+
+	  // apply field to DOM
+	  var domField = this.dom.field;
+	  if (domField) {
+	    if (this.fieldEditable) {
+	      // parent is an object
+	      domField.contentEditable = this.editable.field;
+	      domField.spellcheck = false;
+	      domField.className = 'jsoneditor-field';
+	    }
+	    else {
+	      // parent is an array this is the root node
+	      domField.contentEditable = false;
+	      domField.className = 'jsoneditor-readonly';
+	    }
+
+	    var fieldText;
+	    if (this.index != undefined) {
+	      fieldText = this.index;
+	    }
+	    else if (this.field != undefined) {
+	      fieldText = this.field;
+	    }
+	    else if (this._hasChilds()) {
+	      fieldText = this.type;
+	    }
+	    else {
+	      fieldText = '';
+	    }
+	    domField.innerHTML = this._escapeHTML(fieldText);
+
+	    this._updateSchema();
+	  }
+
+	  // apply value to DOM
+	  var domValue = this.dom.value;
+	  if (domValue) {
+	    var count = this.childs ? this.childs.length : 0;
+	    if (this.type == 'array') {
+	      domValue.innerHTML = '[' + count + ']';
+	      util.addClassName(this.dom.tr, 'jsoneditor-expandable');
+	    }
+	    else if (this.type == 'object') {
+	      domValue.innerHTML = '{' + count + '}';
+	      util.addClassName(this.dom.tr, 'jsoneditor-expandable');
+	    }
+	    else {
+	      domValue.innerHTML = this._escapeHTML(this.value);
+	      util.removeClassName(this.dom.tr, 'jsoneditor-expandable');
+	    }
+	  }
+
+	  // update field and value
+	  this._updateDomField();
+	  this._updateDomValue();
+
+	  // update childs indexes
+	  if (options && options.updateIndexes === true) {
+	    // updateIndexes is true or undefined
+	    this._updateDomIndexes();
+	  }
+
+	  // update childs recursively
+	  if (options && options.recurse === true) {
+	    if (this.childs) {
+	      this.childs.forEach(function (child) {
+	        child.updateDom(options);
+	      });
+	    }
+	  }
+
+	  // update rendering of error
+	  if (this.error) {
+	    this.updateError()
+	  }
+
+	  // update row with append button
+	  if (this.append) {
+	    this.append.updateDom();
+	  }
+
+	  // update "show more" text at the bottom of large arrays
+	  if (this.showMore) {
+	    this.showMore.updateDom();
+	  }
+	};
+
+	/**
+	 * Locate the JSON schema of the node and check for any enum type
+	 * @private
+	 */
+	Node.prototype._updateSchema = function () {
+	  //Locating the schema of the node and checking for any enum type
+	  if(this.editor && this.editor.options) {
+	    // find the part of the json schema matching this nodes path
+	    this.schema = this.editor.options.schema
+	        ? Node._findSchema(this.editor.options.schema, this.getPath())
+	        : null;
+	    if (this.schema) {
+	      this.enum = Node._findEnum(this.schema);
+	    }
+	    else {
+	      delete this.enum;
+	    }
+	  }
+	};
+
+	/**
+	 * find an enum definition in a JSON schema, as property `enum` or inside
+	 * one of the schemas composites (`oneOf`, `anyOf`, `allOf`)
+	 * @param  {Object} schema
+	 * @return {Array | null} Returns the enum when found, null otherwise.
+	 * @private
+	 */
+	Node._findEnum = function (schema) {
+	  if (schema.enum) {
+	    return schema.enum;
+	  }
+
+	  var composite = schema.oneOf || schema.anyOf || schema.allOf;
+	  if (composite) {
+	    var match = composite.filter(function (entry) {return entry.enum});
+	    if (match.length > 0) {
+	      return match[0].enum;
+	    }
+	  }
+
+	  return null
+	};
+
+	/**
+	 * Return the part of a JSON schema matching given path.
+	 * @param {Object} schema
+	 * @param {Array.<string | number>} path
+	 * @return {Object | null}
+	 * @private
+	 */
+	Node._findSchema = function (schema, path) {
+	  var childSchema = schema;
+	  var foundSchema = childSchema;
+
+	  var allSchemas = schema.oneOf || schema.anyOf || schema.allOf;
+	  if (!allSchemas) {
+	    allSchemas = [schema];
+	  }
+
+	  for (var j = 0; j < allSchemas.length; j++) {
+	    childSchema = allSchemas[j];
+
+	    for (var i = 0; i < path.length && childSchema; i++) {
+	      var key = path[i];
+
+	      if (typeof key === 'string' && childSchema.patternProperties && i == path.length - 1) {
+	        for (var prop in childSchema.patternProperties) {
+	          foundSchema = Node._findSchema(childSchema.patternProperties[prop], path.slice(i, path.length));
+	        }
+	      }
+	      else if (childSchema.items && childSchema.items.properties) {
+	        childSchema = childSchema.items.properties[key];
+	        if (childSchema) {
+	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	        }
+	      }
+	      else if (typeof key === 'string' && childSchema.properties) {
+	        childSchema = childSchema.properties[key] || null;
+	        if (childSchema) {
+	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	        }
+	      }
+	      else if (typeof key === 'number' && childSchema.items) {
+	        childSchema = childSchema.items;
+	        if (childSchema) {
+	          foundSchema = Node._findSchema(childSchema, path.slice(i, path.length));
+	        }
+	      }
+	    }
+
+	  }
+	  return foundSchema
+	};
+
+	/**
+	 * Update the DOM of the childs of a node: update indexes and undefined field
+	 * names.
+	 * Only applicable when structure is an array or object
+	 * @private
+	 */
+	Node.prototype._updateDomIndexes = function () {
+	  var domValue = this.dom.value;
+	  var childs = this.childs;
+	  if (domValue && childs) {
+	    if (this.type == 'array') {
+	      childs.forEach(function (child, index) {
+	        child.index = index;
+	        var childField = child.dom.field;
+	        if (childField) {
+	          childField.innerHTML = index;
+	        }
+	      });
+	    }
+	    else if (this.type == 'object') {
+	      childs.forEach(function (child) {
+	        if (child.index != undefined) {
+	          delete child.index;
+
+	          if (child.field == undefined) {
+	            child.field = '';
+	          }
+	        }
+	      });
+	    }
+	  }
+	};
+
+	/**
+	 * Create an editable value
+	 * @private
+	 */
+	Node.prototype._createDomValue = function () {
+	  var domValue;
+
+	  if (this.type == 'array') {
+	    domValue = document.createElement('div');
+	    domValue.innerHTML = '[...]';
+	  }
+	  else if (this.type == 'object') {
+	    domValue = document.createElement('div');
+	    domValue.innerHTML = '{...}';
+	  }
+	  else {
+	    if (!this.editable.value && util.isUrl(this.value)) {
+	      // create a link in case of read-only editor and value containing an url
+	      domValue = document.createElement('a');
+	      domValue.href = this.value;
+	      domValue.innerHTML = this._escapeHTML(this.value);
+	    }
+	    else {
+	      // create an editable or read-only div
+	      domValue = document.createElement('div');
+	      domValue.contentEditable = this.editable.value;
+	      domValue.spellcheck = false;
+	      domValue.innerHTML = this._escapeHTML(this.value);
+	    }
+	  }
+
+	  return domValue;
+	};
+
+	/**
+	 * Create an expand/collapse button
+	 * @return {Element} expand
+	 * @private
+	 */
+	Node.prototype._createDomExpandButton = function () {
+	  // create expand button
+	  var expand = document.createElement('button');
+	  expand.type = 'button';
+	  if (this._hasChilds()) {
+	    expand.className = this.expanded
+	        ? 'jsoneditor-button jsoneditor-expanded'
+	        : 'jsoneditor-button jsoneditor-collapsed';
+	    expand.title = translate('expandTitle');
+	  }
+	  else {
+	    expand.className = 'jsoneditor-button jsoneditor-invisible';
+	    expand.title = '';
+	  }
+
+	  return expand;
+	};
+
+
+	/**
+	 * Create a DOM tree element, containing the expand/collapse button
+	 * @return {Element} domTree
+	 * @private
+	 */
+	Node.prototype._createDomTree = function () {
+	  var dom = this.dom;
+	  var domTree = document.createElement('table');
+	  var tbody = document.createElement('tbody');
+	  domTree.style.borderCollapse = 'collapse'; // TODO: put in css
+	  domTree.className = 'jsoneditor-values';
+	  domTree.appendChild(tbody);
+	  var tr = document.createElement('tr');
+	  tbody.appendChild(tr);
+
+	  // create expand button
+	  var tdExpand = document.createElement('td');
+	  tdExpand.className = 'jsoneditor-tree';
+	  tr.appendChild(tdExpand);
+	  dom.expand = this._createDomExpandButton();
+	  tdExpand.appendChild(dom.expand);
+	  dom.tdExpand = tdExpand;
+
+	  // create the field
+	  var tdField = document.createElement('td');
+	  tdField.className = 'jsoneditor-tree';
+	  tr.appendChild(tdField);
+	  dom.field = this._createDomField();
+	  tdField.appendChild(dom.field);
+	  dom.tdField = tdField;
+
+	  // create a separator
+	  var tdSeparator = document.createElement('td');
+	  tdSeparator.className = 'jsoneditor-tree';
+	  tr.appendChild(tdSeparator);
+	  if (this.type != 'object' && this.type != 'array') {
+	    tdSeparator.appendChild(document.createTextNode(':'));
+	    tdSeparator.className = 'jsoneditor-separator';
+	  }
+	  dom.tdSeparator = tdSeparator;
+
+	  // create the value
+	  var tdValue = document.createElement('td');
+	  tdValue.className = 'jsoneditor-tree';
+	  tr.appendChild(tdValue);
+	  dom.value = this._createDomValue();
+	  tdValue.appendChild(dom.value);
+	  dom.tdValue = tdValue;
+
+	  return domTree;
+	};
+
+	/**
+	 * Handle an event. The event is caught centrally by the editor
+	 * @param {Event} event
+	 */
+	Node.prototype.onEvent = function (event) {
+	  var type = event.type,
+	      target = event.target || event.srcElement,
+	      dom = this.dom,
+	      node = this,
+	      expandable = this._hasChilds();
+
+
+	  if (typeof this.editor.options.onEvent === 'function') {
+	    this._onEvent(event);
+	  }
+
+	  // check if mouse is on menu or on dragarea.
+	  // If so, highlight current row and its childs
+	  if (target == dom.drag || target == dom.menu) {
+	    if (type == 'mouseover') {
+	      this.editor.highlighter.highlight(this);
+	    }
+	    else if (type == 'mouseout') {
+	      this.editor.highlighter.unhighlight();
+	    }
+	  }
+
+	  // context menu events
+	  if (type == 'click' && target == dom.menu) {
+	    var highlighter = node.editor.highlighter;
+	    highlighter.highlight(node);
+	    highlighter.lock();
+	    util.addClassName(dom.menu, 'jsoneditor-selected');
+	    this.showContextMenu(dom.menu, function () {
+	      util.removeClassName(dom.menu, 'jsoneditor-selected');
+	      highlighter.unlock();
+	      highlighter.unhighlight();
+	    });
+	  }
+
+	  // expand events
+	  if (type == 'click') {
+	    if (target == dom.expand ||
+	        ((node.editor.options.mode === 'view' || node.editor.options.mode === 'form') && target.nodeName === 'DIV')) {
+	      if (expandable) {
+	        var recurse = event.ctrlKey; // with ctrl-key, expand/collapse all
+	        this._onExpand(recurse);
+	      }
+	    }
+	  }
+
+	  if (type === 'click' && (event.target === node.dom.tdColor || event.target === node.dom.color)) {
+	    this._showColorPicker();
+	  }
+
+	  // swap the value of a boolean when the checkbox displayed left is clicked
+	  if (type == 'change' && target == dom.checkbox) {
+	    this.dom.value.innerHTML = !this.value;
+	    this._getDomValue();
+	  }
+
+	  // update the value of the node based on the selected option
+	  if (type == 'change' && target == dom.select) {
+	    this.dom.value.innerHTML = dom.select.value;
+	    this._getDomValue();
+	    this._updateDomValue();
+	  }
+
+	  // value events
+	  var domValue = dom.value;
+	  if (target == domValue) {
+	    //noinspection FallthroughInSwitchStatementJS
+	    switch (type) {
+	      case 'blur':
+	      case 'change':
+	        this._getDomValue(true);
+	        this._updateDomValue();
+	        if (this.value) {
+	          domValue.innerHTML = this._escapeHTML(this.value);
+	        }
+	        break;
+
+	      case 'input':
+	        //this._debouncedGetDomValue(true); // TODO
+	        this._getDomValue(true);
+	        this._updateDomValue();
+	        break;
+
+	      case 'keydown':
+	      case 'mousedown':
+	          // TODO: cleanup
+	        this.editor.selection = this.editor.getDomSelection();
+	        break;
+
+	      case 'click':
+	        if (event.ctrlKey && this.editable.value) {
+	          // if read-only, we use the regular click behavior of an anchor
+	          if (util.isUrl(this.value)) {
+	            event.preventDefault();
+	            window.open(this.value, '_blank');
+	          }
+	        }
+	        break;
+
+	      case 'keyup':
+	        //this._debouncedGetDomValue(true); // TODO
+	        this._getDomValue(true);
+	        this._updateDomValue();
+	        break;
+
+	      case 'cut':
+	      case 'paste':
+	        setTimeout(function () {
+	          node._getDomValue(true);
+	          node._updateDomValue();
+	        }, 1);
+	        break;
+	    }
+	  }
+
+	  // field events
+	  var domField = dom.field;
+	  if (target == domField) {
+	    switch (type) {
+	      case 'blur':
+	      case 'change':
+	        this._getDomField(true);
+	        this._updateDomField();
+	        if (this.field) {
+	          domField.innerHTML = this._escapeHTML(this.field);
+	        }
+	        break;
+
+	      case 'input':
+	        this._getDomField(true);
+	        this._updateSchema();
+	        this._updateDomField();
+	        this._updateDomValue();
+	        break;
+
+	      case 'keydown':
+	      case 'mousedown':
+	        this.editor.selection = this.editor.getDomSelection();
+	        break;
+
+	      case 'keyup':
+	        this._getDomField(true);
+	        this._updateDomField();
+	        break;
+
+	      case 'cut':
+	      case 'paste':
+	        setTimeout(function () {
+	          node._getDomField(true);
+	          node._updateDomField();
+	        }, 1);
+	        break;
+	    }
+	  }
+
+	  // focus
+	  // when clicked in whitespace left or right from the field or value, set focus
+	  var domTree = dom.tree;
+	  if (domTree && target == domTree.parentNode && type == 'click' && !event.hasMoved) {
+	    var left = (event.offsetX != undefined) ?
+	        (event.offsetX < (this.getLevel() + 1) * 24) :
+	        (event.pageX < util.getAbsoluteLeft(dom.tdSeparator));// for FF
+	    if (left || expandable) {
+	      // node is expandable when it is an object or array
+	      if (domField) {
+	        util.setEndOfContentEditable(domField);
+	        domField.focus();
+	      }
+	    }
+	    else {
+	      if (domValue && !this.enum) {
+	        util.setEndOfContentEditable(domValue);
+	        domValue.focus();
+	      }
+	    }
+	  }
+	  if (((target == dom.tdExpand && !expandable) || target == dom.tdField || target == dom.tdSeparator) &&
+	      (type == 'click' && !event.hasMoved)) {
+	    if (domField) {
+	      util.setEndOfContentEditable(domField);
+	      domField.focus();
+	    }
+	  }
+
+	  if (type == 'keydown') {
+	    this.onKeyDown(event);
+	  }
+	};
+
+	/**
+	 * Trigger external onEvent provided in options if node is a JSON field or
+	 * value.
+	 * Information provided depends on the element, value is only included if
+	 * event occurs in a JSON value:
+	 * {field: string, path: {string|number}[] [, value: string]}
+	 * @param {Event} event
+	 * @private
+	 */
+	Node.prototype._onEvent = function (event) {
+	  var element = event.target;
+	  if (element === this.dom.field || element === this.dom.value) {
+	    var info = {
+	      field: this.getField(),
+	      path: this.getPath()
+	    };
+	    // For leaf values, include value
+	    if (!this._hasChilds() &&element === this.dom.value) {
+	      info.value = this.getValue();
+	    }
+	    this.editor.options.onEvent(info, event);
+	  }
+	};
+
+	/**
+	 * Key down event handler
+	 * @param {Event} event
+	 */
+	Node.prototype.onKeyDown = function (event) {
+	  var keynum = event.which || event.keyCode;
+	  var target = event.target || event.srcElement;
+	  var ctrlKey = event.ctrlKey;
+	  var shiftKey = event.shiftKey;
+	  var altKey = event.altKey;
+	  var handled = false;
+	  var prevNode, nextNode, nextDom, nextDom2;
+	  var editable = this.editor.options.mode === 'tree';
+	  var oldSelection;
+	  var oldNextNode;
+	  var oldParent;
+	  var oldIndexRedo;
+	  var newIndexRedo;
+	  var oldParentPathRedo;
+	  var newParentPathRedo;
+	  var nodes;
+	  var multiselection;
+	  var selectedNodes = this.editor.multiselection.nodes.length > 0
+	      ? this.editor.multiselection.nodes
+	      : [this];
+	  var firstNode = selectedNodes[0];
+	  var lastNode = selectedNodes[selectedNodes.length - 1];
+
+	  // console.log(ctrlKey, keynum, event.charCode); // TODO: cleanup
+	  if (keynum == 13) { // Enter
+	    if (target == this.dom.value) {
+	      if (!this.editable.value || event.ctrlKey) {
+	        if (util.isUrl(this.value)) {
+	          window.open(this.value, '_blank');
+	          handled = true;
+	        }
+	      }
+	    }
+	    else if (target == this.dom.expand) {
+	      var expandable = this._hasChilds();
+	      if (expandable) {
+	        var recurse = event.ctrlKey; // with ctrl-key, expand/collapse all
+	        this._onExpand(recurse);
+	        target.focus();
+	        handled = true;
+	      }
+	    }
+	  }
+	  else if (keynum == 68) {  // D
+	    if (ctrlKey && editable) {   // Ctrl+D
+	      Node.onDuplicate(selectedNodes);
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 69) { // E
+	    if (ctrlKey) {       // Ctrl+E and Ctrl+Shift+E
+	      this._onExpand(shiftKey);  // recurse = shiftKey
+	      target.focus(); // TODO: should restore focus in case of recursing expand (which takes DOM offline)
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 77 && editable) { // M
+	    if (ctrlKey) { // Ctrl+M
+	      this.showContextMenu(target);
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 46 && editable) { // Del
+	    if (ctrlKey) {       // Ctrl+Del
+	      Node.onRemove(selectedNodes);
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 45 && editable) { // Ins
+	    if (ctrlKey && !shiftKey) {       // Ctrl+Ins
+	      this._onInsertBefore();
+	      handled = true;
+	    }
+	    else if (ctrlKey && shiftKey) {   // Ctrl+Shift+Ins
+	      this._onInsertAfter();
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 35) { // End
+	    if (altKey) { // Alt+End
+	      // find the last node
+	      var endNode = this._lastNode();
+	      if (endNode) {
+	        endNode.focus(Node.focusElement || this._getElementName(target));
+	      }
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 36) { // Home
+	    if (altKey) { // Alt+Home
+	      // find the first node
+	      var homeNode = this._firstNode();
+	      if (homeNode) {
+	        homeNode.focus(Node.focusElement || this._getElementName(target));
+	      }
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 37) {        // Arrow Left
+	    if (altKey && !shiftKey) {  // Alt + Arrow Left
+	      // move to left element
+	      var prevElement = this._previousElement(target);
+	      if (prevElement) {
+	        this.focus(this._getElementName(prevElement));
+	      }
+	      handled = true;
+	    }
+	    else if (altKey && shiftKey && editable) { // Alt + Shift + Arrow left
+	      if (lastNode.expanded) {
+	        var appendDom = lastNode.getAppendDom();
+	        nextDom = appendDom ? appendDom.nextSibling : undefined;
+	      }
+	      else {
+	        var dom = lastNode.getDom();
+	        nextDom = dom.nextSibling;
+	      }
+	      if (nextDom) {
+	        nextNode = Node.getNodeFromTarget(nextDom);
+	        nextDom2 = nextDom.nextSibling;
+	        nextNode2 = Node.getNodeFromTarget(nextDom2);
+	        if (nextNode && nextNode instanceof AppendNode &&
+	            !(lastNode.parent.childs.length == 1) &&
+	            nextNode2 && nextNode2.parent) {
+	          oldSelection = this.editor.getDomSelection();
+	          oldParent = firstNode.parent;
+	          oldNextNode = oldParent.childs[lastNode.getIndex() + 1] || oldParent.append;
+	          oldIndexRedo = firstNode.getIndex();
+	          newIndexRedo = nextNode2.getIndex();
+	          oldParentPathRedo = oldParent.getInternalPath();
+	          newParentPathRedo = nextNode2.parent.getInternalPath();
+
+	          selectedNodes.forEach(function (node) {
+	            nextNode2.parent.moveBefore(node, nextNode2);
+	          });
+	          this.focus(Node.focusElement || this._getElementName(target));
+
+
+	          this.editor._onAction('moveNodes', {
+	            count: selectedNodes.length,
+	            fieldNames: selectedNodes.map(getField),
+
+	            oldParentPath: oldParent.getInternalPath(),
+	            newParentPath: firstNode.parent.getInternalPath(),
+	            oldIndex: oldNextNode.getIndex(),
+	            newIndex: firstNode.getIndex(),
+
+	            oldIndexRedo: oldIndexRedo,
+	            newIndexRedo: newIndexRedo,
+	            oldParentPathRedo: oldParentPathRedo,
+	            newParentPathRedo: newParentPathRedo,
+
+	            oldSelection: oldSelection,
+	            newSelection: this.editor.getDomSelection()
+	          });
+	        }
+	      }
+	    }
+	  }
+	  else if (keynum == 38) {        // Arrow Up
+	    if (altKey && !shiftKey) {  // Alt + Arrow Up
+	      // find the previous node
+	      prevNode = this._previousNode();
+	      if (prevNode) {
+	        this.editor.deselect(true);
+	        prevNode.focus(Node.focusElement || this._getElementName(target));
+	      }
+	      handled = true;
+	    }
+	    else if (!altKey && ctrlKey && shiftKey && editable) { // Ctrl + Shift + Arrow Up
+	      // select multiple nodes
+	      prevNode = this._previousNode();
+	      if (prevNode) {
+	        multiselection = this.editor.multiselection;
+	        multiselection.start = multiselection.start || this;
+	        multiselection.end = prevNode;
+	        nodes = this.editor._findTopLevelNodes(multiselection.start, multiselection.end);
+
+	        this.editor.select(nodes);
+	        prevNode.focus('field'); // select field as we know this always exists
+	      }
+	      handled = true;
+	    }
+	    else if (altKey && shiftKey && editable) { // Alt + Shift + Arrow Up
+	      // find the previous node
+	      prevNode = firstNode._previousNode();
+	      if (prevNode && prevNode.parent) {
+	        oldSelection = this.editor.getDomSelection();
+	        oldParent = firstNode.parent;
+	        oldNextNode = oldParent.childs[lastNode.getIndex() + 1] || oldParent.append;
+	        oldIndexRedo = firstNode.getIndex();
+	        newIndexRedo = prevNode.getIndex();
+	        oldParentPathRedo = oldParent.getInternalPath();
+	        newParentPathRedo = prevNode.parent.getInternalPath();
+
+	        selectedNodes.forEach(function (node) {
+	          prevNode.parent.moveBefore(node, prevNode);
+	        });
+	        this.focus(Node.focusElement || this._getElementName(target));
+
+	        this.editor._onAction('moveNodes', {
+	          count: selectedNodes.length,
+	          fieldNames: selectedNodes.map(getField),
+
+	          oldParentPath: oldParent.getInternalPath(),
+	          newParentPath: firstNode.parent.getInternalPath(),
+	          oldIndex: oldNextNode.getIndex(),
+	          newIndex: firstNode.getIndex(),
+
+	          oldIndexRedo: oldIndexRedo,
+	          newIndexRedo: newIndexRedo,
+	          oldParentPathRedo: oldParentPathRedo,
+	          newParentPathRedo: newParentPathRedo,
+
+	          oldSelection: oldSelection,
+	          newSelection: this.editor.getDomSelection()
+	        });
+	      }
+	      handled = true;
+	    }
+	  }
+	  else if (keynum == 39) {        // Arrow Right
+	    if (altKey && !shiftKey) {  // Alt + Arrow Right
+	      // move to right element
+	      var nextElement = this._nextElement(target);
+	      if (nextElement) {
+	        this.focus(this._getElementName(nextElement));
+	      }
+	      handled = true;
+	    }
+	    else if (altKey && shiftKey && editable) { // Alt + Shift + Arrow Right
+	      dom = firstNode.getDom();
+	      var prevDom = dom.previousSibling;
+	      if (prevDom) {
+	        prevNode = Node.getNodeFromTarget(prevDom);
+	        if (prevNode && prevNode.parent && !prevNode.isVisible()) {
+	          oldSelection = this.editor.getDomSelection();
+	          oldParent = firstNode.parent;
+	          oldNextNode = oldParent.childs[lastNode.getIndex() + 1] || oldParent.append;
+	          oldIndexRedo = firstNode.getIndex();
+	          newIndexRedo = prevNode.getIndex();
+	          oldParentPathRedo = oldParent.getInternalPath();
+	          newParentPathRedo = prevNode.parent.getInternalPath();
+
+	          selectedNodes.forEach(function (node) {
+	            prevNode.parent.moveBefore(node, prevNode);
+	          });
+	          this.focus(Node.focusElement || this._getElementName(target));
+
+	          this.editor._onAction('moveNodes', {
+	            count: selectedNodes.length,
+	            fieldNames: selectedNodes.map(getField),
+
+	            oldParentPath: oldParent.getInternalPath(),
+	            newParentPath: firstNode.parent.getInternalPath(),
+	            oldIndex: oldNextNode.getIndex(),
+	            newIndex: firstNode.getIndex(),
+
+	            oldIndexRedo: oldIndexRedo,
+	            newIndexRedo: newIndexRedo,
+	            oldParentPathRedo: oldParentPathRedo,
+	            newParentPathRedo: newParentPathRedo,
+
+	            oldSelection: oldSelection,
+	            newSelection: this.editor.getDomSelection()
+	          });
+	        }
+	      }
+	    }
+	  }
+	  else if (keynum == 40) {        // Arrow Down
+	    if (altKey && !shiftKey) {  // Alt + Arrow Down
+	      // find the next node
+	      nextNode = this._nextNode();
+	      if (nextNode) {
+	        this.editor.deselect(true);
+	        nextNode.focus(Node.focusElement || this._getElementName(target));
+	      }
+	      handled = true;
+	    }
+	    else if (!altKey && ctrlKey && shiftKey && editable) { // Ctrl + Shift + Arrow Down
+	      // select multiple nodes
+	      nextNode = this._nextNode();
+	      if (nextNode) {
+	        multiselection = this.editor.multiselection;
+	        multiselection.start = multiselection.start || this;
+	        multiselection.end = nextNode;
+	        nodes = this.editor._findTopLevelNodes(multiselection.start, multiselection.end);
+
+	        this.editor.select(nodes);
+	        nextNode.focus('field'); // select field as we know this always exists
+	      }
+	      handled = true;
+	    }
+	    else if (altKey && shiftKey && editable) { // Alt + Shift + Arrow Down
+	      // find the 2nd next node and move before that one
+	      if (lastNode.expanded) {
+	        nextNode = lastNode.append ? lastNode.append._nextNode() : undefined;
+	      }
+	      else {
+	        nextNode = lastNode._nextNode();
+	      }
+
+	      // when the next node is not visible, we've reached the "showMore" buttons
+	      if (nextNode && !nextNode.isVisible()) {
+	        nextNode = nextNode.parent.showMore;
+	      }
+
+	      if (nextNode && nextNode instanceof AppendNode) {
+	        nextNode = lastNode;
+	      }
+
+	      var nextNode2 = nextNode && (nextNode._nextNode() || nextNode.parent.append);
+	      if (nextNode2 && nextNode2.parent) {
+	        oldSelection = this.editor.getDomSelection();
+	        oldParent = firstNode.parent;
+	        oldNextNode = oldParent.childs[lastNode.getIndex() + 1] || oldParent.append;
+	        oldIndexRedo = firstNode.getIndex();
+	        newIndexRedo = nextNode2.getIndex();
+	        oldParentPathRedo = oldParent.getInternalPath();
+	        newParentPathRedo = nextNode2.parent.getInternalPath();
+
+	        selectedNodes.forEach(function (node) {
+	          nextNode2.parent.moveBefore(node, nextNode2);
+	        });
+	        this.focus(Node.focusElement || this._getElementName(target));
+
+	        this.editor._onAction('moveNodes', {
+	          count: selectedNodes.length,
+	          fieldNames: selectedNodes.map(getField),
+	          oldParentPath: oldParent.getInternalPath(),
+	          newParentPath: firstNode.parent.getInternalPath(),
+	          oldParentPathRedo: oldParentPathRedo,
+	          newParentPathRedo: newParentPathRedo,
+	          oldIndexRedo: oldIndexRedo,
+	          newIndexRedo: newIndexRedo,
+	          oldIndex: oldNextNode.getIndex(),
+	          newIndex: firstNode.getIndex(),
+	          oldSelection: oldSelection,
+	          newSelection: this.editor.getDomSelection()
+	        });
+	      }
+	      handled = true;
+	    }
+	  }
+
+	  if (handled) {
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+	};
+
+	/**
+	 * Handle the expand event, when clicked on the expand button
+	 * @param {boolean} recurse   If true, child nodes will be expanded too
+	 * @private
+	 */
+	Node.prototype._onExpand = function (recurse) {
+	  if (recurse) {
+	    // Take the table offline
+	    var table = this.dom.tr.parentNode; // TODO: not nice to access the main table like this
+	    var frame = table.parentNode;
+	    var scrollTop = frame.scrollTop;
+	    frame.removeChild(table);
+	  }
+
+	  if (this.expanded) {
+	    this.collapse(recurse);
+	  }
+	  else {
+	    this.expand(recurse);
+	  }
+
+	  if (recurse) {
+	    // Put the table online again
+	    frame.appendChild(table);
+	    frame.scrollTop = scrollTop;
+	  }
+	};
+
+	/**
+	 * Open a color picker to select a new color
+	 * @private
+	 */
+	Node.prototype._showColorPicker = function () {
+	  if (typeof this.editor.options.onColorPicker === 'function' && this.dom.color) {
+	    var node = this;
+
+	    // force deleting current color picker (if any)
+	    node._deleteDomColor();
+	    node.updateDom();
+
+	    var colorAnchor = createAbsoluteAnchor(this.dom.color, this.editor.frame);
+
+	    this.editor.options.onColorPicker(colorAnchor, this.value, function onChange(value) {
+	      if (typeof value === 'string' && value !== node.value) {
+	        // force recreating the color block, to cleanup any attached color picker
+	        node._deleteDomColor();
+
+	        node.value = value;
+	        node.updateDom();
+	        node._debouncedOnChangeValue();
+	      }
+	    });
+	  }
+	};
+
+	/**
+	 * Remove nodes
+	 * @param {Node[] | Node} nodes
+	 */
+	Node.onRemove = function(nodes) {
+	  if (!Array.isArray(nodes)) {
+	    return Node.onRemove([nodes]);
+	  }
+
+	  if (nodes && nodes.length > 0) {
+	    var firstNode = nodes[0];
+	    var parent = firstNode.parent;
+	    var editor = firstNode.editor;
+	    var firstIndex = firstNode.getIndex();
+	    editor.highlighter.unhighlight();
+
+	    // adjust the focus
+	    var oldSelection = editor.getDomSelection();
+	    Node.blurNodes(nodes);
+	    var newSelection = editor.getDomSelection();
+
+	    // store the paths before removing them (needed for history)
+	    var paths = nodes.map(getInternalPath);
+
+	    // remove the nodes
+	    nodes.forEach(function (node) {
+	      node.parent._remove(node);
+	    });
+
+	    // store history action
+	    editor._onAction('removeNodes', {
+	      nodes: nodes,
+	      paths: paths,
+	      parentPath: parent.getInternalPath(),
+	      index: firstIndex,
+	      oldSelection: oldSelection,
+	      newSelection: newSelection
+	    });
+	  }
+	};
+
+
+	/**
+	 * Duplicate nodes
+	 * duplicated nodes will be added right after the original nodes
+	 * @param {Node[] | Node} nodes
+	 */
+	Node.onDuplicate = function(nodes) {
+	  if (!Array.isArray(nodes)) {
+	    return Node.onDuplicate([nodes]);
+	  }
+
+	  if (nodes && nodes.length > 0) {
+	    var lastNode = nodes[nodes.length - 1];
+	    var parent = lastNode.parent;
+	    var editor = lastNode.editor;
+
+	    editor.deselect(editor.multiselection.nodes);
+
+	    // duplicate the nodes
+	    var oldSelection = editor.getDomSelection();
+	    var afterNode = lastNode;
+	    var clones = nodes.map(function (node) {
+	      var clone = node.clone();
+	      parent.insertAfter(clone, afterNode);
+	      afterNode = clone;
+	      return clone;
+	    });
+
+	    // set selection to the duplicated nodes
+	    if (nodes.length === 1) {
+	      clones[0].focus();
+	    }
+	    else {
+	      editor.select(clones);
+	    }
+	    var newSelection = editor.getDomSelection();
+
+	    editor._onAction('duplicateNodes', {
+	      paths: nodes.map(getInternalPath),
+	      clonePaths: clones.map(getInternalPath),
+	      afterPath: lastNode.getInternalPath(),
+	      parentPath: parent.getInternalPath(),
+	      oldSelection: oldSelection,
+	      newSelection: newSelection
+	    });
+	  }
+	};
+
+	/**
+	 * Handle insert before event
+	 * @param {String} [field]
+	 * @param {*} [value]
+	 * @param {String} [type]   Can be 'auto', 'array', 'object', or 'string'
+	 * @private
+	 */
+	Node.prototype._onInsertBefore = function (field, value, type) {
+	  var oldSelection = this.editor.getDomSelection();
+
+	  var newNode = new Node(this.editor, {
+	    field: (field != undefined) ? field : '',
+	    value: (value != undefined) ? value : '',
+	    type: type
+	  });
+	  newNode.expand(true);
+
+	  var beforePath = this.getInternalPath();
+
+	  this.parent.insertBefore(newNode, this);
+	  this.editor.highlighter.unhighlight();
+	  newNode.focus('field');
+	  var newSelection = this.editor.getDomSelection();
+
+	  this.editor._onAction('insertBeforeNodes', {
+	    nodes: [newNode],
+	    paths: [newNode.getInternalPath()],
+	    beforePath: beforePath,
+	    parentPath: this.parent.getInternalPath(),
+	    oldSelection: oldSelection,
+	    newSelection: newSelection
+	  });
+	};
+
+	/**
+	 * Handle insert after event
+	 * @param {String} [field]
+	 * @param {*} [value]
+	 * @param {String} [type]   Can be 'auto', 'array', 'object', or 'string'
+	 * @private
+	 */
+	Node.prototype._onInsertAfter = function (field, value, type) {
+	  var oldSelection = this.editor.getDomSelection();
+
+	  var newNode = new Node(this.editor, {
+	    field: (field != undefined) ? field : '',
+	    value: (value != undefined) ? value : '',
+	    type: type
+	  });
+	  newNode.expand(true);
+	  this.parent.insertAfter(newNode, this);
+	  this.editor.highlighter.unhighlight();
+	  newNode.focus('field');
+	  var newSelection = this.editor.getDomSelection();
+
+	  this.editor._onAction('insertAfterNodes', {
+	    nodes: [newNode],
+	    paths: [newNode.getInternalPath()],
+	    afterPath: this.getInternalPath(),
+	    parentPath: this.parent.getInternalPath(),
+	    oldSelection: oldSelection,
+	    newSelection: newSelection
+	  });
+	};
+
+	/**
+	 * Handle append event
+	 * @param {String} [field]
+	 * @param {*} [value]
+	 * @param {String} [type]   Can be 'auto', 'array', 'object', or 'string'
+	 * @private
+	 */
+	Node.prototype._onAppend = function (field, value, type) {
+	  var oldSelection = this.editor.getDomSelection();
+
+	  var newNode = new Node(this.editor, {
+	    field: (field != undefined) ? field : '',
+	    value: (value != undefined) ? value : '',
+	    type: type
+	  });
+	  newNode.expand(true);
+	  this.parent.appendChild(newNode);
+	  this.editor.highlighter.unhighlight();
+	  newNode.focus('field');
+	  var newSelection = this.editor.getDomSelection();
+
+	  this.editor._onAction('appendNodes', {
+	    nodes: [newNode],
+	    paths: [newNode.getInternalPath()],
+	    parentPath: this.parent.getInternalPath(),
+	    oldSelection: oldSelection,
+	    newSelection: newSelection
+	  });
+	};
+
+	/**
+	 * Change the type of the node's value
+	 * @param {String} newType
+	 * @private
+	 */
+	Node.prototype._onChangeType = function (newType) {
+	  var oldType = this.type;
+	  if (newType != oldType) {
+	    var oldSelection = this.editor.getDomSelection();
+	    this.changeType(newType);
+	    var newSelection = this.editor.getDomSelection();
+
+	    this.editor._onAction('changeType', {
+	      path: this.getInternalPath(),
+	      oldType: oldType,
+	      newType: newType,
+	      oldSelection: oldSelection,
+	      newSelection: newSelection
+	    });
+	  }
+	};
+
+	/**
+	 * Sort the child's of the node. Only applicable when the node has type 'object'
+	 * or 'array'.
+	 * @param {String[]} path      Path of the child value to be compared
+	 * @param {String} direction   Sorting direction. Available values: "asc", "desc"
+	 * @private
+	 */
+	Node.prototype.sort = function (path, direction) {
+	  if (!this._hasChilds()) {
+	    return;
+	  }
+
+	  this.hideChilds(); // sorting is faster when the childs are not attached to the dom
+
+	  // copy the childs array (the old one will be kept for an undo action
+	  var oldChilds = this.childs;
+	  this.childs = this.childs.concat();
+
+	  // sort the childs array
+	  var order = (direction === 'desc') ? -1 : 1;
+
+	  if (this.type === 'object') {
+	    this.childs.sort(function (a, b) {
+	      return order * naturalSort(a.field, b.field);
+	    });
+	  }
+	  else { // this.type === 'array'
+	    this.childs.sort(function (a, b) {
+	      var nodeA = a.getNestedChild(path);
+	      var nodeB = b.getNestedChild(path);
+
+	      if (!nodeA) {
+	        return order;
+	      }
+	      if (!nodeB) {
+	        return -order;
+	      }
+
+	      var valueA = nodeA.value;
+	      var valueB = nodeB.value;
+
+	      if (typeof valueA !== 'string' && typeof valueB !== 'string') {
+	        // both values are a number, boolean, or null -> use simple, fast sorting
+	        return valueA > valueB ? order : valueA < valueB ? -order : 0;
+	      }
+
+	      return order * naturalSort(valueA, valueB);
+	    });
+	  }
+
+	  // update the index numbering
+	  this._updateDomIndexes();
+
+	  this.editor._onAction('sort', {
+	    path: this.getInternalPath(),
+	    oldChilds: oldChilds,
+	    newChilds: this.childs
+	  });
+
+	  this.showChilds();
+	};
+
+	/**
+	 * Replace the value of the node, keep it's state
+	 * @param {*} newValue
+	 */
+	Node.prototype.update = function (newValue) {
+	  var oldValue = this.getInternalValue();
+
+	  this.setValue(newValue);
+
+	  this.editor._onAction('transform', {
+	    path: this.getInternalPath(),
+	    oldValue: oldValue,
+	    newValue: this.getInternalValue()
+	  });
+	};
+
+	/**
+	 * Remove this node from the DOM
+	 * @returns {{table: Element, nextTr?: Element}}
+	 *            Returns the DOM elements that which be used to attach the node
+	 *            to the DOM again, see _attachToDom.
+	 * @private
+	 */
+	Node.prototype._detachFromDom = function () {
+	  var table = this.dom.tr ? this.dom.tr.parentNode : undefined;
+	  var lastTr;
+	  if (this.expanded) {
+	    lastTr = this.getAppendDom();
+	  }
+	  else {
+	    lastTr = this.getDom();
+	  }
+	  var nextTr = (lastTr && lastTr.parentNode) ? lastTr.nextSibling : undefined;
+
+	  this.hide({ resetVisibleChilds: false });
+
+	  return {
+	    table: table,
+	    nextTr: nextTr
+	  }
+	};
+
+	/**
+	 * Attach this node to the DOM again
+	 * @param {{table: Element, nextTr?: Element}} domAnchor
+	 *            The DOM elements returned by _detachFromDom.
+	 * @private
+	 */
+	Node.prototype._attachToDom = function (domAnchor) {
+	  if (domAnchor.table) {
+	    if (domAnchor.nextTr) {
+	      domAnchor.table.insertBefore(this.getDom(), domAnchor.nextTr);
+	    }
+	    else {
+	      domAnchor.table.appendChild(this.getDom());
+	    }
+	  }
+
+	  if (this.expanded) {
+	    this.showChilds();
+	  }
+	};
+
+	/**
+	 * Transform the node given a JMESPath query.
+	 * @param {String} query    JMESPath query to apply
+	 * @private
+	 */
+	Node.prototype.transform = function (query) {
+	  if (!this._hasChilds()) {
+	    return;
+	  }
+
+	  this.hideChilds(); // sorting is faster when the childs are not attached to the dom
+
+	  try {
+	    // apply the JMESPath query
+	    var oldInternalValue = this.getInternalValue();
+
+	    var oldValue = this.getValue();
+	    var newValue = jmespath.search(oldValue, query);
+	    this.setValue(newValue);
+
+	    var newInternalValue = this.getInternalValue();
+
+	    this.editor._onAction('transform', {
+	      path: this.getInternalPath(),
+	      oldValue: oldInternalValue,
+	      newValue: newInternalValue
+	    });
+
+	    this.showChilds();
+	  }
+	  catch (err) {
+	    this.showChilds();
+
+	    this.editor._onError(err);
+	  }
+	};
+
+	/**
+	 * Get a nested child given a path with properties
+	 * @param {String[]} path
+	 * @returns {Node}
+	 */
+	Node.prototype.getNestedChild = function (path) {
+	  var i = 0;
+	  var child = this;
+
+	  while (child && i < path.length) {
+	    child = child.findChildByProperty(path[i]);
+	    i++;
+	  }
+
+	  return child;
+	};
+
+	/**
+	 * Find a child by property name
+	 * @param {string} prop
+	 * @return {Node | undefined} Returns the child node when found, or undefined otherwise
+	 */
+	Node.prototype.findChildByProperty = function(prop) {
+	  if (this.type !== 'object') {
+	    return undefined;
+	  }
+
+	  return this.childs.find(function (child) {
+	    return child.field === prop;
+	  });
+	};
+
+	/**
+	 * Get the child paths of this node
+	 * @param {boolean} [includeObjects=false] If true, object and array paths are returned as well
+	 * @return {string[]}
+	 */
+	Node.prototype.getChildPaths = function (includeObjects) {
+	  var pathsMap = {};
+
+	  this._getChildPaths(pathsMap, '', includeObjects);
+
+	  if (this.type === 'array') {
+	    this.childs.forEach(function (child) {
+	      child._getChildPaths(pathsMap, '', includeObjects);
+	    });
+	  }
+
+	  return Object.keys(pathsMap).sort();
+	};
+
+	/**
+	 * Get the child paths of this node
+	 * @param {Object<String, boolean>} pathsMap
+	 * @param {boolean} [includeObjects=false]  If true, object and array paths are returned as well
+	 * @param {string} rootPath
+	 */
+	Node.prototype._getChildPaths = function (pathsMap, rootPath, includeObjects) {
+	  if (this.type === 'auto' || this.type === 'string' || includeObjects) {
+	    pathsMap[rootPath || '.'] = true;
+	  }
+
+	  if (this.type === 'object') {
+	    this.childs.forEach(function (child) {
+	      child._getChildPaths(pathsMap, rootPath + '.' + child.field, includeObjects);
+	    });
+	  }
+	};
+
+	/**
+	 * Create a table row with an append button.
+	 * @return {HTMLElement | undefined} tr with the AppendNode contents
+	 */
+	Node.prototype.getAppendDom = function () {
+	  if (!this.append) {
+	    this.append = new AppendNode(this.editor);
+	    this.append.setParent(this);
+	  }
+	  return this.append.getDom();
+	};
+
+	/**
+	 * Create a table row with an showMore button and text
+	 * @return {HTMLElement | undefined} tr with the AppendNode contents
+	 */
+	Node.prototype.getShowMoreDom = function () {
+	  if (!this.showMore) {
+	    this.showMore = new ShowMoreNode(this.editor, this);
+	  }
+	  return this.showMore.getDom();
+	};
+
+	/**
+	 * Find the node from an event target
+	 * @param {HTMLElement} target
+	 * @return {Node | undefined} node  or undefined when not found
+	 * @static
+	 */
+	Node.getNodeFromTarget = function (target) {
+	  while (target) {
+	    if (target.node) {
+	      return target.node;
+	    }
+	    target = target.parentNode;
+	  }
+
+	  return undefined;
+	};
+
+	/**
+	 * Test whether target is a child of the color DOM of a node
+	 * @param {HTMLElement} target
+	 * @returns {boolean}
+	 */
+	Node.targetIsColorPicker = function (target) {
+	  var node = Node.getNodeFromTarget(target);
+
+	  if (node) {
+	    var parent = target && target.parentNode;
+	    while (parent) {
+	      if (parent === node.dom.color) {
+	        return true;
+	      }
+	      parent = parent.parentNode;
+	    }
+	  }
+
+	  return false;
+	};
+
+	/**
+	 * Remove the focus of given nodes, and move the focus to the (a) node before,
+	 * (b) the node after, or (c) the parent node.
+	 * @param {Array.<Node> | Node} nodes
+	 */
+	Node.blurNodes = function (nodes) {
+	  if (!Array.isArray(nodes)) {
+	    Node.blurNodes([nodes]);
+	    return;
+	  }
+
+	  var firstNode = nodes[0];
+	  var parent = firstNode.parent;
+	  var firstIndex = firstNode.getIndex();
+
+	  if (parent.childs[firstIndex + nodes.length]) {
+	    parent.childs[firstIndex + nodes.length].focus();
+	  }
+	  else if (parent.childs[firstIndex - 1]) {
+	    parent.childs[firstIndex - 1].focus();
+	  }
+	  else {
+	    parent.focus();
+	  }
+	};
+
+	/**
+	 * Get the next sibling of current node
+	 * @return {Node} nextSibling
+	 */
+	Node.prototype.nextSibling = function () {
+	  var index = this.parent.childs.indexOf(this);
+	  return this.parent.childs[index + 1] || this.parent.append;
+	};
+
+	/**
+	 * Get the previously rendered node
+	 * @return {Node | null} previousNode
+	 */
+	Node.prototype._previousNode = function () {
+	  var prevNode = null;
+	  var dom = this.getDom();
+	  if (dom && dom.parentNode) {
+	    // find the previous field
+	    var prevDom = dom;
+	    do {
+	      prevDom = prevDom.previousSibling;
+	      prevNode = Node.getNodeFromTarget(prevDom);
+	    }
+	    while (prevDom && prevNode && (prevNode instanceof AppendNode && !prevNode.isVisible()));
+	  }
+	  return prevNode;
+	};
+
+	/**
+	 * Get the next rendered node
+	 * @return {Node | null} nextNode
+	 * @private
+	 */
+	Node.prototype._nextNode = function () {
+	  var nextNode = null;
+	  var dom = this.getDom();
+	  if (dom && dom.parentNode) {
+	    // find the previous field
+	    var nextDom = dom;
+	    do {
+	      nextDom = nextDom.nextSibling;
+	      nextNode = Node.getNodeFromTarget(nextDom);
+	    }
+	    while (nextDom && nextNode && (nextNode instanceof AppendNode && !nextNode.isVisible()));
+	  }
+
+	  return nextNode;
+	};
+
+	/**
+	 * Get the first rendered node
+	 * @return {Node | null} firstNode
+	 * @private
+	 */
+	Node.prototype._firstNode = function () {
+	  var firstNode = null;
+	  var dom = this.getDom();
+	  if (dom && dom.parentNode) {
+	    var firstDom = dom.parentNode.firstChild;
+	    firstNode = Node.getNodeFromTarget(firstDom);
+	  }
+
+	  return firstNode;
+	};
+
+	/**
+	 * Get the last rendered node
+	 * @return {Node | null} lastNode
+	 * @private
+	 */
+	Node.prototype._lastNode = function () {
+	  var lastNode = null;
+	  var dom = this.getDom();
+	  if (dom && dom.parentNode) {
+	    var lastDom = dom.parentNode.lastChild;
+	    lastNode =  Node.getNodeFromTarget(lastDom);
+	    while (lastDom && lastNode && !lastNode.isVisible()) {
+	      lastDom = lastDom.previousSibling;
+	      lastNode =  Node.getNodeFromTarget(lastDom);
+	    }
+	  }
+	  return lastNode;
+	};
+
+	/**
+	 * Get the next element which can have focus.
+	 * @param {Element} elem
+	 * @return {Element | null} nextElem
+	 * @private
+	 */
+	Node.prototype._previousElement = function (elem) {
+	  var dom = this.dom;
+	  // noinspection FallthroughInSwitchStatementJS
+	  switch (elem) {
+	    case dom.value:
+	      if (this.fieldEditable) {
+	        return dom.field;
+	      }
+	    // intentional fall through
+	    case dom.field:
+	      if (this._hasChilds()) {
+	        return dom.expand;
+	      }
+	    // intentional fall through
+	    case dom.expand:
+	      return dom.menu;
+	    case dom.menu:
+	      if (dom.drag) {
+	        return dom.drag;
+	      }
+	    // intentional fall through
+	    default:
+	      return null;
+	  }
+	};
+
+	/**
+	 * Get the next element which can have focus.
+	 * @param {Element} elem
+	 * @return {Element | null} nextElem
+	 * @private
+	 */
+	Node.prototype._nextElement = function (elem) {
+	  var dom = this.dom;
+	  // noinspection FallthroughInSwitchStatementJS
+	  switch (elem) {
+	    case dom.drag:
+	      return dom.menu;
+	    case dom.menu:
+	      if (this._hasChilds()) {
+	        return dom.expand;
+	      }
+	    // intentional fall through
+	    case dom.expand:
+	      if (this.fieldEditable) {
+	        return dom.field;
+	      }
+	    // intentional fall through
+	    case dom.field:
+	      if (!this._hasChilds()) {
+	        return dom.value;
+	      }
+	    default:
+	      return null;
+	  }
+	};
+
+	/**
+	 * Get the dom name of given element. returns null if not found.
+	 * For example when element == dom.field, "field" is returned.
+	 * @param {Element} element
+	 * @return {String | null} elementName  Available elements with name: 'drag',
+	 *                                      'menu', 'expand', 'field', 'value'
+	 * @private
+	 */
+	Node.prototype._getElementName = function (element) {
+	  var dom = this.dom;
+	  for (var name in dom) {
+	    if (dom.hasOwnProperty(name)) {
+	      if (dom[name] == element) {
+	        return name;
+	      }
+	    }
+	  }
+	  return null;
+	};
+
+	/**
+	 * Test if this node has childs. This is the case when the node is an object
+	 * or array.
+	 * @return {boolean} hasChilds
+	 * @private
+	 */
+	Node.prototype._hasChilds = function () {
+	  return this.type == 'array' || this.type == 'object';
+	};
+
+	// titles with explanation for the different types
+	Node.TYPE_TITLES = {
+	  'auto': translate('autoType'),
+	  'object': translate('objectType'),
+	  'array': translate('arrayType'),
+	  'string': translate('stringType')
+	};
+
+	Node.prototype.addTemplates = function (menu, append) {
+	    var node = this;
+	    var templates = node.editor.options.templates;
+	    if (templates == null) return;
+	    if (templates.length) {
+	        // create a separator
+	        menu.push({
+	            'type': 'separator'
+	        });
+	    }
+	    var appendData = function (name, data) {
+	        node._onAppend(name, data);
+	    };
+	    var insertData = function (name, data) {
+	        node._onInsertBefore(name, data);
+	    };
+	    templates.forEach(function (template) {
+	        menu.push({
+	            text: template.text,
+	            className: (template.className || 'jsoneditor-type-object'),
+	            title: template.title,
+	            click: (append ? appendData.bind(this, template.field, template.value) : insertData.bind(this, template.field, template.value))
+	        });
+	    });
+	};
+
+	/**
+	 * Show a contextmenu for this node
+	 * @param {HTMLElement} anchor   Anchor element to attach the context menu to
+	 *                               as sibling.
+	 * @param {function} [onClose]   Callback method called when the context menu
+	 *                               is being closed.
+	 */
+	Node.prototype.showContextMenu = function (anchor, onClose) {
+	  var node = this;
+	  var titles = Node.TYPE_TITLES;
+	  var items = [];
+
+	  if (this.editable.value) {
+	    items.push({
+	      text: translate('type'),
+	      title: translate('typeTitle'),
+	      className: 'jsoneditor-type-' + this.type,
+	      submenu: [
+	        {
+	          text: translate('auto'),
+	          className: 'jsoneditor-type-auto' +
+	              (this.type == 'auto' ? ' jsoneditor-selected' : ''),
+	          title: titles.auto,
+	          click: function () {
+	            node._onChangeType('auto');
+	          }
+	        },
+	        {
+	          text: translate('array'),
+	          className: 'jsoneditor-type-array' +
+	              (this.type == 'array' ? ' jsoneditor-selected' : ''),
+	          title: titles.array,
+	          click: function () {
+	            node._onChangeType('array');
+	          }
+	        },
+	        {
+	          text: translate('object'),
+	          className: 'jsoneditor-type-object' +
+	              (this.type == 'object' ? ' jsoneditor-selected' : ''),
+	          title: titles.object,
+	          click: function () {
+	            node._onChangeType('object');
+	          }
+	        },
+	        {
+	          text: translate('string'),
+	          className: 'jsoneditor-type-string' +
+	              (this.type == 'string' ? ' jsoneditor-selected' : ''),
+	          title: titles.string,
+	          click: function () {
+	            node._onChangeType('string');
+	          }
+	        }
+	      ]
+	    });
+	  }
+
+	  if (this._hasChilds()) {
+	    if (this.editor.options.enableSort) {
+	      items.push({
+	        text: translate('sort'),
+	        title: translate('sortTitle', {type: this.type}),
+	        className: 'jsoneditor-sort-asc',
+	        click: function () {
+	          var anchor = node.editor.options.modalAnchor || DEFAULT_MODAL_ANCHOR;
+	          showSortModal(node, anchor)
+	        }
+	      });
+	    }
+
+	    if (this.editor.options.enableTransform) {
+	      items.push({
+	        text: translate('transform'),
+	        title: translate('transformTitle', {type: this.type}),
+	        className: 'jsoneditor-transform',
+	        click: function () {
+	          var anchor = node.editor.options.modalAnchor || DEFAULT_MODAL_ANCHOR;
+	          showTransformModal(node, anchor)
+	        }
+	      });
+	    }
+	  }
+
+	  if (this.parent && this.parent._hasChilds()) {
+	    if (items.length) {
+	      // create a separator
+	      items.push({
+	        'type': 'separator'
+	      });
+	    }
+
+	    // create append button (for last child node only)
+	    var childs = node.parent.childs;
+	    if (node == childs[childs.length - 1]) {
+	        var appendSubmenu = [
+	            {
+	                text: translate('auto'),
+	                className: 'jsoneditor-type-auto',
+	                title: titles.auto,
+	                click: function () {
+	                    node._onAppend('', '', 'auto');
+	                }
+	            },
+	            {
+	                text: translate('array'),
+	                className: 'jsoneditor-type-array',
+	                title: titles.array,
+	                click: function () {
+	                    node._onAppend('', []);
+	                }
+	            },
+	            {
+	                text: translate('object'),
+	                className: 'jsoneditor-type-object',
+	                title: titles.object,
+	                click: function () {
+	                    node._onAppend('', {});
+	                }
+	            },
+	            {
+	                text: translate('string'),
+	                className: 'jsoneditor-type-string',
+	                title: titles.string,
+	                click: function () {
+	                    node._onAppend('', '', 'string');
+	                }
+	            }
+	        ];
+	        node.addTemplates(appendSubmenu, true);
+	        items.push({
+	            text: translate('appendText'),
+	            title: translate('appendTitle'),
+	            submenuTitle: translate('appendSubmenuTitle'),
+	            className: 'jsoneditor-append',
+	            click: function () {
+	                node._onAppend('', '', 'auto');
+	            },
+	            submenu: appendSubmenu
+	        });
+	    }
+
+
+
+	    // create insert button
+	    var insertSubmenu = [
+	        {
+	            text: translate('auto'),
+	            className: 'jsoneditor-type-auto',
+	            title: titles.auto,
+	            click: function () {
+	                node._onInsertBefore('', '', 'auto');
+	            }
+	        },
+	        {
+	            text: translate('array'),
+	            className: 'jsoneditor-type-array',
+	            title: titles.array,
+	            click: function () {
+	                node._onInsertBefore('', []);
+	            }
+	        },
+	        {
+	            text: translate('object'),
+	            className: 'jsoneditor-type-object',
+	            title: titles.object,
+	            click: function () {
+	                node._onInsertBefore('', {});
+	            }
+	        },
+	        {
+	            text: translate('string'),
+	            className: 'jsoneditor-type-string',
+	            title: titles.string,
+	            click: function () {
+	                node._onInsertBefore('', '', 'string');
+	            }
+	        }
+	    ];
+	    node.addTemplates(insertSubmenu, false);
+	    items.push({
+	      text: translate('insert'),
+	      title: translate('insertTitle'),
+	      submenuTitle: translate('insertSub'),
+	      className: 'jsoneditor-insert',
+	      click: function () {
+	        node._onInsertBefore('', '', 'auto');
+	      },
+	      submenu: insertSubmenu
+	    });
+
+	    if (this.editable.field) {
+	      // create duplicate button
+	      items.push({
+	        text: translate('duplicateText'),
+	        title: translate('duplicateField'),
+	        className: 'jsoneditor-duplicate',
+	        click: function () {
+	          Node.onDuplicate(node);
+	        }
+	      });
+
+	      // create remove button
+	      items.push({
+	        text: translate('removeText'),
+	        title: translate('removeField'),
+	        className: 'jsoneditor-remove',
+	        click: function () {
+	          Node.onRemove(node);
+	        }
+	      });
+	    }
+	  }
+
+	  var menu = new ContextMenu(items, {close: onClose});
+	  menu.show(anchor, this.editor.frame);
+	};
+
+	/**
+	 * get the type of a value
+	 * @param {*} value
+	 * @return {String} type   Can be 'object', 'array', 'string', 'auto'
+	 * @private
+	 */
+	Node.prototype._getType = function(value) {
+	  if (value instanceof Array) {
+	    return 'array';
+	  }
+	  if (value instanceof Object) {
+	    return 'object';
+	  }
+	  if (typeof(value) == 'string' && typeof(this._stringCast(value)) != 'string') {
+	    return 'string';
+	  }
+
+	  return 'auto';
+	};
+
+	/**
+	 * cast contents of a string to the correct type. This can be a string,
+	 * a number, a boolean, etc
+	 * @param {String} str
+	 * @return {*} castedStr
+	 * @private
+	 */
+	Node.prototype._stringCast = function(str) {
+	  var lower = str.toLowerCase(),
+	      num = Number(str),          // will nicely fail with '123ab'
+	      numFloat = parseFloat(str); // will nicely fail with '  '
+
+	  if (str == '') {
+	    return '';
+	  }
+	  else if (lower == 'null') {
+	    return null;
+	  }
+	  else if (lower == 'true') {
+	    return true;
+	  }
+	  else if (lower == 'false') {
+	    return false;
+	  }
+	  else if (!isNaN(num) && !isNaN(numFloat)) {
+	    return num;
+	  }
+	  else {
+	    return str;
+	  }
+	};
+
+	/**
+	 * escape a text, such that it can be displayed safely in an HTML element
+	 * @param {String} text
+	 * @return {String} escapedText
+	 * @private
+	 */
+	Node.prototype._escapeHTML = function (text) {
+	  if (typeof text !== 'string') {
+	    return String(text);
+	  }
+	  else {
+	    var htmlEscaped = String(text)
+	        .replace(/&/g, '&amp;')    // must be replaced first!
+	        .replace(/</g, '&lt;')
+	        .replace(/>/g, '&gt;')
+	        .replace(/  /g, ' &nbsp;') // replace double space with an nbsp and space
+	        .replace(/^ /, '&nbsp;')   // space at start
+	        .replace(/ $/, '&nbsp;');  // space at end
+
+	    var json = JSON.stringify(htmlEscaped);
+	    var html = json.substring(1, json.length - 1);
+	    if (this.editor.options.escapeUnicode === true) {
+	      html = util.escapeUnicodeChars(html);
+	    }
+	    return html;
+	  }
+	};
+
+	/**
+	 * unescape a string.
+	 * @param {String} escapedText
+	 * @return {String} text
+	 * @private
+	 */
+	Node.prototype._unescapeHTML = function (escapedText) {
+	  var json = '"' + this._escapeJSON(escapedText) + '"';
+	  var htmlEscaped = util.parse(json);
+
+	  return htmlEscaped
+	      .replace(/&lt;/g, '<')
+	      .replace(/&gt;/g, '>')
+	      .replace(/&nbsp;|\u00A0/g, ' ')
+	      .replace(/&amp;/g, '&');   // must be replaced last
+	};
+
+	/**
+	 * escape a text to make it a valid JSON string. The method will:
+	 *   - replace unescaped double quotes with '\"'
+	 *   - replace unescaped backslash with '\\'
+	 *   - replace returns with '\n'
+	 * @param {String} text
+	 * @return {String} escapedText
+	 * @private
+	 */
+	Node.prototype._escapeJSON = function (text) {
+	  // TODO: replace with some smart regex (only when a new solution is faster!)
+	  var escaped = '';
+	  var i = 0;
+	  while (i < text.length) {
+	    var c = text.charAt(i);
+	    if (c == '\n') {
+	      escaped += '\\n';
+	    }
+	    else if (c == '\\') {
+	      escaped += c;
+	      i++;
+
+	      c = text.charAt(i);
+	      if (c === '' || '"\\/bfnrtu'.indexOf(c) == -1) {
+	        escaped += '\\';  // no valid escape character
+	      }
+	      escaped += c;
+	    }
+	    else if (c == '"') {
+	      escaped += '\\"';
+	    }
+	    else {
+	      escaped += c;
+	    }
+	    i++;
+	  }
+
+	  return escaped;
+	};
+
+	// helper function to get the internal path of a node
+	function getInternalPath (node) {
+	  return node.getInternalPath();
+	}
+
+	// helper function to get the field of a node
+	function getField (node) {
+	  return node.getField();
+	}
+
+	// TODO: find a nicer solution to resolve this circular dependency between Node and AppendNode
+	//       idea: introduce properties .isAppendNode and .isNode and use that instead of instanceof AppendNode checks
+	var AppendNode = appendNodeFactory(Node);
+	var ShowMoreNode = showMoreNodeFactory(Node);
+
+	module.exports = Node;
+
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function(exports) {
+	  "use strict";
+
+	  function isArray(obj) {
+	    if (obj !== null) {
+	      return Object.prototype.toString.call(obj) === "[object Array]";
+	    } else {
+	      return false;
+	    }
+	  }
+
+	  function isObject(obj) {
+	    if (obj !== null) {
+	      return Object.prototype.toString.call(obj) === "[object Object]";
+	    } else {
+	      return false;
+	    }
+	  }
+
+	  function strictDeepEqual(first, second) {
+	    // Check the scalar case first.
+	    if (first === second) {
+	      return true;
+	    }
+
+	    // Check if they are the same type.
+	    var firstType = Object.prototype.toString.call(first);
+	    if (firstType !== Object.prototype.toString.call(second)) {
+	      return false;
+	    }
+	    // We know that first and second have the same type so we can just check the
+	    // first type from now on.
+	    if (isArray(first) === true) {
+	      // Short circuit if they're not the same length;
+	      if (first.length !== second.length) {
+	        return false;
+	      }
+	      for (var i = 0; i < first.length; i++) {
+	        if (strictDeepEqual(first[i], second[i]) === false) {
+	          return false;
+	        }
+	      }
+	      return true;
+	    }
+	    if (isObject(first) === true) {
+	      // An object is equal if it has the same key/value pairs.
+	      var keysSeen = {};
+	      for (var key in first) {
+	        if (hasOwnProperty.call(first, key)) {
+	          if (strictDeepEqual(first[key], second[key]) === false) {
+	            return false;
+	          }
+	          keysSeen[key] = true;
+	        }
+	      }
+	      // Now check that there aren't any keys in second that weren't
+	      // in first.
+	      for (var key2 in second) {
+	        if (hasOwnProperty.call(second, key2)) {
+	          if (keysSeen[key2] !== true) {
+	            return false;
+	          }
+	        }
+	      }
+	      return true;
+	    }
+	    return false;
+	  }
+
+	  function isFalse(obj) {
+	    // From the spec:
+	    // A false value corresponds to the following values:
+	    // Empty list
+	    // Empty object
+	    // Empty string
+	    // False boolean
+	    // null value
+
+	    // First check the scalar values.
+	    if (obj === "" || obj === false || obj === null) {
+	        return true;
+	    } else if (isArray(obj) && obj.length === 0) {
+	        // Check for an empty array.
+	        return true;
+	    } else if (isObject(obj)) {
+	        // Check for an empty object.
+	        for (var key in obj) {
+	            // If there are any keys, then
+	            // the object is not empty so the object
+	            // is not false.
+	            if (obj.hasOwnProperty(key)) {
+	              return false;
+	            }
+	        }
+	        return true;
+	    } else {
+	        return false;
+	    }
+	  }
+
+	  function objValues(obj) {
+	    var keys = Object.keys(obj);
+	    var values = [];
+	    for (var i = 0; i < keys.length; i++) {
+	      values.push(obj[keys[i]]);
+	    }
+	    return values;
+	  }
+
+	  function merge(a, b) {
+	      var merged = {};
+	      for (var key in a) {
+	          merged[key] = a[key];
+	      }
+	      for (var key2 in b) {
+	          merged[key2] = b[key2];
+	      }
+	      return merged;
+	  }
+
+	  var trimLeft;
+	  if (typeof String.prototype.trimLeft === "function") {
+	    trimLeft = function(str) {
+	      return str.trimLeft();
+	    };
+	  } else {
+	    trimLeft = function(str) {
+	      return str.match(/^\s*(.*)/)[1];
+	    };
+	  }
+
+	  // Type constants used to define functions.
+	  var TYPE_NUMBER = 0;
+	  var TYPE_ANY = 1;
+	  var TYPE_STRING = 2;
+	  var TYPE_ARRAY = 3;
+	  var TYPE_OBJECT = 4;
+	  var TYPE_BOOLEAN = 5;
+	  var TYPE_EXPREF = 6;
+	  var TYPE_NULL = 7;
+	  var TYPE_ARRAY_NUMBER = 8;
+	  var TYPE_ARRAY_STRING = 9;
+
+	  var TOK_EOF = "EOF";
+	  var TOK_UNQUOTEDIDENTIFIER = "UnquotedIdentifier";
+	  var TOK_QUOTEDIDENTIFIER = "QuotedIdentifier";
+	  var TOK_RBRACKET = "Rbracket";
+	  var TOK_RPAREN = "Rparen";
+	  var TOK_COMMA = "Comma";
+	  var TOK_COLON = "Colon";
+	  var TOK_RBRACE = "Rbrace";
+	  var TOK_NUMBER = "Number";
+	  var TOK_CURRENT = "Current";
+	  var TOK_EXPREF = "Expref";
+	  var TOK_PIPE = "Pipe";
+	  var TOK_OR = "Or";
+	  var TOK_AND = "And";
+	  var TOK_EQ = "EQ";
+	  var TOK_GT = "GT";
+	  var TOK_LT = "LT";
+	  var TOK_GTE = "GTE";
+	  var TOK_LTE = "LTE";
+	  var TOK_NE = "NE";
+	  var TOK_FLATTEN = "Flatten";
+	  var TOK_STAR = "Star";
+	  var TOK_FILTER = "Filter";
+	  var TOK_DOT = "Dot";
+	  var TOK_NOT = "Not";
+	  var TOK_LBRACE = "Lbrace";
+	  var TOK_LBRACKET = "Lbracket";
+	  var TOK_LPAREN= "Lparen";
+	  var TOK_LITERAL= "Literal";
+
+	  // The "&", "[", "<", ">" tokens
+	  // are not in basicToken because
+	  // there are two token variants
+	  // ("&&", "[?", "<=", ">=").  This is specially handled
+	  // below.
+
+	  var basicTokens = {
+	    ".": TOK_DOT,
+	    "*": TOK_STAR,
+	    ",": TOK_COMMA,
+	    ":": TOK_COLON,
+	    "{": TOK_LBRACE,
+	    "}": TOK_RBRACE,
+	    "]": TOK_RBRACKET,
+	    "(": TOK_LPAREN,
+	    ")": TOK_RPAREN,
+	    "@": TOK_CURRENT
+	  };
+
+	  var operatorStartToken = {
+	      "<": true,
+	      ">": true,
+	      "=": true,
+	      "!": true
+	  };
+
+	  var skipChars = {
+	      " ": true,
+	      "\t": true,
+	      "\n": true
+	  };
+
+
+	  function isAlpha(ch) {
+	      return (ch >= "a" && ch <= "z") ||
+	             (ch >= "A" && ch <= "Z") ||
+	             ch === "_";
+	  }
+
+	  function isNum(ch) {
+	      return (ch >= "0" && ch <= "9") ||
+	             ch === "-";
+	  }
+	  function isAlphaNum(ch) {
+	      return (ch >= "a" && ch <= "z") ||
+	             (ch >= "A" && ch <= "Z") ||
+	             (ch >= "0" && ch <= "9") ||
+	             ch === "_";
+	  }
+
+	  function Lexer() {
+	  }
+	  Lexer.prototype = {
+	      tokenize: function(stream) {
+	          var tokens = [];
+	          this._current = 0;
+	          var start;
+	          var identifier;
+	          var token;
+	          while (this._current < stream.length) {
+	              if (isAlpha(stream[this._current])) {
+	                  start = this._current;
+	                  identifier = this._consumeUnquotedIdentifier(stream);
+	                  tokens.push({type: TOK_UNQUOTEDIDENTIFIER,
+	                               value: identifier,
+	                               start: start});
+	              } else if (basicTokens[stream[this._current]] !== undefined) {
+	                  tokens.push({type: basicTokens[stream[this._current]],
+	                              value: stream[this._current],
+	                              start: this._current});
+	                  this._current++;
+	              } else if (isNum(stream[this._current])) {
+	                  token = this._consumeNumber(stream);
+	                  tokens.push(token);
+	              } else if (stream[this._current] === "[") {
+	                  // No need to increment this._current.  This happens
+	                  // in _consumeLBracket
+	                  token = this._consumeLBracket(stream);
+	                  tokens.push(token);
+	              } else if (stream[this._current] === "\"") {
+	                  start = this._current;
+	                  identifier = this._consumeQuotedIdentifier(stream);
+	                  tokens.push({type: TOK_QUOTEDIDENTIFIER,
+	                               value: identifier,
+	                               start: start});
+	              } else if (stream[this._current] === "'") {
+	                  start = this._current;
+	                  identifier = this._consumeRawStringLiteral(stream);
+	                  tokens.push({type: TOK_LITERAL,
+	                               value: identifier,
+	                               start: start});
+	              } else if (stream[this._current] === "`") {
+	                  start = this._current;
+	                  var literal = this._consumeLiteral(stream);
+	                  tokens.push({type: TOK_LITERAL,
+	                               value: literal,
+	                               start: start});
+	              } else if (operatorStartToken[stream[this._current]] !== undefined) {
+	                  tokens.push(this._consumeOperator(stream));
+	              } else if (skipChars[stream[this._current]] !== undefined) {
+	                  // Ignore whitespace.
+	                  this._current++;
+	              } else if (stream[this._current] === "&") {
+	                  start = this._current;
+	                  this._current++;
+	                  if (stream[this._current] === "&") {
+	                      this._current++;
+	                      tokens.push({type: TOK_AND, value: "&&", start: start});
+	                  } else {
+	                      tokens.push({type: TOK_EXPREF, value: "&", start: start});
+	                  }
+	              } else if (stream[this._current] === "|") {
+	                  start = this._current;
+	                  this._current++;
+	                  if (stream[this._current] === "|") {
+	                      this._current++;
+	                      tokens.push({type: TOK_OR, value: "||", start: start});
+	                  } else {
+	                      tokens.push({type: TOK_PIPE, value: "|", start: start});
+	                  }
+	              } else {
+	                  var error = new Error("Unknown character:" + stream[this._current]);
+	                  error.name = "LexerError";
+	                  throw error;
+	              }
+	          }
+	          return tokens;
+	      },
+
+	      _consumeUnquotedIdentifier: function(stream) {
+	          var start = this._current;
+	          this._current++;
+	          while (this._current < stream.length && isAlphaNum(stream[this._current])) {
+	              this._current++;
+	          }
+	          return stream.slice(start, this._current);
+	      },
+
+	      _consumeQuotedIdentifier: function(stream) {
+	          var start = this._current;
+	          this._current++;
+	          var maxLength = stream.length;
+	          while (stream[this._current] !== "\"" && this._current < maxLength) {
+	              // You can escape a double quote and you can escape an escape.
+	              var current = this._current;
+	              if (stream[current] === "\\" && (stream[current + 1] === "\\" ||
+	                                               stream[current + 1] === "\"")) {
+	                  current += 2;
+	              } else {
+	                  current++;
+	              }
+	              this._current = current;
+	          }
+	          this._current++;
+	          return JSON.parse(stream.slice(start, this._current));
+	      },
+
+	      _consumeRawStringLiteral: function(stream) {
+	          var start = this._current;
+	          this._current++;
+	          var maxLength = stream.length;
+	          while (stream[this._current] !== "'" && this._current < maxLength) {
+	              // You can escape a single quote and you can escape an escape.
+	              var current = this._current;
+	              if (stream[current] === "\\" && (stream[current + 1] === "\\" ||
+	                                               stream[current + 1] === "'")) {
+	                  current += 2;
+	              } else {
+	                  current++;
+	              }
+	              this._current = current;
+	          }
+	          this._current++;
+	          var literal = stream.slice(start + 1, this._current - 1);
+	          return literal.replace("\\'", "'");
+	      },
+
+	      _consumeNumber: function(stream) {
+	          var start = this._current;
+	          this._current++;
+	          var maxLength = stream.length;
+	          while (isNum(stream[this._current]) && this._current < maxLength) {
+	              this._current++;
+	          }
+	          var value = parseInt(stream.slice(start, this._current));
+	          return {type: TOK_NUMBER, value: value, start: start};
+	      },
+
+	      _consumeLBracket: function(stream) {
+	          var start = this._current;
+	          this._current++;
+	          if (stream[this._current] === "?") {
+	              this._current++;
+	              return {type: TOK_FILTER, value: "[?", start: start};
+	          } else if (stream[this._current] === "]") {
+	              this._current++;
+	              return {type: TOK_FLATTEN, value: "[]", start: start};
+	          } else {
+	              return {type: TOK_LBRACKET, value: "[", start: start};
+	          }
+	      },
+
+	      _consumeOperator: function(stream) {
+	          var start = this._current;
+	          var startingChar = stream[start];
+	          this._current++;
+	          if (startingChar === "!") {
+	              if (stream[this._current] === "=") {
+	                  this._current++;
+	                  return {type: TOK_NE, value: "!=", start: start};
+	              } else {
+	                return {type: TOK_NOT, value: "!", start: start};
+	              }
+	          } else if (startingChar === "<") {
+	              if (stream[this._current] === "=") {
+	                  this._current++;
+	                  return {type: TOK_LTE, value: "<=", start: start};
+	              } else {
+	                  return {type: TOK_LT, value: "<", start: start};
+	              }
+	          } else if (startingChar === ">") {
+	              if (stream[this._current] === "=") {
+	                  this._current++;
+	                  return {type: TOK_GTE, value: ">=", start: start};
+	              } else {
+	                  return {type: TOK_GT, value: ">", start: start};
+	              }
+	          } else if (startingChar === "=") {
+	              if (stream[this._current] === "=") {
+	                  this._current++;
+	                  return {type: TOK_EQ, value: "==", start: start};
+	              }
+	          }
+	      },
+
+	      _consumeLiteral: function(stream) {
+	          this._current++;
+	          var start = this._current;
+	          var maxLength = stream.length;
+	          var literal;
+	          while(stream[this._current] !== "`" && this._current < maxLength) {
+	              // You can escape a literal char or you can escape the escape.
+	              var current = this._current;
+	              if (stream[current] === "\\" && (stream[current + 1] === "\\" ||
+	                                               stream[current + 1] === "`")) {
+	                  current += 2;
+	              } else {
+	                  current++;
+	              }
+	              this._current = current;
+	          }
+	          var literalString = trimLeft(stream.slice(start, this._current));
+	          literalString = literalString.replace("\\`", "`");
+	          if (this._looksLikeJSON(literalString)) {
+	              literal = JSON.parse(literalString);
+	          } else {
+	              // Try to JSON parse it as "<literal>"
+	              literal = JSON.parse("\"" + literalString + "\"");
+	          }
+	          // +1 gets us to the ending "`", +1 to move on to the next char.
+	          this._current++;
+	          return literal;
+	      },
+
+	      _looksLikeJSON: function(literalString) {
+	          var startingChars = "[{\"";
+	          var jsonLiterals = ["true", "false", "null"];
+	          var numberLooking = "-0123456789";
+
+	          if (literalString === "") {
+	              return false;
+	          } else if (startingChars.indexOf(literalString[0]) >= 0) {
+	              return true;
+	          } else if (jsonLiterals.indexOf(literalString) >= 0) {
+	              return true;
+	          } else if (numberLooking.indexOf(literalString[0]) >= 0) {
+	              try {
+	                  JSON.parse(literalString);
+	                  return true;
+	              } catch (ex) {
+	                  return false;
+	              }
+	          } else {
+	              return false;
+	          }
+	      }
+	  };
+
+	      var bindingPower = {};
+	      bindingPower[TOK_EOF] = 0;
+	      bindingPower[TOK_UNQUOTEDIDENTIFIER] = 0;
+	      bindingPower[TOK_QUOTEDIDENTIFIER] = 0;
+	      bindingPower[TOK_RBRACKET] = 0;
+	      bindingPower[TOK_RPAREN] = 0;
+	      bindingPower[TOK_COMMA] = 0;
+	      bindingPower[TOK_RBRACE] = 0;
+	      bindingPower[TOK_NUMBER] = 0;
+	      bindingPower[TOK_CURRENT] = 0;
+	      bindingPower[TOK_EXPREF] = 0;
+	      bindingPower[TOK_PIPE] = 1;
+	      bindingPower[TOK_OR] = 2;
+	      bindingPower[TOK_AND] = 3;
+	      bindingPower[TOK_EQ] = 5;
+	      bindingPower[TOK_GT] = 5;
+	      bindingPower[TOK_LT] = 5;
+	      bindingPower[TOK_GTE] = 5;
+	      bindingPower[TOK_LTE] = 5;
+	      bindingPower[TOK_NE] = 5;
+	      bindingPower[TOK_FLATTEN] = 9;
+	      bindingPower[TOK_STAR] = 20;
+	      bindingPower[TOK_FILTER] = 21;
+	      bindingPower[TOK_DOT] = 40;
+	      bindingPower[TOK_NOT] = 45;
+	      bindingPower[TOK_LBRACE] = 50;
+	      bindingPower[TOK_LBRACKET] = 55;
+	      bindingPower[TOK_LPAREN] = 60;
+
+	  function Parser() {
+	  }
+
+	  Parser.prototype = {
+	      parse: function(expression) {
+	          this._loadTokens(expression);
+	          this.index = 0;
+	          var ast = this.expression(0);
+	          if (this._lookahead(0) !== TOK_EOF) {
+	              var t = this._lookaheadToken(0);
+	              var error = new Error(
+	                  "Unexpected token type: " + t.type + ", value: " + t.value);
+	              error.name = "ParserError";
+	              throw error;
+	          }
+	          return ast;
+	      },
+
+	      _loadTokens: function(expression) {
+	          var lexer = new Lexer();
+	          var tokens = lexer.tokenize(expression);
+	          tokens.push({type: TOK_EOF, value: "", start: expression.length});
+	          this.tokens = tokens;
+	      },
+
+	      expression: function(rbp) {
+	          var leftToken = this._lookaheadToken(0);
+	          this._advance();
+	          var left = this.nud(leftToken);
+	          var currentToken = this._lookahead(0);
+	          while (rbp < bindingPower[currentToken]) {
+	              this._advance();
+	              left = this.led(currentToken, left);
+	              currentToken = this._lookahead(0);
+	          }
+	          return left;
+	      },
+
+	      _lookahead: function(number) {
+	          return this.tokens[this.index + number].type;
+	      },
+
+	      _lookaheadToken: function(number) {
+	          return this.tokens[this.index + number];
+	      },
+
+	      _advance: function() {
+	          this.index++;
+	      },
+
+	      nud: function(token) {
+	        var left;
+	        var right;
+	        var expression;
+	        switch (token.type) {
+	          case TOK_LITERAL:
+	            return {type: "Literal", value: token.value};
+	          case TOK_UNQUOTEDIDENTIFIER:
+	            return {type: "Field", name: token.value};
+	          case TOK_QUOTEDIDENTIFIER:
+	            var node = {type: "Field", name: token.value};
+	            if (this._lookahead(0) === TOK_LPAREN) {
+	                throw new Error("Quoted identifier not allowed for function names.");
+	            } else {
+	                return node;
+	            }
+	            break;
+	          case TOK_NOT:
+	            right = this.expression(bindingPower.Not);
+	            return {type: "NotExpression", children: [right]};
+	          case TOK_STAR:
+	            left = {type: "Identity"};
+	            right = null;
+	            if (this._lookahead(0) === TOK_RBRACKET) {
+	                // This can happen in a multiselect,
+	                // [a, b, *]
+	                right = {type: "Identity"};
+	            } else {
+	                right = this._parseProjectionRHS(bindingPower.Star);
+	            }
+	            return {type: "ValueProjection", children: [left, right]};
+	          case TOK_FILTER:
+	            return this.led(token.type, {type: "Identity"});
+	          case TOK_LBRACE:
+	            return this._parseMultiselectHash();
+	          case TOK_FLATTEN:
+	            left = {type: TOK_FLATTEN, children: [{type: "Identity"}]};
+	            right = this._parseProjectionRHS(bindingPower.Flatten);
+	            return {type: "Projection", children: [left, right]};
+	          case TOK_LBRACKET:
+	            if (this._lookahead(0) === TOK_NUMBER || this._lookahead(0) === TOK_COLON) {
+	                right = this._parseIndexExpression();
+	                return this._projectIfSlice({type: "Identity"}, right);
+	            } else if (this._lookahead(0) === TOK_STAR &&
+	                       this._lookahead(1) === TOK_RBRACKET) {
+	                this._advance();
+	                this._advance();
+	                right = this._parseProjectionRHS(bindingPower.Star);
+	                return {type: "Projection",
+	                        children: [{type: "Identity"}, right]};
+	            } else {
+	                return this._parseMultiselectList();
+	            }
+	            break;
+	          case TOK_CURRENT:
+	            return {type: TOK_CURRENT};
+	          case TOK_EXPREF:
+	            expression = this.expression(bindingPower.Expref);
+	            return {type: "ExpressionReference", children: [expression]};
+	          case TOK_LPAREN:
+	            var args = [];
+	            while (this._lookahead(0) !== TOK_RPAREN) {
+	              if (this._lookahead(0) === TOK_CURRENT) {
+	                expression = {type: TOK_CURRENT};
+	                this._advance();
+	              } else {
+	                expression = this.expression(0);
+	              }
+	              args.push(expression);
+	            }
+	            this._match(TOK_RPAREN);
+	            return args[0];
+	          default:
+	            this._errorToken(token);
+	        }
+	      },
+
+	      led: function(tokenName, left) {
+	        var right;
+	        switch(tokenName) {
+	          case TOK_DOT:
+	            var rbp = bindingPower.Dot;
+	            if (this._lookahead(0) !== TOK_STAR) {
+	                right = this._parseDotRHS(rbp);
+	                return {type: "Subexpression", children: [left, right]};
+	            } else {
+	                // Creating a projection.
+	                this._advance();
+	                right = this._parseProjectionRHS(rbp);
+	                return {type: "ValueProjection", children: [left, right]};
+	            }
+	            break;
+	          case TOK_PIPE:
+	            right = this.expression(bindingPower.Pipe);
+	            return {type: TOK_PIPE, children: [left, right]};
+	          case TOK_OR:
+	            right = this.expression(bindingPower.Or);
+	            return {type: "OrExpression", children: [left, right]};
+	          case TOK_AND:
+	            right = this.expression(bindingPower.And);
+	            return {type: "AndExpression", children: [left, right]};
+	          case TOK_LPAREN:
+	            var name = left.name;
+	            var args = [];
+	            var expression, node;
+	            while (this._lookahead(0) !== TOK_RPAREN) {
+	              if (this._lookahead(0) === TOK_CURRENT) {
+	                expression = {type: TOK_CURRENT};
+	                this._advance();
+	              } else {
+	                expression = this.expression(0);
+	              }
+	              if (this._lookahead(0) === TOK_COMMA) {
+	                this._match(TOK_COMMA);
+	              }
+	              args.push(expression);
+	            }
+	            this._match(TOK_RPAREN);
+	            node = {type: "Function", name: name, children: args};
+	            return node;
+	          case TOK_FILTER:
+	            var condition = this.expression(0);
+	            this._match(TOK_RBRACKET);
+	            if (this._lookahead(0) === TOK_FLATTEN) {
+	              right = {type: "Identity"};
+	            } else {
+	              right = this._parseProjectionRHS(bindingPower.Filter);
+	            }
+	            return {type: "FilterProjection", children: [left, right, condition]};
+	          case TOK_FLATTEN:
+	            var leftNode = {type: TOK_FLATTEN, children: [left]};
+	            var rightNode = this._parseProjectionRHS(bindingPower.Flatten);
+	            return {type: "Projection", children: [leftNode, rightNode]};
+	          case TOK_EQ:
+	          case TOK_NE:
+	          case TOK_GT:
+	          case TOK_GTE:
+	          case TOK_LT:
+	          case TOK_LTE:
+	            return this._parseComparator(left, tokenName);
+	          case TOK_LBRACKET:
+	            var token = this._lookaheadToken(0);
+	            if (token.type === TOK_NUMBER || token.type === TOK_COLON) {
+	                right = this._parseIndexExpression();
+	                return this._projectIfSlice(left, right);
+	            } else {
+	                this._match(TOK_STAR);
+	                this._match(TOK_RBRACKET);
+	                right = this._parseProjectionRHS(bindingPower.Star);
+	                return {type: "Projection", children: [left, right]};
+	            }
+	            break;
+	          default:
+	            this._errorToken(this._lookaheadToken(0));
+	        }
+	      },
+
+	      _match: function(tokenType) {
+	          if (this._lookahead(0) === tokenType) {
+	              this._advance();
+	          } else {
+	              var t = this._lookaheadToken(0);
+	              var error = new Error("Expected " + tokenType + ", got: " + t.type);
+	              error.name = "ParserError";
+	              throw error;
+	          }
+	      },
+
+	      _errorToken: function(token) {
+	          var error = new Error("Invalid token (" +
+	                                token.type + "): \"" +
+	                                token.value + "\"");
+	          error.name = "ParserError";
+	          throw error;
+	      },
+
+
+	      _parseIndexExpression: function() {
+	          if (this._lookahead(0) === TOK_COLON || this._lookahead(1) === TOK_COLON) {
+	              return this._parseSliceExpression();
+	          } else {
+	              var node = {
+	                  type: "Index",
+	                  value: this._lookaheadToken(0).value};
+	              this._advance();
+	              this._match(TOK_RBRACKET);
+	              return node;
+	          }
+	      },
+
+	      _projectIfSlice: function(left, right) {
+	          var indexExpr = {type: "IndexExpression", children: [left, right]};
+	          if (right.type === "Slice") {
+	              return {
+	                  type: "Projection",
+	                  children: [indexExpr, this._parseProjectionRHS(bindingPower.Star)]
+	              };
+	          } else {
+	              return indexExpr;
+	          }
+	      },
+
+	      _parseSliceExpression: function() {
+	          // [start:end:step] where each part is optional, as well as the last
+	          // colon.
+	          var parts = [null, null, null];
+	          var index = 0;
+	          var currentToken = this._lookahead(0);
+	          while (currentToken !== TOK_RBRACKET && index < 3) {
+	              if (currentToken === TOK_COLON) {
+	                  index++;
+	                  this._advance();
+	              } else if (currentToken === TOK_NUMBER) {
+	                  parts[index] = this._lookaheadToken(0).value;
+	                  this._advance();
+	              } else {
+	                  var t = this._lookahead(0);
+	                  var error = new Error("Syntax error, unexpected token: " +
+	                                        t.value + "(" + t.type + ")");
+	                  error.name = "Parsererror";
+	                  throw error;
+	              }
+	              currentToken = this._lookahead(0);
+	          }
+	          this._match(TOK_RBRACKET);
+	          return {
+	              type: "Slice",
+	              children: parts
+	          };
+	      },
+
+	      _parseComparator: function(left, comparator) {
+	        var right = this.expression(bindingPower[comparator]);
+	        return {type: "Comparator", name: comparator, children: [left, right]};
+	      },
+
+	      _parseDotRHS: function(rbp) {
+	          var lookahead = this._lookahead(0);
+	          var exprTokens = [TOK_UNQUOTEDIDENTIFIER, TOK_QUOTEDIDENTIFIER, TOK_STAR];
+	          if (exprTokens.indexOf(lookahead) >= 0) {
+	              return this.expression(rbp);
+	          } else if (lookahead === TOK_LBRACKET) {
+	              this._match(TOK_LBRACKET);
+	              return this._parseMultiselectList();
+	          } else if (lookahead === TOK_LBRACE) {
+	              this._match(TOK_LBRACE);
+	              return this._parseMultiselectHash();
+	          }
+	      },
+
+	      _parseProjectionRHS: function(rbp) {
+	          var right;
+	          if (bindingPower[this._lookahead(0)] < 10) {
+	              right = {type: "Identity"};
+	          } else if (this._lookahead(0) === TOK_LBRACKET) {
+	              right = this.expression(rbp);
+	          } else if (this._lookahead(0) === TOK_FILTER) {
+	              right = this.expression(rbp);
+	          } else if (this._lookahead(0) === TOK_DOT) {
+	              this._match(TOK_DOT);
+	              right = this._parseDotRHS(rbp);
+	          } else {
+	              var t = this._lookaheadToken(0);
+	              var error = new Error("Sytanx error, unexpected token: " +
+	                                    t.value + "(" + t.type + ")");
+	              error.name = "ParserError";
+	              throw error;
+	          }
+	          return right;
+	      },
+
+	      _parseMultiselectList: function() {
+	          var expressions = [];
+	          while (this._lookahead(0) !== TOK_RBRACKET) {
+	              var expression = this.expression(0);
+	              expressions.push(expression);
+	              if (this._lookahead(0) === TOK_COMMA) {
+	                  this._match(TOK_COMMA);
+	                  if (this._lookahead(0) === TOK_RBRACKET) {
+	                    throw new Error("Unexpected token Rbracket");
+	                  }
+	              }
+	          }
+	          this._match(TOK_RBRACKET);
+	          return {type: "MultiSelectList", children: expressions};
+	      },
+
+	      _parseMultiselectHash: function() {
+	        var pairs = [];
+	        var identifierTypes = [TOK_UNQUOTEDIDENTIFIER, TOK_QUOTEDIDENTIFIER];
+	        var keyToken, keyName, value, node;
+	        for (;;) {
+	          keyToken = this._lookaheadToken(0);
+	          if (identifierTypes.indexOf(keyToken.type) < 0) {
+	            throw new Error("Expecting an identifier token, got: " +
+	                            keyToken.type);
+	          }
+	          keyName = keyToken.value;
+	          this._advance();
+	          this._match(TOK_COLON);
+	          value = this.expression(0);
+	          node = {type: "KeyValuePair", name: keyName, value: value};
+	          pairs.push(node);
+	          if (this._lookahead(0) === TOK_COMMA) {
+	            this._match(TOK_COMMA);
+	          } else if (this._lookahead(0) === TOK_RBRACE) {
+	            this._match(TOK_RBRACE);
+	            break;
+	          }
+	        }
+	        return {type: "MultiSelectHash", children: pairs};
+	      }
+	  };
+
+
+	  function TreeInterpreter(runtime) {
+	    this.runtime = runtime;
+	  }
+
+	  TreeInterpreter.prototype = {
+	      search: function(node, value) {
+	          return this.visit(node, value);
+	      },
+
+	      visit: function(node, value) {
+	          var matched, current, result, first, second, field, left, right, collected, i;
+	          switch (node.type) {
+	            case "Field":
+	              if (value === null ) {
+	                  return null;
+	              } else if (isObject(value)) {
+	                  field = value[node.name];
+	                  if (field === undefined) {
+	                      return null;
+	                  } else {
+	                      return field;
+	                  }
+	              } else {
+	                return null;
+	              }
+	              break;
+	            case "Subexpression":
+	              result = this.visit(node.children[0], value);
+	              for (i = 1; i < node.children.length; i++) {
+	                  result = this.visit(node.children[1], result);
+	                  if (result === null) {
+	                      return null;
+	                  }
+	              }
+	              return result;
+	            case "IndexExpression":
+	              left = this.visit(node.children[0], value);
+	              right = this.visit(node.children[1], left);
+	              return right;
+	            case "Index":
+	              if (!isArray(value)) {
+	                return null;
+	              }
+	              var index = node.value;
+	              if (index < 0) {
+	                index = value.length + index;
+	              }
+	              result = value[index];
+	              if (result === undefined) {
+	                result = null;
+	              }
+	              return result;
+	            case "Slice":
+	              if (!isArray(value)) {
+	                return null;
+	              }
+	              var sliceParams = node.children.slice(0);
+	              var computed = this.computeSliceParams(value.length, sliceParams);
+	              var start = computed[0];
+	              var stop = computed[1];
+	              var step = computed[2];
+	              result = [];
+	              if (step > 0) {
+	                  for (i = start; i < stop; i += step) {
+	                      result.push(value[i]);
+	                  }
+	              } else {
+	                  for (i = start; i > stop; i += step) {
+	                      result.push(value[i]);
+	                  }
+	              }
+	              return result;
+	            case "Projection":
+	              // Evaluate left child.
+	              var base = this.visit(node.children[0], value);
+	              if (!isArray(base)) {
+	                return null;
+	              }
+	              collected = [];
+	              for (i = 0; i < base.length; i++) {
+	                current = this.visit(node.children[1], base[i]);
+	                if (current !== null) {
+	                  collected.push(current);
+	                }
+	              }
+	              return collected;
+	            case "ValueProjection":
+	              // Evaluate left child.
+	              base = this.visit(node.children[0], value);
+	              if (!isObject(base)) {
+	                return null;
+	              }
+	              collected = [];
+	              var values = objValues(base);
+	              for (i = 0; i < values.length; i++) {
+	                current = this.visit(node.children[1], values[i]);
+	                if (current !== null) {
+	                  collected.push(current);
+	                }
+	              }
+	              return collected;
+	            case "FilterProjection":
+	              base = this.visit(node.children[0], value);
+	              if (!isArray(base)) {
+	                return null;
+	              }
+	              var filtered = [];
+	              var finalResults = [];
+	              for (i = 0; i < base.length; i++) {
+	                matched = this.visit(node.children[2], base[i]);
+	                if (!isFalse(matched)) {
+	                  filtered.push(base[i]);
+	                }
+	              }
+	              for (var j = 0; j < filtered.length; j++) {
+	                current = this.visit(node.children[1], filtered[j]);
+	                if (current !== null) {
+	                  finalResults.push(current);
+	                }
+	              }
+	              return finalResults;
+	            case "Comparator":
+	              first = this.visit(node.children[0], value);
+	              second = this.visit(node.children[1], value);
+	              switch(node.name) {
+	                case TOK_EQ:
+	                  result = strictDeepEqual(first, second);
+	                  break;
+	                case TOK_NE:
+	                  result = !strictDeepEqual(first, second);
+	                  break;
+	                case TOK_GT:
+	                  result = first > second;
+	                  break;
+	                case TOK_GTE:
+	                  result = first >= second;
+	                  break;
+	                case TOK_LT:
+	                  result = first < second;
+	                  break;
+	                case TOK_LTE:
+	                  result = first <= second;
+	                  break;
+	                default:
+	                  throw new Error("Unknown comparator: " + node.name);
+	              }
+	              return result;
+	            case TOK_FLATTEN:
+	              var original = this.visit(node.children[0], value);
+	              if (!isArray(original)) {
+	                return null;
+	              }
+	              var merged = [];
+	              for (i = 0; i < original.length; i++) {
+	                current = original[i];
+	                if (isArray(current)) {
+	                  merged.push.apply(merged, current);
+	                } else {
+	                  merged.push(current);
+	                }
+	              }
+	              return merged;
+	            case "Identity":
+	              return value;
+	            case "MultiSelectList":
+	              if (value === null) {
+	                return null;
+	              }
+	              collected = [];
+	              for (i = 0; i < node.children.length; i++) {
+	                  collected.push(this.visit(node.children[i], value));
+	              }
+	              return collected;
+	            case "MultiSelectHash":
+	              if (value === null) {
+	                return null;
+	              }
+	              collected = {};
+	              var child;
+	              for (i = 0; i < node.children.length; i++) {
+	                child = node.children[i];
+	                collected[child.name] = this.visit(child.value, value);
+	              }
+	              return collected;
+	            case "OrExpression":
+	              matched = this.visit(node.children[0], value);
+	              if (isFalse(matched)) {
+	                  matched = this.visit(node.children[1], value);
+	              }
+	              return matched;
+	            case "AndExpression":
+	              first = this.visit(node.children[0], value);
+
+	              if (isFalse(first) === true) {
+	                return first;
+	              }
+	              return this.visit(node.children[1], value);
+	            case "NotExpression":
+	              first = this.visit(node.children[0], value);
+	              return isFalse(first);
+	            case "Literal":
+	              return node.value;
+	            case TOK_PIPE:
+	              left = this.visit(node.children[0], value);
+	              return this.visit(node.children[1], left);
+	            case TOK_CURRENT:
+	              return value;
+	            case "Function":
+	              var resolvedArgs = [];
+	              for (i = 0; i < node.children.length; i++) {
+	                  resolvedArgs.push(this.visit(node.children[i], value));
+	              }
+	              return this.runtime.callFunction(node.name, resolvedArgs);
+	            case "ExpressionReference":
+	              var refNode = node.children[0];
+	              // Tag the node with a specific attribute so the type
+	              // checker verify the type.
+	              refNode.jmespathType = TOK_EXPREF;
+	              return refNode;
+	            default:
+	              throw new Error("Unknown node type: " + node.type);
+	          }
+	      },
+
+	      computeSliceParams: function(arrayLength, sliceParams) {
+	        var start = sliceParams[0];
+	        var stop = sliceParams[1];
+	        var step = sliceParams[2];
+	        var computed = [null, null, null];
+	        if (step === null) {
+	          step = 1;
+	        } else if (step === 0) {
+	          var error = new Error("Invalid slice, step cannot be 0");
+	          error.name = "RuntimeError";
+	          throw error;
+	        }
+	        var stepValueNegative = step < 0 ? true : false;
+
+	        if (start === null) {
+	            start = stepValueNegative ? arrayLength - 1 : 0;
+	        } else {
+	            start = this.capSliceRange(arrayLength, start, step);
+	        }
+
+	        if (stop === null) {
+	            stop = stepValueNegative ? -1 : arrayLength;
+	        } else {
+	            stop = this.capSliceRange(arrayLength, stop, step);
+	        }
+	        computed[0] = start;
+	        computed[1] = stop;
+	        computed[2] = step;
+	        return computed;
+	      },
+
+	      capSliceRange: function(arrayLength, actualValue, step) {
+	          if (actualValue < 0) {
+	              actualValue += arrayLength;
+	              if (actualValue < 0) {
+	                  actualValue = step < 0 ? -1 : 0;
+	              }
+	          } else if (actualValue >= arrayLength) {
+	              actualValue = step < 0 ? arrayLength - 1 : arrayLength;
+	          }
+	          return actualValue;
+	      }
+
+	  };
+
+	  function Runtime(interpreter) {
+	    this._interpreter = interpreter;
+	    this.functionTable = {
+	        // name: [function, <signature>]
+	        // The <signature> can be:
+	        //
+	        // {
+	        //   args: [[type1, type2], [type1, type2]],
+	        //   variadic: true|false
+	        // }
+	        //
+	        // Each arg in the arg list is a list of valid types
+	        // (if the function is overloaded and supports multiple
+	        // types.  If the type is "any" then no type checking
+	        // occurs on the argument.  Variadic is optional
+	        // and if not provided is assumed to be false.
+	        abs: {_func: this._functionAbs, _signature: [{types: [TYPE_NUMBER]}]},
+	        avg: {_func: this._functionAvg, _signature: [{types: [TYPE_ARRAY_NUMBER]}]},
+	        ceil: {_func: this._functionCeil, _signature: [{types: [TYPE_NUMBER]}]},
+	        contains: {
+	            _func: this._functionContains,
+	            _signature: [{types: [TYPE_STRING, TYPE_ARRAY]},
+	                        {types: [TYPE_ANY]}]},
+	        "ends_with": {
+	            _func: this._functionEndsWith,
+	            _signature: [{types: [TYPE_STRING]}, {types: [TYPE_STRING]}]},
+	        floor: {_func: this._functionFloor, _signature: [{types: [TYPE_NUMBER]}]},
+	        length: {
+	            _func: this._functionLength,
+	            _signature: [{types: [TYPE_STRING, TYPE_ARRAY, TYPE_OBJECT]}]},
+	        map: {
+	            _func: this._functionMap,
+	            _signature: [{types: [TYPE_EXPREF]}, {types: [TYPE_ARRAY]}]},
+	        max: {
+	            _func: this._functionMax,
+	            _signature: [{types: [TYPE_ARRAY_NUMBER, TYPE_ARRAY_STRING]}]},
+	        "merge": {
+	            _func: this._functionMerge,
+	            _signature: [{types: [TYPE_OBJECT], variadic: true}]
+	        },
+	        "max_by": {
+	          _func: this._functionMaxBy,
+	          _signature: [{types: [TYPE_ARRAY]}, {types: [TYPE_EXPREF]}]
+	        },
+	        sum: {_func: this._functionSum, _signature: [{types: [TYPE_ARRAY_NUMBER]}]},
+	        "starts_with": {
+	            _func: this._functionStartsWith,
+	            _signature: [{types: [TYPE_STRING]}, {types: [TYPE_STRING]}]},
+	        min: {
+	            _func: this._functionMin,
+	            _signature: [{types: [TYPE_ARRAY_NUMBER, TYPE_ARRAY_STRING]}]},
+	        "min_by": {
+	          _func: this._functionMinBy,
+	          _signature: [{types: [TYPE_ARRAY]}, {types: [TYPE_EXPREF]}]
+	        },
+	        type: {_func: this._functionType, _signature: [{types: [TYPE_ANY]}]},
+	        keys: {_func: this._functionKeys, _signature: [{types: [TYPE_OBJECT]}]},
+	        values: {_func: this._functionValues, _signature: [{types: [TYPE_OBJECT]}]},
+	        sort: {_func: this._functionSort, _signature: [{types: [TYPE_ARRAY_STRING, TYPE_ARRAY_NUMBER]}]},
+	        "sort_by": {
+	          _func: this._functionSortBy,
+	          _signature: [{types: [TYPE_ARRAY]}, {types: [TYPE_EXPREF]}]
+	        },
+	        join: {
+	            _func: this._functionJoin,
+	            _signature: [
+	                {types: [TYPE_STRING]},
+	                {types: [TYPE_ARRAY_STRING]}
+	            ]
+	        },
+	        reverse: {
+	            _func: this._functionReverse,
+	            _signature: [{types: [TYPE_STRING, TYPE_ARRAY]}]},
+	        "to_array": {_func: this._functionToArray, _signature: [{types: [TYPE_ANY]}]},
+	        "to_string": {_func: this._functionToString, _signature: [{types: [TYPE_ANY]}]},
+	        "to_number": {_func: this._functionToNumber, _signature: [{types: [TYPE_ANY]}]},
+	        "not_null": {
+	            _func: this._functionNotNull,
+	            _signature: [{types: [TYPE_ANY], variadic: true}]
+	        }
+	    };
+	  }
+
+	  Runtime.prototype = {
+	    callFunction: function(name, resolvedArgs) {
+	      var functionEntry = this.functionTable[name];
+	      if (functionEntry === undefined) {
+	          throw new Error("Unknown function: " + name + "()");
+	      }
+	      this._validateArgs(name, resolvedArgs, functionEntry._signature);
+	      return functionEntry._func.call(this, resolvedArgs);
+	    },
+
+	    _validateArgs: function(name, args, signature) {
+	        // Validating the args requires validating
+	        // the correct arity and the correct type of each arg.
+	        // If the last argument is declared as variadic, then we need
+	        // a minimum number of args to be required.  Otherwise it has to
+	        // be an exact amount.
+	        var pluralized;
+	        if (signature[signature.length - 1].variadic) {
+	            if (args.length < signature.length) {
+	                pluralized = signature.length === 1 ? " argument" : " arguments";
+	                throw new Error("ArgumentError: " + name + "() " +
+	                                "takes at least" + signature.length + pluralized +
+	                                " but received " + args.length);
+	            }
+	        } else if (args.length !== signature.length) {
+	            pluralized = signature.length === 1 ? " argument" : " arguments";
+	            throw new Error("ArgumentError: " + name + "() " +
+	                            "takes " + signature.length + pluralized +
+	                            " but received " + args.length);
+	        }
+	        var currentSpec;
+	        var actualType;
+	        var typeMatched;
+	        for (var i = 0; i < signature.length; i++) {
+	            typeMatched = false;
+	            currentSpec = signature[i].types;
+	            actualType = this._getTypeName(args[i]);
+	            for (var j = 0; j < currentSpec.length; j++) {
+	                if (this._typeMatches(actualType, currentSpec[j], args[i])) {
+	                    typeMatched = true;
+	                    break;
+	                }
+	            }
+	            if (!typeMatched) {
+	                throw new Error("TypeError: " + name + "() " +
+	                                "expected argument " + (i + 1) +
+	                                " to be type " + currentSpec +
+	                                " but received type " + actualType +
+	                                " instead.");
+	            }
+	        }
+	    },
+
+	    _typeMatches: function(actual, expected, argValue) {
+	        if (expected === TYPE_ANY) {
+	            return true;
+	        }
+	        if (expected === TYPE_ARRAY_STRING ||
+	            expected === TYPE_ARRAY_NUMBER ||
+	            expected === TYPE_ARRAY) {
+	            // The expected type can either just be array,
+	            // or it can require a specific subtype (array of numbers).
+	            //
+	            // The simplest case is if "array" with no subtype is specified.
+	            if (expected === TYPE_ARRAY) {
+	                return actual === TYPE_ARRAY;
+	            } else if (actual === TYPE_ARRAY) {
+	                // Otherwise we need to check subtypes.
+	                // I think this has potential to be improved.
+	                var subtype;
+	                if (expected === TYPE_ARRAY_NUMBER) {
+	                  subtype = TYPE_NUMBER;
+	                } else if (expected === TYPE_ARRAY_STRING) {
+	                  subtype = TYPE_STRING;
+	                }
+	                for (var i = 0; i < argValue.length; i++) {
+	                    if (!this._typeMatches(
+	                            this._getTypeName(argValue[i]), subtype,
+	                                             argValue[i])) {
+	                        return false;
+	                    }
+	                }
+	                return true;
+	            }
+	        } else {
+	            return actual === expected;
+	        }
+	    },
+	    _getTypeName: function(obj) {
+	        switch (Object.prototype.toString.call(obj)) {
+	            case "[object String]":
+	              return TYPE_STRING;
+	            case "[object Number]":
+	              return TYPE_NUMBER;
+	            case "[object Array]":
+	              return TYPE_ARRAY;
+	            case "[object Boolean]":
+	              return TYPE_BOOLEAN;
+	            case "[object Null]":
+	              return TYPE_NULL;
+	            case "[object Object]":
+	              // Check if it's an expref.  If it has, it's been
+	              // tagged with a jmespathType attr of 'Expref';
+	              if (obj.jmespathType === TOK_EXPREF) {
+	                return TYPE_EXPREF;
+	              } else {
+	                return TYPE_OBJECT;
+	              }
+	        }
+	    },
+
+	    _functionStartsWith: function(resolvedArgs) {
+	        return resolvedArgs[0].lastIndexOf(resolvedArgs[1]) === 0;
+	    },
+
+	    _functionEndsWith: function(resolvedArgs) {
+	        var searchStr = resolvedArgs[0];
+	        var suffix = resolvedArgs[1];
+	        return searchStr.indexOf(suffix, searchStr.length - suffix.length) !== -1;
+	    },
+
+	    _functionReverse: function(resolvedArgs) {
+	        var typeName = this._getTypeName(resolvedArgs[0]);
+	        if (typeName === TYPE_STRING) {
+	          var originalStr = resolvedArgs[0];
+	          var reversedStr = "";
+	          for (var i = originalStr.length - 1; i >= 0; i--) {
+	              reversedStr += originalStr[i];
+	          }
+	          return reversedStr;
+	        } else {
+	          var reversedArray = resolvedArgs[0].slice(0);
+	          reversedArray.reverse();
+	          return reversedArray;
+	        }
+	    },
+
+	    _functionAbs: function(resolvedArgs) {
+	      return Math.abs(resolvedArgs[0]);
+	    },
+
+	    _functionCeil: function(resolvedArgs) {
+	        return Math.ceil(resolvedArgs[0]);
+	    },
+
+	    _functionAvg: function(resolvedArgs) {
+	        var sum = 0;
+	        var inputArray = resolvedArgs[0];
+	        for (var i = 0; i < inputArray.length; i++) {
+	            sum += inputArray[i];
+	        }
+	        return sum / inputArray.length;
+	    },
+
+	    _functionContains: function(resolvedArgs) {
+	        return resolvedArgs[0].indexOf(resolvedArgs[1]) >= 0;
+	    },
+
+	    _functionFloor: function(resolvedArgs) {
+	        return Math.floor(resolvedArgs[0]);
+	    },
+
+	    _functionLength: function(resolvedArgs) {
+	       if (!isObject(resolvedArgs[0])) {
+	         return resolvedArgs[0].length;
+	       } else {
+	         // As far as I can tell, there's no way to get the length
+	         // of an object without O(n) iteration through the object.
+	         return Object.keys(resolvedArgs[0]).length;
+	       }
+	    },
+
+	    _functionMap: function(resolvedArgs) {
+	      var mapped = [];
+	      var interpreter = this._interpreter;
+	      var exprefNode = resolvedArgs[0];
+	      var elements = resolvedArgs[1];
+	      for (var i = 0; i < elements.length; i++) {
+	          mapped.push(interpreter.visit(exprefNode, elements[i]));
+	      }
+	      return mapped;
+	    },
+
+	    _functionMerge: function(resolvedArgs) {
+	      var merged = {};
+	      for (var i = 0; i < resolvedArgs.length; i++) {
+	        var current = resolvedArgs[i];
+	        for (var key in current) {
+	          merged[key] = current[key];
+	        }
+	      }
+	      return merged;
+	    },
+
+	    _functionMax: function(resolvedArgs) {
+	      if (resolvedArgs[0].length > 0) {
+	        var typeName = this._getTypeName(resolvedArgs[0][0]);
+	        if (typeName === TYPE_NUMBER) {
+	          return Math.max.apply(Math, resolvedArgs[0]);
+	        } else {
+	          var elements = resolvedArgs[0];
+	          var maxElement = elements[0];
+	          for (var i = 1; i < elements.length; i++) {
+	              if (maxElement.localeCompare(elements[i]) < 0) {
+	                  maxElement = elements[i];
+	              }
+	          }
+	          return maxElement;
+	        }
+	      } else {
+	          return null;
+	      }
+	    },
+
+	    _functionMin: function(resolvedArgs) {
+	      if (resolvedArgs[0].length > 0) {
+	        var typeName = this._getTypeName(resolvedArgs[0][0]);
+	        if (typeName === TYPE_NUMBER) {
+	          return Math.min.apply(Math, resolvedArgs[0]);
+	        } else {
+	          var elements = resolvedArgs[0];
+	          var minElement = elements[0];
+	          for (var i = 1; i < elements.length; i++) {
+	              if (elements[i].localeCompare(minElement) < 0) {
+	                  minElement = elements[i];
+	              }
+	          }
+	          return minElement;
+	        }
+	      } else {
+	        return null;
+	      }
+	    },
+
+	    _functionSum: function(resolvedArgs) {
+	      var sum = 0;
+	      var listToSum = resolvedArgs[0];
+	      for (var i = 0; i < listToSum.length; i++) {
+	        sum += listToSum[i];
+	      }
+	      return sum;
+	    },
+
+	    _functionType: function(resolvedArgs) {
+	        switch (this._getTypeName(resolvedArgs[0])) {
+	          case TYPE_NUMBER:
+	            return "number";
+	          case TYPE_STRING:
+	            return "string";
+	          case TYPE_ARRAY:
+	            return "array";
+	          case TYPE_OBJECT:
+	            return "object";
+	          case TYPE_BOOLEAN:
+	            return "boolean";
+	          case TYPE_EXPREF:
+	            return "expref";
+	          case TYPE_NULL:
+	            return "null";
+	        }
+	    },
+
+	    _functionKeys: function(resolvedArgs) {
+	        return Object.keys(resolvedArgs[0]);
+	    },
+
+	    _functionValues: function(resolvedArgs) {
+	        var obj = resolvedArgs[0];
+	        var keys = Object.keys(obj);
+	        var values = [];
+	        for (var i = 0; i < keys.length; i++) {
+	            values.push(obj[keys[i]]);
+	        }
+	        return values;
+	    },
+
+	    _functionJoin: function(resolvedArgs) {
+	        var joinChar = resolvedArgs[0];
+	        var listJoin = resolvedArgs[1];
+	        return listJoin.join(joinChar);
+	    },
+
+	    _functionToArray: function(resolvedArgs) {
+	        if (this._getTypeName(resolvedArgs[0]) === TYPE_ARRAY) {
+	            return resolvedArgs[0];
+	        } else {
+	            return [resolvedArgs[0]];
+	        }
+	    },
+
+	    _functionToString: function(resolvedArgs) {
+	        if (this._getTypeName(resolvedArgs[0]) === TYPE_STRING) {
+	            return resolvedArgs[0];
+	        } else {
+	            return JSON.stringify(resolvedArgs[0]);
+	        }
+	    },
+
+	    _functionToNumber: function(resolvedArgs) {
+	        var typeName = this._getTypeName(resolvedArgs[0]);
+	        var convertedValue;
+	        if (typeName === TYPE_NUMBER) {
+	            return resolvedArgs[0];
+	        } else if (typeName === TYPE_STRING) {
+	            convertedValue = +resolvedArgs[0];
+	            if (!isNaN(convertedValue)) {
+	                return convertedValue;
+	            }
+	        }
+	        return null;
+	    },
+
+	    _functionNotNull: function(resolvedArgs) {
+	        for (var i = 0; i < resolvedArgs.length; i++) {
+	            if (this._getTypeName(resolvedArgs[i]) !== TYPE_NULL) {
+	                return resolvedArgs[i];
+	            }
+	        }
+	        return null;
+	    },
+
+	    _functionSort: function(resolvedArgs) {
+	        var sortedArray = resolvedArgs[0].slice(0);
+	        sortedArray.sort();
+	        return sortedArray;
+	    },
+
+	    _functionSortBy: function(resolvedArgs) {
+	        var sortedArray = resolvedArgs[0].slice(0);
+	        if (sortedArray.length === 0) {
+	            return sortedArray;
+	        }
+	        var interpreter = this._interpreter;
+	        var exprefNode = resolvedArgs[1];
+	        var requiredType = this._getTypeName(
+	            interpreter.visit(exprefNode, sortedArray[0]));
+	        if ([TYPE_NUMBER, TYPE_STRING].indexOf(requiredType) < 0) {
+	            throw new Error("TypeError");
+	        }
+	        var that = this;
+	        // In order to get a stable sort out of an unstable
+	        // sort algorithm, we decorate/sort/undecorate (DSU)
+	        // by creating a new list of [index, element] pairs.
+	        // In the cmp function, if the evaluated elements are
+	        // equal, then the index will be used as the tiebreaker.
+	        // After the decorated list has been sorted, it will be
+	        // undecorated to extract the original elements.
+	        var decorated = [];
+	        for (var i = 0; i < sortedArray.length; i++) {
+	          decorated.push([i, sortedArray[i]]);
+	        }
+	        decorated.sort(function(a, b) {
+	          var exprA = interpreter.visit(exprefNode, a[1]);
+	          var exprB = interpreter.visit(exprefNode, b[1]);
+	          if (that._getTypeName(exprA) !== requiredType) {
+	              throw new Error(
+	                  "TypeError: expected " + requiredType + ", received " +
+	                  that._getTypeName(exprA));
+	          } else if (that._getTypeName(exprB) !== requiredType) {
+	              throw new Error(
+	                  "TypeError: expected " + requiredType + ", received " +
+	                  that._getTypeName(exprB));
+	          }
+	          if (exprA > exprB) {
+	            return 1;
+	          } else if (exprA < exprB) {
+	            return -1;
+	          } else {
+	            // If they're equal compare the items by their
+	            // order to maintain relative order of equal keys
+	            // (i.e. to get a stable sort).
+	            return a[0] - b[0];
+	          }
+	        });
+	        // Undecorate: extract out the original list elements.
+	        for (var j = 0; j < decorated.length; j++) {
+	          sortedArray[j] = decorated[j][1];
+	        }
+	        return sortedArray;
+	    },
+
+	    _functionMaxBy: function(resolvedArgs) {
+	      var exprefNode = resolvedArgs[1];
+	      var resolvedArray = resolvedArgs[0];
+	      var keyFunction = this.createKeyFunction(exprefNode, [TYPE_NUMBER, TYPE_STRING]);
+	      var maxNumber = -Infinity;
+	      var maxRecord;
+	      var current;
+	      for (var i = 0; i < resolvedArray.length; i++) {
+	        current = keyFunction(resolvedArray[i]);
+	        if (current > maxNumber) {
+	          maxNumber = current;
+	          maxRecord = resolvedArray[i];
+	        }
+	      }
+	      return maxRecord;
+	    },
+
+	    _functionMinBy: function(resolvedArgs) {
+	      var exprefNode = resolvedArgs[1];
+	      var resolvedArray = resolvedArgs[0];
+	      var keyFunction = this.createKeyFunction(exprefNode, [TYPE_NUMBER, TYPE_STRING]);
+	      var minNumber = Infinity;
+	      var minRecord;
+	      var current;
+	      for (var i = 0; i < resolvedArray.length; i++) {
+	        current = keyFunction(resolvedArray[i]);
+	        if (current < minNumber) {
+	          minNumber = current;
+	          minRecord = resolvedArray[i];
+	        }
+	      }
+	      return minRecord;
+	    },
+
+	    createKeyFunction: function(exprefNode, allowedTypes) {
+	      var that = this;
+	      var interpreter = this._interpreter;
+	      var keyFunc = function(x) {
+	        var current = interpreter.visit(exprefNode, x);
+	        if (allowedTypes.indexOf(that._getTypeName(current)) < 0) {
+	          var msg = "TypeError: expected one of " + allowedTypes +
+	                    ", received " + that._getTypeName(current);
+	          throw new Error(msg);
+	        }
+	        return current;
+	      };
+	      return keyFunc;
+	    }
+
+	  };
+
+	  function compile(stream) {
+	    var parser = new Parser();
+	    var ast = parser.parse(stream);
+	    return ast;
+	  }
+
+	  function tokenize(stream) {
+	      var lexer = new Lexer();
+	      return lexer.tokenize(stream);
+	  }
+
+	  function search(data, expression) {
+	      var parser = new Parser();
+	      // This needs to be improved.  Both the interpreter and runtime depend on
+	      // each other.  The runtime needs the interpreter to support exprefs.
+	      // There's likely a clean way to avoid the cyclic dependency.
+	      var runtime = new Runtime();
+	      var interpreter = new TreeInterpreter(runtime);
+	      runtime._interpreter = interpreter;
+	      var node = parser.parse(expression);
+	      return interpreter.search(node, data);
+	  }
+
+	  exports.tokenize = tokenize;
+	  exports.compile = compile;
+	  exports.search = search;
+	  exports.strictDeepEqual = strictDeepEqual;
+	})( false ? this.jmespath = {} : exports);
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	/*
+	 * Natural Sort algorithm for Javascript - Version 0.7 - Released under MIT license
+	 * Author: Jim Palmer (based on chunking idea from Dave Koelle)
+	 */
+	/*jshint unused:false */
+	module.exports = function naturalSort (a, b) {
+		"use strict";
+		var re = /(^([+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?)?$|^0x[0-9a-f]+$|\d+)/gi,
+			sre = /(^[ ]*|[ ]*$)/g,
+			dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,
+			hre = /^0x[0-9a-f]+$/i,
+			ore = /^0/,
+			i = function(s) { return naturalSort.insensitive && ('' + s).toLowerCase() || '' + s; },
+			// convert all to strings strip whitespace
+			x = i(a).replace(sre, '') || '',
+			y = i(b).replace(sre, '') || '',
+			// chunk/tokenize
+			xN = x.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+			yN = y.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+			// numeric, hex or date detection
+			xD = parseInt(x.match(hre), 16) || (xN.length !== 1 && x.match(dre) && Date.parse(x)),
+			yD = parseInt(y.match(hre), 16) || xD && y.match(dre) && Date.parse(y) || null,
+			oFxNcL, oFyNcL;
+		// first try and sort Hex codes or Dates
+		if (yD) {
+			if ( xD < yD ) { return -1; }
+			else if ( xD > yD ) { return 1; }
+		}
+		// natural sorting through split numeric strings and default strings
+		for(var cLoc=0, numS=Math.max(xN.length, yN.length); cLoc < numS; cLoc++) {
+			// find floats not starting with '0', string or 0 if not defined (Clint Priest)
+			oFxNcL = !(xN[cLoc] || '').match(ore) && parseFloat(xN[cLoc]) || xN[cLoc] || 0;
+			oFyNcL = !(yN[cLoc] || '').match(ore) && parseFloat(yN[cLoc]) || yN[cLoc] || 0;
+			// handle numeric vs string comparison - number < string - (Kyle Adams)
+			if (isNaN(oFxNcL) !== isNaN(oFyNcL)) { return (isNaN(oFxNcL)) ? 1 : -1; }
+			// rely on string comparison if different types - i.e. '02' < 2 != '02' < '2'
+			else if (typeof oFxNcL !== typeof oFyNcL) {
+				oFxNcL += '';
+				oFyNcL += '';
+			}
+			if (oFxNcL < oFyNcL) { return -1; }
+			if (oFxNcL > oFyNcL) { return 1; }
+		}
+		return 0;
+	};
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var util = __webpack_require__(12);
+	var ContextMenu = __webpack_require__(10);
+	var translate = __webpack_require__(15).translate;
+
+	/**
+	 * A factory function to create an AppendNode, which depends on a Node
+	 * @param {Node} Node
+	 */
+	function appendNodeFactory(Node) {
+	  /**
+	   * @constructor AppendNode
+	   * @extends Node
+	   * @param {TreeEditor} editor
+	   * Create a new AppendNode. This is a special node which is created at the
+	   * end of the list with childs for an object or array
+	   */
+	  function AppendNode (editor) {
+	    /** @type {TreeEditor} */
+	    this.editor = editor;
+	    this.dom = {};
+	  }
+
+	  AppendNode.prototype = new Node();
+
+	  /**
+	   * Return a table row with an append button.
+	   * @return {Element} dom   TR element
+	   */
+	  AppendNode.prototype.getDom = function () {
+	    // TODO: implement a new solution for the append node
+	    var dom = this.dom;
+
+	    if (dom.tr) {
+	      return dom.tr;
+	    }
+
+	    this._updateEditability();
+
+	    // a row for the append button
+	    var trAppend = document.createElement('tr');
+	    trAppend.className = 'jsoneditor-append';
+	    trAppend.node = this;
+	    dom.tr = trAppend;
+
+	    // TODO: consistent naming
+
+	    if (this.editor.options.mode === 'tree') {
+	      // a cell for the dragarea column
+	      dom.tdDrag = document.createElement('td');
+
+	      // create context menu
+	      var tdMenu = document.createElement('td');
+	      dom.tdMenu = tdMenu;
+	      var menu = document.createElement('button');
+	      menu.type = 'button';
+	      menu.className = 'jsoneditor-button jsoneditor-contextmenu';
+	      menu.title = 'Click to open the actions menu (Ctrl+M)';
+	      dom.menu = menu;
+	      tdMenu.appendChild(dom.menu);
+	    }
+
+	    // a cell for the contents (showing text 'empty')
+	    var tdAppend = document.createElement('td');
+	    var domText = document.createElement('div');
+	    domText.innerHTML = '(' + translate('empty') + ')';
+	    domText.className = 'jsoneditor-readonly';
+	    tdAppend.appendChild(domText);
+	    dom.td = tdAppend;
+	    dom.text = domText;
+
+	    this.updateDom();
+
+	    return trAppend;
+	  };
+
+	  /**
+	   * Append node doesn't have a path
+	   * @returns {null}
+	   */
+	  AppendNode.prototype.getPath = function() {
+	    return null;
+	  };
+
+	  /**
+	   * Append node doesn't have an index
+	   * @returns {null}
+	   */
+	  AppendNode.prototype.getIndex = function() {
+	    return null;
+	  };
+
+	  /**
+	   * Update the HTML dom of the Node
+	   */
+	  AppendNode.prototype.updateDom = function(options) {
+	    var dom = this.dom;
+	    var tdAppend = dom.td;
+	    if (tdAppend) {
+	      tdAppend.style.paddingLeft = (this.getLevel() * 24 + 26) + 'px';
+	      // TODO: not so nice hard coded offset
+	    }
+
+	    var domText = dom.text;
+	    if (domText) {
+	      domText.innerHTML = '(' + translate('empty') + ' ' + this.parent.type + ')';
+	    }
+
+	    // attach or detach the contents of the append node:
+	    // hide when the parent has childs, show when the parent has no childs
+	    var trAppend = dom.tr;
+	    if (!this.isVisible()) {
+	      if (dom.tr.firstChild) {
+	        if (dom.tdDrag) {
+	          trAppend.removeChild(dom.tdDrag);
+	        }
+	        if (dom.tdMenu) {
+	          trAppend.removeChild(dom.tdMenu);
+	        }
+	        trAppend.removeChild(tdAppend);
+	      }
+	    }
+	    else {
+	      if (!dom.tr.firstChild) {
+	        if (dom.tdDrag) {
+	          trAppend.appendChild(dom.tdDrag);
+	        }
+	        if (dom.tdMenu) {
+	          trAppend.appendChild(dom.tdMenu);
+	        }
+	        trAppend.appendChild(tdAppend);
+	      }
+	    }
+	  };
+
+	  /**
+	   * Check whether the AppendNode is currently visible.
+	   * the AppendNode is visible when its parent has no childs (i.e. is empty).
+	   * @return {boolean} isVisible
+	   */
+	  AppendNode.prototype.isVisible = function () {
+	    return (this.parent.childs.length == 0);
+	  };
+
+	  /**
+	   * Show a contextmenu for this node
+	   * @param {HTMLElement} anchor   The element to attach the menu to.
+	   * @param {function} [onClose]   Callback method called when the context menu
+	   *                               is being closed.
+	   */
+	  AppendNode.prototype.showContextMenu = function (anchor, onClose) {
+	    var node = this;
+	    var titles = Node.TYPE_TITLES;
+	    var appendSubmenu = [
+	        {
+	            text: translate('auto'),
+	            className: 'jsoneditor-type-auto',
+	            title: titles.auto,
+	            click: function () {
+	                node._onAppend('', '', 'auto');
+	            }
+	        },
+	        {
+	            text: translate('array'),
+	            className: 'jsoneditor-type-array',
+	            title: titles.array,
+	            click: function () {
+	                node._onAppend('', []);
+	            }
+	        },
+	        {
+	            text: translate('object'),
+	            className: 'jsoneditor-type-object',
+	            title: titles.object,
+	            click: function () {
+	                node._onAppend('', {});
+	            }
+	        },
+	        {
+	            text: translate('string'),
+	            className: 'jsoneditor-type-string',
+	            title: titles.string,
+	            click: function () {
+	                node._onAppend('', '', 'string');
+	            }
+	        }
+	    ];
+	    node.addTemplates(appendSubmenu, true);
+	    var items = [
+	      // create append button
+	      {
+	        'text': translate('appendText'),
+	        'title': translate('appendTitleAuto'),
+	        'submenuTitle': translate('appendSubmenuTitle'),
+	        'className': 'jsoneditor-insert',
+	        'click': function () {
+	          node._onAppend('', '', 'auto');
+	        },
+	        'submenu': appendSubmenu
+	      }
+	    ];
+
+	    var menu = new ContextMenu(items, {close: onClose});
+	    menu.show(anchor, this.editor.content);
+	  };
+
+	  /**
+	   * Handle an event. The event is caught centrally by the editor
+	   * @param {Event} event
+	   */
+	  AppendNode.prototype.onEvent = function (event) {
+	    var type = event.type;
+	    var target = event.target || event.srcElement;
+	    var dom = this.dom;
+
+	    // highlight the append nodes parent
+	    var menu = dom.menu;
+	    if (target == menu) {
+	      if (type == 'mouseover') {
+	        this.editor.highlighter.highlight(this.parent);
+	      }
+	      else if (type == 'mouseout') {
+	        this.editor.highlighter.unhighlight();
+	      }
+	    }
+
+	    // context menu events
+	    if (type == 'click' && target == dom.menu) {
+	      var highlighter = this.editor.highlighter;
+	      highlighter.highlight(this.parent);
+	      highlighter.lock();
+	      util.addClassName(dom.menu, 'jsoneditor-selected');
+	      this.showContextMenu(dom.menu, function () {
+	        util.removeClassName(dom.menu, 'jsoneditor-selected');
+	        highlighter.unlock();
+	        highlighter.unhighlight();
+	      });
+	    }
+
+	    if (type == 'keydown') {
+	      this.onKeyDown(event);
+	    }
+	  };
+
+	  return AppendNode;
+	}
+
+	module.exports = appendNodeFactory;
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var translate = __webpack_require__(15).translate;
+
+	/**
+	 * A factory function to create an ShowMoreNode, which depends on a Node
+	 * @param {function} Node
+	 */
+	function showMoreNodeFactory(Node) {
+	  /**
+	   * @constructor ShowMoreNode
+	   * @extends Node
+	   * @param {TreeEditor} editor
+	   * @param {Node} parent
+	   * Create a new ShowMoreNode. This is a special node which is created
+	   * for arrays or objects having more than 100 items
+	   */
+	  function ShowMoreNode (editor, parent) {
+	    /** @type {TreeEditor} */
+	    this.editor = editor;
+	    this.parent = parent;
+	    this.dom = {};
+	  }
+
+	  ShowMoreNode.prototype = new Node();
+
+	  /**
+	   * Return a table row with an append button.
+	   * @return {Element} dom   TR element
+	   */
+	  ShowMoreNode.prototype.getDom = function () {
+	    if (this.dom.tr) {
+	      return this.dom.tr;
+	    }
+
+	    this._updateEditability();
+
+	    // display "show more"
+	    if (!this.dom.tr) {
+	      var me = this;
+	      var parent = this.parent;
+	      var showMoreButton = document.createElement('a');
+	      showMoreButton.appendChild(document.createTextNode(translate('showMore')));
+	      showMoreButton.href = '#';
+	      showMoreButton.onclick = function (event) {
+	        // TODO: use callback instead of accessing a method of the parent
+	        parent.visibleChilds = Math.floor(parent.visibleChilds / parent.MAX_VISIBLE_CHILDS + 1) *
+	            parent.MAX_VISIBLE_CHILDS;
+	        me.updateDom();
+	        parent.showChilds();
+
+	        event.preventDefault();
+	        return false;
+	      };
+
+	      var showAllButton = document.createElement('a');
+	      showAllButton.appendChild(document.createTextNode(translate('showAll')));
+	      showAllButton.href = '#';
+	      showAllButton.onclick = function (event) {
+	        // TODO: use callback instead of accessing a method of the parent
+	        parent.visibleChilds = Infinity;
+	        me.updateDom();
+	        parent.showChilds();
+
+	        event.preventDefault();
+	        return false;
+	      };
+
+	      var moreContents = document.createElement('div');
+	      var moreText = document.createTextNode(this._getShowMoreText());
+	      moreContents.className = 'jsoneditor-show-more';
+	      moreContents.appendChild(moreText);
+	      moreContents.appendChild(showMoreButton);
+	      moreContents.appendChild(document.createTextNode('. '));
+	      moreContents.appendChild(showAllButton);
+	      moreContents.appendChild(document.createTextNode('. '));
+
+	      var tdContents = document.createElement('td');
+	      tdContents.appendChild(moreContents);
+
+	      var moreTr = document.createElement('tr');
+	      if (this.editor.options.mode === 'tree') {
+	        moreTr.appendChild(document.createElement('td'));
+	        moreTr.appendChild(document.createElement('td'));
+	      }
+	      moreTr.appendChild(tdContents);
+	      moreTr.className = 'jsoneditor-show-more';
+	      this.dom.tr = moreTr;
+	      this.dom.moreContents = moreContents;
+	      this.dom.moreText = moreText;
+	    }
+
+	    this.updateDom();
+
+	    return this.dom.tr;
+	  };
+
+	  /**
+	   * Update the HTML dom of the Node
+	   */
+	  ShowMoreNode.prototype.updateDom = function(options) {
+	    if (this.isVisible()) {
+	      // attach to the right child node (the first non-visible child)
+	      this.dom.tr.node = this.parent.childs[this.parent.visibleChilds];
+
+	      if (!this.dom.tr.parentNode) {
+	        var nextTr = this.parent._getNextTr();
+	        if (nextTr) {
+	          nextTr.parentNode.insertBefore(this.dom.tr, nextTr);
+	        }
+	      }
+
+	      // update the counts in the text
+	      this.dom.moreText.nodeValue = this._getShowMoreText();
+
+	      // update left margin
+	      this.dom.moreContents.style.marginLeft = (this.getLevel() + 1) * 24 + 'px';
+	    }
+	    else {
+	      if (this.dom.tr && this.dom.tr.parentNode) {
+	        this.dom.tr.parentNode.removeChild(this.dom.tr);
+	      }
+	    }
+	  };
+
+	  ShowMoreNode.prototype._getShowMoreText = function() {
+	    return translate('showMoreStatus', {
+	      visibleChilds: this.parent.visibleChilds,
+	      totalChilds: this.parent.childs.length
+	    }) + ' ';
+	  };
+
+	  /**
+	   * Check whether the ShowMoreNode is currently visible.
+	   * the ShowMoreNode is visible when it's parent has more childs than
+	   * the current visibleChilds
+	   * @return {boolean} isVisible
+	   */
+	  ShowMoreNode.prototype.isVisible = function () {
+	    return this.parent.expanded && this.parent.childs.length > this.parent.visibleChilds;
+	  };
+
+	  /**
+	   * Handle an event. The event is caught centrally by the editor
+	   * @param {Event} event
+	   */
+	  ShowMoreNode.prototype.onEvent = function (event) {
+	    var type = event.type;
+	    if (type === 'keydown') {
+	      this.onKeyDown(event);
+	    }
+	  };
+
+	  return ShowMoreNode;
+	}
+
+	module.exports = showMoreNodeFactory;
+
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var picoModal = __webpack_require__(23);
+	var translate = __webpack_require__(15).translate;
+
+	/**
+	 * Show advanced sorting modal
+	 * @param {Node} node the node to be sorted
+	 * @param {HTMLElement} container   The container where to center
+	 *                                  the modal and create an overlay
+	 */
+	function showSortModal (node, container) {
+	  var content = '<div class="pico-modal-contents">' +
+	      '<div class="pico-modal-header">' + translate('sort') + '</div>' +
+	      '<form>' +
+	      '<table>' +
+	      '<tbody>' +
+	      '<tr>' +
+	      '  <td>' + translate('sortFieldLabel') + ' </td>' +
+	      '  <td class="jsoneditor-modal-input">' +
+	      '  <div class="jsoneditor-select-wrapper">' +
+	      '    <select id="field" title="' + translate('sortFieldTitle') + '">' +
+	      '    </select>' +
+	      '  </div>' +
+	      '  </td>' +
+	      '</tr>' +
+	      '<tr>' +
+	      '  <td>' + translate('sortDirectionLabel') + ' </td>' +
+	      '  <td class="jsoneditor-modal-input">' +
+	      '  <div id="direction" class="jsoneditor-button-group">' +
+	      '<input type="button" ' +
+	      'value="' + translate('sortAscending') + '" ' +
+	      'title="'  + translate('sortAscendingTitle') + '" ' +
+	      'data-value="asc" ' +
+	      'class="jsoneditor-button-first jsoneditor-button-asc"/>' +
+	      '<input type="button" ' +
+	      'value="' + translate('sortDescending') + '" ' +
+	      'title="' + translate('sortDescendingTitle') + '" ' +
+	      'data-value="desc" ' +
+	      'class="jsoneditor-button-last jsoneditor-button-desc"/>' +
+	      '  </div>' +
+	      '  </td>' +
+	      '</tr>' +
+	      '<tr>' +
+	      '<td colspan="2" class="jsoneditor-modal-input jsoneditor-modal-actions">' +
+	      '  <input type="submit" id="ok" value="' + translate('ok') + '" />' +
+	      '</td>' +
+	      '</tr>' +
+	      '</tbody>' +
+	      '</table>' +
+	      '</form>' +
+	      '</div>';
+
+	  picoModal({
+	    parent: container,
+	    content: content,
+	    overlayClass: 'jsoneditor-modal-overlay',
+	    modalClass: 'jsoneditor-modal jsoneditor-modal-sort'
+	  })
+	      .afterCreate(function (modal) {
+	        var form = modal.modalElem().querySelector('form');
+	        var ok = modal.modalElem().querySelector('#ok');
+	        var field = modal.modalElem().querySelector('#field');
+	        var direction = modal.modalElem().querySelector('#direction');
+
+	        var paths = node.type === 'array'
+	            ? node.getChildPaths()
+	            : ['.'];
+
+	        paths.forEach(function (path) {
+	          var option = document.createElement('option');
+	          option.text = path;
+	          option.value = path;
+	          field.appendChild(option);
+	        });
+
+	        function setDirection(value) {
+	          direction.value = value;
+	          direction.className = 'jsoneditor-button-group jsoneditor-button-group-value-' + direction.value;
+	        }
+
+	        field.value = node.sortedBy ? node.sortedBy.path : paths[0];
+	        setDirection(node.sortedBy ? node.sortedBy.direction : 'asc');
+
+	        direction.onclick = function (event) {
+	          setDirection(event.target.getAttribute('data-value'));
+	        };
+
+	        ok.onclick = function (event) {
+	          event.preventDefault();
+	          event.stopPropagation();
+
+	          modal.close();
+
+	          var path = field.value;
+	          var pathArray = (path === '.') ? [] : path.split('.').slice(1);
+
+	          node.sortedBy = {
+	            path: path,
+	            direction: direction.value
+	          };
+
+	          node.sort(pathArray, direction.value)
+	        };
+
+	        if (form) { // form is not available when JSONEditor is created inside a form
+	          form.onsubmit = ok.onclick;
+	        }
+	      })
+	      .afterClose(function (modal) {
+	        modal.destroy();
+	      })
+	      .show();
+	}
+
+	module.exports = showSortModal;
+
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+	 * Permission is hereby granted, free of charge, to any person obtaining a copy
+	 * of this software and associated documentation files (the "Software"), to deal
+	 * in the Software without restriction, including without limitation the rights
+	 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	 * copies of the Software, and to permit persons to whom the Software is
+	 * furnished to do so, subject to the following conditions:
+	 *
+	 * The above copyright notice and this permission notice shall be included in
+	 * all copies or substantial portions of the Software.
+	 *
+	 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	 * SOFTWARE.
+	 */
+
+	(function (root, factory) {
+	    "use strict";
+
+	    if (true) {
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	    }
+	    else if (typeof module === 'object' && module.exports) {
+	        module.exports = factory();
+	    }
+	    else {
+	        root.picoModal = factory();
+	    }
+	}(this, function () {
+
+	    /**
+	     * A self-contained modal library
+	     */
+	    "use strict";
+
+	    /** Returns whether a value is a dom node */
+	    function isNode(value) {
+	        if ( typeof Node === "object" ) {
+	            return value instanceof Node;
+	        }
+	        else {
+	            return value && typeof value === "object" && typeof value.nodeType === "number";
+	        }
+	    }
+
+	    /** Returns whether a value is a string */
+	    function isString(value) {
+	        return typeof value === "string";
+	    }
+
+	    /**
+	     * Generates observable objects that can be watched and triggered
+	     */
+	    function observable() {
+	        var callbacks = [];
+	        return {
+	            watch: callbacks.push.bind(callbacks),
+	            trigger: function(context, detail) {
+
+	                var unprevented = true;
+	                var event = {
+	                    detail: detail,
+	                    preventDefault: function preventDefault () {
+	                        unprevented = false;
+	                    }
+	                };
+
+	                for (var i = 0; i < callbacks.length; i++) {
+	                    callbacks[i](context, event);
+	                }
+
+	                return unprevented;
+	            }
+	        };
+	    }
+
+
+	    /** Whether an element is hidden */
+	    function isHidden ( elem ) {
+	        // @see http://stackoverflow.com/questions/19669786
+	        return window.getComputedStyle(elem).display === 'none';
+	    }
+
+
+	    /**
+	     * A small interface for creating and managing a dom element
+	     */
+	    function Elem( elem ) {
+	        this.elem = elem;
+	    }
+
+	    /** Creates a new div */
+	    Elem.make = function ( parent, tag ) {
+	        if ( typeof parent === "string" ) {
+	            parent = document.querySelector(parent);
+	        }
+	        var elem = document.createElement(tag || 'div');
+	        (parent || document.body).appendChild(elem);
+	        return new Elem(elem);
+	    };
+
+	    Elem.prototype = {
+
+	        /** Creates a child of this node */
+	        child: function (tag) {
+	            return Elem.make(this.elem, tag);
+	        },
+
+	        /** Applies a set of styles to an element */
+	        stylize: function(styles) {
+	            styles = styles || {};
+
+	            if ( typeof styles.opacity !== "undefined" ) {
+	                styles.filter = "alpha(opacity=" + (styles.opacity * 100) + ")";
+	            }
+
+	            for (var prop in styles) {
+	                if (styles.hasOwnProperty(prop)) {
+	                    this.elem.style[prop] = styles[prop];
+	                }
+	            }
+
+	            return this;
+	        },
+
+	        /** Adds a class name */
+	        clazz: function (clazz) {
+	            this.elem.className += " " + clazz;
+	            return this;
+	        },
+
+	        /** Sets the HTML */
+	        html: function (content) {
+	            if ( isNode(content) ) {
+	                this.elem.appendChild( content );
+	            }
+	            else {
+	                this.elem.innerHTML = content;
+	            }
+	            return this;
+	        },
+
+	        /** Adds a click handler to this element */
+	        onClick: function(callback) {
+	            this.elem.addEventListener('click', callback);
+	            return this;
+	        },
+
+	        /** Removes this element from the DOM */
+	        destroy: function() {
+	            this.elem.parentNode.removeChild(this.elem);
+	        },
+
+	        /** Hides this element */
+	        hide: function() {
+	            this.elem.style.display = "none";
+	        },
+
+	        /** Shows this element */
+	        show: function() {
+	            this.elem.style.display = "block";
+	        },
+
+	        /** Sets an attribute on this element */
+	        attr: function ( name, value ) {
+	            if (value !== undefined) {
+	                this.elem.setAttribute(name, value);
+	            }
+	            return this;
+	        },
+
+	        /** Executes a callback on all the ancestors of an element */
+	        anyAncestor: function ( predicate ) {
+	            var elem = this.elem;
+	            while ( elem ) {
+	                if ( predicate( new Elem(elem) ) ) {
+	                    return true;
+	                }
+	                else {
+	                    elem = elem.parentNode;
+	                }
+	            }
+	            return false;
+	        },
+
+	        /** Whether this element is visible */
+	        isVisible: function () {
+	            return !isHidden(this.elem);
+	        }
+	    };
+
+
+	    /** Generates the grey-out effect */
+	    function buildOverlay( getOption, close ) {
+	        return Elem.make( getOption("parent") )
+	            .clazz("pico-overlay")
+	            .clazz( getOption("overlayClass", "") )
+	            .stylize({
+	                display: "none",
+	                position: "fixed",
+	                top: "0px",
+	                left: "0px",
+	                height: "100%",
+	                width: "100%",
+	                zIndex: 10000
+	            })
+	            .stylize(getOption('overlayStyles', {
+	                opacity: 0.5,
+	                background: "#000"
+	            }))
+	            .onClick(function () {
+	                if ( getOption('overlayClose', true) ) {
+	                    close();
+	                }
+	            });
+	    }
+
+	    // An auto incrementing ID assigned to each modal
+	    var autoinc = 1;
+
+	    /** Builds the content of a modal */
+	    function buildModal( getOption, close ) {
+	        var width = getOption('width', 'auto');
+	        if ( typeof width === "number" ) {
+	            width = "" + width + "px";
+	        }
+
+	        var id = getOption("modalId", "pico-" + autoinc++);
+
+	        var elem = Elem.make( getOption("parent") )
+	            .clazz("pico-content")
+	            .clazz( getOption("modalClass", "") )
+	            .stylize({
+	                display: 'none',
+	                position: 'fixed',
+	                zIndex: 10001,
+	                left: "50%",
+	                top: "38.1966%",
+	                maxHeight: '90%',
+	                boxSizing: 'border-box',
+	                width: width,
+	                '-ms-transform': 'translate(-50%,-38.1966%)',
+	                '-moz-transform': 'translate(-50%,-38.1966%)',
+	                '-webkit-transform': 'translate(-50%,-38.1966%)',
+	                '-o-transform': 'translate(-50%,-38.1966%)',
+	                transform: 'translate(-50%,-38.1966%)'
+	            })
+	            .stylize(getOption('modalStyles', {
+	                overflow: 'auto',
+	                backgroundColor: "white",
+	                padding: "20px",
+	                borderRadius: "5px"
+	            }))
+	            .html( getOption('content') )
+	            .attr("id", id)
+	            .attr("role", "dialog")
+	            .attr("aria-labelledby", getOption("ariaLabelledBy"))
+	            .attr("aria-describedby", getOption("ariaDescribedBy", id))
+	            .onClick(function (event) {
+	                var isCloseClick = new Elem(event.target).anyAncestor(function (elem) {
+	                    return /\bpico-close\b/.test(elem.elem.className);
+	                });
+	                if ( isCloseClick ) {
+	                    close();
+	                }
+	            });
+
+	        return elem;
+	    }
+
+	    /** Builds the close button */
+	    function buildClose ( elem, getOption ) {
+	        if ( getOption('closeButton', true) ) {
+	            return elem.child('button')
+	                .html( getOption('closeHtml', "&#xD7;") )
+	                .clazz("pico-close")
+	                .clazz( getOption("closeClass", "") )
+	                .stylize( getOption('closeStyles', {
+	                    borderRadius: "2px",
+	                    border: 0,
+	                    padding: 0,
+	                    cursor: "pointer",
+	                    height: "15px",
+	                    width: "15px",
+	                    position: "absolute",
+	                    top: "5px",
+	                    right: "5px",
+	                    fontSize: "16px",
+	                    textAlign: "center",
+	                    lineHeight: "15px",
+	                    background: "#CCC"
+	                }) )
+	                .attr("aria-label", getOption("close-label", "Close"));
+	        }
+	    }
+
+	    /** Builds a method that calls a method and returns an element */
+	    function buildElemAccessor( builder ) {
+	        return function () {
+	            return builder().elem;
+	        };
+	    }
+
+
+	    // An observable that is triggered whenever the escape key is pressed
+	    var escapeKey = observable();
+
+	    // An observable that is triggered when the user hits the tab key
+	    var tabKey = observable();
+
+	    /** A global event handler to detect the escape key being pressed */
+	    document.documentElement.addEventListener('keydown', function onKeyPress (event) {
+	        var keycode = event.which || event.keyCode;
+
+	        // If this is the escape key
+	        if ( keycode === 27 ) {
+	            escapeKey.trigger();
+	        }
+
+	        // If this is the tab key
+	        else if ( keycode === 9 ) {
+	            tabKey.trigger(event);
+	        }
+	    });
+
+
+	    /** Attaches focus management events */
+	    function manageFocus ( iface, isEnabled ) {
+
+	        /** Whether an element matches a selector */
+	        function matches ( elem, selector ) {
+	            var fn = elem.msMatchesSelector || elem.webkitMatchesSelector || elem.matches;
+	            return fn.call(elem, selector);
+	        }
+
+	        /**
+	         * Returns whether an element is focusable
+	         * @see http://stackoverflow.com/questions/18261595
+	         */
+	        function canFocus( elem ) {
+	            if (
+	                isHidden(elem) ||
+	                matches(elem, ":disabled") ||
+	                elem.hasAttribute("contenteditable")
+	            ) {
+	                return false;
+	            }
+	            else {
+	                return elem.hasAttribute("tabindex") ||
+	                    matches(elem, "input,select,textarea,button,a[href],area[href],iframe");
+	            }
+	        }
+
+	        /** Returns the first descendant that can be focused */
+	        function firstFocusable ( elem ) {
+	            var items = elem.getElementsByTagName("*");
+	            for (var i = 0; i < items.length; i++) {
+	                if ( canFocus(items[i]) ) {
+	                    return items[i];
+	                }
+	            }
+	        }
+
+	        /** Returns the last descendant that can be focused */
+	        function lastFocusable ( elem ) {
+	            var items = elem.getElementsByTagName("*");
+	            for (var i = items.length; i--;) {
+	                if ( canFocus(items[i]) ) {
+	                    return items[i];
+	                }
+	            }
+	        }
+
+	        // The element focused before the modal opens
+	        var focused;
+
+	        // Records the currently focused element so state can be returned
+	        // after the modal closes
+	        iface.beforeShow(function getActiveFocus() {
+	            focused = document.activeElement;
+	        });
+
+	        // Shift focus into the modal
+	        iface.afterShow(function focusModal() {
+	            if ( isEnabled() ) {
+	                var focusable = firstFocusable(iface.modalElem());
+	                if ( focusable ) {
+	                    focusable.focus();
+	                }
+	            }
+	        });
+
+	        // Restore the previously focused element when the modal closes
+	        iface.afterClose(function returnFocus() {
+	            if ( isEnabled() && focused ) {
+	                focused.focus();
+	            }
+	            focused = null;
+	        });
+
+	        // Capture tab key presses and loop them within the modal
+	        tabKey.watch(function tabKeyPress (event) {
+	            if ( isEnabled() && iface.isVisible() ) {
+	                var first = firstFocusable(iface.modalElem());
+	                var last = lastFocusable(iface.modalElem());
+
+	                var from = event.shiftKey ? first : last;
+	                if ( from === document.activeElement ) {
+	                    (event.shiftKey ? last : first).focus();
+	                    event.preventDefault();
+	                }
+	            }
+	        });
+	    }
+
+	    /** Manages setting the 'overflow: hidden' on the body tag */
+	    function manageBodyOverflow(iface, isEnabled) {
+	        var origOverflow;
+	        var body = new Elem(document.body);
+
+	        iface.beforeShow(function () {
+	            // Capture the current values so they can be restored
+	            origOverflow = body.elem.style.overflow;
+
+	            if (isEnabled()) {
+	                body.stylize({ overflow: "hidden" });
+	            }
+	        });
+
+	        iface.afterClose(function () {
+	            body.stylize({ overflow: origOverflow });
+	        });
+	    }
+
+	    /**
+	     * Displays a modal
+	     */
+	    return function picoModal(options) {
+
+	        if ( isString(options) || isNode(options) ) {
+	            options = { content: options };
+	        }
+
+	        var afterCreateEvent = observable();
+	        var beforeShowEvent = observable();
+	        var afterShowEvent = observable();
+	        var beforeCloseEvent = observable();
+	        var afterCloseEvent = observable();
+
+	        /**
+	         * Returns a named option if it has been explicitly defined. Otherwise,
+	         * it returns the given default value
+	         */
+	        function getOption ( opt, defaultValue ) {
+	            var value = options[opt];
+	            if ( typeof value === "function" ) {
+	                value = value( defaultValue );
+	            }
+	            return value === undefined ? defaultValue : value;
+	        }
+
+
+	        // The various DOM elements that constitute the modal
+	        var modalElem = build.bind(window, 'modal');
+	        var shadowElem = build.bind(window, 'overlay');
+	        var closeElem = build.bind(window, 'close');
+
+	        // This will eventually contain the modal API returned to the user
+	        var iface;
+
+
+	        /** Hides this modal */
+	        function forceClose (detail) {
+	            shadowElem().hide();
+	            modalElem().hide();
+	            afterCloseEvent.trigger(iface, detail);
+	        }
+
+	        /** Gracefully hides this modal */
+	        function close (detail) {
+	            if ( beforeCloseEvent.trigger(iface, detail) ) {
+	                forceClose(detail);
+	            }
+	        }
+
+	        /** Wraps a method so it returns the modal interface */
+	        function returnIface ( callback ) {
+	            return function () {
+	                callback.apply(this, arguments);
+	                return iface;
+	            };
+	        }
+
+
+	        // The constructed dom nodes
+	        var built;
+
+	        /** Builds a method that calls a method and returns an element */
+	        function build (name, detail) {
+	            if ( !built ) {
+	                var modal = buildModal(getOption, close);
+	                built = {
+	                    modal: modal,
+	                    overlay: buildOverlay(getOption, close),
+	                    close: buildClose(modal, getOption)
+	                };
+	                afterCreateEvent.trigger(iface, detail);
+	            }
+	            return built[name];
+	        }
+
+	        iface = {
+
+	            /** Returns the wrapping modal element */
+	            modalElem: buildElemAccessor(modalElem),
+
+	            /** Returns the close button element */
+	            closeElem: buildElemAccessor(closeElem),
+
+	            /** Returns the overlay element */
+	            overlayElem: buildElemAccessor(shadowElem),
+
+	            /** Builds the dom without showing the modal */
+	            buildDom: returnIface(build.bind(null, null)),
+
+	            /** Returns whether this modal is currently being shown */
+	            isVisible: function () {
+	                return !!(built && modalElem && modalElem().isVisible());
+	            },
+
+	            /** Shows this modal */
+	            show: function (detail) {
+	                if ( beforeShowEvent.trigger(iface, detail) ) {
+	                    shadowElem().show();
+	                    closeElem();
+	                    modalElem().show();
+	                    afterShowEvent.trigger(iface, detail);
+	                }
+	                return this;
+	            },
+
+	            /** Hides this modal */
+	            close: returnIface(close),
+
+	            /**
+	             * Force closes this modal. This will not call beforeClose
+	             * events and will just immediately hide the modal
+	             */
+	            forceClose: returnIface(forceClose),
+
+	            /** Destroys this modal */
+	            destroy: function () {
+	                modalElem().destroy();
+	                shadowElem().destroy();
+	                shadowElem = modalElem = closeElem = undefined;
+	            },
+
+	            /**
+	             * Updates the options for this modal. This will only let you
+	             * change options that are re-evaluted regularly, such as
+	             * `overlayClose`.
+	             */
+	            options: function ( opts ) {
+	                Object.keys(opts).map(function (key) {
+	                    options[key] = opts[key];
+	                });
+	            },
+
+	            /** Executes after the DOM nodes are created */
+	            afterCreate: returnIface(afterCreateEvent.watch),
+
+	            /** Executes a callback before this modal is closed */
+	            beforeShow: returnIface(beforeShowEvent.watch),
+
+	            /** Executes a callback after this modal is shown */
+	            afterShow: returnIface(afterShowEvent.watch),
+
+	            /** Executes a callback before this modal is closed */
+	            beforeClose: returnIface(beforeCloseEvent.watch),
+
+	            /** Executes a callback after this modal is closed */
+	            afterClose: returnIface(afterCloseEvent.watch)
+	        };
+
+	        manageFocus(iface, getOption.bind(null, "focus", true));
+
+	        manageBodyOverflow(iface, getOption.bind(null, "bodyOverflow", true));
+
+	        // If a user presses the 'escape' key, close the modal.
+	        escapeKey.watch(function escapeKeyPress () {
+	            if ( getOption("escCloses", true) && iface.isVisible() ) {
+	                iface.close();
+	            }
+	        });
+
+	        return iface;
+	    };
+
+	}));
+
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var jmespath = __webpack_require__(18);
+	var picoModal = __webpack_require__(23);
+	var Selectr = __webpack_require__(25);
+	var translate = __webpack_require__(15).translate;
+	var debounce = __webpack_require__(12).debounce;
+
+	var MAX_PREVIEW_LINES = 100;
+
+	/**
+	 * Show advanced filter and transform modal using JMESPath
+	 * @param {Node} node the node to be transformed
+	 * @param {HTMLElement} container   The container where to center
+	 *                                  the modal and create an overlay
+	 */
+	function showTransformModal (node, container) {
+	  var value = node.getValue();
+
+	  var content = '<label class="pico-modal-contents">' +
+	      '<div class="pico-modal-header">' + translate('transform') + '</div>' +
+	      '<p>' +
+	      'Enter a <a href="http://jmespath.org" target="_blank">JMESPath</a> query to filter, sort, or transform the JSON data.<br/>' +
+	      'To learn JMESPath, go to <a href="http://jmespath.org/tutorial.html" target="_blank">the interactive tutorial</a>.' +
+	      '</p>' +
+	      '<table>' +
+	      '<tbody>' +
+	      '<tr>' +
+	      '  <th>' + translate('transformWizardLabel') + ' </th>' +
+	      '  <td>' +
+	      '  <div id="wizard" class="jsoneditor-jmespath-wizard">' +
+	      '  <div>' +
+	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardFilter') + '</div>' +
+	      '    <div class="jsoneditor-jmespath-filter">' +
+	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-field" >' +
+	      '        <select id="filterField">' +
+	      '        </select>' +
+	      '      </div>' +
+	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-relation" >' +
+	      '        <select id="filterRelation">' +
+	      '          <option value="==">==</option>' +
+	      '          <option value="!=">!=</option>' +
+	      '          <option value="<">&lt;</option>' +
+	      '          <option value="<=">&lt;=</option>' +
+	      '          <option value=">">&gt;</option>' +
+	      '          <option value=">=">&gt;=</option>' +
+	      '        </select>' +
+	      '      </div>' +
+	      '      <div class="jsoneditor-inline jsoneditor-jmespath-filter-value" >' +
+	      '        <input placeholder="value..." id="filterValue" />' +
+	      '      </div>' +
+	      '    </div>' +
+	      '  </div>' +
+	      '  <div>' +
+	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSortBy') + '</div>' +
+	      '    <div class="jsoneditor-jmespath-filter">' +
+	      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-field">' +
+	      '        <select id="sortField">' +
+	      '        </select>' +
+	      '      </div>' +
+	      '      <div class="jsoneditor-inline jsoneditor-jmespath-sort-order" >' +
+	      '        <select id="sortOrder">' +
+	      '          <option value="asc">Ascending</option>' +
+	      '          <option value="desc">Descending</option>' +
+	      '        </select>' +
+	      '      </div>' +
+	      '    </div>' +
+	      '  </div>' +
+	      '  <div id="selectFieldsPart">' +
+	      '    <div class="jsoneditor-jmespath-wizard-label">' + translate('transformWizardSelectFields') + '</div>' +
+	      '    <select class="jsoneditor-jmespath-select-fields" id="selectFields" multiple>' +
+	      '    </select>' +
+	      '  </div>' +
+	      '  </div>' +
+	      '  </td>' +
+	      '</tr>' +
+	      '<tr>' +
+	      '  <th>' + translate('transformQueryLabel') + ' </th>' +
+	      '  <td class="jsoneditor-modal-input">' +
+	      '    <textarea id="query" ' +
+	      '              rows="4" ' +
+	      '              autocomplete="off" ' +
+	      '              autocorrect="off" ' +
+	      '              autocapitalize="off" ' +
+	      '              spellcheck="false"' +
+	      '              title="' + translate('transformQueryTitle') + '">[*]</textarea>' +
+	      '  </td>' +
+	      '</tr>' +
+	      '<tr>' +
+	      '  <th>' + translate('transformPreviewLabel') + ' </th>' +
+	      '  <td class="jsoneditor-modal-input">' +
+	      '    <textarea id="preview" ' +
+	      '        class="jsoneditor-transform-preview"' +
+	      '        readonly> </textarea>' +
+	      '  </td>' +
+	      '</tr>' +
+	      '<tr>' +
+	      '<td colspan="2" class="jsoneditor-modal-input jsoneditor-modal-actions">' +
+	      '  <input type="submit" id="ok" value="' + translate('ok') + '" autofocus />' +
+	      '</td>' +
+	      '</tr>' +
+	      '</tbody>' +
+	      '</table>' +
+	      '</div>';
+
+	  picoModal({
+	    parent: container,
+	    content: content,
+	    overlayClass: 'jsoneditor-modal-overlay',
+	    modalClass: 'jsoneditor-modal jsoneditor-modal-transform',
+	    focus: false
+	  })
+	      .afterCreate(function (modal) {
+	        var elem = modal.modalElem();
+
+	        var wizard = elem.querySelector('#wizard');
+	        var ok = elem.querySelector('#ok');
+	        var filterField = elem.querySelector('#filterField');
+	        var filterRelation = elem.querySelector('#filterRelation');
+	        var filterValue = elem.querySelector('#filterValue');
+	        var sortField = elem.querySelector('#sortField');
+	        var sortOrder = elem.querySelector('#sortOrder');
+	        var selectFields = elem.querySelector('#selectFields');
+	        var query = elem.querySelector('#query');
+	        var preview = elem.querySelector('#preview');
+
+	        if (!Array.isArray(value)) {
+	          wizard.style.display = 'none';
+	          wizard.parentNode.style.fontStyle = 'italic';
+	          wizard.parentNode.appendChild(
+	              document.createTextNode('(wizard not available for objects, only for arrays)')
+	          );
+	        }
+
+	        var paths = node.getChildPaths();
+	        paths.forEach(function (path) {
+	          var formattedPath = preprocessPath(path);
+	          var filterOption = document.createElement('option');
+	          filterOption.text = formattedPath;
+	          filterOption.value = formattedPath;
+	          filterField.appendChild(filterOption);
+
+	          var sortOption = document.createElement('option');
+	          sortOption.text = formattedPath;
+	          sortOption.value = formattedPath;
+	          sortField.appendChild(sortOption);
+	        });
+
+	        var allPaths = node.getChildPaths(true).filter(function(path) {
+	          return path !== '.';
+	        });
+
+	        if (allPaths.length > 0) {
+	          allPaths.forEach(function (path) {
+	            var formattedPath = preprocessPath(path);
+	            var option = document.createElement('option');
+	            option.text = formattedPath;
+	            option.value = formattedPath;
+	            selectFields.appendChild(option);
+	          });
+	        }
+	        else {
+	          elem.querySelector('#selectFieldsPart').style.display = 'none';
+	        }
+
+	        var selectrFilterField = new Selectr(filterField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
+	        var selectrFilterRelation = new Selectr(filterRelation, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'compare...' });
+	        var selectrSortField = new Selectr(sortField, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'field...' });
+	        var selectrSortOrder = new Selectr(sortOrder, { defaultSelected: false, clearable: true, allowDeselect: true, placeholder: 'order...' });
+	        var selectrSelectFields = new Selectr(selectFields, {multiple: true, clearable: true, defaultSelected: false});
+
+	        selectrFilterField.on('selectr.change', generateQueryFromWizard);
+	        selectrFilterRelation.on('selectr.change', generateQueryFromWizard);
+	        filterValue.oninput = generateQueryFromWizard;
+	        selectrSortField.on('selectr.change', generateQueryFromWizard);
+	        selectrSortOrder.on('selectr.change', generateQueryFromWizard);
+	        selectrSelectFields.on('selectr.change', generateQueryFromWizard);
+
+	        elem.querySelector('.pico-modal-contents').onclick = function (event) {
+	          // prevent the first clear button from getting focus when clicking anywhere in the modal
+	          event.preventDefault();
+	        };
+
+	        query.value = Array.isArray(value) ? '[*]' : '@';
+
+	        function preprocessPath(path) {
+	          if (path[0] === '.') {
+	            return (path === '.')
+	                ? '@'
+	                : path.slice(1);
+	          }
+	          else {
+	            return path;
+	          }
+	        }
+
+	        function generateQueryFromWizard () {
+	          if (filterField.value && filterRelation.value && filterValue.value) {
+	            var field1 = filterField.value;
+	            // TODO: move _stringCast into a static util function
+	            var value1 = JSON.stringify(node._stringCast(filterValue.value));
+	            query.value = '[? ' +
+	                field1 + ' ' +
+	                filterRelation.value + ' ' +
+	                '`' + value1 + '`' +
+	                ']';
+	          }
+	          else {
+	            query.value = '[*]';
+	          }
+
+	          if (sortField.value && sortOrder.value) {
+	            var field2 = sortField.value;
+	            if (sortOrder.value === 'desc') {
+	              query.value += ' | reverse(sort_by(@, &' + field2 + '))';
+	            }
+	            else {
+	              query.value += ' | sort_by(@, &' + field2 + ')';
+	            }
+	          }
+
+	          if (selectFields.value) {
+	            var values = [];
+	            for (var i=0; i < selectFields.options.length; i++) {
+	              if (selectFields.options[i].selected) {
+	                var value = selectFields.options[i].value;
+	                values.push(value);
+	              }
+	            }
+
+	            if (query.value[query.value.length - 1] !== ']') {
+	              query.value += ' | [*]';
+	            }
+
+	            if (values.length === 1) {
+	              query.value += '.' + value;
+	            }
+	            else if (values.length > 1) {
+	              query.value += '.{' +
+	                  values.map(function (value) {
+	                    var parts = value.split('.');
+	                    var last = parts[parts.length - 1];
+	                    return last + ': ' + value;
+	                  }).join(', ') +
+	                  '}';
+	            }
+	            else { // values.length === 0
+	              // ignore
+	            }
+	          }
+
+	          debouncedUpdatePreview();
+	        }
+
+	        function updatePreview() {
+	          try {
+	            var transformed = jmespath.search(value, query.value);
+	            var lines =  JSON.stringify(transformed, null, 2).split('\n');
+
+	            if (lines.length > MAX_PREVIEW_LINES) {
+	              lines = lines.slice(0, MAX_PREVIEW_LINES).concat(['...'])
+	            }
+
+
+	            preview.className = 'jsoneditor-transform-preview';
+	            preview.value = lines.join('\n');
+	            ok.disabled = false;
+	          }
+	          catch (err) {
+	            preview.className = 'jsoneditor-transform-preview jsoneditor-error';
+	            preview.value = err.toString();
+	            ok.disabled = true;
+	          }
+	        }
+
+	        var debouncedUpdatePreview = debounce(updatePreview, 300);
+
+	        query.oninput = debouncedUpdatePreview;
+	        debouncedUpdatePreview();
+
+	        ok.onclick = function (event) {
+	          event.preventDefault();
+	          event.stopPropagation();
+
+	          modal.close();
+
+	          node.transform(query.value)
+	        };
+
+	        setTimeout(function () {
+	          query.select();
+	          query.focus();
+	          query.selectionStart = 3;
+	          query.selectionEnd = 3;
+	        });
+	      })
+	      .afterClose(function (modal) {
+	        modal.destroy();
+	      })
+	      .show();
+	}
+
+	module.exports = showTransformModal;
+
+
+/***/ },
+/* 25 */
+/***/ function(module, exports) {
+
+	/*!
+	 * Selectr 2.4.0
+	 * https://github.com/Mobius1/Selectr
+	 *
+	 * Released under the MIT license
+	 */
+
+	'use strict';
+
+	/**
+	 * Default configuration options
+	 * @type {Object}
+	 */
+	var defaultConfig = {
+	  /**
+	   * Emulates browser behaviour by selecting the first option by default
+	   * @type {Boolean}
+	   */
+	  defaultSelected: true,
+
+	  /**
+	   * Sets the width of the container
+	   * @type {String}
+	   */
+	  width: "auto",
+
+	  /**
+	   * Enables/ disables the container
+	   * @type {Boolean}
+	   */
+	  disabled: false,
+
+	  /**
+	   * Enables / disables the search function
+	   * @type {Boolean}
+	   */
+	  searchable: true,
+
+	  /**
+	   * Enable disable the clear button
+	   * @type {Boolean}
+	   */
+	  clearable: false,
+
+	  /**
+	   * Sort the tags / multiselect options
+	   * @type {Boolean}
+	   */
+	  sortSelected: false,
+
+	  /**
+	   * Allow deselecting of select-one options
+	   * @type {Boolean}
+	   */
+	  allowDeselect: false,
+
+	  /**
+	   * Close the dropdown when scrolling (@AlexanderReiswich, #11)
+	   * @type {Boolean}
+	   */
+	  closeOnScroll: false,
+
+	  /**
+	   * Allow the use of the native dropdown (@jonnyscholes, #14)
+	   * @type {Boolean}
+	   */
+	  nativeDropdown: false,
+
+	  /**
+	   * Set the main placeholder
+	   * @type {String}
+	   */
+	  placeholder: "Select an option...",
+
+	  /**
+	   * Allow the tagging feature
+	   * @type {Boolean}
+	   */
+	  taggable: false,
+
+	  /**
+	   * Set the tag input placeholder (@labikmartin, #21, #22)
+	   * @type {String}
+	   */
+	  tagPlaceholder: "Enter a tag..."
+	};
+
+	/**
+	 * Event Emitter
+	 */
+	var Events = function() {};
+
+	/**
+	 * Event Prototype
+	 * @type {Object}
+	 */
+	Events.prototype = {
+	  /**
+	   * Add custom event listener
+	   * @param  {String} event Event type
+	   * @param  {Function} func   Callback
+	   * @return {Void}
+	   */
+	  on: function(event, func) {
+	    this._events = this._events || {};
+	    this._events[event] = this._events[event] || [];
+	    this._events[event].push(func);
+	  },
+
+	  /**
+	   * Remove custom event listener
+	   * @param  {String} event Event type
+	   * @param  {Function} func   Callback
+	   * @return {Void}
+	   */
+	  off: function(event, func) {
+	    this._events = this._events || {};
+	    if (event in this._events === false) return;
+	    this._events[event].splice(this._events[event].indexOf(func), 1);
+	  },
+
+	  /**
+	   * Fire a custom event
+	   * @param  {String} event Event type
+	   * @return {Void}
+	   */
+	  emit: function(event /* , args... */ ) {
+	    this._events = this._events || {};
+	    if (event in this._events === false) return;
+	    for (var i = 0; i < this._events[event].length; i++) {
+	      this._events[event][i].apply(this, Array.prototype.slice.call(arguments, 1));
+	    }
+	  }
+	};
+
+	/**
+	 * Event mixin
+	 * @param  {Object} obj
+	 * @return {Object}
+	 */
+	Events.mixin = function(obj) {
+	  var props = ['on', 'off', 'emit'];
+	  for (var i = 0; i < props.length; i++) {
+	    if (typeof obj === 'function') {
+	      obj.prototype[props[i]] = Events.prototype[props[i]];
+	    } else {
+	      obj[props[i]] = Events.prototype[props[i]];
+	    }
+	  }
+	  return obj;
+	};
+
+	/**
+	 * Helpers
+	 * @type {Object}
+	 */
+	var util = {
+	  extend: function(src, props) {
+	    props = props || {};
+	    var p;
+	    for (p in src) {
+	      if (src.hasOwnProperty(p)) {
+	        if (!props.hasOwnProperty(p)) {
+	          props[p] = src[p];
+	        }
+	      }
+	    }
+	    return props;
+	  },
+	  each: function(a, b, c) {
+	    if ("[object Object]" === Object.prototype.toString.call(a)) {
+	      for (var d in a) {
+	        if (Object.prototype.hasOwnProperty.call(a, d)) {
+	          b.call(c, d, a[d], a);
+	        }
+	      }
+	    } else {
+	      for (var e = 0, f = a.length; e < f; e++) {
+	        b.call(c, e, a[e], a);
+	      }
+	    }
+	  },
+	  createElement: function(e, a) {
+	    var d = document,
+	        el = d.createElement(e);
+	    if (a && "[object Object]" === Object.prototype.toString.call(a)) {
+	      var i;
+	      for (i in a)
+	        if (i in el) el[i] = a[i];
+	        else if ("html" === i) el.innerHTML = a[i];
+	        else if ("text" === i) {
+	          var t = d.createTextNode(a[i]);
+	          el.appendChild(t);
+	        } else el.setAttribute(i, a[i]);
+	    }
+	    return el;
+	  },
+	  hasClass: function(a, b) {
+	    if (a)
+	      return a.classList ? a.classList.contains(b) : !!a.className && !!a.className.match(new RegExp("(\\s|^)" + b + "(\\s|$)"));
+	  },
+	  addClass: function(a, b) {
+	    if (!util.hasClass(a, b)) {
+	      if (a.classList) {
+	        a.classList.add(b);
+	      } else {
+	        a.className = a.className.trim() + " " + b;
+	      }
+	    }
+	  },
+	  removeClass: function(a, b) {
+	    if (util.hasClass(a, b)) {
+	      if (a.classList) {
+	        a.classList.remove(b);
+	      } else {
+	        a.className = a.className.replace(new RegExp("(^|\\s)" + b.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+	      }
+	    }
+	  },
+	  closest: function(el, fn) {
+	    return el && el !== document.body && (fn(el) ? el : util.closest(el.parentNode, fn));
+	  },
+	  isInt: function(val) {
+	    return typeof val === 'number' && isFinite(val) && Math.floor(val) === val;
+	  },
+	  debounce: function(a, b, c) {
+	    var d;
+	    return function() {
+	      var e = this,
+	          f = arguments,
+	          g = function() {
+	            d = null;
+	            if (!c) a.apply(e, f);
+	          },
+	          h = c && !d;
+	      clearTimeout(d);
+	      d = setTimeout(g, b);
+	      if (h) {
+	        a.apply(e, f);
+	      }
+	    };
+	  },
+	  rect: function(el, abs) {
+	    var w = window;
+	    var r = el.getBoundingClientRect();
+	    var x = abs ? w.pageXOffset : 0;
+	    var y = abs ? w.pageYOffset : 0;
+
+	    return {
+	      bottom: r.bottom + y,
+	      height: r.height,
+	      left: r.left + x,
+	      right: r.right + x,
+	      top: r.top + y,
+	      width: r.width
+	    };
+	  },
+	  includes: function(a, b) {
+	    return a.indexOf(b) > -1;
+	  },
+	  truncate: function(el) {
+	    while (el.firstChild) {
+	      el.removeChild(el.firstChild);
+	    }
+	  }
+	};
+
+
+	function isset(obj, prop) {
+	  return obj.hasOwnProperty(prop) && (obj[prop] === true || obj[prop].length);
+	}
+
+	/**
+	 * Append an item to the list
+	 * @param  {Object} item
+	 * @param  {Object} custom
+	 * @return {Void}
+	 */
+	function appendItem(item, parent, custom) {
+	  if (item.parentNode) {
+	    if (!item.parentNode.parentNode) {
+	      parent.appendChild(item.parentNode);
+	    }
+	  } else {
+	    parent.appendChild(item);
+	  }
+
+	  util.removeClass(item, "excluded");
+	  if (!custom) {
+	    item.innerHTML = item.textContent;
+	  }
+	}
+
+	/**
+	 * Render the item list
+	 * @return {Void}
+	 */
+	var render = function() {
+	  if (this.items.length) {
+	    var f = document.createDocumentFragment();
+
+	    if (this.config.pagination) {
+	      var pages = this.pages.slice(0, this.pageIndex);
+
+	      util.each(pages, function(i, items) {
+	        util.each(items, function(j, item) {
+	          appendItem(item, f, this.customOption);
+	        }, this);
+	      }, this);
+	    } else {
+	      util.each(this.items, function(i, item) {
+	        appendItem(item, f, this.customOption);
+	      }, this);
+	    }
+
+	    if (f.childElementCount) {
+	      util.removeClass(this.items[this.navIndex], "active");
+	      this.navIndex = f.querySelector(".selectr-option").idx;
+	      util.addClass(this.items[this.navIndex], "active");
+	    }
+
+	    this.tree.appendChild(f);
+	  }
+	};
+
+	/**
+	 * Dismiss / close the dropdown
+	 * @param  {obj} e
+	 * @return {void}
+	 */
+	var dismiss = function(e) {
+	  var target = e.target;
+	  if (!this.container.contains(target) && (this.opened || util.hasClass(this.container, "notice"))) {
+	    this.close();
+	  }
+	};
+
+	/**
+	 * Build a list item from the HTMLOptionElement
+	 * @param  {int} i      HTMLOptionElement index
+	 * @param  {HTMLOptionElement} option
+	 * @param  {bool} group  Has parent optgroup
+	 * @return {void}
+	 */
+	var createItem = function(option, data) {
+	  data = data || option;
+	  var content = this.customOption ? this.config.renderOption(data) : option.textContent;
+	  var opt = util.createElement("li", {
+	    class: "selectr-option",
+	    html: content,
+	    role: "treeitem",
+	    "aria-selected": false
+	  });
+
+	  opt.idx = option.idx;
+
+	  this.items.push(opt);
+
+	  if (option.defaultSelected) {
+	    this.defaultSelected.push(option.idx);
+	  }
+
+	  if (option.disabled) {
+	    opt.disabled = true;
+	    util.addClass(opt, "disabled");
+	  }
+
+	  return opt;
+	};
+
+	/**
+	 * Build the container
+	 * @return {Void}
+	 */
+	var build = function() {
+
+	  this.requiresPagination = this.config.pagination && this.config.pagination > 0;
+
+	  // Set width
+	  if (isset(this.config, "width")) {
+	    if (util.isInt(this.config.width)) {
+	      this.width = this.config.width + "px";
+	    } else {
+	      if (this.config.width === "auto") {
+	        this.width = "100%";
+	      } else if (util.includes(this.config.width, "%")) {
+	        this.width = this.config.width;
+	      }
+	    }
+	  }
+
+	  this.container = util.createElement("div", {
+	    class: "selectr-container"
+	  });
+
+	  // Custom className
+	  if (this.config.customClass) {
+	    util.addClass(this.container, this.config.customClass);
+	  }
+
+	  // Mobile device
+	  if (this.mobileDevice) {
+	    util.addClass(this.container, "selectr-mobile");
+	  } else {
+	    util.addClass(this.container, "selectr-desktop");
+	  }
+
+	  // Hide the HTMLSelectElement and prevent focus
+	  this.el.tabIndex = -1;
+
+	  // Native dropdown
+	  if (this.config.nativeDropdown || this.mobileDevice) {
+	    util.addClass(this.el, "selectr-visible");
+	  } else {
+	    util.addClass(this.el, "selectr-hidden");
+	  }
+
+	  this.selected = util.createElement("div", {
+	    class: "selectr-selected",
+	    disabled: this.disabled,
+	    tabIndex: 1, // enable tabIndex (#9)
+	    "aria-expanded": false
+	  });
+
+	  this.label = util.createElement(this.el.multiple ? "ul" : "span", {
+	    class: "selectr-label"
+	  });
+
+	  var dropdown = util.createElement("div", {
+	    class: "selectr-options-container"
+	  });
+
+	  this.tree = util.createElement("ul", {
+	    class: "selectr-options",
+	    role: "tree",
+	    "aria-hidden": true,
+	    "aria-expanded": false
+	  });
+
+	  this.notice = util.createElement("div", {
+	    class: "selectr-notice"
+	  });
+
+	  this.el.setAttribute("aria-hidden", true);
+
+	  if (this.disabled) {
+	    this.el.disabled = true;
+	  }
+
+	  if (this.el.multiple) {
+	    util.addClass(this.label, "selectr-tags");
+	    util.addClass(this.container, "multiple");
+
+	    // Collection of tags
+	    this.tags = [];
+
+	    // Collection of selected values
+	    this.selectedValues = this.getSelectedProperties('value');
+
+	    // Collection of selected indexes
+	    this.selectedIndexes = this.getSelectedProperties('idx');
+	  }
+
+	  this.selected.appendChild(this.label);
+
+	  if (this.config.clearable) {
+	    this.selectClear = util.createElement("button", {
+	      class: "selectr-clear",
+	      type: "button"
+	    });
+
+	    this.container.appendChild(this.selectClear);
+
+	    util.addClass(this.container, "clearable");
+	  }
+
+	  if (this.config.taggable) {
+	    var li = util.createElement('li', {
+	      class: 'input-tag'
+	    });
+	    this.input = util.createElement("input", {
+	      class: "selectr-tag-input",
+	      placeholder: this.config.tagPlaceholder,
+	      tagIndex: 0,
+	      autocomplete: "off",
+	      autocorrect: "off",
+	      autocapitalize: "off",
+	      spellcheck: "false",
+	      role: "textbox",
+	      type: "search"
+	    });
+
+	    li.appendChild(this.input);
+	    this.label.appendChild(li);
+	    util.addClass(this.container, "taggable");
+
+	    this.tagSeperators = [","];
+	    if (this.config.tagSeperators) {
+	      this.tagSeperators = this.tagSeperators.concat(this.config.tagSeperators);
+	    }
+	  }
+
+	  if (this.config.searchable) {
+	    this.input = util.createElement("input", {
+	      class: "selectr-input",
+	      tagIndex: -1,
+	      autocomplete: "off",
+	      autocorrect: "off",
+	      autocapitalize: "off",
+	      spellcheck: "false",
+	      role: "textbox",
+	      type: "search"
+	    });
+	    this.inputClear = util.createElement("button", {
+	      class: "selectr-input-clear",
+	      type: "button"
+	    });
+	    this.inputContainer = util.createElement("div", {
+	      class: "selectr-input-container"
+	    });
+
+	    this.inputContainer.appendChild(this.input);
+	    this.inputContainer.appendChild(this.inputClear);
+	    dropdown.appendChild(this.inputContainer);
+	  }
+
+	  dropdown.appendChild(this.notice);
+	  dropdown.appendChild(this.tree);
+
+	  // List of items for the dropdown
+	  this.items = [];
+
+	  // Establish options
+	  this.options = [];
+
+	  // Check for options in the element
+	  if (this.el.options.length) {
+	    this.options = [].slice.call(this.el.options);
+	  }
+
+	  // Element may have optgroups so
+	  // iterate element.children instead of element.options
+	  var group = false,
+	      j = 0;
+	  if (this.el.children.length) {
+	    util.each(this.el.children, function(i, element) {
+	      if (element.nodeName === "OPTGROUP") {
+
+	        group = util.createElement("ul", {
+	          class: "selectr-optgroup",
+	          role: "group",
+	          html: "<li class='selectr-optgroup--label'>" + element.label + "</li>"
+	        });
+
+	        util.each(element.children, function(x, el) {
+	          el.idx = j;
+	          group.appendChild(createItem.call(this, el, group));
+	          j++;
+	        }, this);
+	      } else {
+	        element.idx = j;
+	        createItem.call(this, element);
+	        j++;
+	      }
+	    }, this);
+	  }
+
+	  // Options defined by the data option
+	  if (this.config.data && Array.isArray(this.config.data)) {
+	    this.data = [];
+	    var optgroup = false,
+	        option;
+
+	    group = false;
+	    j = 0;
+
+	    util.each(this.config.data, function(i, opt) {
+	      // Check for group options
+	      if (isset(opt, "children")) {
+	        optgroup = util.createElement("optgroup", {
+	          label: opt.text
+	        });
+
+	        group = util.createElement("ul", {
+	          class: "selectr-optgroup",
+	          role: "group",
+	          html: "<li class='selectr-optgroup--label'>" + opt.text + "</li>"
+	        });
+
+	        util.each(opt.children, function(x, data) {
+	          option = new Option(data.text, data.value, false, data.hasOwnProperty("selected") && data.selected === true);
+
+	          option.disabled = isset(data, "disabled");
+
+	          this.options.push(option);
+
+	          optgroup.appendChild(option);
+
+	          option.idx = j;
+
+	          group.appendChild(createItem.call(this, option, data));
+
+	          this.data[j] = data;
+
+	          j++;
+	        }, this);
+	      } else {
+	        option = new Option(opt.text, opt.value, false, opt.hasOwnProperty("selected") && opt.selected === true);
+
+	        option.disabled = isset(opt, "disabled");
+
+	        this.options.push(option);
+
+	        option.idx = j;
+
+	        createItem.call(this, option, opt);
+
+	        this.data[j] = opt;
+
+	        j++;
+	      }
+	    }, this);
+	  }
+
+	  this.setSelected(true);
+
+	  var first;
+	  this.navIndex = 0;
+	  for (var i = 0; i < this.items.length; i++) {
+	    first = this.items[i];
+
+	    if (!util.hasClass(first, "disabled")) {
+
+	      util.addClass(first, "active");
+	      this.navIndex = i;
+	      break;
+	    }
+	  }
+
+	  // Check for pagination / infinite scroll
+	  if (this.requiresPagination) {
+	    this.pageIndex = 1;
+
+	    // Create the pages
+	    this.paginate();
+	  }
+
+	  this.container.appendChild(this.selected);
+	  this.container.appendChild(dropdown);
+
+	  this.placeEl = util.createElement("div", {
+	    class: "selectr-placeholder"
+	  });
+
+	  // Set the placeholder
+	  this.setPlaceholder();
+
+	  this.selected.appendChild(this.placeEl);
+
+	  // Disable if required
+	  if (this.disabled) {
+	    this.disable();
+	  }
+
+	  this.el.parentNode.insertBefore(this.container, this.el);
+	  this.container.appendChild(this.el);
+	};
+
+	/**
+	 * Navigate through the dropdown
+	 * @param  {obj} e
+	 * @return {void}
+	 */
+	var navigate = function(e) {
+	  e = e || window.event;
+
+	  // Filter out the keys we don"t want
+	  if (!this.items.length || !this.opened || !util.includes([13, 38, 40], e.which)) {
+	    this.navigating = false;
+	    return;
+	  }
+
+	  e.preventDefault();
+
+	  if (e.which === 13) {
+
+	    if (this.config.taggable && this.input.value.length > 0) {
+	      return false;
+	    }
+
+	    return this.change(this.navIndex);
+	  }
+
+	  var direction, prevEl = this.items[this.navIndex];
+
+	  switch (e.which) {
+	    case 38:
+	      direction = 0;
+	      if (this.navIndex > 0) {
+	        this.navIndex--;
+	      }
+	      break;
+	    case 40:
+	      direction = 1;
+	      if (this.navIndex < this.items.length - 1) {
+	        this.navIndex++;
+	      }
+	  }
+
+	  this.navigating = true;
+
+
+	  // Instead of wasting memory holding a copy of this.items
+	  // with disabled / excluded options omitted, skip them instead
+	  while (util.hasClass(this.items[this.navIndex], "disabled") || util.hasClass(this.items[this.navIndex], "excluded")) {
+	    if (direction) {
+	      this.navIndex++;
+	    } else {
+	      this.navIndex--;
+	    }
+
+	    if (this.searching) {
+	      if (this.navIndex > this.tree.lastElementChild.idx) {
+	        this.navIndex = this.tree.lastElementChild.idx;
+	        break;
+	      } else if (this.navIndex < this.tree.firstElementChild.idx) {
+	        this.navIndex = this.tree.firstElementChild.idx;
+	        break;
+	      }
+	    }
+	  }
+
+	  // Autoscroll the dropdown during navigation
+	  var r = util.rect(this.items[this.navIndex]);
+
+	  if (!direction) {
+	    if (this.navIndex === 0) {
+	      this.tree.scrollTop = 0;
+	    } else if (r.top - this.optsRect.top < 0) {
+	      this.tree.scrollTop = this.tree.scrollTop + (r.top - this.optsRect.top);
+	    }
+	  } else {
+	    if (this.navIndex === 0) {
+	      this.tree.scrollTop = 0;
+	    } else if ((r.top + r.height) > (this.optsRect.top + this.optsRect.height)) {
+	      this.tree.scrollTop = this.tree.scrollTop + ((r.top + r.height) - (this.optsRect.top + this.optsRect.height));
+	    }
+
+	    // Load another page if needed
+	    if (this.navIndex === this.tree.childElementCount - 1 && this.requiresPagination) {
+	      load.call(this);
+	    }
+	  }
+
+	  if (prevEl) {
+	    util.removeClass(prevEl, "active");
+	  }
+
+	  util.addClass(this.items[this.navIndex], "active");
+	};
+
+	/**
+	 * Add a tag
+	 * @param  {HTMLElement} item
+	 */
+	var addTag = function(item) {
+	  var that = this,
+	      r;
+
+	  var docFrag = document.createDocumentFragment();
+	  var option = this.options[item.idx];
+	  var data = this.data ? this.data[item.idx] : option;
+	  var content = this.customSelected ? this.config.renderSelection(data) : option.textContent;
+
+	  var tag = util.createElement("li", {
+	    class: "selectr-tag",
+	    html: content
+	  });
+	  var btn = util.createElement("button", {
+	    class: "selectr-tag-remove",
+	    type: "button"
+	  });
+
+	  tag.appendChild(btn);
+
+	  // Set property to check against later
+	  tag.idx = item.idx;
+	  tag.tag = option.value;
+
+	  this.tags.push(tag);
+
+	  if (this.config.sortSelected) {
+
+	    var tags = this.tags.slice();
+
+	    // Deal with values that contain numbers
+	    r = function(val, arr) {
+	      val.replace(/(\d+)|(\D+)/g, function(that, $1, $2) {
+	        arr.push([$1 || Infinity, $2 || ""]);
+	      });
+	    };
+
+	    tags.sort(function(a, b) {
+	      var x = [],
+	          y = [],
+	          ac, bc;
+	      if (that.config.sortSelected === true) {
+	        ac = a.tag;
+	        bc = b.tag;
+	      } else if (that.config.sortSelected === 'text') {
+	        ac = a.textContent;
+	        bc = b.textContent;
+	      }
+
+	      r(ac, x);
+	      r(bc, y);
+
+	      while (x.length && y.length) {
+	        var ax = x.shift();
+	        var by = y.shift();
+	        var nn = (ax[0] - by[0]) || ax[1].localeCompare(by[1]);
+	        if (nn) return nn;
+	      }
+
+	      return x.length - y.length;
+	    });
+
+	    util.each(tags, function(i, tg) {
+	      docFrag.appendChild(tg);
+	    });
+
+	    this.label.innerHTML = "";
+
+	  } else {
+	    docFrag.appendChild(tag);
+	  }
+
+	  if (this.config.taggable) {
+	    this.label.insertBefore(docFrag, this.input.parentNode);
+	  } else {
+	    this.label.appendChild(docFrag);
+	  }
+	};
+
+	/**
+	 * Remove a tag
+	 * @param  {HTMLElement} item
+	 * @return {void}
+	 */
+	var removeTag = function(item) {
+	  var tag = false;
+
+	  util.each(this.tags, function(i, t) {
+	    if (t.idx === item.idx) {
+	      tag = t;
+	    }
+	  }, this);
+
+	  if (tag) {
+	    this.label.removeChild(tag);
+	    this.tags.splice(this.tags.indexOf(tag), 1);
+	  }
+	};
+
+	/**
+	 * Load the next page of items
+	 * @return {void}
+	 */
+	var load = function() {
+	  var tree = this.tree;
+	  var scrollTop = tree.scrollTop;
+	  var scrollHeight = tree.scrollHeight;
+	  var offsetHeight = tree.offsetHeight;
+	  var atBottom = scrollTop >= (scrollHeight - offsetHeight);
+
+	  if ((atBottom && this.pageIndex < this.pages.length)) {
+	    var f = document.createDocumentFragment();
+
+	    util.each(this.pages[this.pageIndex], function(i, item) {
+	      appendItem(item, f, this.customOption);
+	    }, this);
+
+	    tree.appendChild(f);
+
+	    this.pageIndex++;
+
+	    this.emit("selectr.paginate", {
+	      items: this.items.length,
+	      total: this.data.length,
+	      page: this.pageIndex,
+	      pages: this.pages.length
+	    });
+	  }
+	};
+
+	/**
+	 * Clear a search
+	 * @return {void}
+	 */
+	var clearSearch = function() {
+	  if (this.config.searchable || this.config.taggable) {
+	    this.input.value = null;
+	    this.searching = false;
+	    if (this.config.searchable) {
+	      util.removeClass(this.inputContainer, "active");
+	    }
+
+	    if (util.hasClass(this.container, "notice")) {
+	      util.removeClass(this.container, "notice");
+	      util.addClass(this.container, "open");
+	      this.input.focus();
+	    }
+
+	    util.each(this.items, function(i, item) {
+	      // Items that didn't match need the class
+	      // removing to make them visible again
+	      util.removeClass(item, "excluded");
+	      // Remove the span element for underlining matched items
+	      if (!this.customOption) {
+	        item.innerHTML = item.textContent;
+	      }
+	    }, this);
+	  }
+	};
+
+	/**
+	 * Query matching for searches
+	 * @param  {string} query
+	 * @param  {HTMLOptionElement} option
+	 * @return {bool}
+	 */
+	var match = function(query, option) {
+	  var result = new RegExp(query, "i").exec(option.textContent);
+	  if (result) {
+	    return option.textContent.replace(result[0], "<span class='selectr-match'>" + result[0] + "</span>");
+	  }
+	  return false;
+	};
+
+	// Main Lib
+	var Selectr = function(el, config) {
+
+	  config = config || {};
+
+	  if (!el) {
+	    throw new Error("You must supply either a HTMLSelectElement or a CSS3 selector string.");
+	  }
+
+	  this.el = el;
+
+	  // CSS3 selector string
+	  if (typeof el === "string") {
+	    this.el = document.querySelector(el);
+	  }
+
+	  if (this.el === null) {
+	    throw new Error("The element you passed to Selectr can not be found.");
+	  }
+
+	  if (this.el.nodeName.toLowerCase() !== "select") {
+	    throw new Error("The element you passed to Selectr is not a HTMLSelectElement.");
+	  }
+
+	  this.render(config);
+	};
+
+	/**
+	 * Render the instance
+	 * @param  {object} config
+	 * @return {void}
+	 */
+	Selectr.prototype.render = function(config) {
+
+	  if (this.rendered) return;
+
+	  // Merge defaults with user set config
+	  this.config = util.extend(defaultConfig, config);
+
+	  // Store type
+	  this.originalType = this.el.type;
+
+	  // Store tabIndex
+	  this.originalIndex = this.el.tabIndex;
+
+	  // Store defaultSelected options for form reset
+	  this.defaultSelected = [];
+
+	  // Store the original option count
+	  this.originalOptionCount = this.el.options.length;
+
+	  if (this.config.multiple || this.config.taggable) {
+	    this.el.multiple = true;
+	  }
+
+	  // Disabled?
+	  this.disabled = isset(this.config, "disabled");
+
+	  this.opened = false;
+
+	  if (this.config.taggable) {
+	    this.config.searchable = false;
+	  }
+
+	  this.navigating = false;
+
+	  this.mobileDevice = false;
+	  if (/Android|webOS|iPhone|iPad|BlackBerry|Windows Phone|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent)) {
+	    this.mobileDevice = true;
+	  }
+
+	  this.customOption = this.config.hasOwnProperty("renderOption") && typeof this.config.renderOption === "function";
+	  this.customSelected = this.config.hasOwnProperty("renderSelection") && typeof this.config.renderSelection === "function";
+
+	  // Enable event emitter
+	  Events.mixin(this);
+
+	  build.call(this);
+
+	  this.bindEvents();
+
+	  this.update();
+
+	  this.optsRect = util.rect(this.tree);
+
+	  this.rendered = true;
+
+	  // Fixes macOS Safari bug #28
+	  if (!this.el.multiple) {
+	    this.el.selectedIndex = this.selectedIndex;
+	  }
+
+	  var that = this;
+	  setTimeout(function() {
+	    that.emit("selectr.init");
+	  }, 20);
+	};
+
+	Selectr.prototype.getSelected = function () {
+	  var selected = this.el.querySelectorAll('option:checked');
+	  return selected;
+	};
+
+	Selectr.prototype.getSelectedProperties = function (prop) {
+	  var selected = this.getSelected();
+	  var values = [].slice.call(selected)
+	      .map(function(option) { return option[prop]; })
+	      .filter(function(i) { return i!==null && i!==undefined; });
+	  return values;
+	};
+
+	/**
+	 * Attach the required event listeners
+	 */
+	Selectr.prototype.bindEvents = function() {
+
+	  var that = this;
+
+	  this.events = {};
+
+	  this.events.dismiss = dismiss.bind(this);
+	  this.events.navigate = navigate.bind(this);
+	  this.events.reset = this.reset.bind(this);
+
+	  if (this.config.nativeDropdown || this.mobileDevice) {
+
+	    this.container.addEventListener("touchstart", function(e) {
+	      if (e.changedTouches[0].target === that.el) {
+	        that.toggle();
+	      }
+	    });
+
+	    if (this.config.nativeDropdown || this.mobileDevice) {
+	      this.container.addEventListener("click", function(e) {
+	        e.preventDefault();  // Jos: Added to prevent emitting clear directly after select
+	        e.stopPropagation(); // Jos: Added to prevent emitting clear directly after select
+
+	        if (e.target === that.el) {
+	          that.toggle();
+	        }
+	      });
+	    }
+
+	    var getChangedOptions = function(last, current) {
+	      var added=[], removed=last.slice(0);
+	      var idx;
+	      for (var i=0; i<current.length; i++) {
+	        idx = removed.indexOf(current[i]);
+	        if (idx > -1)
+	          removed.splice(idx, 1);
+	        else
+	          added.push(current[i]);
+	      }
+	      return [added, removed];
+	    };
+
+	    // Listen for the change on the native select
+	    // and update accordingly
+	    this.el.addEventListener("change", function(e) {
+	      if (that.el.multiple) {
+	        var indexes = that.getSelectedProperties('idx');
+	        var changes = getChangedOptions(that.selectedIndexes, indexes);
+
+	        util.each(changes[0], function(i, idx) {
+	          that.select(idx);
+	        }, that);
+
+	        util.each(changes[1], function(i, idx) {
+	          that.deselect(idx);
+	        }, that);
+
+	      } else {
+	        if (that.el.selectedIndex > -1) {
+	          that.select(that.el.selectedIndex);
+	        }
+	      }
+	    });
+
+	  }
+
+	  // Open the dropdown with Enter key if focused
+	  if (this.config.nativeDropdown) {
+	    this.container.addEventListener("keydown", function(e) {
+	      if (e.key === "Enter" && that.selected === document.activeElement) {
+	        // Show the native
+	        that.toggle();
+
+	        // Focus on the native multiselect
+	        setTimeout(function() {
+	          that.el.focus();
+	        }, 200);
+	      }
+	    });
+	  }
+
+	  // Non-native dropdown
+	  this.selected.addEventListener("click", function(e) {
+
+	    if (!that.disabled) {
+	      that.toggle();
+	    }
+
+	    e.preventDefault();
+	    e.stopPropagation(); // Jos: Added to prevent emitting clear directly after select
+	  });
+
+	  // Remove tag
+	  this.label.addEventListener("click", function(e) {
+	    if (util.hasClass(e.target, "selectr-tag-remove")) {
+	      that.deselect(e.target.parentNode.idx);
+	    }
+	  });
+
+	  // Clear input
+	  if (this.selectClear) {
+	    this.selectClear.addEventListener("click", this.clear.bind(this));
+	  }
+
+	  // Prevent text selection
+	  this.tree.addEventListener("mousedown", function(e) {
+	    e.preventDefault();
+	  });
+
+	  // Select / deselect items
+	  this.tree.addEventListener("click", function(e) {
+	    e.preventDefault();  // Jos: Added to prevent emitting clear directly after select
+	    e.stopPropagation(); // Jos: Added to prevent emitting clear directly after select
+
+	    var item = util.closest(e.target, function(el) {
+	      return el && util.hasClass(el, "selectr-option");
+	    });
+
+	    if (item) {
+	      if (!util.hasClass(item, "disabled")) {
+	        if (util.hasClass(item, "selected")) {
+	          if (that.el.multiple || !that.el.multiple && that.config.allowDeselect) {
+	            that.deselect(item.idx);
+	          }
+	        } else {
+	          that.select(item.idx);
+	        }
+
+	        if (that.opened && !that.el.multiple) {
+	          that.close();
+	        }
+	      }
+	    }
+	  });
+
+	  // Mouseover list items
+	  this.tree.addEventListener("mouseover", function(e) {
+	    if (util.hasClass(e.target, "selectr-option")) {
+	      if (!util.hasClass(e.target, "disabled")) {
+	        util.removeClass(that.items[that.navIndex], "active");
+
+	        util.addClass(e.target, "active");
+
+	        that.navIndex = [].slice.call(that.items).indexOf(e.target);
+	      }
+	    }
+	  });
+
+	  // Searchable
+	  if (this.config.searchable) {
+	    // Show / hide the search input clear button
+
+	    this.input.addEventListener("focus", function(e) {
+	      that.searching = true;
+	    });
+
+	    this.input.addEventListener("blur", function(e) {
+	      that.searching = false;
+	    });
+
+	    this.input.addEventListener("keyup", function(e) {
+	      that.search();
+
+	      if (!that.config.taggable) {
+	        // Show / hide the search input clear button
+	        if (this.value.length) {
+	          util.addClass(this.parentNode, "active");
+	        } else {
+	          util.removeClass(this.parentNode, "active");
+	        }
+	      }
+	    });
+
+	    // Clear the search input
+	    this.inputClear.addEventListener("click", function(e) {
+	      that.input.value = null;
+	      clearSearch.call(that);
+
+	      if (!that.tree.childElementCount) {
+	        render.call(that);
+	      }
+	    });
+	  }
+
+	  if (this.config.taggable) {
+	    this.input.addEventListener("keyup", function(e) {
+
+	      that.search();
+
+	      if (that.config.taggable && this.value.length) {
+	        var val = this.value.trim();
+
+	        if (e.which === 13 || util.includes(that.tagSeperators, e.key)) {
+
+	          util.each(that.tagSeperators, function(i, k) {
+	            val = val.replace(k, '');
+	          });
+
+	          var option = that.add({
+	            value: val,
+	            text: val,
+	            selected: true
+	          }, true);
+
+	          if (!option) {
+	            this.value = '';
+	            that.setMessage('That tag is already in use.');
+	          } else {
+	            that.close();
+	            clearSearch.call(that);
+	          }
+	        }
+	      }
+	    });
+	  }
+
+	  this.update = util.debounce(function() {
+	    // Optionally close dropdown on scroll / resize (#11)
+	    if (that.opened && that.config.closeOnScroll) {
+	      that.close();
+	    }
+	    if (that.width) {
+	      that.container.style.width = that.width;
+	    }
+	    that.invert();
+	  }, 50);
+
+	  if (this.requiresPagination) {
+	    this.paginateItems = util.debounce(function() {
+	      load.call(this);
+	    }, 50);
+
+	    this.tree.addEventListener("scroll", this.paginateItems.bind(this));
+	  }
+
+	  // Dismiss when clicking outside the container
+	  document.addEventListener("click", this.events.dismiss);
+	  window.addEventListener("keydown", this.events.navigate);
+
+	  window.addEventListener("resize", this.update);
+	  window.addEventListener("scroll", this.update);
+
+	  // Listen for form.reset() (@ambrooks, #13)
+	  if (this.el.form) {
+	    this.el.form.addEventListener("reset", this.events.reset);
+	  }
+	};
+
+	/**
+	 * Check for selected options
+	 * @param {bool} reset
+	 */
+	Selectr.prototype.setSelected = function(reset) {
+
+	  // Select first option as with a native select-one element - #21, #24
+	  if (!this.config.data && !this.el.multiple && this.el.options.length) {
+	    // Browser has selected the first option by default
+	    if (this.el.selectedIndex === 0) {
+	      if (!this.el.options[0].defaultSelected && !this.config.defaultSelected) {
+	        this.el.selectedIndex = -1;
+	      }
+	    }
+
+	    this.selectedIndex = this.el.selectedIndex;
+
+	    if (this.selectedIndex > -1) {
+	      this.select(this.selectedIndex);
+	    }
+	  }
+
+	  // If we're changing a select-one to select-multiple via the config
+	  // and there are no selected options, the first option will be selected by the browser
+	  // Let's prevent that here.
+	  if (this.config.multiple && this.originalType === "select-one" && !this.config.data) {
+	    if (this.el.options[0].selected && !this.el.options[0].defaultSelected) {
+	      this.el.options[0].selected = false;
+	    }
+	  }
+
+	  util.each(this.options, function(i, option) {
+	    if (option.selected && option.defaultSelected) {
+	      this.select(option.idx);
+	    }
+	  }, this);
+
+	  if (this.config.selectedValue) {
+	    this.setValue(this.config.selectedValue);
+	  }
+
+	  if (this.config.data) {
+
+
+	    if (!this.el.multiple && this.config.defaultSelected && this.el.selectedIndex < 0) {
+	      this.select(0);
+	    }
+
+	    var j = 0;
+	    util.each(this.config.data, function(i, opt) {
+	      // Check for group options
+	      if (isset(opt, "children")) {
+	        util.each(opt.children, function(x, item) {
+	          if (item.hasOwnProperty("selected") && item.selected === true) {
+	            this.select(j);
+	          }
+	          j++;
+	        }, this);
+	      } else {
+	        if (opt.hasOwnProperty("selected") && opt.selected === true) {
+	          this.select(j);
+	        }
+	        j++;
+	      }
+	    }, this);
+	  }
+	};
+
+	/**
+	 * Destroy the instance
+	 * @return {void}
+	 */
+	Selectr.prototype.destroy = function() {
+
+	  if (!this.rendered) return;
+
+	  this.emit("selectr.destroy");
+
+	  // Revert to select-single if programtically set to multiple
+	  if (this.originalType === 'select-one') {
+	    this.el.multiple = false;
+	  }
+
+	  if (this.config.data) {
+	    this.el.innerHTML = "";
+	  }
+
+	  // Remove the className from select element
+	  util.removeClass(this.el, 'selectr-hidden');
+
+	  // Remove reset listener from parent form
+	  if (this.el.form) {
+	    util.off(this.el.form, "reset", this.events.reset);
+	  }
+
+	  // Remove event listeners attached to doc and win
+	  util.off(document, "click", this.events.dismiss);
+	  util.off(document, "keydown", this.events.navigate);
+	  util.off(window, "resize", this.update);
+	  util.off(window, "scroll", this.update);
+
+	  // Replace the container with the original select element
+	  this.container.parentNode.replaceChild(this.el, this.container);
+
+	  this.rendered = false;
+	};
+
+	/**
+	 * Change an options state
+	 * @param  {Number} index
+	 * @return {void}
+	 */
+	Selectr.prototype.change = function(index) {
+	  var item = this.items[index],
+	      option = this.options[index];
+
+	  if (option.disabled) {
+	    return;
+	  }
+
+	  if (option.selected && util.hasClass(item, "selected")) {
+	    this.deselect(index);
+	  } else {
+	    this.select(index);
+	  }
+
+	  if (this.opened && !this.el.multiple) {
+	    this.close();
+	  }
+	};
+
+	/**
+	 * Select an option
+	 * @param  {Number} index
+	 * @return {void}
+	 */
+	Selectr.prototype.select = function(index) {
+
+	  var item = this.items[index],
+	      options = [].slice.call(this.el.options),
+	      option = this.options[index];
+
+	  if (this.el.multiple) {
+	    if (util.includes(this.selectedIndexes, index)) {
+	      return false;
+	    }
+
+	    if (this.config.maxSelections && this.tags.length === this.config.maxSelections) {
+	      this.setMessage("A maximum of " + this.config.maxSelections + " items can be selected.", true);
+	      return false;
+	    }
+
+	    this.selectedValues.push(option.value);
+	    this.selectedIndexes.push(index);
+
+	    addTag.call(this, item);
+	  } else {
+	    var data = this.data ? this.data[index] : option;
+	    this.label.innerHTML = this.customSelected ? this.config.renderSelection(data) : option.textContent;
+
+	    this.selectedValue = option.value;
+	    this.selectedIndex = index;
+
+	    util.each(this.options, function(i, o) {
+	      var opt = this.items[i];
+
+	      if (i !== index) {
+	        if (opt) {
+	          util.removeClass(opt, "selected");
+	        }
+	        o.selected = false;
+	        o.removeAttribute("selected");
+	      }
+	    }, this);
+	  }
+
+	  if (!util.includes(options, option)) {
+	    this.el.add(option);
+	  }
+
+	  item.setAttribute("aria-selected", true);
+
+	  util.addClass(item, "selected");
+	  util.addClass(this.container, "has-selected");
+
+	  option.selected = true;
+	  option.setAttribute("selected", "");
+
+	  this.emit("selectr.change", option);
+
+	  this.emit("selectr.select", option);
+	};
+
+	/**
+	 * Deselect an option
+	 * @param  {Number} index
+	 * @return {void}
+	 */
+	Selectr.prototype.deselect = function(index, force) {
+	  var item = this.items[index],
+	      option = this.options[index];
+
+	  if (this.el.multiple) {
+	    var selIndex = this.selectedIndexes.indexOf(index);
+	    this.selectedIndexes.splice(selIndex, 1);
+
+	    var valIndex = this.selectedValues.indexOf(option.value);
+	    this.selectedValues.splice(valIndex, 1);
+
+	    removeTag.call(this, item);
+
+	    if (!this.tags.length) {
+	      util.removeClass(this.container, "has-selected");
+	    }
+	  } else {
+
+	    if (!force && !this.config.clearable && !this.config.allowDeselect) {
+	      return false;
+	    }
+
+	    this.label.innerHTML = "";
+	    this.selectedValue = null;
+
+	    this.el.selectedIndex = this.selectedIndex = -1;
+
+	    util.removeClass(this.container, "has-selected");
+	  }
+
+
+	  this.items[index].setAttribute("aria-selected", false);
+
+	  util.removeClass(this.items[index], "selected");
+
+	  option.selected = false;
+
+	  option.removeAttribute("selected");
+
+	  this.emit("selectr.change", null);
+
+	  this.emit("selectr.deselect", option);
+	};
+
+	/**
+	 * Programmatically set selected values
+	 * @param {String|Array} value - A string or an array of strings
+	 */
+	Selectr.prototype.setValue = function(value) {
+	  var isArray = Array.isArray(value);
+
+	  if (!isArray) {
+	    value = value.toString().trim();
+	  }
+
+	  // Can't pass array to select-one
+	  if (!this.el.multiple && isArray) {
+	    return false;
+	  }
+
+	  util.each(this.options, function(i, option) {
+	    if (isArray && util.includes(value.toString(), option.value) || option.value === value) {
+	      this.change(option.idx);
+	    }
+	  }, this);
+	};
+
+	/**
+	 * Set the selected value(s)
+	 * @param  {bool} toObject Return only the raw values or an object
+	 * @param  {bool} toJson   Return the object as a JSON string
+	 * @return {mixed}         Array or String
+	 */
+	Selectr.prototype.getValue = function(toObject, toJson) {
+	  var value;
+
+	  if (this.el.multiple) {
+	    if (toObject) {
+	      if (this.selectedIndexes.length) {
+	        value = {};
+	        value.values = [];
+	        util.each(this.selectedIndexes, function(i, index) {
+	          var option = this.options[index];
+	          value.values[i] = {
+	            value: option.value,
+	            text: option.textContent
+	          };
+	        }, this);
+	      }
+	    } else {
+	      value = this.selectedValues.slice();
+	    }
+	  } else {
+	    if (toObject) {
+	      var option = this.options[this.selectedIndex];
+	      value = {
+	        value: option.value,
+	        text: option.textContent
+	      };
+	    } else {
+	      value = this.selectedValue;
+	    }
+	  }
+
+	  if (toObject && toJson) {
+	    value = JSON.stringify(value);
+	  }
+
+	  return value;
+	};
+
+	/**
+	 * Add a new option or options
+	 * @param {object} data
+	 */
+	Selectr.prototype.add = function(data, checkDuplicate) {
+	  if (data) {
+
+	    this.data = this.data || [];
+	    this.items = this.items || [];
+	    this.options = this.options || [];
+
+	    if (Array.isArray(data)) {
+	      // We have an array on items
+	      util.each(data, function(i, obj) {
+	        this.add(obj, checkDuplicate);
+	      }, this);
+	    }
+	    // User passed a single object to the method
+	    // or Selectr passed an object from an array
+	    else if ("[object Object]" === Object.prototype.toString.call(data)) {
+
+	      if (checkDuplicate) {
+	        var dupe = false;
+
+	        util.each(this.options, function(i, option) {
+	          if (option.value.toLowerCase() === data.value.toLowerCase()) {
+	            dupe = true;
+	          }
+	        });
+
+	        if (dupe) {
+	          return false;
+	        }
+	      }
+
+	      var option = util.createElement('option', data);
+
+	      this.data.push(data);
+
+	      // Add the new option to the list
+	      this.options.push(option);
+
+	      // Add the index for later use
+	      option.idx = this.options.length > 0 ? this.options.length - 1 : 0;
+
+	      // Create a new item
+	      createItem.call(this, option);
+
+	      // Select the item if required
+	      if (data.selected) {
+	        this.select(option.idx);
+	      }
+
+	      return option;
+	    }
+
+	    // We may have had an empty select so update
+	    // the placeholder to reflect the changes.
+	    this.setPlaceholder();
+
+	    // Recount the pages
+	    if (this.config.pagination) {
+	      this.paginate();
+	    }
+
+	    return true;
+	  }
+	};
+
+	/**
+	 * Remove an option or options
+	 * @param  {Mixed} o Array, integer (index) or string (value)
+	 * @return {Void}
+	 */
+	Selectr.prototype.remove = function(o) {
+	  var options = [];
+	  if (Array.isArray(o)) {
+	    util.each(o, function(i, opt) {
+	      if (util.isInt(opt)) {
+	        options.push(this.getOptionByIndex(opt));
+	      } else if (typeof o === "string") {
+	        options.push(this.getOptionByValue(opt));
+	      }
+	    }, this);
+
+	  } else if (util.isInt(o)) {
+	    options.push(this.getOptionByIndex(o));
+	  } else if (typeof o === "string") {
+	    options.push(this.getOptionByValue(o));
+	  }
+
+	  if (options.length) {
+	    var index;
+	    util.each(options, function(i, option) {
+	      index = option.idx;
+
+	      // Remove the HTMLOptionElement
+	      this.el.remove(option);
+
+	      // Remove the reference from the option array
+	      this.options.splice(index, 1);
+
+	      // If the item has a parentNode (group element) it needs to be removed
+	      // otherwise the render function will still append it to the dropdown
+	      var parentNode = this.items[index].parentNode;
+
+	      if (parentNode) {
+	        parentNode.removeChild(this.items[index]);
+	      }
+
+	      // Remove reference from the items array
+	      this.items.splice(index, 1);
+
+	      // Reset the indexes
+	      util.each(this.options, function(i, opt) {
+	        opt.idx = i;
+	        this.items[i].idx = i;
+	      }, this);
+	    }, this);
+
+	    // We may have had an empty select now so update
+	    // the placeholder to reflect the changes.
+	    this.setPlaceholder();
+
+	    // Recount the pages
+	    if (this.config.pagination) {
+	      this.paginate();
+	    }
+	  }
+	};
+
+	/**
+	 * Remove all options
+	 */
+	Selectr.prototype.removeAll = function() {
+
+	  // Clear any selected options
+	  this.clear(true);
+
+	  // Remove the HTMLOptionElements
+	  util.each(this.el.options, function(i, option) {
+	    this.el.remove(option);
+	  }, this);
+
+	  // Empty the dropdown
+	  util.truncate(this.tree);
+
+	  // Reset variables
+	  this.items = [];
+	  this.options = [];
+	  this.data = [];
+
+	  this.navIndex = 0;
+
+	  if (this.requiresPagination) {
+	    this.requiresPagination = false;
+
+	    this.pageIndex = 1;
+	    this.pages = [];
+	  }
+
+	  // Update the placeholder
+	  this.setPlaceholder();
+	};
+
+	/**
+	 * Perform a search
+	 * @param  {string} query The query string
+	 */
+	Selectr.prototype.search = function(string) {
+
+	  if (this.navigating) return;
+
+	  string = string || this.input.value;
+
+	  var f = document.createDocumentFragment();
+
+	  // Remove message
+	  this.removeMessage();
+
+	  // Clear the dropdown
+	  util.truncate(this.tree);
+
+	  if (string.length > 1) {
+	    // Check the options for the matching string
+	    util.each(this.options, function(i, option) {
+	      var item = this.items[option.idx];
+	      var includes = util.includes(option.textContent.toLowerCase(), string.toLowerCase());
+
+	      if (includes && !option.disabled) {
+
+	        appendItem(item, f, this.customOption);
+
+	        util.removeClass(item, "excluded");
+
+	        // Underline the matching results
+	        if (!this.customOption) {
+	          item.innerHTML = match(string, option);
+	        }
+	      } else {
+	        util.addClass(item, "excluded");
+	      }
+	    }, this);
+
+
+	    if (!f.childElementCount) {
+	      if (!this.config.taggable) {
+	        this.setMessage("no results.");
+	      }
+	    } else {
+	      // Highlight top result (@binary-koan #26)
+	      var prevEl = this.items[this.navIndex];
+	      var firstEl = f.firstElementChild;
+
+	      util.removeClass(prevEl, "active");
+
+	      this.navIndex = firstEl.idx;
+
+	      util.addClass(firstEl, "active");
+	    }
+
+	  } else {
+	    render.call(this);
+	  }
+
+	  this.tree.appendChild(f);
+	};
+
+	/**
+	 * Toggle the dropdown
+	 * @return {void}
+	 */
+	Selectr.prototype.toggle = function() {
+	  if (!this.disabled) {
+	    if (this.opened) {
+	      this.close();
+	    } else {
+	      this.open();
+	    }
+	  }
+	};
+
+	/**
+	 * Open the dropdown
+	 * @return {void}
+	 */
+	Selectr.prototype.open = function() {
+
+	  var that = this;
+
+	  if (!this.options.length) {
+	    return false;
+	  }
+
+	  if (!this.opened) {
+	    this.emit("selectr.open");
+	  }
+
+	  this.opened = true;
+
+	  if (this.mobileDevice || this.config.nativeDropdown) {
+	    util.addClass(this.container, "native-open");
+
+	    if (this.config.data) {
+	      // Dump the options into the select
+	      // otherwise the native dropdown will be empty
+	      util.each(this.options, function(i, option) {
+	        this.el.add(option);
+	      }, this);
+	    }
+
+	    return;
+	  }
+
+	  util.addClass(this.container, "open");
+
+	  render.call(this);
+
+	  this.invert();
+
+	  this.tree.scrollTop = 0;
+
+	  util.removeClass(this.container, "notice");
+
+	  this.selected.setAttribute("aria-expanded", true);
+
+	  this.tree.setAttribute("aria-hidden", false);
+	  this.tree.setAttribute("aria-expanded", true);
+
+	  if (this.config.searchable && !this.config.taggable) {
+	    setTimeout(function() {
+	      that.input.focus();
+	      // Allow tab focus
+	      that.input.tabIndex = 0;
+	    }, 10);
+	  }
+	};
+
+	/**
+	 * Close the dropdown
+	 * @return {void}
+	 */
+	Selectr.prototype.close = function() {
+
+	  if (this.opened) {
+	    this.emit("selectr.close");
+	  }
+
+	  this.opened = false;
+
+	  if (this.mobileDevice || this.config.nativeDropdown) {
+	    util.removeClass(this.container, "native-open");
+	    return;
+	  }
+
+	  var notice = util.hasClass(this.container, "notice");
+
+	  if (this.config.searchable && !notice) {
+	    this.input.blur();
+	    // Disable tab focus
+	    this.input.tabIndex = -1;
+	    this.searching = false;
+	  }
+
+	  if (notice) {
+	    util.removeClass(this.container, "notice");
+	    this.notice.textContent = "";
+	  }
+
+	  util.removeClass(this.container, "open");
+	  util.removeClass(this.container, "native-open");
+
+	  this.selected.setAttribute("aria-expanded", false);
+
+	  this.tree.setAttribute("aria-hidden", true);
+	  this.tree.setAttribute("aria-expanded", false);
+
+	  util.truncate(this.tree);
+	  clearSearch.call(this);
+	};
+
+
+	/**
+	 * Enable the element
+	 * @return {void}
+	 */
+	Selectr.prototype.enable = function() {
+	  this.disabled = false;
+	  this.el.disabled = false;
+
+	  this.selected.tabIndex = this.originalIndex;
+
+	  if (this.el.multiple) {
+	    util.each(this.tags, function(i, t) {
+	      t.lastElementChild.tabIndex = 0;
+	    });
+	  }
+
+	  util.removeClass(this.container, "selectr-disabled");
+	};
+
+	/**
+	 * Disable the element
+	 * @param  {boolean} container Disable the container only (allow value submit with form)
+	 * @return {void}
+	 */
+	Selectr.prototype.disable = function(container) {
+	  if (!container) {
+	    this.el.disabled = true;
+	  }
+
+	  this.selected.tabIndex = -1;
+
+	  if (this.el.multiple) {
+	    util.each(this.tags, function(i, t) {
+	      t.lastElementChild.tabIndex = -1;
+	    });
+	  }
+
+	  this.disabled = true;
+	  util.addClass(this.container, "selectr-disabled");
+	};
+
+
+	/**
+	 * Reset to initial state
+	 * @return {void}
+	 */
+	Selectr.prototype.reset = function() {
+	  if (!this.disabled) {
+	    this.clear();
+
+	    this.setSelected(true);
+
+	    util.each(this.defaultSelected, function(i, idx) {
+	      this.select(idx);
+	    }, this);
+
+	    this.emit("selectr.reset");
+	  }
+	};
+
+	/**
+	 * Clear all selections
+	 * @return {void}
+	 */
+	Selectr.prototype.clear = function(force) {
+
+	  if (this.el.multiple) {
+	    // Loop over the selectedIndexes so we don't have to loop over all the options
+	    // which can be costly if there are a lot of them
+
+	    if (this.selectedIndexes.length) {
+	      // Copy the array or we'll get an error
+	      var indexes = this.selectedIndexes.slice();
+
+	      util.each(indexes, function(i, idx) {
+	        this.deselect(idx);
+	      }, this);
+	    }
+	  } else {
+	    if (this.selectedIndex > -1) {
+	      this.deselect(this.selectedIndex, force);
+	    }
+	  }
+
+	  this.emit("selectr.clear");
+	};
+
+	/**
+	 * Return serialised data
+	 * @param  {boolean} toJson
+	 * @return {mixed} Returns either an object or JSON string
+	 */
+	Selectr.prototype.serialise = function(toJson) {
+	  var data = [];
+	  util.each(this.options, function(i, option) {
+	    var obj = {
+	      value: option.value,
+	      text: option.textContent
+	    };
+
+	    if (option.selected) {
+	      obj.selected = true;
+	    }
+	    if (option.disabled) {
+	      obj.disabled = true;
+	    }
+	    data[i] = obj;
+	  });
+
+	  return toJson ? JSON.stringify(data) : data;
+	};
+
+	/**
+	 * Localised version of serialise() method
+	 */
+	Selectr.prototype.serialize = function(toJson) {
+	  return this.serialise(toJson);
+	};
+
+	/**
+	 * Sets the placeholder
+	 * @param {String} placeholder
+	 */
+	Selectr.prototype.setPlaceholder = function(placeholder) {
+	  // Set the placeholder
+	  placeholder = placeholder || this.config.placeholder || this.el.getAttribute("placeholder");
+
+	  if (!this.options.length) {
+	    placeholder = "No options available";
+	  }
+
+	  this.placeEl.innerHTML = placeholder;
+	};
+
+	/**
+	 * Paginate the option list
+	 * @return {Array}
+	 */
+	Selectr.prototype.paginate = function() {
+	  if (this.items.length) {
+	    var that = this;
+
+	    this.pages = this.items.map(function(v, i) {
+	      return i % that.config.pagination === 0 ? that.items.slice(i, i + that.config.pagination) : null;
+	    }).filter(function(pages) {
+	      return pages;
+	    });
+
+	    return this.pages;
+	  }
+	};
+
+	/**
+	 * Display a message
+	 * @param  {String} message The message
+	 */
+	Selectr.prototype.setMessage = function(message, close) {
+	  if (close) {
+	    this.close();
+	  }
+	  util.addClass(this.container, "notice");
+	  this.notice.textContent = message;
+	};
+
+	/**
+	 * Dismiss the current message
+	 */
+	Selectr.prototype.removeMessage = function() {
+	  util.removeClass(this.container, "notice");
+	  this.notice.innerHTML = "";
+	};
+
+	/**
+	 * Keep the dropdown within the window
+	 * @return {void}
+	 */
+	Selectr.prototype.invert = function() {
+	  var rt = util.rect(this.selected),
+	      oh = this.tree.parentNode.offsetHeight,
+	      wh = window.innerHeight,
+	      doInvert = rt.top + rt.height + oh > wh;
+
+	  if (doInvert) {
+	    util.addClass(this.container, "inverted");
+	    this.isInverted = true;
+	  } else {
+	    util.removeClass(this.container, "inverted");
+	    this.isInverted = false;
+	  }
+
+	  this.optsRect = util.rect(this.tree);
+	};
+
+	/**
+	 * Get an option via it's index
+	 * @param  {Integer} index The index of the HTMLOptionElement required
+	 * @return {HTMLOptionElement}
+	 */
+	Selectr.prototype.getOptionByIndex = function(index) {
+	  return this.options[index];
+	};
+
+	/**
+	 * Get an option via it's value
+	 * @param  {String} value The value of the HTMLOptionElement required
+	 * @return {HTMLOptionElement}
+	 */
+	Selectr.prototype.getOptionByValue = function(value) {
+	  var option = false;
+
+	  for (var i = 0, l = this.options.length; i < l; i++) {
+	    if (this.options[i].value.trim() === value.toString().trim()) {
+	      option = this.options[i];
+	      break;
+	    }
+	  }
+
+	  return option;
+	};
+
+	module.exports = Selectr;
+
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var ContextMenu = __webpack_require__(10);
+
+	/**
+	 * Create a select box to be used in the editor menu's, which allows to switch mode
+	 * @param {HTMLElement} container
+	 * @param {String[]} modes  Available modes: 'code', 'form', 'text', 'tree', 'view'
+	 * @param {String} current  Available modes: 'code', 'form', 'text', 'tree', 'view'
+	 * @param {function(mode: string)} onSwitch  Callback invoked on switch
+	 * @constructor
+	 */
+	function ModeSwitcher(container, modes, current, onSwitch) {
+	  // available modes
+	  var availableModes = {
+	    code: {
+	      'text': 'Code',
+	      'title': 'Switch to code highlighter',
+	      'click': function () {
+	        onSwitch('code')
+	      }
+	    },
+	    form: {
+	      'text': 'Form',
+	      'title': 'Switch to form editor',
+	      'click': function () {
+	        onSwitch('form');
+	      }
+	    },
+	    text: {
+	      'text': 'Text',
+	      'title': 'Switch to plain text editor',
+	      'click': function () {
+	        onSwitch('text');
+	      }
+	    },
+	    tree: {
+	      'text': 'Tree',
+	      'title': 'Switch to tree editor',
+	      'click': function () {
+	        onSwitch('tree');
+	      }
+	    },
+	    view: {
+	      'text': 'View',
+	      'title': 'Switch to tree view',
+	      'click': function () {
+	        onSwitch('view');
+	      }
+	    }
+	  };
+
+	  // list the selected modes
+	  var items = [];
+	  for (var i = 0; i < modes.length; i++) {
+	    var mode = modes[i];
+	    var item = availableModes[mode];
+	    if (!item) {
+	      throw new Error('Unknown mode "' + mode + '"');
+	    }
+
+	    item.className = 'jsoneditor-type-modes' + ((current == mode) ? ' jsoneditor-selected' : '');
+	    items.push(item);
+	  }
+
+	  // retrieve the title of current mode
+	  var currentMode = availableModes[current];
+	  if (!currentMode) {
+	    throw new Error('Unknown mode "' + current + '"');
+	  }
+	  var currentTitle = currentMode.text;
+
+	  // create the html element
+	  var box = document.createElement('button');
+	  box.type = 'button';
+	  box.className = 'jsoneditor-modes jsoneditor-separator';
+	  box.innerHTML = currentTitle + ' &#x25BE;';
+	  box.title = 'Switch editor mode';
+	  box.onclick = function () {
+	    var menu = new ContextMenu(items);
+	    menu.show(box, container);
+	  };
+
+	  var frame = document.createElement('div');
+	  frame.className = 'jsoneditor-modes';
+	  frame.style.position = 'relative';
+	  frame.appendChild(box);
+
+	  container.appendChild(frame);
+
+	  this.dom = {
+	    container: container,
+	    box: box,
+	    frame: frame
+	  };
+	}
+
+	/**
+	 * Set focus to switcher
+	 */
+	ModeSwitcher.prototype.focus = function () {
+	  this.dom.box.focus();
+	};
+
+	/**
+	 * Destroy the ModeSwitcher, remove from DOM
+	 */
+	ModeSwitcher.prototype.destroy = function () {
+	  if (this.dom && this.dom.frame && this.dom.frame.parentNode) {
+	    this.dom.frame.parentNode.removeChild(this.dom.frame);
+	  }
+	  this.dom = null;
+	};
+
+	module.exports = ModeSwitcher;
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function completely(config) {
+	    config = config || {};
+	    config.confirmKeys = config.confirmKeys || [39, 35, 9] // right, end, tab
+	    config.caseSensitive = config.caseSensitive || false    // autocomplete case sensitive
+
+	    var fontSize = '';
+	    var fontFamily = '';
+
+	    var wrapper = document.createElement('div');
+	    wrapper.style.position = 'relative';
+	    wrapper.style.outline = '0';
+	    wrapper.style.border = '0';
+	    wrapper.style.margin = '0';
+	    wrapper.style.padding = '0';
+
+	    var dropDown = document.createElement('div');
+	    dropDown.className = 'autocomplete dropdown';
+	    dropDown.style.position = 'absolute';
+	    dropDown.style.visibility = 'hidden';
+
+	    var spacer;
+	    var leftSide; // <-- it will contain the leftSide part of the textfield (the bit that was already autocompleted)
+	    var createDropDownController = function (elem, rs) {
+	        var rows = [];
+	        var ix = 0;
+	        var oldIndex = -1;
+
+	        var onMouseOver = function () { this.style.outline = '1px solid #ddd'; }
+	        var onMouseOut = function () { this.style.outline = '0'; }
+	        var onMouseDown = function () { p.hide(); p.onmouseselection(this.__hint, p.rs); }
+
+	        var p = {
+	            rs: rs,
+	            hide: function () {
+	                elem.style.visibility = 'hidden';
+	                //rs.hideDropDown();
+	            },
+	            refresh: function (token, array) {
+	                elem.style.visibility = 'hidden';
+	                ix = 0;
+	                elem.innerHTML = '';
+	                var vph = (window.innerHeight || document.documentElement.clientHeight);
+	                var rect = elem.parentNode.getBoundingClientRect();
+	                var distanceToTop = rect.top - 6;                        // heuristic give 6px
+	                var distanceToBottom = vph - rect.bottom - 6;  // distance from the browser border.
+
+	                rows = [];
+	                for (var i = 0; i < array.length; i++) {
+
+	                    if (  (config.caseSensitive && array[i].indexOf(token) !== 0)
+	                        ||(!config.caseSensitive && array[i].toLowerCase().indexOf(token.toLowerCase()) !== 0)) { continue; }
+
+	                    var divRow = document.createElement('div');
+	                    divRow.className = 'item';
+	                    //divRow.style.color = config.color;
+	                    divRow.onmouseover = onMouseOver;
+	                    divRow.onmouseout = onMouseOut;
+	                    divRow.onmousedown = onMouseDown;
+	                    divRow.__hint = array[i];
+	                    divRow.innerHTML = array[i].substring(0, token.length) + '<b>' + array[i].substring(token.length) + '</b>';
+	                    rows.push(divRow);
+	                    elem.appendChild(divRow);
+	                }
+	                if (rows.length === 0) {
+	                    return; // nothing to show.
+	                }
+	                if (rows.length === 1 && (   (token.toLowerCase() === rows[0].__hint.toLowerCase() && !config.caseSensitive)
+	                                           ||(token === rows[0].__hint && config.caseSensitive))){
+	                    return; // do not show the dropDown if it has only one element which matches what we have just displayed.
+	                }
+
+	                if (rows.length < 2) return;
+	                p.highlight(0);
+
+	                if (distanceToTop > distanceToBottom * 3) {        // Heuristic (only when the distance to the to top is 4 times more than distance to the bottom
+	                    elem.style.maxHeight = distanceToTop + 'px';  // we display the dropDown on the top of the input text
+	                    elem.style.top = '';
+	                    elem.style.bottom = '100%';
+	                } else {
+	                    elem.style.top = '100%';
+	                    elem.style.bottom = '';
+	                    elem.style.maxHeight = distanceToBottom + 'px';
+	                }
+	                elem.style.visibility = 'visible';
+	            },
+	            highlight: function (index) {
+	                if (oldIndex != -1 && rows[oldIndex]) {
+	                    rows[oldIndex].className = "item";
+	                }
+	                rows[index].className = "item hover";
+	                oldIndex = index;
+	            },
+	            move: function (step) { // moves the selection either up or down (unless it's not possible) step is either +1 or -1.
+	                if (elem.style.visibility === 'hidden') return ''; // nothing to move if there is no dropDown. (this happens if the user hits escape and then down or up)
+	                if (ix + step === -1 || ix + step === rows.length) return rows[ix].__hint; // NO CIRCULAR SCROLLING.
+	                ix += step;
+	                p.highlight(ix);
+	                return rows[ix].__hint;//txtShadow.value = uRows[uIndex].__hint ;
+	            },
+	            onmouseselection: function () { } // it will be overwritten.
+	        };
+	        return p;
+	    }
+
+	    function setEndOfContenteditable(contentEditableElement) {
+	        var range, selection;
+	        if (document.createRange)//Firefox, Chrome, Opera, Safari, IE 9+
+	        {
+	            range = document.createRange();//Create a range (a range is a like the selection but invisible)
+	            range.selectNodeContents(contentEditableElement);//Select the entire contents of the element with the range
+	            range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+	            selection = window.getSelection();//get the selection object (allows you to change selection)
+	            selection.removeAllRanges();//remove any selections already made
+	            selection.addRange(range);//make the range you have just created the visible selection
+	        }
+	        else if (document.selection)//IE 8 and lower
+	        {
+	            range = document.body.createTextRange();//Create a range (a range is a like the selection but invisible)
+	            range.moveToElementText(contentEditableElement);//Select the entire contents of the element with the range
+	            range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+	            range.select();//Select the range (make it the visible selection
+	        }
+	    }
+
+	    function calculateWidthForText(text) {
+	        if (spacer === undefined) { // on first call only.
+	            spacer = document.createElement('span');
+	            spacer.style.visibility = 'hidden';
+	            spacer.style.position = 'fixed';
+	            spacer.style.outline = '0';
+	            spacer.style.margin = '0';
+	            spacer.style.padding = '0';
+	            spacer.style.border = '0';
+	            spacer.style.left = '0';
+	            spacer.style.whiteSpace = 'pre';
+	            spacer.style.fontSize = fontSize;
+	            spacer.style.fontFamily = fontFamily;
+	            spacer.style.fontWeight = 'normal';
+	            document.body.appendChild(spacer);
+	        }
+
+	        // Used to encode an HTML string into a plain text.
+	        // taken from http://stackoverflow.com/questions/1219860/javascript-jquery-html-encoding
+	        spacer.innerHTML = String(text).replace(/&/g, '&amp;')
+	            .replace(/"/g, '&quot;')
+	            .replace(/'/g, '&#39;')
+	            .replace(/</g, '&lt;')
+	            .replace(/>/g, '&gt;');
+	        return spacer.getBoundingClientRect().right;
+	    }
+
+	    var rs = {
+	        onArrowDown: function () { }, // defaults to no action.
+	        onArrowUp: function () { },   // defaults to no action.
+	        onEnter: function () { },     // defaults to no action.
+	        onTab: function () { },       // defaults to no action.
+	        startFrom: 0,
+	        options: [],
+	        element: null,
+	        elementHint: null,
+	        elementStyle: null,
+	        wrapper: wrapper,      // Only to allow  easy access to the HTML elements to the final user (possibly for minor customizations)
+	        show: function (element, startPos, options) {
+	            this.startFrom = startPos;
+	            this.wrapper.remove();
+	            if (this.elementHint) {
+	                this.elementHint.remove();
+	                this.elementHint = null;
+	            }
+
+	            if (fontSize == '') {
+	                fontSize = window.getComputedStyle(element).getPropertyValue('font-size');
+	            }
+	            if (fontFamily == '') {
+	                fontFamily = window.getComputedStyle(element).getPropertyValue('font-family');
+	            }
+
+	            var w = element.getBoundingClientRect().right - element.getBoundingClientRect().left;
+	            dropDown.style.marginLeft = '0';
+	            dropDown.style.marginTop = element.getBoundingClientRect().height + 'px';
+	            this.options = options;
+
+	            if (this.element != element) {
+	                this.element = element;
+	                this.elementStyle = {
+	                    zIndex: this.element.style.zIndex,
+	                    position: this.element.style.position,
+	                    backgroundColor: this.element.style.backgroundColor,
+	                    borderColor: this.element.style.borderColor
+	                }
+	            }
+
+	            this.element.style.zIndex = 3;
+	            this.element.style.position = 'relative';
+	            this.element.style.backgroundColor = 'transparent';
+	            this.element.style.borderColor = 'transparent';
+
+	            this.elementHint = element.cloneNode();
+	            this.elementHint.className = 'autocomplete hint';
+	            this.elementHint.style.zIndex = 2;
+	            this.elementHint.style.position = 'absolute';
+	            this.elementHint.onfocus = function () { this.element.focus(); }.bind(this);
+
+
+
+	            if (this.element.addEventListener) {
+	                this.element.removeEventListener("keydown", keyDownHandler);
+	                this.element.addEventListener("keydown", keyDownHandler, false);
+	                this.element.removeEventListener("blur", onBlurHandler);
+	                this.element.addEventListener("blur", onBlurHandler, false);
+	            }
+
+	            wrapper.appendChild(this.elementHint);
+	            wrapper.appendChild(dropDown);
+	            element.parentElement.appendChild(wrapper);
+
+
+	            this.repaint(element);
+	        },
+	        setText: function (text) {
+	            this.element.innerText = text;
+	        },
+	        getText: function () {
+	            return this.element.innerText;
+	        },
+	        hideDropDown: function () {
+	            this.wrapper.remove();
+	            if (this.elementHint) {
+	                this.elementHint.remove();
+	                this.elementHint = null;
+	                dropDownController.hide();
+	                this.element.style.zIndex = this.elementStyle.zIndex;
+	                this.element.style.position = this.elementStyle.position;
+	                this.element.style.backgroundColor = this.elementStyle.backgroundColor;
+	                this.element.style.borderColor = this.elementStyle.borderColor;
+	            }
+
+	        },
+	        repaint: function (element) {
+	            var text = element.innerText;
+	            text = text.replace('\n', '');
+
+	            var startFrom = this.startFrom;
+	            var options = this.options;
+	            var optionsLength = this.options.length;
+
+	            // breaking text in leftSide and token.
+
+	            var token = text.substring(this.startFrom);
+	            leftSide = text.substring(0, this.startFrom);
+
+	            for (var i = 0; i < optionsLength; i++) {
+	                var opt = this.options[i];
+	                if (   (!config.caseSensitive && opt.toLowerCase().indexOf(token.toLowerCase()) === 0)
+	                    || (config.caseSensitive && opt.indexOf(token) === 0)) {   // <-- how about upperCase vs. lowercase
+	                    this.elementHint.innerText = leftSide + token + opt.substring(token.length);
+	                    this.elementHint.realInnerText = leftSide + opt;
+	                    break;
+	                }
+	            }
+	            // moving the dropDown and refreshing it.
+	            dropDown.style.left = calculateWidthForText(leftSide) + 'px';
+	            dropDownController.refresh(token, this.options);
+	            this.elementHint.style.width = calculateWidthForText(this.elementHint.innerText) + 10 + 'px'
+	            var wasDropDownHidden = (dropDown.style.visibility == 'hidden');
+	            if (!wasDropDownHidden)
+	                this.elementHint.style.width = calculateWidthForText(this.elementHint.innerText) + dropDown.clientWidth + 'px';
+	        }
+	    };
+
+	    var dropDownController = createDropDownController(dropDown, rs);
+
+	    var keyDownHandler = function (e) {
+	        //console.log("Keydown:" + e.keyCode);
+	        e = e || window.event;
+	        var keyCode = e.keyCode;
+
+	        if (this.elementHint == null) return;
+
+	        if (keyCode == 33) { return; } // page up (do nothing)
+	        if (keyCode == 34) { return; } // page down (do nothing);
+
+	        if (keyCode == 27) { //escape
+	            rs.hideDropDown();
+	            rs.element.focus();
+	            e.preventDefault();
+	            e.stopPropagation();
+	            return;
+	        }
+
+	        var text = this.element.innerText;
+	        text = text.replace('\n', '');
+	        var startFrom = this.startFrom;
+
+	        if (config.confirmKeys.indexOf(keyCode) >= 0) { //  (autocomplete triggered)
+	            if (keyCode == 9) {
+	                if (this.elementHint.innerText.length == 0) {
+	                    rs.onTab();
+	                }
+	            }
+	            if (this.elementHint.innerText.length > 0) { // if there is a hint
+	                if (this.element.innerText != this.elementHint.realInnerText) {
+	                    this.element.innerText = this.elementHint.realInnerText;
+	                    rs.hideDropDown();
+	                    setEndOfContenteditable(this.element);
+	                    if (keyCode == 9) {
+	                        rs.element.focus();
+	                        e.preventDefault();
+	                        e.stopPropagation();
+	                    }
+	                }
+	            }
+	            return;
+	        }
+
+	        if (keyCode == 13) {       // enter  (autocomplete triggered)
+	            if (this.elementHint.innerText.length == 0) { // if there is a hint
+	                rs.onEnter();
+	            } else {
+	                var wasDropDownHidden = (dropDown.style.visibility == 'hidden');
+	                dropDownController.hide();
+
+	                if (wasDropDownHidden) {
+	                    rs.hideDropDown();
+	                    rs.element.focus();
+	                    rs.onEnter();
+	                    return;
+	                }
+
+	                this.element.innerText = this.elementHint.realInnerText;
+	                rs.hideDropDown();
+	                setEndOfContenteditable(this.element);
+	                e.preventDefault();
+	                e.stopPropagation();
+	            }
+	            return;
+	        }
+
+	        if (keyCode == 40) {     // down
+	            var token = text.substring(this.startFrom);
+	            var m = dropDownController.move(+1);
+	            if (m == '') { rs.onArrowDown(); }
+	            this.elementHint.innerText = leftSide + token + m.substring(token.length);
+	            this.elementHint.realInnerText = leftSide + m;
+	            e.preventDefault();
+	            e.stopPropagation();
+	            return;
+	        }
+
+	        if (keyCode == 38) {    // up
+	            var token = text.substring(this.startFrom);
+	            var m = dropDownController.move(-1);
+	            if (m == '') { rs.onArrowUp(); }
+	            this.elementHint.innerText = leftSide + token + m.substring(token.length);
+	            this.elementHint.realInnerText = leftSide + m;
+	            e.preventDefault();
+	            e.stopPropagation();
+	            return;
+	        }
+
+	    }.bind(rs);
+
+	    var onBlurHandler = function (e) {
+	        rs.hideDropDown();
+	        //console.log("Lost focus.");
+	    }.bind(rs);
+
+	    dropDownController.onmouseselection = function (text, rs) {
+	        rs.element.innerText = rs.elementHint.innerText = leftSide + text;
+	        rs.hideDropDown();
+	        window.setTimeout(function () {
+	            rs.element.focus();
+	            setEndOfContenteditable(rs.element);
+	        }, 1);
+	    };
+
+	    return rs;
+	}
+
+	module.exports = completely;
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var ace = __webpack_require__(1);
+	var ModeSwitcher = __webpack_require__(26);
+	var util = __webpack_require__(12);
+
+	// create a mixin with the functions for text mode
+	var textmode = {};
+
+	var DEFAULT_THEME = 'ace/theme/jsoneditor';
+
+	/**
+	 * Create a text editor
+	 * @param {Element} container
+	 * @param {Object} [options]   Object with options. available options:
+	 *                             {String} mode             Available values:
+	 *                                                       "text" (default)
+	 *                                                       or "code".
+	 *                             {Number} indentation      Number of indentation
+	 *                                                       spaces. 2 by default.
+	 *                             {function} onChange       Callback method triggered on change.
+	 *                                                       Does not pass the changed contents.
+	 *                             {function} onChangeText   Callback method, triggered
+	 *                                                       in modes on change of contents,
+	 *                                                       passing the changed contents
+	 *                                                       as stringified JSON.
+	 *                             {function} onModeChange   Callback method
+	 *                                                       triggered after setMode
+	 *                             {function} onEditable     Determine if textarea is readOnly
+	 *                                                       readOnly defaults true
+	 *                             {Object} ace              A custom instance of
+	 *                                                       Ace editor.
+	 *                             {boolean} escapeUnicode   If true, unicode
+	 *                                                       characters are escaped.
+	 *                                                       false by default.
+	 *                             {function} onTextSelectionChange Callback method,
+	 *                                                              triggered on text selection change
+	 * @private
+	 */
+	textmode.create = function (container, options) {
+	  // read options
+	  options = options || {};
+
+	  if (typeof options.statusBar === 'undefined') {
+	    options.statusBar = true;
+	  }
+
+	  // setting default for textmode
+	  options.mainMenuBar = options.mainMenuBar !== false;
+
+	  this.options = options;
+
+	  // indentation
+	  if (options.indentation) {
+	    this.indentation = Number(options.indentation);
+	  }
+	  else {
+	    this.indentation = 2; // number of spaces
+	  }
+
+	  // grab ace from options if provided
+	  var _ace = options.ace ? options.ace : ace;
+	  // TODO: make the option options.ace deprecated, it's not needed anymore (see #309)
+
+	  // determine mode
+	  this.mode = (options.mode == 'code') ? 'code' : 'text';
+	  if (this.mode == 'code') {
+	    // verify whether Ace editor is available and supported
+	    if (typeof _ace === 'undefined') {
+	      this.mode = 'text';
+	      console.warn('Failed to load Ace editor, falling back to plain text mode. Please use a JSONEditor bundle including Ace, or pass Ace as via the configuration option `ace`.');
+	    }
+	  }
+
+	  // determine theme
+	  this.theme = options.theme || DEFAULT_THEME;
+	  if (this.theme === DEFAULT_THEME && _ace) {
+	    try {
+	      __webpack_require__(29);
+	    }
+	    catch (err) {
+	      console.error(err);
+	    }
+	  }
+
+	  if (options.onTextSelectionChange) {
+	    this.onTextSelectionChange(options.onTextSelectionChange);
+	  }
+
+	  var me = this;
+	  this.container = container;
+	  this.dom = {};
+	  this.aceEditor = undefined;  // ace code editor
+	  this.textarea = undefined;  // plain text editor (fallback when Ace is not available)
+	  this.validateSchema = null;
+	  this.validationSequence = 0;
+	  this.annotations = [];
+
+	  // create a debounced validate function
+	  this._debouncedValidate = util.debounce(this.validate.bind(this), this.DEBOUNCE_INTERVAL);
+
+	  this.width = container.clientWidth;
+	  this.height = container.clientHeight;
+
+	  this.frame = document.createElement('div');
+	  this.frame.className = 'jsoneditor jsoneditor-mode-' + this.options.mode;
+	  this.frame.onclick = function (event) {
+	    // prevent default submit action when the editor is located inside a form
+	    event.preventDefault();
+	  };
+	  this.frame.onkeydown = function (event) {
+	    me._onKeyDown(event);
+	  };
+
+	  this.content = document.createElement('div');
+	  this.content.className = 'jsoneditor-outer';
+
+	  if (this.options.mainMenuBar) {
+	    util.addClassName(this.content, 'has-main-menu-bar');
+
+	    // create menu
+	    this.menu = document.createElement('div');
+	    this.menu.className = 'jsoneditor-menu';
+	    this.frame.appendChild(this.menu);
+
+	    // create format button
+	    var buttonFormat = document.createElement('button');
+	    buttonFormat.type = 'button';
+	    buttonFormat.className = 'jsoneditor-format';
+	    buttonFormat.title = 'Format JSON data, with proper indentation and line feeds (Ctrl+\\)';
+	    this.menu.appendChild(buttonFormat);
+	    buttonFormat.onclick = function () {
+	      try {
+	        me.format();
+	        me._onChange();
+	      }
+	      catch (err) {
+	        me._onError(err);
+	      }
+	    };
+
+	    // create compact button
+	    var buttonCompact = document.createElement('button');
+	    buttonCompact.type = 'button';
+	    buttonCompact.className = 'jsoneditor-compact';
+	    buttonCompact.title = 'Compact JSON data, remove all whitespaces (Ctrl+Shift+\\)';
+	    this.menu.appendChild(buttonCompact);
+	    buttonCompact.onclick = function () {
+	      try {
+	        me.compact();
+	        me._onChange();
+	      }
+	      catch (err) {
+	        me._onError(err);
+	      }
+	    };
+
+	    // create repair button
+	    var buttonRepair = document.createElement('button');
+	    buttonRepair.type = 'button';
+	    buttonRepair.className = 'jsoneditor-repair';
+	    buttonRepair.title = 'Repair JSON: fix quotes and escape characters, remove comments and JSONP notation, turn JavaScript objects into JSON.';
+	    this.menu.appendChild(buttonRepair);
+	    buttonRepair.onclick = function () {
+	      try {
+	        me.repair();
+	        me._onChange();
+	      }
+	      catch (err) {
+	        me._onError(err);
+	      }
+	    };
+
+	    // create mode box
+	    if (this.options && this.options.modes && this.options.modes.length) {
+	      this.modeSwitcher = new ModeSwitcher(this.menu, this.options.modes, this.options.mode, function onSwitch(mode) {
+	        // switch mode and restore focus
+	        me.setMode(mode);
+	        me.modeSwitcher.focus();
+	      });
+	    }
+
+	    if (this.mode == 'code') {
+	      var poweredBy = document.createElement('a');
+	      poweredBy.appendChild(document.createTextNode('powered by ace'));
+	      poweredBy.href = 'http://ace.ajax.org';
+	      poweredBy.target = '_blank';
+	      poweredBy.className = 'jsoneditor-poweredBy';
+	      poweredBy.onclick = function () {
+	        // TODO: this anchor falls below the margin of the content,
+	        // therefore the normal a.href does not work. We use a click event
+	        // for now, but this should be fixed.
+	        window.open(poweredBy.href, poweredBy.target);
+	      };
+	      this.menu.appendChild(poweredBy);
+	    }
+	  }
+
+	  var emptyNode = {};
+	  var isReadOnly = (this.options.onEditable
+	  && typeof(this.options.onEditable === 'function')
+	  && !this.options.onEditable(emptyNode));
+
+	  this.frame.appendChild(this.content);
+	  this.container.appendChild(this.frame);
+
+	  if (this.mode == 'code') {
+	    this.editorDom = document.createElement('div');
+	    this.editorDom.style.height = '100%'; // TODO: move to css
+	    this.editorDom.style.width = '100%'; // TODO: move to css
+	    this.content.appendChild(this.editorDom);
+
+	    var aceEditor = _ace.edit(this.editorDom);
+	    var aceSession = aceEditor.getSession();
+	    aceEditor.$blockScrolling = Infinity;
+	    aceEditor.setTheme(this.theme);
+	    aceEditor.setOptions({ readOnly: isReadOnly });
+	    aceEditor.setShowPrintMargin(false);
+	    aceEditor.setFontSize(13);
+	    aceSession.setMode('ace/mode/json');
+	    aceSession.setTabSize(this.indentation);
+	    aceSession.setUseSoftTabs(true);
+	    aceSession.setUseWrapMode(true);
+
+	    // replace ace setAnnotations with custom function that also covers jsoneditor annotations
+	    var originalSetAnnotations = aceSession.setAnnotations;
+	    aceSession.setAnnotations = function (annotations) {
+	      originalSetAnnotations.call(this, annotations && annotations.length ? annotations : me.annotations);
+	    };
+
+	    aceEditor.commands.bindKey('Ctrl-L', null);    // disable Ctrl+L (is used by the browser to select the address bar)
+	    aceEditor.commands.bindKey('Command-L', null); // disable Ctrl+L (is used by the browser to select the address bar)
+	    this.aceEditor = aceEditor;
+
+	    // TODO: deprecated since v5.0.0. Cleanup backward compatibility some day
+	    if (!this.hasOwnProperty('editor')) {
+	      Object.defineProperty(this, 'editor', {
+	        get: function () {
+	          console.warn('Property "editor" has been renamed to "aceEditor".');
+	          return me.aceEditor;
+	        },
+	        set: function (aceEditor) {
+	          console.warn('Property "editor" has been renamed to "aceEditor".');
+	          me.aceEditor = aceEditor;
+	        }
+	      });
+	    }
+
+	    // register onchange event
+	    aceEditor.on('change', this._onChange.bind(this));
+	    aceEditor.on('changeSelection', this._onSelect.bind(this));
+	  }
+	  else {
+	    // load a plain text textarea
+	    var textarea = document.createElement('textarea');
+	    textarea.className = 'jsoneditor-text';
+	    textarea.spellcheck = false;
+	    this.content.appendChild(textarea);
+	    this.textarea = textarea;
+	    this.textarea.readOnly = isReadOnly;
+
+	    // register onchange event
+	    if (this.textarea.oninput === null) {
+	      this.textarea.oninput = this._onChange.bind(this);
+	    }
+	    else {
+	      // oninput is undefined. For IE8-
+	      this.textarea.onchange = this._onChange.bind(this);
+	    }
+
+	    textarea.onselect = this._onSelect.bind(this);
+	    textarea.onmousedown = this._onMouseDown.bind(this);
+	    textarea.onblur = this._onBlur.bind(this);
+	  }
+
+	  var validationErrorsContainer = document.createElement('div');
+	  validationErrorsContainer.className = 'jsoneditor-validation-errors-container';
+	  this.dom.validationErrorsContainer = validationErrorsContainer;
+	  this.frame.appendChild(validationErrorsContainer);
+
+	  var additionalErrorsIndication = document.createElement('div');
+	  additionalErrorsIndication.style.display = 'none';
+	  additionalErrorsIndication.className = "jsoneditor-additional-errors fadein";
+	  additionalErrorsIndication.innerHTML = "Scroll for more &#9663;";
+	  this.dom.additionalErrorsIndication = additionalErrorsIndication;
+	  validationErrorsContainer.appendChild(additionalErrorsIndication);
+
+	  if (options.statusBar) {
+	    util.addClassName(this.content, 'has-status-bar');
+
+	    this.curserInfoElements = {};
+	    var statusBar = document.createElement('div');
+	    this.dom.statusBar = statusBar;
+	    statusBar.className = 'jsoneditor-statusbar';
+	    this.frame.appendChild(statusBar);
+
+	    var lnLabel = document.createElement('span');
+	    lnLabel.className = 'jsoneditor-curserinfo-label';
+	    lnLabel.innerText = 'Ln:';
+
+	    var lnVal = document.createElement('span');
+	    lnVal.className = 'jsoneditor-curserinfo-val';
+	    lnVal.innerText = '1';
+
+	    statusBar.appendChild(lnLabel);
+	    statusBar.appendChild(lnVal);
+
+	    var colLabel = document.createElement('span');
+	    colLabel.className = 'jsoneditor-curserinfo-label';
+	    colLabel.innerText = 'Col:';
+
+	    var colVal = document.createElement('span');
+	    colVal.className = 'jsoneditor-curserinfo-val';
+	    colVal.innerText = '1';
+
+	    statusBar.appendChild(colLabel);
+	    statusBar.appendChild(colVal);
+
+	    this.curserInfoElements.colVal = colVal;
+	    this.curserInfoElements.lnVal = lnVal;
+
+	    var countLabel = document.createElement('span');
+	    countLabel.className = 'jsoneditor-curserinfo-label';
+	    countLabel.innerText = 'characters selected';
+	    countLabel.style.display = 'none';
+
+	    var countVal = document.createElement('span');
+	    countVal.className = 'jsoneditor-curserinfo-count';
+	    countVal.innerText = '0';
+	    countVal.style.display = 'none';
+
+	    this.curserInfoElements.countLabel = countLabel;
+	    this.curserInfoElements.countVal = countVal;
+
+	    statusBar.appendChild(countVal);
+	    statusBar.appendChild(countLabel);
+
+	    var validationErrorIcon = document.createElement('span');
+	    validationErrorIcon.className = 'jsoneditor-validation-error-icon';
+	    validationErrorIcon.style.display = 'none';
+
+	    var validationErrorCount = document.createElement('span');
+	    validationErrorCount.className = 'jsoneditor-validation-error-count';
+	    validationErrorCount.style.display = 'none';
+
+	    this.validationErrorIndication = {
+	      validationErrorIcon: validationErrorIcon,
+	      validationErrorCount: validationErrorCount
+	    };
+
+	    statusBar.appendChild(validationErrorCount);
+	    statusBar.appendChild(validationErrorIcon);
+
+	    this.parseErrorIndication = document.createElement('span');
+	    this.parseErrorIndication.className = 'jsoneditor-parse-error-icon';
+	    this.parseErrorIndication.style.display = 'none';
+	    statusBar.appendChild(this.parseErrorIndication);
+	  }
+
+	  this.setSchema(this.options.schema, this.options.schemaRefs);
+	};
+
+	/**
+	 * Handle a change:
+	 * - Validate JSON schema
+	 * - Send a callback to the onChange listener if provided
+	 * @private
+	 */
+	textmode._onChange = function () {
+	  if (this.onChangeDisabled) {
+	    return;
+	  }
+
+	  // validate JSON schema (if configured)
+	  this._debouncedValidate();
+
+	  // trigger the onChange callback
+	  if (this.options.onChange) {
+	    try {
+	      this.options.onChange();
+	    }
+	    catch (err) {
+	      console.error('Error in onChange callback: ', err);
+	    }
+	  }
+
+	  // trigger the onChangeText callback
+	  if (this.options.onChangeText) {
+	    try {
+	      this.options.onChangeText(this.getText());
+	    }
+	    catch (err) {
+	      console.error('Error in onChangeText callback: ', err);
+	    }
+	  }
+	};
+
+	/**
+	 * Handle text selection
+	 * Calculates the cursor position and selection range and updates menu
+	 * @private
+	 */
+	textmode._onSelect = function () {
+	  this._updateCursorInfo();
+	  this._emitSelectionChange();
+	};
+
+	/**
+	 * Event handler for keydown. Handles shortcut keys
+	 * @param {Event} event
+	 * @private
+	 */
+	textmode._onKeyDown = function (event) {
+	  var keynum = event.which || event.keyCode;
+	  var handled = false;
+
+	  if (keynum == 220 && event.ctrlKey) {
+	    if (event.shiftKey) { // Ctrl+Shift+\
+	      this.compact();
+	      this._onChange();
+	    }
+	    else { // Ctrl+\
+	      this.format();
+	      this._onChange();
+	    }
+	    handled = true;
+	  }
+
+	  if (handled) {
+	    event.preventDefault();
+	    event.stopPropagation();
+	  }
+
+	  this._updateCursorInfo();
+	  this._emitSelectionChange();
+	};
+
+	/**
+	 * Event handler for mousedown.
+	 * @private
+	 */
+	textmode._onMouseDown = function () {
+	  this._updateCursorInfo();
+	  this._emitSelectionChange();
+	};
+
+	/**
+	 * Event handler for blur.
+	 * @private
+	 */
+	textmode._onBlur = function () {
+	  var me = this;
+	  // this allows to avoid blur when clicking inner elements (like the errors panel)
+	  // just make sure to set the isFocused to true on the inner element onclick callback
+	  setTimeout(function(){
+	    if (!me.isFocused) {
+	      me._updateCursorInfo();
+	      me._emitSelectionChange();
+	    }
+	    me.isFocused = false;
+	  });
+	};
+
+	/**
+	 * Update the cursor info and the status bar, if presented
+	 */
+	textmode._updateCursorInfo = function () {
+	  var me = this;
+	  var line, col, count;
+
+	  if (this.textarea) {
+	    setTimeout(function() { //this to verify we get the most updated textarea cursor selection
+	      var selectionRange = util.getInputSelection(me.textarea);
+
+	      if (selectionRange.startIndex !== selectionRange.endIndex) {
+	        count = selectionRange.endIndex - selectionRange.startIndex;
+	      }
+
+	      if (count && me.cursorInfo && me.cursorInfo.line === selectionRange.end.row && me.cursorInfo.column === selectionRange.end.column) {
+	        line = selectionRange.start.row;
+	        col = selectionRange.start.column;
+	      } else {
+	        line = selectionRange.end.row;
+	        col = selectionRange.end.column;
+	      }
+
+	      me.cursorInfo = {
+	        line: line,
+	        column: col,
+	        count: count
+	      };
+
+	      if(me.options.statusBar) {
+	        updateDisplay();
+	      }
+	    },0);
+
+	  } else if (this.aceEditor && this.curserInfoElements) {
+	    var curserPos = this.aceEditor.getCursorPosition();
+	    var selectedText = this.aceEditor.getSelectedText();
+
+	    line = curserPos.row + 1;
+	    col = curserPos.column + 1;
+	    count = selectedText.length;
+
+	    me.cursorInfo = {
+	      line: line,
+	      column: col,
+	      count: count
+	    };
+
+	    if(this.options.statusBar) {
+	      updateDisplay();
+	    }
+	  }
+
+	  function updateDisplay() {
+
+	    if (me.curserInfoElements.countVal.innerText !== count) {
+	      me.curserInfoElements.countVal.innerText = count;
+	      me.curserInfoElements.countVal.style.display = count ? 'inline' : 'none';
+	      me.curserInfoElements.countLabel.style.display = count ? 'inline' : 'none';
+	    }
+	    me.curserInfoElements.lnVal.innerText = line;
+	    me.curserInfoElements.colVal.innerText = col;
+	  }
+	};
+
+	/**
+	 * emits selection change callback, if given
+	 * @private
+	 */
+	textmode._emitSelectionChange = function () {
+	  if(this._selectionChangedHandler) {
+	    var currentSelection = this.getTextSelection();
+	    this._selectionChangedHandler(currentSelection.start, currentSelection.end, currentSelection.text);
+	  }
+	};
+
+	/**
+	 * refresh ERROR annotations state
+	 * error annotations are handled by the ace json mode (ace/mode/json)
+	 * validation annotations are handled by this mode
+	 * therefore in order to refresh we send only the annotations of error type in order to maintain its state
+	 * @private
+	 */
+	textmode._refreshAnnotations = function () {
+	  var session = this.aceEditor && this.aceEditor.getSession();
+	  if (session) {
+	    var errEnnotations = session.getAnnotations().filter(function(annotation) {return annotation.type === 'error' });
+	    session.setAnnotations(errEnnotations);
+	  }
+	};
+
+	/**
+	 * Destroy the editor. Clean up DOM, event listeners, and web workers.
+	 */
+	textmode.destroy = function () {
+	  // remove old ace editor
+	  if (this.aceEditor) {
+	    this.aceEditor.destroy();
+	    this.aceEditor = null;
+	  }
+
+	  if (this.frame && this.container && this.frame.parentNode == this.container) {
+	    this.container.removeChild(this.frame);
+	  }
+
+	  if (this.modeSwitcher) {
+	    this.modeSwitcher.destroy();
+	    this.modeSwitcher = null;
+	  }
+
+	  this.textarea = null;
+
+	  this._debouncedValidate = null;
+	};
+
+	/**
+	 * Compact the code in the text editor
+	 */
+	textmode.compact = function () {
+	  var json = this.get();
+	  var text = JSON.stringify(json);
+	  this.setText(text);
+	};
+
+	/**
+	 * Format the code in the text editor
+	 */
+	textmode.format = function () {
+	  var json = this.get();
+	  var text = JSON.stringify(json, null, this.indentation);
+	  this.setText(text);
+	};
+
+	/**
+	 * Repair the code in the text editor
+	 */
+	textmode.repair = function () {
+	  var text = this.getText();
+	  var sanitizedText = util.sanitize(text);
+	  this.setText(sanitizedText);
+	};
+
+	/**
+	 * Set focus to the formatter
+	 */
+	textmode.focus = function () {
+	  if (this.textarea) {
+	    this.textarea.focus();
+	  }
+	  if (this.aceEditor) {
+	    this.aceEditor.focus();
+	  }
+	};
+
+	/**
+	 * Resize the formatter
+	 */
+	textmode.resize = function () {
+	  if (this.aceEditor) {
+	    var force = false;
+	    this.aceEditor.resize(force);
+	  }
+	};
+
+	/**
+	 * Set json data in the formatter
+	 * @param {*} json
+	 */
+	textmode.set = function(json) {
+	  this.setText(JSON.stringify(json, null, this.indentation));
+	};
+
+	/**
+	 * Update data. Same as calling `set` in text/code mode.
+	 * @param {*} json
+	 */
+	textmode.update = function(json) {
+	  this.updateText(JSON.stringify(json, null, this.indentation));
+	};
+
+	/**
+	 * Get json data from the formatter
+	 * @return {*} json
+	 */
+	textmode.get = function() {
+	  var text = this.getText();
+	  var json;
+
+	  try {
+	    json = util.parse(text); // this can throw an error
+	  }
+	  catch (err) {
+	    // try to sanitize json, replace JavaScript notation with JSON notation
+	    text = util.sanitize(text);
+
+	    // try to parse again
+	    json = util.parse(text); // this can throw an error
+	  }
+
+	  return json;
+	};
+
+	/**
+	 * Get the text contents of the editor
+	 * @return {String} jsonText
+	 */
+	textmode.getText = function() {
+	  if (this.textarea) {
+	    return this.textarea.value;
+	  }
+	  if (this.aceEditor) {
+	    return this.aceEditor.getValue();
+	  }
+	  return '';
+	};
+
+	/**
+	 * Set the text contents of the editor
+	 * @param {String} jsonText
+	 */
+	textmode.setText = function(jsonText) {
+	  var text;
+
+	  if (this.options.escapeUnicode === true) {
+	    text = util.escapeUnicodeChars(jsonText);
+	  }
+	  else {
+	    text = jsonText;
+	  }
+
+	  if (this.textarea) {
+	    this.textarea.value = text;
+	  }
+	  if (this.aceEditor) {
+	    // prevent emitting onChange events while setting new text
+	    this.onChangeDisabled = true;
+
+	    this.aceEditor.setValue(text, -1);
+
+	    this.onChangeDisabled = false;
+	  }
+	  // validate JSON schema
+	  this._debouncedValidate();
+	};
+
+	/**
+	 * Update the text contents
+	 * @param {string} jsonText
+	 */
+	textmode.updateText = function(jsonText) {
+	  // don't update if there are no changes
+	  if (this.getText() === jsonText) {
+	    return;
+	  }
+
+	  this.onChangeDisabled = true; // don't fire an onChange event
+	  this.setText(jsonText);
+	  this.onChangeDisabled = false;
+	};
+
+	/**
+	 * Validate current JSON object against the configured JSON schema
+	 * Throws an exception when no JSON schema is configured
+	 */
+	textmode.validate = function () {
+	  var doValidate = false;
+	  var schemaErrors = [];
+	  var parseErrors = [];
+	  var json;
+	  try {
+	    json = this.get(); // this can fail when there is no valid json
+	    if (this.parseErrorIndication) {
+	      this.parseErrorIndication.style.display = 'none';
+	    }
+	    doValidate = true;
+	  }
+	  catch (err) {
+	    if (this.getText()) {
+	      if (this.parseErrorIndication) {
+	        this.parseErrorIndication.style.display = 'block';
+	      }
+	      // try to extract the line number from the jsonlint error message
+	      var match = /\w*line\s*(\d+)\w*/g.exec(err.message);
+	      var line;
+	      if (match) {
+	        line = +match[1];
+	      }
+	      if (this.parseErrorIndication) {
+	        this.parseErrorIndication.title = !isNaN(line) ? ('parse error on line ' + line) : 'parse error - check that the json is valid';
+	      }
+	      parseErrors.push({
+	        type: 'error',
+	        message: err.message.replace(/\n/g, '<br>'),
+	        line: line
+	      });
+	    }
+	  }
+
+	  // only validate the JSON when parsing the JSON succeeded
+	  if (doValidate) {
+	    // execute JSON schema validation (ajv)
+	    if (this.validateSchema) {
+	      var valid = this.validateSchema(json);
+	      if (!valid) {
+	        schemaErrors = this.validateSchema.errors.map(function (error) {
+	          error.type = "validation";
+	          return util.improveSchemaError(error);
+	        });
+	      }
+	    }
+
+	    // execute custom validation and after than merge and render all errors
+	    try {
+	      this.validationSequence++;
+	      var me = this;
+	      var seq = this.validationSequence;
+	      this._validateCustom(json)
+	          .then(function (customValidationErrors) {
+	            // only apply when there was no other validation started whilst resolving async results
+	            if (seq === me.validationSequence) {
+	              var errors = schemaErrors.concat(parseErrors || []).concat(customValidationErrors || []);
+	              me._renderErrors(errors);
+	            }
+	          })
+	          .catch(function (err) {
+	            console.error(err);
+	          });
+	    }
+	    catch(err) {
+	      console.error(err);
+	    }
+	  }
+	  else {
+	    this._renderErrors(parseErrors || []);
+	  }
+	};
+
+	/**
+	 * Execute custom validation if configured.
+	 *
+	 * Returns a promise resolving with the custom errors (or nothing).
+	 */
+	textmode._validateCustom = function (json) {
+	  if (this.options.onValidate) {
+	    try {
+	      var customValidateResults = this.options.onValidate(json);
+
+	      var resultPromise = util.isPromise(customValidateResults)
+	          ? customValidateResults
+	          : Promise.resolve(customValidateResults);
+
+	      return resultPromise.then(function (customValidationPathErrors) {
+	        if (Array.isArray(customValidationPathErrors)) {
+	          return customValidationPathErrors
+	              .filter(function (error) {
+	                var valid = util.isValidValidationError(error);
+
+	                if (!valid) {
+	                  console.warn('Ignoring a custom validation error with invalid structure. ' +
+	                      'Expected structure: {path: [...], message: "..."}. ' +
+	                      'Actual error:', error);
+	                }
+
+	                return valid;
+	              })
+	              .map(function (error) {
+	                // change data structure into the structure matching the JSON schema errors
+	                return {
+	                  dataPath: util.stringifyPath(error.path),
+	                  message: error.message
+	                }
+	              });
+	        }
+	        else {
+	          return null;
+	        }
+	      });
+	    }
+	    catch (err) {
+	      return Promise.reject(err);
+	    }
+	  }
+
+	  return Promise.resolve(null);
+	};
+
+	textmode._renderErrors = function(errors) {
+	  // clear all current errors
+	  var me = this;
+	  var validationErrorsCount = 0;
+
+	  if (this.dom.validationErrors) {
+	    this.dom.validationErrors.parentNode.removeChild(this.dom.validationErrors);
+	    this.dom.validationErrors = null;
+	    this.dom.additionalErrorsIndication.style.display = 'none';
+
+	    this.content.style.marginBottom = '';
+	    this.content.style.paddingBottom = '';
+	  }
+
+	  var jsonText = this.getText();
+	  var errorPaths = [];
+	  errors.reduce(function(acc, curr) {
+	    if(acc.indexOf(curr.dataPath) === -1) {
+	      acc.push(curr.dataPath);
+	    }
+	    return acc;
+	  }, errorPaths);
+	  var errorLocations = util.getPositionForPath(jsonText, errorPaths);
+
+	  // render the new errors
+	  if (errors.length > 0) {
+	    if (this.aceEditor) {
+	      this.annotations = errorLocations.map(function (errLoc) {
+	        var validationErrors = errors.filter(function(err){ return err.dataPath === errLoc.path; });
+	        var message = validationErrors.map(function(err) { return err.message }).join('\n');
+	        if (message) {
+	          return {
+	            row: errLoc.line,
+	            column: errLoc.column,
+	            text: 'Schema validation error' + (validationErrors.length !== 1 ? 's' : '') + ': \n' + message,
+	            type: 'warning',
+	            source: 'jsoneditor',
+	          }
+	        }
+
+	        return {};
+	      });
+	      this._refreshAnnotations();
+
+	    } else {
+	      var validationErrors = document.createElement('div');
+	      validationErrors.innerHTML = '<table class="jsoneditor-text-errors"><tbody></tbody></table>';
+	      var tbody = validationErrors.getElementsByTagName('tbody')[0];
+
+	      errors.forEach(function (error) {
+	        var message;
+	        if (typeof error === 'string') {
+	          message = '<td colspan="2"><pre>' + error + '</pre></td>';
+	        }
+	        else {
+	          message =
+	              '<td>' + (error.dataPath || '') + '</td>' +
+	              '<td>' + error.message + '</td>';
+	        }
+
+	        var line;
+
+	        if (!isNaN(error.line)) {
+	          line = error.line;
+	        } else if (error.dataPath) {
+	          var errLoc = errorLocations.find(function(loc) { return loc.path === error.dataPath; });
+	          if (errLoc) {
+	            line = errLoc.line + 1;
+	          }
+	        }
+
+	        var trEl = document.createElement('tr');
+	        trEl.className = !isNaN(line) ? 'jump-to-line' : '';
+	        if (error.type === 'error') {
+	          trEl.className += ' parse-error';
+	        } else {
+	          trEl.className += ' validation-error';
+	          ++validationErrorsCount;
+	        }
+
+	        trEl.innerHTML =  ('<td><button class="jsoneditor-schema-error"></button></td><td style="white-space:nowrap;">'+ (!isNaN(line) ? ('Ln ' + line) : '') +'</td>' + message);
+	        trEl.onclick = function() {
+	          me.isFocused = true;
+	          if (!isNaN(line)) {
+	            me.setTextSelection({row: line, column: 1}, {row: line, column: 1000});
+	          }
+	        };
+
+	        tbody.appendChild(trEl);
+	      });
+
+	      this.dom.validationErrors = validationErrors;
+	      this.dom.validationErrorsContainer.appendChild(validationErrors);
+	      this.dom.additionalErrorsIndication.title = errors.length + " errors total";
+
+	      if (this.dom.validationErrorsContainer.clientHeight < this.dom.validationErrorsContainer.scrollHeight) {
+	        this.dom.additionalErrorsIndication.style.display = 'block';
+	        this.dom.validationErrorsContainer.onscroll = function () {
+	          me.dom.additionalErrorsIndication.style.display =
+	            (me.dom.validationErrorsContainer.clientHeight > 0 && me.dom.validationErrorsContainer.scrollTop === 0) ? 'block' : 'none';
+	        }
+	      } else {
+	        this.dom.validationErrorsContainer.onscroll = undefined;
+	      }
+
+	      var height = this.dom.validationErrorsContainer.clientHeight + (this.dom.statusBar ? this.dom.statusBar.clientHeight : 0);
+	      this.content.style.marginBottom = (-height) + 'px';
+	      this.content.style.paddingBottom = height + 'px';
+	    }
+	  } else {
+	    if (this.aceEditor) {
+	      this.annotations = [];
+	      this._refreshAnnotations();
+	    }
+	  }
+
+	  if (this.options.statusBar) {
+	    validationErrorsCount = validationErrorsCount || this.annotations.length;
+	    var showIndication = !!validationErrorsCount;
+	    this.validationErrorIndication.validationErrorIcon.style.display = showIndication ? 'inline' : 'none';
+	    this.validationErrorIndication.validationErrorCount.style.display = showIndication ? 'inline' : 'none';
+	    if (showIndication) {
+	      this.validationErrorIndication.validationErrorCount.innerText = validationErrorsCount;
+	      this.validationErrorIndication.validationErrorIcon.title = validationErrorsCount + ' schema validation error(s) found';
+	    }
+	  }
+
+	  // update the height of the ace editor
+	  if (this.aceEditor) {
+	    var force = false;
+	    this.aceEditor.resize(force);
+	  }
+	};
+
+	/**
+	 * Get the selection details
+	 * @returns {{start:{row:Number, column:Number},end:{row:Number, column:Number},text:String}}
+	 */
+	textmode.getTextSelection = function () {
+	  var selection = {};
+	  if (this.textarea) {
+	    var selectionRange = util.getInputSelection(this.textarea);
+
+	    if (this.cursorInfo && this.cursorInfo.line === selectionRange.end.row && this.cursorInfo.column === selectionRange.end.column) {
+	      //selection direction is bottom => up
+	      selection.start = selectionRange.end;
+	      selection.end = selectionRange.start;
+	    } else {
+	      selection = selectionRange;
+	    }
+
+	    return {
+	      start: selection.start,
+	      end: selection.end,
+	      text: this.textarea.value.substring(selectionRange.startIndex, selectionRange.endIndex)
+	    }
+	  }
+
+	  if (this.aceEditor) {
+	    var aceSelection = this.aceEditor.getSelection();
+	    var selectedText = this.aceEditor.getSelectedText();
+	    var range = aceSelection.getRange();
+	    var lead = aceSelection.getSelectionLead();
+
+	    if (lead.row === range.end.row && lead.column === range.end.column) {
+	      selection = range;
+	    } else {
+	      //selection direction is bottom => up
+	      selection.start = range.end;
+	      selection.end = range.start;
+	    }
+
+	    return {
+	      start: {
+	        row: selection.start.row + 1,
+	        column: selection.start.column + 1
+	      },
+	      end: {
+	        row: selection.end.row + 1,
+	        column: selection.end.column + 1
+	      },
+	      text: selectedText
+	    };
+	  }
+	};
+
+	/**
+	 * Callback registration for selection change
+	 * @param {selectionCallback} callback
+	 *
+	 * @callback selectionCallback
+	 */
+	textmode.onTextSelectionChange = function (callback) {
+	  if (typeof callback === 'function') {
+	    this._selectionChangedHandler = util.debounce(callback, this.DEBOUNCE_INTERVAL);
+	  }
+	};
+
+	/**
+	 * Set selection on editor's text
+	 * @param {{row:Number, column:Number}} startPos selection start position
+	 * @param {{row:Number, column:Number}} endPos selected end position
+	 */
+	textmode.setTextSelection = function (startPos, endPos) {
+
+	  if (!startPos || !endPos) return;
+
+	  if (this.textarea) {
+	    var startIndex = util.getIndexForPosition(this.textarea, startPos.row, startPos.column);
+	    var endIndex = util.getIndexForPosition(this.textarea, endPos.row, endPos.column);
+	    if (startIndex > -1 && endIndex  > -1) {
+	      if (this.textarea.setSelectionRange) {
+	        this.textarea.focus();
+	        this.textarea.setSelectionRange(startIndex, endIndex);
+	      } else if (this.textarea.createTextRange) { // IE < 9
+	        var range = this.textarea.createTextRange();
+	        range.collapse(true);
+	        range.moveEnd('character', endIndex);
+	        range.moveStart('character', startIndex);
+	        range.select();
+	      }
+	      var rows = (this.textarea.value.match(/\n/g) || []).length + 1;
+	      var lineHeight =  this.textarea.scrollHeight / rows;
+	      var selectionScrollPos = (startPos.row * lineHeight);
+	      this.textarea.scrollTop = selectionScrollPos > this.textarea.clientHeight ? (selectionScrollPos - (this.textarea.clientHeight / 2)) : 0;
+	    }
+	  } else if (this.aceEditor) {
+	    var range = {
+	      start:{
+	        row: startPos.row - 1,
+	        column: startPos.column - 1
+	      },
+	      end:{
+	        row: endPos.row - 1,
+	        column: endPos.column - 1
+	      }
+	    };
+	    this.aceEditor.selection.setRange(range);
+	  }
+	};
+
+	function load () {
+	  try {
+	    this.format()
+	  }
+	  catch (err) {
+	    // in case of an error, just move on, failing formatting is not a big deal
+	  }
+	}
+
+	// define modes
+	module.exports = [
+	  {
+	    mode: 'text',
+	    mixin: textmode,
+	    data: 'text',
+	    load: load
+	  },
+	  {
+	    mode: 'code',
+	    mixin: textmode,
+	    data: 'text',
+	    load: load
+	  }
+	];
+
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	/* ***** BEGIN LICENSE BLOCK *****
+	 * Distributed under the BSD license:
+	 *
+	 * Copyright (c) 2010, Ajax.org B.V.
+	 * All rights reserved.
+	 *
+	 * Redistribution and use in source and binary forms, with or without
+	 * modification, are permitted provided that the following conditions are met:
+	 *     * Redistributions of source code must retain the above copyright
+	 *       notice, this list of conditions and the following disclaimer.
+	 *     * Redistributions in binary form must reproduce the above copyright
+	 *       notice, this list of conditions and the following disclaimer in the
+	 *       documentation and/or other materials provided with the distribution.
+	 *     * Neither the name of Ajax.org B.V. nor the
+	 *       names of its contributors may be used to endorse or promote products
+	 *       derived from this software without specific prior written permission.
+	 *
+	 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	 * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	 * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	 * DISCLAIMED. IN NO EVENT SHALL AJAX.ORG B.V. BE LIABLE FOR ANY
+	 * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	 * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	 * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	 * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+	 * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	 *
+	 * ***** END LICENSE BLOCK ***** */
+
+	ace.define('ace/theme/jsoneditor', ['require', 'exports', 'module', 'ace/lib/dom'], function(acequire, exports, module) {
+
+	exports.isDark = false;
+	exports.cssClass = "ace-jsoneditor";
+	exports.cssText = ".ace-jsoneditor .ace_gutter {\
+	background: #ebebeb;\
+	color: #333\
+	}\
+	\
+	.ace-jsoneditor.ace_editor {\
+	font-family: \"dejavu sans mono\", \"droid sans mono\", consolas, monaco, \"lucida console\", \"courier new\", courier, monospace, sans-serif;\
+	line-height: 1.3;\
+	background-color: #fff;\
+	}\
+	.ace-jsoneditor .ace_print-margin {\
+	width: 1px;\
+	background: #e8e8e8\
+	}\
+	.ace-jsoneditor .ace_scroller {\
+	background-color: #FFFFFF\
+	}\
+	.ace-jsoneditor .ace_text-layer {\
+	color: gray\
+	}\
+	.ace-jsoneditor .ace_variable {\
+	color: #1a1a1a\
+	}\
+	.ace-jsoneditor .ace_cursor {\
+	border-left: 2px solid #000000\
+	}\
+	.ace-jsoneditor .ace_overwrite-cursors .ace_cursor {\
+	border-left: 0px;\
+	border-bottom: 1px solid #000000\
+	}\
+	.ace-jsoneditor .ace_marker-layer .ace_selection {\
+	background: lightgray\
+	}\
+	.ace-jsoneditor.ace_multiselect .ace_selection.ace_start {\
+	box-shadow: 0 0 3px 0px #FFFFFF;\
+	border-radius: 2px\
+	}\
+	.ace-jsoneditor .ace_marker-layer .ace_step {\
+	background: rgb(255, 255, 0)\
+	}\
+	.ace-jsoneditor .ace_marker-layer .ace_bracket {\
+	margin: -1px 0 0 -1px;\
+	border: 1px solid #BFBFBF\
+	}\
+	.ace-jsoneditor .ace_marker-layer .ace_active-line {\
+	background: #FFFBD1\
+	}\
+	.ace-jsoneditor .ace_gutter-active-line {\
+	background-color : #dcdcdc\
+	}\
+	.ace-jsoneditor .ace_marker-layer .ace_selected-word {\
+	border: 1px solid lightgray\
+	}\
+	.ace-jsoneditor .ace_invisible {\
+	color: #BFBFBF\
+	}\
+	.ace-jsoneditor .ace_keyword,\
+	.ace-jsoneditor .ace_meta,\
+	.ace-jsoneditor .ace_support.ace_constant.ace_property-value {\
+	color: #AF956F\
+	}\
+	.ace-jsoneditor .ace_keyword.ace_operator {\
+	color: #484848\
+	}\
+	.ace-jsoneditor .ace_keyword.ace_other.ace_unit {\
+	color: #96DC5F\
+	}\
+	.ace-jsoneditor .ace_constant.ace_language {\
+	color: darkorange\
+	}\
+	.ace-jsoneditor .ace_constant.ace_numeric {\
+	color: red\
+	}\
+	.ace-jsoneditor .ace_constant.ace_character.ace_entity {\
+	color: #BF78CC\
+	}\
+	.ace-jsoneditor .ace_invalid {\
+	color: #FFFFFF;\
+	background-color: #FF002A;\
+	}\
+	.ace-jsoneditor .ace_fold {\
+	background-color: #AF956F;\
+	border-color: #000000\
+	}\
+	.ace-jsoneditor .ace_storage,\
+	.ace-jsoneditor .ace_support.ace_class,\
+	.ace-jsoneditor .ace_support.ace_function,\
+	.ace-jsoneditor .ace_support.ace_other,\
+	.ace-jsoneditor .ace_support.ace_type {\
+	color: #C52727\
+	}\
+	.ace-jsoneditor .ace_string {\
+	color: green\
+	}\
+	.ace-jsoneditor .ace_comment {\
+	color: #BCC8BA\
+	}\
+	.ace-jsoneditor .ace_entity.ace_name.ace_tag,\
+	.ace-jsoneditor .ace_entity.ace_other.ace_attribute-name {\
+	color: #606060\
+	}\
+	.ace-jsoneditor .ace_markup.ace_underline {\
+	text-decoration: underline\
+	}\
+	.ace-jsoneditor .ace_indent-guide {\
+	background: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==\") right repeat-y\
+	}";
+
+	var dom = acequire("../lib/dom");
+	dom.importCssString(exports.cssText, exports.cssClass);
+	});
+
+
+/***/ }
+/******/ ])
+});
+;

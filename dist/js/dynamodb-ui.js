@@ -1592,7 +1592,8 @@ Ractive.components.tableitems = Ractive.extend({
 						\
 					</div>\
 				</div>\
-				<a class='btn btn-xs btn-danger' on-click='delete-selected' as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i></a>\
+				<a class='btn btn-xs btn-danger'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
@@ -2189,6 +2190,32 @@ Ractive.components.tableitems = Ractive.extend({
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 		})
+		ractive.on('create-item-window', function() {
+			var describeTable = this.get('describeTable')
+			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+				$window.set({
+					title: 'Create Item',
+					'geometry.width': window.innerWidth - 100,
+					'geometry.height': window.innerHeight - 100,
+					'geometry.left': 50,
+					'geometry.top': 50,
+				});
+
+				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
+				$window.content('<div id="' + vid + '"/>').then(function() {
+					var ractive = new Ractive({
+						el: $('#'+vid).get(0),
+						template: '<CreateItem describeTable="{{describeTable}}" />',
+						data: {
+							describeTable: describeTable,
+						}
+					})
+					ractive.on('CreateItem.close-window', function() {
+						$window.close()
+					})
+				})
+			})
+		})
 		ractive.on('delete-selected', function(context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
 			var to_delete = ractive.findComponent('tabledata').get('rows')
@@ -2551,4 +2578,92 @@ Ractive.components.dynamoui = Ractive.extend({
 		DynamoDB  = new DynamodbFactory(ddb)
 
 	},
+})
+
+Ractive.components.CreateItem = Ractive.extend({
+	//isolated: true,
+	template:
+		'\
+		<div id="jsoneditor" style="position: absolute;top:0;left:0;bottom:40px;right:0;">\
+		</div>\
+		<div style="position: absolute;left: 0px;right:0px;bottom:0px;height: 40px;box-sizing: border-box;padding: 5px;">\
+			<a class="btn btn-sm btn-primary pull-right" on-click="create-item">Save</a>\
+		</div>\
+		',
+	data: function() {
+		return {
+
+		}
+	},
+
+	oninit: function() {
+		var ractive = this
+
+		ractive.on('create-item', function() {
+			var json = ractive.editor.get();
+			var ddb = DynamoDB
+				.explain()
+				.table( ractive.get('describeTable.TableName') )
+
+			ddb = ddb.if( ractive.get('describeTable.KeySchema.0.AttributeName') ).not_exists()
+
+			if (ractive.get('describeTable.KeySchema.1.AttributeName'))
+				ddb = ddb.if( ractive.get('describeTable.KeySchema.1.AttributeName') ).not_exists()
+
+			ddb.insert(json, function(err, data ) {
+				if (err)
+					return alert('Failed')
+
+
+				routeCall( { method: data.method, payload: data.payload } , function(err, data) {
+					if (err)
+						return alert('Failed: ' + ( err.message || err.errorMessage ) );
+
+					// close window
+					ractive.fire('close-window')
+				});
+			})
+
+		})
+
+
+		//console.log("createItem",  )
+	},
+	oncomplete: function() {
+		var ractive = this;
+		var container = document.getElementById('jsoneditor');
+		var options = {
+			//statusBar
+			//mainMenuBar
+			history: false,
+			colorPicker: false,
+			//timestampTag
+			autocomplete: false,
+			navigationBar: false,
+			search: false,
+			enableSort: false,
+			sortObjectKeys: false,
+			enableTransform: false,
+
+			mode: 'tree',
+			modes: [
+				//'code', // ace source
+				// 'form', // <-- does not allow adding / deleting attributes
+				'text', // without ace
+				'tree', // <-- aws style
+				//'view'  // <-- useless
+			],
+
+		};
+		ractive.editor = new JSONEditor(container, options);
+
+		var dt = ractive.get('describeTable')
+		var json = {}
+		dt.KeySchema.map(function(ks) {
+			json[ks.AttributeName] = ''
+		})
+
+
+		ractive.editor.set(json)
+	}
 })
