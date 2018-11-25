@@ -123,7 +123,7 @@ Ractive.components.minitablelist = Ractive.extend({
 		<miniheader>\
 			Tables\
 			<div class='pull-right' style='margin-right: 5px;'>\
-				<a class='btn btn-xs btn-default' on-click='create'><i class='icon zmdi zmdi-plus'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='create' as-tooltip=' \" Create Table \" '><i class='icon zmdi zmdi-plus'></i></a>\
 				<a class='btn btn-xs btn-default' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
 			</div>\
 		</miniheader>\
@@ -175,23 +175,32 @@ Ractive.components.tablelistfull = Ractive.extend({
 		"\
 			<div class='pull-right' style='padding: 7px;'>\
 				<a class='btn btn-xs btn-primary ' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
-				<a class='btn btn-xs btn-default ' on-click='delete'><i class='icon zmdi zmdi-delete'></i></a>\
-				<a class='btn btn-xs btn-default ' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
+				<a class='btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}' on-click='delete' as-tooltip=' \" Delete table \" '><i class='icon zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-default ' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh {{#if refresh_tables }}zmdi-hc-spin{{/if}}'></i></a>\
 			</div>\
 		\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;'/>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />\
 		",
-	data: function() { return {} },
+	data: function() {
+		return {
+			selection_length: 0,
+			refresh_tables: false,
+		}
+	},
 	refresh_tables: function() {
 		var ractive = this
-
+		ractive.set('refresh_tables', true)
 		ractive.set('tables')
 
 		DynamoDB.explain().query('SHOW TABLES', function(err, call ) {
+
+
 			if (err)
 				return console.log(err)
 
 			routeCall( call, function( err, data ) {
+				ractive.set('refresh_tables', false)
+
 				if (err)
 					return ractive.set('err', err )
 
@@ -256,6 +265,10 @@ Ractive.components.tablelistfull = Ractive.extend({
 		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+
+			ractive.set('selection_length',
+				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
+			)
 		})
 		ractive.on('delete', function() {
 			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
@@ -2425,6 +2438,7 @@ Ractive.components.tabledata = Ractive.extend({
 		",
 	data: function() { return {} },
 	oninit: function() {
+
 	}
 })
 
