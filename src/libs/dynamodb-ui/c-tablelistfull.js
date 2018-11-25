@@ -6,7 +6,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 			<div class='pull-right' style='padding: 7px;'>\
 				<a class='btn btn-xs btn-primary ' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
 				<a class='btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}' on-click='delete' as-tooltip=' \" Delete table \" '><i class='icon zmdi zmdi-delete'></i></a>\
-				<a class='btn btn-xs btn-default ' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh {{#if refresh_tables }}zmdi-hc-spin{{/if}}'></i></a>\
+				<a class='btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh {{#if refresh_tables }}zmdi-hc-spin{{/if}}'></i></a>\
 			</div>\
 		\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />\
