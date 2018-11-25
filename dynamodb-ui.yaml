@@ -103,6 +103,8 @@ Resources:
                             		case 'updateTable':
                             		case 'scan':
                             		case 'query':
+                            		case 'putItem':
+                            		case 'deleteItem':
                             			dynamodb[event._POST.method](event._POST.payload, function(err, data) {
                                             context.done(null, { err: err, data:data } )
                                         })
