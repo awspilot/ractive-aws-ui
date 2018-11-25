@@ -210,7 +210,8 @@ Ractive.components.tableitems = Ractive.extend({
 						\
 					</div>\
 				</div>\
-				<a class='btn btn-xs btn-danger' on-click='delete-selected' as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i></a>\
+				<a class='btn btn-xs btn-danger'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
@@ -806,6 +807,32 @@ Ractive.components.tableitems = Ractive.extend({
 		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+		})
+		ractive.on('create-item-window', function() {
+			var describeTable = this.get('describeTable')
+			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+				$window.set({
+					title: 'Create Item',
+					'geometry.width': window.innerWidth - 100,
+					'geometry.height': window.innerHeight - 100,
+					'geometry.left': 50,
+					'geometry.top': 50,
+				});
+
+				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
+				$window.content('<div id="' + vid + '"/>').then(function() {
+					var ractive = new Ractive({
+						el: $('#'+vid).get(0),
+						template: '<CreateItem describeTable="{{describeTable}}" />',
+						data: {
+							describeTable: describeTable,
+						}
+					})
+					ractive.on('CreateItem.close-window', function() {
+						$window.close()
+					})
+				})
+			})
 		})
 		ractive.on('delete-selected', function(context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
