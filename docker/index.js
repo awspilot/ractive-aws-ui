@@ -67,6 +67,9 @@ http.createServer(function (request, response) {
 		case '.css':
 			contentType = 'text/css';
 			break;
+		case '.svg':
+			contentType = 'image/svg+xml';
+			break;
 	}
 
 	fs.readFile(filePath, function(error, content) {
