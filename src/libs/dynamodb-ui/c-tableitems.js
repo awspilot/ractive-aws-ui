@@ -362,10 +362,9 @@ Ractive.components.tableitems = Ractive.extend({
 
 
 		display_data: function() {
+			var ractive = this;
 
 			var dbrows = this.get('rawdata');
-			var hash_key = null
-			var range_key = null
 
 			var columns = [null]
 			var rows = []
@@ -385,8 +384,8 @@ Ractive.components.tableitems = Ractive.extend({
 					if (column_name === null) {
 						// checkbox
 						var key = {}
-						key[hash_key] = row[hash_key]
-						if (range_key) key[range_key] = row[range_key]
+						key[ractive._hash_key_name()] = row[ractive._hash_key_name()]
+						if (ractive._range_key_name()) key[ractive._range_key_name()] = row[ractive._range_key_name()]
 						thisrow.push({KEY: key})
 					} else {
 						if (row.hasOwnProperty(column_name)) {
@@ -809,38 +808,40 @@ Ractive.components.tableitems = Ractive.extend({
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
 		})
 		ractive.on('delete-selected', function(context) {
-			var to_delete = ractive.get('rows')
-				.map(function(r) { return r[0] })
-				.filter(function(r) { return r.selected })
-				.map(function(r) { return r.KEY })
-
-			if (!to_delete.length)
-				return alert('No Items Selected')
-
-			to_remove_from_list = []
-
+			console.log(ractive.findComponent('tabledata').get('rows'))
+			// var to_delete = ractive.findComponent('tabledata').get('rows')
+			// 	.map(function(r) { return r[0] })
+			// 	.filter(function(r) { return r.selected })
+			// 	.map(function(r) { return r.KEY })
+			//
+			// if (!to_delete.length)
+			// 	return alert('No Items Selected')
+			//
+			// to_remove_from_list = []
+			return;
 
 			async.each(to_delete, function(item, cb) {
-				var Key = {}
-				Object.keys(item).map(function(k) {
-					if (typeof item[k] === "string")
-						Key[k] = {"S": item[k]}
-
-					if (typeof item[k] === "number")
-						Key[k] = {"N": item[k].toString()}
-				})
-
-				var params = {
-					Key: Key,
-					TableName: ractive.get('table.name')
-				};
-				ddb.deleteItem(params, function(err, data) {
-					if (err)
-						return console.log("deleting ", Key, " failed err=", err) || cb(err)
-
-					to_remove_from_list.push(item)
-					cb()
-				});
+				console.log( item )
+				// var Key = {}
+				// Object.keys(item).map(function(k) {
+				// 	if (typeof item[k] === "string")
+				// 		Key[k] = {"S": item[k]}
+				//
+				// 	if (typeof item[k] === "number")
+				// 		Key[k] = {"N": item[k].toString()}
+				// })
+				//
+				// var params = {
+				// 	Key: Key,
+				// 	TableName: ractive.get('table.name')
+				// };
+				// ddb.deleteItem(params, function(err, data) {
+				// 	if (err)
+				// 		return console.log("deleting ", Key, " failed err=", err) || cb(err)
+				//
+				// 	to_remove_from_list.push(item)
+				// 	cb()
+				// });
 
 			}, function(err) {
 				if (err)
