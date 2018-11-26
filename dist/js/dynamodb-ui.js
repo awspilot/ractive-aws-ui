@@ -1585,9 +1585,9 @@ Ractive.components.tableitems = Ractive.extend({
 			\
 		</div>\
 		<div class='tabledatacontrols'>\
-			<div class='btn btn-xs btn-default' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
-			<div class='btn btn-xs btn-default' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>\
-			<div class='btn btn-xs btn-default' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
+			<div class='btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>\
+			<div class='btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>\
+			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
 			\
 			<div class='pull-right'>\
 				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-refresh'></i></a>\
@@ -1606,7 +1606,7 @@ Ractive.components.tableitems = Ractive.extend({
 					</div>\
 				</div>\
 				<a class='btn btn-xs btn-default' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i></a>\
-				<a class='btn btn-xs btn-danger'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
@@ -1903,8 +1903,9 @@ Ractive.components.tableitems = Ractive.extend({
 									(data.Items || []).map(function(item) { return {'M': item } })
 								})
 
-							console.log("LastEvaluatedKey=", data.LastEvaluatedKey )
 							ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+							ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+
 							cb()
 
 						});
@@ -2040,8 +2041,10 @@ Ractive.components.tableitems = Ractive.extend({
 									(data.Items || []).map(function(item) { return {'M': item } })
 								})
 
-							console.log("LastEvaluatedKey=", data.LastEvaluatedKey )
 							ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+
+							ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+
 							cb()
 
 						});
@@ -2055,6 +2058,10 @@ Ractive.components.tableitems = Ractive.extend({
 					cb()
 				}
 			], function(err) {
+				ractive.set('oop_running'  ,false )
+				ractive.set('prev_running' ,false )
+				ractive.set('next_running' ,false )
+
 				if (err)
 					ractive.set('err', err.errorMessage )
 
@@ -2135,6 +2142,12 @@ Ractive.components.tableitems = Ractive.extend({
 		this.set('display_columns', display_columns )
 	},
 	data: function() { return {
+		oop_running: false,
+		prev_running: false,
+		next_running: false,
+		start_reached: true,
+		end_reached: false,
+
 		type: 'scan',
 		display_columns: [
 			// { name, type, show: true|false|null}
@@ -2159,9 +2172,23 @@ Ractive.components.tableitems = Ractive.extend({
 		this.refresh_data(null)
 
 		this.on('run-oop', function() {
+			if (this.get('oop_running'))
+				return;
+
+			this.set('oop_running' ,true )
+
+			// reset scan.LastEvaluatedKey
+			ractive.set('scan.LastEvaluatedKey', [null] )
+
 			this.refresh_data(null)
 		})
 		this.on('prev', function() {
+
+			if (this.get('prev_running'))
+				return;
+
+			this.set('prev_running' ,true )
+
 			if (ractive.get('scan.LastEvaluatedKey').length < 3)
 				return;
 
@@ -2174,10 +2201,24 @@ Ractive.components.tableitems = Ractive.extend({
 			ractive.refresh_data(LastEvaluatedKey)
 		})
 		this.on('next', function() {
+
+			if (this.get('next_running'))
+				return;
+
+			if (this.get('end_reached'))
+				return;
+
+			this.set('next_running' ,true )
 			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
 			ractive.refresh_data(LastEvaluatedKey)
 		})
 
+		ractive.observe('scan.LastEvaluatedKey', function( n, o, keypath ) {
+			if (n.length > 2)
+				ractive.set('start_reached', false)
+			else
+				ractive.set('start_reached', true)
+		})
 		ractive.observe('display_columns.*.show', function( n, o, keypath ) {
 			if (o === undefined)
 				return;
@@ -2202,6 +2243,12 @@ Ractive.components.tableitems = Ractive.extend({
 		ractive.on('tabledata.selectrow', function(context) {
 			var keypath = context.resolve()
 			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+
+			ractive.set('selection_length',
+				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
+			)
+
+
 		})
 		ractive.on('create-item-window', function() {
 			var describeTable = this.get('describeTable')
