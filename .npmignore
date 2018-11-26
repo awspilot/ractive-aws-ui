@@ -1,0 +1,7 @@
+docker/
+preload-data/
+src/
+Dockerfile
+dynamodb-ui.yaml
+README.md
+run.sh
