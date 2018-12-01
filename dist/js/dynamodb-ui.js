@@ -663,14 +663,17 @@ Ractive.components.tablecreate = Ractive.extend({
 			if (! payload.GlobalSecondaryIndexes.length )
 				delete payload.GlobalSecondaryIndexes;
 
-			console.log("final payload", payload )
+
+
 			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
 				if (err) {
 					ractive.set( 'errorMessage', err.message )
 					return
 				}
+				window.ractive.findComponent('minitablelist').refresh_tables()
 
-				ractive.root.findComponent('tablelist').refresh_tables()
+				// fulltablelist does not exist
+				//ractive.root.findComponent('tablelist').refresh_tables()
 			})
 		})
 	},
