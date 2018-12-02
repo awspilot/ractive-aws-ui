@@ -18,12 +18,15 @@
 	itembg: #6b6b6b
 */
 
-@light-table-row-hover-background: #1868d8;
-@dark-table-row-hover-background: #1868d8;
+@light-table-row-hover-background: #f3f3f3;
+@dark-table-row-hover-background: #f3f3f3;
 
 
 @light-table-row-selected-background: #ddecff;
 @dark-table-row-selected-background: #ddecff;
+
+@light-table-row-hover-and-selected-background: #0747a0;
+@dark-table-row-hover-and-selected-background: #0747a0;
 
 
 
@@ -281,15 +284,17 @@ body.theme_light content tabcontent .tabledata .tabledatarow {
 }
 body.theme_light content tabcontent .tabledata .tabledatarow:hover {
 	background-color: @light-table-row-hover-background;
-	.tabledatacell {color: #fff;}
+	.tabledatacell {color: #a59797;}
 }
 
 body.theme_light content tabcontent .tabledata .tabledatarow.selected {
 	background-color: @light-table-row-selected-background;
+	.tabledatacell {color: #396396;}
 }
 
 body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {
-	background-color: @light-table-row-hover-background !important;
+	background-color: @light-table-row-hover-and-selected-background !important;
+	.tabledatacell {color: #fff;}
 }
 
 
