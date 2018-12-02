@@ -23,6 +23,7 @@
   "devDependencies": {
     "concat": "^1.0.3",
     "less": "^3.8.1",
-    "uglify-js": "^3.1.7"
+    "uglify-js": "^3.1.7",
+    "onchange": "*"
   }
 }
