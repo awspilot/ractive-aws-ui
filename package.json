@@ -8,7 +8,8 @@
     "dynamodb": "concat -o dist/js/dynamodb.js src/libs/dynamodb/aws-sdk-2.160.0.min.js src/libs/dynamodb/awspilot-dynamodb-sql.js src/libs/dynamodb/dynamodbjs.js",
     "dynamodb-ui": "concat -o dist/js/dynamodb-ui.js src/libs/dynamodb-ui/session.js src/libs/dynamodb-ui/gui.js src/libs/dynamodb-ui/c-minitablelist.js src/libs/dynamodb-ui/c-tablelistfull.js src/libs/dynamodb-ui/c-tablecreate.js src/libs/dynamodb-ui/c-tabletab.js src/libs/dynamodb-ui/c-tableinfo.js src/libs/dynamodb-ui/c-tablemetrics.js src/libs/dynamodb-ui/c-tablealarms.js src/libs/dynamodb-ui/c-tablecapacity.js src/libs/dynamodb-ui/c-tableindexes.js src/libs/dynamodb-ui/c-tableglobal.js src/libs/dynamodb-ui/c-tablebackup.js src/libs/dynamodb-ui/c-tabletriggers.js src/libs/dynamodb-ui/c-tableitems.js src/libs/dynamodb-ui/c-tabledata.js src/libs/dynamodb-ui/c-tabs.js src/libs/dynamodb-ui/c-login.js src/libs/dynamodb-ui/c-dynamodb-ui.js src/libs/dynamodb-ui/win-item-create.js",
     "build-css": "lessc src/css/style.less > dist/css/pack.css",
-    "all": "npm run libs && npm run dynamodb && npm run dynamodb-ui && npm run build-css"
+    "all": "npm run libs && npm run dynamodb && npm run dynamodb-ui && npm run build-css",
+		"dev": "onchange 'src/**/*' -- npm run all"
   },
   "repository": {
     "type": "git",
