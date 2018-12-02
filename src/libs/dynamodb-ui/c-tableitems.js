@@ -214,7 +214,7 @@ Ractive.components.tableitems = Ractive.extend({
 				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' on-colclick='open-item' style='top: 148px'/>\
 	</div>\
 		",
 
@@ -390,7 +390,12 @@ Ractive.components.tableitems = Ractive.extend({
 						thisrow.push({KEY: key})
 					} else {
 						if (row.hasOwnProperty(column_name)) {
-							if (typeof row[column_name] === 'string')
+							if ( column_name === ractive._hash_key_name() ) {
+								thisrow.push({
+									HASH:row[column_name],
+									item: row,
+								})
+							} else if (typeof row[column_name] === 'string')
 								thisrow.push({'S':row[column_name]})
 							else if (typeof row[column_name] === 'number')
 								thisrow.push({'N':row[column_name]})
@@ -775,6 +780,38 @@ Ractive.components.tableitems = Ractive.extend({
 		var ractive = this
 
 		this.refresh_data(null)
+
+
+		this.on('open-item', function( e, col, item ) {
+			var describeTable = this.get('describeTable')
+			var hash  = this._hash_key_name()
+			var range = this._range_key_name()
+			console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item  )
+			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+				$window.set({
+					title: 'View Item',
+					'geometry.width': window.innerWidth - 100,
+					'geometry.height': window.innerHeight - 100,
+					'geometry.left': 50,
+					'geometry.top': 50,
+				});
+
+				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
+				$window.content('<div id="' + vid + '"/>').then(function() {
+					var ractive = new Ractive({
+						el: $('#'+vid).get(0),
+						template: '<ViewItem describeTable="{{describeTable}}" item="{{item}}" />',
+						data: {
+							describeTable: describeTable,
+							item: item,
+						}
+					})
+				// 	ractive.on('CreateItem.close-window', function() {
+				// 		$window.close()
+				// 	})
+				})
+			})
+		})
 
 		this.on('run-oop', function() {
 			if (this.get('oop_running'))

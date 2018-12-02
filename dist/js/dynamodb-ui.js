@@ -1616,7 +1616,7 @@ Ractive.components.tableitems = Ractive.extend({
 				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 148px'/>\
+		<tabledata columns='{{columns}}' rows='{{rows}}' on-colclick='open-item' style='top: 148px'/>\
 	</div>\
 		",
 
@@ -1792,7 +1792,12 @@ Ractive.components.tableitems = Ractive.extend({
 						thisrow.push({KEY: key})
 					} else {
 						if (row.hasOwnProperty(column_name)) {
-							if (typeof row[column_name] === 'string')
+							if ( column_name === ractive._hash_key_name() ) {
+								thisrow.push({
+									HASH:row[column_name],
+									item: row,
+								})
+							} else if (typeof row[column_name] === 'string')
 								thisrow.push({'S':row[column_name]})
 							else if (typeof row[column_name] === 'number')
 								thisrow.push({'N':row[column_name]})
@@ -2178,6 +2183,38 @@ Ractive.components.tableitems = Ractive.extend({
 
 		this.refresh_data(null)
 
+
+		this.on('open-item', function( e, col, item ) {
+			var describeTable = this.get('describeTable')
+			var hash  = this._hash_key_name()
+			var range = this._range_key_name()
+			console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item  )
+			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+				$window.set({
+					title: 'View Item',
+					'geometry.width': window.innerWidth - 100,
+					'geometry.height': window.innerHeight - 100,
+					'geometry.left': 50,
+					'geometry.top': 50,
+				});
+
+				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
+				$window.content('<div id="' + vid + '"/>').then(function() {
+					var ractive = new Ractive({
+						el: $('#'+vid).get(0),
+						template: '<ViewItem describeTable="{{describeTable}}" item="{{item}}" />',
+						data: {
+							describeTable: describeTable,
+							item: item,
+						}
+					})
+				// 	ractive.on('CreateItem.close-window', function() {
+				// 		$window.close()
+				// 	})
+				})
+			})
+		})
+
 		this.on('run-oop', function() {
 			if (this.get('oop_running'))
 				return;
@@ -2462,6 +2499,7 @@ Ractive.components.tabledata = Ractive.extend({
 					{{#each .:i}}\
 					<div class='tabledatacell\
 						{{#if .KEY}}t-K{{/if}}\
+						{{#if .HASH}}t-HASH{{/if}}\
 						{{#if .S}}t-S{{/if}}\
 						{{#if .N}}t-N{{/if}}\
 						{{#if .BOOL}}t-BOOL{{/if}}\
@@ -2469,7 +2507,9 @@ Ractive.components.tabledata = Ractive.extend({
 						{{#if .L}}t-L{{/if}}\
 						{{#if .M}}t-M{{/if}}\
 						{{#if .U}}t-U{{/if}}\
-						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>\
+						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '\
+						{{#if .HASH}}on-click='cellclick'{{/if}}\
+						>\
 						{{#if .KEY}}\
 							{{#if .selected}}\
 								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
@@ -2477,6 +2517,7 @@ Ractive.components.tabledata = Ractive.extend({
 								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
 							{{/if}}\
 						{{/if}}\
+						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\
 						{{#if .S}}{{.S}}{{/if}}\
 						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
 						{{#if .BOOL}}{{.BOOL}}{{/if}}\
@@ -2492,6 +2533,10 @@ Ractive.components.tabledata = Ractive.extend({
 		",
 	data: function() { return {} },
 	oninit: function() {
+		this.on('cellclick', function( e ) {
+			var col = this.get( e.resolve() )
+			this.fire('colclick', undefined, col.item )
+		})
 	}
 })
 
@@ -2735,5 +2780,56 @@ Ractive.components.CreateItem = Ractive.extend({
 
 
 		ractive.editor.set(json)
+	}
+})
+
+Ractive.components.ViewItem = Ractive.extend({
+	//isolated: true,
+	template:
+		'\
+		<div id="jsoneditor" style="position: absolute;top:0;left:0;bottom:40px;right:0;">\
+		</div>\
+		<div style="position: absolute;left: 0px;right:0px;bottom:0px;height: 40px;box-sizing: border-box;padding: 5px;">\
+			<!-- <a class="btn btn-sm btn-primary pull-right" on-click="create-item">Save</a> -->\
+		</div>\
+		',
+	data: function() {
+		return {
+
+		}
+	},
+
+	oninit: function() {
+		var ractive = this
+		//console.log("createItem",  )
+	},
+	oncomplete: function() {
+		var ractive = this;
+		var container = document.getElementById('jsoneditor');
+		var options = {
+			//statusBar
+			//mainMenuBar
+			history: false,
+			colorPicker: false,
+			//timestampTag
+			autocomplete: false,
+			navigationBar: false,
+			search: false,
+			enableSort: false,
+			sortObjectKeys: false,
+			enableTransform: false,
+
+			mode: 'view',
+
+		};
+		ractive.editor = new JSONEditor(container, options);
+
+		//var dt = ractive.get('describeTable')
+		//var json = {}
+		//dt.KeySchema.map(function(ks) {
+		//	json[ks.AttributeName] = ''
+		//})
+
+		ractive.editor.set(ractive.get('item'))
 	}
 })
