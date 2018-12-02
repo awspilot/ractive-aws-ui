@@ -35,7 +35,6 @@ Ractive.components.ViewItem = Ractive.extend({
 			enableTransform: false,
 
 			mode: 'view',
-
 		};
 		ractive.editor = new JSONEditor(container, options);
 
