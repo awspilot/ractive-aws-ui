@@ -97,34 +97,38 @@ content tabcontent .tabledata {display: block;position: absolute;left:0px;right:
 content tabcontent .tabledata .tabledatahead,
 content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch}
 
-content tabcontent .tabledata .tabledatarow:hover {}
+content tabcontent .tabledata .tabledatarow:hover {
+	.tabledatacell.t-K,
+	.tabledatacell.t-S,
+	.tabledatacell.t-N,
+	.tabledatacell.t-BOOL,
+	.tabledatacell.t-NULL,
+	.tabledatacell.t-SS,
+	.tabledatacell.t-NS,
+	.tabledatacell.t-L,
+	.tabledatacell.t-M,
+	.tabledatacell.t-U,
+	.tabledatacell:before,
+	.tabledatacell:after {border-right: 1px solid transparent;}
+}
 
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {border-right: 1px solid transparent;}
 
 
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-K,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-S,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-N,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-BOOL,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NULL,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-SS,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-NS,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-L,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-M,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-U,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell:before,
-content tabcontent .tabledata .tabledatarow:hover .tabledatacell:after {background-color: @light-table-row-selected-background;}
+content tabcontent .tabledata .tabledatarow:hover {
+	.tabledatacell.t-K,
+	.tabledatacell.t-HASH,
+	.tabledatacell.t-S,
+	.tabledatacell.t-N,
+	.tabledatacell.t-BOOL,
+	.tabledatacell.t-NULL,
+	.tabledatacell.t-SS,
+	.tabledatacell.t-NS,
+	.tabledatacell.t-L,
+	.tabledatacell.t-M,
+	.tabledatacell.t-U,
+	.tabledatacell:before,
+	.tabledatacell:after {background-color: @light-table-row-selected-background;}	
+}
 
 
 
