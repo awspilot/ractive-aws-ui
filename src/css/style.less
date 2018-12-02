@@ -115,23 +115,7 @@ content tabcontent .tabledata .tabledatarow:hover {
 
 
 
-content tabcontent .tabledata .tabledatarow.selected {
-	.tabledatacell {background-color: @light-table-row-selected-background !important;}
 
-	.tabledatacell.t-K,
-	.tabledatacell.t-S,
-	.tabledatacell.t-N,
-	.tabledatacell.t-BOOL,
-	.tabledatacell.t-NULL,
-	.tabledatacell.t-SS,
-	.tabledatacell.t-NS,
-	.tabledatacell.t-L,
-	.tabledatacell.t-M,
-	.tabledatacell.t-U,
-	.tabledatacell:before,
-	.tabledatacell:after {background-color: #ddecff !important;color: #fff;/*border-right: 1px solid transparent;*/}
-
-}
 
 
 
@@ -244,7 +228,22 @@ body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {
 body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {background-color: transparent;}
 body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #383838;}
 
+body.theme_light content tabcontent .tabledata .tabledatarow.selected {
+	.tabledatacell {background-color: @dark-table-row-selected-background !important;}
 
+	.tabledatacell.t-K,
+	.tabledatacell.t-S,
+	.tabledatacell.t-N,
+	.tabledatacell.t-BOOL,
+	.tabledatacell.t-NULL,
+	.tabledatacell.t-SS,
+	.tabledatacell.t-NS,
+	.tabledatacell.t-L,
+	.tabledatacell.t-M,
+	.tabledatacell.t-U,
+	.tabledatacell:before,
+	.tabledatacell:after {background-color: #ddecff !important;color: #000;}
+}
 /* theme light */
 /*
 body.theme_light .btn {color: #869094;background: linear-gradient(to bottom, #fff, #dedede);border: 1px solid #bbb;}
@@ -309,7 +308,22 @@ body.theme_light content tabcontent .tabledata .tabledatarow:hover {
 	.tabledatacell:after {background-color: @light-table-row-hover-background !important;}
 }
 
+body.theme_light content tabcontent .tabledata .tabledatarow.selected {
+	.tabledatacell {background-color: @light-table-row-selected-background !important;}
 
+	.tabledatacell.t-K,
+	.tabledatacell.t-S,
+	.tabledatacell.t-N,
+	.tabledatacell.t-BOOL,
+	.tabledatacell.t-NULL,
+	.tabledatacell.t-SS,
+	.tabledatacell.t-NS,
+	.tabledatacell.t-L,
+	.tabledatacell.t-M,
+	.tabledatacell.t-U,
+	.tabledatacell:before,
+	.tabledatacell:after {background-color: #ddecff !important;color: #000;}
+}
 
 
 
