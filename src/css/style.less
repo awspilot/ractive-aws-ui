@@ -22,8 +22,8 @@
 @dark-table-row-hover-background: #1868d8;
 
 
-@light-table-row-selected-background: #1868d8;
-@dark-table-row-selected-background: #1868d8;
+@light-table-row-selected-background: #ddecff;
+@dark-table-row-selected-background: #ddecff;
 
 
 
@@ -215,7 +215,7 @@ body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {
 body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {background-color: transparent;}
 body.theme_dark content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #383838;}
 
-body.theme_light content tabcontent .tabledata .tabledatarow.selected {
+body.theme_dark content tabcontent .tabledata .tabledatarow.selected {
 	.tabledatacell {background-color: @dark-table-row-selected-background !important;}
 
 	.tabledatacell.t-K,
@@ -259,15 +259,15 @@ body.theme_light content tabcontent .tablesqlquery {}
 body.theme_light content tabcontent .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;}
 body.theme_light content tabcontent .tabledata {border-top: 1px solid #e0e0e0;}
 body.theme_light content tabcontent .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
-body.theme_light content tabcontent .tabledata .tabledatahead > div,
-body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+body.theme_light content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
 
 body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;}
-body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell:before {background-color: #ffffff;}
-body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell:after  {background-color: #ffffff;}
+
 
 
 body.theme_light content tabcontent .tabledata .tabledatarow {
+	.tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+
 	.tabledatacell.t-K {color: #8ea7aa;}
 	.tabledatacell.t-S {color: #a79b9b;}
 	.tabledatacell.t-N {color: green;}
@@ -280,38 +280,17 @@ body.theme_light content tabcontent .tabledata .tabledatarow {
 	.tabledatacell.t-U {background-color: #f9f3f3;}
 }
 body.theme_light content tabcontent .tabledata .tabledatarow:hover {
-	.tabledatacell {background-color: @light-table-row-hover-background !important;}
-	.tabledatacell.t-K,
-	.tabledatacell.t-S,
-	.tabledatacell.t-N,
-	.tabledatacell.t-BOOL,
-	.tabledatacell.t-NULL,
-	.tabledatacell.t-SS,
-	.tabledatacell.t-NS,
-	.tabledatacell.t-L,
-	.tabledatacell.t-M,
-	.tabledatacell.t-U,
-	.tabledatacell:before,
-	.tabledatacell:after {background-color: @light-table-row-hover-background !important;}
+	background-color: @light-table-row-hover-background;
+	.tabledatacell {color: #fff;}
 }
 
 body.theme_light content tabcontent .tabledata .tabledatarow.selected {
-	.tabledatacell {background-color: @light-table-row-selected-background !important;}
-
-	.tabledatacell.t-K,
-	.tabledatacell.t-S,
-	.tabledatacell.t-N,
-	.tabledatacell.t-BOOL,
-	.tabledatacell.t-NULL,
-	.tabledatacell.t-SS,
-	.tabledatacell.t-NS,
-	.tabledatacell.t-L,
-	.tabledatacell.t-M,
-	.tabledatacell.t-U,
-	.tabledatacell:before,
-	.tabledatacell:after {background-color: #ddecff !important;color: #000;}
+	background-color: @light-table-row-selected-background;
 }
 
+body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {
+	background-color: @light-table-row-hover-background !important;
+}
 
 
 
