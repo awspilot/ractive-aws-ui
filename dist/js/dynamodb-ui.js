@@ -2616,12 +2616,15 @@ Ractive.components.dynamoui = Ractive.extend({
 		"\
 			<WindowHost />\
 			<header></header>\
-			<left>\
-				<minitablelist />\
-			</left>\
-			<content>\
-				<tabs active_id='tables' />\
-			</content>",
+			<hsplit style='top: 56px;'>\
+				<left>\
+					<minitablelist />\
+				</left>\
+				<content>\
+					<tabs active_id='tables' />\
+				</content>\
+			</hsplit>\
+		",
 	data: function() { return {} },
 	components: {
 		Window: RactiveWindow.default.Window,

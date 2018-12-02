@@ -6220,6 +6220,13 @@ div.jsoneditor-navigation-bar {
   color: #6c7a86;
   opacity: 1;
 }
+.hsplit {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
 /*
 	background: #282828
 	header: #535353
@@ -6281,7 +6288,7 @@ miniheader .icon:hover {
 left {
   position: absolute;
   display: block;
-  top: 56px;
+  top: 0px;
   left: 0px;
   width: 260px;
   bottom: 0px;
@@ -6300,7 +6307,7 @@ left tables > div {
 content {
   position: absolute;
   display: block;
-  top: 56px;
+  top: 0px;
   left: 265px;
   right: 0px;
   bottom: 0px;
