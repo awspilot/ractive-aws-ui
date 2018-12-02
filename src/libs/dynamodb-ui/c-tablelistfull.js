@@ -115,7 +115,11 @@ Ractive.components.tablelistfull = Ractive.extend({
 				routeCall({ method: 'deleteTable', payload: { TableName: tablename } }, function(err, data) {
 					if (err)
 						return alert( err.errorMessage )
+
 					ractive.refresh_tables()
+
+					// refresh leftside as well
+					window.ractive.findComponent('minitablelist').refresh_tables()
 				})
 			}
 
