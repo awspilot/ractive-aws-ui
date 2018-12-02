@@ -6804,6 +6804,13 @@ body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {
 body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {
   color: #8ea7aa;
 }
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {
+  color: #004b91;
+  cursor: pointer;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {
+  text-decoration: underline;
+}
 body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {
   color: #a79b9b;
 }
@@ -6824,6 +6831,9 @@ body.theme_light content tabcontent .tabledata .tabledatarow:hover {
 }
 body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {
   color: #a59797;
+}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {
+  color: #004b91;
 }
 body.theme_light content tabcontent .tabledata .tabledatarow.selected {
   background-color: #ddecff;

@@ -272,6 +272,8 @@ body.theme_light content tabcontent .tabledata .tabledatarow {
 	.tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
 
 	.tabledatacell.t-K {color: #8ea7aa;}
+	.tabledatacell.t-HASH {color:#004b91;cursor: pointer;}
+	.tabledatacell.t-HASH:hover a {text-decoration: underline;}
 	.tabledatacell.t-S {color: #a79b9b;}
 	.tabledatacell.t-N {color: green;}
 	.tabledatacell.t-BOOL {color: #ff7676;}
@@ -285,6 +287,8 @@ body.theme_light content tabcontent .tabledata .tabledatarow {
 body.theme_light content tabcontent .tabledata .tabledatarow:hover {
 	background-color: @light-table-row-hover-background;
 	.tabledatacell {color: #a59797;}
+	.tabledatacell.t-HASH {color:#004b91;}
+
 }
 
 body.theme_light content tabcontent .tabledata .tabledatarow.selected {
