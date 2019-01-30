@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
 		el: 'body',
 		template: `
 			{{#if selected_account}}
-				<dynamoui account='{{selected_account}}' />
+				<dynamoui account='{{selected_account}}' installation_type='{{installation_type}}' />
 			{{else}}
 				{{#if installation_type === 'apigw'}}
 					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
