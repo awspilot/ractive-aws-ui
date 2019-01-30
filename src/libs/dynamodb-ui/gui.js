@@ -31,17 +31,17 @@ var routeCall = function( call, cb ) {
 window.addEventListener('load', function() {
 	ractive = new Ractive({
 		el: 'body',
-		template: "\
-			{{#if selected_account}}\
-				<dynamoui account='{{selected_account}}' />\
-			{{else}}\
-				{{#if installation_type === 'apigw'}}\
-					<dynamoui account='{{autoaccount}}' />\
-				{{else}}\
-				<login />\
-				{{/if}}\
-			{{/if}}\
-			",
+		template: `
+			{{#if selected_account}}
+				<dynamoui account='{{selected_account}}' />
+			{{else}}
+				{{#if installation_type === 'apigw'}}
+					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+				{{else}}
+				<login />
+				{{/if}}
+			{{/if}}
+			`,
 		data: function() {
 			return {
 				installation_type: window.installation_type,
