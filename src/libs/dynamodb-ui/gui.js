@@ -24,6 +24,14 @@ var routeCall = function( call, cb ) {
 		} )
 		return;
 	}
+
+	if (window.installation_type === 'docker') {
+		json_post('/v1/dynamodb', call, function(data) {
+			cb(data.err, data.data )
+		} )
+		return;
+	}
+
 	// call.operation
 	// call.payload
 	console.log("routing call", call )
@@ -37,9 +45,13 @@ window.addEventListener('load', function() {
 			{{else}}
 				{{#if installation_type === 'apigw'}}
 					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
-				{{else}}
-				<login />
 				{{/if}}
+				{{#if installation_type === 'docker'}}
+					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+				{{/if}}
+
+				<!-- <login /> -->
+
 			{{/if}}
 			`,
 		data: function() {
