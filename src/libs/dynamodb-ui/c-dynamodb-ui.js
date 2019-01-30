@@ -4,18 +4,18 @@ var DynamoDB;
 var DynamodbFactory;
 Ractive.components.dynamoui = Ractive.extend({
 	template:
-		"\
-			<WindowHost />\
-			<header></header>\
-			<hsplit style='top: 56px;'>\
-				<left>\
-					<minitablelist />\
-				</left>\
-				<content>\
-					<tabs active_id='tables' />\
-				</content>\
-			</hsplit>\
-		",
+		`
+			<WindowHost />
+			<header></header>
+			<hsplit style='top: 56px;'>
+				<left>
+					<minitablelist />
+				</left>
+				<content>
+					<tabs active_id='tables' />
+				</content>
+			</hsplit>
+		`,
 	data: function() { return {} },
 	components: {
 		Window: RactiveWindow.default.Window,
