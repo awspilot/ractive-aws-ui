@@ -2,19 +2,35 @@ var ddb;
 var DynamoSQL;
 var DynamoDB;
 var DynamodbFactory;
+
+deparam = (function(d,x,params,pair,i) {
+return function (qs) {
+	params = {};
+	qs = qs.substring(qs.indexOf('?')+1).replace(x,' ').split('&');
+	for (i = qs.length; i > 0;) {
+		pair = qs[--i].split('=');
+		params[d(pair[0])] = d(pair[1]);
+	}
+	return params;
+};//--  fn  deparam
+})(decodeURIComponent, /\+/g);
+
+
+
 Ractive.components.dynamoui = Ractive.extend({
 	template:
 		`
 			<WindowHost />
 			<header>
 				{{#if installation_type === 'docker'}}
-					<div class="dropdown pull-right">
-						<a class="btn" type="button" on-click="@this.toggle('show_region_dropdown')">
+					<div class="dropdown region-dropdown pull-right">
+						<a on-click="@this.toggle('show_region_dropdown')">
 							{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
+							<i class="icon zmdi {{#if show_region_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
 						</a>
 						<div class="dropdown-menu {{#if show_region_dropdown}}show{{/if}}">
 							{{#regions}}
-								<li class="{{#if region === .id }}active{{/if}}"><a class="dropdown-item" href="?{{.id}}">{{.name}}</a>
+								<li class="{{#if region === .id }}active{{/if}}"><a class="dropdown-item" href="?region={{.id}}">{{.name}}</a>
 							{{/regions}}
 						</div>
 					</div>
@@ -50,7 +66,7 @@ Ractive.components.dynamoui = Ractive.extend({
 				{ id: 'sa-east-1',      name: 'South America (São Paulo)'},
 
 			],
-			region: 'us-east-1',
+			region: deparam( location.href ).region || 'us-east-1',
 		}
 	},
 	components: {
