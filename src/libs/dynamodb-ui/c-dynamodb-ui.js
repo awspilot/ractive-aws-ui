@@ -63,7 +63,7 @@ Ractive.components.dynamoui = Ractive.extend({
 				{ id: 'eu-west-2',      name: 'EU (London)'},
 				{ id: 'eu-west-3',      name: 'EU (Paris)'},
 				{ id: 'eu-north-1',     name: 'EU (Stockholm)'},
-				{ id: 'sa-east-1',      name: 'South America (São Paulo)'},
+				{ id: 'sa-east-1',      name: 'South America (Sao Paulo)'},
 
 			],
 			region: deparam( location.href ).region || 'us-east-1',

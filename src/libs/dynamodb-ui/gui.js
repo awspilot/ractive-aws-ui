@@ -6,6 +6,10 @@ var json_post = function(url, payload, cb ) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
+
+	if (window.installation_type === 'docker')
+		xhr.setRequestHeader("Region", deparam( location.href ).region || 'us-east-1' );
+
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			cb(JSON.parse(xhr.responseText))
