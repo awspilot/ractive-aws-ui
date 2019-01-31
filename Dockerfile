@@ -14,6 +14,7 @@ ADD docker/index.js /index.js
 ADD docker/start.sh /start.sh
 RUN chmod +x /start.sh
 ADD docker/index.html /htdocs/index.html
+ADD docker/dynamodb /htdocs/dynamodb
 ADD dist /htdocs/dist
 RUN npm install aws-sdk
 CMD /start.sh
