@@ -3,6 +3,7 @@ var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var AWS = require('aws-sdk');
+var url  = require('url');
 AWS.config.update({ accessKeyId: "myKeyId", secretAccessKey: "secretKey", region: "us-east-1" })
 var dynamodb = new AWS.DynamoDB({ endpoint: new AWS.Endpoint('http://localhost:8000') });
 var is_demo = process.env.DEMO == '1';
@@ -58,6 +59,8 @@ http.createServer(function (request, response) {
 		return;
 	}
 
+	var pathname = url.parse(request.url).pathname
+
 	var filePath = '.' + request.url;
 	if (filePath == './')
 		filePath = './index.html';
@@ -76,24 +79,47 @@ http.createServer(function (request, response) {
 			break;
 	}
 
-	fs.readFile(filePath, function(error, content) {
-		if (error) {
-			if(error.code == 'ENOENT'){
-				fs.readFile('./404.html', function(error, content) {
-					response.writeHead(200, { 'Content-Type': contentType });
-					response.end(content, 'utf-8');
-				});
-			}
-			else {
-				response.writeHead(500);
-				response.end('Sorry, check with the site admin for error: '+error.code+' ..\n');
-				response.end();
-			}
+	var content;
+	try {
+		content = fs.readFileSync('.'+pathname, 'utf8' )
+	}  catch (e) {}
+	try {
+		if ( pathname.slice(-1) === '/' ) {
+			content = fs.readFileSync('.'+pathname + 'index.html', 'utf8' )
 		}
-		else {
-			response.writeHead(200, { 'Content-Type': contentType });
+
+	}  catch (e) {}
+
+	if (content) {
+		response.writeHead(200, { 'Content-Type': contentType });
+		response.end(content, 'utf-8');
+	} else {
+		fs.readFile('./404.html', function(error, content) {
+			response.writeHead(200, { 'Content-Type': 'text/html' });
 			response.end(content, 'utf-8');
-		}
-	});
+		});
+	}
+
+
+	//
+	// fs.readFile(filePath, function(error, content) {
+	// 	if (error) {
+	// 		if(error.code == 'ENOENT'){
+	// 			fs.readFile('./404.html', function(error, content) {
+	// 				response.writeHead(200, { 'Content-Type': contentType });
+	// 				response.end(content, 'utf-8');
+	// 			});
+	// 		}
+	// 		else {
+	// 			response.writeHead(500);
+	// 			response.end('Sorry, check with the site admin for error: '+error.code+' ..\n');
+	// 			response.end();
+	// 		}
+	// 	}
+	// 	else {
+	// 		response.writeHead(200, { 'Content-Type': contentType });
+	// 		response.end(content, 'utf-8');
+	// 	}
+	// });
 
 }).listen(80);
