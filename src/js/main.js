@@ -2,6 +2,18 @@
 var ractive;
 var selected_account;
 
+deparam = (function(d,x,params,pair,i) {
+return function (qs) {
+	params = {};
+	qs = qs.substring(qs.indexOf('?')+1).replace(x,' ').split('&');
+	for (i = qs.length; i > 0;) {
+		pair = qs[--i].split('=');
+		params[d(pair[0])] = d(pair[1]);
+	}
+	return params;
+};//--  fn  deparam
+})(decodeURIComponent, /\+/g);
+
 var json_post = function(url, payload, cb ) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -43,23 +55,61 @@ var routeCall = function( call, cb ) {
 window.addEventListener('load', function() {
 	ractive = new Ractive({
 		el: 'body',
+		components: {
+			Window: RactiveWindow.default.Window,
+			WindowHost: RactiveWindow.default.WindowHost,
+		},
 		template: `
-			{{#if selected_account}}
-				<dynamoui account='{{selected_account}}' installation_type='{{installation_type}}' />
-			{{else}}
-				{{#if installation_type === 'apigw'}}
-					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
-				{{/if}}
+			<WindowHost />
+			<header>
 				{{#if installation_type === 'docker'}}
-					<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+					<div class="dropdown region-dropdown pull-right">
+						<a on-click="@this.toggle('show_region_dropdown')">
+							{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
+							<i class="icon zmdi {{#if show_region_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+						</a>
+						<div class="dropdown-menu {{#if show_region_dropdown}}show{{/if}}">
+							{{#regions}}
+								<li class="{{#if region === .id }}active{{/if}}"><a class="dropdown-item" href="?region={{.id}}">{{.name}}</a>
+							{{/regions}}
+						</div>
+					</div>
 				{{/if}}
-
-				<!-- <login /> -->
-
+			</header>
+			{{#if service === 'dynamodb' }}
+				{{#if selected_account}}
+					<dynamoui account='{{selected_account}}' installation_type='{{installation_type}}' />
+				{{else}}
+					{{#if installation_type === 'apigw'}}
+						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+					{{/if}}
+					{{#if installation_type === 'docker'}}
+						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+					{{/if}}
+					<!-- <login /> -->
+				{{/if}}
 			{{/if}}
+
+
+
+			{{#if service === 'cloudformation' }}
+				{{#if selected_account}}
+					<cloudformationui account='{{selected_account}}' installation_type='{{installation_type}}' />
+				{{else}}
+					{{#if installation_type === 'apigw'}}
+						AWSPilot Cloudformation is not available in AWS environment, use the AWS Cloudformation console instead
+					{{/if}}
+					{{#if installation_type === 'docker'}}
+						<cloudformationui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+					{{/if}}
+				{{/if}}
+			{{/if}}
+
 			`,
 		data: function() {
 			return {
+
+				service: window.service,
 				installation_type: window.installation_type,
 				autoaccount: window.installation_type === 'apigw' ? {
 					endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
@@ -73,6 +123,31 @@ window.addEventListener('load', function() {
 					},
 					name: '',
 				} : null,
+
+
+				regions: [
+					{ id: 'us-east-1',      name: 'US East (N. Virginia)'},
+					{ id: 'us-east-2',      name: 'US East (Ohio)'},
+					{ id: 'us-west-1',      name: 'US West (N. California)'},
+					{ id: 'us-west-2',      name: 'US West (Oregon)'},
+					{ id: 'ap-south-1',     name: 'Asia Pacific (Mumbai)'},
+					{ id: 'ap-northeast-2', name: 'Asia Pacific (Seoul)'},
+					{ id: 'ap-southeast-1', name: 'Asia Pacific (Singapore)'},
+					{ id: 'ap-southeast-2', name: 'Asia Pacific (Sydney)'},
+					{ id: 'ap-northeast-1', name: 'Asia Pacific (Tokyo)'},
+					{ id: 'ca-central-1',   name: 'Canada (Central)'},
+					{ id: 'eu-central-1',   name: 'EU (Frankfurt)'},
+					{ id: 'eu-west-1',      name: 'EU (Ireland)'},
+					{ id: 'eu-west-2',      name: 'EU (London)'},
+					{ id: 'eu-west-3',      name: 'EU (Paris)'},
+					{ id: 'eu-north-1',     name: 'EU (Stockholm)'},
+					{ id: 'sa-east-1',      name: 'South America (Sao Paulo)'},
+
+				],
+				region: deparam( location.href ).region || 'us-east-1',
+
+
+
 			}
 		},
 	})
