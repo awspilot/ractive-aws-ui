@@ -5,12 +5,16 @@ var path = require('path');
 var AWS = require('aws-sdk');
 var url  = require('url');
 AWS.config.update({ accessKeyId: "myKeyId", secretAccessKey: "secretKey", region: "us-east-1" })
-var dynamodb = new AWS.DynamoDB({ endpoint: new AWS.Endpoint('http://localhost:8000') });
 var is_demo = process.env.DEMO == '1';
 console.log("demo is ", is_demo ? 'ON' : 'OFF' )
 http.createServer(function (request, response) {
 	console.log( request.method, request.url )
 	if ( request.method === 'POST' && request.url === '/v1/dynamodb') {
+		var dynamodb = new AWS.DynamoDB({
+			endpoint: new AWS.Endpoint('http://localhost:8000'),
+			region: request.headers.region || 'us-east-1'
+		});
+
 		var body = '';
 
 		request.on('data', function (data) { body += data;});
@@ -100,26 +104,5 @@ http.createServer(function (request, response) {
 		});
 	}
 
-
-	//
-	// fs.readFile(filePath, function(error, content) {
-	// 	if (error) {
-	// 		if(error.code == 'ENOENT'){
-	// 			fs.readFile('./404.html', function(error, content) {
-	// 				response.writeHead(200, { 'Content-Type': contentType });
-	// 				response.end(content, 'utf-8');
-	// 			});
-	// 		}
-	// 		else {
-	// 			response.writeHead(500);
-	// 			response.end('Sorry, check with the site admin for error: '+error.code+' ..\n');
-	// 			response.end();
-	// 		}
-	// 	}
-	// 	else {
-	// 		response.writeHead(200, { 'Content-Type': contentType });
-	// 		response.end(content, 'utf-8');
-	// 	}
-	// });
 
 }).listen(80);
