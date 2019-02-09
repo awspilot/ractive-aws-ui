@@ -20,12 +20,30 @@ Ractive.components.cloudformationui = Ractive.extend({
 							<a class="btn btn-xs btn-default"><i class="icon zmdi zmdi-refresh"></i></a>
 						</div>
 
+
+						<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />
 					</tabcontent>
 				</content>
 			</hsplit>
 	`,
 	oninit: function() {
-		console.log("cloudformation ui loading")
+		var ractive=this;
+
+		ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
+		ractive.set('rows', [].map(function(stackname) {
+			return [
+				{ KEY: true },
+				{ S: stackname },
+				{ },
+				{ },
+				{ },
+				{ },
+				{ },
+				{ }
+			]
+		}) )
+
+
 	}
 })
 ;
