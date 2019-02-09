@@ -81,22 +81,25 @@ http.createServer(function (request, response) {
 		case '.svg':
 			contentType = 'image/svg+xml';
 			break;
+		case '.png':
+			contentType = 'image/png';
+			break;
 	}
 
 	var content;
 	try {
-		content = fs.readFileSync('.'+pathname, 'utf8' )
+		content = fs.readFileSync('.'+pathname )
 	}  catch (e) {}
 	try {
 		if ( pathname.slice(-1) === '/' ) {
-			content = fs.readFileSync('.'+pathname + 'index.html', 'utf8' )
+			content = fs.readFileSync('.'+pathname + 'index.html' )
 		}
 
 	}  catch (e) {}
 
 	if (content) {
 		response.writeHead(200, { 'Content-Type': contentType });
-		response.end(content, 'utf-8');
+		response.end(content);
 	} else {
 		fs.readFile('./404.html', function(error, content) {
 			response.writeHead(200, { 'Content-Type': 'text/html' });
