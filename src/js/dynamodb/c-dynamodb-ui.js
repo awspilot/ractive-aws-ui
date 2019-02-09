@@ -3,17 +3,7 @@ var DynamoSQL;
 var DynamoDB;
 var DynamodbFactory;
 
-deparam = (function(d,x,params,pair,i) {
-return function (qs) {
-	params = {};
-	qs = qs.substring(qs.indexOf('?')+1).replace(x,' ').split('&');
-	for (i = qs.length; i > 0;) {
-		pair = qs[--i].split('=');
-		params[d(pair[0])] = d(pair[1]);
-	}
-	return params;
-};//--  fn  deparam
-})(decodeURIComponent, /\+/g);
+
 
 
 
