@@ -9,7 +9,7 @@
 
 
 
-		"dynamodb-ui": "concat -o dist/js/dynamodb-ui.js  src/js/dynamodb/c-minitablelist.js src/js/dynamodb/c-tablelistfull.js src/js/dynamodb/c-tablecreate.js src/js/dynamodb/c-tabletab.js src/js/dynamodb/c-tableinfo.js src/js/dynamodb/c-tablemetrics.js src/js/dynamodb/c-tablealarms.js src/js/dynamodb/c-tablecapacity.js src/js/dynamodb/c-tableindexes.js src/js/dynamodb/c-tableglobal.js src/js/dynamodb/c-tablebackup.js src/js/dynamodb/c-tabletriggers.js src/js/dynamodb/c-tableitems.js src/js/dynamodb/c-tabledata.js src/js/dynamodb/c-tabs.js src/js/dynamodb/c-dynamodb-ui.js src/js/dynamodb/win-item-create.js src/js/dynamodb/win-item-view.js",
+		"dynamodb-ui": "concat -o dist/js/dynamodb-ui.js  src/js/dynamodb/c-minitablelist.js src/js/dynamodb/c-tablelistfull.js src/js/dynamodb/c-tablecreate.js src/js/dynamodb/c-tabletab.js src/js/dynamodb/c-tableinfo.js src/js/dynamodb/c-tablemetrics.js src/js/dynamodb/c-tablealarms.js src/js/dynamodb/c-tablecapacity.js src/js/dynamodb/c-tableindexes.js src/js/dynamodb/c-tableglobal.js src/js/dynamodb/c-tablebackup.js src/js/dynamodb/c-tabletriggers.js src/js/dynamodb/c-tableitems.js src/js/c-tabledata.js src/js/dynamodb/c-tabs.js src/js/dynamodb/c-dynamodb-ui.js src/js/dynamodb/win-item-create.js src/js/dynamodb/win-item-view.js",
 
 		"cloudformation-ui": "concat -o dist/js/cloudformation-ui.js  src/js/cloudformation/cloudformationui.js ",
 
