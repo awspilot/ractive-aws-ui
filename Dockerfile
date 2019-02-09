@@ -14,8 +14,13 @@ ADD docker/index.js /index.js
 ADD docker/start.sh /start.sh
 RUN chmod +x /start.sh
 ADD docker/index.html /htdocs/index.html
-ADD docker/dynamodb /htdocs/dynamodb
 ADD dist /htdocs/dist
+
+ADD docker/dynamodb /htdocs/dynamodb
+ADD docker/cloudformation /htdocs/cloudformation
+
+
+
 RUN npm install aws-sdk
 CMD /start.sh
 RUN mkdir /var/dynamo
