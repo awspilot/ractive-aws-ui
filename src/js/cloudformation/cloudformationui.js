@@ -10,11 +10,11 @@ Ractive.components.cloudformationui = Ractive.extend({
 					</div>
 				</left>
 				<content>
-					<div style="position: absolute;top: 0px;left: 0px;right: 0px;height: 28px;overflow: hidden;font-size: 0px;background-color: #ececec;background: linear-gradient(#eee, #e0e0e0);">
-						<div style="display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;border-right: 1px solid #cccccc;background-color: #ffffff;color: #000000;">
-							Stacks
-						</div>
-					</div>
+					<tabhead>
+						<tab class="active">Stacks</tab>
+					</tabhead>
+					<tabcontent>
+					</tabcontent>
 				</content>
 			</hsplit>
 	`,
