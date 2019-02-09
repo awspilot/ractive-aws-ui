@@ -14,6 +14,12 @@ Ractive.components.cloudformationui = Ractive.extend({
 						<tab class="active">Stacks</tab>
 					</tabhead>
 					<tabcontent>
+						<div class="pull-right" style="padding: 7px;">
+							<a class="btn btn-xs btn-primary"><i class="icon zmdi zmdi-plus"></i> CREATE STACK </a>
+							<a class="btn btn-xs btn-default disabled"><i class="icon zmdi zmdi-delete"></i></a>
+							<a class="btn btn-xs btn-default"><i class="icon zmdi zmdi-refresh"></i></a>
+						</div>
+
 					</tabcontent>
 				</content>
 			</hsplit>
