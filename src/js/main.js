@@ -78,13 +78,13 @@ window.addEventListener('load', function() {
 			</header>
 			{{#if service === 'dynamodb' }}
 				{{#if selected_account}}
-					<dynamoui account='{{selected_account}}' installation_type='{{installation_type}}' />
+					<dynamoui account='{{selected_account}}' installation_type='{{installation_type}}' region="{{region}}" />
 				{{else}}
 					{{#if installation_type === 'apigw'}}
-						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' region="{{region}}" />
 					{{/if}}
 					{{#if installation_type === 'docker'}}
-						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+						<dynamoui account='{{autoaccount}}' installation_type='{{installation_type}}' region="{{region}}" />
 					{{/if}}
 					<!-- <login /> -->
 				{{/if}}
@@ -94,13 +94,13 @@ window.addEventListener('load', function() {
 
 			{{#if service === 'cloudformation' }}
 				{{#if selected_account}}
-					<cloudformationui account='{{selected_account}}' installation_type='{{installation_type}}' />
+					<cloudformationui account='{{selected_account}}' installation_type='{{installation_type}}' region="{{region}}" />
 				{{else}}
 					{{#if installation_type === 'apigw'}}
 						AWSPilot Cloudformation is not available in AWS environment, use the AWS Cloudformation console instead
 					{{/if}}
 					{{#if installation_type === 'docker'}}
-						<cloudformationui account='{{autoaccount}}' installation_type='{{installation_type}}' />
+						<cloudformationui account='{{autoaccount}}' installation_type='{{installation_type}}' region="{{region}}" />
 					{{/if}}
 				{{/if}}
 			{{/if}}

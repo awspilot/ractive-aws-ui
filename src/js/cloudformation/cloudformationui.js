@@ -16,14 +16,7 @@ Ractive.components.cloudformationui = Ractive.extend({
 						<tab class="active">Stacks</tab>
 					</tabhead>
 					<tabcontent>
-						<div class="pull-right" style="padding: 7px;">
-							<a class="btn btn-xs btn-primary"><i class="icon zmdi zmdi-plus"></i> CREATE STACK </a>
-							<a class="btn btn-xs btn-default disabled"><i class="icon zmdi zmdi-delete"></i></a>
-							<a class="btn btn-xs btn-default"><i class="icon zmdi zmdi-refresh"></i></a>
-						</div>
-
-
-						<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />
+						<stacklist region="{{region}}"/>
 					</tabcontent>
 				</content>
 			</hsplit>
@@ -41,21 +34,6 @@ Ractive.components.cloudformationui = Ractive.extend({
 			accessKeyId: "myKeyId",
 			secretAccessKey: "secretKey",
 		});
-
-		ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
-		ractive.set('rows', [].map(function(stackname) {
-			return [
-				{ KEY: true },
-				{ S: stackname },
-				{ },
-				{ },
-				{ },
-				{ },
-				{ },
-				{ }
-			]
-		}) )
-
 
 	}
 })
