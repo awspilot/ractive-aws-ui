@@ -63,6 +63,17 @@ window.addEventListener('load', function() {
 			<WindowHost />
 			<header>
 				{{#if installation_type === 'docker'}}
+					<div class="dropdown services-dropdown pull-left" style="margin-left: 100px;">
+						<a on-click="@this.toggle('show_services_dropdown')">
+							Services
+							<i class="icon zmdi {{#if show_services_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+						</a>
+						<div class="dropdown-menu {{#if show_services_dropdown}}show{{/if}}">
+							<li><a class="dropdown-item" href="/cloudformation/?region={{region}}">Cloudformation</a>
+							<li><a class="dropdown-item" href="/dynamodb/?region={{region}}">DynamoDB</a>
+						</div>
+					</div>
+
 					<div class="dropdown region-dropdown pull-right">
 						<a on-click="@this.toggle('show_region_dropdown')">
 							{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
