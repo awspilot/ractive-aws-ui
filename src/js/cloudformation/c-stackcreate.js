@@ -2,13 +2,45 @@
 Ractive.components.stackcreate = Ractive.extend({
 	template: `
 		<div style="padding: 30px;">
-			<h3>Create Stack</h3>
-			<br>
-			<h4>Specify template</h4>
+			{{#if page === 'upload'}}
+				<h3>Create Stack</h3>
+				<br>
+				<h4>Specify template</h4>
 
-			<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
+				<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
+				<hr>
+				<a class="btn btn-warning {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
+			{{/if}}
+
+			{{#if page === 'parameters'}}
+				<h3>Specify stack details</h3>
+				<br>
+				<h4>Stack name</h4>
+				<input type="text" value="{{newstack.StackName}}" />
+
+				<h4>Parameters</h4>
+				(not supported yet)
+
+				<hr>
+				<a class="btn btn-warning {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
+			{{/if}}
+
+
+			{{#if page === 'confirm'}}
+				<a class="btn btn-warning" on-click="create">Create</a>
+			{{/if}}
 		</div>
 	`,
+	data: function() {
+		return {
+			page: 'upload',
+			newstack: {
+				StackName: '',
+				TemplateBody: null,
+			}
+
+		}
+	},
 	oninit: function() {
 		var ractive=this;
 
@@ -20,19 +52,24 @@ Ractive.components.stackcreate = Ractive.extend({
 					console.log('selected', file )
 					var reader = new FileReader();
 					reader.onload = function(e) {
-						console.log(reader.result)
-						// api_put('/v1/accounts/' + ractive.get('account_id') + '/prospects/uploads', {
-						// 	filename: file.name,
-						// 	size: file.size,
-						// 	content: btoa(reader.result),
-						// }, function(err,r) {
-						// 	ractive.get_prospect_uploads()
-						// })
+						ractive.set('newstack.TemplateBody', reader.result)
 					}
 					reader.readAsBinaryString(file);
 				},
 			})
+		});
+		ractive.on('goto-parameters', function() {
+			ractive.set('page','parameters')
 		})
+		ractive.on('goto-confirm', function() {
+			ractive.set('page','confirm')
+		})
+		ractive.on('create', function() {
 
+			var params = ractive.get('newstack');
+			cloudformation.createStack(params, function(err, data) {
+				console.log("CreateStack",err,data)
+			});
+		})
 	}
 });
