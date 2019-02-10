@@ -12,12 +12,7 @@ Ractive.components.cloudformationui = Ractive.extend({
 					</div>
 				</left>
 				<content>
-					<tabhead>
-						<tab class="active">Stacks</tab>
-					</tabhead>
-					<tabcontent>
-						<stacklist region="{{region}}"/>
-					</tabcontent>
+					<cftabs active_id='stacklist' />
 				</content>
 			</hsplit>
 	`,
