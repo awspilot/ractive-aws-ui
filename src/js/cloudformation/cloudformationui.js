@@ -1,4 +1,6 @@
 ;
+var cloudformation = null;
+;
 Ractive.components.cloudformationui = Ractive.extend({
 	template:
 		`
@@ -28,6 +30,17 @@ Ractive.components.cloudformationui = Ractive.extend({
 	`,
 	oninit: function() {
 		var ractive=this;
+
+		cloudformation = new AWS.CloudFormation({
+			endpoint: location.protocol + '//' + location.hostname + ':10001' + '/' + ractive.get('region'),
+
+			// region is required by aws-sdk to build the endpoint host when endpoint is not passwd
+			// we passed an endpoint so it does not really matter what we write in region
+			region: 'xyz',
+
+			accessKeyId: "myKeyId",
+			secretAccessKey: "secretKey",
+		});
 
 		ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
 		ractive.set('rows', [].map(function(stackname) {

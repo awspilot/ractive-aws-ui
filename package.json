@@ -4,8 +4,8 @@
 	"description": "100% client side HTML gui for AWS DynamoDB.",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"libs": "mkdir -p dist/js && concat -o dist/js/libs.js src/libs/async-2.6.0.js src/libs/promise-6.1.0.js src/libs/jquery/jquery.js src/libs/ractive/ractive-1.0.0-build-107.min.js src/libs/ractive/ractive-window.min.js src/libs/ractive/ractive-tooltip.js src/libs/ractive/ractive-scrollarea.js src/libs/ractive/ractive-split.js src/libs/ace/ace-1.2.9.js src/libs/ractive/ractive-ace.js src/libs/ace/mode_sql.js  src/libs/ace/custom.js src/libs/ace/jsoneditor-minimalist.js ",
-		"dynamodb": "concat -o dist/js/dynamodb.js src/libs/dynamodb/aws-sdk-2.395.0.min.js src/libs/dynamodb/awspilot-dynamodb-sql.js src/libs/dynamodb/dynamodbjs.js",
+		"libs": "mkdir -p dist/js && concat -o dist/js/libs.js src/libs/dynamodb/aws-sdk-2.395.0.min.js src/libs/async-2.6.0.js src/libs/promise-6.1.0.js src/libs/jquery/jquery.js src/libs/ractive/ractive-1.0.0-build-107.min.js src/libs/ractive/ractive-window.min.js src/libs/ractive/ractive-tooltip.js src/libs/ractive/ractive-scrollarea.js src/libs/ractive/ractive-split.js src/libs/ace/ace-1.2.9.js src/libs/ractive/ractive-ace.js src/libs/ace/mode_sql.js  src/libs/ace/custom.js src/libs/ace/jsoneditor-minimalist.js ",
+		"dynamodb": "concat -o dist/js/dynamodb.js src/libs/dynamodb/awspilot-dynamodb-sql.js src/libs/dynamodb/dynamodbjs.js",
 
 
 

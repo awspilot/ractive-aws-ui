@@ -10,19 +10,22 @@ RUN yum install -y nodejs wget tar gzip
 RUN wget -O /tmp/dynamodb_local_latest https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz
 RUN tar xfz /tmp/dynamodb_local_latest
 RUN rm -f /tmp/dynamodb_local_latest
-ADD docker/index.js /index.js
-ADD docker/start.sh /start.sh
-RUN chmod +x /start.sh
-ADD docker/index.html /htdocs/index.html
-ADD dist /htdocs/dist
 
-ADD docker/dynamodb /htdocs/dynamodb
-ADD docker/cloudformation /htdocs/cloudformation
+ADD docker/index.js       /awsmock/index.js
+ADD docker/start.sh       /awsmock/start.sh
+RUN chmod +x              /awsmock/start.sh
+ADD docker/package.json   /awsmock/package.json
+
+ADD docker/index.html     /awsmock/htdocs/index.html
+ADD dist                  /awsmock/htdocs/dist
+ADD docker/dynamodb       /awsmock/htdocs/dynamodb
+ADD docker/cloudformation /awsmock/htdocs/cloudformation
+
+
+RUN cd /awsmock && npm install
 
 
 
-RUN npm install aws-sdk
-CMD /start.sh
 RUN mkdir /var/dynamo
 
-CMD ["sh", "/start.sh"]
+CMD ["sh", "/awsmock/start.sh"]
