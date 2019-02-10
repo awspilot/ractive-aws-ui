@@ -7,6 +7,7 @@ cd /awsmock/
 export CF_DYNAMODB_ENDPOINT="http://localhost:8000"
 export CF_DYNAMODB_KEY="myKeyId"
 export CF_DYNAMODB_SECRET="secretKey"
+export CF_DYNAMODB_REGION_PREFIX="aws-"
 # CF_DYNAMODB_REGION - will be taken from path in new AWS.Cloudformation
 
 export DYNAMODB_ENDPOINT="http://localhost:8000"
