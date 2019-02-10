@@ -6,7 +6,13 @@ Ractive.components.stackcreate = Ractive.extend({
 				<h3>Create Stack</h3>
 				<br>
 				<h4>Specify template</h4>
-
+				<p>
+					<li>✅ .yaml or json
+					<li>❌ no parameters, no !Ref,
+					<li>❌ no !ImportValue
+					<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
+					<li>❌ all other resource types are created as decoy
+				</p>
 				<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
 				<hr>
 				<a class="btn btn-warning {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
