@@ -41,8 +41,8 @@ Ractive.components.stacklist = Ractive.extend({
 		}) )
 
 		ractive.stack_list()
-		// ractive.on('create-stack', function() {
-		// 	ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
-		// })
+		ractive.on('create-stack', function() {
+			ractive.root.findComponent('cftabs').newtab('stackcreate', 'Create Stack' )
+		})
 	},
 });

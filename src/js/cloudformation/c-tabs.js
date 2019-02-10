@@ -19,11 +19,8 @@ Ractive.components.cftabs = Ractive.extend({
 			{{else}}
 				{{#tabs}}
 					{{#if .id === active_id}}
-						{{#if .type === 'tabletab' }}
-							<tabletab table={{.}}  />
-						{{/if}}
-						{{#if .type === 'tablecreate' }}
-							<tablecreate />
+						{{#if .type === 'stackcreate' }}
+							<stackcreate />
 						{{/if}}
 					{{/if}}
 				{{/tabs}}
@@ -48,7 +45,6 @@ Ractive.components.cftabs = Ractive.extend({
 			name: param1,
 			type: component_name,
 
-			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n",
 		} )
 		this.activetabcontent()
 	},
