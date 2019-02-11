@@ -1,6 +1,7 @@
 {
 	"dependencies": {
 		"aws-sdk": "*",
-		"@awspilot/cf-mock": "*"
+		"@awspilot/cf-mock": "*",
+		"http-proxy": "~1.0.2"
 	}
 }

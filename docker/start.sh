@@ -15,7 +15,19 @@ export DYNAMODB_KEY="myKeyId"
 export DYNAMODB_SECRET="secretKey"
 # DYNAMODB_REGION - will be taken from path in new AWS.Cloudformation
 
+# start web server
+cd /awsmock/htdocs
+node /awsmock/ui.js &
+
+# start cloudformation
 /awsmock/node_modules/.bin/cf-mock &
+
+# start dynamodb in-between layer
+cd /awsmock/htdocs
+node /awsmock/dynamodb.js &
+
+
+
 
 cd /awsmock/htdocs
 node /awsmock/index.js

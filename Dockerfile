@@ -11,7 +11,13 @@ RUN wget -O /tmp/dynamodb_local_latest https://s3-us-west-2.amazonaws.com/dynamo
 RUN tar xfz /tmp/dynamodb_local_latest
 RUN rm -f /tmp/dynamodb_local_latest
 
+ADD docker/router.js      /awsmock/router.js
+ADD docker/proxylib.js    /awsmock/proxylib.js
 ADD docker/index.js       /awsmock/index.js
+
+
+ADD docker/ui.js          /awsmock/ui.js
+ADD docker/dynamodb.js    /awsmock/dynamodb.js
 ADD docker/start.sh       /awsmock/start.sh
 RUN chmod +x              /awsmock/start.sh
 ADD docker/package.json   /awsmock/package.json
