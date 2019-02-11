@@ -78,7 +78,10 @@ Ractive.components.stacklist = Ractive.extend({
 			if (confirm('Are you sure you want to delete stack ' + stackname )) {
 
 				cloudformation.deleteStack({ StackName: stackname, }, function(err, data) {
+					if (err)
+						alert('delete stack failed')
 
+					alert('stack deleted')
 				});
 			}
 

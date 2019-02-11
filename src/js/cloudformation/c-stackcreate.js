@@ -80,6 +80,10 @@ Ractive.components.stackcreate = Ractive.extend({
 
 			var params = ractive.get('newstack');
 			cloudformation.createStack(params, function(err, data) {
+				if (err)
+					return alert('create failed')
+
+				alert('stack created')
 				console.log("CreateStack",err,data)
 			});
 		})
