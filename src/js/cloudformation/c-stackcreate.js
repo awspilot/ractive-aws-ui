@@ -8,8 +8,14 @@ Ractive.components.stackcreate = Ractive.extend({
 				<h4>Specify template</h4>
 				<p>
 					<li>✅ .yaml or json
-					<li>❌ no parameters, no !Ref,
-					<li>❌ no !ImportValue
+					<li>✅ !Ref to template parameter with a default value
+					<li>❌ !Ref to template parameter without a default value
+					<li>❌ !Ref to another resource
+					<li>❌ !Ref to pseudo parameters
+					<li>❌ !ImportValue
+					<li>❌ !GetAtt
+					<li>❌ !Transform
+					<li>❌ !Base64 !FindInMap !GetAZs !If !Join !Select !Split !Sub
 					<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
 					<li>❌ all other resource types are created as decoy
 				</p>
