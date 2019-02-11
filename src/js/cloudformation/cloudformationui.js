@@ -20,7 +20,7 @@ Ractive.components.cloudformationui = Ractive.extend({
 		var ractive=this;
 
 		cloudformation = new AWS.CloudFormation({
-			endpoint: location.protocol + '//' + location.hostname + ':10001' + '/' + ractive.get('region'),
+			endpoint: location.protocol + '//' + location.hostname + '/v1/cloudformation?region=' + ractive.get('region'),
 
 			// region is required by aws-sdk to build the endpoint host when endpoint is not passwd
 			// we passed an endpoint so it does not really matter what we write in region
