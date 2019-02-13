@@ -27,11 +27,24 @@ Ractive.components.stackcreate = Ractive.extend({
 			{{#if page === 'parameters'}}
 				<h3>Specify stack details</h3>
 				<br>
-				<h4>Stack name</h4>
-				<input type="text" value="{{newstack.StackName}}" />
+				<table>
+				<tr>
+					<td>Stack name</td>
+					<td><input type="text" value="{{newstack.StackName}}" /></td>
+				</tr>
+				<tr>
+					<td>Parameters</td>
+					<td></td>
+				</tr>
 
-				<h4>Parameters</h4>
-				(not supported yet)
+
+				{{#newstack.Parameters}}
+				<tr>
+					<td>{{.ParameterKey}}</td>
+					<td><input type="text" value="{{.ParameterValue}}"></td>
+				</tr>
+				{{/newstack.Parameters}}
+				</table>
 
 				<hr>
 				<a class="btn btn-warning {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
@@ -71,7 +84,22 @@ Ractive.components.stackcreate = Ractive.extend({
 			})
 		});
 		ractive.on('goto-parameters', function() {
-			ractive.set('page','parameters')
+
+			var params = {
+				TemplateBody: ractive.get('newstack.TemplateBody'),
+			};
+			cloudformation.getTemplateSummary(params, function(err, data) {
+				if (err)
+					return alert('Template failed to parse')
+
+				ractive.set('newstack.Parameters', data.Parameters )
+				ractive.set('newstack.ResourceTypes',  data.ResourceTypes )
+
+				//console.log(err,data)
+				ractive.set('page','parameters')
+			});
+
+
 		})
 		ractive.on('goto-confirm', function() {
 			ractive.set('page','confirm')
@@ -79,7 +107,12 @@ Ractive.components.stackcreate = Ractive.extend({
 		ractive.on('create', function() {
 
 			var params = ractive.get('newstack');
+			params.Parameters = params.Parameters.map(function(p){ return {
+				ParameterKey: p.ParameterKey,
+				ParameterValue: p.ParameterValue,
+			}});
 			cloudformation.createStack(params, function(err, data) {
+
 				if (err)
 					return alert('create failed')
 
