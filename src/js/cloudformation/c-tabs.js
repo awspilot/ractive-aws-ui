@@ -2,7 +2,7 @@ Ractive.components.cftabs = Ractive.extend({
 	//isolated: true,
 	template:
 		`
-			{{#if active_id === "stacklist" }}
+			{{#if active_id === "stacklist" || active_id === "stackdetails" }}
 			<div style="position: absolute;top: 40px;left: 50px;right: 50px;bottom: 10px;">
 				<div style="position: absolute;top: 0px;left: 0px;right:0px;height: 50%;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
 					<tabcontent style="top: 0px;">
@@ -35,7 +35,7 @@ Ractive.components.cftabs = Ractive.extend({
 			tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id') )
 		})
 	},
-	newtab: function(component_name, param1 ) {
+	command: function(component_name, param1 ) {
 		this.set('active_id', component_name )
 	},
 	oninit: function() {
