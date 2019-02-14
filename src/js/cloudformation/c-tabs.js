@@ -2,30 +2,29 @@ Ractive.components.cftabs = Ractive.extend({
 	//isolated: true,
 	template:
 		`
-		<tabhead>
-			<tab class='{{#if active_id === "stacklist" }}active{{/if}}' on-click='@this.fire("activetab", "stacklist")'>
-				Stacks
-			</tab>
-		{{#tabs}}
-			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire("activetab",.id)'>
-				{{.name}}
-				<i class='icon zmdi zmdi-close' on-click='@this.fire("closetab",.id)'></i>
-			</tab>
-		{{/tabs}}
-		</tabhead>
-		<tabcontent>
 			{{#if active_id === "stacklist" }}
-				<stacklist />
-			{{else}}
-				{{#tabs}}
-					{{#if .id === active_id}}
-						{{#if .type === 'stackcreate' }}
-							<stackcreate />
-						{{/if}}
-					{{/if}}
-				{{/tabs}}
+			<div style="position: absolute;top: 40px;left: 50px;right: 50px;bottom: 10px;">
+				<div style="position: absolute;top: 0px;left: 0px;right:0px;height: 50%;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+					<tabcontent style="top: 0px;">
+							<stacklist />
+					</tabcontent>
+				</div>
+			</div>
 			{{/if}}
-		</tabcontent>
+
+			{{#if active_id === "stackcreate" }}
+			<div style="position: absolute;top: 10px;left: 50px;right: 50px;bottom: 10px;">
+				<div style="position: absolute;top: 0px;left: 0px;right:0px;overflow: auto;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+
+						<stackcreate />
+
+				</div>
+			</div>
+			{{/if}}
+
+
+
+
 		`,
 	data: function() { return {} },
 	active_cache: [],
@@ -37,16 +36,7 @@ Ractive.components.cftabs = Ractive.extend({
 		})
 	},
 	newtab: function(component_name, param1 ) {
-		var id=Math.random()
-		this.set('active_id', id )
-		this.push('tabs', {
-			id: id,
-
-			name: param1,
-			type: component_name,
-
-		} )
-		this.activetabcontent()
+		this.set('active_id', component_name )
 	},
 	oninit: function() {
 		var ractive = this

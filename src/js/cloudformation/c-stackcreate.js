@@ -117,6 +117,7 @@ Ractive.components.stackcreate = Ractive.extend({
 					return alert('create failed')
 
 				alert('stack created')
+				ractive.root.findComponent('cftabs').newtab('stacklist' )
 				console.log("CreateStack",err,data)
 			});
 		})
