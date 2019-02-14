@@ -11,6 +11,7 @@ Ractive.components.cftabs = Ractive.extend({
 				</div>
 				{{#if active_id === 'stackdetails'}}
 				<div style="position: absolute;left: 0px;right:0px;top: 51%;height: 49%;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;">
+					<stackdetails stack="{{stackdetails}}" />
 				</div>
 				{{/if}}
 			</div>
@@ -38,7 +39,12 @@ Ractive.components.cftabs = Ractive.extend({
 		})
 	},
 	command: function(component_name, param1 ) {
+
+		if (component_name === 'stackdetails' )
+			this.set('stackdetails', param1 )
+
 		this.set('active_id', component_name )
+
 	},
 	oninit: function() {
 		var ractive = this

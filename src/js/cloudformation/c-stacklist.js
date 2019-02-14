@@ -58,7 +58,13 @@ Ractive.components.stacklist = Ractive.extend({
 		})
 
 		ractive.observe('selection_length', function(n) {
-			ractive.root.findComponent('cftabs').command( n === 1 ? 'stackdetails' : 'stacklist'  )
+
+			var param1 = n === 1 ?
+				ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0][1].S
+				:
+				undefined;
+
+			ractive.root.findComponent('cftabs').command( n === 1 ? 'stackdetails' : 'stacklist', param1 )
 		})
 
 		ractive.on('refresh', function() {
