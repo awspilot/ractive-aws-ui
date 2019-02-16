@@ -36,7 +36,7 @@ Ractive.components.tableinfo = Ractive.extend({
 						<tr>
 							<td align='right' width='350'><b>Latest stream ARN</b></td>
 							<td>
-								{{#if !describeTable.StreamSpecification}}
+								{{#if !describeTable.LatestStreamArn}}
 									-
 								{{else}}
 									{{describeTable.LatestStreamArn}}
