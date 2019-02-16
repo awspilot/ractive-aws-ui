@@ -67,6 +67,10 @@ Ractive.components.tablelistfull = Ractive.extend({
 									row[6].S = ([ data.Table.ProvisionedThroughput.ReadCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.ReadCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
 									row[7].S = ([ data.Table.ProvisionedThroughput.WriteCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.WriteCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
 
+									if ((data.Table.BillingModeSummary || {}).BillingMode === 'PAY_PER_REQUEST' ) {
+										row[6].S = 'On-Demand'
+										row[7].S = 'On-Demand'
+									}
 								}
 								return row
 							}))
