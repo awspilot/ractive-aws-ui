@@ -13,7 +13,7 @@ Ractive.components.stacklist = Ractive.extend({
 	`,
 	stack_list: function(cb) {
 		var ractive=this;
-
+		ractive.set('selection_length')
 		cloudformation.listStacks({
 			//  NextToken: 'STRING_VALUE',
 			//  StackStatusFilter: [
@@ -91,7 +91,10 @@ Ractive.components.stacklist = Ractive.extend({
 					if (err)
 						alert('delete stack failed')
 
-					alert('stack deleted')
+					setTimeout(function(){
+						ractive.stack_list()
+					}, 1500)
+
 				});
 			}
 
