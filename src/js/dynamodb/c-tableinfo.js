@@ -75,7 +75,35 @@ Ractive.components.tableinfo = Ractive.extend({
 						</tr>
 						<tr>
 							<td align='right'><b>Time to live attribute</b></td>
-							<td></td>
+							<td>
+								{{#if TimeToLiveDescription}}
+									{{#if TimeToLiveDescriptionEditing}}
+										TTL attribute <input type="text" value="{{TimeToLiveDescriptionNewField}}"> <a class="btn btn-xs btn-primary" on-click="update-ttl">Save</a>
+									{{else}}
+										{{#if TimeToLiveDescriptionErr}}
+											Error {{TimeToLiveDescriptionErr.errorMessage}}
+										{{else}}
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'ENABLED'}}
+											{{else}}
+												{{TimeToLiveDescription.TimeToLiveStatus}}
+											{{/if}}
+
+											{{TimeToLiveDescription.AttributeName}}
+
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'DISABLED'}}
+												<a href="javascript:void(0)" on-click="manage-ttl" >Manage TTL</a>
+											{{/if}}
+
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'ENABLED'}}
+												<a href="javascript:void(0)" on-click="disable-ttl" >Disable TTL</a>
+											{{/if}}
+
+										{{/if}}
+									{{/if}}
+								{{else}}
+									Loading...
+								{{/if}}
+							</td>
 						</tr>
 						<tr>
 							<td align='right'><b>Table status</b></td>
@@ -123,24 +151,103 @@ Ractive.components.tableinfo = Ractive.extend({
 			</scrollarea>
 		</div>
 	`,
+
+	refresh_table: function() {
+		var ractive=this;
+
+		ractive.set('describeTable')
+		ractive.set('TimeToLiveDescriptionEditing')
+		ractive.set('TimeToLiveDescription')
+		ractive.set('TimeToLiveDescriptionErr')
+		ractive.set('TimeToLiveDescriptionNewField','')
+
+
+
+
+		async.waterfall([
+			function( cb ) {
+				routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+					if (err)
+						return cb(err);
+
+					ractive.set('describeTable', data.Table)
+					cb()
+				})
+			},
+
+			function( cb ) {
+				routeCall({ method: 'describeTimeToLive', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+					if (err)
+						return ractive.set('TimeToLiveDescriptionErr', err )
+
+					ractive.set('TimeToLiveDescription', data.TimeToLiveDescription )
+					cb()
+				})
+			},
+
+		], function(err) {
+			if (err)
+				ractive.set('err', err.errorMessage )
+
+		})
+
+
+	},
 	data: function() { return {} },
 	oninit: function() {
 		var ractive = this;
-		var refresh_table = function() {
-			ractive.set('describeTable', {})
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
-				if (err)
-					return ractive.set('err', err.errorMessage );
 
-				ractive.set('describeTable', data.Table)
+		ractive.on('manage-ttl', function() {
+			ractive.set('TimeToLiveDescriptionEditing', true )
+			return false;
+		})
+
+		ractive.on('update-ttl', function() {
+			var newfield = ractive.get('TimeToLiveDescriptionNewField').trim()
+			if (!newfield)
+				return alert('invalid field name')
+
+			var params = {
+				TableName: ractive.get('table.name'),
+				TimeToLiveSpecification: {
+					AttributeName: newfield,
+					Enabled: true,
+				}
+			};
+			routeCall({ method: 'updateTimeToLive', payload: params }, function(err, data) {
+				if (err)
+					return alert('failed ' + err.errorMessage )
+
+				ractive.refresh_table()
+
 			})
 
-		}
+
+		})
+		ractive.on('disable-ttl', function() {
+			if (confirm('Are you sure you want to disable TTL ?')) {
+				var params = {
+					TableName: ractive.get('table.name'),
+					TimeToLiveSpecification: {
+						AttributeName: ractive.get('TimeToLiveDescription.AttributeName'),
+						Enabled: false,
+					}
+				};
+				routeCall({ method: 'updateTimeToLive', payload: params }, function(err, data) {
+					if (err)
+						return alert('failed ' + err.errorMessage )
+
+					ractive.refresh_table()
+
+				})
+			}
+		})
+
 
 		ractive.on('refresh-table', function() {
-			refresh_table()
+			ractive.refresh_table()
 		})
-		refresh_table()
+		ractive.refresh_table()
 
 	},
 })
