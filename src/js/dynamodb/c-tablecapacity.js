@@ -1,49 +1,49 @@
 
 Ractive.components.tablecapacity = Ractive.extend({
-	template: "\
-		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
-			<div style='padding: 30px'>\
-				<h3>\
-					Provisioned capacity\
-					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-				</h3>\
-				<hr>\
-				<table>\
-					<tr>\
-						<td width='160' align='right'></td>\
-						<td width='160'>Read capacity units</td>\
-						<td width='160'>Write capacity units</td>\
-					</tr>\
-					<tr>\
-						<td>Table</td>\
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-					</tr>\
-					{{#describeTable.GlobalSecondaryIndexes}}\
-					<tr>\
-						<td>{{ .IndexName }}</td>\
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-					</tr>\
-					{{/describeTable.GlobalSecondaryIndexes}}\
-				</table>\
-				<h3>Auto Scaling</h3>\
-				<hr/>\
-					<small>Auto Scaling not supported by this UI</small>\
-					<br>\
-					<div style='color:red'>{{ err }}&nbsp;</div>\
-					<table>\
-						<tr>\
-							<td width='160'>\
-							<td>\
-								<a class='btn btn-md btn-primary' on-click='save'>Save</a>\
-								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>\
-							</td>\
-						</tr>\
-					</table>\
-			</div>\
-		</scrollarea>\
-	",
+	template: `
+		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+			<div style='padding: 30px'>
+				<h3>
+					Provisioned capacity
+					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+				</h3>
+				<hr>
+				<table>
+					<tr>
+						<td width='160' align='right'></td>
+						<td width='160'>Read capacity units</td>
+						<td width='160'>Write capacity units</td>
+					</tr>
+					<tr>
+						<td>Table</td>
+						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+					</tr>
+					{{#describeTable.GlobalSecondaryIndexes}}
+					<tr>
+						<td>{{ .IndexName }}</td>
+						<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+						<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+					</tr>
+					{{/describeTable.GlobalSecondaryIndexes}}
+				</table>
+				<h3>Auto Scaling</h3>
+				<hr/>
+					<small>Auto Scaling not supported by this UI</small>
+					<br>
+					<div style='color:red'>{{ err }}&nbsp;</div>
+					<table>
+						<tr>
+							<td width='160'>
+							<td>
+								<a class='btn btn-md btn-primary' on-click='save'>Save</a>
+								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</scrollarea>
+	`,
 	oninit: function() {
 		var ractive = this;
 		var refresh_table = function() {
