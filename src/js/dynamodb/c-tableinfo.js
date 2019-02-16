@@ -5,6 +5,47 @@ Ractive.components.tableinfo = Ractive.extend({
 			<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
 				<div style='padding: 30px'>
 					<h3>
+						Stream details
+					</h3>
+					<hr>
+					<table>
+						<tr>
+							<td align='right' width='350'><b>Stream enabled</b></td>
+							<td>
+								{{#if !describeTable.StreamSpecification}}
+									no
+								{{else}}
+									{{#if !describeTable.StreamSpecification.StreamEnabled === true }}
+									yes
+									{{else}}
+									no
+									{{/if}}
+								{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right' width='350'><b>View type	</b></td>
+							<td>
+								{{#if !describeTable.StreamSpecification}}
+									-
+								{{else}}
+									{{describeTable.StreamSpecification.StreamViewType}}
+								{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right' width='350'><b>Latest stream ARN</b></td>
+							<td>
+								{{#if !describeTable.StreamSpecification}}
+									-
+								{{else}}
+									{{describeTable.LatestStreamArn}}
+								{{/if}}
+							</td>
+						</tr>
+					</table>
+
+					<h3>
 						Table details
 						<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
 					</h3>
