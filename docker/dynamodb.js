@@ -45,6 +45,7 @@ http.createServer(function (request, response) {
 				case 'createTable':
 				case 'deleteTable':
 				case 'describeTable':
+				case 'describeTimeToLive':
 				case 'updateTable':
 				case 'scan':
 				case 'query':
