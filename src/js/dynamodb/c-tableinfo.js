@@ -188,12 +188,29 @@ Ractive.components.tableinfo = Ractive.extend({
 							<td>{{describeTable.CreationDateTime}}</td>
 						</tr>
 						<tr>
+							<td align='right'><b>Read/write capacity mode</b></td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}Provisioned{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}On-Demand{{/if}}
+							</td>
+						</tr>
+						<tr>
 							<td align='right'><b>Provisioned read capacity units</b></td>
-							<td>{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}</td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}
+									{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}
+								{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}
+							</td>
 						</tr>
 						<tr>
 							<td align='right'><b>Provisioned write capacity units</b></td>
-							<td>{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}</td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}
+									{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}
+								{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}
+							</td>
 						</tr>
 						<tr>
 							<td align='right'><b>Last decrease time</b></td>
