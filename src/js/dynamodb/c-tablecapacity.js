@@ -8,25 +8,32 @@ Ractive.components.tablecapacity = Ractive.extend({
 					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
 				</h3>
 				<hr>
-				<table>
-					<tr>
-						<td width='160' align='right'></td>
-						<td width='160'>Read capacity units</td>
-						<td width='160'>Write capacity units</td>
-					</tr>
-					<tr>
-						<td>Table</td>
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
-					</tr>
-					{{#describeTable.GlobalSecondaryIndexes}}
-					<tr>
-						<td>{{ .IndexName }}</td>
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
-					</tr>
-					{{/describeTable.GlobalSecondaryIndexes}}
-				</table>
+					{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}
+						Not applicable because read/write capacity mode is on-demand.<br>
+					{{else}}
+						<table>
+							<tr>
+								<td width='160' align='right'></td>
+								<td width='160'>Read capacity units</td>
+								<td width='160'>Write capacity units</td>
+							</tr>
+							<tr>
+								<td>Table</td>
+								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+							</tr>
+							{{#describeTable.GlobalSecondaryIndexes}}
+							<tr>
+								<td>{{ .IndexName }}</td>
+								<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+								<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+							</tr>
+							{{/describeTable.GlobalSecondaryIndexes}}
+						</table>
+					{{/if}}
+
+
+
 				<h3>Auto Scaling</h3>
 				<hr/>
 					<small>Auto Scaling not supported by this UI</small>
