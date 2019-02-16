@@ -8,42 +8,75 @@ Ractive.components.tableinfo = Ractive.extend({
 						Stream details
 					</h3>
 					<hr>
-					<table>
-						<tr>
-							<td align='right' width='350'><b>Stream enabled</b></td>
-							<td>
-								{{#if !describeTable.StreamSpecification}}
-									no
-								{{else}}
-									{{#if !describeTable.StreamSpecification.StreamEnabled === true }}
-									yes
+
+					{{#if StreamEditing}}
+						<table>
+							<tr>
+								<td align='right' width='350'><b>View type</b></td>
+								<td>
+									<input type='radio' name='{{NewStreamViewType}}' value='KEYS_ONLY'>	Keys only - only the key attributes of the modified item<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='NEW_IMAGE'>	New image - the entire item, as it appears after it was modified<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='OLD_IMAGE'>	Old image - the entire item, as it appeared before it was modified<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='NEW_AND_OLD_IMAGES'> New and old images - both the new and the old images of the item<br>
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'></td>
+								<td>
+									<a class="btn btn-sm btn-primary" on-click="update-stream">Enable</a>
+								</td>
+							</tr>
+						</table>
+					{{else}}
+						<table>
+							<tr>
+								<td align='right' width='350'><b>Stream enabled</b></td>
+								<td>
+									{{#if !describeTable.StreamSpecification}}
+										no
 									{{else}}
-									no
+										{{#if describeTable.StreamSpecification.StreamEnabled === true }}
+										yes
+										{{else}}
+										no
+										{{/if}}
 									{{/if}}
-								{{/if}}
-							</td>
-						</tr>
-						<tr>
-							<td align='right' width='350'><b>View type	</b></td>
-							<td>
-								{{#if !describeTable.StreamSpecification}}
-									-
-								{{else}}
-									{{describeTable.StreamSpecification.StreamViewType}}
-								{{/if}}
-							</td>
-						</tr>
-						<tr>
-							<td align='right' width='350'><b>Latest stream ARN</b></td>
-							<td>
-								{{#if !describeTable.LatestStreamArn}}
-									-
-								{{else}}
-									{{describeTable.LatestStreamArn}}
-								{{/if}}
-							</td>
-						</tr>
-					</table>
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'><b>View type	</b></td>
+								<td>
+									{{#if !describeTable.StreamSpecification}}
+										-
+									{{else}}
+										{{describeTable.StreamSpecification.StreamViewType}}
+									{{/if}}
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'><b>Latest stream ARN</b></td>
+								<td>
+									{{#if !describeTable.LatestStreamArn}}
+										-
+									{{else}}
+										{{describeTable.LatestStreamArn}}
+									{{/if}}
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'>
+									{{#if describeTable.StreamSpecification.StreamEnabled === true}}
+										<a class="btn btn-xs btn-default" on-click="disable-stream">Disable Stream</a>
+									{{else}}
+										<a class="btn btn-xs btn-default" on-click="manage-stream">Manage Stream</a>
+									{{/if}}
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					{{/if}}
+
 
 					<h3>
 						Table details
@@ -201,8 +234,7 @@ Ractive.components.tableinfo = Ractive.extend({
 		ractive.set('TimeToLiveDescription')
 		ractive.set('TimeToLiveDescriptionErr')
 		ractive.set('TimeToLiveDescriptionNewField','')
-
-
+		ractive.set('StreamEditing')
 
 
 		async.waterfall([
@@ -284,6 +316,43 @@ Ractive.components.tableinfo = Ractive.extend({
 			}
 		})
 
+
+		ractive.on('manage-stream', function() {
+			ractive.set('StreamEditing', true )
+		})
+		ractive.on('update-stream', function() {
+			var type = ractive.get('NewStreamViewType' )
+			routeCall({ method: 'updateTable', payload: {
+				TableName: ractive.get('table.name'),
+				StreamSpecification: {
+					StreamEnabled: true,
+					StreamViewType: type
+				}
+			} }, function(err, data) {
+				if (err)
+					return alert('Failed ' + err.errorMessage);
+
+					ractive.refresh_table()
+				cb()
+			})
+		})
+		ractive.on('disable-stream', function() {
+			if (confirm('Disable stream ?')) {
+				routeCall({ method: 'updateTable', payload: {
+					TableName: ractive.get('table.name'),
+					StreamSpecification: {
+						StreamEnabled: false,
+					}
+				} }, function(err, data) {
+					if (err)
+						return alert('Failed ' + err.errorMessage);
+
+						ractive.refresh_table()
+					cb()
+				})
+
+			}
+		})
 
 		ractive.on('refresh-table', function() {
 			ractive.refresh_table()
