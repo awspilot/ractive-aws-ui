@@ -89,7 +89,11 @@ Ractive.components.stackcreate = Ractive.extend({
 				if (err)
 					return alert('Template failed to parse')
 
-				ractive.set('newstack.Parameters', data.Parameters )
+				ractive.set('newstack.Parameters', data.Parameters.map(function(template_parameter) {
+					if (template_parameter.DefaultValue)
+						template_parameter.ParameterValue = template_parameter.DefaultValue
+					return template_parameter
+				}) )
 				ractive.set('newstack.ResourceTypes',  data.ResourceTypes )
 
 				//console.log(err,data)
