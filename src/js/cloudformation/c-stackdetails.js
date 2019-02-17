@@ -4,10 +4,11 @@ Ractive.components.stackdetailtabs = Ractive.extend({
 	template:
 		`
 		<tabhead>
-			<tab class='{{#if active_id === "template" }}active{{/if}}'   on-click='@this.fire("activetab", "template")'>Template</tab>
-			<tab class='{{#if active_id === "parameters" }}active{{/if}}' on-click='@this.fire("activetab", "parameters")'>Parameters</tab>
+			<tab class='{{#if active_id === "exports" }}active{{/if}}' on-click='@this.fire("activetab", "exports")'>Outputs</tab>
 			<tab class='{{#if active_id === "resources" }}active{{/if}}' on-click='@this.fire("activetab", "resources")'>Resources</tab>
 			<tab class='{{#if active_id === "events" }}active{{/if}}' on-click='@this.fire("activetab", "events")'>Events</tab>
+			<tab class='{{#if active_id === "template" }}active{{/if}}'   on-click='@this.fire("activetab", "template")'>Template</tab>
+			<tab class='{{#if active_id === "parameters" }}active{{/if}}' on-click='@this.fire("activetab", "parameters")'>Parameters</tab>
 		</tabhead>
 		<tabcontent>
 			{{#if active_id === "template" }}
@@ -22,12 +23,14 @@ Ractive.components.stackdetailtabs = Ractive.extend({
 			{{#if active_id === "events" }}
 				<stackdetailsevents StackName="{{StackName}}">
 			{{/if}}
-
+			{{#if active_id === "exports" }}
+				<stackdetailsexports StackName="{{StackName}}">
+			{{/if}}
 		</tabcontent>
 	`,
 	data: function() {
 		return {
-			active_id: 'template',
+			active_id: 'resources',
 		}
 	},
 	// active_cache: [],
@@ -138,11 +141,49 @@ Ractive.components.stackdetailsparameters = Ractive.extend({
 });
 Ractive.components.stackdetailsresources = Ractive.extend({
 	template: `
-		Not Implemented
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 10px;' />
 	`,
+	oninit: function() {
+		var ractive=this;
+
+		ractive.set('columns', [ '', 'Logical ID', 'Phisical ID', 'Type', 'Drift Status', 'Status', 'Status Reason'])
+		ractive.set('rows', [] )
+
+		var params = {
+			StackName: this.get('StackName'),
+		};
+		cloudformation.listStackResources(params, function(err, data) {
+			if (err)
+				return alert('get stack resources failed')
+
+			console.log(data)
+
+
+			ractive.set('rows',
+				data.StackResourceSummaries.map(function(r) {
+					return [
+						{ S: '' },
+						{ S: r.LogicalResourceId },
+						{ S: r.PhysicalResourceId },
+						{ S: r.ResourceType },
+						{ S: r.DriftInformation.StackResourceDriftStatus },
+						{ S: r.ResourceStatus },
+						{ S: '' },
+					]
+				})
+			)
+
+		});
+
+	}
 });
 Ractive.components.stackdetailsevents = Ractive.extend({
 	template: `
-		Not Implemented
+		<div style="padding: 15px;">Events Not Implemented</div>
+	`,
+});
+Ractive.components.stackdetailsexports = Ractive.extend({
+	template: `
+		<div style="padding: 15px;">Exports Not Implemented</div>
 	`,
 });
