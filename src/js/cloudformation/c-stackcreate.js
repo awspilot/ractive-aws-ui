@@ -8,9 +8,8 @@ Ractive.components.stackcreate = Ractive.extend({
 				<h4>Specify template</h4>
 				<p>
 					<li>✅ .yaml or json
-					<li>✅ !Ref to template parameter
+					<li>✅ !Ref to in-template and pseudo parameters
 					<li>❌ !Ref to another resource
-					<li>❌ !Ref to pseudo parameters
 					<li>❌ !ImportValue, !GetAtt !Transform
 					<li>❌ !Base64 !FindInMap !GetAZs !If !Join !Select !Split !Sub
 					<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
@@ -88,6 +87,8 @@ Ractive.components.stackcreate = Ractive.extend({
 			cloudformation.getTemplateSummary(params, function(err, data) {
 				if (err)
 					return alert('Template failed to parse')
+
+console.log("cloudformation.getTemplateSummary", data )
 
 				ractive.set('newstack.Parameters', data.Parameters.map(function(template_parameter) {
 					if (template_parameter.DefaultValue)
