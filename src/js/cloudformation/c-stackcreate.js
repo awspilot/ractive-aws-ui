@@ -102,6 +102,7 @@ Ractive.components.stackcreate = Ractive.extend({
 					console.log('selected', file )
 					var reader = new FileReader();
 					reader.onload = function(e) {
+						ractive.set('newstack.StackName', file.name.split('.yaml').join('').split('.json').join('') )
 						ractive.set('newstack.TemplateBody', reader.result)
 					}
 					reader.readAsBinaryString(file);
