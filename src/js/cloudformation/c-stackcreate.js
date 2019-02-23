@@ -1,56 +1,85 @@
 ;
 Ractive.components.stackcreate = Ractive.extend({
 	template: `
-		<div style="padding: 30px;">
+
 			{{#if page === 'upload'}}
 				<h3>Create Stack</h3>
-				<br>
-				<h4>Specify template</h4>
-				<p>
-					<li>✅ .yaml or json
-					<li>✅ !Ref to in-template and pseudo parameters
-					<li>❌ !Ref to another resource
-					<li>❌ !ImportValue, !GetAtt !Transform
-					<li>❌ !Base64 !FindInMap !GetAZs !If !Join !Select !Split !Sub
-					<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
-					<li>❌ all other resource types are created as decoy
-				</p>
-				<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
-				<hr>
-				<a class="btn btn-warning {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
+				<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;max-width: 800px;margin-bottom: 15px;">
+					<div style="font-size: 18px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #eaeded;padding: 15px 30px;font-weight: 700;color: #000;">Specify template</div>
+					<div style="padding: 30px;">
+
+							<br>
+							<h4>Specify template</h4>
+							<p>
+								<li>✅ .yaml or json
+								<li>✅ !Ref to in-template and pseudo parameters
+								<li>❌ !Ref to another resource
+								<li>❌ !ImportValue, !GetAtt !Transform
+								<li>❌ !Base64 !FindInMap !GetAZs !If !Join !Select !Split !Sub
+								<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
+								<li>❌ all other resource types are created as decoy
+							</p>
+							<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
+
+					</div>
+				</div>
+				<div style="max-width: 800px;">
+					<a class="btn btn-warning {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
+				</div>
 			{{/if}}
 
 			{{#if page === 'parameters'}}
 				<h3>Specify stack details</h3>
-				<br>
-				<table>
-				<tr>
-					<td>Stack name</td>
-					<td><input type="text" value="{{newstack.StackName}}" /></td>
-				</tr>
-				<tr>
-					<td>Parameters</td>
-					<td></td>
-				</tr>
+
+				<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;max-width: 800px;margin-bottom: 15px;">
+					<div style="font-size: 18px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #eaeded;padding: 15px 30px;font-weight: 700;color: #000;">Stack name</div>
+					<div style="padding: 30px;">
+						<br>
+						<div>Stack name</div>
+						<input type="text" value="{{newstack.StackName}}" style="width: 100%;padding: 10px;"/>
+						<small>Stack name can include letters (A-Z and a-z), numbers (0-9), and dashes (-).</small>
+
+					</div>
+				</div>
+				<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;max-width: 800px;margin-bottom: 15px;">
+					<div style="font-size: 18px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #eaeded;padding: 15px 30px;font-weight: 700;color: #000;">Parameters</div>
+					<div style="padding: 30px;">
 
 
 				{{#newstack.Parameters}}
-				<tr>
-					<td>{{.ParameterKey}}</td>
-					<td><input type="text" value="{{.ParameterValue}}"></td>
-				</tr>
+				<br>
+				<div>{{.ParameterKey}}</div>
+					<div>
+					{{#if .ParameterConstraints.AllowedValues}}
+						<select value="{{.ParameterValue}}" style="width: 100%;padding: 10px;height: 37px;">
+							{{#.ParameterConstraints.AllowedValues}}
+							<option value="{{.}}">{{.}}</option>
+							{{/.ParameterConstraints.AllowedValues}}
+						</select>
+					{{else}}
+						<input type="text" value="{{.ParameterValue}}" style="width: 100%;padding: 10px;">
+					{{/if}}
+				</div>
 				{{/newstack.Parameters}}
-				</table>
 
-				<hr>
-				<a class="btn btn-warning {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
+					</div>
+				</div>
+
+				<div style="max-width: 800px;">
+					<a class="btn btn-warning {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
+				</div>
+
 			{{/if}}
 
 
 			{{#if page === 'confirm'}}
-				<a class="btn btn-warning" on-click="create">Create</a>
+				<div style="position: absolute;top: 0px;left: 0px;right:0px;overflow: auto;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;">
+					<div style="padding: 30px;">
+						<a class="btn btn-warning" on-click="create">Create</a>
+					</div>
+				</div>
 			{{/if}}
-		</div>
+
 	`,
 	data: function() {
 		return {
@@ -87,8 +116,6 @@ Ractive.components.stackcreate = Ractive.extend({
 			cloudformation.getTemplateSummary(params, function(err, data) {
 				if (err)
 					return alert('Template failed to parse')
-
-console.log("cloudformation.getTemplateSummary", data )
 
 				ractive.set('newstack.Parameters', data.Parameters.map(function(template_parameter) {
 					if (template_parameter.DefaultValue)
