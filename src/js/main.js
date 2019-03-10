@@ -42,7 +42,7 @@ var routeCall = function( call, cb ) {
 	}
 
 	if (window.installation_type === 'docker') {
-		json_post('/v1/dynamodb', call, function(data) {
+		json_post('/v1/wrapdynamodb', call, function(data) {
 			cb(data.err, data.data )
 		} )
 		return;

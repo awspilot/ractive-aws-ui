@@ -7,7 +7,7 @@ var is_demo = process.env.DEMO == '1';
 console.log("demo is ", is_demo ? 'ON' : 'OFF' )
 http.createServer(function (request, response) {
 	console.log( "[dynamoproxy]", request.method, request.url )
-	if ( request.method === 'POST' && request.url === '/v1/dynamodb') {
+	if ( request.method === 'POST' && request.url === '/v1/wrapdynamodb') {
 		var dynamodb = new AWS.DynamoDB({
 			endpoint: new AWS.Endpoint('http://localhost:8000'),
 			region: request.headers.region || 'us-east-1'
