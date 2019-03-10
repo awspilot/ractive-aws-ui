@@ -440,8 +440,7 @@ Ractive.components.tableitems = Ractive.extend({
 			async.waterfall([
 				function(cb) {
 
-					routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
-					//ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
+					DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
 						if (err)
 							return cb(err);
 
