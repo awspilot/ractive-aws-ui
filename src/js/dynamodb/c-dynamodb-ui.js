@@ -33,7 +33,19 @@ Ractive.components.dynamoui = Ractive.extend({
 			}
 		}
 
-		ddb = new AWS.DynamoDB(credentials)
+		if (window.installation_type === 'docker') {
+			ddb = new AWS.DynamoDB({
+				endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+				region: deparam( location.href ).region || 'us-east-1',
+				credentials: {
+					accessKeyId: 'myKeyId',
+					secretAccessKey: 'y',
+				}
+			})
+		} else {
+			ddb = new AWS.DynamoDB(credentials)
+		}
+
 		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
 		DynamodbFactory = window['@awspilot/dynamodb']
 		DynamoDB  = new DynamodbFactory(ddb)
