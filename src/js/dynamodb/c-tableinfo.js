@@ -256,7 +256,8 @@ Ractive.components.tableinfo = Ractive.extend({
 
 		async.waterfall([
 			function( cb ) {
-				routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+
+				DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
 					if (err)
 						return cb(err);
 
@@ -266,7 +267,7 @@ Ractive.components.tableinfo = Ractive.extend({
 			},
 
 			function( cb ) {
-				routeCall({ method: 'describeTimeToLive', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+				DynamoDB.client.describeTimeToLive( { TableName: ractive.get('table.name')} , function(err, data) {
 					if (err)
 						return ractive.set('TimeToLiveDescriptionErr', err )
 
@@ -304,7 +305,7 @@ Ractive.components.tableinfo = Ractive.extend({
 					Enabled: true,
 				}
 			};
-			routeCall({ method: 'updateTimeToLive', payload: params }, function(err, data) {
+			DynamoDB.client.updateTimeToLive( params , function(err, data) {
 				if (err)
 					return alert('failed ' + err.errorMessage )
 
@@ -323,7 +324,7 @@ Ractive.components.tableinfo = Ractive.extend({
 						Enabled: false,
 					}
 				};
-				routeCall({ method: 'updateTimeToLive', payload: params }, function(err, data) {
+				DynamoDB.client.updateTimeToLive( params , function(err, data) {
 					if (err)
 						return alert('failed ' + err.errorMessage )
 
