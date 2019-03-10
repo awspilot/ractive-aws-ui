@@ -48,7 +48,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 					var f = function( cb ) {
 						//console.log(t)
-						routeCall({ method: 'describeTable', payload: { TableName: t} }, function(err, data) {
+						DynamoDB.client.describeTable({ TableName: t}, function(err, data) {
 							if (err)
 								return cb()
 
