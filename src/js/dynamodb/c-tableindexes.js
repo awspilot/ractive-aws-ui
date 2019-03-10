@@ -228,7 +228,7 @@ Ractive.components.tableindexes = Ractive.extend({
 		var refresh_table = function() {
 			ractive.set('describeTable', {})
 			ractive.set('rows',[])
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
