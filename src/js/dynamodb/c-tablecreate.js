@@ -367,7 +367,7 @@ Ractive.components.tablecreate = Ractive.extend({
 
 
 
-			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
+			DynamoDB.client.createTable(payload, function(err, data) {
 				if (err) {
 					ractive.set( 'errorMessage', err.message )
 					return
