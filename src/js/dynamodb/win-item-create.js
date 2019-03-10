@@ -20,7 +20,6 @@ Ractive.components.CreateItem = Ractive.extend({
 		ractive.on('create-item', function() {
 			var json = ractive.editor.get();
 			var ddb = DynamoDB
-				.explain()
 				.table( ractive.get('describeTable.TableName') )
 
 			ddb = ddb.if( ractive.get('describeTable.KeySchema.0.AttributeName') ).not_exists()
@@ -29,17 +28,13 @@ Ractive.components.CreateItem = Ractive.extend({
 				ddb = ddb.if( ractive.get('describeTable.KeySchema.1.AttributeName') ).not_exists()
 
 			ddb.insert(json, function(err, data ) {
+
 				if (err)
-					return alert('Failed')
+					return alert('Failed: ' + ( err.message || err.errorMessage ) );
 
+				// close window
+				ractive.fire('close-window')
 
-				routeCall( { method: data.method, payload: data.payload } , function(err, data) {
-					if (err)
-						return alert('Failed: ' + ( err.message || err.errorMessage ) );
-
-					// close window
-					ractive.fire('close-window')
-				});
 			})
 
 		})
