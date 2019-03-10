@@ -5,7 +5,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 			<div style='padding: 30px'>
 				<h3>
 					Provisioned capacity
-					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+					<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
 				</h3>
 				<hr>
 					{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}
