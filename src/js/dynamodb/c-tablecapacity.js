@@ -55,7 +55,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 		var ractive = this;
 		var refresh_table = function() {
 			ractive.set('describeTable', {})
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+			DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
@@ -125,7 +125,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 
 			//console.log('payload', payload )
 
-			routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+			DynamoDB.client.updateTable( payload , function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
