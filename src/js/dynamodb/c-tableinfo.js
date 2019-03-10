@@ -340,13 +340,13 @@ Ractive.components.tableinfo = Ractive.extend({
 		})
 		ractive.on('update-stream', function() {
 			var type = ractive.get('NewStreamViewType' )
-			routeCall({ method: 'updateTable', payload: {
+			DynamoDB.client.updateTable({
 				TableName: ractive.get('table.name'),
 				StreamSpecification: {
 					StreamEnabled: true,
 					StreamViewType: type
 				}
-			} }, function(err, data) {
+			}, function(err, data) {
 				if (err)
 					return alert('Failed ' + err.errorMessage);
 
@@ -356,12 +356,12 @@ Ractive.components.tableinfo = Ractive.extend({
 		})
 		ractive.on('disable-stream', function() {
 			if (confirm('Disable stream ?')) {
-				routeCall({ method: 'updateTable', payload: {
+				DynamoDB.client.updateTable({
 					TableName: ractive.get('table.name'),
 					StreamSpecification: {
 						StreamEnabled: false,
 					}
-				} }, function(err, data) {
+				}, function(err, data) {
 					if (err)
 						return alert('Failed ' + err.errorMessage);
 
