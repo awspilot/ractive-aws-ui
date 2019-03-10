@@ -873,7 +873,7 @@ Ractive.components.tableitems = Ractive.extend({
 		})
 
 
-		routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+		DynamoDB.client.describeTable({ TableName: ractive.get('table.name')} , function(err, data) {
 			if (err)
 				return ractive.set('err', err.errorMessage );
 
