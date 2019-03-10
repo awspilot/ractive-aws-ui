@@ -75,7 +75,7 @@ var routeCall = function( call, cb ) {
 	}
 
 	if (window.installation_type === 'docker') {
-		json_post('/v1/dynamodb', call, function(data) {
+		json_post('/v1/wrapdynamodb', call, function(data) {
 			cb(data.err, data.data )
 		} )
 		return;
@@ -102,7 +102,7 @@ window.addEventListener('load', function() {
 							<i class="icon zmdi {{#if show_services_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
 						</a>
 						<div class="dropdown-menu {{#if show_services_dropdown}}show{{/if}}">
-							<!--<li><a class="dropdown-item" href="/cloudformation/?region={{region}}">Cloudformation</a>-->
+							<li><a class="dropdown-item" href="/cloudformation/?region={{region}}">Cloudformation</a>
 							<li><a class="dropdown-item" href="/dynamodb/?region={{region}}">DynamoDB</a>
 						</div>
 					</div>

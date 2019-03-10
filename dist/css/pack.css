@@ -6243,6 +6243,29 @@ header {
   right: 0px;
   height: 41px;
 }
+header .region-dropdown > a {
+  display: inline-block;
+  line-height: 40px;
+  font-size: 12px;
+  margin: 0px 20px 0px 0px;
+  cursor: pointer;
+  color: #eee;
+}
+header .region-dropdown > .dropdown-menu > li > a {
+  text-decoration: none;
+}
+header .services-dropdown > a {
+  display: inline-block;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px 20px 0px 0px;
+  cursor: pointer;
+  color: #eee;
+}
+header .services-dropdown > .dropdown-menu > li > a {
+  text-decoration: none;
+}
 .btn-xs,
 .btn-group-xs > .btn {
   min-width: 10px;

@@ -1,121 +1,3 @@
-
-var $session;
-(function() {
-	function session() {
-	}
-	session.prototype.account_list = function() {
-		var accounts = JSON.parse(localStorage.getItem("accounts") || "[]")
-
-		return accounts
-	}
-
-	session.prototype.account_add = function( name, key, endpoint ) {
-
-		var new_account = {
-			id: id=Math.random().toString().slice(2),
-			name: name,
-			key: key,
-			endpoint: endpoint,
-		}
-		var account_list = this.account_list();
-		account_list.push( new_account )
-
-		localStorage.setItem("accounts", JSON.stringify(account_list))
-
-	}
-	session.prototype.account_delete = function( account ) {
-		var account_list = this.account_list().filter(function(a) { return a.id !== account.id })
-		localStorage.setItem("accounts", JSON.stringify(account_list))
-	}
-
-	$session = new session()
-})($session)
-
-
-var ractive;
-var selected_account;
-
-var json_post = function(url, payload, cb ) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4 && xhr.status === 200) {
-			cb(JSON.parse(xhr.responseText))
-		}
-	};
-	var data = JSON.stringify(payload);
-	//xhr.error(cb)
-	//xhr.addEventListener("error", cb );
-	xhr.send(data);
-}
-
-var routeCall = function( call, cb ) {
-	if (window.installation_type === 'apigw') {
-		json_post('/v1/dynamodb', call, function(data) {
-			cb(data.err, data.data )
-		} )
-		return;
-	}
-	// call.operation
-	// call.payload
-	console.log("routing call", call )
-};
-window.addEventListener('load', function() {
-	ractive = new Ractive({
-		el: 'body',
-		template: "\
-			{{#if selected_account}}\
-				<dynamoui account='{{selected_account}}' />\
-			{{else}}\
-				{{#if installation_type === 'apigw'}}\
-					<dynamoui account='{{autoaccount}}' />\
-				{{else}}\
-				<login />\
-				{{/if}}\
-			{{/if}}\
-			",
-		data: function() {
-			return {
-				installation_type: window.installation_type,
-				autoaccount: window.installation_type === 'apigw' ? {
-					endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
-					id: Math.random().toString(),
-					key: {
-						credentials: {
-							accessKeyId: 'k',
-							secretAccessKey: 's',
-						},
-						region: 'us-east-1',
-					},
-					name: '',
-				} : null,
-			}
-		},
-	})
-
-	ractive.on('open-table', function(e, table ) {
-		ractive.findComponent('tabs').newtab('tabletab', table )
-	})
-	ractive.on('login.switch-account', function(e) {
-		selected_account = ractive.findComponent('login').get(e.resolve())
-		ractive.set('selected_account', selected_account )
-		return false;
-	})
-	ractive.on('login.delete-account', function(e) {
-		$session.account_delete(ractive.findComponent('login').get(e.resolve()))
-		ractive.findComponent('login').set('accounts', $session.account_list() )
-		return false;
-	})
-	ractive.on('login.add-account', function(e) {
-		var new_account = ractive.findComponent('login').get('new');
-		$session.account_add(new_account.name, new_account.key,  new_account.endpoint )
-		ractive.findComponent('login').set('accounts', $session.account_list() )
-		ractive.findComponent('login').set('new')
-		return false;
-	})
-})
-
 Ractive.components.minitablelist = Ractive.extend({
 	//isolated: true,
 	template:
@@ -141,20 +23,15 @@ Ractive.components.minitablelist = Ractive.extend({
 
 		ractive.set('tables')
 
-		DynamoDB.explain().query('SHOW TABLES', function(err, call ) {
-			if (err)
-				return console.log(err)
+		DynamoDB.query('SHOW TABLES', function(err, data ) {
 
-			routeCall( call, function( err, data ) {
 				if (err)
 					return ractive.set('err', err )
 
 				ractive.set('err')
-				ractive.set('tables', data.TableNames )
-			} )
+				ractive.set('tables', data )
+
 		})
-		//ddb.listTables({}, function(err, data) {
-		//})
 	},
 	oninit: function() {
 		this.refresh_tables()
@@ -192,13 +69,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 		ractive.set('refresh_tables', true)
 		ractive.set('tables')
 
-		DynamoDB.explain().query('SHOW TABLES', function(err, call ) {
+		DynamoDB.query('SHOW TABLES', function(err, data ) {
 
-
-			if (err)
-				return console.log(err)
-
-			routeCall( call, function( err, data ) {
 				ractive.set('refresh_tables', false)
 
 				if (err)
@@ -207,7 +79,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 				ractive.set('err')
 
 				ractive.set('columns', [ null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity'])
-				ractive.set('rows', data.TableNames.map(function(t) {
+				ractive.set('rows', data.map(function(t) {
 					return [
 						{ KEY: true },
 						{ S: t },
@@ -219,11 +91,11 @@ Ractive.components.tablelistfull = Ractive.extend({
 						{ }
 					]
 				}) )
-				var waterfallz = data.TableNames.map(function(t) {
+				var waterfallz = data.map(function(t) {
 
 					var f = function( cb ) {
 						//console.log(t)
-						routeCall({ method: 'describeTable', payload: { TableName: t} }, function(err, data) {
+						DynamoDB.client.describeTable({ TableName: t}, function(err, data) {
 							if (err)
 								return cb()
 
@@ -237,6 +109,10 @@ Ractive.components.tablelistfull = Ractive.extend({
 									row[6].S = ([ data.Table.ProvisionedThroughput.ReadCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.ReadCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
 									row[7].S = ([ data.Table.ProvisionedThroughput.WriteCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.WriteCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
 
+									if ((data.Table.BillingModeSummary || {}).BillingMode === 'PAY_PER_REQUEST' ) {
+										row[6].S = 'On-Demand'
+										row[7].S = 'On-Demand'
+									}
 								}
 								return row
 							}))
@@ -250,8 +126,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 
 				})
-				//ractive.set('tables', data.TableNames )
-			} )
+
 		})
 		//ddb.listTables({}, function(err, data) {
 		//})
@@ -282,7 +157,9 @@ Ractive.components.tablelistfull = Ractive.extend({
 			var tablename = selected[0][1].S
 
 			if (confirm('Are you sure you want to delete table ' + tablename )) {
+
 				routeCall({ method: 'deleteTable', payload: { TableName: tablename } }, function(err, data) {
+				//DynamoDB.client.deleteTable({ TableName: tablename } , function(err, data) {
 					if (err)
 						return alert( err.errorMessage )
 
@@ -669,7 +546,7 @@ Ractive.components.tablecreate = Ractive.extend({
 
 
 
-			routeCall({ method: 'createTable', payload: payload }, function(err, data) {
+			DynamoDB.client.createTable(payload, function(err, data) {
 				if (err) {
 					ractive.set( 'errorMessage', err.message )
 					return
@@ -755,146 +632,382 @@ Ractive.components.tabletab = Ractive.extend({
 
 
 Ractive.components.tableinfo = Ractive.extend({
-	template: "\
-		<div class='tableinfo'>\
-			<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
-				<div style='padding: 30px'>\
-					<h3>\
-						Table details\
-						<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-					</h3>\
-					<div style='color:red'>{{ err }}</div>\
-					<hr>\
-					<table>\
-						<tr>\
-							<td align='right' width='350'><b>Table ID</b></td>\
-							<td> {{ describeTable.TableId }}</td>\
-						</tr>\
-						<tr>\
-							<td align='right' width='350'><b>Table name</b></td>\
-							<td> {{ describeTable.TableName }}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Primary partition key</b></td>\
-							<td>\
-								{{#describeTable.KeySchema:i}}\
-									{{#if .KeyType === 'HASH'}}\
-										{{.AttributeName}}\
-										{{# ~/describeTable.AttributeDefinitions }}\
-											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
-												{{#if .AttributeType === 'S'}}\
-													( String )\
-												{{/if}}\
-												{{#if .AttributeType === 'N'}}\
-													( Number )\
-												{{/if}}\
-												{{#if .AttributeType === 'B'}}\
-													( Binary )\
-												{{/if}}\
-											{{/if}}\
-										{{/}}\
-									{{/if}}\
-								{{/describeTable.KeySchema}}\
-							</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Primary sort key</b></td>\
-							<td>\
-								{{#describeTable.KeySchema:i}}\
-									{{#if .KeyType === 'RANGE'}}\
-										{{.AttributeName}}\
-										{{# ~/describeTable.AttributeDefinitions }}\
-											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
-												{{#if .AttributeType === 'S'}}\
-													( String )\
-												{{/if}}\
-												{{#if .AttributeType === 'N'}}\
-													( Number )\
-												{{/if}}\
-												{{#if .AttributeType === 'B'}}\
-													( Binary )\
-												{{/if}}\
-											{{/if}}\
-										{{/}}\
-									{{/if}}\
-								{{/describeTable.KeySchema}}\
-							</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Point-in-time recovery</b></td>\
-							<td></td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Encryption</b></td>\
-							<td></td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Time to live attribute</b></td>\
-							<td></td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Table status</b></td>\
-							<td>{{describeTable.TableStatus}}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Creation date</b></td>\
-							<td>{{describeTable.CreationDateTime}}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Provisioned read capacity units</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Provisioned write capacity units</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Last decrease time</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.LastDecreaseDateTime || '-' }}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Last increase time</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.LastIncreaseDateTime || '-'}}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Storage size (in bytes)</b></td>\
-							<td>{{describeTable.TableSizeBytes }}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Item count</b></td>\
-							<td>{{ describeTable.ItemCount }}</td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Region</b></td>\
-							<td></td>\
-						</tr>\
-						<tr>\
-							<td align='right'><b>Amazon Resource Name (ARN)</b></td>\
-							<td> {{describeTable.TableArn}}</td>\
-						</tr>\
-					</table>\
-					<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>\
-				</div>\
-			</scrollarea>\
-		</div>",
+	template: `
+		<div class='tableinfo'>
+			<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+				<div style='padding: 30px'>
+					<h3>
+						Stream details
+					</h3>
+					<hr>
+
+					{{#if StreamEditing}}
+						<table>
+							<tr>
+								<td align='right' width='350'><b>View type</b></td>
+								<td>
+									<input type='radio' name='{{NewStreamViewType}}' value='KEYS_ONLY'>	Keys only - only the key attributes of the modified item<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='NEW_IMAGE'>	New image - the entire item, as it appears after it was modified<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='OLD_IMAGE'>	Old image - the entire item, as it appeared before it was modified<br>
+									<input type='radio' name='{{NewStreamViewType}}' value='NEW_AND_OLD_IMAGES'> New and old images - both the new and the old images of the item<br>
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'></td>
+								<td>
+									<a class="btn btn-sm btn-primary" on-click="update-stream">Enable</a>
+								</td>
+							</tr>
+						</table>
+					{{else}}
+						<table>
+							<tr>
+								<td align='right' width='350'><b>Stream enabled</b></td>
+								<td>
+									{{#if !describeTable.StreamSpecification}}
+										no
+									{{else}}
+										{{#if describeTable.StreamSpecification.StreamEnabled === true }}
+										yes
+										{{else}}
+										no
+										{{/if}}
+									{{/if}}
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'><b>View type	</b></td>
+								<td>
+									{{#if !describeTable.StreamSpecification}}
+										-
+									{{else}}
+										{{describeTable.StreamSpecification.StreamViewType}}
+									{{/if}}
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'><b>Latest stream ARN</b></td>
+								<td>
+									{{#if !describeTable.LatestStreamArn}}
+										-
+									{{else}}
+										{{describeTable.LatestStreamArn}}
+									{{/if}}
+								</td>
+							</tr>
+							<tr>
+								<td align='right' width='350'>
+									{{#if describeTable.StreamSpecification.StreamEnabled === true}}
+										<a class="btn btn-xs btn-default" on-click="disable-stream">Disable Stream</a>
+									{{else}}
+										<a class="btn btn-xs btn-default" on-click="manage-stream">Manage Stream</a>
+									{{/if}}
+								</td>
+								<td>
+								</td>
+							</tr>
+						</table>
+					{{/if}}
+
+
+					<h3>
+						Table details
+						<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+					</h3>
+					<div style='color:red'>{{ err }}</div>
+					<hr>
+					<table>
+						<tr>
+							<td align='right' width='350'><b>Table ID</b></td>
+							<td> {{ describeTable.TableId }}</td>
+						</tr>
+						<tr>
+							<td align='right' width='350'><b>Table name</b></td>
+							<td> {{ describeTable.TableName }}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Primary partition key</b></td>
+							<td>
+								{{#describeTable.KeySchema:i}}
+									{{#if .KeyType === 'HASH'}}
+										{{.AttributeName}}
+										{{# ~/describeTable.AttributeDefinitions }}
+											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}
+												{{#if .AttributeType === 'S'}}
+													( String )
+												{{/if}}
+												{{#if .AttributeType === 'N'}}
+													( Number )
+												{{/if}}
+												{{#if .AttributeType === 'B'}}
+													( Binary )
+												{{/if}}
+											{{/if}}
+										{{/}}
+									{{/if}}
+								{{/describeTable.KeySchema}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Primary sort key</b></td>
+							<td>
+								{{#describeTable.KeySchema:i}}
+									{{#if .KeyType === 'RANGE'}}
+										{{.AttributeName}}
+										{{# ~/describeTable.AttributeDefinitions }}
+											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}
+												{{#if .AttributeType === 'S'}}
+													( String )
+												{{/if}}
+												{{#if .AttributeType === 'N'}}
+													( Number )
+												{{/if}}
+												{{#if .AttributeType === 'B'}}
+													( Binary )
+												{{/if}}
+											{{/if}}
+										{{/}}
+									{{/if}}
+								{{/describeTable.KeySchema}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Point-in-time recovery</b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td align='right'><b>Encryption</b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td align='right'><b>Time to live attribute</b></td>
+							<td>
+								{{#if TimeToLiveDescription}}
+									{{#if TimeToLiveDescriptionEditing}}
+										TTL attribute <input type="text" value="{{TimeToLiveDescriptionNewField}}"> <a class="btn btn-xs btn-primary" on-click="update-ttl">Save</a>
+									{{else}}
+										{{#if TimeToLiveDescriptionErr}}
+											Error {{TimeToLiveDescriptionErr.errorMessage}}
+										{{else}}
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'ENABLED'}}
+											{{else}}
+												{{TimeToLiveDescription.TimeToLiveStatus}}
+											{{/if}}
+
+											{{TimeToLiveDescription.AttributeName}}
+
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'DISABLED'}}
+												<a href="javascript:void(0)" on-click="manage-ttl" >Manage TTL</a>
+											{{/if}}
+
+											{{#if TimeToLiveDescription.TimeToLiveStatus === 'ENABLED'}}
+												<a href="javascript:void(0)" on-click="disable-ttl" >Disable TTL</a>
+											{{/if}}
+
+										{{/if}}
+									{{/if}}
+								{{else}}
+									Loading...
+								{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Table status</b></td>
+							<td>{{describeTable.TableStatus}}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Creation date</b></td>
+							<td>{{describeTable.CreationDateTime}}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Read/write capacity mode</b></td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}Provisioned{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}On-Demand{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Provisioned read capacity units</b></td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}
+									{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}
+								{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Provisioned write capacity units</b></td>
+							<td>
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}
+									{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}
+								{{/if}}
+								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}
+							</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Last decrease time</b></td>
+							<td>{{describeTable.ProvisionedThroughput.LastDecreaseDateTime || '-' }}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Last increase time</b></td>
+							<td>{{describeTable.ProvisionedThroughput.LastIncreaseDateTime || '-'}}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Storage size (in bytes)</b></td>
+							<td>{{describeTable.TableSizeBytes }}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Item count</b></td>
+							<td>{{ describeTable.ItemCount }}</td>
+						</tr>
+						<tr>
+							<td align='right'><b>Region</b></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td align='right'><b>Amazon Resource Name (ARN)</b></td>
+							<td> {{describeTable.TableArn}}</td>
+						</tr>
+					</table>
+					<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>
+				</div>
+			</scrollarea>
+		</div>
+	`,
+
+	refresh_table: function() {
+		var ractive=this;
+
+		ractive.set('describeTable')
+		ractive.set('TimeToLiveDescriptionEditing')
+		ractive.set('TimeToLiveDescription')
+		ractive.set('TimeToLiveDescriptionErr')
+		ractive.set('TimeToLiveDescriptionNewField','')
+		ractive.set('StreamEditing')
+
+
+		async.waterfall([
+			function( cb ) {
+
+				DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
+					if (err)
+						return cb(err);
+
+					ractive.set('describeTable', data.Table)
+					cb()
+				})
+			},
+
+			function( cb ) {
+				DynamoDB.client.describeTimeToLive( { TableName: ractive.get('table.name')} , function(err, data) {
+					if (err)
+						return ractive.set('TimeToLiveDescriptionErr', err )
+
+					ractive.set('TimeToLiveDescription', data.TimeToLiveDescription )
+					cb()
+				})
+			},
+
+		], function(err) {
+			if (err)
+				ractive.set('err', err.errorMessage )
+
+		})
+
+
+	},
 	data: function() { return {} },
 	oninit: function() {
 		var ractive = this;
-		var refresh_table = function() {
-			ractive.set('describeTable', {})
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
-				if (err)
-					return ractive.set('err', err.errorMessage );
 
-				ractive.set('describeTable', data.Table)
+		ractive.on('manage-ttl', function() {
+			ractive.set('TimeToLiveDescriptionEditing', true )
+			return false;
+		})
+
+		ractive.on('update-ttl', function() {
+			var newfield = ractive.get('TimeToLiveDescriptionNewField').trim()
+			if (!newfield)
+				return alert('invalid field name')
+
+			var params = {
+				TableName: ractive.get('table.name'),
+				TimeToLiveSpecification: {
+					AttributeName: newfield,
+					Enabled: true,
+				}
+			};
+			DynamoDB.client.updateTimeToLive( params , function(err, data) {
+				if (err)
+					return alert('failed ' + err.errorMessage )
+
+				ractive.refresh_table()
+
 			})
 
-		}
+
+		})
+		ractive.on('disable-ttl', function() {
+			if (confirm('Are you sure you want to disable TTL ?')) {
+				var params = {
+					TableName: ractive.get('table.name'),
+					TimeToLiveSpecification: {
+						AttributeName: ractive.get('TimeToLiveDescription.AttributeName'),
+						Enabled: false,
+					}
+				};
+				DynamoDB.client.updateTimeToLive( params , function(err, data) {
+					if (err)
+						return alert('failed ' + err.errorMessage )
+
+					ractive.refresh_table()
+
+				})
+			}
+		})
+
+
+		ractive.on('manage-stream', function() {
+			ractive.set('StreamEditing', true )
+		})
+		ractive.on('update-stream', function() {
+			var type = ractive.get('NewStreamViewType' )
+			DynamoDB.client.updateTable({
+				TableName: ractive.get('table.name'),
+				StreamSpecification: {
+					StreamEnabled: true,
+					StreamViewType: type
+				}
+			}, function(err, data) {
+				if (err)
+					return alert('Failed ' + err.errorMessage);
+
+					ractive.refresh_table()
+				cb()
+			})
+		})
+		ractive.on('disable-stream', function() {
+			if (confirm('Disable stream ?')) {
+				DynamoDB.client.updateTable({
+					TableName: ractive.get('table.name'),
+					StreamSpecification: {
+						StreamEnabled: false,
+					}
+				}, function(err, data) {
+					if (err)
+						return alert('Failed ' + err.errorMessage);
+
+						ractive.refresh_table()
+					cb()
+				})
+
+			}
+		})
 
 		ractive.on('refresh-table', function() {
-			refresh_table()
+			ractive.refresh_table()
 		})
-		refresh_table()
+		ractive.refresh_table()
 
 	},
 })
@@ -918,55 +1031,62 @@ Ractive.components.tablealarms = Ractive.extend({
 
 
 Ractive.components.tablecapacity = Ractive.extend({
-	template: "\
-		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
-			<div style='padding: 30px'>\
-				<h3>\
-					Provisioned capacity\
-					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-				</h3>\
-				<hr>\
-				<table>\
-					<tr>\
-						<td width='160' align='right'></td>\
-						<td width='160'>Read capacity units</td>\
-						<td width='160'>Write capacity units</td>\
-					</tr>\
-					<tr>\
-						<td>Table</td>\
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-						<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-					</tr>\
-					{{#describeTable.GlobalSecondaryIndexes}}\
-					<tr>\
-						<td>{{ .IndexName }}</td>\
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-						<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-					</tr>\
-					{{/describeTable.GlobalSecondaryIndexes}}\
-				</table>\
-				<h3>Auto Scaling</h3>\
-				<hr/>\
-					<small>Auto Scaling not supported by this UI</small>\
-					<br>\
-					<div style='color:red'>{{ err }}&nbsp;</div>\
-					<table>\
-						<tr>\
-							<td width='160'>\
-							<td>\
-								<a class='btn btn-md btn-primary' on-click='save'>Save</a>\
-								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>\
-							</td>\
-						</tr>\
-					</table>\
-			</div>\
-		</scrollarea>\
-	",
+	template: `
+		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+			<div style='padding: 30px'>
+				<h3>
+					Provisioned capacity
+					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+				</h3>
+				<hr>
+					{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}
+						Not applicable because read/write capacity mode is on-demand.<br>
+					{{else}}
+						<table>
+							<tr>
+								<td width='160' align='right'></td>
+								<td width='160'>Read capacity units</td>
+								<td width='160'>Write capacity units</td>
+							</tr>
+							<tr>
+								<td>Table</td>
+								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+							</tr>
+							{{#describeTable.GlobalSecondaryIndexes}}
+							<tr>
+								<td>{{ .IndexName }}</td>
+								<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+								<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+							</tr>
+							{{/describeTable.GlobalSecondaryIndexes}}
+						</table>
+					{{/if}}
+
+
+
+				<h3>Auto Scaling</h3>
+				<hr/>
+					<small>Auto Scaling not supported by this UI</small>
+					<br>
+					<div style='color:red'>{{ err }}&nbsp;</div>
+					<table>
+						<tr>
+							<td width='160'>
+							<td>
+								<a class='btn btn-md btn-primary' on-click='save'>Save</a>
+								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>
+							</td>
+						</tr>
+					</table>
+			</div>
+		</scrollarea>
+	`,
 	oninit: function() {
 		var ractive = this;
 		var refresh_table = function() {
 			ractive.set('describeTable', {})
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+			DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
@@ -1036,7 +1156,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 
 			//console.log('payload', payload )
 
-			routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+			DynamoDB.client.updateTable( payload , function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
@@ -1284,7 +1404,7 @@ Ractive.components.tableindexes = Ractive.extend({
 		var refresh_table = function() {
 			ractive.set('describeTable', {})
 			ractive.set('rows',[])
-			routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
 				if (err)
 					return ractive.set('err', err.message );
 
@@ -1842,8 +1962,7 @@ Ractive.components.tableitems = Ractive.extend({
 			async.waterfall([
 				function(cb) {
 
-					routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
-					//ddb.describeTable({ TableName: ractive.get('table.name')}, function(err, data) {
+					DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
 						if (err)
 							return cb(err);
 
@@ -2276,7 +2395,7 @@ Ractive.components.tableitems = Ractive.extend({
 		})
 
 
-		routeCall({ method: 'describeTable', payload: { TableName: ractive.get('table.name')} }, function(err, data) {
+		DynamoDB.client.describeTable({ TableName: ractive.get('table.name')} , function(err, data) {
 			if (err)
 				return ractive.set('err', err.errorMessage );
 
@@ -2483,63 +2602,6 @@ Ractive.components.tablebrowsesqlhead = Ractive.extend({
 
 */
 
-Ractive.components.tabledata = Ractive.extend({
-	isolated: true,
-	template:
-		"\
-		<div class='tabledata' style='{{style}}'>\
-			<div class='tabledatahead'>\
-				{{#columns:i}}\
-					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
-				{{/columns}}\
-			</div>\
-			<div class='tabledatacontent'>\
-				{{#rows:row}}\
-				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>\
-					{{#each .:i}}\
-					<div class='tabledatacell\
-						{{#if .KEY}}t-K{{/if}}\
-						{{#if .HASH}}t-HASH{{/if}}\
-						{{#if .S}}t-S{{/if}}\
-						{{#if .N}}t-N{{/if}}\
-						{{#if .BOOL}}t-BOOL{{/if}}\
-						{{#if .NULL}}t-NULL{{/if}}\
-						{{#if .L}}t-L{{/if}}\
-						{{#if .M}}t-M{{/if}}\
-						{{#if .U}}t-U{{/if}}\
-						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '\
-						{{#if .HASH}}on-click='cellclick'{{/if}}\
-						>\
-						{{#if .KEY}}\
-							{{#if .selected}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
-							{{else}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
-							{{/if}}\
-						{{/if}}\
-						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\
-						{{#if .S}}{{.S}}{{/if}}\
-						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
-						{{#if .BOOL}}{{.BOOL}}{{/if}}\
-						{{#if .NULL}}NULL{{/if}}\
-						{{#if .L}}[...]{{/if}}\
-						{{#if .M}}{...}{{/if}}\
-					</div>\
-					{{/each}}\
-				</div>\
-				{{/rows}}\
-			</div>\
-		</div>\
-		",
-	data: function() { return {} },
-	oninit: function() {
-		this.on('cellclick', function( e ) {
-			var col = this.get( e.resolve() )
-			this.fire('colclick', undefined, col.item )
-		})
-	}
-})
-
 Ractive.components.tabs = Ractive.extend({
 	//isolated: true,
 	template:
@@ -2621,60 +2683,29 @@ Ractive.components.tabs = Ractive.extend({
 	},
 })
 
-
-
-Ractive.components.login = Ractive.extend({
-	template:
-		"\
-		<div class='loginbox'>					\
-			{{#accounts}}							\
-				<account on-click='switch-account'> \
-					<name>{{.name}}</name>			\
-					<key>{{.key.credentials.accessKeyId}}</key>\
-					<region>{{.key.region}}</region>\
-					<delete on-click='delete-account'><i class='zmdi zmdi-delete'></i></delete>\
-				</account>							\
-			{{/accounts}}						\
-			\
-			<input type='text' value='{{new.endpoint}}'                        placeholder='Endpoint ( for local DynamoDB )'>\
-			<input type='text' value='{{new.key.credentials.accessKeyId}}'     placeholder='AccessKeyId'>\
-			<input type='text' value='{{new.key.credentials.secretAccessKey}}' placeholder='SecretAccessKey'>\
-			<input type='text' value='{{new.key.region}}'                      placeholder='region ie. us-east-1'>\
-			<input type='text' value='{{new.name}}'                            placeholder='Name this config'>\
-			<add on-click='add-account'>Add Account</add>\
-		</div>								\
-		",
-	data: {},
-
-	oninit: function() {
-		var ractive = this
-		ractive.set('accounts', $session.account_list())
-	},
-})
-
 var ddb;
 var DynamoSQL;
 var DynamoDB;
 var DynamodbFactory;
+
+
+
+
+
 Ractive.components.dynamoui = Ractive.extend({
 	template:
-		"\
-			<WindowHost />\
-			<header></header>\
-			<hsplit style='top: 56px;'>\
-				<left>\
-					<minitablelist />\
-				</left>\
-				<content>\
-					<tabs active_id='tables' />\
-				</content>\
-			</hsplit>\
-		",
-	data: function() { return {} },
-	components: {
-		Window: RactiveWindow.default.Window,
-		WindowHost: RactiveWindow.default.WindowHost,
-	},
+		`
+			<hsplit style='top: 56px;'>
+				<left>
+					<minitablelist />
+				</left>
+				<content>
+					<tabs active_id='tables' />
+				</content>
+			</hsplit>
+		`,
+
+
 	oninit: function() {
 		var credentials = this.get('account.key')
 
@@ -2687,7 +2718,19 @@ Ractive.components.dynamoui = Ractive.extend({
 			}
 		}
 
-		ddb = new AWS.DynamoDB(credentials)
+		if (window.installation_type === 'docker') {
+			ddb = new AWS.DynamoDB({
+				endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+				region: deparam( location.href ).region || 'us-east-1',
+				credentials: {
+					accessKeyId: 'myKeyId',
+					secretAccessKey: 'y',
+				}
+			})
+		} else {
+			ddb = new AWS.DynamoDB(credentials)
+		}
+
 		DynamoSQL = new window['@awspilot/dynamodb-sql'](ddb)
 		DynamodbFactory = window['@awspilot/dynamodb']
 		DynamoDB  = new DynamodbFactory(ddb)
@@ -2717,7 +2760,6 @@ Ractive.components.CreateItem = Ractive.extend({
 		ractive.on('create-item', function() {
 			var json = ractive.editor.get();
 			var ddb = DynamoDB
-				.explain()
 				.table( ractive.get('describeTable.TableName') )
 
 			ddb = ddb.if( ractive.get('describeTable.KeySchema.0.AttributeName') ).not_exists()
@@ -2726,17 +2768,13 @@ Ractive.components.CreateItem = Ractive.extend({
 				ddb = ddb.if( ractive.get('describeTable.KeySchema.1.AttributeName') ).not_exists()
 
 			ddb.insert(json, function(err, data ) {
+
 				if (err)
-					return alert('Failed')
+					return alert('Failed: ' + ( err.message || err.errorMessage ) );
 
+				// close window
+				ractive.fire('close-window')
 
-				routeCall( { method: data.method, payload: data.payload } , function(err, data) {
-					if (err)
-						return alert('Failed: ' + ( err.message || err.errorMessage ) );
-
-					// close window
-					ractive.fire('close-window')
-				});
 			})
 
 		})
