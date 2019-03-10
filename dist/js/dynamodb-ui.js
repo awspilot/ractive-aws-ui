@@ -1036,7 +1036,7 @@ Ractive.components.tablecapacity = Ractive.extend({
 			<div style='padding: 30px'>
 				<h3>
 					Provisioned capacity
-					<a class='btn btn-xs pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+					<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
 				</h3>
 				<hr>
 					{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}
@@ -1732,7 +1732,7 @@ Ractive.components.tableitems = Ractive.extend({
 						\
 					</div>\
 				</div>\
-				<a class='btn btn-xs btn-default' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i></a>\
+				<a class='btn btn-xs btn-primary' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i> Create Item </a>\
 				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
 			</div>\
 		</div>\
