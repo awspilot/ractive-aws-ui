@@ -22,13 +22,8 @@ Ractive.components.tablelistfull = Ractive.extend({
 		ractive.set('refresh_tables', true)
 		ractive.set('tables')
 
-		DynamoDB.explain().query('SHOW TABLES', function(err, call ) {
+		DynamoDB.query('SHOW TABLES', function(err, data ) {
 
-
-			if (err)
-				return console.log(err)
-
-			routeCall( call, function( err, data ) {
 				ractive.set('refresh_tables', false)
 
 				if (err)
@@ -37,7 +32,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 				ractive.set('err')
 
 				ractive.set('columns', [ null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity'])
-				ractive.set('rows', data.TableNames.map(function(t) {
+				ractive.set('rows', data.map(function(t) {
 					return [
 						{ KEY: true },
 						{ S: t },
@@ -49,7 +44,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 						{ }
 					]
 				}) )
-				var waterfallz = data.TableNames.map(function(t) {
+				var waterfallz = data.map(function(t) {
 
 					var f = function( cb ) {
 						//console.log(t)
@@ -84,8 +79,7 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 
 				})
-				//ractive.set('tables', data.TableNames )
-			} )
+
 		})
 		//ddb.listTables({}, function(err, data) {
 		//})
