@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd /
-/usr/bin/java -Djava.library.path=/DynamoDBLocal_lib/ -jar DynamoDBLocal.jar -cors * -dbPath /var/dynamo -port 8000 &
+/usr/bin/java -Djava.library.path=/DynamoDBLocal_lib/ -jar DynamoDBLocal.jar -cors * -dbPath /storage/dynamodb -port 8000 &
 
 cd /awsmock/
 export CF_DYNAMODB_ENDPOINT="http://localhost:8000"
@@ -19,15 +19,16 @@ export DYNAMODB_SECRET="secretKey"
 cd /awsmock/htdocs
 node /awsmock/ui.js &
 
-# start cloudformation
+# start cloudformation on port 10001
 /awsmock/node_modules/.bin/cf-mock &
 
-# start dynamodb in-between layer
+# start dynamodb in-between layer on port 10002
 cd /awsmock/htdocs
 node /awsmock/dynamodb.js &
 
 
-
+# start s3-mock on port 10003
+/awsmock/node_modules/.bin/s3rver -d ./storage/s3 -a 0.0.0.0 -p 10003 &
 
 cd /awsmock/htdocs
 node /awsmock/index.js
