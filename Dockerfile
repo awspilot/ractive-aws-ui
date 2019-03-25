@@ -32,6 +32,9 @@ RUN cd /awsmock && npm install
 
 
 
-RUN mkdir /var/dynamo
+RUN mkdir /storage
+RUN mkdir /storage/dynamodb
+RUN mkdir /storage/s3
+
 
 CMD ["sh", "/awsmock/start.sh"]
