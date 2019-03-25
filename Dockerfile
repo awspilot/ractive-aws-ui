@@ -3,7 +3,7 @@
 
 FROM amazonlinux:2
 RUN yum install -y java
-RUN curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y nodejs wget tar gzip
 
 
