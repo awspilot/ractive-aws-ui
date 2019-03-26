@@ -3,6 +3,6 @@
 		"aws-sdk": "*",
 		"@awspilot/cf-mock": "*",
 		"@awspilot/s3-mock": "*",
-		"http-proxy": "~1.0.2"
+		"@awspilot/cloudfront-mock": "*"
 	}
 }
