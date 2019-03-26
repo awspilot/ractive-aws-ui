@@ -5,6 +5,7 @@ FROM amazonlinux:2
 RUN yum install -y java
 RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y nodejs wget tar gzip
+RUN yum install -y net-tools
 
 
 RUN wget -O /tmp/dynamodb_local_latest https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz
