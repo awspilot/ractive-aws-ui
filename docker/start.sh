@@ -28,7 +28,7 @@ node /awsmock/dynamodb.js &
 
 
 # start s3-mock on port 10003
-/awsmock/node_modules/.bin/s3rver -d ./storage/s3 -a 0.0.0.0 -p 10003 &
+/awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 &
 
 cd /awsmock/htdocs
 node /awsmock/index.js
