@@ -13,10 +13,12 @@
 
 		"cloudformation-ui": "concat -o dist/js/cloudformation-ui.js  src/js/cloudformation/cloudformationui.js src/js/cloudformation/c-stacklist.js src/js/cloudformation/c-tabs.js src/js/cloudformation/c-stackcreate.js src/js/cloudformation/c-stackdetails.js",
 
+		"s3-ui": "concat -o dist/js/s3-ui.js  src/js/s3/s3ui.js ",
+
 
 		"mainjs": "concat -o dist/js/main.js src/js/session.js src/js/main.js src/js/c-login.js src/js/c-tabledata.js ",
 		"build-css": "lessc src/css/style.less > dist/css/pack.css",
-		"all": "npm run libs && npm run dynamodb && npm run dynamodb-ui && npm run cloudformation-ui  && npm run mainjs && npm run build-css",
+		"all": "npm run libs && npm run dynamodb && npm run dynamodb-ui && npm run cloudformation-ui && npm run s3-ui  && npm run mainjs && npm run build-css",
 		"dev": "onchange 'src/**/*' -- npm run all"
 	},
 	"repository": {
