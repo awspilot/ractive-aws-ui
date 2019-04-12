@@ -116,6 +116,15 @@ window.addEventListener('load', function() {
 				{{/if}}
 			{{/if}}
 
+			{{#if service === 's3' }}
+				{{#if selected_account}}
+				{{else}}
+					{{#if installation_type === 'docker'}}
+						<s3ui account='{{autoaccount}}' installation_type='{{installation_type}}' region="{{region}}" />
+					{{/if}}
+				{{/if}}
+			{{/if}}
+
 			`,
 		data: function() {
 			return {
