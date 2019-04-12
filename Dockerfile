@@ -12,8 +12,7 @@ RUN wget -O /tmp/dynamodb_local_latest https://s3-us-west-2.amazonaws.com/dynamo
 RUN tar xfz /tmp/dynamodb_local_latest
 RUN rm -f /tmp/dynamodb_local_latest
 
-ADD docker/router.js      /awsmock/router.js
-ADD docker/proxylib.js    /awsmock/proxylib.js
+
 ADD docker/index.js       /awsmock/index.js
 
 
@@ -27,6 +26,7 @@ ADD docker/index.html     /awsmock/htdocs/index.html
 ADD dist                  /awsmock/htdocs/dist
 ADD docker/dynamodb       /awsmock/htdocs/dynamodb
 ADD docker/cloudformation /awsmock/htdocs/cloudformation
+ADD docker/s3             /awsmock/htdocs/s3
 
 
 RUN cd /awsmock && npm install
