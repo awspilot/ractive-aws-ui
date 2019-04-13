@@ -80,10 +80,11 @@ Ractive.components.bucketlist = Ractive.extend({
 		ractive.on('refresh', function() {
 			ractive.bucket_list(function() {})
 		})
-		// 
-		// ractive.on('create-stack', function() {
-		// 	ractive.root.findComponent('cftabs').command('stackcreate', 'Create Stack' )
-		// })
+		
+		ractive.on('create-bucket', function() {
+			ractive.root.findComponent('cftabs').command('bucketcreate', 'Create Bucket' )
+		})
+
 		ractive.on('delete', function() {
 			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
 		
