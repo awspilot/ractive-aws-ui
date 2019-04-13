@@ -14,7 +14,7 @@ Ractive.components.s3ui = Ractive.extend({
 					</div>
 				</left>
 				<content  style="background-color: transparent;border: 0px;">
-					<cftabs active_id='stacklist' />
+					<cftabs active_id='bucketlist' />
 				</content>
 			</hsplit>
 	`,
