@@ -17,7 +17,11 @@ Ractive.components.cftabs = Ractive.extend({
 			</div>
 			{{/if}}
 
-
+			{{#if active_id === "bucketcreate" }}
+			<div style="position: absolute;top: 10px;left: 50px;right: 50px;bottom: 10px;">
+				<bucketcreate />
+			</div>
+			{{/if}}
 
 
 
@@ -32,14 +36,14 @@ Ractive.components.cftabs = Ractive.extend({
 	// 		tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id') )
 	// 	})
 	// },
-	// command: function(component_name, param1 ) {
+	command: function(component_name, param1 ) {
 	// 
 	// 	if (component_name === 'stackdetails' )
 	// 		this.set('stackdetails', param1 )
-	// 
-	// 	this.set('active_id', component_name )
-	// 
-	// },
+	
+		this.set('active_id', component_name )
+	
+	},
 	oninit: function() {
 		var ractive = this
 
