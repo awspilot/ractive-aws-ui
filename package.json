@@ -13,8 +13,7 @@
 
 		"cloudformation-ui": "concat -o dist/js/cloudformation-ui.js  src/js/cloudformation/cloudformationui.js src/js/cloudformation/c-stacklist.js src/js/cloudformation/c-tabs.js src/js/cloudformation/c-stackcreate.js src/js/cloudformation/c-stackdetails.js",
 
-		"s3-ui": "concat -o dist/js/s3-ui.js  src/js/s3/s3ui.js ",
-
+		"s3-ui": "concat -o dist/js/s3-ui.js  src/js/s3/s3ui.js src/js/s3/c-bucketlist.js src/js/s3/c-tabs.js src/js/s3/c-bucketcreate.js",
 
 		"mainjs": "concat -o dist/js/main.js src/js/session.js src/js/main.js src/js/c-login.js src/js/c-tabledata.js ",
 		"build-css": "lessc src/css/style.less > dist/css/pack.css",
