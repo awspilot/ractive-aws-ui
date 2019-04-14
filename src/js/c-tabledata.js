@@ -14,7 +14,7 @@ Ractive.components.tabledata = Ractive.extend({
 					<br><small>Empty</small>
 				{{/if}}
 				{{#if rows === null }}
-					<br><small>Loading</small>
+					<br><small>Loading...</small>
 				{{/if}}
 
 

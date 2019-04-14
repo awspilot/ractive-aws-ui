@@ -98,7 +98,7 @@ Ractive.components.tableindexes = Ractive.extend({
 	refresh_table_indexes: function() {
 		var ractive=this;
 
-		ractive.set('rows',[])
+
 
 			ractive.set('rows',
 				(ractive.get('describeTable').LocalSecondaryIndexes || []).map(function(index){
@@ -264,11 +264,12 @@ Ractive.components.tableindexes = Ractive.extend({
 				ractive.set('tab')
 				ractive.set('newindex')
 				
+				ractive.set('rows', null )
 				setTimeout(function() {
 					ractive.parent.describe_table(function() {
 						ractive.refresh_table_indexes()
 					})
-				},1000)
+				},500)
 			})
 		})
 
@@ -302,11 +303,12 @@ Ractive.components.tableindexes = Ractive.extend({
 					if (err)
 						return alert( err.message );
 
+					ractive.set('rows', null )
 					setTimeout(function() {
 						ractive.parent.describe_table(function() {
 							ractive.refresh_table_indexes()
 						})
-					},1000)
+					},500)
 
 				})
 
@@ -315,6 +317,7 @@ Ractive.components.tableindexes = Ractive.extend({
 		})
 
 		ractive.on('refresh-table', function() {
+			ractive.set('rows', null )
 			ractive.parent.describe_table(function() {
 				ractive.refresh_table_indexes()
 			})
@@ -325,7 +328,7 @@ Ractive.components.tableindexes = Ractive.extend({
 	data: function() {
 		return {
 			columns: [ null, 'Name', 'Status', 'Type', 'Partition key', 'Sort key', 'Attributes', 'Size', 'Item count' ],
-			rows: [],
+			rows: null,
 			//newindex:
 		}
 	}
