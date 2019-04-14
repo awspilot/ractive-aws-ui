@@ -438,16 +438,10 @@ Ractive.components.tableitems = Ractive.extend({
 
 
 			async.waterfall([
-				function(cb) {
 
-					DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
-						if (err)
-							return cb(err);
 
-						ractive.set('describeTable', data.Table )
-						cb()
-					})
-				},
+				// describeTable is set by parent
+
 				function( cb ) {
 					if (ractive.get('type') !== 'scan')
 						return cb()
@@ -778,7 +772,7 @@ Ractive.components.tableitems = Ractive.extend({
 	oninit: function() {
 		var ractive = this
 
-		this.refresh_data(null)
+
 
 
 		this.on('open-item', function( e, col, item ) {
@@ -873,12 +867,7 @@ Ractive.components.tableitems = Ractive.extend({
 		})
 
 
-		DynamoDB.client.describeTable({ TableName: ractive.get('table.name')} , function(err, data) {
-			if (err)
-				return ractive.set('err', err.errorMessage );
 
-			ractive.set('describeTable', data.Table)
-		})
 
 
 		ractive.on('tabledata.selectrow', function(context) {
@@ -979,6 +968,12 @@ Ractive.components.tableitems = Ractive.extend({
 			})
 
 		})
+
+
+		ractive.refresh_data(null)
+
+
+
 	},
 })
 
