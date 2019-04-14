@@ -23,10 +23,8 @@ node /awsmock/ui.js &
 export CF_LOG_REQUESTS=true
 /awsmock/node_modules/.bin/cf-mock &
 
-# start dynamodb in-between layer on port 10002
-cd /awsmock/htdocs
-node /awsmock/dynamodb.js &
-
+# start dynamodb in-between layer on port 1004
+/awsmock/node_modules/.bin/dynamodb-mock &
 
 # start s3-mock on port 10003
 /awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 --silent &
