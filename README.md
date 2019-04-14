@@ -27,7 +27,7 @@ This project is work in progress
 - [ ] Browse data
 -  - [x] Table data
 -  - [x] Show keys first
--  - [?] Delete rows
+-  - [x] Delete Items
 -  - [x] Next page
 -  - [x] Show / hide columns
 -  - [ ] Resize columns
@@ -48,7 +48,8 @@ This project is work in progress
 - [ ] Query history
 
 - [ ] Tools
--  - [ ] Find all item properties & property types
+-  - [ ] Find all item attributes & attribute types
 -  - [ ] Run a transform function on all items
--  - [ ] export table as cloudformation
+-  - [ ] export create table as cloudformation
 -  - [ ] show create table ( SQL )
+
