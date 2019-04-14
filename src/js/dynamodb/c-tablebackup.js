@@ -12,9 +12,9 @@ Ractive.components.tablebackup = Ractive.extend({
 
 				<br>
 				<div>
-					<a class='btn btn-sm btn-primary' on-click='create'>Create backup</a>
-					<a class='btn btn-sm btn-default' on-click='restore'>Restore backup</a>
-					<a class='btn btn-sm btn-default' on-click='delete'>Delete backup</a>
+					<a class='btn btn-sm btn-primary disabled' on-click='create'>Create backup</a>
+					<a class='btn btn-sm btn-default disabled' on-click='restore'>Restore backup</a>
+					<a class='btn btn-sm btn-default disabled' on-click='delete'>Delete backup</a>
 					
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><i class='icon zmdi zmdi-refresh'></i></a>
 				</div>
@@ -27,16 +27,30 @@ Ractive.components.tablebackup = Ractive.extend({
 
 	`,
 	list_backups: function() {
-		DynamoDB.client.listBackups( { TableName: 'created_by_cloudformation',} , function(err, data) {
+		var ractive=this;
+		ractive.set('rows',null);
 
-			console.log("listBackups", err, data )
+		DynamoDB.client.listBackups( { TableName: 'created_by_cloudformation',} , function(err, data) {
+			if (err)
+				return alert('failed getting backup list')
+			
+			ractive.set('rows', data.BackupSummaries.map(function(b) {
+				return {
+					
+				}
+			}))
 
 		});
 	},
 	oninit: function() {
-		
+		var ractive=this;
 
-		this.list_backups()
+		this.on('refresh', function() {
+			ractive.list_backups()
+			
+		})
+
+		ractive.list_backups()
 	},
 	data: function() {
 		return {
