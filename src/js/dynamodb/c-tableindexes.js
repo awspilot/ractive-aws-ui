@@ -93,6 +93,86 @@ Ractive.components.tableindexes = Ractive.extend({
 			{{/if}}\
 		</div>\
 	",
+
+
+	refresh_table_indexes: function() {
+		var ractive=this;
+
+		ractive.set('rows',[])
+
+			ractive.set('rows',
+				(ractive.get('describeTable').LocalSecondaryIndexes || []).map(function(index){
+					var partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
+					var partition_key_type =
+						({S: 'String', N: 'Number', B: 'Binary'})[
+							ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
+								return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
+							})[0].AttributeType
+						];
+					var sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
+					var sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
+								ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
+									return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
+								})[0] || {}
+							).AttributeType
+						] || '';
+
+
+					return [
+						{ KEY: true },
+						{ S: index.IndexName },
+						{ S: 'N/A' },
+						{ S: 'LSI' },
+						{ S: partition_key_name + ' (' + partition_key_type + ' )' },
+						{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
+						{ S: index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '')},
+						{ N: index.IndexSizeBytes.toString() },
+						{ N: index.ItemCount.toString() },
+					]
+				}).concat(
+					(ractive.get('describeTable').GlobalSecondaryIndexes || []).map(function(index){
+						var partition_key_name;
+						var partition_key_type;
+						var sort_key_name;
+						var sort_key_type;
+						var projection = '';
+						try {
+							partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
+							partition_key_type =
+								({S: 'String', N: 'Number', B: 'Binary'})[
+									ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
+										return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
+									})[0].AttributeType
+								];
+							sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
+							sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
+										ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
+											return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
+										})[0] || {}
+									).AttributeType
+								] || '';
+							projection = index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '');
+						} catch(e) {}
+
+
+
+						return [
+							{ KEY: true },
+							{ S: index.IndexName },
+							{ S: index.IndexStatus },
+							{ S: 'GSI' },
+							{ S: partition_key_name + ' (' + partition_key_type + ' )' },
+							{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
+							{ S: projection },
+							{ N: index.hasOwnProperty('IndexSizeBytes') ? index.IndexSizeBytes.toString() : 0 },
+							{ N: index.hasOwnProperty('ItemCount')      ? index.ItemCount.toString()      : 0 },
+						]
+					})
+				)
+			);
+
+	},
+
 	oninit: function() {
 		var ractive = this;
 		ractive.on('tabledata.selectrow', function(context) {
@@ -183,8 +263,12 @@ Ractive.components.tableindexes = Ractive.extend({
 
 				ractive.set('tab')
 				ractive.set('newindex')
-				setTimeout(refresh_table,100)
-
+				
+				setTimeout(function() {
+					ractive.parent.describe_table(function() {
+						ractive.refresh_table_indexes()
+					})
+				},1000)
 			})
 		})
 
@@ -218,98 +302,25 @@ Ractive.components.tableindexes = Ractive.extend({
 					if (err)
 						return alert( err.message );
 
-					setTimeout(refresh_table,1000)
+					setTimeout(function() {
+						ractive.parent.describe_table(function() {
+							ractive.refresh_table_indexes()
+						})
+					},1000)
 
 				})
 
 			}
 
 		})
-		var refresh_table = function() {
-			ractive.set('describeTable', {})
-			ractive.set('rows',[])
-			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function(err, data) {
-				if (err)
-					return ractive.set('err', err.message );
 
-				ractive.set('describeTable', data.Table)
-				ractive.set('rows',
-					(data.Table.LocalSecondaryIndexes || []).map(function(index){
-						var partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
-						var partition_key_type =
-							({S: 'String', N: 'Number', B: 'Binary'})[
-								data.Table.AttributeDefinitions.filter(function(at) {
-									return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
-								})[0].AttributeType
-							];
-						var sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
-						var sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
-									data.Table.AttributeDefinitions.filter(function(at) {
-										return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
-									})[0] || {}
-								).AttributeType
-							] || '';
-
-
-						return [
-							{ KEY: true },
-							{ S: index.IndexName },
-							{ S: 'N/A' },
-							{ S: 'LSI' },
-							{ S: partition_key_name + ' (' + partition_key_type + ' )' },
-							{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
-							{ S: index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '')},
-							{ N: index.IndexSizeBytes.toString() },
-							{ N: index.ItemCount.toString() },
-						]
-					}).concat(
-						(data.Table.GlobalSecondaryIndexes || []).map(function(index){
-							var partition_key_name;
-							var partition_key_type;
-							var sort_key_name;
-							var sort_key_type;
-							var projection = '';
-							try {
-								partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
-								partition_key_type =
-									({S: 'String', N: 'Number', B: 'Binary'})[
-										data.Table.AttributeDefinitions.filter(function(at) {
-											return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
-										})[0].AttributeType
-									];
-								sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
-								sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
-											data.Table.AttributeDefinitions.filter(function(at) {
-												return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
-											})[0] || {}
-										).AttributeType
-									] || '';
-								projection = index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '');
-							} catch(e) {}
-
-
-
-							return [
-								{ KEY: true },
-								{ S: index.IndexName },
-								{ S: index.IndexStatus },
-								{ S: 'GSI' },
-								{ S: partition_key_name + ' (' + partition_key_type + ' )' },
-								{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
-								{ S: projection },
-								{ N: index.hasOwnProperty('IndexSizeBytes') ? index.IndexSizeBytes.toString() : 0 },
-								{ N: index.hasOwnProperty('ItemCount')      ? index.ItemCount.toString()      : 0 },
-							]
-						})
-					)
-				);
-			})
-		}
 		ractive.on('refresh-table', function() {
-			refresh_table()
+			ractive.parent.describe_table(function() {
+				ractive.refresh_table_indexes()
+			})
 		})
 
-		refresh_table()
+		ractive.refresh_table_indexes()
 	},
 	data: function() {
 		return {
