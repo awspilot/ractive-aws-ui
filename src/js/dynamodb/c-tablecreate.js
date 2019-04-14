@@ -159,9 +159,31 @@ Ractive.components.tablecreate = Ractive.extend({
 				</table>
 				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>
 				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>
+
+
+
+				<br>
+				<br>
+				<h4>Read/write capacity mode</h4>
+				<div>
+					Select on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application's throughput requirements. 
+					See the <a target="_blank" href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and <a target="_blank" href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html">DynamoDB Developer Guide</a> to learn more.
+					<br><br>Read/write capacity mode can be changed later.
+				</div>
+				<table cellpadding='10'>
+					<tr>
+						<td></td>
+						<td><input type="radio" name="{{newtable.BillingMode}}" value="PROVISIONED"> Provisioned</td>
+						<td><input type="radio" name="{{newtable.BillingMode}}" value="PAY_PER_REQUEST"> On-demand</td>
+					</tr>
+				</table>
+
 				<br>
 				<br>
 				<h4>Provisioned capacity</h4>
+				
+				
+				{{#if newtable.BillingMode === 'PROVISIONED'}}
 				<table cellpadding='10'>
 					<tr>
 						<td></td>
@@ -181,6 +203,13 @@ Ractive.components.tablecreate = Ractive.extend({
 					</tr>
 					{{/newtable.GlobalSecondaryIndexes}}
 				</table>
+				{{/if}}
+				
+				
+				{{#if newtable.BillingMode === 'PAY_PER_REQUEST'}}
+					Not applicable because read/write capacity mode is on-demand.
+				{{/if}}
+
 				<br>
 				<hr>
 				<div style='color:red'>{{ errorMessage }}&nbsp;</div>
@@ -193,6 +222,7 @@ Ractive.components.tablecreate = Ractive.extend({
 	data: function() {
 		return {
 			newtable: {
+				BillingMode: 'PROVISIONED',
 				ProvisionedThroughput: {
 					ReadCapacityUnits: 1,
 					WriteCapacityUnits: 1,
@@ -291,6 +321,7 @@ Ractive.components.tablecreate = Ractive.extend({
 
 			var payload = {
 				TableName: newtable.TableName,
+				BillingMode: newtable.BillingMode,
 				AttributeDefinitions: newtable.AttributeDefinitions,
 				KeySchema: [
 					{
