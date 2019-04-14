@@ -65,20 +65,24 @@ Ractive.components.tabletab = Ractive.extend({
 		}
 	},
 
-	oninit: function() {
-
-		var ractive = this
-		ractive.on('tab', function(e, tab ) {
-			console.log("tab", e.resolve(), e, tab )
-
-		})
-
+	describe_table: function() {
+		var ractive=this;
 		DynamoDB.client.describeTable({ TableName: ractive.get('table.name')} , function(err, data) {
 			if (err)
 				return ractive.set('err', err.errorMessage );
 
 			ractive.set('describeTable', data.Table)
 		})
+	},
+
+	oninit: function() {
+
+		var ractive = this
+		ractive.observe('tab', function( tab ) {
+			//console.log("tab", tab )
+		})
+
+		ractive.describe_table()
 
 	},
 })
