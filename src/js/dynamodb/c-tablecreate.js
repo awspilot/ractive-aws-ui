@@ -2,84 +2,84 @@
 
 Ractive.components.tablecreate = Ractive.extend({
 	//isolated: true,
-	template: "\
-		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
-			<div style='padding: 30px'>\
-				<h3>Create DynamoDB table</h3>\
-				<br>\
-				<div style='color:red'>{{ err }}</div>\
-				<hr>\
-				DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
-				\
-				<br><br>\
-				<table cellpadding='10'>\
-					<tr>\
-						<td>Table name</td>\
-						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>\
-					</tr>\
-					<tr>\
-						<td>Partition key</td>\
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>\
-						<td>\
-							<select value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					<tr>\
-						<td></td>\
-						<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>\
-					</tr>\
-					{{#if newtable.sort_enabled}}\
-					<tr>\
-						<td>Sort key</td>\
-						<td><input type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>\
-						<td>\
-							<select value='{{ newtable.sort_key_type}}' on-focus='focus'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					{{/if}}\
-				</table>\
-				<br><br>\
-				<h4>Secondary indexes</h4>\
-				<table cellpadding='10' border='0'>\
-					<tr style='background-color: #eadfdf'>\
-						<td>Name</td>\
-						<td>Type</td>\
-						<td>Partition key</td>\
-						<td>Sort key</td>\
-						<td>Projection type</td>\
-						<td>Projected attributes</td>\
-						<td></td>\
-					</tr>\
-					{{#newtable.LocalSecondaryIndexes:i}}\
-					<tr style='background-color: #ffefef'>\
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
-						<td>LSI</td>\
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> ( \
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}\
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}\
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}\
-						)</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'RANGE'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
+	template: `
+		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+			<div style='padding: 30px'>
+				<h3>Create DynamoDB table</h3>
+				<br>
+				<div style='color:red'>{{ err }}</div>
+				<hr>
+				DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.
+				
+				<br><br>
+				<table cellpadding='10'>
+					<tr>
+						<td>Table name</td>
+						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>
+					</tr>
+					<tr>
+						<td>Partition key</td>
+						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>
+						<td>
+							<select value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>
+								<option value='S'>String</option>
+								<option value='N'>Number</option>
+								<option value='B'>Binary</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>
+					</tr>
+					{{#if newtable.sort_enabled}}
+					<tr>
+						<td>Sort key</td>
+						<td><input type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>
+						<td>
+							<select value='{{ newtable.sort_key_type}}' on-focus='focus'>
+								<option value='S'>String</option>
+								<option value='N'>Number</option>
+								<option value='B'>Binary</option>
+							</select>
+						</td>
+					</tr>
+					{{/if}}
+				</table>
+				<br><br>
+				<h4>Secondary indexes</h4>
+				<table cellpadding='10' border='0'>
+					<tr style='background-color: #eadfdf'>
+						<td>Name</td>
+						<td>Type</td>
+						<td>Partition key</td>
+						<td>Sort key</td>
+						<td>Projection type</td>
+						<td>Projected attributes</td>
+						<td></td>
+					</tr>
+					{{#newtable.LocalSecondaryIndexes:i}}
+					<tr style='background-color: #ffefef'>
+						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>
+						<td>LSI</td>
+						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> (
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}
+							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}
+						)</td>
+						<td>
+							{{#.KeySchema }}
+								{{#if .KeyType === 'RANGE'}}
+									<input type='text' value='{{ .AttributeName }}' />
+									<select value='{{ .AttributeType }}'>
+										<option value='S'>String</option>
+										<option value='N'>Number</option>
+										<option value='B'>Binary</option>
+									</select>
+								{{/if}}
+							{{/.KeySchema }}
+						</td>
+						<td>
 							<select value='{{.Projection.ProjectionType}}'>\
 								<option value='ALL'>ALL</option>\
 								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
@@ -87,109 +87,109 @@ Ractive.components.tablecreate = Ractive.extend({
 							</select>\
 						</td>\
 						<td>\
-							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
-							\
-							{{#.Projection.NonKeyAttributes}}\
-								<span class='badge badge-info'>{{.}}</span><br>\
-							{{/.Projection.NonKeyAttributes}}\
-							\
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
-							\
-							{{/if}}\
-						</td>\
-						<td>\
-							<a class='btn btn-xs btn-danger' on-click='lsi-delete'><i class='zmdi zmdi-delete'></i></a>\
-						</td>\
-					</tr>\
-					{{/newtable.LocalSecondaryIndexes}}\
-					\
-					\
-					{{#newtable.GlobalSecondaryIndexes:i}}\
-					<tr style='background-color: #ffefef'>\
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
-						<td>GSI</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'HASH'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'RANGE'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
-							<select value='{{.Projection.ProjectionType}}'>\
-								<option value='ALL'>ALL</option>\
-								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
-								<option value='INCLUDE'>INCLUDE</option>\
-							</select>\
-						</td>\
-						<td>\
-							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
-							\
-							{{#.Projection.NonKeyAttributes}}\
-								<span class='badge badge-info'>{{.}}</span><br>\
-							{{/.Projection.NonKeyAttributes}}\
-							\
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
-							\
-							{{/if}}\
-						</td>\
-						<td>\
-							<a class='btn btn-xs btn-danger' on-click='gsi-delete'><i class='zmdi zmdi-delete'></i></a>\
-						</td>\
-					</tr>\
-					{{/newtable.GlobalSecondaryIndexes}}\
-					\
-				</table>\
-				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>\
-				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>\
-				<br>\
-				<br>\
-				<h4>Provisioned capacity</h4>\
-				<table cellpadding='10'>\
-					<tr>\
-						<td></td>\
-						<td>Read capacity</td>\
-						<td>Write capacity</td>\
-					</tr>\
-					<tr>\
-						<td>Table</td>\
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
-					</tr>\
-					{{#newtable.GlobalSecondaryIndexes:i}}\
-					<tr>\
-						<td>{{.IndexName}} ( GSI )</td>\
-						<td><input type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
-						<td><input type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
-					</tr>\
-					{{/newtable.GlobalSecondaryIndexes}}\
-				</table>\
-				<br>\
-				<hr>\
-				<div style='color:red'>{{ errorMessage }}&nbsp;</div>\
-				<br>\
-				<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
-				<br>\
-			</div>\
-		</scrollarea>\
-	",
+							{{#if .Projection.ProjectionType === 'INCLUDE'}}
+							
+							{{#.Projection.NonKeyAttributes}}
+								<span class='badge badge-info'>{{.}}</span><br>
+							{{/.Projection.NonKeyAttributes}}
+							
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>
+							
+							{{/if}}
+						</td>
+						<td>
+							<a class='btn btn-xs btn-danger' on-click='lsi-delete'><i class='zmdi zmdi-delete'></i></a>
+						</td>
+					</tr>
+					{{/newtable.LocalSecondaryIndexes}}
+					
+					
+					{{#newtable.GlobalSecondaryIndexes:i}}
+					<tr style='background-color: #ffefef'>
+						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>
+						<td>GSI</td>
+						<td>
+							{{#.KeySchema }}
+								{{#if .KeyType === 'HASH'}}
+									<input type='text' value='{{ .AttributeName }}' />
+									<select value='{{ .AttributeType }}'>
+										<option value='S'>String</option>
+										<option value='N'>Number</option>
+										<option value='B'>Binary</option>
+									</select>
+								{{/if}}
+							{{/.KeySchema }}
+						</td>
+						<td>
+							{{#.KeySchema }}
+								{{#if .KeyType === 'RANGE'}}
+									<input type='text' value='{{ .AttributeName }}' />
+									<select value='{{ .AttributeType }}'>
+										<option value='S'>String</option>
+										<option value='N'>Number</option>
+										<option value='B'>Binary</option>
+									</select>
+								{{/if}}
+							{{/.KeySchema }}
+						</td>
+						<td>
+							<select value='{{.Projection.ProjectionType}}'>
+								<option value='ALL'>ALL</option>
+								<option value='KEYS_ONLY'>KEYS_ONLY</option>
+								<option value='INCLUDE'>INCLUDE</option>
+							</select>
+						</td>
+						<td>
+							{{#if .Projection.ProjectionType === 'INCLUDE'}}
+							
+							{{#.Projection.NonKeyAttributes}}
+								<span class='badge badge-info'>{{.}}</span><br>
+							{{/.Projection.NonKeyAttributes}}
+							
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>
+							
+							{{/if}}
+						</td>
+						<td>
+							<a class='btn btn-xs btn-danger' on-click='gsi-delete'><i class='zmdi zmdi-delete'></i></a>
+						</td>
+					</tr>
+					{{/newtable.GlobalSecondaryIndexes}}
+					
+				</table>
+				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>
+				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>
+				<br>
+				<br>
+				<h4>Provisioned capacity</h4>
+				<table cellpadding='10'>
+					<tr>
+						<td></td>
+						<td>Read capacity</td>
+						<td>Write capacity</td>
+					</tr>
+					<tr>
+						<td>Table</td>
+						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
+						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
+					</tr>
+					{{#newtable.GlobalSecondaryIndexes:i}}
+					<tr>
+						<td>{{.IndexName}} ( GSI )</td>
+						<td><input type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
+						<td><input type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
+					</tr>
+					{{/newtable.GlobalSecondaryIndexes}}
+				</table>
+				<br>
+				<hr>
+				<div style='color:red'>{{ errorMessage }}&nbsp;</div>
+				<br>
+				<a class='btn btn-md btn-primary' on-click='create'>Create</a>
+				<br>
+			</div>
+		</scrollarea>
+	`,
 	data: function() {
 		return {
 			newtable: {
