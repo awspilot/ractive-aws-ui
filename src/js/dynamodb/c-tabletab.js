@@ -2,7 +2,7 @@ Ractive.components.tabletab = Ractive.extend({
 	isolated: true,
 	template:
 		`<div class='tableview {{#if active}}active{{/if}}'>
-			<div class='tableview-table-tabs'>
+			<div class='tableview-table-tabs noselect'>
 				<a class='btn-tableview-tab {{#if tab === "info"}}active{{/if}}'         on-click='@this.set("tab","info")'><!-- <i class='zmdi zmdi-info'></i>--> Overview </a>
 				<a class='btn-tableview-tab {{#if tab === "data"}}active{{/if}}'         on-click='@this.set("tab","data")'><!--<i class='zmdi zmdi-format-list-bulleted'></i>--> Items</a>
 				<a class='btn-tableview-tab {{#if tab === "metrics"}}active{{/if}}'      on-click='@this.set("tab","metrics")'><!--<i class='zmdi zmdi-chart'></i>--> Metrics</a>
