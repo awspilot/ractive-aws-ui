@@ -9,6 +9,15 @@ Ractive.components.tabledata = Ractive.extend({
 				{{/columns}}
 			</div>
 			<div class='tabledatacontent'>
+
+				{{#if rows.length === 0}}
+					<br><small>Empty</small>
+				{{/if}}
+				{{#if rows === null }}
+					<br><small>Loading</small>
+				{{/if}}
+
+
 				{{#rows:row}}
 				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>
 					{{#each .:i}}
