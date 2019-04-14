@@ -70,7 +70,7 @@ Ractive.components.tabletab = Ractive.extend({
 		}
 	},
 
-	describe_table: function() {
+	describe_table: function( cb ) {
 		var ractive=this;
 		DynamoDB.client.describeTable({ TableName: ractive.get('table.name') } , function(err, data) {
 			if (err)
@@ -78,6 +78,7 @@ Ractive.components.tabletab = Ractive.extend({
 
 			ractive.set('err')
 			ractive.set('describeTable', data.Table)
+			if (typeof cb === "function") cb()
 		})
 	},
 
