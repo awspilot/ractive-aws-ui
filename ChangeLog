@@ -1,0 +1,6 @@
+
+
+
+14-04-2019
+- global data table - show "empty" and "loading"
+- table browse data and indexes, optimise to call describeTable just once
