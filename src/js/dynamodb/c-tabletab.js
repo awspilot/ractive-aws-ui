@@ -1,5 +1,5 @@
 Ractive.components.tabletab = Ractive.extend({
-	//isolated: true,
+	isolated: true,
 	template:
 		`<div class='tableview {{#if active}}active{{/if}}'>
 			<div class='tableview-table-tabs'>
@@ -14,40 +14,46 @@ Ractive.components.tabletab = Ractive.extend({
 				<a class='btn-tableview-tab {{#if tab === "triggers"}}active{{/if}}'     on-click='@this.set("tab","triggers")'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>
 			</div>
 			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;'>
-				{{#if tab === 'info'}}
-					<tableinfo table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'data'}}
-					<tableitems table='{{.table}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />
-				{{/if}}
-				
-				{{#if tab === 'metrics'}}
-					<tablemetrics table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'alarms'}}
-					<tablealarms table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'capacity'}}
-					<tablecapacity table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'indexes'}}
-					<tableindexes table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'globaltables'}}
-					<tableglobal table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'backups'}}
-					<tablebackup table='{{.table}}'/>
-				{{/if}}
-				
-				{{#if tab === 'triggers'}}
-					<tabletriggers table='{{.table}}'/>
+				{{#if describeTable === null }}
+					<br>Loading...
+				{{else}}
+
+					{{#if tab === 'info'}}
+						<tableinfo table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'data'}}
+						<tableitems table='{{.table}}' describeTable="{{describeTable}}" type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />
+					{{/if}}
+					
+					{{#if tab === 'metrics'}}
+						<tablemetrics table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'alarms'}}
+						<tablealarms table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'capacity'}}
+						<tablecapacity table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'indexes'}}
+						<tableindexes table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'globaltables'}}
+						<tableglobal table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'backups'}}
+						<tablebackup table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+					
+					{{#if tab === 'triggers'}}
+						<tabletriggers table='{{.table}}' describeTable="{{describeTable}}" />
+					{{/if}}
+
 				{{/if}}
 			</div>
 		</div>
@@ -61,14 +67,17 @@ Ractive.components.tabletab = Ractive.extend({
 
 	oninit: function() {
 
-
-
-
-
 		var ractive = this
 		ractive.on('tab', function(e, tab ) {
 			console.log("tab", e.resolve(), e, tab )
 
+		})
+
+		DynamoDB.client.describeTable({ TableName: ractive.get('table.name')} , function(err, data) {
+			if (err)
+				return ractive.set('err', err.errorMessage );
+
+			ractive.set('describeTable', data.Table)
 		})
 
 	},
