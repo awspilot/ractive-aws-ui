@@ -63,3 +63,70 @@ http.createServer(function (request, response) {
 		return;
 	}
 }).listen(10002);
+
+
+
+
+console.log("Starting dynamodb proxy server on port 10004")
+http.createServer(function (client_req, client_res) {
+
+
+
+var body = '';
+client_req.on('data', function (data) {body += data;});
+client_req.on('end', function () {
+
+	console.log("received request ",JSON.stringify({
+		url: client_req.url,
+		hostname: client_req.hostname,
+		host: client_req.host,
+		port: client_req.port,
+		path: client_req.path,
+		method: client_req.method,
+		headers: client_req.headers,
+		//timeout // ms
+	}, null, "\t"));
+
+	client_req.headers.host = 'localhost';
+	var proxy_options = {
+		host: 'localhost',
+		port: 8000,
+		path: '/',
+		method: client_req.method,
+		headers: client_req.headers,
+	}
+
+
+	console.log("proxying request to ", JSON.stringify(proxy_options, null,"\t"))
+
+	var req=http.request(proxy_options, function(res) {
+		var body = '';
+		res.on('data', function (chunk) {
+			body += chunk;
+		});
+		res.on('end', function () {
+			console.log("proxy ended")
+			client_res.writeHead(res.statusCode, res.headers);
+			client_res.end(body);
+		});
+	});
+	req.on('error', function(err) {
+		console.log("proxy errored")
+		console.log("target error")
+		client_req.end('error: ' + err.message);
+	});
+	req.write(body);
+	req.end();
+
+
+
+});
+
+
+
+
+
+
+
+
+}).listen(10004);
