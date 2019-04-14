@@ -20,6 +20,7 @@ cd /awsmock/htdocs
 node /awsmock/ui.js &
 
 # start cloudformation on port 10001
+export CF_LOG_REQUESTS=true
 /awsmock/node_modules/.bin/cf-mock &
 
 # start dynamodb in-between layer on port 10002
@@ -28,7 +29,7 @@ node /awsmock/dynamodb.js &
 
 
 # start s3-mock on port 10003
-/awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 &
+/awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 --silent &
 
 cd /awsmock/htdocs
 node /awsmock/index.js
