@@ -487,7 +487,7 @@ Ractive.components.tableitems = Ractive.extend({
 
 					}
 
-					var ddb = DynamoDB.explain().table(ractive.get('table.name'))
+					var ddb = DynamoDB.table(ractive.get('table.name'))
 					if (LastEvaluatedKey)
 						ddb.resume( LastEvaluatedKey )
 					ddb.limit(100)
@@ -498,20 +498,13 @@ Ractive.components.tableitems = Ractive.extend({
 						if (err)
 							return alert("scan error")
 
-						routeCall( raw.Explain , function(err, data) {
-							if (err)
-								return cb(err);
 
-							dbrows = DynamodbFactory.util.parse({ L:
-									(data.Items || []).map(function(item) { return {'M': item } })
-								})
+						dbrows = data;
 
-							ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-							ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
 
-							cb()
-
-						});
+						cb()
 					})
 				},
 
@@ -601,7 +594,7 @@ Ractive.components.tableitems = Ractive.extend({
 
 					}
 
-					var ddb = DynamoDB.explain().table(ractive.get('table.name'))
+					var ddb = DynamoDB.table(ractive.get('table.name'))
 					if (LastEvaluatedKey)
 						ddb.resume( LastEvaluatedKey )
 					ddb.limit(100)
@@ -631,26 +624,20 @@ Ractive.components.tableitems = Ractive.extend({
 
 					dbrows = []
 					ddb.query(function(err, data, raw ) {
-						if (err)
-							return alert("query error")
+						if (err) {
+							alert("query error")
+							return cb(err)
+						}
 
-						console.log("got raw query ", raw.Explain )
+						dbrows = data;
 
-						routeCall( raw.Explain , function(err, data) {
-							if (err)
-								return cb(err);
+						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
 
-							dbrows = DynamodbFactory.util.parse({ L:
-									(data.Items || []).map(function(item) { return {'M': item } })
-								})
+						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
 
-							ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+						cb()
 
-							ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
 
-							cb()
-
-						});
 					})
 
 				},
@@ -930,15 +917,17 @@ Ractive.components.tableitems = Ractive.extend({
 						Key[k] = {"N": item[k].toString()}
 				})
 
-				var params = {
+				var payload = {
 					Key: Key,
 					TableName: ractive.get('table.name')
 				};
 
-				routeCall( { method: 'deleteItem', payload: params } , function(err, data) {
-					if (err)
-						return console.log("deleting ", Key, " failed err=", err) || cb(err)
-					else
+				DynamoDB.client.deleteItem( payload , function(err, data) {
+
+					if (err) {
+						alert("delete failed " + err.message )
+						return cb(err)
+					} else
 						to_remove_from_list.push(item)
 
 					cb()

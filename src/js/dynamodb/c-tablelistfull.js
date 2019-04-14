@@ -111,10 +111,9 @@ Ractive.components.tablelistfull = Ractive.extend({
 
 			if (confirm('Are you sure you want to delete table ' + tablename )) {
 
-				routeCall({ method: 'deleteTable', payload: { TableName: tablename } }, function(err, data) {
-				//DynamoDB.client.deleteTable({ TableName: tablename } , function(err, data) {
+				DynamoDB.client.deleteTable({ TableName: tablename } , function(err, data) {
 					if (err)
-						return alert( err.errorMessage )
+						return alert( err.message )
 
 					ractive.refresh_tables()
 

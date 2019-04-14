@@ -33,25 +33,7 @@ var json_post = function(url, payload, cb ) {
 	xhr.send(data);
 }
 
-var routeCall = function( call, cb ) {
-	if (window.installation_type === 'apigw') {
-		json_post('/v1/dynamodb', call, function(data) {
-			cb(data.err, data.data )
-		} )
-		return;
-	}
 
-	if (window.installation_type === 'docker') {
-		json_post('/v1/wrapdynamodb', call, function(data) {
-			cb(data.err, data.data )
-		} )
-		return;
-	}
-
-	// call.operation
-	// call.payload
-	console.log("routing call", call )
-};
 window.addEventListener('load', function() {
 	ractive = new Ractive({
 		el: 'body',

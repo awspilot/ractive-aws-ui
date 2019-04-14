@@ -2,6 +2,7 @@
 	"dependencies": {
 		"aws-sdk": "*",
 		"@awspilot/cf-mock": "*",
+		"@awspilot/dynamodb-mock": "*",
 		"@awspilot/s3-mock": "*",
 		"@awspilot/cloudfront-mock": "*"
 	}

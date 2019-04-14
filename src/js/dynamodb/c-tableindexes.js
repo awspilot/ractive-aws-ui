@@ -257,7 +257,8 @@ Ractive.components.tableindexes = Ractive.extend({
 				Create: newindex
 			})
 
-			routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+			DynamoDB.client.updateTable( payload , function(err, data) {
+
 				if (err)
 					return ractive.set('err', err.message || err.errorMessage );
 
@@ -299,7 +300,8 @@ Ractive.components.tableindexes = Ractive.extend({
 					}
 				})
 
-				routeCall({ method: 'updateTable', payload: payload }, function(err, data) {
+				DynamoDB.client.updateTable( payload , function(err, data) {
+
 					if (err)
 						return alert( err.message );
 
