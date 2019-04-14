@@ -17,7 +17,6 @@ ADD docker/index.js       /awsmock/index.js
 
 
 ADD docker/ui.js          /awsmock/ui.js
-ADD docker/dynamodb.js    /awsmock/dynamodb.js
 ADD docker/start.sh       /awsmock/start.sh
 RUN chmod +x              /awsmock/start.sh
 ADD docker/package.json   /awsmock/package.json
