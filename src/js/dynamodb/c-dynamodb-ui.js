@@ -1,7 +1,7 @@
 var ddb;
 var DynamoDB;
 var DynamodbFactory;
-
+var cloudwatch;
 
 
 
@@ -47,6 +47,15 @@ Ractive.components.dynamoui = Ractive.extend({
 
 		DynamodbFactory = window['@awspilot/dynamodb']
 		DynamoDB  = new DynamodbFactory(ddb)
+
+		cloudwatch = new AWS.CloudWatch({
+			endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch',
+			region: deparam( location.href ).region || 'us-east-1',
+			credentials: {
+				accessKeyId: 'myKeyId',
+				secretAccessKey: 'y',
+			}
+		})
 
 	},
 })
