@@ -24,7 +24,16 @@ export CF_LOG_REQUESTS=true
 /awsmock/node_modules/.bin/cf-mock &
 
 # start dynamodb in-between layer on port 1004
+export CW_ENDPOINT='http://localhost:10005/'
 /awsmock/node_modules/.bin/dynamodb-mock &
+
+
+
+# start cw-mock on port 10005
+export CW_DYNAMODB_ENDPOINT='http://localhost:8000'
+export CW_DYNAMODB_KEY='myKeyId'
+export CW_DYNAMODB_SECRET="my-lil-secret"
+/awsmock/node_modules/.bin/cw-mock &
 
 # start s3-mock on port 10003
 /awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 --silent &
