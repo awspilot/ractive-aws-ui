@@ -4,6 +4,7 @@
 		"@awspilot/cf-mock": "*",
 		"@awspilot/dynamodb-mock": "*",
 		"@awspilot/s3-mock": "*",
-		"@awspilot/cloudfront-mock": "*"
+		"@awspilot/cloudfront-mock": "*",
+		"@awspilot/cw-mock": "*"
 	}
 }
