@@ -19,7 +19,7 @@ Ractive.components.tablebackup = Ractive.extend({
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><i class='icon zmdi zmdi-refresh'></i></a>
 				</div>
 
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 160px'/>
+				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px'/>
 
 
 
