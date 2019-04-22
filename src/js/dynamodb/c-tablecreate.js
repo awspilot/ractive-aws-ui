@@ -3,7 +3,7 @@
 Ractive.components.tablecreate = Ractive.extend({
 	//isolated: true,
 	template: `
-		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+		<div style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;overflow-x: auto;'>
 			<div style='padding: 30px'>
 				<h3>Create DynamoDB table</h3>
 				<br>
@@ -217,7 +217,7 @@ Ractive.components.tablecreate = Ractive.extend({
 				<a class='btn btn-md btn-primary' on-click='create'>Create</a>
 				<br>
 			</div>
-		</scrollarea>
+		</div>
 	`,
 	data: function() {
 		return {
