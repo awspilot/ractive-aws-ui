@@ -4,7 +4,7 @@
 Ractive.components.DynamoMetrics = Ractive.extend({
 	template: `
 	
-		<chart style="width: 100%;height: 216px;" series="{{metrics.table.read.series}}" />
+		<chart style="width: 100%;height: 216px;" series="{{metrics.table.read.series}}" debug="{{debug}}"/>
 	`,
 	load_graph_data: function() {
 		var ractive=this;
@@ -42,7 +42,7 @@ Ractive.components.DynamoMetrics = Ractive.extend({
 			StartTime: new Date( new Date().getTime() - (1000*60*60*interval) ),
 			EndTime:   new Date(  ),
 			Namespace: 'AWS/DynamoDB',
-			MetricName: 'ConsumedReadCapacityUnits',
+			MetricName: ractive.get('metric'),
 			Period: period, 
 			Statistics: [ 'Sum' ], 
 			Dimensions: [
@@ -77,6 +77,7 @@ Ractive.components.DynamoMetrics = Ractive.extend({
 	data: function() {
 
 		return {
+			debug: true,
 			metrics: {
 				table: {
 					read: {
@@ -121,8 +122,7 @@ Ractive.components.tablemetrics = Ractive.extend({
 
 			<div style="float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;">
 				<div><b>Read capacity</b> Units/Minute</div>
-				<DynamoMetrics table="{{ describeTable.TableName }}" disabled="Loading..." metric="views" interval="{{interval}}" period="{{period}}" color="#f7a35c" namespace="zopto" />
-				
+				<DynamoMetrics table="{{ describeTable.TableName }}" disabled="Loading..." metric="ConsumedReadCapacityUnits" interval="{{interval}}" period="{{period}}" color="#f7a35c" namespace="AWS/DynamoDB" />
 			</div>
 			
 			<div style="float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;">
@@ -139,8 +139,7 @@ Ractive.components.tablemetrics = Ractive.extend({
 
 			<div style="float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;">
 				<div><b>Write capacity</b> Units/Second</div>
-				<chart style="width: 100%;height: 216px;" disabled="Not Tracked" />
-				
+				<DynamoMetrics table="{{ describeTable.TableName }}" disabled="Loading..." metric="ConsumedWriteCapacityUnits" interval="{{interval}}" period="{{period}}" color="#f7a35c" namespace="AWS/DynamoDB" />
 			</div>
 			
 			<div style="float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;">
