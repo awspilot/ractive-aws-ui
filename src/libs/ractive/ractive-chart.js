@@ -50,6 +50,17 @@ Ractive.components.chart = Ractive.extend({
 						<polyline points="{{marginLeft}},{{height - marginBottom}} {{width - marginRight}}, {{height - marginBottom}}" fill="none" shape-rendering="crispEdges" stroke="#bbb" stroke-width="1"></polyline>
 					</g>
 
+					<g class="ticks">
+						<!-- y axis -->
+						<g class="tick" transform="translate({{ marginLeft - 1 }}, {{ marginTop + 2 }})">
+							{{#each Array( 6 ):i }}
+							<line y1="{{ (yAxis_tickInterval() * i ) }}" x2="-7" y2="{{ (yAxis_tickInterval() * i ) }}" stroke="#bbb" shape-rendering="crispEdges"></line>
+							<text dy=".32em" x="-9" y="{{ (yAxis_tickInterval() * i ) }}" fill="#bbb" style="text-anchor: end;font-size: 10px;"> {{ (5 - i) * ( top_limit()/5 ) }}</text>
+							{{/each}}
+							
+						</g>
+					</g>
+
 					{{#if disabled}}
 						<text x="50%" y="50%" fill="#999" dominant-baseline="middle" text-anchor="middle">{{ disabled }}</text>
 					{{/if}}
@@ -146,9 +157,8 @@ Ractive.components.chart = Ractive.extend({
 				return bar_height;
 			},
 			
-			pixels_per_unit: function() {
+			top_limit: function() {
 
-				var canvas_height = this.get('canvas_height')()
 				var limits_arr = Array(5).fill().map(function(k, i) { return Math.pow(10, i) })
 								.concat(Array(5).fill().map(function(k, i) { return 2 * (( Math.pow(10, i) ) || 1) }))
 								.concat(Array(5).fill().map(function(k, i) { return 5 * (( Math.pow(10, i) ) || 1) }))
@@ -160,6 +170,14 @@ Ractive.components.chart = Ractive.extend({
 				var top_limit = limits_arr[0];
 				limits_arr.map(function(limit) { if ( max < limit ) top_limit = limit; })
 
+				return top_limit;
+			},
+			
+			pixels_per_unit: function() {
+
+				var canvas_height = this.get('canvas_height')()
+
+				var top_limit = this.get('top_limit')()
 				//console.log("top_limit=", top_limit )
 
 				var pixels_per_unit = canvas_height / top_limit
@@ -175,27 +193,8 @@ Ractive.components.chart = Ractive.extend({
 
 				var canvas_height = this.get('canvas_height')()
 
-				// console.log("top_limit=", top_limit )
-				// var number_of_bars = 6;
-				// var units_per_bar = top_limit / 5;
 
-
-				var limits_arr = Array(5).fill().map(function(k, i) { return Math.pow(10, i) })
-								.concat(Array(5).fill().map(function(k, i) { return 2 * (( Math.pow(10, i) ) || 1) }))
-								.concat(Array(5).fill().map(function(k, i) { return 5 * (( Math.pow(10, i) ) || 1) }))
-								.sort(function(a,b) { return a > b ? -1 : 1})
-								.filter(function(v) { return v > 4});
-
-				var series = this.get('series');
-				var max = 0;
-				((series[0] || {}).data || []).map(function(d) {
-					max = Math.max(d[1], max)
-				})
-
-				//console.log("max=", max )
-				
-				var top_limit = limits_arr[0];
-				limits_arr.map(function(limit) { if ( max < limit ) top_limit = limit; })
+				var top_limit = this.get('top_limit')()
 				
 				//console.log("top_limit=", top_limit )
 
@@ -215,7 +214,7 @@ Ractive.components.chart = Ractive.extend({
 			},
 			// defaults
 			marginTop: 20,
-			marginLeft: 20,
+			marginLeft: 35,
 			marginBottom: 20,
 			marginRight: 20,
 		}
