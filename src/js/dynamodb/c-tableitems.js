@@ -3,6 +3,9 @@ Ractive.components.tableitems = Ractive.extend({
 	isolated: true,
 	template: "\
 	<div class='tablebrowse'>\
+		{{#if !describeTable }}\
+			<br>reading table schema...\
+		{{else}}\
 		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
 			<table width='100%' border='0'>\
 				<tr>\
@@ -215,6 +218,7 @@ Ractive.components.tableitems = Ractive.extend({
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' on-colclick='open-item' style='top: 148px'/>\
+		{{/if}}\
 	</div>\
 		",
 
