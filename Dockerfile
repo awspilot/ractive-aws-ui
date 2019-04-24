@@ -21,11 +21,12 @@ ADD docker/start.sh       /awsmock/start.sh
 RUN chmod +x              /awsmock/start.sh
 ADD docker/package.json   /awsmock/package.json
 
+ADD htdocs                  /awsmock/htdocs
 ADD docker/index.html     /awsmock/htdocs/index.html
-ADD dist                  /awsmock/htdocs/dist
 ADD docker/dynamodb       /awsmock/htdocs/dynamodb
 ADD docker/cloudformation /awsmock/htdocs/cloudformation
 ADD docker/s3             /awsmock/htdocs/s3
+ADD dist                  /awsmock/htdocs/dist
 
 
 RUN cd /awsmock && npm install
