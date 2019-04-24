@@ -1,6 +1,8 @@
 
 
-
+24-04-2019
+- fix browse dynamodb data when schema was not loaded yet 
+- embed zmdi fonts ( no internet dependencies 100% local )
 14-04-2019
 - support creating PAY_PER_REQUEST (On-Demand) tables 
 - global data table - show "empty" and "loading"
