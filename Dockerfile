@@ -21,11 +21,7 @@ ADD docker/start.sh       /awsmock/start.sh
 RUN chmod +x              /awsmock/start.sh
 ADD docker/package.json   /awsmock/package.json
 
-ADD htdocs                  /awsmock/htdocs
-ADD docker/index.html     /awsmock/htdocs/index.html
-ADD docker/dynamodb       /awsmock/htdocs/dynamodb
-ADD docker/cloudformation /awsmock/htdocs/cloudformation
-ADD docker/s3             /awsmock/htdocs/s3
+ADD docker/htdocs         /awsmock/htdocs
 ADD dist                  /awsmock/htdocs/dist
 
 
