@@ -1,6 +1,7 @@
 
 
 24-04-2019
+- CORS on /v1/dynamodb endpoint
 - fix browse dynamodb data when schema was not loaded yet 
 - embed zmdi fonts ( no internet dependencies 100% local )
 14-04-2019
