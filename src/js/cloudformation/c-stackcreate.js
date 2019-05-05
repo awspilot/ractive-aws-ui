@@ -5,8 +5,15 @@ Ractive.components.stackcreate = Ractive.extend({
 			{{#if page === 'upload'}}
 				<h3>Create Stack</h3>
 				<div style="box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;max-width: 800px;margin-bottom: 15px;">
+
+					
 					<div style="font-size: 18px;line-height: 30px;background-color: #fafafa;border-bottom: 1px solid #eaeded;padding: 15px 30px;font-weight: 700;color: #000;">Specify template</div>
 					<div style="padding: 30px;">
+
+							{{#if err}}
+								<div class="err" style='color: #dc3636;background-color: #e69ca6;border: 1px solid #ec6b6b;border-radius: 3px;padding: 6px;'>{{ err.message || "Template parse failed" }}</div>
+							{{/if}}
+
 
 							<br>
 							<h4>Specify template</h4>
@@ -96,6 +103,7 @@ Ractive.components.stackcreate = Ractive.extend({
 
 
 		ractive.on('upload', function(e ) {
+			ractive.set('err')
 			$('body').pickafile({
 				//accept: "text/csv",
 				onselect: function(file){
@@ -115,8 +123,11 @@ Ractive.components.stackcreate = Ractive.extend({
 				TemplateBody: ractive.get('newstack.TemplateBody'),
 			};
 			cloudformation.getTemplateSummary(params, function(err, data) {
-				if (err)
-					return alert('Template failed to parse')
+				if (err) {
+					ractive.set('err', err )
+					console.log("getTemplateSummary failed", typeof err, JSON.stringify(err), err.message )
+					return;
+				}
 
 				ractive.set('newstack.Parameters', data.Parameters.map(function(template_parameter) {
 					if (template_parameter.DefaultValue)
