@@ -82,6 +82,9 @@ Ractive.components.stackcreate = Ractive.extend({
 			{{#if page === 'confirm'}}
 				<div style="position: absolute;top: 0px;left: 0px;right:0px;overflow: auto;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color:#fff;">
 					<div style="padding: 30px;">
+
+						<div class="err" style='{{#if !err}}visibility:hidden;{{/if}}color: #dc3636;background-color: #e69ca6;border: 1px solid #ec6b6b;border-radius: 3px;padding: 6px;margin-bottom: 10px;'>{{ err.message || "Create failed" }}</div>
+
 						<a class="btn btn-warning" on-click="create">Create</a>
 					</div>
 				</div>
@@ -143,9 +146,15 @@ Ractive.components.stackcreate = Ractive.extend({
 
 		})
 		ractive.on('goto-confirm', function() {
+			ractive.set('err')
 			ractive.set('page','confirm')
 		})
 		ractive.on('create', function() {
+
+
+			ractive.set('err')
+
+
 
 			var params = ractive.get('newstack');
 			params.Parameters = params.Parameters.map(function(p){ return {
@@ -154,8 +163,10 @@ Ractive.components.stackcreate = Ractive.extend({
 			}});
 			cloudformation.createStack(params, function(err, data) {
 
-				if (err)
-					return alert('create failed')
+				if (err) {
+					ractive.set('err', err )
+					return;
+				}
 
 				setTimeout(function() {
 					ractive.root.findComponent('cftabs').command('stacklist' )
