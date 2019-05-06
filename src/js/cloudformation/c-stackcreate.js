@@ -19,11 +19,13 @@ Ractive.components.stackcreate = Ractive.extend({
 							<h4>Specify template</h4>
 							<p>
 								<li>✅ .yaml or json
+								<li>✅ !Base64, !Join, !Sub
 								<li>✅ !Ref to in-template and pseudo parameters
 								<li>❌ !Ref to another resource
 								<li>❌ !ImportValue, !GetAtt !Transform
-								<li>❌ !Base64 !FindInMap !GetAZs !If !Join !Select !Split !Sub
-								<li>✅ the only partially supported resource type is <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
+								<li>❌ !FindInMap !GetAZs !If !Select !Split 
+								<li>✅ partially supported <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html" target="_blank">AWS::DynamoDB::Table</a>
+								<li>✅ partially supported <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html" target="_blank">AWS::S3::Bucket</a>
 								<li>❌ all other resource types are created as decoy
 							</p>
 							<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
