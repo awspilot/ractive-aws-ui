@@ -6,3 +6,4 @@ Dockerfile
 dynamodb-ui.yaml
 README.md
 run.sh
+package-lock.json
