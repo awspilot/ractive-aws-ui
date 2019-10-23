@@ -46,6 +46,6 @@
 		"onchange": "*"
 	},
 	"dependencies": {
-
+		"@awspilot/ractive-dynamodb-ui": "1.0.0"
 	}
 }
