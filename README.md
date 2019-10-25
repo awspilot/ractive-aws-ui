@@ -14,7 +14,7 @@ This project is work in progress
 -  - [ ] SQL <-> JSON API convertor
 -  - [ ] Query history / log
 -  - [x] Table data
--  - [ ] Item editor
+-  - [x] Item editor
 
 - [ ] Tables
 -  - [x] List
@@ -36,14 +36,14 @@ This project is work in progress
 -  -  - [x] Number
 -  -  - [x] Boolean
 -  -  - [x] Null
--  -  - [ ] Map
--  -  - [ ] List
--  -  - [ ] StringSet
--  -  - [ ] NumberSet
--  -  - [ ] Binary
+-  -  - [x] Map
+-  -  - [x] List
+-  -  - [x] StringSet
+-  -  - [x] NumberSet
+-  -  - [x] Binary
 -  -  - [x] undefined
 -  - [ ] Item property formatting ( eg. timestamp -> date )
-- [ ] Edit item
+- [x] Edit item
 - [ ] Custom query
 - [ ] Query history
 
@@ -52,4 +52,3 @@ This project is work in progress
 -  - [ ] Run a transform function on all items
 -  - [ ] export create table as cloudformation
 -  - [ ] show create table ( SQL )
-
