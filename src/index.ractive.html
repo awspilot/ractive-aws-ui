@@ -15,16 +15,20 @@
 	<header region={{region}} />
 
 
+	<div style="position: absolute;top: 42px;left:0px;right:0px;bottom:0px;overflow:hidden">
 	{{#if service === 'dynamodb'}}
-		<div style="position: absolute;top: 42px;left:0px;right:0px;bottom:0px;overflow:hidden">
-			<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
-		</div>
+		<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
 	{{/if}}
+	{{#if service === 'cloudformation'}}
+		<cloudformationui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudformation"  />
+	{{/if}}
+	</div>
 
 
 <script>
 	import Ractive from 'ractive';
 	import dynamodbui from '@awspilot/ractive-dynamodb-ui';
+	import cloudformationui from '@awspilot/ractive-cloudformation-ui';
 	import header from './header'
 
 
@@ -33,6 +37,7 @@
 		template: $TEMPLATE,
 		components: {
 			dynamodbui: dynamodbui,
+			cloudformationui: cloudformationui,
 			header: header,
 
 			Window: RactiveWindow.default.Window,
