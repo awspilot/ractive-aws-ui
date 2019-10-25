@@ -33,19 +33,22 @@
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-es2015": "^6.24.1",
+
 		"ractive": "^1.3.8",
 		"ractive-bin-loader": "^1.0.1",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^4.41.0",
 		"webpack-cli": "^3.3.9",
+
 		"node-static": "^0.7.11",
+
 		"concat": "^1.0.3",
 		"less": "^3.8.1",
 		"uglify-js": "^3.1.7",
 		"onchange": "*"
 	},
 	"dependencies": {
-		"@awspilot/ractive-cloudformation-ui": "^1.0.1",
+		"@awspilot/ractive-cloudformation-ui": "^1.0.2",
 		"@awspilot/ractive-dynamodb-ui": "1.0.1"
 	}
 }
