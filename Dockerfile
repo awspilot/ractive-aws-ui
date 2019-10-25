@@ -1,5 +1,6 @@
 
 # docker build --no-cache -t awspilotcom/dynamodb-ui .
+# docker run -it -p 10000:80 awspilotcom/dynamodb-ui
 
 FROM amazonlinux:2
 RUN yum install -y java
@@ -21,9 +22,16 @@ ADD docker/start.sh       /awsmock/start.sh
 RUN chmod +x              /awsmock/start.sh
 ADD docker/package.json   /awsmock/package.json
 
-ADD docker/htdocs         /awsmock/htdocs
-ADD dist                  /awsmock/htdocs/dist
+#ADD docker/htdocs         /awsmock/htdocs
 
+
+ADD demo/index.html                /awsmock/htdocs/index.html
+ADD demo/dynamodb/index.html       /awsmock/htdocs/dynamodb/index.html
+ADD demo/cloudformation/index.html /awsmock/htdocs/cloudformation/index.html
+ADD demo/js                        /awsmock/htdocs/js
+ADD demo/css                       /awsmock/htdocs/css
+ADD demo/img                       /awsmock/htdocs/img
+ADD dist/                          /awsmock/htdocs/dist
 
 RUN cd /awsmock && npm install
 
