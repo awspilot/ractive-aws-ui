@@ -53,6 +53,7 @@
 		"onchange": "*"
 	},
 	"dependencies": {
-		"@awspilot/ractive-dynamodb-ui": "1.0.1"
+		"@awspilot/ractive-dynamodb-ui": "1.0.1",
+		"@awspilot/ractive-cloudformation-ui": "1.0.1"
 	}
 }
