@@ -31,6 +31,7 @@ ADD demo/cloudformation/index.html /awsmock/htdocs/cloudformation/index.html
 ADD demo/js                        /awsmock/htdocs/js
 ADD demo/css                       /awsmock/htdocs/css
 ADD demo/img                       /awsmock/htdocs/img
+ADD demo/fonts                     /awsmock/htdocs/fonts
 ADD dist/                          /awsmock/htdocs/dist
 
 RUN cd /awsmock && npm install
