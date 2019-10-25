@@ -1,0 +1,69 @@
+<style>
+	header {position: absolute;top: 0px;left: 0px;right: 0px;height: 41px;}
+	header .region-dropdown {}
+	header .region-dropdown > a {display: inline-block;line-height: 40px;font-size: 12px;margin: 0px 20px 0px 0px;cursor: pointer;color: #eee;}
+	header .region-dropdown > .dropdown-menu > li > a {text-decoration: none;}
+
+	header .services-dropdown {}
+	header .services-dropdown > a {display: inline-block;line-height: 40px;font-size: 14px;font-weight: bold;margin: 0px 20px 0px 0px;cursor: pointer;color: #eee;}
+	header .services-dropdown > .dropdown-menu > li > a {text-decoration: none;}
+
+	body.theme_light header {background-color: #232f3e; }
+</style>
+
+	<WindowHost />
+	<header region={{region}} />
+
+
+	{{#if service === 'dynamodb'}}
+		<div style="position: absolute;top: 42px;left:0px;right:0px;bottom:0px;overflow:hidden">
+			<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
+		</div>
+	{{/if}}
+
+
+<script>
+	import Ractive from 'ractive';
+	import dynamodbui from '@awspilot/ractive-dynamodb-ui';
+	import header from './header'
+
+
+
+	export default Ractive.extend({
+		template: $TEMPLATE,
+		components: {
+			dynamodbui: dynamodbui,
+			header: header,
+
+			Window: RactiveWindow.default.Window,
+			WindowHost: RactiveWindow.default.WindowHost,
+		},
+		css: $CSS,
+
+
+		data: function() {
+			return {
+				region: this.deparam( location.href ).region || 'us-east-1',
+			}
+		},
+
+		deparam: (function(d,x,params,pair,i) {
+		return function (qs) {
+			params = {};
+			qs = qs.substring(qs.indexOf('?')+1).replace(x,' ').split('&');
+			for (i = qs.length; i > 0;) {
+				pair = qs[--i].split('=');
+				params[d(pair[0])] = d(pair[1]);
+			}
+			return params;
+		};//--  fn  deparam
+		})(decodeURIComponent, /\+/g),
+
+		on: {
+			init() {
+				console.log( "deparam", this.deparam( location.href ) )
+			},
+		}
+
+	});
+</script>
