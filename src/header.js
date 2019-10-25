@@ -8,9 +8,8 @@ export default Ractive.extend({
 						<i class="icon zmdi {{#if show_services_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
 					</a>
 					<div class="dropdown-menu {{#if show_services_dropdown}}show{{/if}}">
-						<li><a class="dropdown-item" href="/cloudformation/?region={{region}}">Cloudformation</a>
-						<li><a class="dropdown-item" href="/dynamodb/?region={{region}}">DynamoDB</a>
-						<li><a class="dropdown-item" href="/s3/?region={{region}}">S3</a>
+						<li><a class="dropdown-item" href="../cloudformation/?region={{region}}">Cloudformation</a>
+						<li><a class="dropdown-item" href="../dynamodb/?region={{region}}">DynamoDB</a>
 					</div>
 				</div>
 
