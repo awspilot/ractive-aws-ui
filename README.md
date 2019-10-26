@@ -1,54 +1,16 @@
-### dynamodb-ui
+# ractive-aws-ui
 
-```
-100% client side HTML gui for AWS DynamoDB.
+AWS Console imitation for use with dynamodb-local
 
-This project is work in progress
+## Supported Services
 
-```
+- [x] DynamoDB
+- [X] Cloudformation ( can create DynamoDB tables from cloudformation templates )
 
-- [ ] UI
--  - [x] "Login" page with AWS Credentials
--  - [x] Table list
--  - [ ] Query editor
--  - [ ] SQL <-> JSON API convertor
--  - [ ] Query history / log
--  - [x] Table data
--  - [x] Item editor
+## Preview
 
-- [ ] Tables
--  - [x] List
--  - [ ] Filter
--  - [x] Create
--  - [x] View details
--  - [x] Update
--  - [x] Delete
+@todo
 
-- [ ] Browse data
--  - [x] Table data
--  - [x] Show keys first
--  - [x] Delete Items
--  - [x] Next page
--  - [x] Show / hide columns
--  - [ ] Resize columns
--  - [ ] Data Type
--  -  - [x] String
--  -  - [x] Number
--  -  - [x] Boolean
--  -  - [x] Null
--  -  - [x] Map
--  -  - [x] List
--  -  - [x] StringSet
--  -  - [x] NumberSet
--  -  - [x] Binary
--  -  - [x] undefined
--  - [ ] Item property formatting ( eg. timestamp -> date )
-- [x] Edit item
-- [ ] Custom query
-- [ ] Query history
+## Screenshot
 
-- [ ] Tools
--  - [ ] Find all item attributes & attribute types
--  - [ ] Run a transform function on all items
--  - [ ] export create table as cloudformation
--  - [ ] show create table ( SQL )
+@todo
