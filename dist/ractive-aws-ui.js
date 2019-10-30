@@ -129,10 +129,8 @@ var _header2 = _interopRequireDefault(_header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 exports.default = _ractive2.default.extend({
-	template: { v: 4, t: [{ t: 7, e: "WindowHost" }, " ", { t: 7, e: "header", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 42px;left:0px;right:0px;bottom:0px;overflow:hidden;", g: 1 }], f: [{ t: 4, f: [{ t: 7, e: "dynamodbui", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }, { n: "accessKeyId", f: "myKeyId", t: 13, g: 1 }, { n: "secretAccessKey", f: "y", t: 13, g: 1 }, { n: "endpoint", f: [{ t: 2, r: "dynamodb_endpoint" }], t: 13 }, { n: "cwendpoint", f: [{ t: 2, r: "cloudwatch_endpoint" }], t: 13 }] }], n: 50, x: { r: ["service"], s: "_0===\"dynamodb\"" } }, " ", { t: 4, f: [{ t: 7, e: "cloudformationui", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }, { n: "accessKeyId", f: "myKeyId", t: 13, g: 1 }, { n: "secretAccessKey", f: "y", t: 13, g: 1 }, { n: "endpoint", f: [{ t: 2, r: "cloudformation_endpoint" }], t: 13 }] }], n: 50, x: { r: ["service"], s: "_0===\"cloudformation\"" } }] }], e: { "_0===\"dynamodb\"": function _0Dynamodb(_0) {
+	template: { v: 4, t: [{ t: 7, e: "WindowHost" }, " ", { t: 7, e: "header", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }] }, " ", { t: 7, e: "div", m: [{ t: 13, n: "style", f: "position: absolute;top: 41px;left:0px;right:0px;bottom:0px;overflow:hidden;", g: 1 }], f: [{ t: 4, f: [{ t: 7, e: "dynamodbui", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }, { n: "accessKeyId", f: "myKeyId", t: 13, g: 1 }, { n: "secretAccessKey", f: "y", t: 13, g: 1 }, { n: "endpoint", f: [{ t: 2, r: "dynamodb_endpoint" }], t: 13 }, { n: "cwendpoint", f: [{ t: 2, r: "cloudwatch_endpoint" }], t: 13 }] }], n: 50, x: { r: ["service"], s: "_0===\"dynamodb\"" } }, " ", { t: 4, f: [{ t: 7, e: "cloudformationui", m: [{ n: "region", f: [{ t: 2, r: "region" }], t: 13 }, { n: "accessKeyId", f: "myKeyId", t: 13, g: 1 }, { n: "secretAccessKey", f: "y", t: 13, g: 1 }, { n: "endpoint", f: [{ t: 2, r: "cloudformation_endpoint" }], t: 13 }] }], n: 50, x: { r: ["service"], s: "_0===\"cloudformation\"" } }] }], e: { "_0===\"dynamodb\"": function _0Dynamodb(_0) {
 				return _0 === "dynamodb";
 			}, "_0===\"cloudformation\"": function _0Cloudformation(_0) {
 				return _0 === "cloudformation";
@@ -148,13 +146,17 @@ exports.default = _ractive2.default.extend({
 	css: " header {position: absolute;top: 0px;left: 0px;right: 0px;height: 41px;} header .region-dropdown {} header .region-dropdown > a {display: inline-block;line-height: 40px;font-size: 12px;margin: 0px 20px 0px 0px;cursor: pointer;color: #eee;} header .region-dropdown > .dropdown-menu > li > a {text-decoration: none;} header .services-dropdown {} header .services-dropdown > a {display: inline-block;line-height: 40px;font-size: 14px;font-weight: bold;margin: 0px 20px 0px 0px;cursor: pointer;color: #eee;} header .services-dropdown > .dropdown-menu > li > a {text-decoration: none;} body.theme_light header {background-color: #232f3e; }",
 
 	data: function data() {
-		var _ref;
-
-		return _ref = {
+		return {
 			region: this.deparam(location.href).region || 'us-east-1',
 
-			dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb'
-		}, _defineProperty(_ref, 'dynamodb_endpoint', 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb'), _defineProperty(_ref, 'cloudwatch_endpoint', location.protocol + '//' + location.host + '/v1/cloudwatch'), _defineProperty(_ref, 'cloudformation_endpoint', location.protocol + '//' + location.host + '/v1/cloudformation'), _defineProperty(_ref, 'cloudformation_endpoint', 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation'), _ref;
+			dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+			//dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
+
+			cloudwatch_endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch', // https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch
+
+			cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation'
+			//cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
+		};
 	},
 
 	deparam: function (d, x, params, pair, i) {

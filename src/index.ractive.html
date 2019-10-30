@@ -15,7 +15,7 @@
 	<header region={{region}} />
 
 
-	<div style="position: absolute;top: 42px;left:0px;right:0px;bottom:0px;overflow:hidden">
+	<div style="position: absolute;top: 41px;left:0px;right:0px;bottom:0px;overflow:hidden">
 	{{#if service === 'dynamodb'}}
 		<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{dynamodb_endpoint}} cwendpoint={{cloudwatch_endpoint}} />
 	{{/if}}
@@ -51,12 +51,12 @@
 				region: this.deparam( location.href ).region || 'us-east-1',
 
 				dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
-				dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
+				//dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
 
 				cloudwatch_endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch', // https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch
 
 				cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation',
-				cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
+				//cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
 			}
 		},
 
