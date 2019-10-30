@@ -1,32 +1,23 @@
 {
-	"name": "dynamodb-ui",
+	"name": "ractive-aws-ui",
 	"version": "1.0.0",
-	"description": "100% client side HTML gui for AWS DynamoDB.",
+	"description": "100% client side GUI to DynamoDB and limited Cloudformation",
 	"scripts": {
 		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 1111",
 		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"libs": "mkdir -p dist/js && concat -o dist/js/libs.js src/libs/dynamodb/aws-sdk-2.449.0.custom.js src/libs/async-2.6.0.js src/libs/promise-6.1.0.js src/libs/jquery/jquery.js src/libs/ractive/ractive-1.0.0-build-107.min.js src/libs/ractive/ractive-window.min.js src/libs/ractive/ractive-tooltip.js src/libs/ractive/ractive-scrollarea.js src/libs/ractive/ractive-chart.js src/libs/ractive/ractive-split.js src/libs/ace/ace-1.2.9.js src/libs/ractive/ractive-ace.js src/libs/ace/mode_sql.js  src/libs/ace/custom.js src/libs/ace/jsoneditor-minimalist.js src/libs/jquery/jquery.pickafile.js ",
-		"dynamodb": "concat -o dist/js/dynamodb.js src/libs/dynamodb/dynamodbjs.js",
-		"dynamodb-ui": "concat -o dist/js/dynamodb-ui.js  src/js/dynamodb/c-minitablelist.js src/js/dynamodb/c-tablelistfull.js src/js/dynamodb/c-tablecreate.js src/js/dynamodb/c-tabletab.js src/js/dynamodb/c-tableinfo.js src/js/dynamodb/c-tablemetrics.js src/js/dynamodb/c-tablealarms.js src/js/dynamodb/c-tablecapacity.js src/js/dynamodb/c-tableindexes.js src/js/dynamodb/c-tableglobal.js src/js/dynamodb/c-tablebackup.js src/js/dynamodb/c-tabletriggers.js src/js/dynamodb/c-tableitems.js src/js/dynamodb/c-tabs.js src/js/dynamodb/c-dynamodb-ui.js src/js/dynamodb/win-item-create.js src/js/dynamodb/win-item-view.js",
-		"cloudformation-ui": "concat -o dist/js/cloudformation-ui.js  src/js/cloudformation/cloudformationui.js src/js/cloudformation/c-stacklist.js src/js/cloudformation/c-tabs.js src/js/cloudformation/c-stackcreate.js src/js/cloudformation/c-stackdetails.js",
-		"s3-ui": "concat -o dist/js/s3-ui.js  src/js/s3/s3ui.js src/js/s3/c-bucketlist.js src/js/s3/c-tabs.js src/js/s3/c-bucketcreate.js",
-		"mainjs": "concat -o dist/js/main.js src/js/session.js src/js/main.js src/js/c-login.js src/js/c-tabledata.js ",
-		"build-css": "lessc src/css/style.less > dist/css/pack.css",
-		"all": "npm run libs && npm run dynamodb && npm run dynamodb-ui && npm run cloudformation-ui && npm run s3-ui  && npm run mainjs && npm run build-css",
-		"dev": "onchange 'src/**/*' -- npm run all"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/adrianpraja/dynamodb-ui.git"
+		"url": "git+https://github.com/awspilot/ractive-aws-ui.git"
 	},
 	"author": "",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/adrianpraja/dynamodb-ui/issues"
+		"url": "https://github.com/awspilot/ractive-aws-ui/issues"
 	},
-	"homepage": "https://github.com/adrianpraja/dynamodb-ui#readme",
+	"homepage": "https://github.com/awspilot/ractive-aws-ui#readme",
 	"devDependencies": {
 		"babel-core": "^6.26.3",
 		"babel-loader": "^7.1.5",
@@ -40,12 +31,8 @@
 		"webpack": "^4.41.0",
 		"webpack-cli": "^3.3.9",
 
-		"node-static": "^0.7.11",
+		"node-static": "^0.7.11"
 
-		"concat": "^1.0.3",
-		"less": "^3.8.1",
-		"uglify-js": "^3.1.7",
-		"onchange": "*"
 	},
 	"dependencies": {
 		"@awspilot/ractive-cloudformation-ui": "^1.0.2",
