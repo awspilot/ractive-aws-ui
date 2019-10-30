@@ -154,7 +154,7 @@ exports.default = _ractive2.default.extend({
 			region: this.deparam(location.href).region || 'us-east-1',
 
 			dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb'
-		}, _defineProperty(_ref, 'dynamodb_endpoint', 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb'), _defineProperty(_ref, 'cloudwatch_endpoint', location.protocol + '//' + location.host + '/v1/cloudwatch'), _defineProperty(_ref, 'cloudformation_endpoint', location.protocol + '//' + location.host + '/v1/cloudformation'), _ref;
+		}, _defineProperty(_ref, 'dynamodb_endpoint', 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb'), _defineProperty(_ref, 'cloudwatch_endpoint', location.protocol + '//' + location.host + '/v1/cloudwatch'), _defineProperty(_ref, 'cloudformation_endpoint', location.protocol + '//' + location.host + '/v1/cloudformation'), _defineProperty(_ref, 'cloudformation_endpoint', 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation'), _ref;
 	},
 
 	deparam: function (d, x, params, pair, i) {
