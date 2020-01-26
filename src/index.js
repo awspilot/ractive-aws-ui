@@ -26,7 +26,7 @@
 					<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{dynamodb_endpoint}} cwendpoint={{cloudwatch_endpoint}} theme={{theme}} />
 				{{/if}}
 				{{#if service === 'cloudformation'}}
-					<cloudformationui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{cloudformation_endpoint}}  />
+					<cloudformationui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{cloudformation_endpoint}} theme={{theme}} />
 				{{/if}}
 			</div>
 		</div>
@@ -44,13 +44,13 @@
 				region: this.deparam( location.href ).region || 'us-east-1',
 				theme:  this.deparam( location.href ).theme || 'aws',
 
-				dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
-				//dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
+				//dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+				dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
 
 				cloudwatch_endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch', // https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch
 
-				cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation',
-				//cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
+				//cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation',
+				cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
 			}
 		},
 

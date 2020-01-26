@@ -3,6 +3,7 @@
 @import (less) "~@awspilot/ractive-dynamodb-ui/dist/ractive-dynamodb-ui.min.css";
 @import (less) "~@awspilot/ractive-cloudformation-ui/dist/ractive-cloudformation-ui.min.css";
 
+body {font-family: sans-serif;}
 
 .awspilot-ractive-aws-ui {}
 
@@ -16,3 +17,62 @@
 .awspilot-ractive-aws-ui > header .services-dropdown > .dropdown-menu > li > a {text-decoration: none;}
 
 .awspilot-ractive-aws-ui > header {background-color: #232f3e; }
+
+
+.awspilot-ractive-aws-ui > header .pull-right {
+    float: right!important;
+}
+
+.awspilot-ractive-aws-ui > header .pull-left {
+    float: left!important;
+}
+
+.awspilot-ractive-aws-ui > header .dropdown {
+    position: relative;
+}
+
+.awspilot-ractive-aws-ui > header .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    /*left: 0;*/
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.awspilot-ractive-aws-ui > header .dropdown-menu.right {
+  right: 0px;
+}
+
+
+.awspilot-ractive-aws-ui > header .dropdown-menu.show {
+    display: block!important;
+}
+
+.awspilot-ractive-aws-ui > header .dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.awspilot-ractive-aws-ui > header .dropdown-menu>li>a:hover {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}

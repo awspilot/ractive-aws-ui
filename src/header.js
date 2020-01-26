@@ -21,7 +21,7 @@ export default Ractive.extend({
 						{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
 						<i class="icon zmdi {{#if show_region_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
 					</a>
-					<div class="dropdown-menu {{#if show_region_dropdown}}show{{/if}}">
+					<div class="dropdown-menu right {{#if show_region_dropdown}}show{{/if}}">
 						{{#regions}}
 							<li class="{{#if region === .id }}active{{/if}}"><a class="dropdown-item" href="?region={{.id}}">{{.name}}</a>
 						{{/regions}}
@@ -34,7 +34,7 @@ export default Ractive.extend({
 						{{#themes}}{{#if theme === .id }}{{.name}}{{/if}}{{/themes}}
 						<i class="icon zmdi {{#if show_theme_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
 					</a>
-					<div class="dropdown-menu {{#if show_theme_dropdown}}show{{/if}}">
+					<div class="dropdown-menu right {{#if show_theme_dropdown}}show{{/if}}">
 						{{#themes}}
 							<li class="{{#if theme === .id }}active{{/if}}"><a class="dropdown-item" on-click="set-theme">{{.name}}</a>
 						{{/themes}}
