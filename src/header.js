@@ -5,7 +5,16 @@ export default Ractive.extend({
 				<div class="dropdown services-dropdown pull-left" style="margin-left: 100px;">
 					<a on-click="@this.toggle('show_services_dropdown')">
 						Services
-						<i class="icon zmdi {{#if show_services_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+
+						{{#if show_services_dropdown}}
+						<svg id="i-chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 20 L16 8 2 20" />
+						</svg>
+						{{else}}
+						<svg id="i-chevron-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 12 L16 24 2 12" />
+						</svg>
+						{{/if}}
 					</a>
 					<div class="dropdown-menu {{#if show_services_dropdown}}show{{/if}}">
 						<li><a class="dropdown-item" href="../cloudformation/?region={{region}}">Cloudformation</a>
@@ -19,7 +28,17 @@ export default Ractive.extend({
 				<div class="dropdown region-dropdown pull-right">
 					<a on-click="@this.toggle('show_region_dropdown')">
 						{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
-						<i class="icon zmdi {{#if show_region_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+
+						{{#if show_region_dropdown}}
+						<svg id="i-chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 20 L16 8 2 20" />
+						</svg>
+						{{else}}
+						<svg id="i-chevron-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 12 L16 24 2 12" />
+						</svg>
+						{{/if}}
+
 					</a>
 					<div class="dropdown-menu right {{#if show_region_dropdown}}show{{/if}}">
 						{{#regions}}
@@ -32,7 +51,18 @@ export default Ractive.extend({
 				<div class="dropdown region-dropdown pull-right">
 					<a on-click="@this.toggle('show_theme_dropdown')">
 						{{#themes}}{{#if theme === .id }}{{.name}}{{/if}}{{/themes}}
-						<i class="icon zmdi {{#if show_theme_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+
+						{{#if show_theme_dropdown}}
+						<svg id="i-chevron-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 20 L16 8 2 20" />
+						</svg>
+						{{else}}
+						<svg id="i-chevron-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+						    <path d="M30 12 L16 24 2 12" />
+						</svg>
+						{{/if}}
+
+
 					</a>
 					<div class="dropdown-menu right {{#if show_theme_dropdown}}show{{/if}}">
 						{{#themes}}
