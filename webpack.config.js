@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	node: false,
@@ -16,10 +17,11 @@ module.exports = {
 		})]
 	},
 	plugins: [
+		new MiniCssExtractPlugin({ filename: "[name].css" }), // { filename: "[name].[contentHash].css" }
 	],
 	entry: {
-		'ractive-aws-ui': path.resolve(__dirname, './src/index.ractive.html'),
-		'ractive-aws-ui.min': path.resolve(__dirname, './src/index.ractive.html')
+		'ractive-aws-ui': path.resolve(__dirname, './src/index.js'),
+		'ractive-aws-ui.min': path.resolve(__dirname, './src/index.js')
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -46,24 +48,32 @@ module.exports = {
 	},
 	module: {
 		rules: [
+
+			{
+				test: /\.less$/,
+				use: [
+					MiniCssExtractPlugin.loader, // extract css into files
+					{
+						loader: 'css-loader', // translates CSS into CommonJS
+					},
+					{
+						loader: 'less-loader', // compiles Less to CSS
+						// options: {
+						//	paths: [path.resolve(__dirname, 'node_modules')],
+						// 	strictMath: true,
+						// 	noIeCompat: true,
+						// },
+					},
+				],
+			},
+
+
 			{
 					test: /\.js$/,
-					exclude: /(node_modules|bower_components)/,
+					exclude: /node_modules/,
 					use: 'babel-loader'
 			},
-			{
-					test: /\.ractive\.html$/,
-					use: 'babel-loader'
-			},
-			{
-				test: /\.ractive\.html$/,
-				exclude: /(node_modules|bower_components)/,
-				use: [
-					{
-						loader: 'ractive-bin-loader'
-					}
-				]
-			}
+
 		]
 	}
 }
