@@ -18,12 +18,12 @@
 		template: `
 		<div class="awspilot-ractive-aws-ui">
 			<WindowHost />
-			<header region={{region}} />
+			<header region={{region}} theme={{theme}} />
 
 
 			<div style="position: absolute;top: 41px;left:0px;right:0px;bottom:0px;overflow:hidden">
 				{{#if service === 'dynamodb'}}
-					<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{dynamodb_endpoint}} cwendpoint={{cloudwatch_endpoint}} theme="aws" />
+					<dynamodbui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{dynamodb_endpoint}} cwendpoint={{cloudwatch_endpoint}} theme={{theme}} />
 				{{/if}}
 				{{#if service === 'cloudformation'}}
 					<cloudformationui region={{region}} accessKeyId="myKeyId" secretAccessKey="y" endpoint={{cloudformation_endpoint}}  />
@@ -39,12 +39,13 @@
 			Window: RactiveWindow.default.Window,
 			WindowHost: RactiveWindow.default.WindowHost,
 		},
-		css: $CSS,
+
 
 
 		data: function() {
 			return {
 				region: this.deparam( location.href ).region || 'us-east-1',
+				theme:  this.deparam( location.href ).theme || 'aws',
 
 				//dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
 				dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
@@ -72,6 +73,9 @@
 			init() {
 				console.log( "deparam", this.deparam( location.href ) )
 			},
+		},
+		set_theme( theme ) {
+			this.set({theme:theme})
 		}
 
 	});

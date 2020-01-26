@@ -13,6 +13,9 @@ export default Ractive.extend({
 					</div>
 				</div>
 
+
+
+
 				<div class="dropdown region-dropdown pull-right">
 					<a on-click="@this.toggle('show_region_dropdown')">
 						{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
@@ -24,6 +27,22 @@ export default Ractive.extend({
 						{{/regions}}
 					</div>
 				</div>
+
+
+				<div class="dropdown region-dropdown pull-right">
+					<a on-click="@this.toggle('show_theme_dropdown')">
+						{{#themes}}{{#if theme === .id }}{{.name}}{{/if}}{{/themes}}
+						<i class="icon zmdi {{#if show_theme_dropdown}}zmdi-chevron-up{{else}}zmdi-chevron-down{{/if}}"></i>
+					</a>
+					<div class="dropdown-menu {{#if show_theme_dropdown}}show{{/if}}">
+						{{#themes}}
+							<li class="{{#if theme === .id }}active{{/if}}"><a class="dropdown-item" on-click="set-theme">{{.name}}</a>
+						{{/themes}}
+					</div>
+				</div>
+
+
+
 		</header>
 	`,
 	data: function() {
@@ -48,6 +67,16 @@ export default Ractive.extend({
 				{ id: 'sa-east-1',      name: 'South America (Sao Paulo)'},
 
 			],
+
+			themes: [
+				{ id: 'aws', name: 'AWS (Theme)' },
+				{ id: 'windows', name: 'Windows Classic (Theme)' },
+			]
 		}
 	},
+	on: {
+		'set-theme': function(e) {
+			this.parent.set_theme(this.get(e.resolve() + '.id'))
+		}
+	}
 })
