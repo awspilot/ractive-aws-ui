@@ -17,7 +17,7 @@
 	export default Ractive.extend({
 		template: `
 		<div class="awspilot-ractive-aws-ui">
-			<WindowHost />
+
 			<header region={{region}} theme={{theme}} />
 
 
@@ -35,9 +35,6 @@
 			dynamodbui: dynamodbui,
 			cloudformationui: cloudformationui,
 			header: header,
-
-			Window: RactiveWindow.default.Window,
-			WindowHost: RactiveWindow.default.WindowHost,
 		},
 
 
