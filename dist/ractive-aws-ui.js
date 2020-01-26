@@ -144,13 +144,13 @@ exports.default = _ractive2.default.extend({
 			region: this.deparam(location.href).region || 'us-east-1',
 			theme: this.deparam(location.href).theme || 'aws',
 
-			//dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
-			dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
+			dynamodb_endpoint: location.protocol + '//' + location.host + '/v1/dynamodb',
+			//dynamodb_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/dynamodb',
 
 			cloudwatch_endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch', // https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch
 
-			//cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation',
-			cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation'
+			cloudformation_endpoint: location.protocol + '//' + location.host + '/v1/cloudformation'
+			//cloudformation_endpoint: 'https://djaorxfotj9hr.cloudfront.net/v1/cloudformation',
 		};
 	},
 
