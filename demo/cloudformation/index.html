@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Cloudformation Management Console</title>
+		<title>Cloudformation - AWSPilot Console</title>
 		<meta charset="utf-8" />
 		<link href="../img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
 		<link href="../img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 
 		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../css/material-design-iconic-font.css" />
-		<link rel="stylesheet" href="../css/ractive-window.css" />
+		<link rel="stylesheet" href="../css/material-design-iconic-font.css" /> <!-- needed by header, cloudformation-ui -->
+		<!--<link rel="stylesheet" href="../css/ractive-window.css" />-->
+
+		<link rel="stylesheet" href="../../dist/ractive-aws-ui.css" />
 
 		<script src="../js/async.js"></script>
 		<script src="../js/jquery.js"></script>
 		<script src="../js/aws-sdk-2.552.0.min.js"></script>
-		<script src="../js/dynamodbjs.js"></script>
 		<script src="../js/ractive-1.3.8.js"></script>
-		<script src="../js/ractive-window.min.js"></script>
 		<script src="../../dist/ractive-aws-ui.js"></script>
 	</head>
 	<body class="theme_light">
@@ -23,8 +23,6 @@
 	<script>
 
 		var cloudformation;
-
-		// Ractive.components['dynamodb-ui'] = window['dynamodb-ui'];
 
 		var ractive = new Ractive({
 			el: 'body',
