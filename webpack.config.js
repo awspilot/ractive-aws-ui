@@ -37,7 +37,12 @@ module.exports = {
 			commonjs2: 'ractive',
 			amd: 'ractive',
 			root: 'Ractive'
-		}
+		},
+		"aws-sdk": {
+				commonjs: 'aws-sdk',
+				commonjs2: 'aws-sdk',
+				root: 'AWS'
+		},
 	},
 	module: {
 		rules: [
