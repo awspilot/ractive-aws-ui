@@ -71,6 +71,8 @@ export default Ractive.extend({
 			themes: [
 				{ id: 'aws', name: 'AWS (Theme)' },
 				{ id: 'windows', name: 'Windows Classic (Theme)' },
+				{ id: 'atomlight', name: 'Aton Light (Theme)' },
+				{ id: 'atomdark', name: 'Aton Dark (Theme)' },
 			]
 		}
 	},
