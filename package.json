@@ -3,10 +3,8 @@
 	"version": "1.0.0",
 	"description": "100% client side GUI to DynamoDB and limited Cloudformation",
 	"scripts": {
-		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 1111",
-		"build": "webpack",
-		"watch": "webpack --config webpack.config.js --watch",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 1111:80 nginx",
+		"start": "webpack -w --config webpack.config.js"
 	},
 	"repository": {
 		"type": "git",
