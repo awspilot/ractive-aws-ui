@@ -2,8 +2,8 @@
 export default Ractive.extend({
 	template: `
 		<header>
-				<div class="dropdown services-dropdown pull-left" style="margin-left: 100px;">
-					<a on-click="@this.toggle('show_services_dropdown')">
+				<div class="dropdown services-dropdown pull-left" style="margin-left: 100px;" on-mouseenter="@this.toggle('show_services_dropdown')" on-mouseleave="@this.set('show_services_dropdown')">
+					<a>
 						Services
 
 						{{#if show_services_dropdown}}
@@ -25,8 +25,8 @@ export default Ractive.extend({
 
 
 
-				<div class="dropdown region-dropdown pull-right">
-					<a on-click="@this.toggle('show_region_dropdown')">
+				<div class="dropdown region-dropdown pull-right" on-mouseenter="@this.toggle('show_region_dropdown')" on-mouseleave="@this.set('show_region_dropdown')">
+					<a>
 						{{#regions}}{{#if region === .id }}{{.name}}{{/if}}{{/regions}}
 
 						{{#if show_region_dropdown}}
@@ -48,8 +48,8 @@ export default Ractive.extend({
 				</div>
 
 
-				<div class="dropdown region-dropdown pull-right">
-					<a on-click="@this.toggle('show_theme_dropdown')">
+				<div class="dropdown region-dropdown pull-right" on-mouseenter="@this.toggle('show_theme_dropdown')" on-mouseleave="@this.set('show_theme_dropdown')">
+					<a>
 						{{#themes}}{{#if theme === .id }}{{.name}}{{/if}}{{/themes}}
 
 						{{#if show_theme_dropdown}}
