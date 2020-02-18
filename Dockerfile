@@ -28,6 +28,7 @@ ADD docker/package.json   /awsmock/package.json
 ADD demo/index.html                /awsmock/htdocs/index.html
 ADD demo/dynamodb/index.html       /awsmock/htdocs/dynamodb/index.html
 ADD demo/cloudformation/index.html /awsmock/htdocs/cloudformation/index.html
+ADD demo/s3/index.html             /awsmock/htdocs/s3/index.html
 ADD demo/js                        /awsmock/htdocs/js
 ADD demo/img                       /awsmock/htdocs/img
 ADD dist/                          /awsmock/htdocs/dist
