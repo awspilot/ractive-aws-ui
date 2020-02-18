@@ -39,7 +39,8 @@ export CW_DYNAMODB_SECRET="my-lil-secret"
 /awsmock/node_modules/.bin/cw-mock &
 
 # start s3-mock on port 10003
-/awsmock/node_modules/.bin/s3rver -d /storage/s3 -a 0.0.0.0 -p 10003 --silent &
+export S3_ENDPOINT=http://localhost:10003/
+/awsmock/node_modules/.bin/s3-mock &
 
 # start iam mock
 export IAM_DYNAMODB_ENDPOINT='http://localhost:8000'
