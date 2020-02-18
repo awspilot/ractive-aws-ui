@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>S3 - AWSPilot Console</title>
+		<meta charset="utf-8" />
+		<link href="../img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+		<link href="../img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
+
+
+		<link rel="stylesheet" href="../../dist/ractive-aws-ui.css" />
+
+		<script src="../js/async.js"></script>
+		<script src="../js/aws-sdk-2.552.0.min.js"></script>
+		<script src="../js/ractive-1.3.8.js"></script>
+		<script src="../../dist/ractive-aws-ui.js"></script>
+	</head>
+	<body>
+	</body>
+	<script>
+
+		var s3;
+
+		var ractive = new Ractive({
+			el: 'body',
+			components: {
+				awsui: window['aws-ui'],
+
+			},
+			template: `
+				<awsui service="s3" />
+			`
+		})
+	</script>
+</html>
