@@ -3,7 +3,7 @@
 		"aws-sdk": "*",
 		"@awspilot/cf-mock": "*",
 		"@awspilot/dynamodb-mock": "*",
-		"@awspilot/s3-mock": "*",
+		"@awspilot/s3-mock": "0.0.3",
 		"@awspilot/cloudfront-mock": "*",
 		"@awspilot/cw-mock": "*",
 		"@awspilot/iam-mock": "*"
