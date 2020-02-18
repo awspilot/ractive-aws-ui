@@ -19,6 +19,7 @@ export default Ractive.extend({
 					<div class="dropdown-menu {{#if show_services_dropdown}}show{{/if}}">
 						<li><a class="dropdown-item" href="../cloudformation/?region={{region}}">Cloudformation</a>
 						<li><a class="dropdown-item" href="../dynamodb/?region={{region}}">DynamoDB</a>
+						<li><a class="dropdown-item" href="../s3/?region={{region}}">S3</a>
 					</div>
 				</div>
 
@@ -108,6 +109,9 @@ export default Ractive.extend({
 	},
 	on: {
 		'set-theme': function(e) {
+			try {
+				window.localStorage.setItem('theme', this.get(e.resolve() + '.id') );
+			} catch (e) { console.log(e) }
 			this.parent.set_theme(this.get(e.resolve() + '.id'))
 		}
 	}
