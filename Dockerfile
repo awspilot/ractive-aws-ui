@@ -4,7 +4,7 @@
 
 FROM amazonlinux:2
 RUN yum install -y java
-RUN curl --silent --location https://rpm.nodesource.com/setup_10.x | bash -
+RUN curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
 RUN yum install -y nodejs wget tar gzip
 RUN yum install -y net-tools
 
