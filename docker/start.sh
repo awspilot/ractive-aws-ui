@@ -28,6 +28,8 @@ export IAM_SECRET='my-lil-secret'
 
 # start dynamodb in-between layer on port 1004
 export CW_ENDPOINT='http://localhost:10005/'
+#export DYNAMODBMOCK_BACKUP_DB_STORAGE_PATH="/storage"
+export DYNAMODBMOCK_BACKUP_S3_ENDPOINT='http://localhost:10003/'
 /awsmock/node_modules/.bin/dynamodb-mock &
 
 
