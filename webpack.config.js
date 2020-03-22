@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+const TerserPlugin = require('terser-webpack-plugin'); // support for ES6+ (succesor of uglify-es)
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -13,11 +14,13 @@ module.exports = {
 	context: path.resolve(__dirname, 'src'),
 	optimization: {
 		minimize: true,
-		minimizer: [new UglifyJsPlugin({
-			uglifyOptions: { ecma: 7 },
-			sourceMap: true,
-			include: /\.min\.js$/
-		})]
+		minimizer: [
+			new TerserPlugin({
+				cache: false,
+				//test: /\.js(\?.*)?$/i,
+				test: /\.min\.js$/
+			}),
+		],
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }), // { filename: "[name].[contentHash].css" }
