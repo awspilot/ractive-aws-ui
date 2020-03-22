@@ -20,7 +20,7 @@
 		"ractive": "^1.3.8",
 		"aws-sdk": "^2.596.0",
 		"@awspilot/ractive-cloudformation-ui": "^1.1.0",
-		"@awspilot/ractive-dynamodb-ui": "^1.6.0",
+		"@awspilot/ractive-dynamodb-ui": "^1.8.0",
 		"@awspilot/ractive-s3-ui": "0.0.1",
 
 		"babel-core": "^6.26.3",
