@@ -1,90 +1,758 @@
-.ractive-dynamodb-ui .btn-group > .btn {
+.awspilot-dynamodb-json-editor {
+  display: 'inline-block';
+  color: #1a1a1a;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   position: relative;
-  float: left;
+  padding: 0;
+  line-height: 100%;
+  width: 534px;
+  /* buttons */
+  /* icons and btns */
 }
-.ractive-dynamodb-ui .btn-group,
-.ractive-dynamodb-ui .btn-group-vertical {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
+.awspilot-dynamodb-json-editor .jsoneditor-menu {
+  width: 100%;
+  height: 35px;
+  padding: 2px;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fff;
 }
-.ractive-dynamodb-ui .btn-group > .btn:first-child {
-  margin-left: 0;
+.awspilot-dynamodb-json-editor .jsoneditor-navbar {
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: grey;
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #ebebeb;
 }
-.ractive-dynamodb-ui .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.ractive-dynamodb-ui .btn-group-xs > .btn,
-.ractive-dynamodb-ui .btn-xs {
-  padding: 1px 5px;
-  font-size: 12px;
-  line-height: 1.5;
-}
-.ractive-dynamodb-ui .btn-group > .btn:last-child:not(:first-child),
-.ractive-dynamodb-ui .btn-group > .dropdown-toggle:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.ractive-dynamodb-ui .btn-group > .btn + .dropdown-toggle {
-  padding-right: 8px;
-  padding-left: 8px;
-}
-.ractive-dynamodb-ui .btn-group .btn + .btn,
-.ractive-dynamodb-ui .btn-group .btn + .btn-group,
-.ractive-dynamodb-ui .btn-group .btn-group + .btn,
-.ractive-dynamodb-ui .btn-group .btn-group + .btn-group {
-  margin-left: -1px;
-}
-.ractive-dynamodb-ui .btn-default.active.focus,
-.ractive-dynamodb-ui .btn-default.active:focus,
-.ractive-dynamodb-ui .btn-default.active:hover,
-.ractive-dynamodb-ui .btn-default:active.focus,
-.ractive-dynamodb-ui .btn-default:active:focus,
-.ractive-dynamodb-ui .btn-default:active:hover,
-.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default.focus,
-.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default:focus,
-.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default:hover {
-  color: #333;
-  background-color: #d4d4d4;
-  border-color: #8c8c8c;
-}
-.ractive-dynamodb-ui .btn.active.focus,
-.ractive-dynamodb-ui .btn.active:focus,
-.ractive-dynamodb-ui .btn.focus,
-.ractive-dynamodb-ui .btn:active.focus,
-.ractive-dynamodb-ui .btn:active:focus,
-.ractive-dynamodb-ui .btn:focus {
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-.ractive-dynamodb-ui .btn-group-sm > .btn,
-.ractive-dynamodb-ui .btn-sm {
-  padding: 5px 10px;
-  font-size: 12px;
-  line-height: 1.5;
-}
-.ractive-dynamodb-ui .dropdown-menu {
+.awspilot-dynamodb-json-editor .jsoneditor-outer {
+  overflow: auto;
   position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
+  top: 0px;
+  box-sizing: border-box;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-outer.has-main-menu-bar {
+  top: 35px;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-outer.has-main-menu-bar.has-nav-bar {
+  top: 61px;
+}
+.awspilot-dynamodb-json-editor .jsoneditor table {
+  border-collapse: collapse;
+  width: auto;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree table.jsoneditor-tree {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+.awspilot-dynamodb-json-editor td,
+.awspilot-dynamodb-json-editor th,
+.awspilot-dynamodb-json-editor tr {
+  padding: 0;
+  margin: 0;
+}
+.awspilot-dynamodb-json-editor tr:hover {
+  background-color: #f0f0f0;
+}
+.awspilot-dynamodb-json-editor tr.jsoneditor-appender > td:nth-child(3) {
+  position: relative;
+  height: 4px;
+}
+.awspilot-dynamodb-json-editor tr.jsoneditor-appender > td:nth-child(3) > div {
+  cursor: row-resize;
+}
+.awspilot-dynamodb-json-editor tr.jsoneditor-appender > td:nth-child(4) {
+  width: 32px;
+}
+.awspilot-dynamodb-json-editor tr.jsoneditor-appender:hover {
+  background-color: transparent;
+}
+.awspilot-dynamodb-json-editor tr.jsoneditor-appender:hover > td:nth-child(3) > div {
+  height: 4px;
+  background-color: #000099;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-field {
+  white-space: nowrap;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-popover,
+.awspilot-dynamodb-json-editor .jsoneditor-schema-error,
+.awspilot-dynamodb-json-editor td,
+.awspilot-dynamodb-json-editor textarea,
+.awspilot-dynamodb-json-editor th,
+.awspilot-dynamodb-json-editor div.jsoneditor-field,
+.awspilot-dynamodb-json-editor div.jsoneditor-value,
+.awspilot-dynamodb-json-editor pre.jsoneditor-preview {
+  font-family: "dejavu sans mono", "droid sans mono", consolas, monaco, "lucida console", "courier new", courier, monospace, sans-serif;
+  font-size: 10pt;
+  color: #1a1a1a;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-default,
+.awspilot-dynamodb-json-editor div.jsoneditor-field,
+.awspilot-dynamodb-json-editor div.jsoneditor-readonly,
+.awspilot-dynamodb-json-editor div.jsoneditor-value {
+  border: 1px solid transparent;
+  min-height: 16px;
+  min-width: 32px;
+  padding: 2px;
+  margin: 1px;
+  word-wrap: break-word;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
-  font-size: 14px;
+}
+.awspilot-dynamodb-json-editor td {
+  vertical-align: top;
+}
+.awspilot-dynamodb-json-editor td,
+.awspilot-dynamodb-json-editor th {
+  padding: 0;
+  display: table-cell;
   text-align: left;
-  list-style: none;
-  background-clip: padding-box;
+  vertical-align: inherit;
+  border-radius: inherit;
 }
-.ractive-dynamodb-ui .dropdown-menu.pull-right {
-  right: 0;
-  left: auto;
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-contextmenu {
+  background-position: -48px -72px;
 }
-.ractive-dynamodb-ui .show {
-  display: block!important;
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-invisible {
+  visibility: hidden;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-expanded {
+  background-color: '#4499ff';
+  position: relative;
+  outline: none;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-expanded:after {
+  content: ' ';
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-collapsed {
+  background-color: '#4499ff';
+  position: relative;
+  outline: none;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-tree button.jsoneditor-collapsed:after {
+  content: ' ';
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #000;
+}
+.awspilot-dynamodb-json-editor td.jsoneditor-tree {
+  vertical-align: top;
+}
+.awspilot-dynamodb-json-editor td.jsoneditor-separator {
+  padding: 3px 0;
+  vertical-align: top;
+  color: grey;
+}
+.awspilot-dynamodb-json-editor td.jsoneditor-separator {
+  padding: 3px 0;
+  vertical-align: top;
+  color: grey;
+}
+.awspilot-dynamodb-json-editor td.jsoneditor-datatype {
+  padding: 3px 0;
+  vertical-align: top;
+  color: grey;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-contextmenu {
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 99;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-value.jsoneditor-string {
+  color: #006000;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-string {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  vertical-align: sub;
+  outline: none;
+  color: #006000;
+  width: 100%;
+  background-color: transparent;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-string:focus {
+  background-color: #bcffa0;
+}
+.awspilot-dynamodb-json-editor textarea.jsoneditor-input.jsoneditor-string {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  outline: none;
+  color: #006000;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  max-width: 100%;
+  font: 13px Tahoma, cursive;
+}
+.awspilot-dynamodb-json-editor textarea.jsoneditor-input.jsoneditor-string:focus {
+  background-color: #bcffa0;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-value.jsoneditor-number {
+  color: #ee422e;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-number {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  vertical-align: sub;
+  outline: none;
+  color: #ee422e;
+  width: 100%;
+  background-color: transparent;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-number:focus {
+  background-color: #bcffa0;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-value.jsoneditor-boolean {
+  color: #ff8c00;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-boolean {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  vertical-align: sub;
+  outline: none;
+  color: #ff8c00;
+  width: 100%;
+  background-color: transparent;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-boolean:focus {
+  background-color: #bcffa0;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-boolean.error {
+  background-color: red !important;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-value.jsoneditor-binary {
+  color: #004ed0;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-binary {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  vertical-align: sub;
+  outline: none;
+  color: #004ed0;
+  width: 100%;
+  background-color: transparent;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-binary:focus {
+  background-color: #bcffa0;
+}
+.awspilot-dynamodb-json-editor input.jsoneditor-input.jsoneditor-binary.error {
+  background-color: red !important;
+}
+.awspilot-dynamodb-json-editor div.jsoneditor-value.jsoneditor-null {
+  color: #004ed0;
+}
+.awspilot-dynamodb-json-editor .jsoneditor-input.jsoneditor-null {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  vertical-align: sub;
+  outline: none;
+  color: #004ed0;
+  width: 100%;
+  background-color: transparent;
+  line-height: 27px;
+}
+.awspilot-dynamodb-json-editor .btn-delete-attribute {
+  display: none;
+}
+.awspilot-dynamodb-json-editor tr:hover .btn-delete-attribute {
+  display: inline-block;
+}
+.awspilot-dynamodb-json-editor .icon.icon-trash {
+  fill: #aaa;
+  width: 20px;
+  height: 20px;
+  padding-top: 3px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark {
+  background-color: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-menu {
+  background: transparent;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  background: hsl(220, 24%, 20%);
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.awspilot-dynamodb-json-editor.theme-atomdark .jsoneditor-outer {
+  box-shadow: none;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight {
+  background-color: transparent;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-menu {
+  background: transparent;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  background: hsl(220, 1%, 98%);
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.awspilot-dynamodb-json-editor.theme-atomlight .jsoneditor-outer {
+  box-shadow: none;
+}
+.awspilot-dynamodb-json-editor.theme-windows {
+  background-color: #d4d0c8;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-menu {
+  background: #d4d0c8;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-menu {
+  border-bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  background: #fff;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  border-top: 1px solid #2e2f2f;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #484a4b;
+}
+.awspilot-dynamodb-json-editor.theme-windows .jsoneditor-outer {
+  box-shadow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+}
+.awspilot-dynamodb-json-editor.theme-aws {
+  background-color: #fff;
+  border-top: 1px solid #97b0f8;
+  border-right: 1px solid #97b0f8;
+  border-bottom: 1px solid #97b0f8;
+  border-left: 1px solid #97b0f8;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-menu {
+  background: #d5ddf6;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-menu {
+  border-bottom: 1px solid #97b0f8;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  background: #fff;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+}
+.awspilot-dynamodb-json-editor.theme-aws .jsoneditor-outer {
+  box-shadow: none;
+}
+.databank-datatable {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: hidden;
+}
+.databank-datatable .tabledatahead,
+.databank-datatable .tabledatarow {
+  display: flex;
+  width: 100%;
+  justify-content: stretch;
+}
+.databank-datatable .tabledatahead {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 20px;
+}
+.databank-datatable .tabledatarow .zmdi.selectrow {
+  font-size: 14px;
+}
+.databank-datatable .tabledatahead > div,
+.databank-datatable .tabledatarow .tabledatacell {
+  display: flex;
+  height: 20px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 6px;
+  position: relative;
+}
+.databank-datatable .tabledatarow .tabledatacell:last-child {
+  border-right: 0px !important;
+}
+/*.databank-datatable .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;}*/
+/*.databank-datatable .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;}*/
+.databank-datatable .tabledatarow .tabledatacell.check:after {
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.databank-datatable .tabledatacontent {
+  position: absolute;
+  top: 21px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow-x: auto;
+}
+.databank-datatable .tabledatahead > div {
+  font-size: 12px;
+}
+.databank-datatable .tabledatarow .tabledatacell {
+  font-size: 11px;
+}
+.databank-datatable {
+  border-top: 1px solid transparent;
+}
+.databank-datatable .tabledatarow .tabledatacell.e {
+  cursor: text;
+}
+.databank-datatable .tabledatarow .tabledatacell.editing select,
+.databank-datatable .tabledatarow .tabledatacell.editing input {
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+.databank-datatable .tabledatarow .tabledatacell.t-K {
+  color: #8ea7aa;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-HASH {
+  color: #004b91;
+  cursor: pointer;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-HASH:hover a {
+  text-decoration: underline;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-S {
+  color: #a79b9b;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-N {
+  color: green;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-BOOL {
+  color: #ff7676;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-B {
+  color: #a79b9b;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-NULL {
+  color: grey;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-SS {
+  color: #a79b9b;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-NS {
+  color: #a79b9b;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-BS {
+  color: #a79b9b;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+.databank-datatable .tabledatarow .tabledatacell.t-U {
+  background-size: 13px 13px;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 50%, transparent 50%), linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 50%);
+}
+.databank-datatable .tabledatarow .tabledatacell > select {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  border: 0px;
+  outline: none;
+}
+.databank-datatable .tabledatarow .tabledatacell > input[type=text] {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  border: 0px;
+  outline: none;
+}
+.databank-datatable .tabledatarow .tabledatacell > input[type=number] {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  border: 0px;
+  outline: none;
+}
+.databank-datatable .tabledatarow.selected:hover .tabledatacell {
+  color: #fff;
+}
+.databank-datatable.theme-windows {
+  /*
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+*/
+  background-color: #fefefe;
+  border-top: 1px solid #2e2f2f;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #484a4b;
+  box-shadow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+}
+.databank-datatable.theme-windows .tabledatahead {
+  background: #d4d0c8;
+  border-bottom: 1px solid #404040;
+}
+.databank-datatable.theme-windows .tabledatahead {
+  color: #000;
+}
+.databank-datatable.theme-windows .tabledatahead > div {
+  border-right: 1px solid #484848;
+  border-left: 1px solid #fcfcfb;
+}
+.databank-datatable.theme-windows .tabledatarow {
+  border-bottom: 1px solid #dcd8d2;
+}
+.databank-datatable.theme-windows .tabledatarow:hover {
+  background-color: #3737ff;
+}
+.databank-datatable.theme-windows .tabledatarow:hover .tabledatacell {
+  color: #fff !important;
+}
+.databank-datatable.theme-windows .tabledatarow.selected {
+  background-color: #00a;
+}
+.databank-datatable.theme-windows .tabledatarow.selected:hover {
+  background-color: #00a;
+}
+.databank-datatable.theme-windows .tabledatarow .tabledatacell {
+  border-right: 1px solid #dcd8d2;
+  border-left: 1px solid transparent;
+}
+.databank-datatable.theme-aws {
+  /*
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+*/
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-right: 0px;
+  border-bottom: 1px solid #ccc;
+  border-left: 0px;
+  box-shadow: none;
+}
+.databank-datatable.theme-aws .tabledatahead {
+  background: #e9e9e9;
+  border-bottom: 1px solid #ccc;
+}
+.databank-datatable.theme-aws .tabledatahead {
+  color: #000;
+}
+.databank-datatable.theme-aws .tabledatahead > div {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #fcfcfb;
+}
+.databank-datatable.theme-aws .tabledatarow {
+  border-bottom: 1px solid #e0e0e0;
+}
+.databank-datatable.theme-aws .tabledatarow:hover {
+  background-color: #9694ff;
+}
+.databank-datatable.theme-aws .tabledatarow:hover .tabledatacell {
+  color: #fff !important;
+}
+.databank-datatable.theme-aws .tabledatarow.selected {
+  background-color: #eaf3fe;
+}
+.databank-datatable.theme-aws .tabledatarow.selected:hover {
+  background-color: #00a;
+}
+.databank-datatable.theme-aws .tabledatarow .tabledatacell {
+  border-right: 1px solid #dcd8d2;
+  border-left: 1px solid transparent;
+}
+.databank-datatable.theme-atomdark {
+  /*
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+*/
+  background-color: hsl(220, 24%, 20%);
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  box-shadow: none;
+}
+.databank-datatable.theme-atomdark .tabledatahead {
+  background: hsl(220, 24%, 17%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+}
+.databank-datatable.theme-atomdark .tabledatahead {
+  color: hsl(220, 18%, 66%);
+}
+.databank-datatable.theme-atomdark .tabledatahead > div {
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid transparent;
+}
+.databank-datatable.theme-atomdark .tabledatarow {
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+}
+.databank-datatable.theme-atomdark .tabledatarow:hover {
+  background-color: hsl(220, 24%, 24%);
+}
+.databank-datatable.theme-atomdark .tabledatarow:hover .tabledatacell {
+  color: hsl(220, 18%, 86%) !important;
+}
+.databank-datatable.theme-atomdark .tabledatarow.selected {
+  background-color: hsl(220, 24%, 28%);
+}
+.databank-datatable.theme-atomdark .tabledatarow.selected:hover {
+  background-color: hsl(208, 88%, 48%) !important;
+}
+.databank-datatable.theme-atomdark .tabledatarow .tabledatacell {
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid transparent;
+}
+.databank-datatable.theme-atomlight {
+  /*
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+*/
+  background-color: hsl(220, 1%, 98%);
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  box-shadow: none;
+}
+.databank-datatable.theme-atomlight .tabledatahead {
+  background: hsl(220, 1%, 92%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+}
+.databank-datatable.theme-atomlight .tabledatahead {
+  color: hsl(220, 1%, 26%);
+}
+.databank-datatable.theme-atomlight .tabledatahead > div {
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid transparent;
+}
+.databank-datatable.theme-atomlight .tabledatarow {
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+}
+.databank-datatable.theme-atomlight .tabledatarow:hover {
+  background-color: hsl(220, 1%, 90%);
+}
+.databank-datatable.theme-atomlight .tabledatarow:hover .tabledatacell {
+  color: hsl(220, 1%, 14%) !important;
+}
+.databank-datatable.theme-atomlight .tabledatarow.selected {
+  background-color: hsl(220, 1%, 86%);
+}
+.databank-datatable.theme-atomlight .tabledatarow.selected:hover {
+  background-color: hsl(208, 100%, 56%) !important;
+}
+.databank-datatable.theme-atomlight .tabledatarow .tabledatacell {
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid transparent;
 }
 .ractive-dynamodb-ui .hsplit {
   color: #999999;
@@ -291,6 +959,94 @@
 }
 .ractive-dynamodb-ui * {
   box-sizing: border-box;
+}
+.ractive-dynamodb-ui .btn-group > .btn {
+  position: relative;
+  float: left;
+}
+.ractive-dynamodb-ui .btn-group,
+.ractive-dynamodb-ui .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ractive-dynamodb-ui .btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.ractive-dynamodb-ui .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ractive-dynamodb-ui .btn-group-xs > .btn,
+.ractive-dynamodb-ui .btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ractive-dynamodb-ui .btn-group > .btn:last-child:not(:first-child),
+.ractive-dynamodb-ui .btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.ractive-dynamodb-ui .btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.ractive-dynamodb-ui .btn-group .btn + .btn,
+.ractive-dynamodb-ui .btn-group .btn + .btn-group,
+.ractive-dynamodb-ui .btn-group .btn-group + .btn,
+.ractive-dynamodb-ui .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+.ractive-dynamodb-ui .btn-default.active.focus,
+.ractive-dynamodb-ui .btn-default.active:focus,
+.ractive-dynamodb-ui .btn-default.active:hover,
+.ractive-dynamodb-ui .btn-default:active.focus,
+.ractive-dynamodb-ui .btn-default:active:focus,
+.ractive-dynamodb-ui .btn-default:active:hover,
+.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default.focus,
+.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default:focus,
+.ractive-dynamodb-ui .open > .dropdown-toggle.btn-default:hover {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.ractive-dynamodb-ui .btn.active.focus,
+.ractive-dynamodb-ui .btn.active:focus,
+.ractive-dynamodb-ui .btn.focus,
+.ractive-dynamodb-ui .btn:active.focus,
+.ractive-dynamodb-ui .btn:active:focus,
+.ractive-dynamodb-ui .btn:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.ractive-dynamodb-ui .btn-group-sm > .btn,
+.ractive-dynamodb-ui .btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ractive-dynamodb-ui .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+}
+.ractive-dynamodb-ui .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.ractive-dynamodb-ui .show {
+  display: block!important;
 }
 .ractive-dynamodb-ui .pull-right {
   float: right!important;
@@ -1209,7 +1965,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   box-shadow: none;
 }
 .ractive-dynamodb-ui.theme-atomdark content tabcontent .tablequery {
-  border-top: 0px;
+  border-top: 1px solid hsl(220, 24%, 20%);
   border-right: 0px;
   border-bottom: 1px solid hsl(220, 24%, 12%);
   border-left: 0px;
@@ -1666,7 +2422,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   box-shadow: none;
 }
 .ractive-dynamodb-ui.theme-atomlight content tabcontent .tablequery {
-  border-top: 0px;
+  border-top: 1px solid hsl(220, 1%, 98%);
   border-right: 0px;
   border-bottom: 1px solid hsl(220, 1%, 86%);
   border-left: 0px;
